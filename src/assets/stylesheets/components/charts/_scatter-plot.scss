@@ -1,0 +1,40 @@
+.scatter-plot {
+  width: 100%;
+  height: auto;
+
+  .lasso {
+    stroke: $black;
+  }
+
+  .eraser {
+    stroke: $white;
+  }
+
+  .data-point {
+    stroke: $black;
+
+    &.user {
+      fill: yellow;
+    }
+
+    &.astronomer {
+      fill: red;
+    }
+  }
+}
+
+.cluster-name {
+  @keyframes hide {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  &.combined {
+    animation: hide 2s $timing 2s forwards;
+  }
+}

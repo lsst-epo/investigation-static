@@ -1,0 +1,13 @@
+.eraser {
+  opacity: 0;
+  fill: none;
+  stroke: $white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 50;
+  // transition: opacity $timing $duration;
+
+  &.active {
+    opacity: 1;
+  }
+}

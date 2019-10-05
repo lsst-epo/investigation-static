@@ -1,0 +1,174 @@
+// Component Structure
+// -------------------
+
+// Structure-only mixins (and maybe utility classes), with parameters for margins, padding, position, display, etc.
+
+// They may contain:
+// Nested classes/elements that have structural parameters only
+
+// NB: Containers that are modular regardless of context can use em units
+// Structure should not be dependent on typography styles but font-size CAN be used as a structural style if necessary
+// for scaling
+
+// Containers
+// --------------------------------------------------------
+
+.container-main {
+  display: block;
+  max-width: $containerMaxWidth;
+  padding: $siteHeaderHeight + $minPadding $minPadding $minPadding $minPadding;
+  margin: 0 auto;
+}
+
+.container-page {
+  .col-fixed {
+    position: fixed;
+    top: $siteHeaderHeight + $minPadding;
+    display: flex;
+    flex-direction: column;
+    max-width: ($containerMaxWidth - 2 * $minPadding) / 2;
+    height: 100%;
+    max-height: calc(100vh - #{$siteHeaderHeight} - 2 * #{$minPadding});
+    overflow-y: auto;
+
+    > .hero-image {
+      align-self: center;
+      justify-self: flex-start;
+    }
+
+    &.col-width-50 {
+      left: 50%;
+    }
+  }
+}
+
+.container-flex,
+.md-card.container-flex,
+.md-card-text.container-flex {
+  position: relative;
+  display: flex;
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes mergeRight {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(100% + 2 * #{$minPadding}));
+    }
+  }
+
+  &.direction-column {
+    flex-direction: column;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.spaced {
+    justify-content: space-between;
+  }
+
+  &.middle {
+    justify-content: center;
+  }
+
+  &.centered {
+    align-items: center;
+  }
+
+  + .container-flex {
+    margin-top: $minPadding;
+  }
+
+  .align-bottom {
+    align-self: flex-end;
+  }
+
+  .align-top {
+    align-self: flex-start;
+  }
+
+  .col-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &.revealable {
+      opacity: 0;
+    }
+
+    &.combined {
+      animation: reveal 1s $timing 1s forwards;
+    }
+
+    > * {
+      max-height: calc(100vh - #{$siteHeaderHeight} - 2 * #{$minPadding});
+    }
+  }
+
+  .col-width-50 {
+    width: 50%;
+
+    &.padded {
+      width: calc(50% - #{$minPadding});
+
+      &.mergable {
+        z-index: 1;
+
+        .x-axis, .x-axis-label, .y-axis, .y-axis-label {
+          opacity: 1;
+          transition: opacity $timing $durationSuperSlow;
+        }
+
+        &.combined {
+          animation: mergeRight 2s $timing forwards;
+
+          .x-axis, .x-axis-label, .y-axis, .y-axis-label {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    .col-graph {
+      padding-right: 11px;
+      padding-left: 11px;
+
+      h2 {
+        margin-bottom: calc(#{$verticalSpace} + 8px);
+      }
+    }
+  }
+}
+
+// Utilities
+// --------------------------------------------------------
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.sup-text {
+  font-size: 75%;
+  baseline-shift: super;
+}
+
+.sub-text {
+  font-size: 75%;
+  dominant-baseline: mathematical;
+}

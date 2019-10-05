@@ -1,0 +1,68 @@
+// Icons
+// -----
+// To generate this file, why not try Donezo! The Elefont: https://github.com/castiron/Donezo
+
+// Unicode range values!
+// Order is alphabetical except within sets that have x/y directions
+// (like arrow-up, arrow-left etc.): These icons are in CSS TRBL order
+// Icons are stored in a SASS map, so adding one automatically generates
+// a placeholder for using it (see below)
+// --------------------------------------------------------
+// $graphic: "\e600";
+
+
+
+// Icon font
+// --------------------------------------------------------
+// This font was generated using http://icomoon.io
+//@font-face {
+//  font-family: 'stacss-icons';
+//  src:url('../fonts/icon-font.eot');
+//  src:url('../fonts/icon-font.eot') format('embedded-opentype'),
+//  url('../fonts/icon-font.woff') format('woff'),
+//  url('../fonts/icon-font.ttf') format('truetype'),
+//  url('../fonts/icon-font.svg') format('svg');
+//  font-weight: normal;
+//  font-style: normal;
+//}
+
+@mixin fontIcon {
+  font-family: 'cic-icons', sans-serif;
+}
+
+@mixin protoIcon {
+  @include fontIcon;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  vertical-align: top;
+  speak: none;
+}
+
+@mixin iconPre($icon) {
+  speak: none;
+
+  &::before {
+    @include protoIcon;
+    content: $icon;
+  }
+}
+
+@mixin iconPost($icon) {
+  speak: none;
+
+  &::after {
+    @include protoIcon;
+    content: $icon;
+  }
+}
+
+// Solo Icon Classes
+// --------------------------------------------------------
+// In Alphabetical order (except in case of nested TRBL order)
+// .icon-graphic {
+//    @include iconPre($graphic);
+//  }

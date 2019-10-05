@@ -1,0 +1,20 @@
+// Mixins
+// -----
+@mixin embedFont($font-name, $font-filepath-and-name, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-name;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src: url('../fonts/#{$font-filepath-and-name}.woff') format('woff');
+  }
+}
+
+// Fonts
+// --------------------------
+// Do your @font-face embedding here, in the privacy of your own partial
+// `embedFont` must be used once per combination of weight and style (see below)
+
+@include embedFont('Roboto', 'Roboto-Regular-webfont', $regular, normal);
+@include embedFont('Roboto', 'Roboto-Italic-webfont', $regular, italic);
+@include embedFont('Roboto', 'Roboto-Medium-webfont', $medium, normal);
+@include embedFont('Roboto', 'Roboto-MediumItalic-webfont', $medium, italic);

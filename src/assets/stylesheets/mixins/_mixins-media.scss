@@ -1,0 +1,58 @@
+// Media Query Mixins
+// ------------------
+
+// Media queries
+// --------------------------------------------------------
+// Respond to viewport size
+// $size -> viewport size
+// $operator -> 'min' or 'max'
+// $aspect -> 'width' or 'height'
+// --------------------------
+@mixin respond($size, $operator: max, $aspect: width) {
+  @media all and (#{$operator}-#{$aspect}: $size) {
+    @content;
+  }
+}
+
+// Respond to pixel density
+// --------------------------
+@mixin respondMinDensity($density: 1.5) {
+  @media only screen and (-webkit-min-device-pixel-ratio: $density),
+    only screen and (min--moz-device-pixel-ratio: $density),
+    only screen and (min-device-pixel-ratio: $density) {
+    @content;
+  }
+}
+
+// Fluid Elements
+// --------------------------
+// Set min and max sizes and breakpoints and let SCSS fluidly scale different properties in-between
+
+// Adapted from https://www.sassmeister.com/gist/7f22e44ace49b5124eec
+// Usage: @include fluid-type(font-size, 22px, 16px, $break130, $break50);
+@mixin fluidScale($properties, $max-value, $min-value, $max-vw, $min-vw) {
+  @each $property in $properties {
+    #{$property}: $max-value;
+  }
+
+  @media (max-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media (max-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: $min-value;
+    }
+  }
+}
+
+// Utilities
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

@@ -1,0 +1,30 @@
+.star-selector {
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  .lasso {
+    stroke: $white;
+  }
+
+  .data-point {
+    cursor: pointer;
+    fill: transparent;
+
+    &.selected {
+      stroke: yellow;
+      stroke-width: 2;
+    }
+
+    &.user {
+      stroke: yellow;
+      stroke-width: 2;
+    }
+
+    &.astronomer {
+      stroke: red;
+      stroke-width: 2;
+    }
+  }
+}

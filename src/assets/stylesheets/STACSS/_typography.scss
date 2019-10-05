@@ -1,0 +1,123 @@
+// Component Typography and Prototypes
+// -----------------------------------
+
+// Template typography mixins/prototypes and utility classes that can be extended into content classes.
+// Typographic classes can contain some structural (not textural) design where it does not require abstraction,
+// and textural classes dealing with typography (color, text-decoration, pseudo elements that modify text, etc).
+
+// They may contain:
+// Nested classes or elements with typographic/basic structural modifications only, for instance a header
+// with <span> classes inside.
+
+// These should not contain classes/prototypes to handle icon fonts. Those should be handles in a separate icons partial.
+
+
+// Headings
+// --------------------------------------------------------
+@mixin headingPrimary {
+  font-family: 'Roboto';
+  font-size: 26px;
+  font-weight: $regular;
+  line-height: 1.333; // 32px
+  color: $black;
+}
+
+.heading-primary {
+  @include headingPrimary;
+}
+
+@mixin headingSecondary {
+  font-family: 'Roboto';
+  font-size: 22px;
+  font-weight: $medium;
+  line-height: $baseLineHeight; // 28px
+  color: $black;
+}
+
+.heading-secondary {
+  @include headingSecondary;
+}
+
+
+// Subheadings
+// --------------------------------------------------------
+@mixin subheadingPrimary {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: $regular;
+  line-height: 1.5; // 24px
+  color: $black;
+}
+
+.subheading-primary {
+  @include subheadingPrimary;
+}
+
+
+// Copy
+// --------------------------------------------------------
+@mixin copyPrimary {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: $regular;
+  line-height: $baseLineHeight;
+  color: $black;
+}
+
+.copy-primary {
+  @include copyPrimary;
+}
+
+@mixin copySecondary {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: $medium;
+  line-height: 1.7;
+  color: $black;
+}
+
+.copy-secondary {
+  @include copySecondary;
+}
+
+
+// Labels
+// --------------------------------------------------------
+@mixin labelPrimary {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 1.333;
+  color: $black;
+}
+
+.label-primary {
+  @include labelPrimary;
+}
+
+
+// Navigation
+// --------------------------------------------------------
+@mixin navPrimary {
+  @include copySecondary;
+}
+
+
+// UI
+// --------------------------------------------------------
+@mixin uiPrimary {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: $medium;
+  line-height: $baseLineHeight; // 20px
+  color: $neutral40;
+  text-transform: uppercase;
+}
+
+@mixin uiSecondary {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: $medium;
+  line-height: 1.5; // 24px
+  color: $neutral40;
+}

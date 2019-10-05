@@ -1,0 +1,13 @@
+.lasso {
+  opacity: 0;
+  fill: none;
+  stroke: $black;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 8;
+  transition: opacity $timing $duration;
+
+  &.active {
+    opacity: 1;
+  }
+}

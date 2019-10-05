@@ -1,0 +1,72 @@
+
+// Cards
+// --------------------------------------------------------
+
+@include react-md-cards;
+@include react-md-papers;
+
+.md-card {
+  &.background-white {
+    background: $white;
+  }
+
+  &.background-black {
+    background: $black;
+
+    .md-text {
+      color: $white;
+    }
+  }
+
+  &.background-neutral-10 {
+    background: $neutral10;
+  }
+
+  &.background-neutral-20 {
+    background: $neutral20;
+  }
+
+  &.background-neutral-30 {
+    background: $neutral30;
+  }
+
+  &.background-neutral-40 {
+    background: $neutral40;
+
+    .md-text {
+      color: $white;
+    }
+  }
+
+  &.background-primary {
+    background: $basePrimary;
+
+    .md-text {
+      color: $white;
+    }
+  }
+
+  &.background-secondary-light {
+    background: $baseSecondaryLight;
+  }
+
+  &.background-secondary {
+    background: $baseSecondary;
+
+    .md-text {
+      color: $white;
+    }
+  }
+
+  &.background-secondary-dark {
+    background: $baseSecondaryDark;
+
+    .md-text {
+      color: $white;
+    }
+  }
+
+  &.background-error {
+    background: $error;
+  }
+}

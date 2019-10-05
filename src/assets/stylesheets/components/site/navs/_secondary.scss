@@ -1,0 +1,13 @@
+.nav-secondary {
+  @include navPrimary;
+  display: flex;
+  align-items: center;
+
+  .nav-item {
+    padding-left: 20px;
+  }
+
+  &.combined {
+    visibility: hidden;
+  }
+}

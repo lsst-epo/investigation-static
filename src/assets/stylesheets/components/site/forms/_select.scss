@@ -1,0 +1,103 @@
+// Selects
+// --------------------------------------------------------
+.select {
+  @include uiSecondary;
+  min-width: 200px;
+
+  &.cluster-selector {
+    padding-top: 0;
+    margin-left: 70px;
+    font-size: 20px;
+
+    @include respond($break100) {
+      margin-left: 11.7%;
+    }
+  }
+
+  &.graph-selector {
+    @include headingSecondary;
+    margin-bottom: $verticalSpace;
+
+    select {
+      padding-top: 0;
+    }
+
+  }
+
+  .select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      display: inline-block;
+      margin-top: -3px;
+      pointer-events: none;
+      content: '';
+      border-top: 6px solid $neutral40;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid transparent;
+    }
+  }
+
+  select {
+    display: inline-block;
+    width: 100%;
+    padding: 8px 36px 8px 16px;
+    margin: 0;
+    line-height: 1.5;
+    color: $neutral40;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    appearance: none;
+
+    &:focus,
+    &:hover {
+      + hr {
+        max-height: 2px;
+        background-color: $basePrimary;
+      }
+    }
+  }
+
+  hr {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    max-height: 1px;
+    margin: 0;
+    background-color: $neutral40;
+    border: 0;
+    transition: max-height $duration $timing, background-color $durationSlow $timing;
+  }
+
+
+}
+
+.inline-select {
+  .select {
+    display: inline-block;
+    min-width: 0;
+
+    .select-wrapper {
+      width: auto;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    select {
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+// Base mixins
+// ---------
+
+// Kill ye FOUT
+// Depends on Typekit's webfontloader adding the .wf-active class...
+// --------------------------------------------------------
+@mixin killFout {
+  visibility: hidden;
+
+  .wf-active &, // Show when fonts become active
+  .no-js &, // Show if no javascript
+  // scss-lint:disable SelectorFormat
+  .mceContentBody & { // Show if this is the RTE ;)
+    visibility: visible;
+  }
+}
+
+@mixin thinGlyphs {
+  // Ignore spelling and prefixes for pre-standards parameter
+  // scss-lint:disable PropertySpelling
+  font-smooth: always;
+  // scss-lint:disable VendorPrefix
+  -webkit-font-smoothing: antialiased;
+  // scss-lint:disable VendorPrefix
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Lists
+// --------------------------------------------------------
+// Unstyled List
+// --------------------------
+@mixin listUnstyled {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+// Horizontal List
+// --------------------------
+@mixin listHorizontal {
+  @include listUnstyled;
+
+  li {
+    display: inline-block;
+  }
+}
+
+// Links, Buttons
+// --------------------------------------------------------
+@mixin buttonUnstyled {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+
+// Prevents user from accidentally selecting text
+// on click, helpful for labels
+@mixin noSelect {
+  // Ignore vendor prefixing as this is a pre-standards parameter
+  /* stylelint-disable property-no-vendor-prefix */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /* stylelint enable */
+}
+
+// Icons
+// --------------------------------------------------------
+@mixin protoIcon($size: 1em) {
+  display: inline;
+  width: $size;
+  height: $size;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+// .icon {
+//   @include protoIcon;
+// }
+
+// Layout
+// --------------------------------------------------------
+@mixin hrUnstyled {
+  margin: $minPadding 0 0;
+  border: 0;
+}

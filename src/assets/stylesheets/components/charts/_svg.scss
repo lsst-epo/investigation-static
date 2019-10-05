@@ -1,0 +1,20 @@
+.svg-container {
+  position: relative;
+}
+
+.svg-chart {
+  display: block;
+  width: 100%;
+  min-width: $break30;
+  max-width: calc(95vh - #{$siteHeaderHeight} - (#{$minPadding} * 2));
+  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity $timing $durationSuperSlow;
+
+  &.loaded {
+    visibility: visible;
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,27 @@
+@include react-md-data-tables;
+
+table.md-data-table {
+  border: 1px solid $neutral20;
+
+  thead {
+    .md-table-row {
+      border-bottom: 1px solid $neutral20;
+    }
+  }
+
+  .md-table-row {
+    .md-table-column {
+      padding: 5px $minPadding;
+      white-space: nowrap;
+
+      &:not(:first-child) {
+        border-left: 1px solid $neutral20;
+      }
+
+      &.md-text--secondary, &.row-title {
+        @include copySecondary;
+        color: $neutral40;
+      }
+    }
+  }
+}

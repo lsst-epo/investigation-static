@@ -1,0 +1,25 @@
+@include react-md-toolbars;
+@include react-md-menus;
+@include react-md-layovers;
+@include react-md-lists;
+
+.header-primary {
+  justify-content: space-between;
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-logo {
+    width: 96px;
+    margin-left: 20px;
+  }
+
+  .page-progress {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

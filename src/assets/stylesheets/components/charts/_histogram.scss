@@ -1,0 +1,38 @@
+.histogram {
+  .data-bar-wrapper {
+    .data-bar {
+      fill: $baseSecondaryLight;
+      stroke: $black;
+    }
+
+    &.hovered, &.selected {
+      .data-bar-diff {
+        fill: $neutral10;
+      }
+    }
+
+    &.hovered {
+      .data-bar {
+        fill: $baseSecondary;
+      }
+    }
+
+    &.selected {
+      .data-bar {
+        fill: $baseSecondaryDark;
+      }
+    }
+  }
+
+  .mean-bar {
+    fill: $black;
+  }
+
+  .mean-text {
+    font-size: 12px;
+
+    .inner-text {
+      transform: translateX(50%);
+    }
+  }
+}

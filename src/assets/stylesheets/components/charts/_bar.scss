@@ -1,0 +1,25 @@
+.data-bar-wrapper {
+  cursor: pointer;
+  transition: fill $durationSlow $timing;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.data-bar {
+  cursor: pointer;
+  transition: fill $durationSlow $timing;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.mean-bar {
+  transition: fill $durationSlow $timing;
+
+  &:focus {
+    outline: none;
+  }
+}

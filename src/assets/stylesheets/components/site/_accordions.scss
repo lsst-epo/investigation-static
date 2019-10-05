@@ -1,0 +1,56 @@
+@include react-md-expansion-panels;
+
+.md-expansion-panel-list.unstyled {
+
+}
+
+.md-expansion-panel.no-pointer {
+  .md-fake-btn {
+    cursor: default;
+  }
+}
+
+.md-expansion-panel.unstyled {
+  display: inline-block;
+  background: transparent;
+
+  &.md-paper,
+  &.md-paper--1 {
+    margin-top: 0;
+    box-shadow: none;
+  }
+
+  &.block {
+    .md-fake-btn {
+      .md-panel-column {
+        display: block;
+      }
+    }
+  }
+
+  .md-panel-header {
+    display: inline-block;
+    height: auto;
+    padding: 0;
+  }
+
+  .md-fake-btn {
+    text-decoration: underline;
+
+    svg.md-icon, i {
+      display: none;
+    }
+
+    .md-panel-column {
+      display: inline-block;
+
+      &:not(last-child) {
+        padding: 0;
+      }
+    }
+  }
+
+  .md-panel-content {
+    padding: 20px 0 0;
+  }
+}

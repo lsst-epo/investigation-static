@@ -1,0 +1,22 @@
+.results {
+  @include listUnstyled;
+
+  .result {
+    + .result {
+      margin-top: 2 * $minPadding;
+    }
+
+    .question {
+      @include subheadingPrimary;
+      font-weight: $medium;
+    }
+
+    .answer {
+      margin-top: 0.5 * $verticalSpace;
+
+      &.graph {
+        max-width: 320px;
+      }
+    }
+  }
+}

@@ -13,6 +13,24 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-sass`,
+    {
+      resolve: `@danbruegge/gatsby-plugin-stylelint`,
+      options: { files: ["**/*.{css,scss}"] },
+    },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false
+        }
+      }
+    },
+    'gatsby-plugin-optimize-svgs',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -25,6 +43,17 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: "Craft",
+        // This is the field under which it's accessible
+        fieldName: "craft",
+        // URL to query from
+        url: "http://craft-test.test/es/api",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

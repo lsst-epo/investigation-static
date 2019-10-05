@@ -1,0 +1,115 @@
+// Component Appearance
+// --------------------
+
+// Appearance mixins contain primarily texture parameters: background-color, transparency, borders, etc. as well
+// as some minor, internal structural properties where abstraction isn't required (to prevent over-abstracting)
+
+// They may contain:
+// Nested classes/elements with other structural or textural properties
+
+// Appearance blocks should not contain typographic classes nor be dependent on the font-size from the element, unless
+// it is as a non-dependent, comprehensive mixin (for now), or if the font size is being used for structural reasons (like the size of an icon-font glyph)
+
+// Contents
+// --------------------------
+// - Imports
+// - Prototypes
+// - Utilities
+// - Layout
+// - Type
+// - Images
+// - Article Lists
+// - Navigation Lists
+// - Buttons/Links
+// - Tables
+// - Forms
+
+// Utilities
+// --------------------------------------------------------
+
+// Visually Hidden, for skip links and screen-reader only elements
+@mixin screenReaderText {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.screen-reader-only {
+  @include screenReaderText;
+}
+
+// Image replacement, for icons and things with hidden accessibility text
+@mixin imageReplacement {
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  text-indent: -999em;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 0;
+  direction: ltr;
+
+  br {
+    display: none;
+  }
+}
+
+// Layout
+// --------------------------------------------------------
+.divider-vertical {
+  width: 2px;
+  background: $neutral20;
+  border-radius: 1px;
+}
+
+.divider-horizontal {
+  @include hrUnstyled;
+  height: 2px;
+  margin: $minPadding 0;
+  background: $baseSecondary;
+  border-radius: 1px;
+  opacity: 0.5;
+}
+
+.space-bottom {
+  margin-bottom: $verticalSpace;
+}
+
+
+// Images
+// --------------------------------------------------------
+.hero-image {
+  width: 100%;
+  height: auto;
+}
+
+// Buttons/Links
+// --------------------------------------------------------
+// N.B. Most of the button styles are in their own partial
+@mixin link {
+  color: $baseSecondary;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color $duration $timing;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active,
+  &:focus,
+  &:visited {
+    color: $baseSecondaryDark;
+  }
+}
+
+.fake-link {
+  @include buttonUnstyled;
+  @include link;
+  text-decoration: underlined;
+}

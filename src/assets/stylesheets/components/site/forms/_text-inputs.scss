@@ -1,0 +1,44 @@
+$md-text-field-include-password: false;
+
+@include react-md-text-fields;
+
+.md-text-field-container--input, .md-text-field-container--multiline {
+  + .md-text-field-container--input, + .md-text-field-container--multiline {
+    margin-top: 1.5 * $minPadding;
+  }
+
+  .md-text--secondary {
+    color: $neutral40;
+  }
+
+  .md-floating-label {
+    position: static;
+    line-height: $baseLineHeight;
+    white-space: pre-wrap;
+
+    &.md-floating-label--inactive {
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.md-floating-label--floating {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .md-text-field--floating-margin {
+    margin-top: 0.5 * $minPadding;
+  }
+
+  .md-text {
+    color: $black;
+
+    &::placeholder {
+      color: $neutral40;
+    }
+  }
+
+  .md-divider {
+    margin-bottom: 0;
+    background: $neutral40;
+  }
+}

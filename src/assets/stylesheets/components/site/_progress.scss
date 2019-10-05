@@ -1,0 +1,54 @@
+@include react-md-progress;
+
+.chart-loader {
+  position: absolute;
+  top: calc(50% - 36px);
+  left: calc(50% - 36px);
+}
+
+.page-progress {
+  margin: 0;
+  background: $baseSecondaryLight;
+
+  .md-progress--linear-active {
+    background: $baseSecondaryDark;
+  }
+}
+
+
+.progress-donut-container {
+  position: relative;
+
+  .progress-donut {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+
+    .donut-ring {
+      stroke: $baseSecondaryLight;
+    }
+
+    .donut-segment {
+      stroke: $baseSecondaryDark;
+    }
+  }
+
+  .donut-text {
+    font-size: 1em;
+    transform: translateY(0.25em);
+
+    .donut-number {
+      font-size: 0.55em;
+      line-height: 1;
+      text-anchor: middle;
+      transform: translateY(-0.35em);
+    }
+
+    .donut-label {
+      font-size: 0.25em;
+      line-height: 1;
+      text-anchor: middle;
+      transform: translateY(0.4em);
+    }
+  }
+}

@@ -1,0 +1,79 @@
+
+// Buttons
+// --------------------------------------------------------
+
+// Material Design Includes Options (must come before import)
+$md-btn-include-flat: true;
+$md-btn-include-raised: false;
+$md-btn-include-icon: true;
+$md-btn-include-floating: false;
+
+// Material Design Import
+@include react-md-buttons;
+
+// Material Design  Button Overrides
+.md-btn {
+  @include uiPrimary;
+  font-weight: $medium;
+  line-height: $baseLineHeight;
+  text-align: center;
+
+  //  Flat Button Overrides
+  &.md-btn--flat {
+    // Standard
+    &.md-background--secondary {
+      &.md-btn--hover,
+      &:hover,
+      &:focus {
+        background: $darkBlue;
+      }
+    }
+
+    &.md-background--primary,
+    &.md-background--secondary {
+      &.md-text--disabled,
+      &:disabled {
+        color: $neutral30;
+        background: $neutral20;
+      }
+    }
+
+    // Outlined Variant
+    &.outlined {
+      line-height: 1.2;
+      transition: border-color $duration $timing;
+
+      &.md-text--theme-primary {
+        border: solid 1px;
+        border-color: $md-primary-color;
+      }
+
+      &.md-text--theme-secondary {
+        border: solid 1px;
+        border-color: $md-secondary-color;
+      }
+
+      &.md-text--disabled,
+      &:disabled {
+        color: $neutral30;
+        border: solid 1px;
+        border-color: $neutral30;
+      }
+    }
+
+    &.md-btn--text {
+      height: 36px;
+    }
+
+    &.mini {
+      height: auto;
+      padding: 4px;
+      font-size: 12px;
+      line-height: 1;
+    }
+  }
+
+  + .md-btn {
+    margin-left: 20px;
+  }
+}
