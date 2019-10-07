@@ -16,7 +16,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     {
       resolve: `@danbruegge/gatsby-plugin-stylelint`,
-      options: { files: ["**/*.{css,scss}"] },
+      options: { files: ['**/*.{css,scss}'] },
     },
     {
       resolve: 'gatsby-plugin-eslint',
@@ -26,9 +26,9 @@ module.exports = {
         stages: ['develop'],
         options: {
           emitWarning: true,
-          failOnError: false
-        }
-      }
+          failOnError: false,
+        },
+      },
     },
     'gatsby-plugin-optimize-svgs',
     `gatsby-transformer-sharp`,
@@ -46,18 +46,18 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
         // This type will contain remote schema Query type
-        typeName: "Craft",
+        typeName: 'Craft',
         // This is the field under which it's accessible
-        fieldName: "craft",
+        fieldName: 'craft',
         // URL to query from
-        url: "http://craft-test.test/es/api",
+        url: 'http://craft-test.test/api',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

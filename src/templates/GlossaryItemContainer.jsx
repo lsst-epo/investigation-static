@@ -24,9 +24,9 @@ GlossaryItemContainer.propTypes = {
 };
 
 export const query = graphql`
-  query PageQuery($id: [Int]!) {
+  query PageQuery($id: [Int]!, $siteId: String) {
     craft {
-      entries(type: "glossary", id: $id, limit: 1) {
+      entries(type: "glossary", id: $id, siteId: $siteId, limit: 1) {
         ...GlossaryFields
       }
     }
