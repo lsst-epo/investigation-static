@@ -29,6 +29,7 @@
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "@danbruegge/gatsby-plugin-stylelint": "^3.4.1",
     "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.17",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
@@ -39,7 +40,10 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "gatsby-plugin-eslint": "^2.0.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
     "prettier": "^1.18.2",
+    "react-test-renderer": "^16.10.2",
     "stylelint": "^11.0.0",
     "stylelint-config-recess-order": "^2.0.3",
     "stylelint-scss": "^3.11.1"
@@ -54,7 +58,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "jest --updateSnapshot --verbose"
   },
   "repository": {
     "type": "git",

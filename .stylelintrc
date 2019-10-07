@@ -1,7 +1,7 @@
 {
   "plugins": ["stylelint-scss"],
   "extends": ["stylelint-config-recess-order"],
-  "ignoreFiles": "src/assets/stylesheets/lib/*",
+  "ignoreFiles": ["src/assets/stylesheets/lib/*", ".cache/*", "public/*", "node_modules/*"],
   "defaultSeverity": "warning",
   "rules": {
     "function-calc-no-unspaced-operator": true,

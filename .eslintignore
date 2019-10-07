@@ -3,3 +3,5 @@ __tests__/*
 __mocks__/*
 build
 readme.md
+loadershim.js
+**/*.test.js
