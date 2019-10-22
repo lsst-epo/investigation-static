@@ -32,6 +32,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "@danbruegge/gatsby-plugin-stylelint": "^3.4.1",
+    "@hot-loader/react-dom": "^16.10.2",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.17",
