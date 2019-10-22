@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions }) => {
     result.data.craft.entries.forEach(entry => {
       createPage({
         path: langBase + entry.slug,
-        component: path.resolve(`./src/templates/GlossaryItemContainer.jsx`),
+        component: path.resolve(`./src/containers/GlossaryItemContainer.jsx`),
         context: { id: +entry.id, siteId: site.number },
       });
     });
