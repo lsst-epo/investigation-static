@@ -8,6 +8,19 @@ module.exports = {
     `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: 'gatsby-plugin-react-axe',
+      options: {
+        // Integrate react-axe in production. This defaults to false.
+        showInProduction: false,
+
+        // Options to pass to axe-core.
+        // See: https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
+        axeOptions: {
+          // Your axe-core options.
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
