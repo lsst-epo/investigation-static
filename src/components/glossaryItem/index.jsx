@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import styles from './glossary-item.module.scss';
 
 class GlossaryItem extends React.PureComponent {
@@ -16,6 +17,7 @@ class GlossaryItem extends React.PureComponent {
         {/* eslint-disable react/no-danger */}
         <div dangerouslySetInnerHTML={this.renderDef(def)} />
         {/* eslint-enable react/no-danger */}
+        <Link to="/glossary">Back to Glossary</Link>
       </div>
     );
   }

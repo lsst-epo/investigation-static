@@ -1,18 +1,20 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
-import GlossaryItem from '../components/glossaryItem';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '../../components/layout';
+import SEO from '../../components/seo';
 
 @reactn
 class Glossary extends React.PureComponent {
   renderEntries(entries) {
     return entries.map(entry => {
-      const { title, definition } = entry;
-
-      return <GlossaryItem key={title} word={title} def={definition} />;
+      const { title, slug } = entry;
+      return (
+        <div key={title}>
+          <Link to={`/glossary/${slug}`}>{title}</Link>
+        </div>
+      );
     });
   }
 
@@ -41,8 +43,8 @@ Glossary.propTypes = {
 
 export const query = graphql`
   query {
-    craft {
-      entries(type: "glossary") {
+    craftql {
+      entries(type: Glossary) {
         ...GlossaryFields
       }
     }

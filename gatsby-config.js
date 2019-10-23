@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -7,19 +11,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: 'gatsby-plugin-react-axe',
-      options: {
-        // Integrate react-axe in production. This defaults to false.
-        showInProduction: false,
-
-        // Options to pass to axe-core.
-        // See: https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
-        axeOptions: {
-          // Your axe-core options.
-        },
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -62,12 +53,45 @@ module.exports = {
     {
       resolve: 'gatsby-source-graphql',
       options: {
-        // This type will contain remote schema Query type
-        typeName: 'Craft',
-        // This is the field under which it's accessible
+        typeName: 'CraftGraphQL',
         fieldName: 'craft',
-        // URL to query from
+        // Url to query from
         url: 'http://craft-test.test/api',
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.dev/env-vars
+          Authorization: `bearer ${process.env.GRAPHQL_TOKEN}`,
+        },
+        // Additional options to pass to node-fetch
+        fetchOptions: {},
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        // This type will contain remote schema Query type
+        typeName: 'CraftQL',
+        // This is the field under which it's accessible
+        fieldName: 'craftql',
+        // URL to query from
+        url: 'http://craft-test.test/api-craftql',
+        // HTTP headers
+        headers: {
+          Authorization: `bearer ${process.env.CRAFTQL_TOKEN}`,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-axe',
+      options: {
+        // Integrate react-axe in production. This defaults to false.
+        showInProduction: false,
+
+        // Options to pass to axe-core.
+        // See: https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
+        axeOptions: {
+          // Your axe-core options.
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

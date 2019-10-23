@@ -11,7 +11,7 @@ class GlossaryItemContainer extends React.PureComponent {
 
     return (
       <Layout>
-        <GlossaryItem word={title} def={definition} />
+        <GlossaryItem word={title} def={definition.content} />
       </Layout>
     );
   }
@@ -24,10 +24,14 @@ GlossaryItemContainer.propTypes = {
 };
 
 export const query = graphql`
-  query PageQuery($id: [Int]!, $siteId: String) {
+  query PageQuery($id: [Int]!, $site: String) {
     craft {
-      entries(type: "glossary", id: $id, siteId: $siteId, limit: 1) {
-        ...GlossaryFields
+      entries(limit: 1, id: $id, siteId: $site) {
+        ... on CraftGraphQL_glossary_glossary_Entry {
+          id
+          title
+          definition
+        }
       }
     }
   }

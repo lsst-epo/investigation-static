@@ -1,10 +1,12 @@
 import { graphql } from 'gatsby';
 
 export const glossaryFieldsFragment = graphql`
-  fragment GlossaryFields on Craft_glossary_glossary_Entry {
+  fragment GlossaryFields on CraftQL_Glossary {
     id
     title
-    definition
+    definition {
+      content
+    }
     slug
   }
 `;

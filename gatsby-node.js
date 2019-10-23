@@ -23,47 +23,43 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
       craft {
-        entries(type: "glossary") {
-          ... on Craft_glossary_glossary_Entry {
+        entries(site: "*") {
+          ... on CraftGraphQL_glossary_glossary_Entry {
             id
+            color
+            siteId
             slug
           }
         }
-
-        globalSets {
-          ... on Craft_sites_GlobalSet {
-            sites {
-              ... on Craft_sites_site_BlockType {
-                number
-                siteLanguage
-              }
-            }
-          }
+      }
+      craftql {
+        sites {
+          id
+          language
+          primary
+          name
         }
       }
     }
   `);
 
-  result.data.craft.globalSets[0].sites.forEach(site => {
-    const langBase = site.siteLanguage + '/';
+  const sites = {};
+  result.data.craftql.sites.forEach(site => {
+    sites[site.id] = site;
+  });
 
-    result.data.craft.entries.forEach(entry => {
-      createPage({
-        path: langBase + entry.slug,
-        component: path.resolve(`./src/containers/GlossaryItemContainer.jsx`),
-        context: { id: +entry.id, siteId: site.number },
-      });
+  result.data.craft.entries.forEach(entry => {
+    const { id, siteId } = entry;
+    const { primary, language } = sites[siteId];
+    const langBase = primary ? '/' : `/${language}/`;
+    createPage({
+      path: `${langBase}glossary/${entry.slug}`,
+      component: path.resolve(`./src/containers/GlossaryItemContainer.jsx`),
+      context: {
+        id: +id,
+        site: '' + siteId,
+        language,
+      },
     });
   });
 };
-
-// globalSets {
-//   ... on Craft_sites_GlobalSet {
-//     sites {
-//       ... on Craft_sites_site_BlockType {
-//         number
-//         siteLanguage
-//       }
-//     }
-//   }
-// }
