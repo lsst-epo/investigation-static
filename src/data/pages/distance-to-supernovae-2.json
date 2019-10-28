@@ -1,0 +1,9 @@
+{
+  "id": "13",
+  "title": "Finding the Distance to Supernovae",
+  "slug": "distance-to-supernovae-2/",
+  "previous": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-1/"},
+  "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-3/"},
+  "layout": "two-col",
+  "content": "<p>Because all Type Ia supernovae have the same intrinsic brightness, we can calculate their distances from their apparent magnitudes. Astronomers use a relationship called the distance modulus to calculate the distance to a supernova. The distance modulus (DM) is the difference between the peak apparent magnitude (m) and the peak absolute magnitude (M). For Type Ia supernovae, M is always the same value: -19.4. So the DM = (m - (- 19.4)) or (m + 19.4).</p><p>Calculate your value for the DM for Supernova 4, 5, and 6 and enter it into the table below.</p><p>In order to calculate the actual distance from Earth, the value for the distance modulus (DM) is inserted into the equation below:</p><p>d = 10 (DM+5)/5</p><p>Where distance (d) is expressed in parsecs*, and  DM is your value for the distance modulus.</p><p>*1 parsec = 3.26 light years</p><p>Here have an interactive variation of the equation above in which students can enter their value for DM (distance modulus). DM = ___ , solves for distance in pc = _____ , distance in Mpc = ____, light years LY= ____, and MLY = ____.</p>"
+}

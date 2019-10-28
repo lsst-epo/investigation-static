@@ -1,0 +1,9 @@
+{
+  "id": "15",
+  "title": "Finding the Distance to Supernovae",
+  "slug": "distance-to-supernovae-4/",
+  "previous": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-3/"},
+  "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-5/"},
+  "layout": "two-col",
+  "content": "<p>By using Type Ia supernovae to measure the distance from Earth to other galaxies in the Universe, astronomers have been able to map the distribution of galaxies in space. Our Milky Way galaxy is orbited by dozens of small satellite galaxies, and it's a member of a larger group of galaxies called the Local Group. The Local Group is contained in the Laniakea Supercluster, along with other groups of galaxies. And again, thanks to observations of Type Ia supernovae, we know that galaxy superclusters are scattered throughout the Universe.</p>"
+}

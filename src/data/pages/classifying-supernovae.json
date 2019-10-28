@@ -1,0 +1,9 @@
+{
+  "id": "5",
+  "title": "Classifying Supernovae",
+  "slug": "classifying-supernovae/",
+  "previous": {"title": "Observing Supernovae ", "link": "/observing-supernovae/"},
+  "next": {"title": "Classifying Type IIp Supernovae", "link": "/classifying-supernovae-iip/"},
+  "layout": "two-col",
+  "content": "<p>Supernovae are relatively rare events. Even in a galaxy the size of the Milky Way, only about one supernova occurs every 50 years. But because there are so many galaxies in the Universe, astronomers have observed over 50,000 supernovae, enough to identify patterns and classify them into different groups.</p><p>Different kinds of stars explode for different reasons. Not all supernovae are equally bright, and the light from their explosions does not always follow the same pattern as it fades away.</p>"
+}

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GlobalStore from '../state/GlobalStore';
+import Header from '../components/site/header';
+// import Footer from '../components/site/footer';
 
-class LayoutPrimary extends React.Component {
+class Layout extends React.Component {
   constructor() {
     super();
     const store = new GlobalStore();
@@ -13,12 +15,20 @@ class LayoutPrimary extends React.Component {
 
   render() {
     const { children } = this.props;
-    return <>{children}</>;
+    return (
+      <div>
+        <Header siteTitle="Investigation" />
+        <div>
+          <main className="container-main">{children}</main>
+        </div>
+        {/* <Footer /> */}
+      </div>
+    );
   }
 }
 
-LayoutPrimary.propTypes = {
-  children: PropTypes.node,
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default LayoutPrimary;
+export default Layout;

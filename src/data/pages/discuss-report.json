@@ -1,0 +1,9 @@
+{
+  "id": "17",
+  "title": "Discuss & Report",
+  "slug": "discuss-report/",
+  "previous": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-5/"},
+  "next": {"title": "Summary", "link": "/summary/"},
+  "layout": "two-col",
+  "content": "<p>QUESTIONS ONLY</p>"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "9",
+  "title": "Classifying Supernovae: Identifying Types",
+  "slug": "identifying-supernovae-types-1/",
+  "previous": {"title": "Classifying Supernovae Light Curves", "link": "/classifying-supernovae-light-curves/"},
+  "next": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-2/"},
+  "layout": "two-col",
+  "content": "<p>What type of supernova is shown in this  graph and what kind of star produces this supernova?</p>"
+}

@@ -18,7 +18,25 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data/`,
+        ignore: [`**/.*`], // ignore files starting with a dot
+      },
+    },
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass-resources`,
+      options: {
+        resources: [
+          `${__dirname}/src/assets/stylesheets/_variables.scss`,
+          `${__dirname}/src/assets/stylesheets/mixins/_index.scss`,
+        ],
+      },
+    },
     {
       resolve: `@danbruegge/gatsby-plugin-stylelint`,
       options: { files: ['**/*.{css,scss}'] },
@@ -50,37 +68,37 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'CraftGraphQL',
-        fieldName: 'craft',
-        // Url to query from
-        url: 'http://craft-test.test/api',
-        // HTTP headers
-        headers: {
-          // Learn about environment variables: https://gatsby.dev/env-vars
-          Authorization: `bearer ${process.env.GRAPHQL_TOKEN}`,
-        },
-        // Additional options to pass to node-fetch
-        fetchOptions: {},
-      },
-    },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        // This type will contain remote schema Query type
-        typeName: 'CraftQL',
-        // This is the field under which it's accessible
-        fieldName: 'craftql',
-        // URL to query from
-        url: 'http://craft-test.test/api-craftql',
-        // HTTP headers
-        headers: {
-          Authorization: `bearer ${process.env.CRAFTQL_TOKEN}`,
-        },
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-graphql',
+    //   options: {
+    //     typeName: 'CraftGraphQL',
+    //     fieldName: 'craft',
+    //     // Url to query from
+    //     url: 'http://craft-test.test/api',
+    //     // HTTP headers
+    //     headers: {
+    //       // Learn about environment variables: https://gatsby.dev/env-vars
+    //       Authorization: `bearer ${process.env.GRAPHQL_TOKEN}`,
+    //     },
+    //     // Additional options to pass to node-fetch
+    //     fetchOptions: {},
+    //   },
+    // },
+    // {
+    //   resolve: 'gatsby-source-graphql',
+    //   options: {
+    //     // This type will contain remote schema Query type
+    //     typeName: 'CraftQL',
+    //     // This is the field under which it's accessible
+    //     fieldName: 'craftql',
+    //     // URL to query from
+    //     url: 'http://craft-test.test/api-craftql',
+    //     // HTTP headers
+    //     headers: {
+    //       Authorization: `bearer ${process.env.CRAFTQL_TOKEN}`,
+    //     },
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-react-axe',
       options: {

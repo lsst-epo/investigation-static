@@ -39,6 +39,10 @@ class GlobalStore {
 
       return global;
     });
+
+    addReducer('updatePageId', (global, pageId) => ({
+      pageId,
+    }));
   }
 }
 

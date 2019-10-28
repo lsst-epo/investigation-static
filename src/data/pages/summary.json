@@ -1,0 +1,9 @@
+{
+  "id": "18",
+  "title": "Summary",
+  "slug": "summary/",
+  "previous": {"title": "Discuss & Report", "link": "/discuss-report/"},
+  "next": {"title": "", "link": ""},
+  "layout": "two-col",
+  "content": "<p>QUESTIONS ONLY</p>"
+}

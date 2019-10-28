@@ -22,43 +22,77 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     query {
-      craft {
-        entries(site: "*") {
-          ... on CraftGraphQL_glossary_glossary_Entry {
-            id
-            color
-            siteId
-            slug
-          }
-        }
-      }
-      craftql {
-        sites {
+      allPagesJson {
+        nodes {
           id
-          language
-          primary
-          name
+          title
+          slug
+          previous {
+            title
+            link
+          }
+          next {
+            title
+            link
+          }
+          layout
+          content
         }
       }
     }
   `);
 
-  const sites = {};
-  result.data.craftql.sites.forEach(site => {
-    sites[site.id] = site;
-  });
+  // Part of POC of multi-site, but not useful at this point: DON'T DELETE
+  // const result = await graphql(`
+  //   query {
+  //     craft {
+  //       entries(site: "*") {
+  //         ... on CraftGraphQL_glossary_glossary_Entry {
+  //           id
+  //           color
+  //           siteId
+  //           slug
+  //         }
+  //       }
+  //     }
+  //     craftql {
+  //       sites {
+  //         id
+  //         language
+  //         primary
+  //         name
+  //       }
+  //     }
+  //   }
+  // `);
 
-  result.data.craft.entries.forEach(entry => {
-    const { id, siteId } = entry;
-    const { primary, language } = sites[siteId];
-    const langBase = primary ? '/' : `/${language}/`;
+  // Part of POC of multi-site, but not useful at this point: DON'T DELETE
+  // const sites = {};
+  // result.data.craftql.sites.forEach(site => {
+  //   sites[site.id] = site;
+  // });
+  // result.data.craft.entries.forEach(entry => {
+  //   const { id, siteId } = entry;
+  //   const { primary, language } = sites[siteId];
+  //   const langBase = primary ? '/' : `/${language}/`;
+  //   createPage({
+  //     path: `${langBase}glossary/${entry.slug}`,
+  //     component: path.resolve(`./src/containers/GlossaryItemContainer.jsx`),
+  //     context: {
+  //       id: +id,
+  //       site: '' + siteId,
+  //       language,
+  //     },
+  //   });
+  // });
+
+  result.data.allPagesJson.nodes.forEach(page => {
+    const { id } = page;
     createPage({
-      path: `${langBase}glossary/${entry.slug}`,
-      component: path.resolve(`./src/containers/GlossaryItemContainer.jsx`),
+      path: `/${page.slug}`,
+      component: path.resolve(`./src/containers/PageContainer.jsx`),
       context: {
-        id: +id,
-        site: '' + siteId,
-        language,
+        id,
       },
     });
   });
