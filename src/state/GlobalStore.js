@@ -6,6 +6,7 @@ class GlobalStore {
     this.emptyState = {
       questions: null,
       answers: {},
+      pageId: null,
       totalNumPages: 20,
       visitedPages: [],
       investigationProgress: 0,

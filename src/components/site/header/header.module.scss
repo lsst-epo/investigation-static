@@ -1,0 +1,26 @@
+:global {
+  @include react-md-toolbars;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  max-width: $containerMaxWidth;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.site-logo {
+  width: 96px;
+  margin-left: 20px;
+}
+
+.page-progress {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

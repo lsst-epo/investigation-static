@@ -33,7 +33,10 @@ module.exports = {
       options: {
         resources: [
           `${__dirname}/src/assets/stylesheets/_variables.scss`,
+          `${__dirname}/src/assets/stylesheets/STACSS/_typography.scss`,
+          `${__dirname}/src/assets/stylesheets/STACSS/_structure.scss`,
           `${__dirname}/src/assets/stylesheets/mixins/_index.scss`,
+          `${__dirname}/src/assets/stylesheets/lib/_md-globals.scss`,
         ],
       },
     },

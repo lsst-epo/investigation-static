@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import '../assets/stylesheets/styles.scss';
 import SEO from '../components/seo';
 import logo from '../images/lsst-logo.svg';
 

@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import Button from 'react-md/lib/Buttons/Button';
+import Button from '../site/button';
 import ArrowLeft from '../site/icons/ArrowLeft';
 import ArrowRight from '../site/icons/ArrowRight';
 
 class PageNav extends React.PureComponent {
   renderNavItem(type, item) {
-    // if (item.link === '') return null;
     return (
       <Button
         flat

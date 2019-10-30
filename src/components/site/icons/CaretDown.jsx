@@ -2,6 +2,7 @@
 
 import React from 'react';
 import SVGIcon from 'react-md/lib/SVGIcons/SVGIcon';
+import './icon.module.scss';
 
 const CaretDown = props => (
   <SVGIcon {...props} role="presentation">

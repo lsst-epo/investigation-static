@@ -12,14 +12,6 @@
 
 // Containers
 // --------------------------------------------------------
-
-.container-main {
-  display: block;
-  max-width: $containerMaxWidth;
-  padding: $siteHeaderHeight + $minPadding $minPadding $pageNavHeight + $minPadding $minPadding;
-  margin: 0 auto;
-}
-
 .container-page {
   .col-fixed {
     position: fixed;
