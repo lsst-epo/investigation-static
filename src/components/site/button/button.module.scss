@@ -78,5 +78,15 @@
     + .md-btn {
       margin-left: 20px;
     }
+
+    &.md-btn--tooltip {
+      @include react-md-tooltips;
+      .md-tooltip-container {
+        .md-tooltip {
+          border-radius: 2px;
+        }
+      }
+    }
   }
+
 }

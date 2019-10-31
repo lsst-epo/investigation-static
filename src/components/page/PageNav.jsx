@@ -5,20 +5,22 @@ import Button from '../site/button';
 import ArrowLeft from '../site/icons/ArrowLeft';
 import ArrowRight from '../site/icons/ArrowRight';
 
+
 class PageNav extends React.PureComponent {
   renderNavItem(type, item) {
     return (
       <Button
-        flat
+        icon
         primary
         swapTheming
+        className="outlined"
         to={item.link === '' ? '/' : item.link}
         component={Link}
         iconEl={type === 'previous' ? <ArrowLeft /> : <ArrowRight />}
         iconBefore={type === 'previous'}
-      >
-        {type === 'previous' ? 'Back' : 'Continue'}
-      </Button>
+        tooltipLabel={type === 'previous' ? 'Back' : 'Continue'}
+        tooltipPosition="top"
+      />
     );
   }
 
