@@ -75,6 +75,52 @@
       }
     }
 
+    // Icon Button Overrides
+    &.md-btn--icon {
+      &.outlined {
+        transition: background $duration $timing;
+
+        &.light {
+          color: $white;
+          border: 1px solid $white;
+
+          &:hover {
+            color: $neutral30;
+            border-color: $neutral30;
+          }
+        }
+
+        &.md-text--theme-primary {
+          color: $md-primary-color;
+          border: solid 1px;
+          border-color: $md-primary-color;
+
+          &:hover {
+            color: $white;
+            background: $md-primary-color;
+          }
+        }
+
+        &.md-text--theme-secondary {
+          color: $md-secondary-color;
+          border: solid 1px;
+          border-color: $md-secondary-color;
+
+          &:hover {
+            color: $white;
+            background: $md-secondary-color;
+          }
+        }
+
+        &.md-text--disabled,
+        &:disabled {
+          color: $neutral30;
+          border: solid 1px;
+          border-color: $neutral30;
+        }
+      }
+    }
+
     + .md-btn {
       margin-left: 20px;
     }
