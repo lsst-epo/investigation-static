@@ -1,14 +1,14 @@
-.nav-secondary {
-  @include navPrimary;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// .nav-secondary {
+//   @include navPrimary;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
 
-  .nav-item {
-    padding-left: 20px;
-  }
+//   .nav-item {
+//     padding-left: 20px;
+//   }
 
-  &.combined {
-    visibility: hidden;
-  }
-}
+//   &.combined {
+//     visibility: hidden;
+//   }
+// }
