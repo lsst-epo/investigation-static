@@ -24,6 +24,10 @@
         &.md-panel-column:not(:last-child) {
           padding-right: 0;
         }
+
+        p {
+          margin: 0;
+        }
       }
 
       &.active {

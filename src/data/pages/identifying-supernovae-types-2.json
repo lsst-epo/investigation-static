@@ -3,7 +3,28 @@
   "title": "Classifying Supernovae: Identifying Types",
   "slug": "identifying-supernovae-types-2/",
   "previous": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-1/"},
-  "next": {"title": "Searching for Supernovae", "link": "/searching-for-supernovae/"},
+  "next": {"title": "Searching for Supernovae", "link": "/searching-for-supernovae-1/"},
   "layout": "two-col",
-  "content": "<p>What type of supernova is shown in this  graph and what kind of star produces this supernova?</p>"
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "56",
+          "questionType": "text",
+          "label": "What type of supernova is shown in this graph?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "57",
+          "questionType": "text",
+          "label": "What kind of star produces this supernova?",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
 }

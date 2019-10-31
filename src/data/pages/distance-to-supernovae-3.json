@@ -5,5 +5,42 @@
   "previous": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-2/"},
   "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-4/"},
   "layout": "two-col",
-  "content": "<p>QUESTIONS ONLY</p>"
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "69",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["69", "70"],
+          "labelPre": "A supernova that is close to Earth will appear ",
+          "labelPost": " and ",
+          "SRLabel": "What best describes the luminosity of a supernova that is close to Earth appear?",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a luminosity",
+          "options": [
+            {"label": "bright", "value": "bright"},
+            {"label": "dim", "value": "dim"}
+          ],
+          "answerPre": "A supernova that is close to Earth will appear ",
+          "answerPost": "."
+        },
+        {
+          "id": "70",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["69", "70"],
+          "labelPre": " have a peak apparent magnitude number that is ",
+          "labelPost": " .",
+          "SRLabel": "What best describes the peak apparent magnitude of a supernova that is close to Earth?",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a magnitude",
+          "options": [
+            {"label": "large", "value": "large"},
+            {"label": "small", "value": "small"}
+          ],
+          "answerPre": "A supernova that is close to Earth has a ",
+          "answerPost": " apprant magnitude."
+        }
+      ]
+    }
+  ]
 }

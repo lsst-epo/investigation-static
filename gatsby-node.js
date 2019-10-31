@@ -25,18 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allPagesJson {
         nodes {
           id
-          title
           slug
-          previous {
-            title
-            link
-          }
-          next {
-            title
-            link
-          }
-          layout
-          content
         }
       }
     }
@@ -87,9 +76,9 @@ exports.createPages = async ({ graphql, actions }) => {
   // });
 
   result.data.allPagesJson.nodes.forEach(page => {
-    const { id } = page;
+    const { id, slug } = page;
     createPage({
-      path: `/${page.slug}`,
+      path: `/${slug}`,
       component: path.resolve(`./src/containers/PageContainer.jsx`),
       context: {
         id,

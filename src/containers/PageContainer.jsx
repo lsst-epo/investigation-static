@@ -28,13 +28,30 @@ class PageContainer extends React.PureComponent {
 
   render() {
     const { data } = this.props;
-    const childProps = data.allPagesJson.nodes[0];
-    const Tag = this.layouts[childProps.layout || 'default'];
+    const {
+      id,
+      title,
+      layout,
+      previous,
+      next,
+      content,
+      questionsByPage,
+    } = data.allPagesJson.nodes[0];
+    const { answers } = this.global;
+    const Tag = this.layouts[layout || 'default'];
 
     return (
       <div className="container-page">
-        <Tag {...childProps} />
-        <PageNav previous={childProps.previous} next={childProps.next} />
+        <Tag
+          id={id}
+          title={title}
+          previous={previous}
+          next={next}
+          content={content}
+          questions={questionsByPage}
+          answers={answers}
+        />
+        <PageNav previous={previous} next={next} />
       </div>
     );
   }
@@ -62,6 +79,21 @@ export const query = graphql`
         previous {
           title
           link
+        }
+        questionsByPage {
+          question {
+            id
+            questionType
+            tool
+            label
+            answerPre
+            answerAccessor
+            placeholder
+            options {
+              label
+              value
+            }
+          }
         }
       }
     }

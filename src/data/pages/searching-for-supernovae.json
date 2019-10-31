@@ -1,9 +1,0 @@
-{
-  "id": "11",
-  "title": "Searching For Supernovae",
-  "slug": "searching-for-supernovae/",
-  "previous": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-2/"},
-  "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-1/"},
-  "layout": "two-col",
-  "content": "<p>Use the arrow buttons to blink through the images. When you find the supernova, click on its location in the image.</p><p>You can determine the type of supernova by overlaying supernovae light curve templates. Try this out by clicking on the “Type Ia” button at the right.</p><p>Drag the Type Ia light curve template to try to match it to the data points on your graph.</p><p>Now click on the Type IIp button, and drag this template to match the data of your graph.</p>"
-}

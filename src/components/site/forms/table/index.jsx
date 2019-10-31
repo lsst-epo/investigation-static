@@ -5,6 +5,7 @@ import TableHeader from 'react-md/lib//DataTables/TableHeader';
 import TableBody from 'react-md/lib//DataTables/TableBody';
 import TableRow from 'react-md/lib//DataTables/TableRow';
 import TableColumn from 'react-md/lib//DataTables/TableColumn';
+import './table.module.scss';
 
 class Table extends React.PureComponent {
   render() {

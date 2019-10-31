@@ -5,5 +5,26 @@
   "previous": {"title": "Classifying Supernovae Light Curves", "link": "/classifying-supernovae-light-curves/"},
   "next": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-2/"},
   "layout": "two-col",
-  "content": "<p>What type of supernova is shown in this  graph and what kind of star produces this supernova?</p>"
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "54",
+          "questionType": "text",
+          "label": "What type of supernova is shown in this graph?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "55",
+          "questionType": "text",
+          "label": "What kind of star produces this supernova?",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
 }

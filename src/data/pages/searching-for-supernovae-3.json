@@ -1,0 +1,21 @@
+{
+  "id": "22",
+  "title": "Searching For Supernovae",
+  "slug": "searching-for-supernovae-3/",
+  "previous": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-2/"},
+  "next": {"title": "Finding the distance to Supernovae", "link": "/searching-for-supernovae-3/"},
+  "layout": "two-col",
+  "content": "<p>Use the arrow buttons to blink through the images. When you find the supernova, click on its location in the image.</p><p>You can determine the type of supernova by overlaying supernovae light curve templates.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "60",
+          "questionType": "textArea",
+          "label": "What type of supernova do you think this is? Explain your answer—which aspects of the shape of the light curve caused you to choose this type?",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

@@ -1,16 +1,16 @@
 {
-  "id": "12",
+  "id": "25",
   "title": "Finding the Distance to Supernovae",
-  "slug": "distance-to-supernovae-1/",
-  "previous": {"title": "Identifying Supernovae Types", "link": "/searching-for-supernovae-4/"},
-  "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-1-1/"},
+  "slug": "distance-to-supernovae-1-2/",
+  "previous": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-1-1/"},
+  "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-2/"},
   "layout": "two-col",
   "content": "<p>In this part of the investigation, you will work only with Type Ia supernovae.</p>",
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "63",
+          "id": "65",
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",

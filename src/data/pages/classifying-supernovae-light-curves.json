@@ -5,5 +5,27 @@
   "previous": {"title": "Classifying Type Ia Supernovae", "link": "/classifying-supernovae-ia/"},
   "next": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-1/"},
   "layout": "two-col",
-  "content": "<p>The light curves for Type Ia and Type IIp supernovae are different from each other. Observations of Type Ia supernovae show that after they peak in brightness, their light fades away at a relatively constant rate over a period of months. Type Ia supernovae emit about 10 billion times more energy than the Sun. Type IIp supernovae do not become as bright as Type Ia; they peak at about 1 billion times the Sun’s energy output. After Type IIp supernovae attain peak brightness, their brightness levels drop slightly, then remain unchanged for about 90 days, before beginning to slowly fade. See Figure 3 below for an illustration of the two types of light curves.</p>"
+  "content": "<p>The light curves for Type Ia and Type IIp supernovae are different from each other. Observations of Type Ia supernovae show that after they peak in brightness, their light fades away at a relatively constant rate over a period of months. Type Ia supernovae emit about 10 billion times more energy than the Sun. Type IIp supernovae do not become as bright as Type Ia; they peak at about 1 billion times the Sun’s energy output. After Type IIp supernovae attain peak brightness, their brightness levels drop slightly, then remain unchanged for about 90 days, before beginning to slowly fade. See Figure 3 below for an illustration of the two types of light curves.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "52",
+          "questionType": "text",
+          "label": "What are the types of supernovae we will be investigating?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "53",
+          "questionType": "text",
+          "label": "Which type of Supernova always has the same peak brightness?",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
 }
