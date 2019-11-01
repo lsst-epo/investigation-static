@@ -1,36 +1,7 @@
-:global {
-  @include react-md-toolbars;
-  @include react-md-drawers;
-  @include react-md-lists;
-  @include react-md-buttons;
-  @include react-md-icons;
+// :global {}
 
-  .md-drawer {
-    // .md-toolbar {}
-    .md-list {
-      &.md-list--drawer {
-        .md-subheader {
-          padding-left: 1rem;
-        }
-        .md-list-item {
-          a:not([type='button']) {
-            padding-left: 1rem;
-            &:hover {
-              text-decoration: none;
-            }
-          }
-        }
-      }
-    }
-  }
-  .md-overlay.md-overlay--drawer {
-    z-index: 13;
-  }
-}
-
-
-.table-of-contents {
-  // some content
-  padding-top: $siteHeaderHeight;
-  z-index: 14;
-}
+// #table_of_contents {
+//   &.table-of-contents {
+//     // some content
+//   }
+// }

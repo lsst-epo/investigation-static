@@ -1,111 +1,62 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import reactn from 'reactn';
-import { Link, graphql, StaticQuery } from 'gatsby';
+import { Button, Drawer, Toolbar } from 'react-md';
 import PropTypes from 'prop-types';
-import { Drawer } from 'react-md';
 import styles from './table-of-contents.module.scss';
 
-// import Footer from '../components/site/footer';
-
-@reactn
-class TableOfContents extends React.PureComponent {
+export class TableOfContents extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.TO_PREFIX = '/';
-    this.routes = [
-      {
-        label: 'home',
-        to: `${this.TO_PREFIX}`,
-        icon: 'home',
-        exact: 'true',
-        primaryText: 'Home',
-        active: false,
-      },
-      {
-        label: 'style-guide',
-        to: `${this.TO_PREFIX}StyleGuide`,
-        icon: 'style',
-        primaryText: 'Style Guide',
-        active: false,
-      },
-      { divider: true },
-      {
-        primaryText: 'Table of Contents',
-        subheader: true,
-      },
-    ];
+
+    const { openSidebar } = props;
+
+    this.state = {
+      visible: openSidebar,
+    };
   }
 
-  componentDidMount() {
-    const { navLinks } = this.props;
-    const links = this.routes.concat(navLinks);
-    this.navLinks = links.map(link => {
-      if (link.divider || link.subheader) return link;
-
-      if (link.to) {
-        link.component = Link;
-      }
-
-      if (link.slug) {
-        link.component = Link;
-        link.label = link.title;
-        link.to = `${this.TO_PREFIX}${link.slug}`;
-        link.primaryText = link.title;
-        link.active = false;
-      }
-      return link;
+  openDrawerLeft = () => {
+    this.setState({
+      visible: true,
     });
-  }
+  };
 
-  // componentDidUpdate() {}
-
-  // setActivePage() {}
+  closeDrawer = () => {
+    this.setState({
+      visible: false,
+    });
+  };
 
   handleVisibility = visible => {
-    const { toggleSidebar } = this.props;
-    toggleSidebar(visible);
+    this.setState({ visible });
   };
 
   render() {
-    const { TEMPORARY } = Drawer.DrawerTypes;
-    const { visible } = this.props;
+    const { visible } = this.state;
 
     return (
       <Drawer
-        type={TEMPORARY}
+        id={styles.table_of_contents}
         className={styles.tableOfContents}
         visible={visible}
+        position="left"
         onVisibilityChange={this.handleVisibility}
-        navItems={this.navLinks}
+        // navItems={tocListItems}
+        header={
+          <Toolbar
+            nav={
+              <Button icon onClick={this.closeDrawer}>
+                arrow_back
+              </Button>
+            }
+          />
+        }
       />
     );
   }
 }
 
 TableOfContents.propTypes = {
-  visible: PropTypes.bool,
-  toggleSidebar: PropTypes.func.isRequired,
-  navLinks: PropTypes.array,
+  openSidebar: PropTypes.bool.isRequired,
 };
 
-// export default TableOfContents;
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query MyQuery {
-        allPagesJson {
-          nodes {
-            title
-            slug
-            id
-          }
-        }
-      }
-    `}
-    render={data => (
-      <TableOfContents {...props} navLinks={data.allPagesJson.nodes} />
-    )}
-  />
-);
+export default TableOfContents;

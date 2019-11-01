@@ -6,6 +6,10 @@
   display: flex;
   justify-content: space-between;
   max-width: $containerMaxWidth;
+
+  .menu-icon {
+    margin: 10px;
+  }
 }
 
 .logo-wrapper {

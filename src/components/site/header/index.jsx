@@ -2,15 +2,28 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Toolbar } from 'react-md';
-// import { Button } from '../button/index';
 import logo from '../../../images/lsst-logo.svg';
 import styles from './header.module.scss';
-import Close from '../icons/Close';
+import TableOfContents from '../tableOfContents';
 import Menu from '../icons/Menu';
 
 class Header extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      openSidebar: false,
+    };
+  }
+
+  toggleSidebar = () => {
+    const { openSidebar } = this.state;
+    this.setState({ openSidebar: !openSidebar });
+  };
+
   render() {
-    const { siteTitle, toggleSidebar, sidebarVisiblity } = this.props;
+    const { siteTitle } = this.props;
+    const { openSidebar } = this.state;
 
     return (
       <>
@@ -20,15 +33,14 @@ class Header extends React.PureComponent {
           title="LSST"
           titleClassName="screen-reader-only"
           className="header-primary"
-          nav={
-            <Button
-              icon
-              iconEl={sidebarVisiblity ? <Close /> : <Menu />}
-              onClick={toggleSidebar}
-            />
-          }
         >
           <div className={styles.headerInner}>
+            <Button
+              icon
+              iconEl={<Menu />}
+              onClick={this.toggleSidebar}
+              className={styles.menuIcon}
+            />
             <Link to="/" className={styles.logoWrapper}>
               <span className="screen-reader-only">Home</span>
               <img
@@ -46,6 +58,7 @@ class Header extends React.PureComponent {
             handleClick={this.clickHandler}
           /> */}
         </Toolbar>
+        <TableOfContents openSidebar={openSidebar} />
       </>
     );
   }
