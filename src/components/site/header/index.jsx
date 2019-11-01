@@ -4,26 +4,11 @@ import React from 'react';
 import { Button, Toolbar } from 'react-md';
 import logo from '../../../images/lsst-logo.svg';
 import styles from './header.module.scss';
-import TableOfContents from '../tableOfContents';
 import Menu from '../icons/Menu';
 
 class Header extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      openSidebar: false,
-    };
-  }
-
-  toggleSidebar = () => {
-    const { openSidebar } = this.state;
-    this.setState({ openSidebar: !openSidebar });
-  };
-
   render() {
-    const { siteTitle } = this.props;
-    const { openSidebar } = this.state;
+    const { siteTitle, toggleSidebar } = this.props;
 
     return (
       <>
@@ -33,14 +18,9 @@ class Header extends React.PureComponent {
           title="LSST"
           titleClassName="screen-reader-only"
           className="header-primary"
+          nav={<Button icon iconEl={<Menu />} onClick={toggleSidebar} />}
         >
           <div className={styles.headerInner}>
-            <Button
-              icon
-              iconEl={<Menu />}
-              onClick={this.toggleSidebar}
-              className={styles.menuIcon}
-            />
             <Link to="/" className={styles.logoWrapper}>
               <span className="screen-reader-only">Home</span>
               <img
@@ -58,7 +38,6 @@ class Header extends React.PureComponent {
             handleClick={this.clickHandler}
           /> */}
         </Toolbar>
-        <TableOfContents openSidebar={openSidebar} />
       </>
     );
   }
@@ -66,7 +45,6 @@ class Header extends React.PureComponent {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  sidebarVisiblity: PropTypes.bool,
   toggleSidebar: PropTypes.func,
 };
 

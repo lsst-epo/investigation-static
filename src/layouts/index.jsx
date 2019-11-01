@@ -5,6 +5,7 @@ import GlobalStore from '../state/GlobalStore';
 import styles from './layout.module.scss';
 import Header from '../components/site/header';
 import TableOfContents from '../components/site/tableOfContents';
+// import Footer from '../components/site/footer';
 
 class Layout extends React.Component {
   constructor() {
@@ -29,16 +30,9 @@ class Layout extends React.Component {
     const { openSidebar } = this.state;
     const { children } = this.props;
     return (
-      <>
-        <Header
-          siteTitle="Investigation"
-          sidebarVisiblity={openSidebar}
-          toggleSidebar={this.toggleSidebar}
-        />
-        <TableOfContents
-          visible={openSidebar}
-          toggleSidebar={this.toggleSidebar}
-        />
+      <div style={{ minHeight: '100vh' }}>
+        <Header siteTitle="Investigation" toggleSidebar={this.toggleSidebar} />
+        <TableOfContents openSidebar={openSidebar} />
         <div>
           <main className={styles.container}>{children}</main>
         </div>
