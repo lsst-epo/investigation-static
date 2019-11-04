@@ -4,21 +4,21 @@ import { Link } from 'gatsby';
 import Button from '../site/button';
 import ArrowLeft from '../site/icons/ArrowLeft';
 import ArrowRight from '../site/icons/ArrowRight';
+import styles from './pageNav.module.scss';
 
 class PageNav extends React.PureComponent {
   renderNavItem(type, item) {
     return (
       <Button
-        flat
-        primary
-        swapTheming
+        icon
+        className="outlined"
         to={item.link === '' ? '/' : item.link}
         component={Link}
         iconEl={type === 'previous' ? <ArrowLeft /> : <ArrowRight />}
         iconBefore={type === 'previous'}
-      >
-        {type === 'previous' ? 'Back' : 'Continue'}
-      </Button>
+        tooltipLabel={item.title}
+        tooltipPosition="top"
+      />
     );
   }
 
@@ -26,8 +26,8 @@ class PageNav extends React.PureComponent {
     const { previous, next } = this.props;
 
     return (
-      <div className="page-navigation">
-        <nav role="navigation" className="nav-secondary">
+      <div className={styles.pageNavigation}>
+        <nav role="navigation" className={styles.navSecondary}>
           {previous && this.renderNavItem('previous', previous)}
           {next && this.renderNavItem('next', next)}
         </nav>
