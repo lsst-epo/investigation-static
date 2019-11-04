@@ -14,7 +14,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Use the Type Ia template to fit the data. A horizontal line will appear on the graph. Drag it to fit the peak apparent magnitude (m) of the light curve on the template. Enter this magnitude on the table below.</p>",
+          "label": "<p>Use the Type Ia template to fit the data. A horizontal line will appear on the graph. Drag it to fit the peak apparent magnitude (m) of the light curve on the template.</p>",
           "answerPre": "<p>This supernova's magnitude is </p>",
           "answerAccessor": "magnitude"
         }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import includes from 'lodash/includes';
-import { getCompoundQs } from '../../lib/utilities.js';
+// import { getCompoundQs } from '../../lib/utilities.js';
 import QA from './QA';
 import CompoundSelect from './questions/CompoundSelect';
 
@@ -27,35 +27,31 @@ class QAs extends React.PureComponent {
 
     return (
       <div className="qas">
-        {questions.map((question, i) => {
+        {questions.map(question => {
           const q = question.question;
-          // if (q.length > 1) {
-          //   const qs = getCompoundQs(questions, i);
-          //   if (qs.length > 1) {
-          //     return (
-          //       <div className="qa">
-          //         <CompoundSelect
-          //           key={`qa-${id}`}
-          //           activeId={activeId}
-          //           questions={qs}
-          //           answers={answers}
-          //           handleAnswerSelect={this.updateAnswer}
-          //         />
-          //       </div>
-          //     );
-          //   }
-
-          //   return null;
-          // }
-
           const { id, questionType } = q[0];
+
+          if (q.length > 1) {
+            return (
+              <div className="qa">
+                <CompoundSelect
+                  key={`qa-${id}`}
+                  activeId={activeId}
+                  questions={q}
+                  answers={answers}
+                  handleAnswerSelect={this.updateAnswer}
+                />
+              </div>
+            );
+          }
+
           const answer = answers[id];
 
           return (
             <QA
               key={`qa-${id}`}
-              type={questionType}
-              question={q[0]}
+              questionType={questionType}
+              question={q}
               answer={answer}
               activeId={activeId}
               answerHandler={this.updateAnswer}

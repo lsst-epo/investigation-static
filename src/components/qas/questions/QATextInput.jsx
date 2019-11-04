@@ -1,8 +1,10 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
-import TextField from 'react-md/lib/TextFields/TextField';
+import TextField from '../../site/forms/textField';
+import { renderDef } from '../../../lib/utilities.js';
 
 class TextInput extends React.PureComponent {
   constructor(props) {
@@ -51,7 +53,7 @@ class TextInput extends React.PureComponent {
             id={`text-input-${id}`}
             className={classes}
             type="text"
-            label={label}
+            label={<div dangerouslySetInnerHTML={renderDef(label)} />}
             lineDirection="center"
             placeholder={placeholder}
             defaultValue={answered ? answer.content : ''}
@@ -65,7 +67,7 @@ class TextInput extends React.PureComponent {
             id={`text-area-${id}`}
             className={classes}
             type="text"
-            label={label}
+            label={<div dangerouslySetInnerHTML={renderDef(label)} />}
             lineDirection="center"
             placeholder={placeholder}
             rows={1}
