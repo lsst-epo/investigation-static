@@ -6,11 +6,12 @@ import Placeholder from '../placeholder';
 import { renderDef } from '../../lib/utilities.js';
 
 class TwoCol extends React.PureComponent {
+  handler = (id, data, eventType) => {
+    console.log(id, data, eventType);
+  };
+
   render() {
     const { title, content, questions, answers } = this.props;
-    // answerHandler={answerHandler}
-    // advanceActive={advanceActive}
-    // setActive={setActive}
     return (
       <div className="container-flex spaced">
         <div className="col padded col-width-50">
@@ -18,7 +19,14 @@ class TwoCol extends React.PureComponent {
             <h2 className="section-title">{title}</h2>
             <div dangerouslySetInnerHTML={renderDef(content)} />
             {questions && (
-              <QAs questions={questions} answers={answers} activeId="51" />
+              <QAs
+                questions={questions}
+                answers={answers}
+                activeId="75"
+                answerHandler={this.handler}
+                advanceActive={this.handler}
+                setActive={this.handler}
+              />
             )}
           </section>
         </div>

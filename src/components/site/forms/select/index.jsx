@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './select.module.scss';
+import './select.module.scss';
 
 class Select extends React.PureComponent {
   render() {
@@ -19,9 +19,9 @@ class Select extends React.PureComponent {
     } = this.props;
 
     return (
-      <div className={`${styles.select} ${className}`}>
+      <div className={`select ${className}`}>
         {showLabel && <label htmlFor={`select-${id}`}>{label}</label>}
-        <div className={styles.selectWrapper}>
+        <div className="select-wrapper">
           <select
             id={`select-${id}`}
             name={name}

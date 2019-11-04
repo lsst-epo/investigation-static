@@ -3,7 +3,76 @@
   "title": "Finding the Distance to Supernovae",
   "slug": "distance-to-supernovae-4/",
   "previous": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-3/"},
-  "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-5/"},
+  "next": {"title": "Discuss & Report", "link": "/discuss-report/"},
   "layout": "two-col",
-  "content": "<p>By using Type Ia supernovae to measure the distance from Earth to other galaxies in the Universe, astronomers have been able to map the distribution of galaxies in space. Our Milky Way galaxy is orbited by dozens of small satellite galaxies, and it's a member of a larger group of galaxies called the Local Group. The Local Group is contained in the Laniakea Supercluster, along with other groups of galaxies. And again, thanks to observations of Type Ia supernovae, we know that galaxy superclusters are scattered throughout the Universe.</p>"
+  "content": "<p>By using Type Ia supernovae to measure the distance from Earth to other galaxies in the Universe, astronomers have been able to map the distribution of galaxies in space. Our Milky Way galaxy is orbited by dozens of small satellite galaxies, and it's a member of a larger group of galaxies called the Local Group. The Local Group is contained in the Laniakea Supercluster, along with other groups of galaxies. And again, thanks to observations of Type Ia supernovae, we know that galaxy superclusters are scattered throughout the Universe.</p><p>Refer to the chart of Locations and Distances to get an idea of the approximate distance of these locations.</p><p>Refer to the chart collecting your distance and magnitude observations from the previous section to get an idea of the approximate distance of Supernovae #4, #5, and #6.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "73",
+          "questionType": "select",
+          "label": "Based on Supernova #4's distance from Earth, select the answer that best describes the possble location of Supernova #4.",
+          "answerAccessor": "select",
+          "placeholder": "Select a location",
+          "options": [
+            {"label": "Inside the Milky Way", "value": "Inside the Milky Way"},
+            {"label": "Possible satellite galaxy of the Milky Way", "value": "Possible satellite galaxy of the Milky Way"},
+            {"label": "Member of the Local Group", "value": "Member of the Local Group"},
+            {"label": "Member of the Laniakea", "value": "Member of the Laniakea"}
+          ],
+          "answerPre": "Supernova #4 is located ",
+          "answerPost": "."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "74",
+          "questionType": "select",
+          "label": "Based on Supernova #5's distance from Earth, select the answer that best describes the possble location of Supernova #5.",
+          "answerAccessor": "select",
+          "placeholder": "Select a location",
+          "options": [
+            {"label": "Inside the Milky Way", "value": "Inside the Milky Way"},
+            {"label": "Possible satellite galaxy of the Milky Way", "value": "Possible satellite galaxy of the Milky Way"},
+            {"label": "Member of the Local Group", "value": "Member of the Local Group"},
+            {"label": "Member of the Laniakea", "value": "Member of the Laniakea"}
+          ],
+          "answerPre": "Supernova #4 is located ",
+          "answerPost": "."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "75",
+          "questionType": "select",
+          "label": "Based on Supernova #6's distance from Earth, select the answer that best describes the possble location of Supernova #6.",
+          "answerAccessor": "select",
+          "placeholder": "Select a location",
+          "options": [
+            {"label": "Inside the Milky Way", "value": "Inside the Milky Way"},
+            {"label": "Possible satellite galaxy of the Milky Way", "value": "Possible satellite galaxy of the Milky Way"},
+            {"label": "Member of the Local Group", "value": "Member of the Local Group"},
+            {"label": "Member of the Laniakea", "value": "Member of the Laniakea"}
+          ],
+          "answerPre": "Supernova #4 is located ",
+          "answerPost": "."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "76",
+          "questionType": "text",
+          "label": "<p>Who has the most distant supernova in your group/class? What is its distance in light years?</p>",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'reactn';
 import PropTypes from 'prop-types';
 import includes from 'lodash/includes';

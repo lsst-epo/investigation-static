@@ -5,5 +5,162 @@
   "previous": {"title": "Discuss & Report", "link": "/discuss-report/"},
   "next": {"title": "", "link": ""},
   "layout": "two-col",
-  "content": "<p>QUESTIONS ONLY</p>"
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "81",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["81", "82", "83"],
+          "labelPre": "Different types of stars can explode to form supernovae. A star that is at least 8 times the mass of the Sun forms a Type ",
+          "labelPost": " supernova. ",
+          "srLabel": "What type of supernova froms from a star that has a mass at least 8 times the mass of the Sun?",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "Ia", "value": "Ia"},
+            {"label": "IIp", "value": "IIp"}
+          ],
+          "answerPre": "A star that is at least 8 times the mass of the Sun froms a ",
+          "answerPost": " supernova."
+        },
+        {
+          "id": "82",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["81", "82", "83"],
+          "labelPre": " A Type ",
+          "labelPost": " supernova ",
+          "srLabel": "What type of supernova froms from a star in binary star system?",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "Ia", "value": "Ia"},
+            {"label": "IIp", "value": "IIp"}
+          ],
+          "answerPre": "A star in a binary star system froms a ",
+          "answerPost": " supernova."
+        },
+        {
+          "id": "83",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["81", "82", "83"],
+          "labelPre": "forms from a ",
+          "labelPost": " star in a binary star system.",
+          "srLabel": "What type of star in a binary star system...?",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "massive", "value": "massive"},
+            {"label": "white dwarf", "value": "white dwarf"}
+          ],
+          "answerPre": "A star in a binary star system froms a ",
+          "answerPost": " supernova."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "84",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["84", "85"],
+          "labelPre": "Type Ia supernovae achieve a maximum luminosity that is ",
+          "labelPost": " than the maximum luminosity of Type IIp supernovae. ",
+          "srLabel": "Is the maximum luminosity of a Type Ia supernova high or lower than the maximum luminosity of a Type IIp supernova?",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a value",
+          "options": [
+            {"label": "higher", "value": "higher"},
+            {"label": "lower", "value": "lower"}
+          ],
+          "answerPre": "The maximum luminosity of  Type Ia supernova is ",
+          "answerPost": " than the maximum luminosity of Type IIp supernova."
+        },
+        {
+          "id": "85",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["84", "85"],
+          "labelPre": "After reaching its peak brightness, the light output from a Type Ia supernova",
+          "labelPost": " for a few months.",
+          "srLabel": "Describe how the light output of Type Ia supernovae changes in the few months after it reaches its peak brightness?",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a change",
+          "options": [
+            {"label": "declines steadily", "value": "declines steadily"},
+            {"label": "stays about the same brightness", "value": "stays about the same brightness"}
+          ],
+          "answerPre": "A Type Ia supernova's light output ",
+          "answerPost": " in the few moths after it reaches its peak brightness."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "86",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["86", "87", "88", "89"],
+          "labelPre": "Type ",
+          "labelPost": " supernovae can be used to determine distances ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "Ia", "value": "Ia"},
+            {"label": "IIp", "value": "IIp"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "87",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["86", "87", "88", "89"],
+          "labelPre": "because they all reach the same ",
+          "labelPost": " peak magnitude.",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a magnitude",
+          "options": [
+            {"label": "apparent", "value": "apparent"},
+            {"label": "absolute", "value": "absolute"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "88",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["86", "87", "88", "89"],
+          "labelPre": "Type ",
+          "labelPost": " supernovae can not be used for distance measurement ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a change",
+          "options": [
+            {"label": "Ia", "value": "Ia"},
+            {"label": "IIp", "value": "IIp"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "89",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["86", "87", "88", "89"],
+          "labelPre": " because the stars that become the supernovae have a range of ",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a value",
+          "options": [
+            {"label": "ages", "value": "ages"},
+            {"label": "masses", "value": "masses"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        }
+      ]
+    }
+  ]
 }

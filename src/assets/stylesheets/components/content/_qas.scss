@@ -89,46 +89,46 @@
   }
 }
 
-// Select Dropdown QAs
-.qa-select {
-  &.unanswered:not(.active) {
-    .select-wrapper::after {
-      border-top-color: $neutral20;
-    }
+// // Select Dropdown QAs
+// .qa-select {
+//   &.unanswered:not(.active) {
+//     .select-wrapper::after {
+//       border-top-color: $neutral20;
+//     }
 
-    select,
-    label,
-    .label-pre,
-    .label-post {
-      color: $neutral20;
-    }
+//     select,
+//     label,
+//     .label-pre,
+//     .label-post {
+//       color: $neutral20;
+//     }
 
-    select {
-      &:focus,
-      &:hover {
-        + hr {
-          max-height: 1px;
-          background-color: $neutral20;
-        }
-      }
-    }
+//     select {
+//       &:focus,
+//       &:hover {
+//         + hr {
+//           max-height: 1px;
+//           background-color: $neutral20;
+//         }
+//       }
+//     }
 
-    hr {
-      max-height: 1px;
-      background-color: $neutral20;
-    }
-  }
+//     hr {
+//       max-height: 1px;
+//       background-color: $neutral20;
+//     }
+//   }
 
-  &.answered, &.active {
-    label, .label-pre {
-      color: $basePrimary;
-    }
-  }
+//   &.answered, &.active {
+//     label, .label-pre {
+//       color: $basePrimary;
+//     }
+//   }
 
-  // .select .select-wrapper {
-  //   width: auto;
-  // }
-}
+//   // .select .select-wrapper {
+//   //   width: auto;
+//   // }
+// }
 
 .qa-compound-select {
   .inline-select {
