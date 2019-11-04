@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QAExpansionList from './questions/QAExpansionList';
 import QATextInput from './questions/QATextInput';
-import QASelect from './questions/QASelect';
+import QASelect from './questions/qaSelect';
+// import CompoundSelect from './questions/CompoundSelect';
 import Prompt from './questions/Prompt';
 
 class QA extends React.PureComponent {
   renderQA() {
     const {
-      type,
+      questionType,
       question,
       answer,
       answerHandler,
@@ -17,11 +18,11 @@ class QA extends React.PureComponent {
       activeId,
     } = this.props;
 
-    if (type === 'accordion') {
+    if (questionType === 'accordion') {
       return (
         <QAExpansionList
           activeId={activeId}
-          question={question}
+          question={question[0]}
           answer={answer}
           cancelHandler={answerHandler}
           saveHandler={saveHandler}
@@ -30,11 +31,11 @@ class QA extends React.PureComponent {
       );
     }
 
-    if (type === 'text' || type === 'textArea') {
+    if (questionType === 'text' || questionType === 'textArea') {
       return (
         <QATextInput
           activeId={activeId}
-          question={question}
+          question={question[0]}
           answer={answer}
           handleChange={answerHandler}
           handleBlur={answerHandler}
@@ -42,31 +43,31 @@ class QA extends React.PureComponent {
       );
     }
 
-    if (type === 'select' || type === 'inline-select') {
+    if (questionType === 'select' || questionType === 'inline-select') {
       return (
         <QASelect
           activeId={activeId}
-          question={question}
+          question={question[0]}
           answer={answer}
           handleAnswerSelect={answerHandler}
         />
       );
     }
 
-    // if (type === 'compound-select') {
+    if (questionType === 'prompt') {
+      return <Prompt question={question[0]} />;
+    }
+
+    // if (questionType === 'compoundSelect') {
     //   return (
-    //     <QACompoundSelect
+    //     <CompoundSelect
     //       activeId={activeId}
-    //       question={question}
-    //       answer={answer}
+    //       questions={question}
+    //       answers={answer}
     //       handleAnswerSelect={answerHandler}
     //     />
     //   );
     // }
-
-    if (type === 'prompt') {
-      return <Prompt question={question} />;
-    }
 
     return <div>Question Placeholder</div>;
   }
@@ -77,7 +78,7 @@ class QA extends React.PureComponent {
 }
 
 QA.propTypes = {
-  type: PropTypes.string,
+  questionType: PropTypes.string,
   question: PropTypes.object,
   answer: PropTypes.object,
   activeId: PropTypes.string,

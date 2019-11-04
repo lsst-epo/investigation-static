@@ -14,7 +14,7 @@
           "compoundQuestion": ["69", "70"],
           "labelPre": "A supernova that is close to Earth will appear ",
           "labelPost": " and ",
-          "SRLabel": "What best describes the luminosity of a supernova that is close to Earth appear?",
+          "srLabel": "What best describes the luminosity of a supernova that is close to Earth appear?",
           "answerAccessor": "compound-select",
           "placeholder": "Select a luminosity",
           "options": [
@@ -30,7 +30,7 @@
           "compoundQuestion": ["69", "70"],
           "labelPre": " have a peak apparent magnitude number that is ",
           "labelPost": " .",
-          "SRLabel": "What best describes the peak apparent magnitude of a supernova that is close to Earth?",
+          "srLabel": "What best describes the peak apparent magnitude of a supernova that is close to Earth?",
           "answerAccessor": "compound-select",
           "placeholder": "Select a magnitude",
           "options": [
@@ -39,6 +39,26 @@
           ],
           "answerPre": "A supernova that is close to Earth has a ",
           "answerPost": " apprant magnitude."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "71",
+          "questionType": "textArea",
+          "label": "<p>Look at the images of Supernovae 4, 5, and 6 again. Compare the relative size of each galaxy with the distance to the supernova in that galaxy. What relationship exists between the apparent size of the galaxy and its distance from Earth?</p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "72",
+          "questionType": "text",
+          "label": "The Andromeda Galaxy (M31) is the closest large galaxy to the Milky Way. It is at a distance of 2.5 MLY (0.78 Mpc) from Earth. Approximately how many times farther away is Supernova 4 compared to M31?",
+          "answerAccessor": "text"
         }
       ]
     }

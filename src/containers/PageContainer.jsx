@@ -38,7 +38,7 @@ class PageContainer extends React.PureComponent {
       questionsByPage,
     } = data.allPagesJson.nodes[0];
     const { answers } = this.global;
-    const Tag = this.layouts[layout || 'default'];
+    const Tag = this.layouts[layout || 'single-col'];
 
     return (
       <div className="container-page">
@@ -84,9 +84,14 @@ export const query = graphql`
           question {
             id
             questionType
+            compoundQuestion
             tool
             label
+            labelPre
+            labelPost
+            srLabel
             answerPre
+            answerPost
             answerAccessor
             placeholder
             options {
