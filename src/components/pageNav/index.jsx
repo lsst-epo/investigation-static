@@ -16,7 +16,7 @@ class PageNav extends React.PureComponent {
         component={Link}
         iconEl={type === 'previous' ? <ArrowLeft /> : <ArrowRight />}
         iconBefore={type === 'previous'}
-        tooltipLabel={type === 'previous' ? 'Back' : 'Continue'}
+        tooltipLabel={item.title}
         tooltipPosition="top"
       />
     );
