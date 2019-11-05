@@ -6,12 +6,18 @@ import Placeholder from '../placeholder';
 import { renderDef } from '../../lib/utilities.js';
 
 class TwoCol extends React.PureComponent {
-  handler = (id, data, eventType) => {
-    console.log(id, data, eventType);
-  };
-
   render() {
-    const { title, content, questions, answers } = this.props;
+    const {
+      title,
+      content,
+      questions,
+      answers,
+      activeId,
+      answerHandler,
+      setActive,
+      advanceActive,
+    } = this.props;
+
     return (
       <div className="container-flex spaced">
         <div className="col padded col-width-50">
@@ -22,10 +28,10 @@ class TwoCol extends React.PureComponent {
               <QAs
                 questions={questions}
                 answers={answers}
-                activeId="75"
-                answerHandler={this.handler}
-                advanceActive={this.handler}
-                setActive={this.handler}
+                activeId={activeId}
+                answerHandler={answerHandler}
+                advanceActive={advanceActive}
+                setActive={setActive}
               />
             )}
           </section>
@@ -45,4 +51,8 @@ TwoCol.propTypes = {
   content: PropTypes.string,
   questions: PropTypes.array,
   answers: PropTypes.object,
+  activeId: PropTypes.string,
+  answerHandler: PropTypes.func,
+  setActive: PropTypes.func,
+  advanceActive: PropTypes.func,
 };

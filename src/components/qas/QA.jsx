@@ -22,7 +22,7 @@ class QA extends React.PureComponent {
       return (
         <QAExpansionList
           activeId={activeId}
-          question={question[0]}
+          question={question}
           answer={answer}
           cancelHandler={answerHandler}
           saveHandler={saveHandler}
@@ -35,7 +35,7 @@ class QA extends React.PureComponent {
       return (
         <QATextInput
           activeId={activeId}
-          question={question[0]}
+          question={question}
           answer={answer}
           handleChange={answerHandler}
           handleBlur={answerHandler}
@@ -47,7 +47,7 @@ class QA extends React.PureComponent {
       return (
         <QASelect
           activeId={activeId}
-          question={question[0]}
+          question={question}
           answer={answer}
           handleAnswerSelect={answerHandler}
         />
@@ -55,19 +55,8 @@ class QA extends React.PureComponent {
     }
 
     if (questionType === 'prompt') {
-      return <Prompt question={question[0]} />;
+      return <Prompt question={question} />;
     }
-
-    // if (questionType === 'compoundSelect') {
-    //   return (
-    //     <CompoundSelect
-    //       activeId={activeId}
-    //       questions={question}
-    //       answers={answer}
-    //       handleAnswerSelect={answerHandler}
-    //     />
-    //   );
-    // }
 
     return <div>Question Placeholder</div>;
   }

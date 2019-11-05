@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import includes from 'lodash/includes';
-// import { getCompoundQs } from '../../lib/utilities.js';
 import QA from './QA';
 import CompoundSelect from './questions/CompoundSelect';
 
@@ -29,13 +27,14 @@ class QAs extends React.PureComponent {
       <div className="qas">
         {questions.map(question => {
           const q = question.question;
-          const { id, questionType } = q[0];
+          const primeQ = q[0];
+          const { id, questionType } = primeQ;
+          const key = `qa-${id}`;
 
           if (q.length > 1) {
             return (
-              <div className="qa">
+              <div className="qa" key={key}>
                 <CompoundSelect
-                  key={`qa-${id}`}
                   activeId={activeId}
                   questions={q}
                   answers={answers}
@@ -49,9 +48,9 @@ class QAs extends React.PureComponent {
 
           return (
             <QA
-              key={`qa-${id}`}
+              key={key}
               questionType={questionType}
-              question={q}
+              question={primeQ}
               answer={answer}
               activeId={activeId}
               answerHandler={this.updateAnswer}

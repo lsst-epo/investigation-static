@@ -5,9 +5,6 @@ import QASelect from './qaSelect';
 class QuestionCompoundSelect extends React.PureComponent {
   render() {
     const { questions, activeId, answers, handleAnswerSelect } = this.props;
-    // const ids = questions.map(question => {
-    //   return question.id;
-    // });
 
     return (
       <div className="qa-compound-select">
@@ -33,7 +30,7 @@ class QuestionCompoundSelect extends React.PureComponent {
 QuestionCompoundSelect.propTypes = {
   handleAnswerSelect: PropTypes.func,
   questions: PropTypes.array,
-  answers: PropTypes.array,
+  answers: PropTypes.object,
   activeId: PropTypes.string,
 };
 
