@@ -1,21 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavigationDrawer } from 'react-md';
 import GlobalStore from '../state/GlobalStore';
 // import '../assets/stylesheets/styles.scss';
 import styles from './layout.module.scss';
 import Header from '../components/site/header';
-// import TableOfContents from '../components/site/tableOfContents';
+import TableOfContents from '../components/site/tableOfContents';
 // import Footer from '../components/site/footer';
+const TO_PREFIX = '/';
 const routes = [
   {
-    to: '',
-    exact: 'true',
+    label: 'home',
+    to: `${TO_PREFIX}`,
     icon: 'home',
+    exact: 'true',
+    primaryText: 'Home',
   },
   {
-    to: 'testing',
-    icon: 'list',
+    label: 'style-guide',
+    to: `${TO_PREFIX}StyleGuide`,
+    icon: 'style',
+    primaryText: 'Style Guide',
+  },
+  { divider: true },
+  {
+    primaryText: 'Table of Contents',
+    subheader: true,
   },
 ];
 class Layout extends React.Component {
@@ -36,26 +45,27 @@ class Layout extends React.Component {
     return route;
   });
 
-  toggleSidebar = () => {
+  toggleSidebar = toggleView => {
     const { openSidebar } = this.state;
-    this.setState({ openSidebar: !openSidebar });
+    this.setState({ openSidebar: toggleView || !openSidebar });
   };
 
   render() {
-    // const { openSidebar } = this.state;
+    const { openSidebar } = this.state;
     const { children } = this.props;
     return (
-      <NavigationDrawer
-        drawerId="main-table-of-contents"
-        drawerTitle="Table of Contents"
-        navItems={this.navItems}
-      >
+      <>
         <Header siteTitle="Investigation" toggleSidebar={this.toggleSidebar} />
+        <TableOfContents
+          tocLinks={this.navItems}
+          openSidebar={openSidebar}
+          toggleSidebar={this.toggleSidebar}
+        />
         <div>
           <main className={styles.container}>{children}</main>
         </div>
         {/* <Footer /> */}
-      </NavigationDrawer>
+      </>
     );
   }
 }
