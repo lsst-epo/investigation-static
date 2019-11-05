@@ -11,12 +11,10 @@ class GlobalStore {
       visitedPages: [],
       investigationProgress: 0,
       pageProgress: 0,
-      activeId: null,
       activeGraphData: null,
       clusterA: [],
       clusterB: [],
       userDefinedRegions: [],
-      // astroDefinedRegions: [],
     };
 
     // const existingState = this.emptyState;
@@ -34,16 +32,46 @@ class GlobalStore {
 
   addReducers() {
     addReducer('empty', () => {
-      const global = this.emptyState;
+      const emptyGlobal = this.emptyState;
 
-      ls('hrd', global);
+      ls('hrd', emptyGlobal);
 
-      return global;
+      return emptyGlobal;
     });
 
-    addReducer('updatePageId', (global, pageId) => ({
+    addReducer('updatePageId', (global, dispatch, pageId) => ({
+      ...global,
       pageId,
     }));
+
+    addReducer('updateAnswer', (global, dispatch, id, content, data) => {
+      const { answers: prevAnswers } = global;
+      const prevAnswer = { ...prevAnswers[id] };
+
+      return {
+        ...global,
+        answers: {
+          ...prevAnswers,
+          [id]: {
+            ...prevAnswer,
+            id,
+            content,
+            data,
+          },
+        },
+      };
+    });
+    addReducer('clearAnswer', (global, dispatch, id) => {
+      const { answers: prevAnswers } = global;
+
+      return {
+        ...global,
+        answers: {
+          ...prevAnswers,
+          [id]: {},
+        },
+      };
+    });
   }
 }
 
