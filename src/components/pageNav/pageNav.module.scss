@@ -10,8 +10,8 @@
 
         &:hover {
           color: $md-primary-color;
-          border-color: $white;
           background: $white;
+          border-color: $white;
         }
       }
     }
@@ -26,17 +26,17 @@
   // padding: $minPadding;
   padding: 8px 1rem;
   background-color: $md-primary-color;
-  
+
   .nav-secondary {
     @include navPrimary;
     display: flex;
     align-items: center;
     justify-content: center;
-  
+
     .nav-item {
       padding-left: 20px;
     }
-  
+
     &.combined {
       visibility: hidden;
     }
