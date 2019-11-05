@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QAExpansionList from './questions/QAExpansionList';
-import QATextInput from './questions/QATextInput';
+import QAExpansionList from './questions/qaExpansionList/index.jsx';
+import QATextInput from './questions/qaTextInput';
 import QASelect from './questions/qaSelect';
-// import CompoundSelect from './questions/CompoundSelect';
 import Prompt from './questions/Prompt';
 
 class QA extends React.PureComponent {
@@ -37,8 +36,7 @@ class QA extends React.PureComponent {
           activeId={activeId}
           question={question}
           answer={answer}
-          handleChange={answerHandler}
-          handleBlur={answerHandler}
+          answerHandler={answerHandler}
         />
       );
     }

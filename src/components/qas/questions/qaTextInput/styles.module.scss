@@ -1,0 +1,16 @@
+// // Text Input QAs
+// // --------------------------------------------------------
+
+:global {
+  .md-text-field-container {
+    &.unanswered:not(.active) {
+      label, .md-floating-label, .md-floating-label p {
+        color: $neutral20;
+      }
+
+      hr {
+        background-color: $neutral20;
+      }
+    }
+  }
+}

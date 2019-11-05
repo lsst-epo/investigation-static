@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
-import Question from 'react-md/lib//ExpansionPanels/ExpansionPanel';
-import Answer from '../answers/ExpansionPanel';
-import { renderDef } from '../../../lib/utilities.js';
+import Question from 'react-md/lib/ExpansionPanels/ExpansionPanel';
+import Answer from '../../answers/ExpansionPanel';
+import { renderDef } from '../../../../lib/utilities.js';
 
 class QAExpansionPanel extends React.PureComponent {
   render() {

@@ -1,0 +1,27 @@
+:global {
+  .qas {
+    &.form {
+      margin-top: 1.5 * $minPadding;
+    }
+
+    > .qa {
+      margin-top: 2 * $minPadding;
+    }
+
+    + .stellar-properties, + .hrd-observations {
+      margin-top: 2 * $minPadding;
+    }
+  }
+}
+
+:global {
+  .qa-card {
+    padding: $minPadding;
+    transition: background $timing $durationSlow, box-shadow $timing $durationSlow;
+
+    &:not(.active) {
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+}

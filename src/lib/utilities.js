@@ -28,6 +28,21 @@ export const getCompoundQs = function(questions, i) {
   return qs;
 };
 
+export const checkIds = function(ids, id) {
+  let present = false;
+  let i = 0;
+
+  while (i < ids.length) {
+    if (id === ids[i]) {
+      present = true;
+    }
+
+    i += 1;
+  }
+
+  return present;
+};
+
 export const renderDef = function(def) {
   return { __html: def };
 };
