@@ -5,28 +5,7 @@ import GlobalStore from '../state/GlobalStore';
 import styles from './layout.module.scss';
 import Header from '../components/site/header';
 import TableOfContents from '../components/site/tableOfContents';
-// import Footer from '../components/site/footer';
-const TO_PREFIX = '/';
-const routes = [
-  {
-    label: 'home',
-    to: `${TO_PREFIX}`,
-    icon: 'home',
-    exact: 'true',
-    primaryText: 'Home',
-  },
-  {
-    label: 'style-guide',
-    to: `${TO_PREFIX}StyleGuide`,
-    icon: 'style',
-    primaryText: 'Style Guide',
-  },
-  { divider: true },
-  {
-    primaryText: 'Table of Contents',
-    subheader: true,
-  },
-];
+
 class Layout extends React.Component {
   constructor() {
     super();
@@ -41,13 +20,9 @@ class Layout extends React.Component {
     };
   }
 
-  navItems = routes.map(route => {
-    return route;
-  });
-
-  toggleSidebar = toggleView => {
+  toggleSidebar = () => {
     const { openSidebar } = this.state;
-    this.setState({ openSidebar: toggleView || !openSidebar });
+    this.setState({ openSidebar: !openSidebar });
   };
 
   render() {
@@ -57,8 +32,7 @@ class Layout extends React.Component {
       <>
         <Header siteTitle="Investigation" toggleSidebar={this.toggleSidebar} />
         <TableOfContents
-          tocLinks={this.navItems}
-          openSidebar={openSidebar}
+          visible={openSidebar}
           toggleSidebar={this.toggleSidebar}
         />
         <div>
