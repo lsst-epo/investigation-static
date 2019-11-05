@@ -1,23 +1,10 @@
 import React from 'react';
-import { Button, Drawer, Toolbar } from 'react-md';
 import PropTypes from 'prop-types';
-import styles from './table-of-contents.module.scss';
-import NavItemLink from './NavItemLink';
+import { Link } from 'gatsby';
+import { Button, Drawer, Toolbar } from 'react-md';
 import ArrowLeft from '../icons/ArrowLeft';
+import styles from './table-of-contents.module.scss';
 
-const TO_PREFIX = '/';
-const tocListItems = [
-  {
-    label: 'Inbox',
-    to: TO_PREFIX,
-    icon: 'inbox',
-  },
-  {
-    label: 'Inbox',
-    to: TO_PREFIX + 'test',
-    icon: 'inbox',
-  },
-];
 class TableOfContents extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -25,35 +12,53 @@ class TableOfContents extends React.PureComponent {
     this.state = {
       visible: false,
     };
+
+    this.navLinks = props.tocLinks.map(link => {
+      if (link.divider || link.subheader) return link;
+
+      if (link.to) {
+        link.component = Link;
+      }
+      return link;
+    });
   }
 
   componentDidUpdate() {
-    const { openSidebar } = this.props;
-    this.toggleDrawer(openSidebar);
+    const { openSidebar: visible } = this.props;
+    this.handleVisibility(visible);
   }
 
-  toggleDrawer = bool => {
-    this.setState({ visible: bool });
-  };
-
   handleVisibility = visible => {
+    const { toggleSidebar } = this.props;
+    toggleSidebar(visible);
     this.setState({ visible });
   };
 
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
     const { visible } = this.state;
+    const { toggleSidebar } = this.props;
 
+    const closeBtn = (
+      <Button icon onClick={toggleSidebar}>
+        <ArrowLeft />
+      </Button>
+    );
     return (
       <Drawer
-        id={styles.table_of_contents}
         type={TEMPORARY}
         className={styles.tableOfContents}
         visible={visible}
         onVisibilityChange={this.handleVisibility}
-        navItems={tocListItems.map(props => (
-          <NavItemLink {...props} key={props.to} />
-        ))}
+        navItems={this.navLinks}
+        overlay
+        header={
+          <Toolbar
+            colored
+            actions={closeBtn}
+            className="md-divider-border md-divider-border--bottom"
+          />
+        }
       />
     );
   }
@@ -61,6 +66,8 @@ class TableOfContents extends React.PureComponent {
 
 TableOfContents.propTypes = {
   openSidebar: PropTypes.bool.isRequired,
+  tocLinks: PropTypes.array.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
 };
 
 export default TableOfContents;
