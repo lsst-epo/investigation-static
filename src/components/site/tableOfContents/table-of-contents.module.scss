@@ -1,7 +1,32 @@
-// :global {}
+:global {
+  @include react-md-toolbars;
+  @include react-md-drawers;
+  @include react-md-lists;
+  @include react-md-buttons;
+  @include react-md-icons;
 
-// #table_of_contents {
-//   &.table-of-contents {
-//     // some content
-//   }
+  .md-drawer {
+    // .md-toolbar {}
+    .md-list {
+      &.md-list--drawer {
+        .md-subheader {
+          padding-left: 1rem;
+        }
+        .md-list-item {
+          padding-left: 1rem;
+
+          a:not([type='button']) {
+            padding-left: 1rem;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .table-of-contents {
+//   // some content
 // }

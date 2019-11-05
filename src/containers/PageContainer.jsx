@@ -5,7 +5,6 @@ import { graphql } from 'gatsby';
 import Page from '../components/page';
 import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
-
 @reactn
 class PageContainer extends React.PureComponent {
   constructor(props) {
