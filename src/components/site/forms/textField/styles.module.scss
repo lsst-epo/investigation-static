@@ -4,6 +4,10 @@
   @include react-md-dividers;
   @include react-md-text-fields;
 
+  .md-text-field {
+    @include copyPrimary;
+  }
+
   .md-text-field-container--input, .md-text-field-container--multiline {
     + .md-text-field-container--input, + .md-text-field-container--multiline {
       margin-top: 1.5 * $minPadding;
@@ -13,9 +17,12 @@
       color: $neutral40;
     }
 
-    .md-floating-label {
+    .md-floating-label, .md-floating-label p {
+      @include copySecondary;
       position: static;
+      margin-bottom: 0;
       line-height: $baseLineHeight;
+      color: $basePrimary;
       white-space: pre-wrap;
 
       &.md-floating-label--inactive {

@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import QA from './QA';
-import CompoundSelect from './questions/CompoundSelect';
+import QACompoundSelect from './questions/qaCompoundSelect';
+import './styles.module.scss';
 
 class QAs extends React.PureComponent {
   updateAnswer = (id, value, type) => {
-    const { answerHandler, advanceActive } = this.props;
+    const { answerHandler, setActive, advanceActive } = this.props;
 
-    answerHandler(id, value, type);
+    if (type !== 'focus') {
+      answerHandler(id, value, type);
+    }
 
-    if (type === 'change') {
+    if (type === 'focus') {
+      setActive(id);
+    }
+
+    if (type === 'change' || type === 'blur') {
       advanceActive();
     }
   };
@@ -34,7 +41,7 @@ class QAs extends React.PureComponent {
           if (q.length > 1) {
             return (
               <div className="qa" key={key}>
-                <CompoundSelect
+                <QACompoundSelect
                   activeId={activeId}
                   questions={q}
                   answers={answers}

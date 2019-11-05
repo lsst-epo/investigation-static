@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from 'react-md/lib/Cards/Card';
+import Card from '../../site/card';
 
 class Legend extends React.PureComponent {
   render() {

@@ -13,6 +13,7 @@ class Select extends React.PureComponent {
       placeholder,
       handleChange,
       handleBlur,
+      handleFocus,
       className,
       disabled,
       showLabel,
@@ -28,6 +29,7 @@ class Select extends React.PureComponent {
             value={value}
             onBlur={handleBlur}
             onChange={handleChange}
+            onFocus={handleFocus}
             aria-label={label}
             disabled={disabled || false}
             multiple={false}
@@ -74,6 +76,7 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   handleChange: PropTypes.func,
   handleBlur: PropTypes.func,
+  handleFocus: PropTypes.func,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   showLabel: PropTypes.bool,

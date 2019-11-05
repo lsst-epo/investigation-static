@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ExpansionList from 'react-md/lib//ExpansionPanels/ExpansionList';
+import ExpansionList from 'react-md/lib/ExpansionPanels/ExpansionList';
 import QAExpansionPanel from './QAExpansionPanel';
+import './styles.module.scss';
 
 class QAExpansionList extends React.PureComponent {
   toggleHandler = () => {
@@ -21,7 +22,7 @@ class QAExpansionList extends React.PureComponent {
     const { id } = question;
 
     return (
-      <ExpansionList className="qas unstyled">
+      <ExpansionList className="unstyled">
         <QAExpansionPanel
           {...this.props}
           key={`qa-${id}`}

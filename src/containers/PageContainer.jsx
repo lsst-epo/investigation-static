@@ -2,10 +2,9 @@ import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import isEmpty from 'lodash/isEmpty';
-import find from 'lodash/find';
 import includes from 'lodash/includes';
 import isObject from 'lodash/isObject';
+import { qById, getActiveQ } from './utilities.js';
 import Page from '../components/page';
 import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
@@ -30,8 +29,9 @@ class PageContainer extends React.PureComponent {
 
   componentDidMount() {
     const { data } = this.props;
+    const { answers } = this.global;
     const { id, questionsByPage: questions } = data.allPagesJson.nodes[0];
-    const activeQuestion = this.getActiveQ(questions);
+    const activeQuestion = getActiveQ(questions, answers);
 
     this.setState(prevState => ({
       ...prevState,
@@ -43,34 +43,25 @@ class PageContainer extends React.PureComponent {
     this.dispatch.updatePageId(id);
   }
 
-  // Helper methods related to determining "active QA"
-  qWithEmptyA(qArray, answers) {
-    return find(qArray, q => {
-      return isEmpty(answers[q.id]);
-    });
-  }
-
-  getActiveQ = questions => {
-    const { answers } = this.global;
-    const activeQ = find(questions, question => {
-      return !!this.qWithEmptyA(question.question, answers);
-    });
-
-    if (!activeQ) return null;
-
-    if (activeQ.question.length > 1) {
-      const nestedActiveQ = this.qWithEmptyA(activeQ.question, answers);
-
-      return nestedActiveQ || null;
-    }
-
-    return activeQ ? activeQ.question[0] : null;
-  };
-
   // Methods related to setting & updating "active QA"
 
   // Callback method passed down to child components
-  setActiveQuestion = activeQ => {
+  setActiveQuestion = activeId => {
+    const { questions } = this.state;
+    const activeQ = qById(questions, activeId);
+    this.setState(prevState => ({
+      ...prevState,
+      activeQ,
+      activeId,
+    }));
+  };
+
+  // Callback method passed down to child components
+  advanceActiveQuestion = () => {
+    const { questions } = this.state;
+    const { answers } = this.global;
+    const activeQ = getActiveQ(questions, answers);
+
     this.setState(prevState => ({
       ...prevState,
       activeQ,
@@ -78,39 +69,11 @@ class PageContainer extends React.PureComponent {
     }));
   };
 
-  // Callback method passed down to child components
-  advanceActiveQuestion = () => {
-    const { questions } = this.state;
-    const activeQ = this.getActiveQ(questions);
-    this.setActiveQuestion(activeQ);
-  };
-
-  // Helper methods for identifying question being answered
-  qInArrayById(qs, id) {
-    const q = find(qs, nestedQ => {
-      return nestedQ.id === id;
-    });
-
-    return q;
-  }
-
-  qById(questions, id) {
-    const identifiedQ = find(questions, q => {
-      return !!this.qInArrayById(q.question, id);
-    });
-
-    if (identifiedQ.question.length > 1) {
-      return this.qInArrayById(identifiedQ.question, id);
-    }
-
-    return identifiedQ.question[0];
-  }
-
   // Methods related to updating answers
 
   updateAnswer(id, data) {
     const { questions } = this.state;
-    const answeredQuestion = this.qById(questions, id);
+    const answeredQuestion = qById(questions, id);
     const { answerAccessor } = answeredQuestion;
     let content = data;
 

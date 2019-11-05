@@ -428,7 +428,7 @@ class ScatterPlot extends React.PureComponent {
     });
 
     return (
-      <React.Fragment>
+      <>
         {showColorLegend && !loading && (
           <Legend
             key="color-legend"
@@ -570,7 +570,7 @@ class ScatterPlot extends React.PureComponent {
             />
           </svg>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }

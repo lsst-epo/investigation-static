@@ -1,4 +1,15 @@
 :global .qa-select {
+  label,
+  .label-pre,
+  .label-post {
+    @include copySecondary;
+    line-height: $baseLineHeight;
+  }
+
+  select {
+    @include copyPrimary;
+  }
+
   &.unanswered:not(.active) {
     .select-wrapper::after {
       border-top-color: $neutral20;
