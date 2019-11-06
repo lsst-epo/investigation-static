@@ -4,11 +4,12 @@ import React from 'react';
 import { Button, Toolbar } from 'react-md';
 import logo from '../../../images/lsst-logo.svg';
 import styles from './header.module.scss';
+import Close from '../icons/Close';
 import Menu from '../icons/Menu';
 
 class Header extends React.PureComponent {
   render() {
-    const { siteTitle, toggleSidebar } = this.props;
+    const { siteTitle, toggleSidebar, sidebarVisiblity } = this.props;
 
     return (
       <>
@@ -18,7 +19,13 @@ class Header extends React.PureComponent {
           title="LSST"
           titleClassName="screen-reader-only"
           className="header-primary"
-          nav={<Button icon iconEl={<Menu />} onClick={toggleSidebar} />}
+          nav={
+            <Button
+              icon
+              iconEl={sidebarVisiblity ? <Close /> : <Menu />}
+              onClick={toggleSidebar}
+            />
+          }
         >
           <div className={styles.headerInner}>
             <Link to="/" className={styles.logoWrapper}>
@@ -45,6 +52,7 @@ class Header extends React.PureComponent {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  sidebarVisiblity: PropTypes.bool,
   toggleSidebar: PropTypes.func,
 };
 
