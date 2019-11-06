@@ -23,8 +23,14 @@
       }
     }
   }
+  .md-overlay.md-overlay--drawer {
+    z-index: 13;
+  }
 }
 
-// .table-of-contents {
-//   // some content
-// }
+
+.table-of-contents {
+  // some content
+  padding-top: $siteHeaderHeight;
+  z-index: 14;
+}
