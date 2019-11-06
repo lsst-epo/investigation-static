@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Toolbar } from 'react-md';
+// import { Button } from '../button/index';
 import logo from '../../../images/lsst-logo.svg';
 import styles from './header.module.scss';
 import Close from '../icons/Close';
