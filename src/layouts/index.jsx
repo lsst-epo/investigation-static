@@ -22,7 +22,10 @@ class Layout extends React.Component {
 
   toggleSidebar = () => {
     const { openSidebar } = this.state;
-    this.setState({ openSidebar: !openSidebar });
+    this.setState(prevState => ({
+      ...prevState,
+      openSidebar: !openSidebar,
+    }));
   };
 
   render() {
