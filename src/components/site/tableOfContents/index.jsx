@@ -69,7 +69,7 @@ class TableOfContents extends React.PureComponent {
 
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
-    const { visible, toggleSidebar } = this.props;
+    const { visible } = this.props;
 
     return (
       <Drawer
