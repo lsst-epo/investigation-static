@@ -39,7 +39,7 @@ class TableOfContents extends React.PureComponent {
 
   componentDidMount() {
     const { navLinks } = this.props;
-    const links = this.routes.concat(navLinks);
+    const links = [...this.routes, ...navLinks];
     this.navLinks = links.map(link => {
       if (link.divider || link.subheader) return link;
 
