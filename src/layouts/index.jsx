@@ -30,7 +30,11 @@ class Layout extends React.Component {
     const { children } = this.props;
     return (
       <>
-        <Header siteTitle="Investigation" toggleSidebar={this.toggleSidebar} />
+        <Header
+          siteTitle="Investigation"
+          sidebarVisiblity={openSidebar}
+          toggleSidebar={this.toggleSidebar}
+        />
         <TableOfContents
           visible={openSidebar}
           toggleSidebar={this.toggleSidebar}

@@ -66,7 +66,7 @@ class TableOfContents extends React.PureComponent {
 
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
-    const { visible } = this.props;
+    const { visible, toggleSidebar } = this.props;
 
     return (
       <Drawer
@@ -75,7 +75,6 @@ class TableOfContents extends React.PureComponent {
         visible={visible}
         onVisibilityChange={this.handleVisibility}
         navItems={this.navLinks}
-        overlay
       />
     );
   }
@@ -84,7 +83,7 @@ class TableOfContents extends React.PureComponent {
 TableOfContents.propTypes = {
   visible: PropTypes.bool,
   toggleSidebar: PropTypes.func.isRequired,
-  navLinks: PropTypes.object,
+  navLinks: PropTypes.array,
 };
 
 // export default TableOfContents;
