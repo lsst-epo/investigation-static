@@ -24,14 +24,6 @@ class TableOfContents extends React.PureComponent {
         primaryText: 'Home',
         active: false,
       },
-      // {
-      //   label: 'style-guide',
-      //   to: `${this.TO_PREFIX}StyleGuide`,
-      //   component: Link,
-      //   icon: 'style',
-      //   primaryText: 'Style Guide',
-      //   active: false,
-      // },
       { divider: true },
       {
         primaryText: 'Table of Contents',
