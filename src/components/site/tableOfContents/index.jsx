@@ -94,6 +94,7 @@ class TableOfContents extends React.PureComponent {
         visible={visible}
         onVisibilityChange={this.handleVisibility}
         navItems={this.navLinks}
+        overlay
       />
     );
   }
