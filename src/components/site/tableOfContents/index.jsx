@@ -31,25 +31,7 @@ class TableOfContents extends React.PureComponent {
     ];
   }
 
-  componentDidMount() {
-    this.updateNavLinks();
-  }
-
-  componentDidUpdate() {
-    this.updateNavLinks();
-  }
-
-  updateNavLinks = () => {
-    const { navLinks } = this.props;
-    const massagedNavLinks = this.getNavLinks(navLinks);
-    this.navLinks = [...this.routes, ...massagedNavLinks];
-  };
-
-  setActivePage = linkId => {
-    return linkId === this.global.pageId;
-  };
-
-  getNavLinks = navLinks => {
+  massageNavLinks = navLinks => {
     return navLinks.map(link => {
       if (link.divider || link.subheader) return link;
       return {
@@ -63,6 +45,10 @@ class TableOfContents extends React.PureComponent {
     });
   };
 
+  getNavLinks = navLinks => [...this.routes, ...this.massageNavLinks(navLinks)];
+
+  setActivePage = linkId => linkId === this.global.pageId;
+
   handleVisibility = visible => {
     const { toggleSidebar } = this.props;
     toggleSidebar(visible);
@@ -70,14 +56,14 @@ class TableOfContents extends React.PureComponent {
 
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
-    const { visible } = this.props;
+    const { visible, navLinks } = this.props;
     return (
       <Drawer
         type={TEMPORARY}
         className={styles.tableOfContents}
         visible={visible}
         onVisibilityChange={this.handleVisibility}
-        navItems={this.navLinks}
+        navItems={this.getNavLinks(navLinks)}
         overlay
       />
     );
