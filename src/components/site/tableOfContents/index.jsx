@@ -35,25 +35,28 @@ class TableOfContents extends React.PureComponent {
 
   componentDidMount() {
     const { navLinks } = this.props;
-    this.navLinks = [
-      ...this.routes,
-      ...navLinks.map(link => {
-        if (link.divider || link.subheader) return link;
-        return {
-          ...link,
-          component: Link,
-          label: link.title,
-          to: `${this.TO_PREFIX}${link.slug}`,
-          primaryText: link.title,
-          active: false,
-        };
-      }),
-    ];
+    this.navLinks = [...this.routes, ...this.getNavLinks(navLinks)];
   }
 
   // componentDidUpdate() {}
 
-  // setActivePage() {}
+  setActivePage(linkId) {
+    return linkId === this.global.pageId;
+  }
+
+  getNavLinks(navLinks) {
+    return navLinks.map(link => {
+      if (link.divider || link.subheader) return link;
+      return {
+        ...link,
+        component: Link,
+        label: link.title,
+        to: `${this.TO_PREFIX}${link.slug}`,
+        primaryText: link.title,
+        active: this.setActivePage(link.id),
+      };
+    });
+  }
 
   handleVisibility = visible => {
     const { toggleSidebar } = this.props;
@@ -70,7 +73,7 @@ class TableOfContents extends React.PureComponent {
         className={styles.tableOfContents}
         visible={visible}
         onVisibilityChange={this.handleVisibility}
-        navItems={this.navLinks}
+        navItems={this.getNavLinks(this.navLinks)}
         overlay
       />
     );
