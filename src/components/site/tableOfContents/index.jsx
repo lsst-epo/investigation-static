@@ -6,31 +6,6 @@ import PropTypes from 'prop-types';
 import { Drawer } from 'react-md';
 import styles from './table-of-contents.module.scss';
 
-// import Footer from '../components/site/footer';
-const TO_PREFIX = '/';
-const routes = [
-  {
-    label: 'home',
-    to: `${TO_PREFIX}`,
-    icon: 'home',
-    exact: 'true',
-    primaryText: 'Home',
-    active: false,
-  },
-  {
-    label: 'style-guide',
-    to: `${TO_PREFIX}StyleGuide`,
-    icon: 'style',
-    primaryText: 'Style Guide',
-    active: false,
-  },
-  { divider: true },
-  {
-    primaryText: 'Table of Contents',
-    subheader: true,
-  },
-];
-
 @reactn
 class TableOfContents extends React.PureComponent {
   constructor(props) {
@@ -121,11 +96,12 @@ export default props => (
   <StaticQuery
     query={graphql`
       query MyQuery {
-        allPagesJson {
+        allPagesJson(sort: { fields: [order], order: ASC }) {
           nodes {
             title
             slug
             id
+            order
           }
         }
       }
