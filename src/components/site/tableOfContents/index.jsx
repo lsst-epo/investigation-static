@@ -47,14 +47,14 @@ class TableOfContents extends React.PureComponent {
         primaryText: 'Home',
         active: false,
       },
-      {
-        label: 'style-guide',
-        to: `${this.TO_PREFIX}StyleGuide`,
-        component: Link,
-        icon: 'style',
-        primaryText: 'Style Guide',
-        active: false,
-      },
+      // {
+      //   label: 'style-guide',
+      //   to: `${this.TO_PREFIX}StyleGuide`,
+      //   component: Link,
+      //   icon: 'style',
+      //   primaryText: 'Style Guide',
+      //   active: false,
+      // },
       { divider: true },
       {
         primaryText: 'Table of Contents',
@@ -70,19 +70,14 @@ class TableOfContents extends React.PureComponent {
       ...this.routes,
       ...navLinks.map(link => {
         if (link.divider || link.subheader) return link;
-
-        if (link.to) {
-          link.component = Link;
-        }
-
-        if (link.slug) {
-          link.component = Link;
-          link.label = link.title;
-          link.to = `${this.TO_PREFIX}${link.slug}`;
-          link.primaryText = link.title;
-          link.active = false;
-        }
-        return link;
+        return {
+          ...link,
+          component: Link,
+          label: link.title,
+          to: `${this.TO_PREFIX}${link.slug}`,
+          primaryText: link.title,
+          active: false,
+        };
       }),
     ];
   }
