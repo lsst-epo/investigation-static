@@ -22,8 +22,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     query {
-      allPagesJson {
+      allPagesJson(sort: { fields: [order], order: ASC }) {
         nodes {
+          order
           id
           slug
         }

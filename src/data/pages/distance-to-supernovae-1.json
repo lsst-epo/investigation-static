@@ -1,5 +1,6 @@
 {
   "id": "12",
+  "order": "16",
   "title": "Finding the Distance to Supernovae",
   "slug": "distance-to-supernovae-1/",
   "previous": {"title": "Identifying Supernovae Types", "link": "/searching-for-supernovae-4/"},

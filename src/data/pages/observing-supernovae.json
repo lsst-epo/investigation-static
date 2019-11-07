@@ -1,5 +1,6 @@
 {
   "id": "4",
+  "order": "5",
   "title": "Observing Supernovae",
   "slug": "observing-supernovae/",
   "previous": {"title": "Describing Light Curves", "link": "/describe-light-curve/"},
