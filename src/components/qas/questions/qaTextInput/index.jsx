@@ -21,12 +21,29 @@ class TextInput extends React.PureComponent {
     this.field = React.createRef();
   }
 
+  componentDidMount() {
+    const { question, activeId } = this.props;
+    const { id } = question;
+
+    this.initialActive(activeId === id);
+  }
+
   componentDidUpdate() {
     const { answerable } = this.state;
     const { question, activeId } = this.props;
     const { id } = question;
 
     this.checkAnswerable(answerable, activeId === id);
+  }
+
+  initialActive(active) {
+    if (active) {
+      this.setState(prevState => ({
+        ...prevState,
+        answerable: true,
+        hasFocus: true,
+      }));
+    }
   }
 
   checkAnswerable(answerable, active) {
@@ -95,7 +112,7 @@ class TextInput extends React.PureComponent {
       active: hasFocus,
       answered,
       unanswered: !answered,
-      answerable,
+      answerable: answerable || answered,
     };
     const fieldClasses = classnames('qa-text-input', dynamicClasses);
     const cardClasses = classnames('qa-card', dynamicClasses);

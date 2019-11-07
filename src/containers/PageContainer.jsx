@@ -49,6 +49,7 @@ class PageContainer extends React.PureComponent {
   setActiveQuestion = activeId => {
     const { questions } = this.state;
     const activeQ = qById(questions, activeId);
+
     this.setState(prevState => ({
       ...prevState,
       activeQ,

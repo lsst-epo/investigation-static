@@ -58,9 +58,7 @@ class QASelect extends React.PureComponent {
     const { question, handleAnswerSelect, focusCallback } = this.props;
     const { value } = e.target;
 
-    if (e.type === 'change') {
-      handleAnswerSelect(question.id, value, e.type);
-    }
+    handleAnswerSelect(question.id, value, e.type);
 
     if (e.type === 'blur') {
       this.setState(
@@ -113,8 +111,7 @@ class QASelect extends React.PureComponent {
       active: hasFocus,
       answered,
       unanswered: !answered,
-      answerable,
-      'has-focus': hasFocus,
+      answerable: answerable || answered,
     };
     const cardClasses = classnames('qa-card', dynamicClasses);
     const selectClasses = classnames('qa-select', {
