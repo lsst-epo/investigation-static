@@ -10,7 +10,7 @@
     @include copyPrimary;
   }
 
-  &:not(.answerable) {
+  &.unanswered:not(.active) {
     .select-wrapper::after {
       border-top-color: $neutral20;
     }
@@ -38,7 +38,7 @@
     }
   }
 
-  &.answerable {
+  &.answered, &.active {
     label, .label-pre {
       color: $basePrimary;
     }

@@ -28,6 +28,7 @@ export const qById = function(questions, id) {
 };
 
 export const getActiveQ = function(questions, answers) {
+  // const { answers } = this.global;
   const activeQ = find(questions, question => {
     return !!qWithEmptyA(question.question, answers);
   });

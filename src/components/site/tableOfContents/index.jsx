@@ -34,26 +34,36 @@ class TableOfContents extends React.PureComponent {
   }
 
   componentDidMount() {
-    const { navLinks } = this.props;
-    this.navLinks = [
-      ...this.routes,
-      ...navLinks.map(link => {
-        if (link.divider || link.subheader) return link;
-        return {
-          ...link,
-          component: Link,
-          label: link.title,
-          to: `${this.TO_PREFIX}${link.slug}`,
-          primaryText: link.title,
-          active: false,
-        };
-      }),
-    ];
+    this.updateNavLinks();
   }
 
-  // componentDidUpdate() {}
+  componentDidUpdate() {
+    this.updateNavLinks();
+  }
 
-  // setActivePage() {}
+  updateNavLinks = () => {
+    const { navLinks } = this.props;
+    const massagedNavLinks = this.getNavLinks(navLinks);
+    this.navLinks = [...this.routes, ...massagedNavLinks];
+  };
+
+  setActivePage = linkId => {
+    return linkId === this.global.pageId;
+  };
+
+  getNavLinks = navLinks => {
+    return navLinks.map(link => {
+      if (link.divider || link.subheader) return link;
+      return {
+        ...link,
+        component: Link,
+        label: link.title,
+        to: `${this.TO_PREFIX}${link.slug}`,
+        primaryText: link.title,
+        active: this.setActivePage(link.id),
+      };
+    });
+  };
 
   handleVisibility = visible => {
     const { toggleSidebar } = this.props;
