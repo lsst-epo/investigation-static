@@ -33,30 +33,58 @@ const routes = [
 
 @reactn
 class TableOfContents extends React.PureComponent {
-  // constructor(props) {
-  //   super(props);
-  //
-  // }
+  constructor(props) {
+    super(props);
+
+    this.TO_PREFIX = '/';
+    this.routes = [
+      {
+        label: 'home',
+        to: `${this.TO_PREFIX}`,
+        component: Link,
+        icon: 'home',
+        exact: 'true',
+        primaryText: 'Home',
+        active: false,
+      },
+      {
+        label: 'style-guide',
+        to: `${this.TO_PREFIX}StyleGuide`,
+        component: Link,
+        icon: 'style',
+        primaryText: 'Style Guide',
+        active: false,
+      },
+      { divider: true },
+      {
+        primaryText: 'Table of Contents',
+        subheader: true,
+      },
+      { divider: true },
+    ];
+  }
 
   componentDidMount() {
     const { navLinks } = this.props;
-    const links = [...this.routes, ...navLinks];
-    this.navLinks = links.map(link => {
-      if (link.divider || link.subheader) return link;
+    this.navLinks = [
+      ...this.routes,
+      ...navLinks.map(link => {
+        if (link.divider || link.subheader) return link;
 
-      if (link.to) {
-        link.component = Link;
-      }
+        if (link.to) {
+          link.component = Link;
+        }
 
-      if (link.slug) {
-        link.component = Link;
-        link.label = link.title;
-        link.to = `${TO_PREFIX}${link.slug}`;
-        link.primaryText = link.title;
-        link.active = false;
-      }
-      return link;
-    });
+        if (link.slug) {
+          link.component = Link;
+          link.label = link.title;
+          link.to = `${this.TO_PREFIX}${link.slug}`;
+          link.primaryText = link.title;
+          link.active = false;
+        }
+        return link;
+      }),
+    ];
   }
 
   // componentDidUpdate() {}
