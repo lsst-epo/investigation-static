@@ -21,29 +21,12 @@ class TextInput extends React.PureComponent {
     this.field = React.createRef();
   }
 
-  componentDidMount() {
-    const { question, activeId } = this.props;
-    const { id } = question;
-
-    this.initialActive(activeId === id);
-  }
-
   componentDidUpdate() {
     const { answerable } = this.state;
     const { question, activeId } = this.props;
     const { id } = question;
 
     this.checkAnswerable(answerable, activeId === id);
-  }
-
-  initialActive(active) {
-    if (active) {
-      this.setState(prevState => ({
-        ...prevState,
-        answerable: true,
-        hasFocus: true,
-      }));
-    }
   }
 
   checkAnswerable(answerable, active) {
@@ -71,27 +54,18 @@ class TextInput extends React.PureComponent {
   };
 
   handleBlur = () => {
-    const { question, answerHandler } = this.props;
-    const { id } = question;
-    const { value } = this.state;
-
-    answerHandler(id, value, 'blur');
-
     this.setState(prevState => ({
       ...prevState,
-      value,
       hasFocus: false,
     }));
   };
 
   handleFocus = () => {
-    const { question, activeId, answerHandler } = this.props;
+    const { question, answerHandler } = this.props;
     const { id } = question;
     const { value } = this.state;
 
-    if (activeId !== id) {
-      answerHandler(id, value, 'focus');
-    }
+    answerHandler(id, value || ' ', 'focus');
 
     this.setState(prevState => ({
       ...prevState,
@@ -102,20 +76,17 @@ class TextInput extends React.PureComponent {
 
   render() {
     const { question, answer, activeId } = this.props;
-    const { answerable, hasFocus } = this.state;
+    const { hasFocus, answerable } = this.state;
     const { id, questionType, label, placeholder } = question;
     const isTextArea = questionType === 'textArea';
     const active = activeId === id;
     const answered = !isEmpty(answer);
-
-    const dynamicClasses = {
-      active: hasFocus,
+    const cardClasses = classnames('qa-card', { active: hasFocus });
+    const fieldClasses = classnames('qa-text-input', {
       answered,
       unanswered: !answered,
-      answerable: answerable || answered,
-    };
-    const fieldClasses = classnames('qa-text-input', dynamicClasses);
-    const cardClasses = classnames('qa-card', dynamicClasses);
+      answerable: answerable || answered || active,
+    });
 
     return (
       <Card className={cardClasses}>
@@ -133,7 +104,7 @@ class TextInput extends React.PureComponent {
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
-          disabled={!active && !answered}
+          disabled={!(answerable || answered || active)}
         />
       </Card>
     );

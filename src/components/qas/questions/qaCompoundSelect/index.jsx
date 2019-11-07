@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { checkIds } from '../../../../lib/utilities.js';
 import Card from '../../../site/card';
 import QASelect from '../qaSelect';
 import styles from './styles.module.scss';
@@ -25,8 +24,7 @@ class QACompoundSelect extends React.PureComponent {
   render() {
     const { questions, activeId, answers, handleAnswerSelect } = this.props;
     const { hasFocus } = this.state;
-    const active = checkIds(questions[0].compoundQuestion, activeId);
-    const cardClasses = classnames('qa-card', { active: active || hasFocus });
+    const cardClasses = classnames('qa-card', { active: hasFocus });
 
     return (
       <Card className={cardClasses}>

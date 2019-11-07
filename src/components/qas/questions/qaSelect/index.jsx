@@ -18,14 +18,6 @@ class QASelect extends React.PureComponent {
     };
   }
 
-  componentDidMount() {
-    const { question, activeId, ids } = this.props;
-    const { id } = question;
-    const active = ids ? checkIds(ids, activeId) : activeId === id;
-
-    this.initialActive(active);
-  }
-
   componentDidUpdate() {
     const { answerable } = this.state;
     const { question, activeId, ids } = this.props;
@@ -33,16 +25,6 @@ class QASelect extends React.PureComponent {
     const active = ids ? checkIds(ids, activeId) : activeId === id;
 
     this.checkAnswerable(answerable, active);
-  }
-
-  initialActive(active) {
-    if (active) {
-      this.setState(prevState => ({
-        ...prevState,
-        answerable: true,
-        hasFocus: true,
-      }));
-    }
   }
 
   checkAnswerable(answerable, active) {
@@ -58,7 +40,9 @@ class QASelect extends React.PureComponent {
     const { question, handleAnswerSelect, focusCallback } = this.props;
     const { value } = e.target;
 
-    handleAnswerSelect(question.id, value, e.type);
+    if (e.type !== 'blur') {
+      handleAnswerSelect(question.id, value, e.type);
+    }
 
     if (e.type === 'blur') {
       this.setState(
@@ -107,15 +91,11 @@ class QASelect extends React.PureComponent {
     const active = ids ? checkIds(ids, activeId) : activeId === id;
     const { hasFocus, answerable } = this.state;
     const answered = !isEmpty(answer);
-    const dynamicClasses = {
-      active: hasFocus,
+    const cardClasses = classnames('qa-card', { active: hasFocus });
+    const selectClasses = classnames('qa-select', {
       answered,
       unanswered: !answered,
-      answerable: answerable || answered,
-    };
-    const cardClasses = classnames('qa-card', dynamicClasses);
-    const selectClasses = classnames('qa-select', {
-      ...dynamicClasses,
+      answerable: answerable || answered || active,
       'inline-select': labelPre || labelPost,
     });
 
@@ -137,7 +117,7 @@ class QASelect extends React.PureComponent {
             handleChange={this.handler}
             handleFocus={this.handler}
             placeholder={placeholder}
-            disabled={!active && !answered}
+            disabled={!(answerable || answered || active)}
             showLabel={!!label}
           />
           {labelPost && (

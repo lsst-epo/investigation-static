@@ -28,20 +28,17 @@ export const qById = function(questions, id) {
 };
 
 export const getActiveQ = function(questions, answers) {
-  if (!questions) return null;
-
-  const firstQ = questions[0].question[0];
   const activeQ = find(questions, question => {
     return !!qWithEmptyA(question.question, answers);
   });
 
-  if (!activeQ) return firstQ;
+  if (!activeQ) return null;
 
   if (activeQ.question.length > 1) {
     const nestedActiveQ = qWithEmptyA(activeQ.question, answers);
 
-    return nestedActiveQ || firstQ;
+    return nestedActiveQ || null;
   }
 
-  return activeQ ? activeQ.question[0] : firstQ;
+  return activeQ ? activeQ.question[0] : null;
 };
