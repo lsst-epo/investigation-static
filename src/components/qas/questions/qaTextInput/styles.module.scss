@@ -3,7 +3,7 @@
 
 :global {
   .md-text-field-container {
-    &.unanswered:not(.active) {
+    &:not(.answerable) {
       label, .md-floating-label, .md-floating-label p {
         color: $neutral20;
       }

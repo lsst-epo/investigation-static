@@ -14,7 +14,28 @@ class TextInput extends React.PureComponent {
 
     this.state = {
       value: undefined,
+      hasFocus: false,
+      answerable: false,
     };
+
+    this.field = React.createRef();
+  }
+
+  componentDidUpdate() {
+    const { answerable } = this.state;
+    const { question, activeId } = this.props;
+    const { id } = question;
+
+    this.checkAnswerable(answerable, activeId === id);
+  }
+
+  checkAnswerable(answerable, active) {
+    if (!answerable && active) {
+      this.setState(prevState => ({
+        ...prevState,
+        answerable: true,
+      }));
+    }
   }
 
   handleChange = value => {
@@ -26,7 +47,10 @@ class TextInput extends React.PureComponent {
       answerHandler(id, value, 'change');
     }
 
-    this.setState({ value });
+    this.setState(prevState => ({
+      ...prevState,
+      value,
+    }));
   };
 
   handleBlur = () => {
@@ -35,6 +59,12 @@ class TextInput extends React.PureComponent {
     const { value } = this.state;
 
     answerHandler(id, value, 'blur');
+
+    this.setState(prevState => ({
+      ...prevState,
+      value,
+      hasFocus: false,
+    }));
   };
 
   handleFocus = () => {
@@ -45,18 +75,27 @@ class TextInput extends React.PureComponent {
     if (activeId !== id) {
       answerHandler(id, value, 'focus');
     }
+
+    this.setState(prevState => ({
+      ...prevState,
+      value,
+      hasFocus: true,
+    }));
   };
 
   render() {
     const { question, answer, activeId } = this.props;
+    const { answerable, hasFocus } = this.state;
     const { id, questionType, label, placeholder } = question;
     const isTextArea = questionType === 'textArea';
     const active = activeId === id;
     const answered = !isEmpty(answer);
+
     const dynamicClasses = {
-      active,
+      active: hasFocus,
       answered,
       unanswered: !answered,
+      answerable,
     };
     const fieldClasses = classnames('qa-text-input', dynamicClasses);
     const cardClasses = classnames('qa-card', dynamicClasses);
@@ -64,6 +103,7 @@ class TextInput extends React.PureComponent {
     return (
       <Card className={cardClasses}>
         <TextField
+          ref={this.field}
           id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
           className={fieldClasses}
           type="text"

@@ -7,10 +7,26 @@ import QASelect from '../qaSelect';
 import styles from './styles.module.scss';
 
 class QACompoundSelect extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hasFocus: false,
+    };
+  }
+
+  updateActive = hasFocus => {
+    this.setState(prevState => ({
+      ...prevState,
+      hasFocus,
+    }));
+  };
+
   render() {
     const { questions, activeId, answers, handleAnswerSelect } = this.props;
+    const { hasFocus } = this.state;
     const active = checkIds(questions[0].compoundQuestion, activeId);
-    const cardClasses = classnames('qa-card', { active });
+    const cardClasses = classnames('qa-card', { active: active || hasFocus });
 
     return (
       <Card className={cardClasses}>
@@ -25,6 +41,7 @@ class QACompoundSelect extends React.PureComponent {
                 question={question}
                 answer={answers[id]}
                 handleAnswerSelect={handleAnswerSelect}
+                focusCallback={this.updateActive}
                 activeId={activeId}
                 questionType={questionType}
               />
