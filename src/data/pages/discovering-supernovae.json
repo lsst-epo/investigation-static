@@ -1,5 +1,6 @@
 {
   "id": "2",
+  "order": "1",
   "title": "Discovering Supernovae",
   "slug": "discovering-supernovae/",
   "previous": {"title": "Introduction", "link": "/introduction/"},

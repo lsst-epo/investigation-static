@@ -1,5 +1,6 @@
 {
   "id": "20",
+  "order": "4",
   "title": "Decribing Light Curves",
   "slug": "describe-light-curve/",
   "previous": {"title": "Blinking Supernovae", "link": "/blinking-supernovae/"},
