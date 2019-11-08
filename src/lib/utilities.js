@@ -165,3 +165,12 @@ export const getUnit = function(accessor) {
 
   return '';
 };
+
+export const addTheCommas = function(num) {
+  if (typeof num !== 'string') {
+    const arrNum = num.toString().split('.');
+    const withCommas = arrNum[0].split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
+    return arrNum[1] ? [withCommas, arrNum[1]].join('.') : withCommas;
+  }
+  return num;
+};

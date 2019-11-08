@@ -1,0 +1,55 @@
+// // Text Input QAs
+// // --------------------------------------------------------
+
+:global {
+  .md-text-field-container {
+    &:not(.answerable) {
+      label,
+      .md-floating-label,
+      .md-floating-label p {
+        color: $neutral20;
+      }
+
+      hr {
+        background-color: $neutral20;
+      }
+    }
+  }
+
+  .qa-card {
+    margin: -20px;
+    margin-right: 0;
+    font-size: 15px;
+    font-weight: $medium;
+
+    .md-card-text {
+      padding: 16px 0;
+    }
+  }
+
+  .inline-question {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    .margin-right-text {
+      margin-right: 3px;
+    }
+  }
+
+  .calculated-measurement {
+
+    // @include
+    input {
+      padding-left: 20px;
+    }
+  }
+
+  .underline-hightlight {
+    display: inline-block;
+    min-width: 40%;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #333;
+  }
+}

@@ -3,7 +3,6 @@
   @include react-md-lists;
 
   .md-drawer {
-    // .md-toolbar {}
     .md-list.md-list--drawer {
       .md-subheader {
         padding-left: 1rem;
@@ -28,7 +27,6 @@
 
 
 .table-of-contents {
-  // some content
   z-index: 14;
   padding-top: $siteHeaderHeight;
 }

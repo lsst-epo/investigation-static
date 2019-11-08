@@ -86,3 +86,39 @@
   margin: $minPadding 0 0;
   border: 0;
 }
+
+// arithemtic stylings
+//---------------------------------------------------------
+
+// fractions and exponents
+@mixin exponent {
+  flex-flow: row nowrap;
+  font-size: 74%;
+
+  .denominator {
+    width: auto;
+    margin-left: 3px;
+    text-align: left;
+    border-top: 0;
+
+    &::before {
+      content: ' / ';
+    }
+  }
+}
+@mixin fraction {
+  display: inline-flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 80%;
+  line-height: 1.5;
+  transform: translateY(-10px);
+
+  // .numerator {}
+  .denominator {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid $neutral30;
+  }
+}

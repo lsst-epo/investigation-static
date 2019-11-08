@@ -1,59 +1,32 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import QAExpansionList from './questions/qaExpansionList/index.jsx';
 import QATextInput from './questions/qaTextInput';
 import QASelect from './questions/qaSelect';
+import DistanceCalculator from './questions/qaCalculators/distanceCalculator';
 import Prompt from './questions/Prompt';
+
+const questions = {
+  accordion: QAExpansionList,
+  text: QATextInput,
+  textArea: QATextInput,
+  select: QASelect,
+  compoundSelect: QASelect,
+  'inline-select': QASelect,
+  DistanceCalculator,
+  prompt: Prompt,
+};
 
 class QA extends React.PureComponent {
   renderQA() {
-    const {
-      questionType,
-      question,
-      answer,
-      answerHandler,
-      editHandler,
-      saveHandler,
-      activeId,
-    } = this.props;
+    const { questionType, answerHandler } = this.props;
 
-    if (questionType === 'accordion') {
+    if (questionType) {
+      const QuestionComponent = questions[questionType];
       return (
-        <QAExpansionList
-          activeId={activeId}
-          question={question}
-          answer={answer}
-          cancelHandler={answerHandler}
-          saveHandler={saveHandler}
-          editHandler={editHandler}
-        />
+        <QuestionComponent {...this.props} handleAnswerSelect={answerHandler} />
       );
-    }
-
-    if (questionType === 'text' || questionType === 'textArea') {
-      return (
-        <QATextInput
-          activeId={activeId}
-          question={question}
-          answer={answer}
-          answerHandler={answerHandler}
-        />
-      );
-    }
-
-    if (questionType === 'select' || questionType === 'inline-select') {
-      return (
-        <QASelect
-          activeId={activeId}
-          question={question}
-          answer={answer}
-          handleAnswerSelect={answerHandler}
-        />
-      );
-    }
-
-    if (questionType === 'prompt') {
-      return <Prompt question={question} />;
     }
 
     return <div>Question Placeholder</div>;
@@ -66,12 +39,7 @@ class QA extends React.PureComponent {
 
 QA.propTypes = {
   questionType: PropTypes.string,
-  question: PropTypes.object,
-  answer: PropTypes.object,
-  activeId: PropTypes.string,
   answerHandler: PropTypes.func,
-  saveHandler: PropTypes.func,
-  editHandler: PropTypes.func,
 };
 
 export default QA;

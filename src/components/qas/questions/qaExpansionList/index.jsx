@@ -14,8 +14,8 @@ class QAExpansionList extends React.PureComponent {
     const {
       question,
       answer,
+      answerHandler: cancelHandler,
       activeId,
-      cancelHandler,
       saveHandler,
       editHandler,
     } = this.props;
@@ -43,7 +43,7 @@ QAExpansionList.propTypes = {
   question: PropTypes.object,
   answer: PropTypes.object,
   activeId: PropTypes.string,
-  cancelHandler: PropTypes.func,
+  answerHandler: PropTypes.func,
   saveHandler: PropTypes.func,
   editHandler: PropTypes.func,
 };
