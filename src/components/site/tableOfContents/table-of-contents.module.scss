@@ -4,22 +4,23 @@
 
   .md-drawer {
     // .md-toolbar {}
-    .md-list {
-      &.md-list--drawer {
-        .md-subheader {
+    .md-list.md-list--drawer {
+      .md-subheader {
+        padding-left: 1rem;
+      }
+
+      .md-list-item {
+        .md-fake-btn {
           padding-left: 1rem;
-        }
-        .md-list-item {
-          a:not([type='button']) {
-            padding-left: 1rem;
-            &:hover {
-              text-decoration: none;
-            }
+
+          &:hover {
+            text-decoration: none;
           }
         }
       }
     }
   }
+
   .md-overlay.md-overlay--drawer {
     z-index: 13;
   }
@@ -28,6 +29,6 @@
 
 .table-of-contents {
   // some content
-  padding-top: $siteHeaderHeight;
   z-index: 14;
+  padding-top: $siteHeaderHeight;
 }

@@ -47,6 +47,27 @@ export const renderDef = function(def) {
   return { __html: def };
 };
 
+export const mjdToUTC = function(mjd, format) {
+  const millis = mjd * 86400000 - 3506716800000;
+  const gd = new Date(millis);
+  const month = gd.getUTCMonth();
+  const day = gd.getUTCDate();
+  const hours = gd.getUTCHours().toString();
+  const minutes = gd.getUTCMinutes().toString();
+  const abvYear = gd
+    .getUTCFullYear()
+    .toString()
+    .slice(-2);
+  const time = `${hours.length < 2 ? 0 + hours : hours}:${
+    minutes.length < 2 ? 0 + minutes : minutes
+  }`;
+  const date = `${month}/${day}/${abvYear}`;
+  return {
+    MDY: `${date}`,
+    MDYT: `${date} ${time} (UTC)`,
+  }[format || 'MDY'];
+};
+
 export const formatValue = function(number, decimalPlaces) {
   return Number.parseFloat(Number.parseFloat(number).toFixed(decimalPlaces));
 };
@@ -97,27 +118,16 @@ export const getSunAnswer = function(accessor) {
 };
 
 export const getValue = function(accessor, data) {
-  if (accessor === 'luminosity') {
-    return formatValue(data, 2);
-  }
-
-  if (accessor === 'radius') {
-    return formatValue(data, 2);
-  }
-
-  if (accessor === 'mass') {
-    return formatValue(data, 2);
-  }
-
-  if (accessor === 'lifetime') {
-    return formatValue(data / 1000000000, 2);
-  }
-
-  if (accessor === 'temperature') {
-    return formatValue(data, 0);
-  }
-
-  return data;
+  return (
+    {
+      luminosity: formatValue(data, 2),
+      radius: formatValue(data, 2),
+      mass: formatValue(data, 2),
+      lifetime: formatValue(data / 1000000000, 2),
+      temperature: formatValue(data, 0),
+      date: mjdToUTC(data, 'MDYT'),
+    }[accessor] || data
+  );
 };
 
 export const getSymbol = function(accessor) {

@@ -4,12 +4,9 @@ import { select as d3Select } from 'd3-selection';
 import 'd3-transition';
 import { capitalize, extentFromSet, getValue } from '../../../lib/utilities.js';
 import StellarUnit from './StellarUnit';
+// import StellarUnit from './Stellarunit';
 
 class Tooltip extends React.PureComponent {
-  static defaultProps = {
-    graph: 'scatter',
-  };
-
   constructor(props) {
     super(props);
 
@@ -76,10 +73,10 @@ class Tooltip extends React.PureComponent {
 
   renderValue(accessor, data) {
     return (
-      <React.Fragment>
+      <>
         <span>{getValue(accessor, data)}</span>
         <StellarUnit type={accessor} />
-      </React.Fragment>
+      </>
     );
   }
 
@@ -87,18 +84,18 @@ class Tooltip extends React.PureComponent {
     const minMax = extentFromSet(data, accessor);
 
     return (
-      <React.Fragment>
+      <>
         {this.renderValue(accessor, minMax[0])}
         {` – `}
         {this.renderValue(accessor, minMax[1])}
-      </React.Fragment>
+      </>
     );
   }
 
-  renderAccessor(accessor, data) {
+  renderAccessor(accessor, label, data) {
     return (
-      <div className="value-row">
-        <span>{capitalize(accessor)}: </span>
+      <div className="value-row" key={accessor}>
+        <span>{label || capitalize(accessor)}: </span>
         {data.length > 1 && this.renderRange(accessor, data)}
         {data.length === 1 && this.renderValue(accessor, data[0][accessor])}
       </div>
@@ -106,32 +103,41 @@ class Tooltip extends React.PureComponent {
   }
 
   render() {
-    const { data, accessors } = this.props;
+    const { data, accessors, labels } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         {data && (
           <div ref={this.el} style={{ opacity: 0 }} className="tooltip">
             {data.length > 1 && (
               <div className="value-row">{data.length} stars</div>
             )}
-            {accessors.map(accessor => {
-              return this.renderAccessor(accessor, data);
+            {accessors.map((accessor, i) => {
+              if (labels) {
+                return this.renderAccessor(accessor, labels[i], data);
+              }
+
+              return this.renderAccessor(accessor, null, data);
             })}
           </div>
         )}
-      </React.Fragment>
+      </>
     );
   }
 }
 
+Tooltip.defaultProps = {
+  graph: 'scatter',
+};
+
 Tooltip.propTypes = {
   graph: PropTypes.string,
-  data: PropTypes.object,
+  data: PropTypes.array,
   posX: PropTypes.number,
   posY: PropTypes.number,
   show: PropTypes.bool,
   accessors: PropTypes.array,
+  labels: PropTypes.array,
 };
 
 export default Tooltip;
