@@ -1,7 +1,7 @@
 {
   "id": "20",
   "order": "04",
-  "title": "Decribing Light Curves",
+  "title": "Describing Light Curves",
   "slug": "describe-light-curve/",
   "previous": {"title": "Blinking Supernovae", "link": "/blinking-supernovae/"},
   "next": {"title": "Observing Supernovae ", "link": "/observing-supernovae/"},

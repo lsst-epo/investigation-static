@@ -1,0 +1,22 @@
+:global {
+  .equation--container {
+    margin-bottom: 20px;
+
+    .equation {
+      font-size: 17px;
+      font-weight: $medium;
+    }
+  }
+
+  .color {
+    color: $basePrimary;
+  }
+
+  .fraction {
+    @include fraction;
+
+    &.exponent {
+      @include exponent;
+    }
+  }
+}
