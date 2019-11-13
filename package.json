@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "supernovae-investigation",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Educational Investigation about Supernovae",
+  "version": "0.0.1",
+  "author": "LSST EPO",
   "dependencies": {
     "d3": "^5.12.0",
     "dotenv": "^8.2.0",
@@ -63,9 +63,8 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest --updateSnapshot --verbose"
   },
