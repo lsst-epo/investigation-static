@@ -12,41 +12,31 @@ class SupernovaSelectorContainer extends React.PureComponent {
     super(props);
 
     this.state = {
-      activeId: null,
-      activeIndex: 0,
+      activeImageIndex: 0,
+      activeAlertId: null,
+      data: [{ id: 'ZTF19abqmpsr', band: 'r', x: 600, y: 600 }],
     };
   }
 
-  logData = d => {
+  selectionCallback = d => {
     console.log(d ? `${d[0].id} is selected` : 'no selection');
   };
 
-  // nextActive(images) {
-  //   const { activeIndex: currentIndex } = this.state;
-  //   const nextIndex = currentIndex + 1;
-  //   const activeIndex = nextIndex < images.length ? nextIndex : 0;
-  //   const activeId = this.getNameFromImage(images[activeIndex]);
-  //   this.setState(prevState => ({
-  //     ...prevState,
-  //     activeId,
-  //     activeIndex,
-  //   }));
-  // }
-
-  // previousActive(images) {
-  //   const { activeIndex: currentIndex } = this.state;
-  //   const nextIndex = currentIndex + 1;
-  //   const activeIndex = nextIndex < 0 ? nextIndex : images.length - 1;
-  //   const activeId = this.getNameFromImage(images[activeIndex]);
-  //   this.setState(prevState => ({
-  //     ...prevState,
-  //     activeId,
-  //     activeIndex,
-  //   }));
-  // }
+  onAlertChange = update => {
+    this.setState(
+      prevState => ({
+        ...prevState,
+        ...update,
+      }),
+      () => {
+        const { activeAlertId } = this.state;
+        console.log(activeAlertId);
+      }
+    );
+  };
 
   render() {
-    const { activeId, activeIndex } = this.state;
+    const { activeAlertId, activeImageIndex, data } = this.state;
     const {
       data: { name, band },
       images,
@@ -58,11 +48,12 @@ class SupernovaSelectorContainer extends React.PureComponent {
           className={`supernova-selector-${name} ${band}-band`}
           name={name}
           band={band}
-          data={[{ id: 'ZTF19abqmpsr', band: 'r', x: 600, y: 600 }]}
+          data={data}
           images={images}
-          selectionCallback={this.logData}
-          activeId={activeId}
-          activeIndex={activeIndex}
+          selectionCallback={this.selectionCallback}
+          blinkCallback={this.onAlertChange}
+          activeAlertId={activeAlertId}
+          activeImageIndex={activeImageIndex}
         />
       </div>
     );
