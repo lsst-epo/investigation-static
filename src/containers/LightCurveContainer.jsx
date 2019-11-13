@@ -30,7 +30,7 @@ LightCurveContainer.propTypes = {
 export default props => (
   <StaticQuery
     query={graphql`
-      query SupernovaQuery {
+      query LightCurveQuery {
         allSupernovaeJson(filter: { name: { eq: "ZTF19abqmpsr" } }) {
           nodes {
             band

@@ -1,0 +1,38 @@
+.blink-container, .blink-image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &.active {
+    background: blue;
+  }
+}
+
+.blinker-image {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.supernova-selector {
+  position: relative;
+  z-index: 1;
+}
+
+
+.supernova {
+  @include dataPoint;
+  fill: transparent;
+  transition: fill $timing $duration;
+
+  &.selected {
+    stroke: pink;
+    stroke-width: 2;
+  }
+}

@@ -81,6 +81,19 @@
 }
 
 
+// Graphs/Svgs
+// --------------------------------------------------------
+
+@mixin dataPoint {
+  cursor: pointer;
+  transition: fill $durationSlow $timing;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+
 // Images
 // --------------------------------------------------------
 .hero-image {
