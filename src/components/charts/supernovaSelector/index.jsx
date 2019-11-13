@@ -6,12 +6,10 @@ import { select as d3Select, event as d3Event } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
-import Button from '../../site/button';
-import ArrowLeft from '../../site/icons/ArrowLeft';
-import ArrowRight from '../../site/icons/ArrowRight';
-import More from '../../site/icons/More';
 import { arrayify } from '../../../lib/utilities.js';
+import { getNameFromImage } from './supernovaSelectorUtilities.js';
 import Blinker from './Blinker';
+import BlinkerControls from './BlinkerControls';
 import Points from './Points';
 import Legend from '../shared/Legend';
 import styles from './styles.module.scss';
@@ -29,13 +27,16 @@ class SupernovaSelector extends React.Component {
         .domain(props.yDomain)
         .range([props.height - props.padding, 0]),
       selectedData: null,
+      playing: false,
     };
 
     this.svgEl = React.createRef();
+    this.blinkerInterval = null;
   }
 
   componentDidMount() {
     this.updateScatterPlot();
+    this.startBlink();
   }
 
   componentDidUpdate(prevProps) {
@@ -44,6 +45,10 @@ class SupernovaSelector extends React.Component {
     if (prevProps.data !== data) {
       this.updateScatterPlot();
     }
+  }
+
+  componentWillUnmount() {
+    this.stopBlink();
   }
 
   toggleSelection(d) {
@@ -64,6 +69,90 @@ class SupernovaSelector extends React.Component {
       }
     );
   }
+
+  getBlink(images, direction = 0) {
+    const { activeImageIndex: currentIndex } = this.props;
+    const index = currentIndex + direction;
+    const lastIndex = images.length - 1;
+    let activeImageIndex = index;
+
+    if (index > lastIndex) {
+      activeImageIndex = 0;
+    }
+
+    if (index < 0) {
+      activeImageIndex = lastIndex;
+    }
+
+    const activeAlertId = getNameFromImage(images[activeImageIndex]);
+    return { activeAlertId, activeImageIndex };
+  }
+
+  startBlink() {
+    const { images } = this.props;
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        playing: true,
+      }),
+      () => {
+        this.blinkerInterval = setInterval(() => {
+          this.nextBlink(images);
+        }, 200);
+      }
+    );
+  }
+
+  stopBlink() {
+    const { playing } = this.state;
+
+    if (playing) {
+      this.setState(
+        prevState => ({
+          ...prevState,
+          playing: false,
+        }),
+        () => {
+          clearInterval(this.blinkerInterval);
+        }
+      );
+    }
+  }
+
+  nextBlink(images) {
+    const { blinkCallback } = this.props;
+    blinkCallback(this.getBlink(images, 1));
+  }
+
+  previousBlink(images) {
+    const { blinkCallback } = this.props;
+    blinkCallback(this.getBlink(images, -1));
+  }
+
+  startStopBlink = () => {
+    const { playing } = this.state;
+
+    if (playing) {
+      this.stopBlink();
+    } else {
+      this.startBlink();
+    }
+  };
+
+  onNextBlink = () => {
+    const { images } = this.props;
+
+    this.stopBlink();
+    this.nextBlink(images, this.stopBlink);
+  };
+
+  onPreviousBlink = () => {
+    const { images } = this.props;
+
+    this.stopBlink();
+    this.previousBlink(images);
+  };
 
   // add event listeners to Scatterplot and Points
   addEventListeners() {
@@ -142,20 +231,21 @@ class SupernovaSelector extends React.Component {
 
   render() {
     const {
-      activeId,
       data,
       width,
       height,
       images,
-      preSelected,
+      // preSelected,
       multiple,
-      selection,
+      // selection,
       xValueAccessor,
       yValueAccessor,
       legend,
       name,
+      activeAlertId,
     } = this.props;
-    const { xScale, yScale, loading, selectedData } = this.state;
+
+    const { xScale, yScale, loading, selectedData, playing } = this.state;
 
     const svgClasses = classnames('svg-chart', styles.supernovaSelector, {
       loading,
@@ -211,13 +301,14 @@ class SupernovaSelector extends React.Component {
               />
             )}
           </svg>
-          <Blinker images={images} activeId={activeId} />
+          <Blinker images={images} activeId={activeAlertId} />
         </div>
-        <div className="controls">
-          <Button icon iconEl={<ArrowLeft />} />
-          <Button icon iconEl={<More />} />
-          <Button icon iconEl={<ArrowRight />} />
-        </div>
+        <BlinkerControls
+          playing={playing}
+          handleStartStop={this.startStopBlink}
+          handleNext={this.onNextBlink}
+          handlePrevious={this.onPreviousBlink}
+        />
       </>
     );
   }
@@ -239,8 +330,9 @@ SupernovaSelector.propTypes = {
   padding: PropTypes.number,
   data: PropTypes.array,
   images: PropTypes.array,
-  activeId: PropTypes.string,
-  selection: PropTypes.array,
+  activeAlertId: PropTypes.string,
+  activeImageIndex: PropTypes.number,
+  // selection: PropTypes.array,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
   xDomain: PropTypes.array,
@@ -250,6 +342,7 @@ SupernovaSelector.propTypes = {
   legend: PropTypes.node,
   name: PropTypes.string,
   selectionCallback: PropTypes.func,
+  blinkCallback: PropTypes.func.isRequired,
 };
 
 export default SupernovaSelector;
