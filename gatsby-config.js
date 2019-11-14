@@ -43,7 +43,7 @@ module.exports = {
     },
     {
       resolve: `@danbruegge/gatsby-plugin-stylelint`,
-      options: { files: ['**/*.{css,scss}'] },
+      options: { configFile: './.stylelintrc', files: ['**/*.{css,scss}'] },
     },
     {
       resolve: 'gatsby-plugin-eslint',
