@@ -1,32 +1,58 @@
 :global {
-  @include react-md-drawers;
-  @include react-md-lists;
+    @include react-md-drawers;
+    @include react-md-lists;
 
-  .md-drawer {
-    .md-list.md-list--drawer {
-      .md-subheader {
-        padding-left: 1rem;
-      }
+    .md-drawer {
+        // .md-toolbar {}
+        .md-list.md-list--drawer {
+            .md-subheader {
+                padding-left: 1rem;
+            }
 
-      .md-list-item {
-        .md-fake-btn {
-          padding-left: 1rem;
+            .md-list-item {
 
-          &:hover {
-            text-decoration: none;
-          }
+				.md-list-tile {
+					transition: background-color $durationSlow $timing;
+					.md-text {
+						transition: color $duration $timing;
+					}
+				}
+
+				.md-text-theme-primary,
+				.md-text {
+					color: $basePrimary;
+					font-size: 14px;
+					font-weight: $medium;
+				}
+				
+                &:hover .md-list-tile--active,
+                &.link-active {
+					background-color: $basePrimary;
+
+					.md-text--theme-primary,
+					.md-text {
+						color: $protonWhite;
+					}
+                }
+                .md-fake-btn {
+                    padding-left: 1rem;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  .md-overlay.md-overlay--drawer {
-    z-index: 13;
-  }
+    .md-overlay.md-overlay--drawer {
+        z-index: 13;
+    }
 }
 
-
 .table-of-contents {
-  z-index: 14;
-  padding-top: $siteHeaderHeight;
+    // some content
+    z-index: 14;
+    padding-top: $siteHeaderHeight;
+    padding-bottom: $minPadding;
 }
