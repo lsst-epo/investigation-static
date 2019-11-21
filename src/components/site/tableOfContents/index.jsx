@@ -3,6 +3,7 @@ import React from 'react';
 import reactn from 'reactn';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { Drawer } from 'react-md';
 import styles from './table-of-contents.module.scss';
 
@@ -41,6 +42,10 @@ class TableOfContents extends React.PureComponent {
         to: `${this.TO_PREFIX}${link.slug}`,
         primaryText: link.title,
         active: this.setActivePage(link.id),
+        className: classnames(
+          'toc-link',
+          this.setActivePage(link.id) ? 'link-active' : ''
+        ),
       };
     });
   };
