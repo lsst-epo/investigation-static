@@ -13,6 +13,15 @@
 
 				.md-list-tile {
 					transition: background-color $durationSlow $timing;
+
+					.md-tile-addon--icon svg {
+						fill: transparent;
+					}
+
+					.md-tile-content--left-icon{
+						padding-left: 15px;
+					}
+
 					.md-text {
 						transition: color $duration $timing;
 					}
@@ -25,10 +34,30 @@
 					font-weight: $medium;
 				}
 				
+				&.qa-progress--complete {
+					.md-list-tile {
+						.md-tile-addon--icon svg {
+							fill: $basePrimary;
+						}
+					}
+
+					&:hover,
+					&.link-active {
+						.md-list-tile {
+							.md-tile-addon--icon svg {
+								fill: $protonWhite;
+							}
+						}
+					}
+				}
+				
                 &:hover .md-list-tile--active,
                 &.link-active {
 					background-color: $basePrimary;
 
+					// .md-tile-addon--icon svg {
+					// 	fill: $basePrimary;
+					// }
 					.md-text--theme-primary,
 					.md-text {
 						color: $protonWhite;
@@ -53,6 +82,6 @@
 .table-of-contents {
     // some content
     z-index: 14;
-    padding-top: $siteHeaderHeight;
+    padding-top: calc(#{$siteHeaderHeight} + 10px);
     padding-bottom: $minPadding;
 }
