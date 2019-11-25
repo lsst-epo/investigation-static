@@ -2,7 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-danger */
 import React from 'react';
-import { CardText } from 'react-md';
+import { CardText, CardActions } from 'react-md';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
@@ -31,6 +31,7 @@ class DistanceCalculator extends React.PureComponent {
 
     this.state = {
       value: undefined,
+      cardActive: false,
       hasFocus: false,
       answerable: false,
       peakMagnitude: null,
@@ -102,7 +103,8 @@ class DistanceCalculator extends React.PureComponent {
     this.updateCalculatedMeasurements(value);
   };
 
-  handleBlur = () => {
+  handleBlur = e => {
+    // console.log(e.target);
     // TODO: Toggle expander onExpanderClick() to close
     const { question, answerHandler } = this.props;
     const { id } = question;
@@ -129,12 +131,14 @@ class DistanceCalculator extends React.PureComponent {
       ...prevState,
       value,
       hasFocus: true,
+      // cardActive: true,
     }));
   };
 
   render() {
     const { question, answer, activeId } = this.props;
     const {
+      // cardActive,
       hasFocus,
       answerable,
       peakMagnitude,
@@ -149,7 +153,9 @@ class DistanceCalculator extends React.PureComponent {
     const isTextArea = questionType === 'textArea';
     const active = activeId === id;
     const answered = !isEmpty(answer);
-    const cardClasses = classnames('qa-card', { active: hasFocus });
+    const cardClasses = classnames('qa-card', {
+      active: hasFocus /* || cardActive */,
+    });
     const fieldClasses = classnames('qa-text-input', {
       answered,
       unanswered: !answered,
@@ -157,7 +163,11 @@ class DistanceCalculator extends React.PureComponent {
     });
 
     return (
-      <Card className={cardClasses}>
+      <Card
+        className={cardClasses}
+        expanded={hasFocus}
+        onExpanderClick={() => {}}
+      >
         <CardText>
           <div className="inline-question">
             <TextField
@@ -178,7 +188,8 @@ class DistanceCalculator extends React.PureComponent {
             />
           </div>
         </CardText>
-        <CardText>
+        <CardActions expander style={{ display: 'none' }} />
+        <CardText expandable>
           <Equation
             component="FindDistanceModulus"
             solution="DM"
