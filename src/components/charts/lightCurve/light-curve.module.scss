@@ -1,0 +1,25 @@
+.light-curve {
+  width: 100%;
+  height: auto;
+}
+
+.data-point {
+  stroke: 'transparent';
+  transition: stroke $timing $duration, opacity $timing $duration;
+
+  &.selected, &.hovered {
+    stroke: pink;
+  }
+
+  &.invisible-data-point {
+    opacity: 0;
+  }
+
+  &.visible-data-point {
+    opacity: 1;
+  }
+}
+
+.proxy-point {
+  stroke: $black;
+}

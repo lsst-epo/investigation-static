@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
+import find from 'lodash/find';
 import { select as d3Select, event as d3Event } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
@@ -35,8 +36,12 @@ class SupernovaSelector extends React.Component {
   }
 
   componentDidMount() {
+    const { autoplay } = this.props;
     this.updateScatterPlot();
-    this.startBlink();
+
+    if (autoplay) {
+      this.startBlink();
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -70,8 +75,16 @@ class SupernovaSelector extends React.Component {
     );
   }
 
+  getAlertFromImageId(imageId, alerts) {
+    const newAlert = find(alerts, alert => {
+      return imageId === alert.image_id;
+    });
+
+    return newAlert;
+  }
+
   getBlink(images, direction = 0) {
-    const { activeImageIndex: currentIndex } = this.props;
+    const { activeImageIndex: currentIndex, alerts } = this.props;
     const index = currentIndex + direction;
     const lastIndex = images.length - 1;
     let activeImageIndex = index;
@@ -84,8 +97,9 @@ class SupernovaSelector extends React.Component {
       activeImageIndex = lastIndex;
     }
 
-    const activeAlertId = getNameFromImage(images[activeImageIndex]);
-    return { activeAlertId, activeImageIndex };
+    const activeImageId = getNameFromImage(images[activeImageIndex]);
+    const activeAlert = this.getAlertFromImageId(activeImageId, alerts);
+    return { activeImageId, activeImageIndex, activeAlert };
   }
 
   startBlink() {
@@ -242,7 +256,7 @@ class SupernovaSelector extends React.Component {
       yValueAccessor,
       legend,
       name,
-      activeAlertId,
+      activeImageId,
     } = this.props;
 
     const { xScale, yScale, loading, selectedData, playing } = this.state;
@@ -301,7 +315,7 @@ class SupernovaSelector extends React.Component {
               />
             )}
           </svg>
-          <Blinker images={images} activeId={activeAlertId} />
+          <Blinker images={images} activeId={activeImageId} />
         </div>
         <BlinkerControls
           playing={playing}
@@ -329,8 +343,9 @@ SupernovaSelector.propTypes = {
   height: PropTypes.number,
   padding: PropTypes.number,
   data: PropTypes.array,
+  alerts: PropTypes.array,
   images: PropTypes.array,
-  activeAlertId: PropTypes.string,
+  activeImageId: PropTypes.string,
   activeImageIndex: PropTypes.number,
   // selection: PropTypes.array,
   xValueAccessor: PropTypes.string,
@@ -341,6 +356,7 @@ SupernovaSelector.propTypes = {
   multiple: PropTypes.bool,
   legend: PropTypes.node,
   name: PropTypes.string,
+  autoplay: PropTypes.bool,
   selectionCallback: PropTypes.func,
   blinkCallback: PropTypes.func.isRequired,
 };

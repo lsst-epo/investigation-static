@@ -1,8 +1,7 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable react/no-danger, react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import QAs from '../qas';
-import Placeholder from '../placeholder';
 import { renderDef } from '../../lib/utilities.js';
 
 class TwoCol extends React.PureComponent {
@@ -10,12 +9,15 @@ class TwoCol extends React.PureComponent {
     const {
       title,
       content,
+      widget,
+      image,
       questions,
       answers,
       activeId,
       answerHandler,
       setActive,
       advanceActive,
+      MediaTag,
     } = this.props;
 
     return (
@@ -37,7 +39,7 @@ class TwoCol extends React.PureComponent {
           </section>
         </div>
         <div className="col padded col-width-50 col-fixed">
-          <Placeholder />
+          <MediaTag questions={questions} {...widget} {...image} />
         </div>
       </div>
     );
@@ -49,6 +51,9 @@ export default TwoCol;
 TwoCol.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
+  MediaTag: PropTypes.func,
+  image: PropTypes.string,
+  widget: PropTypes.object,
   questions: PropTypes.array,
   answers: PropTypes.object,
   activeId: PropTypes.string,

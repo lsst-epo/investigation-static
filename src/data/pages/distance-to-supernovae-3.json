@@ -5,7 +5,7 @@
   "slug": "distance-to-supernovae-3/",
   "previous": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-2/"},
   "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-4/"},
-  "layout": "two-col",
+  "layout": "TwoCol",
   "questionsByPage": [
     {
       "question": [

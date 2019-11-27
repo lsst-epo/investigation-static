@@ -5,7 +5,16 @@
   "slug": "identifying-supernovae-types-1/",
   "previous": {"title": "Classifying Supernovae Light Curves", "link": "/classifying-supernovae-light-curves/"},
   "next": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-2/"},
-  "layout": "two-col",
+  "layout": "TwoCol",
+  "widget": {
+    "type": "SupernovaSelectorWithLightCurve",
+    "source": "ZTF19abqmpsr",
+    "options": {
+      "showSelector": false,
+      "showLightCurve": true,
+      "autoplay": false
+    }
+  },
   "questionsByPage": [
     {
       "question": [

@@ -5,7 +5,7 @@
   "slug": "summary/",
   "previous": {"title": "Discuss & Report", "link": "/discuss-report/"},
   "next": {"title": "", "link": ""},
-  "layout": "two-col",
+  "layout": "TwoCol",
   "questionsByPage": [
     {
       "question": [

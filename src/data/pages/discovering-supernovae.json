@@ -5,21 +5,6 @@
   "slug": "discovering-supernovae/",
   "previous": {"title": "Introduction", "link": "/introduction/"},
   "next": {"title": "Blinking Supernovae", "link": "/blinking-supernovae/"},
-  "layout": "two-col",
-  "content": "<p>The picture below shows a supernova that exploded in the nearby galaxy M101. The supernova is marked with a green arrow. Notice that it is bright compared to the other stars in the galaxy, but how can we know if it’s a supernova? The answer is, with this picture alone, we can’t!</p><p>Astronomers find supernovae by comparing two or more images of the same region in the sky and looking for differences. Since supernovae are exploding stars, and stars are generally found in galaxies, they can search for supernovae by comparing images of the same galaxy taken at different times (a technique called “blinking”). Once astronomers find a supernova, they take as many images as possible over a period of months to study how it changes. Since LSST will take a new image of the sky every three to four nights, it has a much greater ability to detect more changes in the sky such as supernovae than other telescopes.</p>",
-  "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "50",
-          "questionType": "accordion",
-          "tool": "selection",
-          "title": "Question #1",
-          "label": "<p>Click on a point on the Image to select the supernova</p>",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    }
-  ]
+  "layout": "TwoCol",
+  "content": "<p>The picture below shows a supernova that exploded in the nearby galaxy M101. The supernova is marked with a green arrow. Notice that it is bright compared to the other stars in the galaxy, but how can we know if it’s a supernova? The answer is, with this picture alone, we can’t!</p><p>Astronomers find supernovae by comparing two or more images of the same region in the sky and looking for differences. Since supernovae are exploding stars, and stars are generally found in galaxies, they can search for supernovae by comparing images of the same galaxy taken at different times (a technique called “blinking”). Once astronomers find a supernova, they take as many images as possible over a period of months to study how it changes. Since LSST will take a new image of the sky every three to four nights, it has a much greater ability to detect more changes in the sky such as supernovae than other telescopes.</p>"
 }

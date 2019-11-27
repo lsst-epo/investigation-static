@@ -1,8 +1,11 @@
+/* eslint-disable react/no-danger */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import includes from 'lodash/includes';
 import StellarValue from '../../charts/shared/StellarValue';
 import StellarValueRange from '../../charts/shared/StellarValueRange';
+import { renderDef } from '../../../lib/utilities.js';
 
 class FormattedAnswer extends React.PureComponent {
   render() {
@@ -10,7 +13,12 @@ class FormattedAnswer extends React.PureComponent {
 
     return (
       <>
-        {pre && <span className="answer-pre">{pre} </span>}
+        {pre && (
+          <span
+            className="answer-pre"
+            dangerouslySetInnerHTML={renderDef(pre)}
+          />
+        )}
         {includes(type, 'range') ? (
           <span className="answer-content">
             <StellarValueRange type={type.split(' range')[0]} data={body} />

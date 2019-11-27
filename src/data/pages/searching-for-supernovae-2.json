@@ -5,8 +5,17 @@
   "slug": "searching-for-supernovae-2/",
   "previous": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-1/"},
   "next": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-3/"},
-  "layout": "two-col",
+  "layout": "SingleCol",
   "content": "<p>Use the arrow buttons to blink through the images. When you find the supernova, click on its location in the image.</p><p>You can determine the type of supernova by overlaying supernovae light curve templates.</p>",
+  "widget": {
+    "type": "SupernovaSelectorWithLightCurve",
+    "source": "ZTF19abqmpsr",
+    "options": {
+      "showSelector": true,
+      "showLightCurve": true,
+      "autoplay": false
+    }
+  },
   "questionsByPage": [
     {
       "question": [
