@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import includes from 'lodash/includes';
 import classnames from 'classnames';
 import Point from './Point.jsx';
+import styles from './light-curve.module.scss';
 
 class Points extends React.PureComponent {
   render() {
@@ -26,13 +27,16 @@ class Points extends React.PureComponent {
           const hovered = includes(hoveredData, d);
           const yVal = d[yValueAccessor];
           const xVal = d[xValueAccessor];
-          const classes = classnames(`data-point-${id} data-point`, {
-            [pointClasses]: pointClasses,
-            selected,
-            hovered,
-            'not-active':
-              (selectedData || hoveredData) && !selected && !hovered,
-          });
+          const classes = classnames(
+            `data-point-${id} data-point ${styles.dataPoint}`,
+            {
+              [pointClasses]: pointClasses,
+              [styles.selected]: selected,
+              [styles.hovered]: hovered,
+              'not-active':
+                (selectedData || hoveredData) && !selected && !hovered,
+            }
+          );
 
           return (
             <Point

@@ -53,25 +53,25 @@ class TextInput extends React.PureComponent {
     }));
   };
 
-  handleBlur = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      hasFocus: false,
-    }));
-  };
-
-  handleFocus = () => {
+  updateFocus(isFocus) {
     const { question, answerHandler } = this.props;
     const { id } = question;
     const { value } = this.state;
 
-    answerHandler(id, value || ' ', 'focus');
+    answerHandler(id, value || ' ', isFocus ? 'focus' : 'blur');
 
     this.setState(prevState => ({
       ...prevState,
-      value,
-      hasFocus: true,
+      hasFocus: isFocus,
     }));
+  }
+
+  handleBlur = () => {
+    this.updateFocus(false);
+  };
+
+  handleFocus = () => {
+    this.updateFocus(true);
   };
 
   render() {

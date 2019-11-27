@@ -112,7 +112,7 @@ class QASelect extends React.PureComponent {
             options={options}
             label={label || srLabel}
             name={label || srLabel}
-            value={answered ? answer.content : 'DEFAULT'}
+            value={answered ? answer.content || answer.data : 'DEFAULT'}
             handleBlur={this.handler}
             handleChange={this.handler}
             handleFocus={this.handler}

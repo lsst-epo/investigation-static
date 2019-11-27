@@ -18,8 +18,8 @@ class SupernovaSelectorContainer extends React.PureComponent {
     };
   }
 
-  selectionCallback = d => {
-    console.log(d ? `${d[0].id} is selected` : 'no selection');
+  selectionCallback = () => {
+    // console.log(d ? `${d[0].id} is selected` : 'no selection');
   };
 
   onAlertChange = update => {
@@ -29,8 +29,8 @@ class SupernovaSelectorContainer extends React.PureComponent {
         ...update,
       }),
       () => {
-        const { activeAlertId } = this.state;
-        console.log(activeAlertId);
+        // const { activeAlertId } = this.state;
+        // console.log(activeAlertId);
       }
     );
   };

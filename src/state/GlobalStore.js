@@ -7,6 +7,7 @@ class GlobalStore {
       questions: null,
       answers: {},
       pageId: null,
+      activeQuestionId: null,
       totalNumPages: 20,
       visitedPages: [],
       investigationProgress: 0,
@@ -17,8 +18,8 @@ class GlobalStore {
       userDefinedRegions: [],
     };
 
-    // const existingState = this.emptyState;
-    const existingState = ls('hrd') || this.emptyState;
+    const existingState = this.emptyState;
+    // const existingState = ls('hrd') || this.emptyState;
 
     setGlobal(existingState);
   }
@@ -61,6 +62,7 @@ class GlobalStore {
         },
       };
     });
+
     addReducer('clearAnswer', (global, dispatch, id) => {
       const { answers: prevAnswers } = global;
 
@@ -70,6 +72,13 @@ class GlobalStore {
           ...prevAnswers,
           [id]: {},
         },
+      };
+    });
+
+    addReducer('setActiveQuestionId', (global, dispatch, id) => {
+      return {
+        ...global,
+        activeQuestionId: id,
       };
     });
   }

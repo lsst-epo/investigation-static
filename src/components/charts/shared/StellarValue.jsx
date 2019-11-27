@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getValue } from '../../../lib/utilities.js';
-import StellarUnit from './StellarUnit';
+import Unit from './unit/index.jsx';
 
 class StellarValue extends React.PureComponent {
   render() {
@@ -14,7 +14,7 @@ class StellarValue extends React.PureComponent {
         {!isSvg && <span>{formattedValue}</span>}
         {isSvg && <tspan>{formattedValue}</tspan>}
         {/* eslint-disable no-restricted-globals */}
-        {!isNaN(formattedValue) && <StellarUnit type={type} isSvg={isSvg} />}
+        {!isNaN(formattedValue) && <Unit type={type} isSvg={isSvg} />}
         {/* eslint-enable no-restricted-globals */}
       </>
     );

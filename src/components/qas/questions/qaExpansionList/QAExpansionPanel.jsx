@@ -52,7 +52,7 @@ class QAExpansionPanel extends React.PureComponent {
           <Answer
             id={answer.id}
             pre={answerPre}
-            content={answer.content}
+            content={answer.content ? answer.content : answer.data}
             accessor={answerAccessor}
             showEditButton={!active && answered}
             editHandler={editHandler}

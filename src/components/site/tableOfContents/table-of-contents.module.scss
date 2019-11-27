@@ -28,25 +28,19 @@
 
         .md-text-theme-primary,
         .md-text {
-          color: $basePrimary;
           font-size: 14px;
           font-weight: $medium;
+          color: $basePrimary;
         }
 
         &.qa-progress--complete {
-          .md-list-tile {
-            .md-tile-addon--icon svg {
-              fill: $basePrimary;
-            }
+          .md-list-tile .md-tile-addon--icon svg {
+            fill: $basePrimary;
           }
 
           &:hover,
-          &.link-active {
-            .md-list-tile {
-              .md-tile-addon--icon svg {
-                fill: $protonWhite;
-              }
-            }
+          &.link-active .md-list-tile .md-tile-addon--icon svg {
+            fill: $protonWhite;
           }
         }
 
@@ -62,6 +56,7 @@
             color: $protonWhite;
           }
         }
+
         .md-fake-btn {
           padding-left: 1rem;
 

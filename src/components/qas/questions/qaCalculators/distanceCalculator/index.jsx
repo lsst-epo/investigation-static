@@ -103,7 +103,7 @@ class DistanceCalculator extends React.PureComponent {
     this.updateCalculatedMeasurements(value);
   };
 
-  handleBlur = e => {
+  handleBlur = () => {
     // console.log(e.target);
     // TODO: Toggle expander onExpanderClick() to close
     const { question, answerHandler } = this.props;

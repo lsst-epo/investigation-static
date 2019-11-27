@@ -5,8 +5,17 @@
   "slug": "describe-light-curve/",
   "previous": {"title": "Blinking Supernovae", "link": "/blinking-supernovae/"},
   "next": {"title": "Observing Supernovae ", "link": "/observing-supernovae/"},
-  "layout": "two-col",
+  "layout": "TwoCol",
   "content": "<p>Use this light curve to answer the following questions</p>",
+  "widget": {
+    "type": "SupernovaSelectorWithLightCurve",
+    "source": "ZTF19abqmpsr",
+    "options": {
+      "showSelector": false,
+      "showLightCurve": true,
+      "autoplay": false
+    }
+  },
   "questionsByPage": [
     {
       "question": [

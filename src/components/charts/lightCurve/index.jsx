@@ -8,7 +8,7 @@ import {
   event as d3Event,
   clientPoint as d3ClientPoint,
 } from 'd3-selection';
-import { zoom as d3Zoom } from 'd3-zoom';
+// import { zoom as d3Zoom } from 'd3-zoom';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
@@ -89,27 +89,27 @@ class LightCurve extends React.PureComponent {
     }
   }
 
-  rescale(transformEvent) {
-    const {
-      xDomain,
-      yDomain,
-      width,
-      height,
-      padding,
-      offsetTop,
-      offsetRight,
-    } = this.props;
+  // rescale(transformEvent) {
+  //   const {
+  //     xDomain,
+  //     yDomain,
+  //     width,
+  //     height,
+  //     padding,
+  //     offsetTop,
+  //     offsetRight,
+  //   } = this.props;
 
-    this.setState(prevState => ({
-      ...prevState,
-      xScale: transformEvent.rescaleX(
-        this.getXScale(xDomain, width, padding, offsetRight)
-      ),
-      yScale: transformEvent.rescaleY(
-        this.getYScale(yDomain, height, padding, offsetTop)
-      ),
-    }));
-  }
+  //   this.setState(prevState => ({
+  //     ...prevState,
+  //     xScale: transformEvent.rescaleX(
+  //       this.getXScale(xDomain, width, padding, offsetRight)
+  //     ),
+  //     yScale: transformEvent.rescaleY(
+  //       this.getYScale(yDomain, height, padding, offsetTop)
+  //     ),
+  //   }));
+  // }
 
   getXScale(domain, width, padding, offsetRight) {
     return d3ScaleLinear()
@@ -142,7 +142,7 @@ class LightCurve extends React.PureComponent {
   }
 
   toggleSelection(d) {
-    const { activeId, dataSelectionCallback } = this.props;
+    const { activeAlertId, dataSelectionCallback } = this.props;
     const { selectedData } = this.state;
     // const selectedPointId = this.getSelectedId(selectedData);
     const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
@@ -166,8 +166,8 @@ class LightCurve extends React.PureComponent {
       ...newState,
     }));
 
-    if (activeId && dataSelectionCallback) {
-      dataSelectionCallback(activeId, arrayify(d));
+    if (activeAlertId && dataSelectionCallback) {
+      dataSelectionCallback(activeAlertId, arrayify(d));
     }
   }
 
@@ -197,13 +197,13 @@ class LightCurve extends React.PureComponent {
     }));
   };
 
-  onZoom = () => {
-    this.rescale(d3Event.transform);
-  };
+  // onZoom = () => {
+  //   this.rescale(d3Event.transform);
+  // };
 
   // add event listeners to Scatterplot and Points
   addEventListeners() {
-    const { width, height, padding, offsetTop, offsetRight } = this.props;
+    // const { width, height, padding, offsetTop, offsetRight } = this.props;
     const $scatterplot = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
@@ -218,16 +218,16 @@ class LightCurve extends React.PureComponent {
       }
     });
 
-    const zoom = d3Zoom()
-      .translateExtent([
-        [padding, offsetTop],
-        [width - offsetRight, height - padding],
-      ])
-      .scaleExtent([1, 5])
-      .extent([[padding, offsetTop], [width - offsetRight, height - padding]])
-      .on('zoom', this.onZoom);
+    // const zoom = d3Zoom()
+    //   .translateExtent([
+    //     [padding, offsetTop],
+    //     [width - offsetRight, height - padding],
+    //   ])
+    //   .scaleExtent([1, 5])
+    //   .extent([[padding, offsetTop], [width - offsetRight, height - padding]])
+    //   .on('zoom', this.onZoom);
 
-    $scatterplot.call(zoom);
+    // $scatterplot.call(zoom);
 
     // add event listeners to points
     $allPoints
@@ -319,6 +319,7 @@ class LightCurve extends React.PureComponent {
       showColorLegend,
       tooltipAccessors,
       tooltipLabels,
+      activeData,
     } = this.props;
 
     const {
@@ -332,11 +333,11 @@ class LightCurve extends React.PureComponent {
       yScale,
     } = this.state;
 
-    const svgClasses = classnames('hrd svg-chart scatter-plot', {
+    const svgClasses = classnames('hrd svg-chart light-curve', {
       loading,
       loaded: !loading,
     });
-
+    // console.log('selected data', selectedData, activeData);
     return (
       <>
         {showColorLegend && !loading && (
@@ -397,7 +398,7 @@ class LightCurve extends React.PureComponent {
                       key={key}
                       pointClasses={selection.className}
                       data={selection.data}
-                      selectedData={selectedData}
+                      selectedData={selectedData || activeData}
                       hoveredData={hoverPointData}
                       xScale={xScale}
                       yScale={yScale}
@@ -459,7 +460,7 @@ LightCurve.defaultProps = {
 
 LightCurve.propTypes = {
   data: PropTypes.array,
-  activeId: PropTypes.string,
+  activeAlertId: PropTypes.string,
   activeData: PropTypes.any,
   width: PropTypes.number,
   height: PropTypes.number,

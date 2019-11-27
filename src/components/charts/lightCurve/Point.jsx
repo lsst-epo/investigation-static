@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
-import { easeElastic as d3EaseElastic } from 'd3-ease';
+// import { easeElastic as d3EaseElastic } from 'd3-ease';
+import styles from './light-curve.module.scss';
 
 class Point extends React.PureComponent {
   constructor(props) {
@@ -12,15 +13,15 @@ class Point extends React.PureComponent {
   }
 
   componentDidUpdate() {
+    this.updatePoint();
+  }
+
+  updatePoint() {
     const { selected, hovered } = this.props;
     const $point = d3Select(this.svgEl.current);
+
     if (selected || hovered) {
-      $point
-        .raise()
-        .transition()
-        .duration(800)
-        .ease(d3EaseElastic)
-        .attr('r', this.baseSize * 2);
+      $point.raise().attr('r', this.baseSize * 5);
     } else {
       $point
         .transition()
@@ -63,14 +64,22 @@ class Point extends React.PureComponent {
           strokeWidth="1"
         />
         <circle
-          ref={this.svgEl}
-          className={classes}
+          className={styles.proxyPoint}
           cx={x}
           cy={y}
           r={this.baseSize}
           strokeWidth={1}
           fill={fill}
           tabIndex="0"
+        />
+        <circle
+          ref={this.svgEl}
+          className={classes}
+          cx={x}
+          cy={y}
+          r={this.baseSize * 5}
+          strokeWidth={1}
+          fill="transparent"
         />
       </g>
     );

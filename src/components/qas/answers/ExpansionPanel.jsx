@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import includes from 'lodash/includes';
 import Button from 'react-md/lib/Buttons/Button';
-// import StellarValue from '../charts/shared/StellarValue';
-// import StellarValueRange from '../charts/shared/StellarValueRange';
 import FormattedAnswer from './FormattedAnswer';
 
 class AnswerExpansionPanel extends React.PureComponent {
