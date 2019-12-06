@@ -37,6 +37,10 @@
           padding-right: $minPadding;
           padding-bottom: 0;
           padding-left: $minPadding;
+
+          p {
+            margin: 0;
+          }
         }
 
         .md-fake-btn .md-text, .md-fake-btn .md-text p {
@@ -54,6 +58,7 @@
 
           p {
             max-width: calc(100% - 124px);
+            margin: 0;
           }
         }
       }

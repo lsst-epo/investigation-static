@@ -9,7 +9,7 @@ import { renderDef } from '../../../lib/utilities.js';
 
 class FormattedAnswer extends React.PureComponent {
   render() {
-    const { pre, type, body } = this.props;
+    const { pre, post, type, body } = this.props;
 
     return (
       <>
@@ -28,6 +28,12 @@ class FormattedAnswer extends React.PureComponent {
             <StellarValue type={type} value={body} />
           </span>
         )}
+        {post && (
+          <span
+            className="answer-post"
+            dangerouslySetInnerHTML={renderDef(post)}
+          />
+        )}
       </>
     );
   }
@@ -37,6 +43,7 @@ FormattedAnswer.propTypes = {
   type: PropTypes.string,
   pre: PropTypes.string,
   body: PropTypes.string,
+  post: PropTypes.string,
 };
 
 export default FormattedAnswer;

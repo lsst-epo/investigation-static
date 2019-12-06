@@ -18,8 +18,8 @@ class GlobalStore {
       userDefinedRegions: [],
     };
 
-    const existingState = this.emptyState;
-    // const existingState = ls('hrd') || this.emptyState;
+    // const existingState = this.emptyState;
+    const existingState = ls('hrd') || this.emptyState;
 
     setGlobal(existingState);
   }
@@ -76,9 +76,12 @@ class GlobalStore {
     });
 
     addReducer('setActiveQuestionId', (global, dispatch, id) => {
+      const activeAnswer = global.answers[id] || null;
+
       return {
         ...global,
         activeQuestionId: id,
+        activeAnswer,
       };
     });
   }

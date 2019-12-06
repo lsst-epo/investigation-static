@@ -2,6 +2,7 @@ import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import { WithQAing } from './WithQAing';
 import Page from '../components/page';
 import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
@@ -32,7 +33,15 @@ class PageContainer extends React.PureComponent {
   }
 
   render() {
-    const { data } = this.props;
+    const {
+      data,
+      answers,
+      updateAnswer,
+      activeAnswer,
+      activeQuestionId,
+      advanceActiveQuestion,
+      setActiveQuestion,
+    } = this.props;
     const {
       id,
       title,
@@ -44,6 +53,7 @@ class PageContainer extends React.PureComponent {
       widget,
       questionsByPage: questions,
     } = data.allPagesJson.nodes[0];
+    const options = widget ? widget.options : null;
     const Tag = this.layouts[layout || 'default'];
     const WidgetTag = widget ? this.widgetTags[widget.type] : null;
     const MediaTag = WidgetTag || image || Placeholder;
@@ -51,27 +61,42 @@ class PageContainer extends React.PureComponent {
     return (
       <div className="container-page">
         <Tag
-          id={id}
-          layout={layout}
-          title={title}
-          previous={previous}
-          next={next}
-          content={content}
-          widget={widget}
-          image={image}
-          MediaTag={MediaTag}
-          questions={questions}
+          {...{
+            id,
+            layout,
+            title,
+            previous,
+            next,
+            content,
+            widget,
+            image,
+            questions,
+            answers,
+            updateAnswer,
+            activeAnswer,
+            advanceActiveQuestion,
+            setActiveQuestion,
+            activeQuestionId,
+            options,
+            MediaTag,
+          }}
         />
-        <PageNav previous={previous} next={next} />
+        <PageNav {...{ previous, next }} />
       </div>
     );
   }
 }
 
-export default PageContainer;
+export default WithQAing(PageContainer);
 
 PageContainer.propTypes = {
   data: PropTypes.object,
+  answers: PropTypes.object,
+  updateAnswer: PropTypes.func,
+  activeAnswer: PropTypes.object,
+  activeQuestionId: PropTypes.string,
+  advanceActiveQuestion: PropTypes.func,
+  setActiveQuestion: PropTypes.func,
 };
 
 export const query = graphql`
@@ -97,6 +122,9 @@ export const query = graphql`
           options {
             showSelector
             showLightCurve
+            lightCurveTemplates
+            preSelectedLightCurveTemplate
+            autoplay
           }
         }
         questionsByPage {

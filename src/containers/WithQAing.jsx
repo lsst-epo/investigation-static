@@ -7,6 +7,18 @@ import { qById, getActiveQ } from '../components/qas/utilities.js';
 
 export const WithQAing = ComposedComponent => {
   class WrappedComponent extends React.PureComponent {
+    componentDidMount() {
+      const { answers } = this.global;
+      const { data: pageData } = this.props;
+      const { questionsByPage: questions } = pageData.allPagesJson.nodes[0];
+      const activeQ = getActiveQ(questions, answers);
+
+      if (questions) {
+        this.setActiveQuestion(
+          activeQ ? activeQ.id : questions[0].question[0].id
+        );
+      }
+    }
     // Methods related to setting & updating "active QA"
 
     // Callback method passed down to child components
@@ -16,7 +28,9 @@ export const WithQAing = ComposedComponent => {
 
     // Callback method passed down to child components
     advanceActiveQuestion = () => {
-      const { questions } = this.props;
+      const { data: pageData } = this.props;
+      const { questionsByPage: questions } = pageData.allPagesJson.nodes[0];
+
       const { answers } = this.global;
       const activeQ = getActiveQ(questions, answers);
 
@@ -25,26 +39,49 @@ export const WithQAing = ComposedComponent => {
 
     // Methods related to updating answers
 
+    getSelectContent(data) {
+      return isObject(data) ? 'DEFAULT' : data;
+    }
+
+    getTemplateContent(data) {
+      return data.type || 'None Selected';
+    }
+
+    getCountContent(data) {
+      return data.length;
+    }
+
+    getTextContent(data) {
+      const content = data || '';
+      return isObject(content) ? '' : content;
+    }
+
+    getRangeContent(data, answerAccessor) {
+      return data[0] ? data[0][answerAccessor] : 'None Selected';
+    }
+
     // Callback method passed down to child components
     answerHandler = (id, data, eventType) => {
       if ((id && data) || eventType) {
-        const { questions } = this.props;
+        const { data: pageData } = this.props;
+        const { questionsByPage: questions } = pageData.allPagesJson.nodes[0];
         const answeredQuestion = qById(questions, id);
         const { answerAccessor } = answeredQuestion;
         let content = data;
+
         if (answerAccessor === 'text') {
-          content = data || '';
-          content = isObject(content) ? '' : content;
+          content = this.getTextContent(data);
         } else if (
           answerAccessor === 'compound-select' ||
           answerAccessor === 'select'
         ) {
-          content = data;
-          content = isObject(content) ? 'DEFAULT' : content;
+          content = this.getSelectContent(data);
         } else if (answerAccessor === 'count') {
-          content = data.length;
+          content = this.getCountContent(data);
+        } else if (answerAccessor === 'light-curve-template') {
+          content = this.getTemplateContent(data);
         } else if (!includes(answerAccessor, 'range')) {
-          content = data[0] ? data[0][answerAccessor] : 'None Selected';
+          content = this.getRangeContent(data, answerAccessor);
         }
 
         this.dispatch.updateAnswer(id, content, data);
@@ -68,13 +105,12 @@ export const WithQAing = ComposedComponent => {
     };
 
     render() {
-      const { activeQuestionId, answers } = this.global;
+      const { activeQuestionId, answers, activeAnswer } = this.global;
 
       return (
         <ComposedComponent
           {...this.props}
-          answers={answers}
-          activeQuestionId={activeQuestionId}
+          {...{ answers, activeAnswer, activeQuestionId }}
           updateAnswer={this.updateAnswer}
           advanceActiveQuestion={this.advanceActiveQuestion}
           setActiveQuestion={this.setActiveQuestion}
@@ -85,6 +121,7 @@ export const WithQAing = ComposedComponent => {
 
   WrappedComponent.propTypes = {
     questions: PropTypes.array,
+    data: PropTypes.object,
   };
 
   return WrappedComponent;
