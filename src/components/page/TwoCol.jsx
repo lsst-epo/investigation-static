@@ -6,19 +6,7 @@ import { renderDef } from '../../lib/utilities.js';
 
 class TwoCol extends React.PureComponent {
   render() {
-    const {
-      title,
-      content,
-      widget,
-      image,
-      questions,
-      answers,
-      activeId,
-      answerHandler,
-      setActive,
-      advanceActive,
-      MediaTag,
-    } = this.props;
+    const { title, content, questions, MediaTag } = this.props;
 
     return (
       <div className="container-flex spaced">
@@ -26,20 +14,11 @@ class TwoCol extends React.PureComponent {
           <section>
             <h2 className="section-title">{title}</h2>
             <div dangerouslySetInnerHTML={renderDef(content)} />
-            {questions && (
-              <QAs
-                questions={questions}
-                answers={answers}
-                activeId={activeId}
-                answerHandler={answerHandler}
-                advanceActive={advanceActive}
-                setActive={setActive}
-              />
-            )}
+            {questions && <QAs {...this.props} />}
           </section>
         </div>
         <div className="col padded col-width-50 col-fixed">
-          <MediaTag questions={questions} {...widget} {...image} />
+          <MediaTag {...this.props} />
         </div>
       </div>
     );
@@ -54,10 +33,13 @@ TwoCol.propTypes = {
   MediaTag: PropTypes.func,
   image: PropTypes.string,
   widget: PropTypes.object,
+  options: PropTypes.object,
   questions: PropTypes.array,
   answers: PropTypes.object,
   activeId: PropTypes.string,
-  answerHandler: PropTypes.func,
-  setActive: PropTypes.func,
-  advanceActive: PropTypes.func,
+  updateAnswer: PropTypes.func,
+  activeAnswer: PropTypes.object,
+  activeQuestionId: PropTypes.string,
+  advanceActiveQuestion: PropTypes.func,
+  setActiveQuestion: PropTypes.func,
 };

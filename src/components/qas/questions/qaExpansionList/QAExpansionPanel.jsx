@@ -20,7 +20,7 @@ class QAExpansionPanel extends React.PureComponent {
       saveHandler,
       editHandler,
     } = this.props;
-    const { answerPre, answerAccessor, id: qId, label } = question;
+    const { answerPre, answerPost, answerAccessor, id: qId, label } = question;
 
     const answered = !isEmpty(answer);
     const isExpanded = active || answered;
@@ -52,6 +52,7 @@ class QAExpansionPanel extends React.PureComponent {
           <Answer
             id={answer.id}
             pre={answerPre}
+            post={answerPost}
             content={answer.content ? answer.content : answer.data}
             accessor={answerAccessor}
             showEditButton={!active && answered}

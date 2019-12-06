@@ -18,6 +18,7 @@ import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
 import Legend from '../shared/Legend.jsx';
+import Templates from './Templates.jsx';
 
 class LightCurve extends React.PureComponent {
   constructor(props) {
@@ -88,28 +89,6 @@ class LightCurve extends React.PureComponent {
       this.clearGraph();
     }
   }
-
-  // rescale(transformEvent) {
-  //   const {
-  //     xDomain,
-  //     yDomain,
-  //     width,
-  //     height,
-  //     padding,
-  //     offsetTop,
-  //     offsetRight,
-  //   } = this.props;
-
-  //   this.setState(prevState => ({
-  //     ...prevState,
-  //     xScale: transformEvent.rescaleX(
-  //       this.getXScale(xDomain, width, padding, offsetRight)
-  //     ),
-  //     yScale: transformEvent.rescaleY(
-  //       this.getYScale(yDomain, height, padding, offsetTop)
-  //     ),
-  //   }));
-  // }
 
   getXScale(domain, width, padding, offsetRight) {
     return d3ScaleLinear()
@@ -197,17 +176,13 @@ class LightCurve extends React.PureComponent {
     }));
   };
 
-  // onZoom = () => {
-  //   this.rescale(d3Event.transform);
-  // };
-
   // add event listeners to Scatterplot and Points
   addEventListeners() {
     // const { width, height, padding, offsetTop, offsetRight } = this.props;
-    const $scatterplot = d3Select(this.svgEl.current);
+    const $lightCurve = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
-    $scatterplot.on('click', () => {
+    $lightCurve.on('click', () => {
       // remove styles and selections when click on non-point
       const pointData = d3Select(d3Event.target).datum();
 
@@ -217,17 +192,6 @@ class LightCurve extends React.PureComponent {
         this.clearGraph();
       }
     });
-
-    // const zoom = d3Zoom()
-    //   .translateExtent([
-    //     [padding, offsetTop],
-    //     [width - offsetRight, height - padding],
-    //   ])
-    //   .scaleExtent([1, 5])
-    //   .extent([[padding, offsetTop], [width - offsetRight, height - padding]])
-    //   .on('zoom', this.onZoom);
-
-    // $scatterplot.call(zoom);
 
     // add event listeners to points
     $allPoints
@@ -239,7 +203,7 @@ class LightCurve extends React.PureComponent {
   updatePoints() {
     const { data, preSelected, multiple } = this.props;
     const { loading } = this.state;
-    const $scatterplot = d3Select(this.svgEl.current);
+    const $lightCurve = d3Select(this.svgEl.current);
 
     if (isEmpty(data) && preSelected) {
       this.setState(prevState => ({
@@ -249,7 +213,7 @@ class LightCurve extends React.PureComponent {
     } else if (multiple) {
       data.forEach((selection, i) => {
         if (i === data.length - 1) {
-          $scatterplot
+          $lightCurve
             .selectAll(`.data-point.${selection.className}`)
             .data(selection.data)
             .transition()
@@ -263,13 +227,13 @@ class LightCurve extends React.PureComponent {
               }
             });
         } else {
-          $scatterplot
+          $lightCurve
             .selectAll(`.data-point${selection.className}`)
             .data(selection.data);
         }
       });
     } else {
-      $scatterplot
+      $lightCurve
         .selectAll('.data-point')
         .data(data)
         .transition()
@@ -317,9 +281,15 @@ class LightCurve extends React.PureComponent {
       multiple,
       legend,
       showColorLegend,
+      templatesData,
+      templates,
       tooltipAccessors,
       tooltipLabels,
       activeData,
+      templateZoomCallback,
+      activeTemplate,
+      templateTransform,
+      activeAnswer,
     } = this.props;
 
     const {
@@ -333,13 +303,14 @@ class LightCurve extends React.PureComponent {
       yScale,
     } = this.state;
 
-    const svgClasses = classnames('hrd svg-chart light-curve', {
+    const svgClasses = classnames('svg-chart light-curve', {
       loading,
       loaded: !loading,
     });
-    // console.log('selected data', selectedData, activeData);
+
     return (
       <>
+        <h2 className="space-bottom">Light Curve</h2>
         {showColorLegend && !loading && (
           <Legend
             key="color-legend"
@@ -360,6 +331,16 @@ class LightCurve extends React.PureComponent {
             />
           )}
           {legend && !loading && <Legend key="legend" content={legend} />}
+          {templates && (
+            <Templates
+              activeTemplate={activeTemplate}
+              transform={templateTransform}
+              types={templates}
+              data={templatesData}
+              zoomCallback={templateZoomCallback}
+              {...{ activeAnswer }}
+            />
+          )}
           <Tooltip
             key="tooltip"
             data={selectedData || hoverPointData}
@@ -460,10 +441,11 @@ LightCurve.defaultProps = {
 
 LightCurve.propTypes = {
   data: PropTypes.array,
+  templates: PropTypes.array,
+  templatesData: PropTypes.object,
+  activeAnswer: PropTypes.object,
   activeAlertId: PropTypes.string,
   activeData: PropTypes.any,
-  width: PropTypes.number,
-  height: PropTypes.number,
   xAxisLabel: PropTypes.string,
   yAxisLabel: PropTypes.string,
   xValueAccessor: PropTypes.string,
@@ -472,14 +454,19 @@ LightCurve.propTypes = {
   tooltipLabels: PropTypes.array,
   xDomain: PropTypes.array,
   yDomain: PropTypes.array,
+  width: PropTypes.number,
+  height: PropTypes.number,
   padding: PropTypes.number,
   offsetTop: PropTypes.number,
   offsetRight: PropTypes.number,
   dataSelectionCallback: PropTypes.func,
+  templateZoomCallback: PropTypes.func,
   preSelected: PropTypes.bool,
   multiple: PropTypes.bool,
   legend: PropTypes.node,
   showColorLegend: PropTypes.bool,
+  activeTemplate: PropTypes.string,
+  templateTransform: PropTypes.object,
 };
 
 export default LightCurve;

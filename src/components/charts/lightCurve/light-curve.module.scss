@@ -1,6 +1,12 @@
-.light-curve {
+.light-curve, .template {
   width: 100%;
   height: auto;
+
+  &.loaded {
+    visibility: visible;
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 1 !important;
+  }
 }
 
 .data-point {
@@ -23,3 +29,17 @@
 .proxy-point {
   stroke: $black;
 }
+
+.template {
+  position: absolute;
+  cursor: grab;
+
+  .template-line {
+    fill: transparent;
+    stroke: $black;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+  }
+}
+

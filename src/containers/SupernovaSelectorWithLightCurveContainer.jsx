@@ -1,8 +1,8 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
-import { WithQAing } from './WithQAing';
+import isObject from 'lodash/isObject';
+import isString from 'lodash/isString';
 import { getActiveIndex } from '../components/charts/supernovaSelector/supernovaSelectorUtilities.js';
 import SupernovaSelector from '../components/charts/supernovaSelector';
 import LightCurve from '../components/charts/lightCurve/index.jsx';
@@ -48,6 +48,12 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     }));
   };
 
+  templateZoomCallback = d => {
+    const { updateAnswer, activeQuestionId } = this.props;
+
+    updateAnswer(activeQuestionId, d);
+  };
+
   lightCurveSelectionCallback = (id, d) => {
     const activeAlert = d[0];
 
@@ -74,14 +80,40 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     return activeImageIndex;
   }
 
+  getPreSelectedLightCurveTemplate(template) {
+    const { answers } = this.props;
+
+    if (isObject(template)) {
+      return template;
+    }
+
+    if (isString(template)) {
+      const answer = answers[template];
+      return answer ? answer.data : {};
+    }
+
+    return {};
+  }
+
   render() {
     const { activeImageId, activeImageIndex, activeAlert, data } = this.state;
     const {
       data: { alerts, name, band },
+      activeAnswer,
+      templatesData,
       images,
-      options: { autoplay, showSelector, showLightCurve },
+      options: {
+        autoplay,
+        showSelector,
+        showLightCurve,
+        lightCurveTemplates,
+        preSelectedLightCurveTemplate,
+      },
     } = this.props;
     const activeAlertId = activeAlert ? activeAlert.alert_id.toString() : null;
+    const { data: transform, type } = this.getPreSelectedLightCurveTemplate(
+      preSelectedLightCurveTemplate
+    );
 
     return (
       <div className="container-flex spaced">
@@ -89,15 +121,9 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
           <div className={showLightCurve ? 'col padded col-width-50' : 'col'}>
             <SupernovaSelector
               className={`supernova-selector-${name} ${band}-band`}
-              name={name}
-              band={band}
-              data={data}
-              images={images}
-              alerts={alerts}
-              autoplay={autoplay}
+              {...{ data, name, band, images, alerts, autoplay, activeAlertId }}
               selectionCallback={this.supernovaSelectionCallback}
               blinkCallback={this.onAlertChange}
-              activeAlertId={activeAlertId}
               activeImageId={activeAlert ? activeAlert.image_id : activeImageId}
               activeImageIndex={this.getActiveImageIndex(
                 activeAlert,
@@ -110,12 +136,20 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
           <div className={showSelector ? 'col padded col-width-50' : 'col'}>
             <LightCurve
               className={`light-curve-${name} ${band}-band`}
-              name={name}
-              band={band}
               data={alerts}
-              activeAlertId={activeAlertId}
+              {...{
+                name,
+                band,
+                templatesData,
+                activeAlertId,
+                activeAnswer,
+              }}
+              templates={lightCurveTemplates}
+              activeTemplate={type || 'iab'}
+              templateTransform={transform}
               activeData={activeAlert ? [activeAlert] : activeAlert}
               dataSelectionCallback={this.lightCurveSelectionCallback}
+              templateZoomCallback={this.templateZoomCallback}
             />
           </div>
         )}
@@ -127,12 +161,15 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
 SupernovaSelectorWithLightCurveContainer.propTypes = {
   images: PropTypes.array,
   data: PropTypes.object,
+  templatesData: PropTypes.object,
   options: PropTypes.object,
+  answers: PropTypes.object,
   activeQuestionId: PropTypes.string,
+  activeAnswer: PropTypes.object,
   updateAnswer: PropTypes.func,
 };
 
-export default WithQAing(props => (
+export default props => (
   <StaticQuery
     query={graphql`
       query SupernovaSelectorLightCurveQuery {
@@ -147,6 +184,27 @@ export default WithQAing(props => (
               magnitude
               image_id
             }
+          }
+        }
+        allSnIaBtemplateJson {
+          nodes {
+            id
+            x
+            y
+          }
+        }
+        allSnIaVtemplateJson {
+          nodes {
+            id
+            x
+            y
+          }
+        }
+        allSniIpVtemplateJson {
+          nodes {
+            id
+            x
+            y
           }
         }
         allFile(
@@ -171,6 +229,9 @@ export default WithQAing(props => (
           nodes: { 0: supernova },
         },
         allFile: { nodes: images },
+        allSniIpVtemplateJson: { nodes: iipVJson },
+        allSnIaVtemplateJson: { nodes: iaVJson },
+        allSnIaBtemplateJson: { nodes: iaBJson },
       } = data;
 
       return (
@@ -178,8 +239,9 @@ export default WithQAing(props => (
           {...props}
           images={images}
           data={supernova}
+          templatesData={{ iab: iaBJson, iav: iaVJson, iip: iipVJson }}
         />
       );
     }}
   />
-));
+);

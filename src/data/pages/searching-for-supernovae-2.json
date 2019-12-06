@@ -1,18 +1,17 @@
 {
   "id": "21",
-  "order": "13",
+  "order": "13a",
   "title": "Searching For Supernovae",
   "slug": "searching-for-supernovae-2/",
-  "previous": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-1/"},
-  "next": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-3/"},
-  "layout": "SingleCol",
-  "content": "<p>Use the arrow buttons to blink through the images. When you find the supernova, click on its location in the image.</p><p>You can determine the type of supernova by overlaying supernovae light curve templates.</p>",
+  "previous": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-1-1/"},
+  "next": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-2-1/"},
+  "layout": "TwoCol",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
     "source": "ZTF19abqmpsr",
     "options": {
       "showSelector": true,
-      "showLightCurve": true,
+      "showLightCurve": false,
       "autoplay": false
     }
   },
@@ -21,9 +20,12 @@
       "question": [
         {
           "id": "59",
-          "questionType": "textArea",
-          "label": "What type of supernova do you think this is? Explain your answer—which aspects of the shape of the light curve caused you to choose this type?",
-          "answerAccessor": "text"
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "<p>Use the back and forward buttons to blink through blink through the images. When you find the supernova, click on its location in the image.</p>",
+          "answerPre": "<span>Selected Supernova: </span>",
+          "answerAccessor": "data"
         }
       ]
     }

@@ -13,6 +13,7 @@
     "options": {
       "showSelector": false,
       "showLightCurve": true,
+      "lightCurveTemplates": ["iab", "iip"],
       "autoplay": false
     }
   },

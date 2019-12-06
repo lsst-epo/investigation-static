@@ -8,6 +8,7 @@ class AnswerExpansionPanel extends React.PureComponent {
     const {
       id,
       pre,
+      post,
       content,
       accessor,
       showEditButton,
@@ -27,7 +28,7 @@ class AnswerExpansionPanel extends React.PureComponent {
           </Button>
         )}
         <p id={`answer-content-${id}`}>
-          <FormattedAnswer pre={pre} type={accessor} body={content} />
+          <FormattedAnswer {...{ pre, post }} type={accessor} body={content} />
         </p>
       </div>
     );
@@ -39,6 +40,7 @@ AnswerExpansionPanel.propTypes = {
   content: PropTypes.string,
   accessor: PropTypes.string,
   pre: PropTypes.string,
+  post: PropTypes.string,
   showEditButton: PropTypes.bool,
   editHandler: PropTypes.func,
 };
