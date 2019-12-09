@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Table from '../../site/forms/Table';
+import cloneDeep from 'lodash/cloneDeep';
+import Table from '../../site/forms/table/index.jsx';
 import ObservationsTableCell from './ObservationsTableCell';
 
 class ObservationsTable extends React.PureComponent {
@@ -28,13 +29,10 @@ class ObservationsTable extends React.PureComponent {
   }
 
   getRows(answers, colTitles, rowTitles, cells) {
-    const rows = [].concat(rowTitles);
-
+    const rows = cloneDeep(rowTitles);
     for (let j = 0; j < rows.length; j += 1) {
-      const row = rows[j];
-
       cells[j].forEach(cell => {
-        row.push(this.getCell(answers, cell));
+        rows[j].push(this.getCell(answers, cell));
       });
     }
 
@@ -42,14 +40,14 @@ class ObservationsTable extends React.PureComponent {
   }
 
   render() {
-    const { answers, cells, colTitles, rowTitles } = this.props;
+    const { answers, rows, colTitles, rowTitles } = this.props;
 
     return (
       <Table
-        className="hrd-observations"
+        className="observations-table"
         colTitles={colTitles}
         includeRowTitles
-        rows={this.getRows(answers, colTitles, rowTitles, cells)}
+        rows={this.getRows(answers, colTitles, rowTitles, rows)}
       />
     );
   }
@@ -57,7 +55,7 @@ class ObservationsTable extends React.PureComponent {
 
 ObservationsTable.propTypes = {
   answers: PropTypes.object,
-  cells: PropTypes.array,
+  rows: PropTypes.array,
   colTitles: PropTypes.array,
   rowTitles: PropTypes.array,
 };

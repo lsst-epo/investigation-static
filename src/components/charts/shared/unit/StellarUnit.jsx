@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { renderUnit } from './utilities.js';
 import Span from './Span';

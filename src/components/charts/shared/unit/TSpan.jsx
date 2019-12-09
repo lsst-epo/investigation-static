@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const TSpan = ({ children }) => <tspan className="unit">{children}</tspan>;
