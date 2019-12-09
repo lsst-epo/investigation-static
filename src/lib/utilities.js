@@ -117,6 +117,75 @@ export const getSunAnswer = function(accessor) {
   return { content: data, data };
 };
 
+export const addTheCommas = function(num) {
+  const arrNum = (+num).toString().split('.');
+  const withCommas = arrNum[0].split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
+  const finalNumber = arrNum[1]
+    ? [withCommas, arrNum[1]].join('.')
+    : withCommas;
+  return finalNumber;
+};
+
+export const solveForDistanceModulus = m => {
+  if (m !== 'm') {
+    const dm = m + 19.4;
+    return formatValue(dm, 2);
+  }
+  return 'DM';
+};
+
+export const solveForParsecs = dm => {
+  if (dm !== '?') {
+    const pars = 10 ** ((dm + 5) / 5);
+    return formatValue(pars, 2);
+  }
+  return '?';
+};
+
+export const solveForMegaParsecs = parsecs => {
+  if (parsecs !== '?') {
+    const megaPars = parsecs / 10 ** 6;
+    return formatValue(megaPars, 2);
+  }
+  return '?';
+};
+
+export const solveForLightYears = parsecs => {
+  if (parsecs !== '?') {
+    const ly = parsecs * 3.26156;
+    return formatValue(ly, 2);
+  }
+  return '?';
+};
+
+export const solveForMegaLightYears = lightYears => {
+  if (lightYears !== '?') {
+    const mly = lightYears / 999315.5373;
+    return formatValue(mly, 2);
+  }
+  return '?';
+};
+
+export const getParsecsFromDistance = data => {
+  const DM = solveForDistanceModulus(+data);
+  return solveForParsecs(+DM);
+};
+
+export const getMegaParsecsFromDistance = data => {
+  const parsecs = getParsecsFromDistance(data);
+  return solveForMegaParsecs(parsecs);
+};
+
+export const getLightYearsFromDistance = data => {
+  const parsecs = getParsecsFromDistance(data);
+  return solveForLightYears(+parsecs);
+};
+
+export const getMegaLightYearsFromDistance = data => {
+  const lightYears = getLightYearsFromDistance(+data);
+  return solveForMegaLightYears(+lightYears);
+};
+
 export const getValue = function(accessor, data) {
   return (
     {
@@ -126,6 +195,10 @@ export const getValue = function(accessor, data) {
       lifetime: formatValue(data / 1000000000, 2),
       temperature: formatValue(data, 0),
       date: mjdToUTC(data, 'MDYT'),
+      parsecs: getParsecsFromDistance(data),
+      megaParsecs: getMegaParsecsFromDistance(data),
+      lightYears: getLightYearsFromDistance(data),
+      megaLightYears: getMegaLightYearsFromDistance(data),
     }[accessor] || data
   );
 };
@@ -164,13 +237,4 @@ export const getUnit = function(accessor) {
   }
 
   return '';
-};
-
-export const addTheCommas = function(num) {
-  if (typeof num !== 'string') {
-    const arrNum = num.toString().split('.');
-    const withCommas = arrNum[0].split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
-    return arrNum[1] ? [withCommas, arrNum[1]].join('.') : withCommas;
-  }
-  return num;
 };

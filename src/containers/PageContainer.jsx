@@ -54,6 +54,7 @@ class PageContainer extends React.PureComponent {
       content,
       image,
       widget,
+      tables,
       questionsByPage: questions,
     } = data.allPagesJson.nodes[0];
     const options = widget ? widget.options : null;
@@ -82,6 +83,7 @@ class PageContainer extends React.PureComponent {
             setActiveQuestion,
             activeQuestionId,
             options,
+            tables,
             MediaTag,
           }}
         />
@@ -112,6 +114,15 @@ export const query = graphql`
         id
         investigation
         content
+        tables {
+          id
+          colTitles
+          rowTitles
+          rows {
+            accessor
+            id
+          }
+        }
         layout
         slug
         title
