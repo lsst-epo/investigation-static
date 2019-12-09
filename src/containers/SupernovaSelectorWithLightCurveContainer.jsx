@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
+import isEmpty from 'lodash/isEmpty';
 import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
 import { getActiveIndex } from '../components/charts/supernovaSelector/supernovaSelectorUtilities.js';
@@ -89,7 +90,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
 
     if (isString(template)) {
       const answer = answers[template];
-      return answer ? answer.data : {};
+      return !isEmpty(answer) ? answer.data : {};
     }
 
     return {};
