@@ -64,9 +64,13 @@ class LightCurveTemplate extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const { data } = this.props;
+    const { data, isInteractive } = this.props;
 
-    if (prevProps.data !== data || !isEmpty(data)) {
+    if (isInteractive) {
+      this.addEventListeners();
+    } else this.removeEventListeners();
+
+    if (!prevProps.data !== data || !isEmpty(data)) {
       this.updateTemplate();
     }
   }
@@ -137,12 +141,15 @@ class LightCurveTemplate extends React.PureComponent {
     $template.call(zoom);
   }
 
+  removeEventListeners() {
+    const $template = d3Select(this.svgEl.current);
+    const zoom = d3Zoom().on('zoom', null);
+    $template.call(zoom);
+  }
+
   // bind data to elements and add styles and attributes
   updateTemplate() {
-    const { preSelected } = this.props;
     this.updateLine();
-
-    if (!preSelected) this.addEventListeners();
   }
 
   updateLine() {
@@ -228,7 +235,7 @@ LightCurveTemplate.defaultProps = {
   offsetRight: 7,
   xDomain: [-20, 90],
   yDomain: [8, 0],
-  preSelected: false,
+  // preSelected: false,
 };
 
 LightCurveTemplate.propTypes = {
@@ -243,8 +250,9 @@ LightCurveTemplate.propTypes = {
   padding: PropTypes.number,
   offsetTop: PropTypes.number,
   offsetRight: PropTypes.number,
-  preSelected: PropTypes.bool,
+  // preSelected: PropTypes.bool,
   zoomCallback: PropTypes.func,
+  isInteractive: PropTypes.bool,
 };
 
 export default LightCurveTemplate;
