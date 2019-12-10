@@ -90,7 +90,14 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
 
     if (isString(template)) {
       const answer = answers[template];
-      return !isEmpty(answer) ? answer.data : {};
+
+      if (isEmpty(answer)) return {};
+
+      return {
+        transform: answer.data.data,
+        type: answer.data.type,
+        templateAnswerId: template,
+      };
     }
 
     return {};
@@ -103,18 +110,22 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       activeAnswer,
       templatesData,
       images,
+      activeQuestionId,
       options: {
         autoplay,
         showSelector,
         showLightCurve,
         lightCurveTemplates,
+        chooseLightCurveTemplate,
         preSelectedLightCurveTemplate,
       },
     } = this.props;
     const activeAlertId = activeAlert ? activeAlert.alert_id.toString() : null;
-    const { data: transform, type } = this.getPreSelectedLightCurveTemplate(
-      preSelectedLightCurveTemplate
-    );
+    const {
+      transform,
+      type,
+      templateAnswerId,
+    } = this.getPreSelectedLightCurveTemplate(preSelectedLightCurveTemplate);
 
     return (
       <div className="container-flex spaced">
@@ -144,9 +155,12 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                 templatesData,
                 activeAlertId,
                 activeAnswer,
+                activeQuestionId,
+                templateAnswerId,
               }}
               templates={lightCurveTemplates}
-              activeTemplate={type || 'iab'}
+              activeTemplate={type}
+              chooseLightCurveTemplate={chooseLightCurveTemplate}
               templateTransform={transform}
               activeData={activeAlert ? [activeAlert] : activeAlert}
               dataSelectionCallback={this.lightCurveSelectionCallback}

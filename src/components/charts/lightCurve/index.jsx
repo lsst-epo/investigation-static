@@ -19,6 +19,7 @@ import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
 import Legend from '../shared/Legend.jsx';
 import Templates from './Templates.jsx';
+import Select from '../../site/forms/select';
 
 class LightCurve extends React.PureComponent {
   constructor(props) {
@@ -31,6 +32,7 @@ class LightCurve extends React.PureComponent {
       padding,
       offsetTop,
       offsetRight,
+      activeTemplate,
     } = props;
 
     this.state = {
@@ -42,6 +44,7 @@ class LightCurve extends React.PureComponent {
       loading: true,
       xScale: this.getXScale(xDomain, width, padding, offsetRight),
       yScale: this.getYScale(yDomain, height, padding, offsetTop),
+      lightCurveType: activeTemplate,
     };
 
     this.svgContainer = React.createRef();
@@ -249,6 +252,16 @@ class LightCurve extends React.PureComponent {
     }
   }
 
+  updateLightCurveType = e => {
+    const { value } = e.target;
+    if (value) {
+      this.setState(prevState => ({
+        ...prevState,
+        lightCurveType: value,
+      }));
+    }
+  };
+
   // bind data to elements and add styles and attributes
   updateScatterPlot() {
     const { preSelected } = this.props;
@@ -287,9 +300,12 @@ class LightCurve extends React.PureComponent {
       tooltipLabels,
       activeData,
       templateZoomCallback,
-      activeTemplate,
+      // activeTemplate,
       templateTransform,
+      chooseLightCurveTemplate,
       activeAnswer,
+      activeQuestionId,
+      templateAnswerId,
     } = this.props;
 
     const {
@@ -301,7 +317,10 @@ class LightCurve extends React.PureComponent {
       loading,
       xScale,
       yScale,
+      lightCurveType,
     } = this.state;
+
+    const isInteractive = activeQuestionId === templateAnswerId;
 
     const svgClasses = classnames('svg-chart light-curve', {
       loading,
@@ -311,6 +330,21 @@ class LightCurve extends React.PureComponent {
     return (
       <>
         <h2 className="space-bottom">Light Curve</h2>
+        {chooseLightCurveTemplate && (
+          <Select
+            id="light-curve"
+            value={lightCurveType}
+            label="Pick a matching light curve"
+            placeholder="Select a curve"
+            disabled={!isInteractive}
+            options={[
+              'Select one...',
+              { label: 'Type Ia', value: 'iab' },
+              { label: 'Type IIp', value: 'iip' },
+            ]}
+            handleChange={this.updateLightCurveType}
+          />
+        )}
         {showColorLegend && !loading && (
           <Legend
             key="color-legend"
@@ -333,12 +367,13 @@ class LightCurve extends React.PureComponent {
           {legend && !loading && <Legend key="legend" content={legend} />}
           {templates && (
             <Templates
-              activeTemplate={activeTemplate}
+              activeTemplate={lightCurveType}
               transform={templateTransform}
               types={templates}
               data={templatesData}
               zoomCallback={templateZoomCallback}
-              {...{ activeAnswer }}
+              isInteractive={isInteractive}
+              {...{ activeAnswer, activeQuestionId }}
             />
           )}
           <Tooltip
@@ -443,6 +478,7 @@ LightCurve.propTypes = {
   data: PropTypes.array,
   templates: PropTypes.array,
   templatesData: PropTypes.object,
+  chooseLightCurveTemplate: PropTypes.bool,
   activeAnswer: PropTypes.object,
   activeAlertId: PropTypes.string,
   activeData: PropTypes.any,
@@ -467,6 +503,9 @@ LightCurve.propTypes = {
   showColorLegend: PropTypes.bool,
   activeTemplate: PropTypes.string,
   templateTransform: PropTypes.object,
+  activeQuestionId: PropTypes.string,
+  templateAnswerId: PropTypes.string,
+  isInteractive: PropTypes.bool,
 };
 
 export default LightCurve;

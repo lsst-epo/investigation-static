@@ -123,6 +123,7 @@ export const query = graphql`
             showSelector
             showLightCurve
             lightCurveTemplates
+            chooseLightCurveTemplate
             preSelectedLightCurveTemplate
             autoplay
           }
