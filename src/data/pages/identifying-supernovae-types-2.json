@@ -1,10 +1,10 @@
 {
   "id": "10",
   "order": "11",
-  "title": "Classifying Supernovae: Identifying Types",
+  "title": "Using a Light Curve to Classify Supernova #2",
   "slug": "identifying-supernovae-types-2/",
-  "previous": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-1/"},
-  "next": {"title": "Searching for Supernovae", "link": "/searching-for-supernovae-1/"},
+  "previous": {"title": "Using a Light Curve to Classify Supernova #1", "link": "/identifying-supernovae-types-1/"},
+  "next": {"title": "Searching for Supernova #1", "link": "/searching-for-supernovae-1/"},
   "layout": "TwoCol",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",

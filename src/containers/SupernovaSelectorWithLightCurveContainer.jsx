@@ -118,6 +118,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         lightCurveTemplates,
         chooseLightCurveTemplate,
         preSelectedLightCurveTemplate,
+        preSelected,
       },
     } = this.props;
     const activeAlertId = activeAlert ? activeAlert.alert_id.toString() : null;
@@ -133,7 +134,16 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
           <div className={showLightCurve ? 'col padded col-width-50' : 'col'}>
             <SupernovaSelector
               className={`supernova-selector-${name} ${band}-band`}
-              {...{ data, name, band, images, alerts, autoplay, activeAlertId }}
+              {...{
+                data,
+                name,
+                band,
+                images,
+                alerts,
+                autoplay,
+                activeAlertId,
+                preSelected,
+              }}
               selectionCallback={this.supernovaSelectionCallback}
               blinkCallback={this.onAlertChange}
               activeImageId={activeAlert ? activeAlert.image_id : activeImageId}
@@ -182,6 +192,7 @@ SupernovaSelectorWithLightCurveContainer.propTypes = {
   activeQuestionId: PropTypes.string,
   activeAnswer: PropTypes.object,
   updateAnswer: PropTypes.func,
+  preSelected: PropTypes.bool,
 };
 
 export default props => (

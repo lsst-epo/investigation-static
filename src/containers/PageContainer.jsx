@@ -126,6 +126,7 @@ export const query = graphql`
             chooseLightCurveTemplate
             preSelectedLightCurveTemplate
             autoplay
+            preSelected
           }
         }
         questionsByPage {

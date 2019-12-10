@@ -11,6 +11,16 @@
     {
       "question": [
         {
+          "id": "76",
+          "questionType": "text",
+          "label": "<p>Who has the most distant supernova in your group/class? What is its distance in light years?</p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
           "id": "77",
           "questionType": "select",
           "label": "Use your data from Supernovae 4, 5, and 6 to estimate the peak apparent magnitude of the supernova in this image. The magnitude is closest to:",
