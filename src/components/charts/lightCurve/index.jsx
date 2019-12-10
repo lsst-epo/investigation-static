@@ -468,10 +468,10 @@ LightCurve.defaultProps = {
   yDomain: [21, 17],
   xValueAccessor: 'date',
   yValueAccessor: 'magnitude',
-  xAxisLabel: 'Time',
-  yAxisLabel: 'Magnitude',
+  xAxisLabel: 'Days',
+  yAxisLabel: 'Apparent Magnitude (m)',
   tooltipAccessors: ['date', 'magnitude'],
-  tooltipLabels: ['Time', 'Magnitude'],
+  tooltipLabels: ['Time', 'Apparent Magnitude (m)'],
 };
 
 LightCurve.propTypes = {

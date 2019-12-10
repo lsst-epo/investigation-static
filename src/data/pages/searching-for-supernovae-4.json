@@ -1,10 +1,10 @@
 {
   "id": "23",
   "order": "15",
-  "title": "Searching For Supernovae",
+  "title": "Comparing Supernovae Light Curves",
   "slug": "searching-for-supernovae-4/",
-  "previous": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-3-1/"},
-  "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-1/"},
+  "previous": {"title": "Classifying Supernova #3", "link": "/searching-for-supernovae-3-1/"},
+  "next": {"title": "Determining the Peak Apparent Magnitude of Supernova #1", "link": "/distance-to-supernovae-1/"},
   "layout": "TwoCol",
   "content": "<p>Use the dropdown menu to review the supernova light curves from the previous sections.</p>",
   "widget": {

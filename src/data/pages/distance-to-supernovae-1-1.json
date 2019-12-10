@@ -1,10 +1,10 @@
 {
   "id": "24",
   "order": "17",
-  "title": "Finding the Distance to Supernovae",
+  "title": "Determining the Peak Apparent Magnitude of Supernova #2",
   "slug": "distance-to-supernovae-1-1/",
-  "previous": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-1/"},
-  "next": {"title": "Finding the distance to Supernovae", "link": "/distance-to-supernovae-1-2/"},
+  "previous": {"title": "Determining the Peak Apparent Magnitude of Supernova #1", "link": "/distance-to-supernovae-1/"},
+  "next": {"title": "Determining the Peak Apparent Magnitude of Supernova #3", "link": "/distance-to-supernovae-1-2/"},
   "layout": "TwoCol",
   "content": "<p>In this part of the investigation, you will work only with Type Ia supernovae.</p>",
   "widget": {

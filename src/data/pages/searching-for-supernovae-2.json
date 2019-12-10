@@ -1,10 +1,10 @@
 {
   "id": "21",
   "order": "13a",
-  "title": "Searching For Supernovae",
+  "title": "Searching Supernova #2",
   "slug": "searching-for-supernovae-2/",
-  "previous": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-1-1/"},
-  "next": {"title": "Searching For Supernovae", "link": "/searching-for-supernovae-2-1/"},
+  "previous": {"title": "Classifying Supernova #1", "link": "/searching-for-supernovae-1-1/"},
+  "next": {"title": "Classifying Supernova #2", "link": "/searching-for-supernovae-2-1/"},
   "layout": "TwoCol",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
 import { axisBottom as d3AxisBottom } from 'd3-axis';
-import { mjdToUTC } from '../../../lib/utilities';
 
 class XAxis extends React.PureComponent {
   constructor(props) {
@@ -19,13 +18,9 @@ class XAxis extends React.PureComponent {
     $xAxis
       .call(xAxis)
       .selectAll('.tick text')
-      .each(function renderTick(d) {
-        d3Select(this).text(mjdToUTC(d, 'MDY'));
-      })
-      .style('text-anchor', 'end')
-      .attr('dx', '-0.8em')
-      .attr('dy', '-0.03em')
-      .attr('transform', 'rotate(-65)');
+      .each(function renderTick(d, i, ticks) {
+        d3Select(this).text(d - d3Select(ticks[0]).datum());
+      });
   }
 
   render() {
