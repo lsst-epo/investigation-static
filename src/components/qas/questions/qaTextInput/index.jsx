@@ -17,8 +17,6 @@ class TextInput extends React.PureComponent {
       hasFocus: false,
       answerable: false,
     };
-
-    this.field = React.createRef();
   }
 
   componentDidUpdate() {
@@ -91,7 +89,6 @@ class TextInput extends React.PureComponent {
     return (
       <Card className={cardClasses}>
         <TextField
-          ref={this.field}
           id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
           className={fieldClasses}
           type="text"
