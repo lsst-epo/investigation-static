@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { CardText, CardActions } from 'react-md';
@@ -171,7 +170,6 @@ class DistanceCalculator extends React.PureComponent {
         <CardText>
           <div className="inline-question">
             <TextField
-              ref={this.field}
               id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
               className={fieldClasses}
               type="number"
