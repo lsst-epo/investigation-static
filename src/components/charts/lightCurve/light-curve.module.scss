@@ -9,6 +9,10 @@
   }
 }
 
+.hide-data-points {
+  visibility: hidden;
+}
+
 .data-point {
   stroke: 'transparent';
   transition: stroke $timing $duration, opacity $timing $duration;

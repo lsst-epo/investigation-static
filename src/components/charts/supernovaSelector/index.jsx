@@ -36,33 +36,58 @@ class SupernovaSelector extends React.Component {
   }
 
   componentDidMount() {
-    const { autoplay } = this.props;
-    this.updateScatterPlot();
+    const { autoplay, preSelected, data } = this.props;
+
+    this.updateSupernovaSelector();
 
     if (autoplay) {
       this.startBlink();
     }
+
+    if (preSelected) {
+      this.setSelection(data);
+    }
   }
 
   componentDidUpdate(prevProps) {
-    const { data } = this.props;
+    const { selectedData } = this.state;
+    const { data, isAnswered, preSelected } = this.props;
 
     if (prevProps.data !== data) {
-      this.updateScatterPlot();
+      this.updateSupernovaSelector();
+    }
+
+    if (isAnswered && !selectedData) {
+      this.toggleSelection(data);
+    } else if (!isAnswered && !preSelected && selectedData) {
+      this.clearSelection();
     }
   }
 
   componentWillUnmount() {
-    this.stopBlink();
+    clearInterval(this.blinkerInterval);
+    this.removeEventListeners();
+  }
+
+  clearSelection() {
+    this.setState(prevState => ({
+      ...prevState,
+      selectedData: null,
+    }));
+  }
+
+  setSelection(d) {
+    this.setState(prevState => ({
+      ...prevState,
+      selectedData: arrayify(d),
+    }));
   }
 
   toggleSelection(d) {
-    const { selectedData } = this.state;
-
     this.setState(
       prevState => ({
         ...prevState,
-        selectedData: selectedData ? null : arrayify(d),
+        selectedData: arrayify(d),
       }),
       () => {
         const { selectionCallback } = this.props;
@@ -119,19 +144,15 @@ class SupernovaSelector extends React.Component {
   }
 
   stopBlink() {
-    const { playing } = this.state;
-
-    if (playing) {
-      this.setState(
-        prevState => ({
-          ...prevState,
-          playing: false,
-        }),
-        () => {
-          clearInterval(this.blinkerInterval);
-        }
-      );
-    }
+    this.setState(
+      prevState => ({
+        ...prevState,
+        playing: false,
+      }),
+      () => {
+        clearInterval(this.blinkerInterval);
+      }
+    );
   }
 
   nextBlink(images) {
@@ -173,11 +194,16 @@ class SupernovaSelector extends React.Component {
     d3Select(this.svgEl.current).on('click', () => {
       // remove styles and selections when click on non-point
       const pointData = d3Select(d3Event.target).datum();
-
+      console.log(pointData);
       if (pointData) {
         this.toggleSelection(pointData);
       }
     });
+  }
+
+  // add event listeners to Scatterplot and Points
+  removeEventListeners() {
+    d3Select(this.svgEl.current).on('click', null);
   }
 
   updatePoints() {
@@ -194,11 +220,11 @@ class SupernovaSelector extends React.Component {
         loading: false,
       }));
     } else if (multiple) {
-      data.forEach((cluster, i) => {
+      data.forEach((supernova, i) => {
         if (i === data.length - 1) {
           d3Select(this.svgEl.current)
-            .selectAll(`.data-point.${cluster.className}`)
-            .data(cluster.data)
+            .selectAll(`.data-point.${supernova.className}`)
+            .data(supernova.data)
             .transition()
             .end()
             .then(() => {
@@ -211,8 +237,8 @@ class SupernovaSelector extends React.Component {
             });
         } else {
           d3Select(this.svgEl.current)
-            .selectAll(`.data-point${cluster.className}`)
-            .data(cluster.data);
+            .selectAll(`.data-point${supernova.className}`)
+            .data(supernova.data);
         }
       });
     } else {
@@ -233,12 +259,11 @@ class SupernovaSelector extends React.Component {
   }
 
   // bind data to elements and add styles and attributes
-  updateScatterPlot() {
+  updateSupernovaSelector() {
     const { preSelected } = this.props;
     this.updatePoints();
 
     if (!preSelected) {
-      // console.log('adding event listeners');
       this.addEventListeners();
     }
   }
@@ -249,9 +274,7 @@ class SupernovaSelector extends React.Component {
       width,
       height,
       images,
-      // preSelected,
       multiple,
-      // selection,
       xValueAccessor,
       yValueAccessor,
       legend,
@@ -347,7 +370,7 @@ SupernovaSelector.propTypes = {
   images: PropTypes.array,
   activeImageId: PropTypes.string,
   activeImageIndex: PropTypes.number,
-  // selection: PropTypes.array,
+  isAnswered: PropTypes.bool,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
   xDomain: PropTypes.array,

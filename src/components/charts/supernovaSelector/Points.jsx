@@ -14,6 +14,7 @@ class Points extends React.PureComponent {
       yValueAccessor,
       pointClasses,
     } = this.props;
+
     return (
       <g className={`data-points ${pointClasses}`}>
         {data.map((d, i) => {

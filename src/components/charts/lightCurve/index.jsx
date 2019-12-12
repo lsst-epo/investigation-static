@@ -20,6 +20,7 @@ import Tooltip from '../shared/Tooltip.jsx';
 import Legend from '../shared/Legend.jsx';
 import Templates from './Templates.jsx';
 import Select from '../../site/forms/select';
+import styles from './light-curve.module.scss';
 
 class LightCurve extends React.PureComponent {
   constructor(props) {
@@ -76,7 +77,7 @@ class LightCurve extends React.PureComponent {
     const { data, activeData } = this.props;
 
     if (prevProps.data !== data || (!isEmpty(data) && loading)) {
-      this.updateScatterPlot();
+      this.updateLightCurve();
     }
 
     this.checkActive(activeData, prevProps.activeData);
@@ -218,17 +219,13 @@ class LightCurve extends React.PureComponent {
         if (i === data.length - 1) {
           $lightCurve
             .selectAll(`.data-point.${selection.className}`)
-            .data(selection.data)
-            .transition()
-            .end()
-            .then(() => {
-              if (loading) {
-                this.setState(prevState => ({
-                  ...prevState,
-                  loading: false,
-                }));
-              }
-            });
+            .data(selection.data);
+          if (loading) {
+            this.setState(prevState => ({
+              ...prevState,
+              loading: false,
+            }));
+          }
         } else {
           $lightCurve
             .selectAll(`.data-point${selection.className}`)
@@ -236,19 +233,13 @@ class LightCurve extends React.PureComponent {
         }
       });
     } else {
-      $lightCurve
-        .selectAll('.data-point')
-        .data(data)
-        .transition()
-        .end()
-        .then(() => {
-          if (loading) {
-            this.setState(prevState => ({
-              ...prevState,
-              loading: false,
-            }));
-          }
-        });
+      $lightCurve.selectAll('.data-point').data(data);
+      if (loading) {
+        this.setState(prevState => ({
+          ...prevState,
+          loading: false,
+        }));
+      }
     }
   }
 
@@ -263,7 +254,7 @@ class LightCurve extends React.PureComponent {
   };
 
   // bind data to elements and add styles and attributes
-  updateScatterPlot() {
+  updateLightCurve() {
     const { preSelected } = this.props;
     this.updatePoints();
 
@@ -306,6 +297,7 @@ class LightCurve extends React.PureComponent {
       activeAnswer,
       activeQuestionId,
       templateAnswerId,
+      pointsAreVisible,
     } = this.props;
 
     const {
@@ -325,6 +317,10 @@ class LightCurve extends React.PureComponent {
     const svgClasses = classnames('svg-chart light-curve', {
       loading,
       loaded: !loading,
+    });
+
+    const pointsClasses = classnames({
+      [styles.hideDataPoints]: !pointsAreVisible,
     });
 
     return (
@@ -403,7 +399,7 @@ class LightCurve extends React.PureComponent {
                 />
               </clipPath>
             </defs>
-            <g clipPath="url('#clip')">
+            <g clipPath="url('#clip')" className={pointsClasses}>
               {data &&
                 multiple &&
                 data.map((selection, i) => {
@@ -506,6 +502,7 @@ LightCurve.propTypes = {
   activeQuestionId: PropTypes.string,
   templateAnswerId: PropTypes.string,
   isInteractive: PropTypes.bool,
+  pointsAreVisible: PropTypes.bool,
 };
 
 export default LightCurve;
