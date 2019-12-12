@@ -25,14 +25,18 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     const {
       images,
       data: { alerts },
+      answers,
+      options: { toggleDataPointsVisibility: selectorQId },
     } = this.props;
     const { activeAlert } = this.state;
+    const selectorAnswer = answers[selectorQId];
 
     if (!activeAlert) {
       this.setState(prevState => ({
         ...prevState,
         activeImageId: images[0].image_id,
         activeAlert: alerts[0],
+        lightCurvePointsAreVisible: !isEmpty(selectorAnswer),
       }));
     }
   }
@@ -41,11 +45,14 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     const { updateAnswer, activeQuestionId } = this.props;
     const activeSupernova = d ? d[0].id : null;
 
-    updateAnswer(activeQuestionId, activeSupernova);
+    if (activeQuestionId) {
+      updateAnswer(activeQuestionId, activeSupernova);
+    }
 
     this.setState(prevState => ({
       ...prevState,
       activeSupernova,
+      lightCurvePointsAreVisible: !!activeSupernova,
     }));
   };
 
@@ -107,6 +114,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     const { activeImageId, activeImageIndex, activeAlert, data } = this.state;
     const {
       data: { alerts, name, band },
+      answers,
       activeAnswer,
       templatesData,
       images,
@@ -119,9 +127,12 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         chooseLightCurveTemplate,
         preSelectedLightCurveTemplate,
         preSelected,
+        toggleDataPointsVisibility: selectorQId,
       },
     } = this.props;
     const activeAlertId = activeAlert ? activeAlert.alert_id.toString() : null;
+    const isAnswered =
+      (showSelector || showLightCurve) && !isEmpty(answers[selectorQId]);
     const {
       transform,
       type,
@@ -143,6 +154,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                 autoplay,
                 activeAlertId,
                 preSelected,
+                isAnswered,
               }}
               selectionCallback={this.supernovaSelectionCallback}
               blinkCallback={this.onAlertChange}
@@ -168,6 +180,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                 activeQuestionId,
                 templateAnswerId,
               }}
+              pointsAreVisible={selectorQId ? isAnswered : true}
               templates={lightCurveTemplates}
               activeTemplate={type}
               chooseLightCurveTemplate={chooseLightCurveTemplate}
@@ -193,6 +206,7 @@ SupernovaSelectorWithLightCurveContainer.propTypes = {
   activeAnswer: PropTypes.object,
   updateAnswer: PropTypes.func,
   preSelected: PropTypes.bool,
+  toggleDataPointsVisibility: PropTypes.string,
 };
 
 export default props => (

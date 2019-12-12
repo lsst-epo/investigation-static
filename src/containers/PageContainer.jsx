@@ -125,6 +125,7 @@ export const query = graphql`
             lightCurveTemplates
             chooseLightCurveTemplate
             preSelectedLightCurveTemplate
+            toggleDataPointsVisibility
             autoplay
             preSelected
           }
