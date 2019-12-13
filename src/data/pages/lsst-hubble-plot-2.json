@@ -1,0 +1,17 @@
+{
+  "id": "expand13",
+  "investigation": "expanding-universe",
+  "order": "13",
+  "title": "The LSST Hubble Plot",
+  "slug": "lsst-hubble-plot-2/",
+  "previous": {
+    "title": "The LSST Hubble Plot",
+    "link": "/lsst-hubble-plot/"
+  },
+  "next": {
+    "title": "Discuss and Report",
+    "link": "/discuss-report/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>A new observation can be made from this plot: The Hubble Constant is not the same throughout the history of the Universe. Many cosmologists attribute this change to the role of dark energy. Astronomers are actively engaged in new research to better understand the nature of dark energy. There are still many more secrets of the Universe to discover.</p>"
+}

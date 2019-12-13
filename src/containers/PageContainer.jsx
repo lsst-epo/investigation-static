@@ -44,6 +44,7 @@ class PageContainer extends React.PureComponent {
     } = this.props;
     const {
       id,
+      investigation,
       title,
       layout,
       previous,
@@ -81,7 +82,7 @@ class PageContainer extends React.PureComponent {
             MediaTag,
           }}
         />
-        <PageNav {...{ previous, next }} />
+        <PageNav {...{ previous, next }} baseUrl={investigation} />
       </div>
     );
   }
@@ -100,10 +101,13 @@ PageContainer.propTypes = {
 };
 
 export const query = graphql`
-  query PageQuery($id: String!) {
-    allPagesJson(filter: { id: { eq: $id } }) {
+  query PageQuery($id: String!, $investigation: String) {
+    allPagesJson(
+      filter: { id: { eq: $id }, investigation: { eq: $investigation } }
+    ) {
       nodes {
         id
+        investigation
         content
         layout
         slug

@@ -67,7 +67,8 @@
     "format": "prettier --write \"**/*.{js,jsx}\"",
     "styles": "stylelint --config \"./.stylelintrc\" --color --fix \"**/*.{css,scss}\"",
     "serve": "gatsby serve",
-    "test": "jest --updateSnapshot --verbose"
+    "test": "jest --updateSnapshot --verbose",
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",

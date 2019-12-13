@@ -1,0 +1,39 @@
+{
+  "id": "expand14",
+  "investigation": "expanding-universe",
+  "order": "14",
+  "title": "Discuss and Report",
+  "slug": "discuss-report/",
+  "previous": {
+    "title": "The LSST Hubble Plot",
+    "link": "/lsst-hubble-plot-2/"
+  },
+  "next": {
+    "title": "Summary",
+    "link": "/summary/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>The Hubble plot can be used to provide an indirect measure for how the Universe has changed over time. When we observe objects in the Universe, we must take into account that the light we receive has traveled vast distances over a long period of time. As a result, we are actually seeing these objects not as they are now, but as they were in the past.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "25",
+          "questionType": "textArea",
+          "label": "Would you have been able to determine that the expansion rate of the Universe is changing with time if you had only your original data?  Explain why or why not.",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "26",
+          "questionType": "textArea",
+          "label": "Do the data from this investigation provide supporting evidence for the Big Bang Theory? Explain what aspects of the Big Bang Theory are addressed and how they are supported.",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

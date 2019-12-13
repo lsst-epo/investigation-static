@@ -1,0 +1,217 @@
+{
+  "id": "expand15",
+  "investigation": "expanding-universe",
+  "order": "15",
+  "title": "Summary",
+  "slug": "summary/",
+  "previous": {
+    "title": "Discuss and Report",
+    "link": "/discuss-report/"
+  },
+  "next": {"title": "", "link": ""},
+  "layout": "TwoCol",
+  "content": "<p>The Hubble plot can be used to provide an indirect measure for how the Universe has changed over time. When we observe objects in the Universe, we must take into account that the light we receive has traveled vast distances over a long period of time. As a result, we are actually seeing these objects not as they are now, but as they were in the past.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "27",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "To construct a Hubble Plot you need to determine the ",
+          "labelPost": " of galaxies.",
+          "options": [
+            {"label": "color", "value": "color"},
+            {"label": "brightness", "value": "brightness"},
+            {"label": "distance", "value": "distance"},
+            {"label": "recessional velocity", "value": "recessional velocity"},
+            {"label": "age", "value": "age"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "28",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["28", "29"],
+          "labelPre": "We observe the light from distant galaxies to be ",
+          "labelPost": ", ",
+          "srLabel": " ",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a distance",
+          "options": [
+            {"label": "redshifted", "value": "redshifted"},
+            {"label": "blueshifted", "value": "blueshifted"}
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        },
+        {
+          "id": "29",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["28", "29"],
+          "labelPre": " indicating that these galaxies are all moving ",
+          "labelPost": " from us.",
+          "srLabel": " ",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a speed",
+          "options": [
+            {"label": "toward", "value": "toward"},
+            {"label": "away", "value": "away"}
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "30",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["30", "31"],
+          "labelPre": "The Hubble plot for an observer in a different galaxy would also demonstrate that all galaxies are moving ",
+          "labelPost": " from them, ",
+          "srLabel": " ",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a distance",
+          "options": [
+            {"label": "toward", "value": "toward"},
+            {"label": "away", "value": "away"}
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        },
+        {
+          "id": "31",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["30", "31"],
+          "labelPre": " indicating that the Universe ",
+          "labelPost": ".",
+          "srLabel": " ",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a speed",
+          "options": [
+            {"label": "does not have a center", "value": "does not have a center"},
+            {"label": "does not have a definite age", "value": "does not have a definite age"},
+            {"label": "is expanding uniformly in all directions", "value": "is expanding uniformly in all directions"}
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "32",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "The Hubble plot constructed from LSST data supports the idea of a Universe that is ",
+          "labelPost": " of galaxies.",
+          "options": [
+            {"label": "expanding", "value": "expanding"},
+            {"label": "contracting", "value": "contracting"},
+            {"label": "remaining constant in size", "value": "remaining constant in size"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "33",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["33", "34"],
+          "labelPre": "The light we receive from distant objects tells us what the Universe was like ",
+          "labelPost": " , ",
+          "srLabel": " ",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a distance",
+          "options": [
+            {"label": "a long time ago", "value": "a long time ago"},
+            {"label": "close to our time", "value": "close to our time"}
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        },
+        {
+          "id": "34",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["33", "34"],
+          "labelPre": " while the light we receive from nearby objects tells us what the Universe was like ",
+          "labelPost": ".",
+          "srLabel": " ",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a speed",
+          "options": [
+            {"label": "a long time ago", "value": "a long time ago"},
+            {"label": "close to our time", "value": "close to our time"}
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "35",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["35", "36", "37"],
+          "labelPre": "The slope of the line in this Hubble plot is ",
+          "labelPost": "for data from very distant objects compared to nearby objects.",
+          "srLabel": " ",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a distance",
+          "options": [
+            {"label": "steeper", "value": "steeper"},
+            {"label": "flatter", "value": "flatter"}
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        },
+        {
+          "id": "36",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["35", "36", "37"],
+          "labelPre": "Since the expansion rate of the Universe determined by observing distant objects is ",
+          "labelPost": "than the expansion rate determined by observing nearby objects, ",
+          "srLabel": " ",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a speed",
+          "options": [
+            {"label": "faster", "value": "faster"},
+            {"label": "slower", "value": "slower"}
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        },
+        {
+          "id": "37",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["35", "36", "37"],
+          "labelPre": " the expansion rate of the Universe is",
+          "labelPost": " as time goes on.",
+          "srLabel": " ",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a speed",
+          "options": [
+            {"label": "speeding up", "value": "speeding up"},
+            {"label": "slowing down", "value": "slowing down"}
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        }
+      ]
+    }
+  ]
+}

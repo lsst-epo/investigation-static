@@ -13,7 +13,6 @@ class TableOfContents extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.TO_PREFIX = '/';
     this.routes = [
       /* {
         label: 'home',
@@ -40,11 +39,13 @@ class TableOfContents extends React.PureComponent {
   massageNavLinks = navLinks => {
     return navLinks.map(link => {
       if (link.divider || link.subheader) return link;
+      const baseUrl = link.investigation ? `/${link.investigation}/` : '/';
+
       return {
         ...link,
         component: Link,
         label: link.title,
-        to: `${this.TO_PREFIX}${link.slug}`,
+        to: baseUrl + link.slug,
         primaryText: link.title,
         leftIcon: <Check />,
         active: this.setActivePage(link.id),
@@ -100,11 +101,12 @@ export default props => (
   <StaticQuery
     query={graphql`
       query MyQuery {
-        allPagesJson(sort: { fields: [order], order: ASC }) {
+        allPagesJson(sort: { fields: order, order: ASC }) {
           nodes {
             title
             slug
             id
+            investigation
             order
           }
         }

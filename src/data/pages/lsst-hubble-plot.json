@@ -1,0 +1,85 @@
+{
+  "id": "expand12",
+  "investigation": "expanding-universe",
+  "order": "12",
+  "title": "The LSST Hubble Plot",
+  "slug": "lsst-hubble-plot/",
+  "previous": {
+    "title": "The Universe through Time",
+    "link": "/universe-through-time/"
+  },
+  "next": {
+    "title": "The LSST Hubble Plot",
+    "link": "/lsst-hubble-plot-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>The Hubble plots above were made from observations for a small sample of galaxies. LSST will detect millions of supernovae in host galaxies that are much farther away and dimmer than the galaxies you have investigated so far. Click the Run button on the plot below. It will display data for over a thousand supernovae and galaxies detected by LSST.</p><p>Notice in the plot above that not all the data points fit onto the trendline.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "20",
+          "questionType": "textArea",
+          "label": "Do the results you found from your data regarding the expansion of the Universe agree with the LSST data? Explain your reasoning.",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "21",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "The data does not fit the trendline for ",
+          "labelPost": " .",
+          "options": [
+            {"label": "relatively nearby galaxies", "value": "relatively nearby galaxies"},
+            {"label": "the most distant galaxies", "value": "the most distant galaxies"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "22",
+          "questionType": "textArea",
+          "label": "Does the region on the plot where the data does not fit the trendline correspond to a time when the Universe was relatively young (early in the history of the Universe) or relatively old?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "23",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "The slope of data for galaxies that are far away is ",
+          "labelPost": " than the slope of the data for nearby galaxies.",
+          "options": [
+            {"label": "flatter", "value": "flatter"},
+            {"label": "steeper", "value": "steeper"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "24",
+          "questionType": "textArea",
+          "label": "Was the Universe a long time ago expanding faster or slower than it is now? Explain your reasoning.",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "expand4",
+  "investigation": "expanding-universe",
+  "order": "03",
+  "title": "Interpreting a Hubble Plot",
+  "slug": "interpreting-a-hubble-plot-1/",
+  "previous": {
+    "title": "Using Photometric Redshift to Measure Velocity",
+    "link": "/acquiring-the-data-2/"
+  },
+  "next": {
+    "title": "Using a Light Curve to Classify Supernova #2",
+    "link": "/interpreting-a-hubble-plot-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>You will begin by hunting for Type Ia supernovae in LSST images of six galaxies. Select Galaxy 1 and compare the two images of the galaxy as you did before to find the location of the supernova. When you see the supernova, click on it. An information box will provide the distance to the supernova in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because the supernova is in the galaxy, the distances to the supernova and the galaxy are the same.</p><p>Next, click on the center of the galaxy. You will now see information about the galaxy, including its recessional velocity (in km/s).</p><p>Now move the cursor to the location on the Hubble plot at the right that corresponds to the velocity and distance of the galaxy. Click on the plot to add a dot at the correct location for that galaxy.</p>"
+}

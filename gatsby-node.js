@@ -20,12 +20,18 @@ exports.createPages = async ({ graphql, actions }) => {
   // **Note:** The graphql function call returns a Promise
   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
   const { createPage } = actions;
-  const result = await graphql(`
+  // expanding-universe
+  // exploding-stars
+  // filter: { investigation: { eq: "expanding-universe" } }
+  const pages = await graphql(`
     query {
-      allPagesJson(sort: { fields: [order], order: ASC }) {
+      allPagesJson(
+        sort: { fields: order, order: ASC }
+      ) {
         nodes {
           order
           id
+          investigation
           slug
         }
       }
@@ -76,14 +82,26 @@ exports.createPages = async ({ graphql, actions }) => {
   //   });
   // });
 
-  result.data.allPagesJson.nodes.forEach(page => {
-    const { id, slug } = page;
+  pages.data.allPagesJson.nodes.forEach(page => {
+    const { id, slug, investigation, order } = page;
+
+    if (order === '00') {
+      createPage({
+        path: `/${investigation}`,
+        component: path.resolve(`./src/containers/PageContainer.jsx`),
+        context: {
+          id,
+          investigation,
+        },
+      });
+    }
 
     createPage({
-      path: `/${slug}`,
+      path: `/${investigation}/${slug}`,
       component: path.resolve(`./src/containers/PageContainer.jsx`),
       context: {
         id,
+        investigation,
       },
     });
   });

@@ -1,0 +1,32 @@
+{
+  "id": "expand7",
+  "investigation": "expanding-universe",
+  "order": "07",
+  "title": "Interpreting a Hubble Plot",
+  "slug": "interpreting-a-hubble-plot-4/",
+  "previous": {
+    "title": "Interpreting a Hubble Plot",
+    "link": "/interpreting-a-hubble-plot-3/"
+  },
+  "next": {
+    "title": "Interpreting a Hubble Plot",
+    "link": "/interpreting-a-hubble-plot-5/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Now click add trendline and drag the line until you feel it best fits your data.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "7",
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #7",
+          "label": "<p>Add a trendline and drag the line until you feel it best fits your data</p>",
+          "answerPre": "<span>Slope: </span>",
+          "answerAccessor": "data"
+        }
+      ]
+    }
+  ]
+}

@@ -7,10 +7,11 @@ import Header from '../components/site/header';
 import TableOfContents from '../components/site/tableOfContents';
 
 class Layout extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { data } = this.props;
 
-    const store = new GlobalStore();
+    const store = new GlobalStore(this.getInvestigationId(data));
 
     store.addCallbacks();
     store.addReducers();
@@ -18,6 +19,19 @@ class Layout extends React.Component {
     this.state = {
       openSidebar: false,
     };
+  }
+
+  getInvestigationId(data) {
+    let investigationId = 'store';
+    if (data && data.allPagesJson) {
+      const {
+        allPagesJson: { nodes },
+      } = data;
+      const { investigation } = nodes[0];
+      investigationId = investigation || 'store';
+    }
+
+    return investigationId;
   }
 
   toggleSidebar = () => {
@@ -55,5 +69,5 @@ export default Layout;
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  // data: PropTypes.object,
+  data: PropTypes.object,
 };

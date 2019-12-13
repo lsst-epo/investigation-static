@@ -19,6 +19,7 @@ export const WithQAing = ComposedComponent => {
         );
       }
     }
+
     // Methods related to setting & updating "active QA"
 
     // Callback method passed down to child components
