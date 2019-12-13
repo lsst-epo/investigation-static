@@ -1,0 +1,57 @@
+{
+  "id": "expand11",
+  "investigation": "expanding-universe",
+  "order": "11",
+  "title": "The Universe through Time",
+  "slug": "universe-through-time/",
+  "previous": {
+    "title": "Testing the Hubble-Lemaitre Law",
+    "link": "/testing-law-2/"
+  },
+  "next": {
+    "title": "The LSST Hubble Plot",
+    "link": "/lsst-hubble-plot/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>The Hubble plot can be used to provide an indirect measure for how the Universe has changed over time. When we observe objects in the Universe, we must take into account that the light we receive has traveled vast distances over a long period of time. As a result, we are actually seeing these objects not as they are now, but as they were in the past.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "17",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "The galaxy farthest from us provides information from a time that is ",
+          "labelPost": " in the history of the Universe.",
+          "options": [
+            {"label": "recent", "value": "recent"},
+            {"label": "early", "value": "early"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "18",
+          "questionType": "text",
+          "label": "Was the Universe smaller or larger when it was younger?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "19",
+          "questionType": "text",
+          "label": "Are the galaxies getting closer together or farther apart as the Universe gets older?",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

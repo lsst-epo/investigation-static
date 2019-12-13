@@ -1,0 +1,68 @@
+{
+  "id": "expand9",
+  "investigation": "expanding-universe",
+  "order": "09",
+  "title": "Testing the Hubble-Lemaître Law from Another Place in the Universe",
+  "slug": "testing-law/",
+  "previous": {
+    "title": "Interpreting a Hubble Plot",
+    "link": "/interpreting-a-hubble-plot-5/"
+  },
+  "next": {
+    "title": "Interpreting a Hubble Plot",
+    "link": "/testing-law-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law. But does this law apply only from our perspective in the Milky Way, or from other places in the Universe as well? To find out, let’s explore another LSST data set.</p><p>We will begin by viewing the data for six galaxies observed from the Milky Way Galaxy</p><p>Imagine there are alien astronomers living in galaxy #3</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "10",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "If we were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
+          "options": [
+            {"label": "next to the origin", "value": "next to the origin"},
+            {"label": "next to the Milky Way Galaxy", "value": "next to the Milky Way Galaxy"},
+            {"label": "the third dot from the origin", "value": "the third dot from the origin"},
+            {"label": "at the origin", "value": "at the origin"}
+          ],
+          "placeholder": "Select the best description",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "11",
+          "questionType": "textArea",
+          "label": "Is the relationship between the distance of a galaxy and the speed of a galaxy the same or different than what you observed from the Milky Way Galaxy? Explain.",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "12",
+          "questionType": "textArea",
+          "label": "How does the Hubble Constant for the observations made by the alien astronomers in galaxy #3 compare to the Hubble Constant you measured from Earth (in the Milky Way Galaxy)?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "13",
+          "questionType": "textArea",
+          "label": "Does this mean that the alien astronomers and Earth astronomers are observing the Universe expanding at the same rate or at different rates? If different, who observers the Universe expanding faster?",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

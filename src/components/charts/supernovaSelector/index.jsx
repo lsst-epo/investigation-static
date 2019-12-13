@@ -194,7 +194,7 @@ class SupernovaSelector extends React.Component {
     d3Select(this.svgEl.current).on('click', () => {
       // remove styles and selections when click on non-point
       const pointData = d3Select(d3Event.target).datum();
-      console.log(pointData);
+
       if (pointData) {
         this.toggleSelection(pointData);
       }
