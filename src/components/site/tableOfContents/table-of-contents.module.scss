@@ -38,7 +38,7 @@
             fill: $basePrimary;
           }
 
-          &:hover,
+          &:hover .md-list-tile .md-tile-addon--icon svg,
           &.link-active .md-list-tile .md-tile-addon--icon svg {
             fill: $protonWhite;
           }
