@@ -86,8 +86,16 @@ export const WithQAing = ComposedComponent => {
         }
 
         this.dispatch.updateAnswer(id, content, data);
+        this.dispatch.updateProgressByPage(this.global.pageId, null, {
+          id,
+          answered: content,
+        });
       } else {
         this.dispatch.clearAnswer(id);
+        this.dispatch.updateProgressByPage(this.global.pageId, null, {
+          id,
+          answered: false,
+        });
       }
     };
 

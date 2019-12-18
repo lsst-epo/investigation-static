@@ -15,26 +15,20 @@ class TableOfContents extends React.PureComponent {
     super(props);
 
     this.routes = [
-      /* {
-        label: 'home',
-        to: `${this.TO_PREFIX}`,
-        component: Link,
-        icon: 'home',
-        exact: 'true',
-        primaryText: 'Home',
-        active: this.global.pageId === 1,
-        className: classnames(
-          'toc-link',
-          this.global.pageId === 1 ? 'link-active' : ''
-        ),
-      },
-      { divider: true }, */
       {
         primaryText: 'Table of Contents',
         subheader: true,
       },
       { divider: true },
     ];
+
+    this.updateAppProgress(props.navLinks);
+  }
+
+  updateAppProgress(pages) {
+    pages.forEach(page => {
+      this.dispatch.updateProgressByPage(page.id, page.questionsByPage);
+    });
   }
 
   getNavLinks(navLinks, investigation) {
@@ -65,10 +59,15 @@ class TableOfContents extends React.PureComponent {
     ];
   }
 
-  checkQAProgress(pageId) {
+  checkQAProgress = pageId => {
+    const { investigationProgressState: ips } = this.global;
+    const data = ips[pageId];
+    const { questionCount, answered } = data;
+    const answeredCount = Object.values(answered).filter(ans => ans === true)
+      .length;
     // add some fancy logic to reflect page answer state.
-    return +pageId === 5;
-  }
+    return questionCount > 0 ? questionCount === answeredCount : false;
+  };
 
   setActivePage = linkId => linkId === this.global.pageId;
 
@@ -114,6 +113,11 @@ export default props => (
             id
             investigation
             order
+            questionsByPage {
+              question {
+                id
+              }
+            }
           }
         }
       }

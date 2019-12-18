@@ -16,14 +16,14 @@
           "compoundQuestion": ["81", "82", "83"],
           "labelPre": "Different types of stars can explode to form supernovae. A star that is at least 8 times the mass of the Sun forms a Type ",
           "labelPost": " supernova. ",
-          "srLabel": "What type of supernova froms from a star that has a mass at least 8 times the mass of the Sun?",
+          "srLabel": "What type of supernova forms from a star that has a mass at least 8 times the mass of the Sun?",
           "answerAccessor": "compound-select",
           "placeholder": "Select a type",
           "options": [
             {"label": "Ia", "value": "Ia"},
             {"label": "IIp", "value": "IIp"}
           ],
-          "answerPre": "A star that is at least 8 times the mass of the Sun froms a ",
+          "answerPre": "A star that is at least 8 times the mass of the Sun forms a ",
           "answerPost": " supernova."
         },
         {
@@ -32,14 +32,14 @@
           "compoundQuestion": ["81", "82", "83"],
           "labelPre": " A Type ",
           "labelPost": " supernova ",
-          "srLabel": "What type of supernova froms from a star in binary star system?",
+          "srLabel": "What type of supernova forms from a star in binary star system?",
           "answerAccessor": "compound-select",
           "placeholder": "Select a type",
           "options": [
             {"label": "Ia", "value": "Ia"},
             {"label": "IIp", "value": "IIp"}
           ],
-          "answerPre": "A star in a binary star system froms a ",
+          "answerPre": "A star in a binary star system forms a ",
           "answerPost": " supernova."
         },
         {
@@ -55,7 +55,7 @@
             {"label": "massive", "value": "massive"},
             {"label": "white dwarf", "value": "white dwarf"}
           ],
-          "answerPre": "A star in a binary star system froms a ",
+          "answerPre": "A star in a binary star system forms a ",
           "answerPost": " supernova."
         }
       ]
