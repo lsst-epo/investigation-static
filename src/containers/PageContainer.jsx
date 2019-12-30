@@ -8,6 +8,7 @@ import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
 import Placeholder from '../components/placeholder';
 import SupernovaSelectorWithLightCurve from './SupernovaSelectorWithLightCurveContainer';
+import GalaxySelector from './GalaxySelectorContainer';
 
 @reactn
 class PageContainer extends React.PureComponent {
@@ -22,6 +23,7 @@ class PageContainer extends React.PureComponent {
 
     this.widgetTags = {
       SupernovaSelectorWithLightCurve,
+      GalaxySelector,
     };
   }
 
@@ -122,6 +124,7 @@ export const query = graphql`
         }
         widget {
           type
+          sources
           source
           options {
             showSelector
