@@ -6,13 +6,19 @@
 
 const path = require(`path`);
 
-exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
+exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
   const config = getConfig();
   if (stage.startsWith('develop') && config.resolve) {
     config.resolve.alias = {
       ...config.resolve.alias,
       'react-dom': '@hot-loader/react-dom',
     };
+  }
+
+  if (stage.startsWith('develop')) {
+    actions.setWebpackConfig({
+      devtool: 'eval-source-map',
+    });
   }
 };
 
@@ -25,9 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // filter: { investigation: { eq: "expanding-universe" } }
   const pages = await graphql(`
     query {
-      allPagesJson(
-        sort: { fields: order, order: ASC }
-      ) {
+      allPagesJson(sort: { fields: [order, investigation], order: ASC }) {
         nodes {
           order
           id
