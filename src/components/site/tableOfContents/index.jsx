@@ -3,6 +3,7 @@ import React from 'react';
 import reactn from 'reactn';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
+import filter from 'lodash/filter';
 import classnames from 'classnames';
 import { Drawer } from 'react-md';
 import styles from './table-of-contents.module.scss';
@@ -36,35 +37,38 @@ class TableOfContents extends React.PureComponent {
     ];
   }
 
-  massageNavLinks = navLinks => {
-    return navLinks.map(link => {
-      if (link.divider || link.subheader) return link;
-      const baseUrl = link.investigation ? `/${link.investigation}/` : '/';
+  getNavLinks(navLinks, investigation) {
+    return [
+      ...this.routes,
+      ...filter(navLinks, link => link.investigation === investigation).map(
+        link => {
+          if (link.divider || link.subheader) return link;
+          const baseUrl = link.investigation ? `/${link.investigation}/` : '/';
 
-      return {
-        ...link,
-        component: Link,
-        label: link.title,
-        to: baseUrl + link.slug,
-        primaryText: link.title,
-        leftIcon: <Check />,
-        active: this.setActivePage(link.id),
-        className: classnames(
-          'toc-link',
-          `link--page-id--${link.id}`,
-          this.setActivePage(link.id) ? 'link-active' : '',
-          this.checkQAProgress(link.id) ? 'qa-progress--complete' : ''
-        ),
-      };
-    });
-  };
+          return {
+            ...link,
+            component: Link,
+            label: link.title,
+            to: baseUrl + link.slug,
+            primaryText: link.title,
+            leftIcon: <Check />,
+            active: this.setActivePage(link.id),
+            className: classnames(
+              'toc-link',
+              `link--page-id--${link.id}`,
+              this.setActivePage(link.id) ? 'link-active' : '',
+              this.checkQAProgress(link.id) ? 'qa-progress--complete' : ''
+            ),
+          };
+        }
+      ),
+    ];
+  }
 
-  checkQAProgress = pageId => {
+  checkQAProgress(pageId) {
     // add some fancy logic to reflect page answer state.
     return +pageId === 5;
-  };
-
-  getNavLinks = navLinks => [...this.routes, ...this.massageNavLinks(navLinks)];
+  }
 
   setActivePage = linkId => linkId === this.global.pageId;
 
@@ -75,14 +79,15 @@ class TableOfContents extends React.PureComponent {
 
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
-    const { visible, navLinks } = this.props;
+    const { visible, navLinks, investigation } = this.props;
+
     return (
       <Drawer
         type={TEMPORARY}
         className={styles.tableOfContents}
         visible={visible}
         onVisibilityChange={this.handleVisibility}
-        navItems={this.getNavLinks(navLinks)}
+        navItems={this.getNavLinks(navLinks, investigation)}
         overlay
       />
     );
@@ -93,6 +98,7 @@ TableOfContents.propTypes = {
   visible: PropTypes.bool,
   toggleSidebar: PropTypes.func.isRequired,
   navLinks: PropTypes.array,
+  investigation: PropTypes.string,
 };
 
 // export default TableOfContents;

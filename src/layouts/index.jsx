@@ -44,7 +44,8 @@ class Layout extends React.Component {
 
   render() {
     const { openSidebar } = this.state;
-    const { children } = this.props;
+    const { children, pageContext } = this.props;
+
     return (
       <>
         <Header
@@ -55,6 +56,7 @@ class Layout extends React.Component {
         <TableOfContents
           visible={openSidebar}
           toggleSidebar={this.toggleSidebar}
+          investigation={pageContext.investigation}
         />
         <div>
           <main className={styles.container}>{children}</main>
@@ -69,5 +71,6 @@ export default Layout;
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  pageContext: PropTypes.object,
   data: PropTypes.object,
 };
