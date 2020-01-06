@@ -72,6 +72,7 @@ class PageContainer extends React.PureComponent {
             next,
             content,
             widget,
+            tables,
             image,
             questions,
             answers,
@@ -84,7 +85,7 @@ class PageContainer extends React.PureComponent {
             MediaTag,
           }}
         />
-        <PageNav {...{ previous, next }} baseUrl={investigation} />
+        <PageNav {...{ previous, next }} baseUrl={`/${investigation}`} />
       </div>
     );
   }

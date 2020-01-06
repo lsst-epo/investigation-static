@@ -12,7 +12,7 @@ class PageNav extends React.PureComponent {
       <Button
         icon
         className="outlined"
-        to={item.link === '' ? `${baseUrl}` : `${baseUrl}/${item.link}`}
+        to={item.link === '' ? `${baseUrl}` : `${baseUrl}${item.link}`}
         component={Link}
         iconEl={type === 'previous' ? <ArrowLeft /> : <ArrowRight />}
         iconBefore={type === 'previous'}
