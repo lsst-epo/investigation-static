@@ -22,12 +22,14 @@ class TableOfContents extends React.PureComponent {
       { divider: true },
     ];
 
-    this.updateAppProgress(props.navLinks);
+    const { navLinks } = props;
+    this.updateInvestigationProgress(navLinks);
   }
 
-  updateAppProgress(pages) {
+  updateInvestigationProgress(pages) {
     pages.forEach(page => {
-      this.dispatch.updateProgressByPage(page.id, page.questionsByPage);
+      const { id, questionsByPage: questions } = page;
+      this.dispatch.setInvestigationProgress(id, questions);
     });
   }
 
@@ -40,7 +42,6 @@ class TableOfContents extends React.PureComponent {
           const baseUrl = link.investigation ? `/${link.investigation}/` : '/';
 
           return {
-            ...link,
             component: Link,
             label: link.title,
             to: baseUrl + link.slug,
@@ -60,13 +61,10 @@ class TableOfContents extends React.PureComponent {
   }
 
   checkQAProgress = pageId => {
-    const { investigationProgressState: ips } = this.global;
-    const data = ips[pageId];
-    const { questionCount, answered } = data;
-    const answeredCount = Object.values(answered).filter(ans => ans === true)
-      .length;
-    // add some fancy logic to reflect page answer state.
-    return questionCount > 0 ? questionCount === answeredCount : false;
+    const { investigationProgress: ips } = this.global;
+    const { progress } = ips[pageId];
+
+    return progress === 1;
   };
 
   setActivePage = linkId => linkId === this.global.pageId;

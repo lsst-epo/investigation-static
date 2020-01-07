@@ -5,7 +5,7 @@
   "title": "Blinking Supernovae",
   "slug": "blinking-supernovae/",
   "previous": {"title": "Discovering Supernovae", "link": "/discovering-supernovae/"},
-  "next": {"title": "Describing Light Curves", "link": "/describe-light-curve/"},
+  "next": {"title": "Observing Supernovae ", "link": "/observing-supernovae/"},
   "layout": "TwoCol",
   "content": "<p>The two images below show a supernova discovered in the galaxy NGC 6946. The first image was taken before the explosion and the second was taken afterwards. Blink the two images and look for the supernova, which appears as a bright star in one image but not the other. When you spot the supernova, click on it.</p>",
   "widget": {

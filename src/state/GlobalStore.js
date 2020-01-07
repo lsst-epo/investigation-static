@@ -9,14 +9,11 @@ class GlobalStore {
       answers: {},
       pageId: null,
       activeQuestionId: null,
-      totalNumPages: 20,
-      visitedPages: [],
-      investigationProgress: 0,
       activeGraphData: null,
       clusterA: [],
       clusterB: [],
       userDefinedRegions: [],
-      investigationProgressState: {},
+      investigationProgress: {},
     };
 
     // const existingState = this.emptyState;
@@ -41,17 +38,123 @@ class GlobalStore {
       return emptyGlobal;
     });
 
-    addReducer('updatePageId', (global, dispatch, pageId) => ({
-      ...global,
-      pageId,
-    }));
+    addReducer('updatePageId', (global, dispatch, pageId) => {
+      const { investigationProgress: prevIPS, pageId: prevPageId } = global;
+      const progress = prevIPS[prevPageId];
 
-    addReducer('updateAnswer', (global, dispatch, id, content, data) => {
-      const { answers: prevAnswers } = global;
-      const prevAnswer = { ...prevAnswers[id] };
+      if (!progress) {
+        return {
+          ...global,
+          pageId,
+        };
+      }
+
+      const { questions, answers } = progress;
+      if (questions === null && answers === null) {
+        return {
+          ...global,
+          pageId,
+          investigationProgress: {
+            ...prevIPS,
+            [prevPageId]: {
+              questions,
+              answers,
+              progress: 1,
+            },
+          },
+        };
+      }
 
       return {
         ...global,
+        pageId,
+      };
+    });
+
+    addReducer(
+      'setInvestigationProgress',
+      (global, dispatch, pageId, pageQuestionsData = null) => {
+        const {
+          investigationProgress: prevIPS,
+          answers: globalAnswers,
+          pageId: currentPageId,
+        } = global;
+
+        if (pageQuestionsData === null) {
+          return {
+            ...global,
+            investigationProgress: {
+              ...prevIPS,
+              [pageId]: {
+                questions: null,
+                answers: null,
+                progress: currentPageId === pageId ? 1 : 0,
+              },
+            },
+          };
+        }
+
+        const questions = [];
+        const answers = [];
+        pageQuestionsData.forEach(qData => {
+          qData.question.forEach(question => {
+            const { id: qId } = question;
+            questions.push(qId);
+            if (globalAnswers[qId]) {
+              answers.push(qId);
+            }
+          });
+        });
+
+        return {
+          ...global,
+          investigationProgress: {
+            ...prevIPS,
+            [pageId]: {
+              questions,
+              answers,
+              progress: answers.length / questions.length,
+            },
+          },
+        };
+      }
+    );
+
+    addReducer(
+      'updateProgressByPage',
+      (global, dispatch, pageId, qId, answered) => {
+        const { investigationProgress: prevIPS } = global;
+        const { questions, answers: prevAnswers } = prevIPS[pageId];
+        const indexOfprevAnswered = prevAnswers.indexOf(qId);
+        const prevAnswered = indexOfprevAnswered >= 0;
+        const answers = [...prevAnswers];
+
+        if (prevAnswered && !answered) {
+          answers.splice(indexOfprevAnswered, 1);
+        } else if (!prevAnswered && answered) {
+          answers.push(qId);
+        }
+
+        return {
+          ...global,
+          investigationProgress: {
+            ...prevIPS,
+            [pageId]: {
+              questions,
+              answers,
+              progress: answers.length / questions.length,
+            },
+          },
+        };
+      }
+    );
+
+    addReducer('updateAnswer', (global, dispatch, id, content, data) => {
+      const { answers: prevAnswers, pageId } = global;
+      const prevAnswer = { ...prevAnswers[id] };
+
+      return {
+        ...dispatch.updateProgressByPage(pageId, id, true),
         answers: {
           ...prevAnswers,
           [id]: {
@@ -64,91 +167,11 @@ class GlobalStore {
       };
     });
 
-    addReducer(
-      'updateProgressByPage',
-      (
-        global,
-        dispatch,
-        pageId,
-        pageQuestionsData = null,
-        answerObj = null
-      ) => {
-        const {
-          // prevIPS = prevInvestigationProgressState
-          investigationProgressState: prevIPS,
-          answers: prevAnswers,
-        } = global;
-
-        const notNullOrEmpty = null || ' ' || '';
-
-        // newIPS = newInvestigationProgressState
-        let newIPS = { ...prevIPS };
-
-        const answered = {};
-        if (pageQuestionsData !== null) {
-          pageQuestionsData.forEach(pqd => {
-            pqd.question.forEach(q => {
-              answered[q.id] = prevAnswers[q.id]
-                ? prevAnswers[q.id].content !== notNullOrEmpty
-                : false;
-            }, answered);
-          });
-          newIPS = {
-            [pageId]: pageQuestionsData
-              .map(qip => {
-                const qipObj = qip.question.map(quest => quest.id);
-                return {
-                  questionCount: qipObj.length,
-                  answered,
-                };
-              })
-              .reduce((a, b) => {
-                return {
-                  questionCount: a.questionCount + b.questionCount,
-                  answered,
-                };
-              }),
-          };
-        } else {
-          newIPS[pageId] = {
-            questionCount: 0,
-            answered: {},
-          };
-        }
-
-        if (answerObj !== null) {
-          const { questionCount: prevQstnCnt, answered: prevAns } = prevIPS[
-            pageId
-          ];
-
-          const newAnswered = {
-            ...prevAns,
-            [answerObj.id]: answerObj.answered !== notNullOrEmpty,
-          };
-
-          newIPS = {
-            [pageId]: {
-              questionCount: prevQstnCnt,
-              answered: newAnswered,
-            },
-          };
-        }
-
-        return {
-          ...global,
-          investigationProgressState: {
-            ...prevIPS,
-            [pageId]: { ...newIPS[pageId] },
-          },
-        };
-      }
-    );
-
     addReducer('clearAnswer', (global, dispatch, id) => {
-      const { answers: prevAnswers } = global;
+      const { answers: prevAnswers, pageId } = global;
 
       return {
-        ...global,
+        ...dispatch.updateProgressByPage(pageId, id, false),
         answers: {
           ...prevAnswers,
           [id]: {},
