@@ -4,8 +4,8 @@
   "order": "05",
   "title": "Describing Light Curves",
   "slug": "describe-light-curve/",
-  "previous": {"title": "Blinking Supernovae", "link": "/blinking-supernovae/"},
-  "next": {"title": "Observing Supernovae ", "link": "/observing-supernovae/"},
+  "previous": {"title": "Observing Supernovae ", "link": "/observing-supernovae/"},
+  "next": {"title": "Classifying Supernovae", "link": "/classifying-supernovae/"},
   "layout": "TwoCol",
   "content": "<p>Use this light curve to answer the following questions</p>",
   "widget": {

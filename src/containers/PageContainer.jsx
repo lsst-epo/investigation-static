@@ -83,7 +83,6 @@ class PageContainer extends React.PureComponent {
             setActiveQuestion,
             activeQuestionId,
             options,
-            tables,
             MediaTag,
           }}
         />
