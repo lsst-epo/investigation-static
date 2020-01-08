@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Drawer } from 'react-md';
 import Button from '../components/site/button';
-import ScatterPlot from '../components/site/icons/ScatterPlot';
 import Close from '../components/site/icons/Close';
+import DragHandle from '../components/site/icons/DragHandle';
 
 import './scatter-plot-selector-container.scss';
 
@@ -22,7 +21,7 @@ const ScatterPlotSelector = ({ children, opened, handleClick }) => {
         }`}
       >
         <Button className="scatter-plot-toggle" onClick={handleClick} flat>
-          {!opened ? <ScatterPlot /> : <Close />}
+          {!opened ? <DragHandle /> : <Close />}
         </Button>
         <div className="scatter-plot">{children}</div>
       </div>
