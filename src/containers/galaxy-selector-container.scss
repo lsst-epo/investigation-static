@@ -3,35 +3,42 @@
     padding: 9px;
 
     .md-title--toolbar {
+      flex: 1;
       margin: 0.5rem 1rem;
+    }
+
+    .md-cell--right.md-toolbar--action-right {
+      align-self: center;
+      justify-self: flex-end;
     }
   }
 
   .galaxy-selector-container {
     position: relative;
-    height: calc(100vh - 230px);
+    max-height: calc(100vh - 230px);
+    // min-height: 500px;
     overflow: hidden;
     box-shadow: none;
 
     .md-drawer {
       position: absolute;
       overflow: auto;
+      background: transparent;
       // box-shadow: none;
 
       .md-list {
-        padding: 0;
         height: 100%;
+        padding: 0;
+        background: transparent;
 
         .md-list-item.galaxy-item {
           &.link-active {
-            background-color: $basePrimary;
             color: $white;
+            background-color: $basePrimary;
+
             svg {
               fill: $white;
             }
-          }
-          &:not(.link-active):hover {
-            background-color: $neutral20;
           }
         }
 
@@ -51,28 +58,62 @@
         display: none;
       }
 
-      .md-list {
+      aside {
+        box-shadow: none;
+
         .galaxy-item {
+          &:hover {
+            background-color: rgba(200, 200, 200, 0.3);
+          }
+
+          svg {
+            fill: $neutral30;
+          }
+
           &.link-active {
-            background-color: $basePrimary;
-            color: $white;
+            background-color: rgba(200, 200, 200, 0.3);
+
             svg {
-              fill: $white;
+              fill: $basePrimary;
             }
           }
-          &:not(.link-active):hover {
-            background-color: $neutral20;
+        }
+      }
+
+      nav {
+        background: $black;
+
+        .md-list {
+          .galaxy-item {
+            svg {
+              fill: $basePrimary;
+            }
+
+            &:not(.link-active):hover .md-list-tile--active {
+              background-color: $neutral40;
+
+              svg {
+                fill: $white;
+              }
+            }
+
+            &.link-active {
+              color: $white;
+              background-color: $basePrimary;
+            }
           }
         }
       }
     }
 
     .main-galaxy-selector-content {
-      margin: 0 0 0 72px;
+      // margin: 0 0 0 72px;
+      margin: 0;
     }
 
     .scatter-plot {
       overflow: auto;
+
       .space-bottom {
         display: none;
       }

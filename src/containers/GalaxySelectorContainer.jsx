@@ -1,69 +1,74 @@
+/* eslint-disable no-console */
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import classnames from 'classnames';
 import { NavigationDrawer, Card, Toolbar } from 'react-md';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
+import GalaxySelector from '../components/charts/galaxySelector';
+import ScatterPlot from '../components/site/icons/ScatterPlot';
 import Star from '../components/site/icons/Star';
-import Menu from '../components/site/icons/Menu';
+import ViewList from '../components/site/icons/ViewList';
 import Close from '../components/site/icons/Close';
 import Button from '../components/site/button';
 
 import LightCurveContainer from './LightCurveContainer';
 
 import './galaxy-selector-container.scss';
+import { getActiveIndex } from '../components/charts/galaxySelector/galaxySelectorUtilities';
 
-class GalaxySelector extends React.PureComponent {
+class GalaxySelectorContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    // if (!window.location.hash) window.location.hash = `galaxy-1`;
-
     const { sources } = props.widget;
 
-    // axios.all(sources.map(source => axios.get( `${source}` ) ));
+    const galaxies = sources.map(source => {
+      source.images = this.generateImages(source.name, source.alerts);
+      return source;
+    });
+
+    console.log({ galaxies });
+
+    const { name, alerts } = galaxies[0];
 
     this.state = {
       openScatterPlot: false,
       openMenu: false,
-      selectedGalaxy: null,
-      navItems: [
-        {
-          galaxyId: 'galaxy-1',
-          name: 'Galaxy Name 1',
-        },
-        {
-          galaxyId: 'galaxy-2',
-          name: 'Galaxy Name 2',
-        },
-        {
-          galaxyId: 'galaxy-3',
-          name: 'Galaxy Name 3',
-        },
-        {
-          galaxyId: 'galaxy-4',
-          name: 'Galaxy Name 4',
-        },
-        {
-          galaxyId: 'galaxy-5',
-          name: 'Galaxy Name 5',
-        },
-        {
-          galaxyId: 'galaxy-6',
-          name: 'Galaxy Name 6',
-        },
-      ],
+      selectedGalaxy: name,
+      navItems: galaxies,
+      activeImageIndex: 0,
+      activeAlertId: alerts[0].alert_id,
+      activeAlert: alerts[0],
+      data: [galaxies[0]],
+      images: galaxies[0].images,
     };
   }
 
-  chooseGalaxyAndCloseNav(event, galaxyId) {
-    // logic to load selected galaxy using galaxyId
-    // apply to this.state.selectedGalaxy
+  chooseGalaxyAndCloseNav(event, galaxy) {
     if (event) {
-      console.log(galaxyId);
+      const { name, alerts } = galaxy;
+      this.setState(prevState => ({
+        ...prevState,
+        selectedGalaxy: name,
+        data: [galaxy],
+        images: this.generateImages(name, alerts),
+        activeImageIndex: 0,
+        activeAlertId: alerts[0].alert_id,
+        activeAlert: alerts[0],
+      }));
       this.handleCloseMenu();
     }
+  }
+
+  getActiveImageIndex(activeAlert, activeImageIndex) {
+    const { images } = this.state;
+
+    if (activeAlert) {
+      return getActiveIndex(images, activeAlert.image_id);
+    }
+
+    return activeImageIndex;
   }
 
   handleOpenMenu = () => {
@@ -97,38 +102,89 @@ class GalaxySelector extends React.PureComponent {
   };
 
   generateNavItems = navItems => {
+    const { selectedGalaxy } = this.state;
     const links = navItems.map(item => {
-      const isActive = false;
+      const isActive = item.name === selectedGalaxy;
       return {
         leftAvatar: <Star />,
         primaryText: item.name,
-        className: classnames('galaxy-item', isActive ? 'link-item' : ''), // boolean to add 'link-item'
+        className: classnames(
+          'galaxy-item',
+          'link-item',
+          isActive ? 'link-active' : ''
+        ), // boolean to add 'link-item'
         active: isActive, // default selected
-        onClick: e => this.chooseGalaxyAndCloseNav(e, item.galaxyId),
+        onClick: e => this.chooseGalaxyAndCloseNav(e, item),
       };
     });
     return links;
   };
 
+  generateImages = (galaxyName, alerts) => {
+    return alerts.map(alert => {
+      return {
+        id: alert.image_id,
+        name: `/images/galaxies/${galaxyName}/${alert.image_id}_sci.jpeg`,
+      };
+    });
+  };
+
+  selectionCallback = () => {
+    // console.log(d ? `${d[0].id} is selected` : 'no selection');
+  };
+
+  onAlertChange = update => {
+    this.setState(
+      prevState => ({
+        ...prevState,
+        ...update,
+      }),
+      () => {
+        // const { activeAlertId } = this.state;
+        // console.log(activeAlertId);
+      }
+    );
+  };
+
   render() {
-    const { navItems, openMenu, openScatterPlot, selectedGalaxy } = this.state;
-    // const renderNode = document.querySelector(`#galaxy-selector-${selectorId}`);
+    const {
+      activeAlert,
+      activeImageId,
+      activeImageIndex,
+      data,
+      navItems,
+      openMenu,
+      openScatterPlot,
+      selectedGalaxy,
+      images,
+    } = this.state;
+
     return (
       <>
         <Toolbar
           className="galaxy-selector--toolbar"
           nav={
             !openMenu ? (
-              <Menu onClick={this.handleOpenMenu} />
+              <ViewList onClick={this.handleOpenMenu} />
             ) : (
               <Close onClick={this.handleCloseMenu} />
             )
           }
           title={selectedGalaxy || 'Galaxy Name 1'}
+          actions={
+            <Button
+              primary
+              flat
+              iconBefore={false}
+              onClick={e => this.triggerScatterPlot(e)}
+              iconEl={!openScatterPlot ? <ScatterPlot /> : <Close />}
+            >
+              Hubble Plot
+            </Button>
+          }
         />
         <Card id="galaxy-selector" className="galaxy-selector-container">
           <NavigationDrawer
-            // renderNode={renderNode}
             navItems={this.generateNavItems(navItems)}
             position="left"
             className="galaxy-selector--navigation-drawer"
@@ -140,21 +196,22 @@ class GalaxySelector extends React.PureComponent {
             contentClassName="main-galaxy-selector-content"
             overlay={false}
           >
-            <div className="galaxy-selector-cont">
-              <p>
-                Click button below to trigger the scatter plot on the right.
-              </p>
-              <p>
-                <i>
-                  Note: This can be used to toggle the scatter plot
-                  programmatically, as well.
-                </i>
-              </p>
+            <div className="galaxy-selector-images--container">
+              <GalaxySelector
+                className={`galaxy-selector-${data.name} ${data.band}-band`}
+                data={data}
+                images={images}
+                selectionCallback={this.supernovaSelectionCallback}
+                blinkCallback={this.onAlertChange}
+                activeImageId={
+                  activeAlert ? activeAlert.image_id : activeImageId
+                }
+                activeImageIndex={this.getActiveImageIndex(
+                  activeAlert,
+                  activeImageIndex
+                )}
+              />
             </div>
-            <br />
-            <Button secondary onClick={e => this.triggerScatterPlot(e)} raised>
-              Open Scatter Plot
-            </Button>
           </NavigationDrawer>
 
           <ScatterPlotSelectorContainer
@@ -169,11 +226,9 @@ class GalaxySelector extends React.PureComponent {
   }
 }
 
-GalaxySelector.propTypes = {
+GalaxySelectorContainer.propTypes = {
   widget: PropTypes.object,
   sources: PropTypes.array,
 };
 
-export default props => {
-  return <GalaxySelector {...props} />;
-};
+export default props => <GalaxySelectorContainer {...props} />;
