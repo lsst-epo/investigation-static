@@ -1,0 +1,30 @@
+.hubble-plot-container {
+  width: 100%;
+}
+
+.hubble-plot {
+  width: 100%;
+  height: auto;
+
+  &.loaded {
+    visibility: visible;
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 1 !important;
+  }
+}
+
+.x-axis-label {
+  text-anchor: middle;
+}
+
+.galaxy-point {
+  fill: blue;
+  stroke: 'transparent';
+  transition: stroke $timing $duration, opacity $timing $duration;
+
+}
+
+.selected, .hovered {
+  fill: pink;
+}
+

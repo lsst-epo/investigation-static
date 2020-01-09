@@ -7,6 +7,8 @@ import StandardUnit from './StandardUnit';
 const Unit = props => {
   return (
     {
+      distance: <StandardUnit {...props} />,
+      velocity: <StandardUnit {...props} />,
       temperature: <StandardUnit {...props} />,
       lifetime: <StandardUnit {...props} />,
       count: <StandardUnit {...props} />,

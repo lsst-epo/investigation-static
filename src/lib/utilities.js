@@ -189,6 +189,8 @@ export const getMegaLightYearsFromDistance = data => {
 export const getValue = function(accessor, data) {
   return (
     {
+      distance: formatValue(data, 0),
+      velocity: formatValue(data, 0),
       luminosity: formatValue(data, 2),
       radius: formatValue(data, 2),
       mass: formatValue(data, 2),

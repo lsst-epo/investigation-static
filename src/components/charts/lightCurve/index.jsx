@@ -504,7 +504,6 @@ LightCurve.propTypes = {
   templateTransform: PropTypes.object,
   activeQuestionId: PropTypes.string,
   templateAnswerId: PropTypes.string,
-  isInteractive: PropTypes.bool,
   pointsAreVisible: PropTypes.bool,
 };
 

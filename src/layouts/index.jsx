@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GlobalStore from '../state/GlobalStore';
 // import '../assets/stylesheets/styles.scss';
-import styles from './layout.module.scss';
+import SEO from '../components/seo';
 import Header from '../components/site/header';
 import TableOfContents from '../components/site/tableOfContents';
+
+import styles from './layout.module.scss';
 
 class Layout extends React.Component {
   constructor(props) {
@@ -48,6 +50,7 @@ class Layout extends React.Component {
 
     return (
       <>
+        <SEO title={pageContext.investigation} />
         <Header
           siteTitle="Investigation"
           sidebarVisiblity={openSidebar}

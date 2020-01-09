@@ -4,9 +4,11 @@ import React from 'react';
 import { Toolbar } from 'react-md';
 import Button from '../button/index';
 import logo from '../../../images/lsst-logo.svg';
-import styles from './header.module.scss';
+import ButtonIcon from '../button/ButtonIcon';
 import Close from '../icons/Close';
 import Menu from '../icons/Menu';
+
+import styles from './header.module.scss';
 
 class Header extends React.PureComponent {
   render() {
@@ -23,7 +25,13 @@ class Header extends React.PureComponent {
           nav={
             <Button
               icon
-              iconEl={sidebarVisiblity ? <Close /> : <Menu />}
+              iconEl={
+                sidebarVisiblity ? (
+                  <ButtonIcon srText="Close Table of Contents" Icon={Close} />
+                ) : (
+                  <ButtonIcon srText="Open Table of Contents" Icon={Menu} />
+                )
+              }
               onClick={toggleSidebar}
             />
           }

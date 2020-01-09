@@ -14,6 +14,17 @@
   },
   "layout": "TwoCol",
   "content": "<p>Use your hubble plot to answer the questions.</p>",
+  "widget": {
+    "type": "HubblePlot",
+    "sources": [
+      "ZTF19abqmpsr",
+      "ZTF19abxvjkn",
+      "ZTF19abqqmui",
+      "ZTF19abvhduf",
+      "ZTF19abucvgu"
+    ],
+    "options": {}
+  },
   "questionsByPage": [
     {
       "question": [
@@ -27,8 +38,8 @@
           "answerAccessor": "compound-select",
           "placeholder": "Select a distance",
           "options": [
-            {"label": "close", "value": "close"},
-            {"label": "far", "value": "far"}
+            { "label": "close", "value": "close" },
+            { "label": "far", "value": "far" }
           ],
           "answerPre": "Based on its position and the scale of the axis on the plot, the data point for Galaxy 1 indicates that it is ",
           "answerPost": "."
@@ -43,8 +54,8 @@
           "answerAccessor": "compound-select",
           "placeholder": "Select a speed",
           "options": [
-            {"label": "fast", "value": "fast"},
-            {"label": "slow", "value": "slow"}
+            { "label": "fast", "value": "fast" },
+            { "label": "slow", "value": "slow" }
           ],
           "answerPre": "from the Milky Way Galaxy and is moving ",
           "answerPost": "."
@@ -63,8 +74,8 @@
           "answerAccessor": "compound-select",
           "placeholder": "Select a speed",
           "options": [
-            {"label": "slower", "value": "slower"},
-            {"label": "faster", "value": "faster"}
+            { "label": "slower", "value": "slower" },
+            { "label": "faster", "value": "faster" }
           ],
           "answerPre": "Based on its position and the scale of the axis on the plot, the data point for Galaxy 1 indicates that it is ",
           "answerPost": "."
@@ -75,12 +86,12 @@
           "compoundQuestion": ["4", "5"],
           "labelPre": " This means the light from galaxies that are farther away is redshifted by a ",
           "labelPost": " amount than the light from nearby galaxies.",
-          "srLabel": "",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a size",
           "options": [
-            {"label": "greater", "value": "greater"},
-            {"label": "smaller", "value": "smaller"}
+            { "label": "greater", "value": "greater" },
+            { "label": "smaller", "value": "smaller" }
           ],
           "answerPre": " ",
           "answerPost": "."
