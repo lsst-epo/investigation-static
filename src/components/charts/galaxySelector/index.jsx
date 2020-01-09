@@ -338,13 +338,13 @@ class GalaxySelector extends React.Component {
             )}
           </svg>
           <Blinker images={images} activeId={activeImageId} />
+          <BlinkerControls
+            playing={playing}
+            handleStartStop={this.startStopBlink}
+            handleNext={this.onNextBlink}
+            handlePrevious={this.onPreviousBlink}
+          />
         </div>
-        <BlinkerControls
-          playing={playing}
-          handleStartStop={this.startStopBlink}
-          handleNext={this.onNextBlink}
-          handlePrevious={this.onPreviousBlink}
-        />
       </>
     );
   }

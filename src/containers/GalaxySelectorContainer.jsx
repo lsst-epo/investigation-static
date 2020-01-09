@@ -3,7 +3,7 @@ import React from 'react';
 // import axios from 'axios';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { NavigationDrawer, Card, Toolbar } from 'react-md';
+import { NavigationDrawer, Card, Toolbar, CardActions } from 'react-md';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
 import GalaxySelector from '../components/charts/galaxySelector';
 import ScatterPlot from '../components/site/icons/ScatterPlot';
@@ -104,15 +104,26 @@ class GalaxySelectorContainer extends React.PureComponent {
   generateNavItems = navItems => {
     const { selectedGalaxy } = this.state;
     const links = navItems.map(item => {
-      const isActive = item.name === selectedGalaxy;
+      const { name, color } = item;
+      const isActive = name === selectedGalaxy;
+      // Add complete/incomplete logic here
+      const isComplete =
+        name === 'ZTF19abqmpsr' ||
+        name === 'ZTF19abqqmui' ||
+        name === 'ZTF19abvhduf' ||
+        name === 'ZTF19abucvgu';
+      const isDisabled = name === 'ZTF19abvhduf' || name === 'ZTF19abucvgu'; // some cool logic to disable links
       return {
-        leftAvatar: <Star />,
-        primaryText: item.name,
+        leftAvatar: <Star style={{ fill: color }} />,
+        primaryText: name,
         className: classnames(
           'galaxy-item',
           'link-item',
-          isActive ? 'link-active' : ''
+          isActive ? 'link-active' : '',
+          isComplete ? 'link-is-complete' : 'link-is-not-complete',
+          isDisabled ? 'link-is-disabled' : ''
         ), // boolean to add 'link-item'
+        disabled: isDisabled,
         active: isActive, // default selected
         onClick: e => this.chooseGalaxyAndCloseNav(e, item),
       };
@@ -219,7 +230,16 @@ class GalaxySelectorContainer extends React.PureComponent {
             handleClick={this.triggerScatterPlot}
           >
             <LightCurveContainer />
+            <div className="actions">
+              <Button raised>Add Trend Line</Button>
+            </div>
           </ScatterPlotSelectorContainer>
+          <CardActions centered>
+            <Button flat>Previous Galaxy</Button>
+            <Button primary flat>
+              Next Galaxy
+            </Button>
+          </CardActions>
         </Card>
       </>
     );

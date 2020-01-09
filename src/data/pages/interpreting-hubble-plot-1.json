@@ -19,6 +19,7 @@
     "sources": [
       {
         "name": "ZTF19abqmpsr",
+        "color": "#1ab579",
         "distance": 141.69708547161875,
         "Dec": 18.74361216,
         "velocity": 9736.736057325023,
@@ -124,6 +125,7 @@
       },
       {
         "name": "ZTF19abxvjkn",
+        "color": "#eb7c39",
         "distance": 231.55354261593232,
         "Dec": 16.60698643,
         "velocity": 15814.291346935735,
@@ -229,6 +231,7 @@
       },
       {
         "name": "ZTF19abqqmui",
+        "color": "#4c8cd2",
         "distance": 213.8878328238106,
         "Dec": 6.317683836,
         "velocity": 14625.44589774079,
@@ -334,6 +337,7 @@
       },
       {
         "name": "ZTF19abvhduf",
+        "color": "#fed828",
         "distance": 124.63102831794073,
         "Dec": 56.07525,
         "velocity": 8573.901530035577,
@@ -439,6 +443,7 @@
       },
       {
         "name": "ZTF19abucvgu",
+        "color": "#8e3efe",
         "distance": 213.8878328238106,
         "Dec": -18.607289,
         "velocity": 14625.44589774079,

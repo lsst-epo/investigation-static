@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     width: calc(100% - 5px);
-    height: 100%;
+    height: calc(100% - 38px);
     transition: right 300ms ease-in-out;
 
     .scatter-plot-toggle {
@@ -36,11 +36,15 @@
       width: 100%;
       height: 100%;
       padding: 1rem;
+
+      .scatter-plot-container {
+        background-color: $neutral10;
+      }
     }
 
     .scatter-plot-toggle,
     .scatter-plot {
-      background-color: $neutral10;
+      background-color: $white;
     }
 
     &.opened {

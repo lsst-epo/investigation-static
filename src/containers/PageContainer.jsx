@@ -137,6 +137,7 @@ export const query = graphql`
           type
           sources {
             name
+            color
             distance
             Dec
             velocity
