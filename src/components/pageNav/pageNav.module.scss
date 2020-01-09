@@ -3,6 +3,11 @@
 
   .md-btn {
     &.md-btn--icon {
+      .md-icon {
+        color: inherit;
+        transition: color $duration $timing;
+      }
+
       &.outlined {
         color: $white;
         border: 1px solid $white;

@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Supernovae`,
+    title: `Investigation`,
     description: `LSST EPO Astronomy Investigation`,
     author: `@lsst-epo/core`,
   },

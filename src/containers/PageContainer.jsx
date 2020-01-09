@@ -9,6 +9,7 @@ import PageNav from '../components/pageNav';
 import Placeholder from '../components/placeholder';
 import SupernovaSelectorWithLightCurve from './SupernovaSelectorWithLightCurveContainer';
 import GalaxySelector from './GalaxySelectorContainer';
+import HubblePlot from './HubblePlot2DContainer';
 
 @reactn
 class PageContainer extends React.PureComponent {
@@ -24,6 +25,7 @@ class PageContainer extends React.PureComponent {
     this.widgetTags = {
       SupernovaSelectorWithLightCurve,
       GalaxySelector,
+      HubblePlot,
     };
   }
 

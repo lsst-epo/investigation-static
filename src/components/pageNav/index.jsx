@@ -2,19 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import Button from '../site/button';
+import ButtonIcon from '../site/button/ButtonIcon';
 import ArrowLeft from '../site/icons/ArrowLeft';
 import ArrowRight from '../site/icons/ArrowRight';
 import styles from './pageNav.module.scss';
 
 class PageNav extends React.PureComponent {
   renderNavItem(type, item, baseUrl) {
+    const { link, title } = item;
+
     return (
       <Button
         icon
         className="outlined"
-        to={item.link === '' ? `${baseUrl}` : `${baseUrl}${item.link}`}
+        to={link === '' ? `${baseUrl}` : `${baseUrl}${link}`}
         component={Link}
-        iconEl={type === 'previous' ? <ArrowLeft /> : <ArrowRight />}
+        iconEl={
+          type === 'previous' ? (
+            <ButtonIcon srText={title} Icon={ArrowLeft} />
+          ) : (
+            <ButtonIcon srText={title} Icon={ArrowRight} />
+          )
+        }
         iconBefore={type === 'previous'}
         tooltipLabel={item.title}
         tooltipPosition="top"

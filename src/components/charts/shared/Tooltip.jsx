@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
 import 'd3-transition';
 import { capitalize, extentFromSet, getValue } from '../../../lib/utilities.js';
-import StellarUnit from './StellarUnit';
+import Unit from './unit/index.jsx';
 // import StellarUnit from './Stellarunit';
 
 class Tooltip extends React.PureComponent {
@@ -75,7 +75,7 @@ class Tooltip extends React.PureComponent {
     return (
       <>
         <span>{getValue(accessor, data)}</span>
-        <StellarUnit type={accessor} />
+        <Unit type={accessor} />
       </>
     );
   }

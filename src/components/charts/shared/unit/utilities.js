@@ -5,6 +5,8 @@ export const units = {
   lifetime: 'Gyr',
   radius: 'R',
   count: 'stars',
+  distance: 'MPc',
+  velocity: 'Km/s',
 };
 
 export const renderUnit = function(type) {

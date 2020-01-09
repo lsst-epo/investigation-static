@@ -41,7 +41,7 @@
           "compoundQuestion": ["28", "29"],
           "labelPre": "We observe the light from distant galaxies to be ",
           "labelPost": ", ",
-          "srLabel": " ",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a distance",
           "options": [
@@ -57,7 +57,7 @@
           "compoundQuestion": ["28", "29"],
           "labelPre": " indicating that these galaxies are all moving ",
           "labelPost": " from us.",
-          "srLabel": " ",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a speed",
           "options": [
@@ -77,7 +77,7 @@
           "compoundQuestion": ["30", "31"],
           "labelPre": "The Hubble plot for an observer in a different galaxy would also demonstrate that all galaxies are moving ",
           "labelPost": " from them, ",
-          "srLabel": " ",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a distance",
           "options": [
@@ -93,7 +93,7 @@
           "compoundQuestion": ["30", "31"],
           "labelPre": " indicating that the Universe ",
           "labelPost": ".",
-          "srLabel": " ",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a speed",
           "options": [
@@ -133,7 +133,7 @@
           "compoundQuestion": ["33", "34"],
           "labelPre": "The light we receive from distant objects tells us what the Universe was like ",
           "labelPost": " , ",
-          "srLabel": " ",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a distance",
           "options": [
@@ -149,7 +149,7 @@
           "compoundQuestion": ["33", "34"],
           "labelPre": " while the light we receive from nearby objects tells us what the Universe was like ",
           "labelPost": ".",
-          "srLabel": " ",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a speed",
           "options": [
@@ -169,7 +169,7 @@
           "compoundQuestion": ["35", "36", "37"],
           "labelPre": "The slope of the line in this Hubble plot is ",
           "labelPost": "for data from very distant objects compared to nearby objects.",
-          "srLabel": " ",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a distance",
           "options": [
@@ -185,7 +185,7 @@
           "compoundQuestion": ["35", "36", "37"],
           "labelPre": "Since the expansion rate of the Universe determined by observing distant objects is ",
           "labelPost": "than the expansion rate determined by observing nearby objects, ",
-          "srLabel": " ",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a speed",
           "options": [
@@ -201,7 +201,7 @@
           "compoundQuestion": ["35", "36", "37"],
           "labelPre": " the expansion rate of the Universe is",
           "labelPost": " as time goes on.",
-          "srLabel": " ",
+          "srLabel": "...",
           "answerAccessor": "compound-select",
           "placeholder": "Select a speed",
           "options": [
