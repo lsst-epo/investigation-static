@@ -7,7 +7,6 @@ class LightCurveTemplates extends React.PureComponent {
   render() {
     const {
       types,
-      activeAnswer,
       data,
       activeTemplate,
       zoomCallback,
@@ -20,7 +19,7 @@ class LightCurveTemplates extends React.PureComponent {
         {types.map(type => (
           <Template
             key={type}
-            {...{ type, zoomCallback, activeAnswer, transform, isInteractive }}
+            {...{ type, zoomCallback, transform, isInteractive }}
             active={activeTemplate === type}
             data={data[type]}
           />
@@ -33,7 +32,6 @@ class LightCurveTemplates extends React.PureComponent {
 LightCurveTemplates.propTypes = {
   types: PropTypes.array,
   data: PropTypes.object,
-  activeAnswer: PropTypes.object,
   activeTemplate: PropTypes.string,
   zoomCallback: PropTypes.func,
   transform: PropTypes.object,

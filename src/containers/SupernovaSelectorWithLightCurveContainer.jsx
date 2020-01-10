@@ -97,12 +97,11 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
 
     if (isString(template)) {
       const answer = answers[template];
-
-      if (isEmpty(answer)) return {};
+      const isAnswered = !isEmpty(answers[template]);
 
       return {
-        transform: answer.data.data,
-        type: answer.data.type,
+        transform: isAnswered ? answer.data.data : null,
+        type: isAnswered ? answer.data.type : null,
         templateAnswerId: template,
       };
     }

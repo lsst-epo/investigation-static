@@ -8,7 +8,7 @@ import {
   event as d3Event,
   clientPoint as d3ClientPoint,
 } from 'd3-selection';
-// import { zoom as d3Zoom } from 'd3-zoom';
+import { zoomIdentity as d3ZoomIdentity } from 'd3-zoom';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
@@ -244,12 +244,19 @@ class LightCurve extends React.PureComponent {
   }
 
   updateLightCurveType = e => {
+    const { templateZoomCallback, templateTransform } = this.props;
     const { value } = e.target;
+
     if (value) {
       this.setState(prevState => ({
         ...prevState,
         lightCurveType: value,
       }));
+
+      templateZoomCallback({
+        type: value,
+        data: templateTransform || d3ZoomIdentity,
+      });
     }
   };
 
@@ -313,7 +320,6 @@ class LightCurve extends React.PureComponent {
     } = this.state;
 
     const isInteractive = activeQuestionId === templateAnswerId;
-
     const svgClasses = classnames('svg-chart light-curve', {
       loading,
       loaded: !loading,
@@ -328,13 +334,11 @@ class LightCurve extends React.PureComponent {
         <h2 className="space-bottom">Light Curve</h2>
         {chooseLightCurveTemplate && (
           <Select
-            id="light-curve"
             value={lightCurveType}
             label="Pick a matching light curve"
-            placeholder="Select a curve"
+            placeholder="Select a light curve template"
             disabled={!isInteractive}
             options={[
-              'Select one...',
               { label: 'Type Ia', value: 'iab' },
               { label: 'Type IIp', value: 'iip' },
             ]}
@@ -363,13 +367,12 @@ class LightCurve extends React.PureComponent {
           {legend && !loading && <Legend key="legend" content={legend} />}
           {templates && (
             <Templates
-              activeTemplate={lightCurveType}
+              activeTemplate={lightCurveType || activeAnswer}
               transform={templateTransform}
               types={templates}
               data={templatesData}
               zoomCallback={templateZoomCallback}
               isInteractive={isInteractive}
-              {...{ activeAnswer, activeQuestionId }}
             />
           )}
           <Tooltip
