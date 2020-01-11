@@ -8,6 +8,35 @@
   "next": {"title": "Summary", "link": "/summary/"},
   "layout": "TwoCol",
   "content": "<p>Recall the relationship (from question 15) that exists between the relative size of a galaxy and its distance from Earth. The supernova pictured below is from a galaxy of a similar size as the galaxies that contained Supernovae 4, 5, and 6.</p><p>Refer to the chart collecting your distance and magnitude observations from the previous section to get an idea of the approximate distance of Supernovae #4, #5, and #6.</p>",
+  "tables": [
+    {
+      "id": "1",
+      "colTitles": [
+        "Supernova",
+        "Apparent Magnitude (m)",
+        "Distance (MPc)",
+        "Distance (MLy)"
+      ],
+      "rowTitles": [["#4"], ["#5"], ["#6"]],
+      "rows": [
+        [
+          { "accessor": "magnitude", "id": "163" },
+          { "accessor": "megaParsecs", "id": "66" },
+          { "accessor": "megaLightYears", "id": "66" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "164" },
+          { "accessor": "megaParsecs", "id": "67" },
+          { "accessor": "megaLightYears", "id": "67" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "165" },
+          { "accessor": "megaParsecs", "id": "68" },
+          { "accessor": "megaLightYears", "id": "68" }
+        ]
+      ]
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

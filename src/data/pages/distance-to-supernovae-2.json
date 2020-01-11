@@ -20,25 +20,25 @@
       "colTitles": [
         "Supernova",
         "Apparent Magnitude (m)",
-        "Distance (pc)",
-        "Distance (ly)"
+        "Distance (MPc)",
+        "Distance (MLy)"
       ],
       "rowTitles": [["#4"], ["#5"], ["#6"]],
       "rows": [
         [
-          { "accessor": "apparent-magnitude", "id": "66" },
-          { "accessor": "parsecs", "id": "66" },
-          { "accessor": "lightYears", "id": "66" }
+          { "accessor": "magnitude", "id": "163" },
+          { "accessor": "megaParsecs", "id": "66" },
+          { "accessor": "megaLightYears", "id": "66" }
         ],
         [
-          { "accessor": "apparent-magnitude", "id": "67" },
-          { "accessor": "parsecs", "id": "67" },
-          { "accessor": "lightYears", "id": "67" }
+          { "accessor": "magnitude", "id": "164" },
+          { "accessor": "megaParsecs", "id": "67" },
+          { "accessor": "megaLightYears", "id": "67" }
         ],
         [
-          { "accessor": "apparent-magnitude", "id": "68" },
-          { "accessor": "parsecs", "id": "68" },
-          { "accessor": "lightYears", "id": "68" }
+          { "accessor": "magnitude", "id": "165" },
+          { "accessor": "megaParsecs", "id": "68" },
+          { "accessor": "megaLightYears", "id": "68" }
         ]
       ]
     }

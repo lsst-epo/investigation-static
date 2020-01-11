@@ -64,6 +64,12 @@
       }
 
       .answer {
+        .answer-pre, .answer-post {
+          p {
+            display: inline;
+          }
+        }
+
         .edit-button {
           margin-right: $minPadding * 0.5;
         }

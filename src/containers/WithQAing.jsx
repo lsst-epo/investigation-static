@@ -48,6 +48,10 @@ export const WithQAing = ComposedComponent => {
       return data.type || 'None Selected';
     }
 
+    getMagnitudeContent(data) {
+      return data.magnitude || 'None Selected';
+    }
+
     getCountContent(data) {
       return data.length;
     }
@@ -81,6 +85,8 @@ export const WithQAing = ComposedComponent => {
           content = this.getCountContent(data);
         } else if (answerAccessor === 'light-curve-template') {
           content = this.getTemplateContent(data);
+        } else if (answerAccessor === 'magnitude') {
+          content = this.getMagnitudeContent(data);
         } else if (!includes(answerAccessor, 'range')) {
           content = this.getRangeContent(data, answerAccessor);
         }

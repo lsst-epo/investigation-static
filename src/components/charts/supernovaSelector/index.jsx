@@ -13,7 +13,7 @@ import Blinker from './Blinker';
 import BlinkerControls from './BlinkerControls';
 import Points from './Points';
 import Legend from '../shared/Legend';
-import styles from './styles.module.scss';
+import styles from './supernovaSelector.module.scss';
 
 class SupernovaSelector extends React.Component {
   constructor(props) {
@@ -50,16 +50,16 @@ class SupernovaSelector extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    const { data, supernovaSelected, preSelected } = this.props;
     const { selectedData } = this.state;
-    const { data, isAnswered, preSelected } = this.props;
 
     if (prevProps.data !== data) {
       this.updateSupernovaSelector();
     }
 
-    if (isAnswered && !selectedData) {
+    if (supernovaSelected && !selectedData) {
       this.toggleSelection(data);
-    } else if (!isAnswered && !preSelected && selectedData) {
+    } else if (!supernovaSelected && !preSelected && selectedData) {
       this.clearSelection();
     }
   }
@@ -334,7 +334,7 @@ class SupernovaSelector extends React.Component {
                 yScale={yScale}
                 xValueAccessor={xValueAccessor}
                 yValueAccessor={yValueAccessor}
-                pointClasses={`supernova supernova-${name}`}
+                pointClasses={`supernova-${name}`}
               />
             )}
           </svg>
@@ -370,12 +370,12 @@ SupernovaSelector.propTypes = {
   images: PropTypes.array,
   activeImageId: PropTypes.string,
   activeImageIndex: PropTypes.number,
-  isAnswered: PropTypes.bool,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
   xDomain: PropTypes.array,
   yDomain: PropTypes.array,
   preSelected: PropTypes.bool,
+  supernovaSelected: PropTypes.bool,
   multiple: PropTypes.bool,
   legend: PropTypes.node,
   name: PropTypes.string,

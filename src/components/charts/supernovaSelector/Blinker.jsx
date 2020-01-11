@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getNameFromImage } from './supernovaSelectorUtilities.js';
 import BlinkerImage from './BlinkerImage';
-import styles from './styles.module.scss';
+import styles from './supernovaSelector.module.scss';
 
 const Blinker = ({ images, activeId }) => {
   return (

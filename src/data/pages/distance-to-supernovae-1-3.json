@@ -6,7 +6,28 @@
   "slug": "distance-to-supernovae-1-3/",
   "previous": {"title": "Determining the Peak Apparent Magnitude of Supernova #2", "link": "/distance-to-supernovae-1-2/"},
   "next": {"title": "Calculating the Distance to Supernovae", "link": "/distance-to-supernovae-2/"},
-  "layout": "TwoCol",
+  "layout": "SingleCol",
+  "tables": [
+    {
+      "id": "1",
+      "colTitles": [
+        "Supernova",
+        "Apparent Magnitude (m)"
+      ],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [
+          { "accessor": "magnitude", "id": "163" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "164" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "165" }
+        ]
+      ]
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

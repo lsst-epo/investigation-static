@@ -21,7 +21,7 @@ class Points extends React.PureComponent {
           const { id } = d;
           const key = `point-${id}-${i}`;
           const selected = includes(selectedData, d);
-
+          // console.log(selectedData, d);
           return (
             <Point
               key={key}

@@ -5,7 +5,7 @@ import Rewind from '../../site/icons/Rewind';
 import FastForward from '../../site/icons/FastForward';
 import Pause from '../../site/icons/Pause';
 import Play from '../../site/icons/Play';
-import styles from './styles.module.scss';
+import styles from './supernovaSelector.module.scss';
 
 const BlinkerControls = ({
   playing,

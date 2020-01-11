@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
+import capitalize from 'lodash/capitalize';
 import classnames from 'classnames';
 import {
   select as d3Select,
@@ -45,7 +46,7 @@ class LightCurve extends React.PureComponent {
       loading: true,
       xScale: this.getXScale(xDomain, width, padding, offsetRight),
       yScale: this.getYScale(yDomain, height, padding, offsetTop),
-      lightCurveType: activeTemplate,
+      lightCurveType: activeTemplate || '',
     };
 
     this.svgContainer = React.createRef();
@@ -268,15 +269,6 @@ class LightCurve extends React.PureComponent {
     if (!preSelected) this.addEventListeners();
   }
 
-  renderColorLegendContent() {
-    return (
-      <div className="container-flex centered spaced">
-        <div className="description">Colors approximate star colors</div>
-        <div className="data-point" style={{ backgroundColor: '#f9d71c' }} />
-      </div>
-    );
-  }
-
   render() {
     const {
       data,
@@ -291,20 +283,19 @@ class LightCurve extends React.PureComponent {
       yValueAccessor,
       multiple,
       legend,
-      showColorLegend,
       templatesData,
       templates,
       tooltipAccessors,
       tooltipLabels,
       activeData,
       templateZoomCallback,
-      // activeTemplate,
+      peakMagCallback,
       templateTransform,
       chooseLightCurveTemplate,
-      activeAnswer,
-      activeQuestionId,
-      templateAnswerId,
       pointsAreVisible,
+      interactableTemplates,
+      interactablePeakMag,
+      activePeakMag,
     } = this.props;
 
     const {
@@ -319,7 +310,6 @@ class LightCurve extends React.PureComponent {
       lightCurveType,
     } = this.state;
 
-    const isInteractive = activeQuestionId === templateAnswerId;
     const svgClasses = classnames('svg-chart light-curve', {
       loading,
       loaded: !loading,
@@ -332,23 +322,16 @@ class LightCurve extends React.PureComponent {
     return (
       <>
         <h2 className="space-bottom">Light Curve</h2>
-        {chooseLightCurveTemplate && (
+        {templates && chooseLightCurveTemplate && (
           <Select
             value={lightCurveType}
             label="Pick a matching light curve"
             placeholder="Select a light curve template"
-            disabled={!isInteractive}
-            options={[
-              { label: 'Type Ia', value: 'iab' },
-              { label: 'Type IIp', value: 'iip' },
-            ]}
+            disabled={!interactableTemplates}
+            options={templates.map(template => {
+              return { label: `Type ${capitalize(template)}`, value: template };
+            })}
             handleChange={this.updateLightCurveType}
-          />
-        )}
-        {showColorLegend && !loading && (
-          <Legend
-            key="color-legend"
-            content={this.renderColorLegendContent()}
           />
         )}
         <div
@@ -365,16 +348,6 @@ class LightCurve extends React.PureComponent {
             />
           )}
           {legend && !loading && <Legend key="legend" content={legend} />}
-          {templates && (
-            <Templates
-              activeTemplate={lightCurveType || activeAnswer}
-              transform={templateTransform}
-              types={templates}
-              data={templatesData}
-              zoomCallback={templateZoomCallback}
-              isInteractive={isInteractive}
-            />
-          )}
           <Tooltip
             key="tooltip"
             data={selectedData || hoverPointData}
@@ -384,6 +357,22 @@ class LightCurve extends React.PureComponent {
             accessors={tooltipAccessors}
             labels={tooltipLabels}
           />
+          {templates && (
+            <Templates
+              activeTemplate={lightCurveType}
+              activePeakMag={activePeakMag}
+              transform={templateTransform}
+              types={templates}
+              data={templatesData}
+              zoomCallback={templateZoomCallback}
+              peakMagScale={yScale}
+              {...{
+                peakMagCallback,
+                interactableTemplates,
+                interactablePeakMag,
+              }}
+            />
+          )}
           <svg
             key="scatter-plot"
             className={svgClasses}
@@ -478,7 +467,8 @@ LightCurve.propTypes = {
   templates: PropTypes.array,
   templatesData: PropTypes.object,
   chooseLightCurveTemplate: PropTypes.bool,
-  activeAnswer: PropTypes.object,
+  interactableTemplates: PropTypes.bool,
+  interactablePeakMag: PropTypes.bool,
   activeAlertId: PropTypes.string,
   activeData: PropTypes.any,
   xAxisLabel: PropTypes.string,
@@ -496,15 +486,14 @@ LightCurve.propTypes = {
   offsetRight: PropTypes.number,
   dataSelectionCallback: PropTypes.func,
   templateZoomCallback: PropTypes.func,
+  peakMagCallback: PropTypes.func,
   preSelected: PropTypes.bool,
   multiple: PropTypes.bool,
   legend: PropTypes.node,
-  showColorLegend: PropTypes.bool,
   activeTemplate: PropTypes.string,
   templateTransform: PropTypes.object,
-  activeQuestionId: PropTypes.string,
-  templateAnswerId: PropTypes.string,
   pointsAreVisible: PropTypes.bool,
+  activePeakMag: PropTypes.object,
 };
 
 export default LightCurve;

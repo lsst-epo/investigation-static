@@ -10,16 +10,32 @@ class LightCurveTemplates extends React.PureComponent {
       data,
       activeTemplate,
       zoomCallback,
+      peakMagCallback,
       transform,
-      isInteractive,
+      interactableTemplates,
+      interactablePeakMag,
+      peakMagScale,
+      activePeakMag,
     } = this.props;
+
+    const { peakMagX, peakMagY } = activePeakMag || {};
 
     return (
       <>
         {types.map(type => (
           <Template
             key={type}
-            {...{ type, zoomCallback, transform, isInteractive }}
+            {...{
+              type,
+              zoomCallback,
+              peakMagCallback,
+              transform,
+              interactableTemplates,
+              interactablePeakMag,
+              peakMagScale,
+              peakMagX,
+              peakMagY,
+            }}
             active={activeTemplate === type}
             data={data[type]}
           />
@@ -29,13 +45,21 @@ class LightCurveTemplates extends React.PureComponent {
   }
 }
 
+LightCurveTemplates.defaultProps = {
+  activePeakMag: {},
+};
+
 LightCurveTemplates.propTypes = {
   types: PropTypes.array,
   data: PropTypes.object,
+  peakMagScale: PropTypes.func,
+  activePeakMag: PropTypes.object,
   activeTemplate: PropTypes.string,
   zoomCallback: PropTypes.func,
+  peakMagCallback: PropTypes.func,
   transform: PropTypes.object,
-  isInteractive: PropTypes.bool,
+  interactableTemplates: PropTypes.bool,
+  interactablePeakMag: PropTypes.bool,
 };
 
 export default LightCurveTemplates;
