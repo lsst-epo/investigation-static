@@ -1,4 +1,5 @@
-.blink-container, .blink-image-container {
+.blink-container,
+.blink-image-container {
   position: absolute;
   top: 0;
   right: 0;
@@ -26,16 +27,16 @@
   cursor: pointer;
 }
 
-
 .supernova {
   @include dataPoint;
   fill: transparent;
   transition: fill $timing $duration;
 
-  &.selected {
-    stroke: pink;
-    stroke-width: 2;
-  }
+}
+
+.selected {
+  stroke: pink;
+  stroke-width: 2;
 }
 
 .controls {

@@ -12,10 +12,12 @@
     "type": "SupernovaSelectorWithLightCurve",
     "source": "ZTF19abqmpsr",
     "options": {
-      "showSelector": false,
       "showLightCurve": true,
-      "lightCurveTemplates": ["iab", "iip"],
-      "autoplay": false
+      "choosePeakMagnitude": true,
+      "chooseLightCurveTemplate": true,
+      "lightCurveTemplates": ["iab"],
+      "preSelectedLightCurveTemplate": "63",
+      "preSelectedLightCurveMagnitude": "163"
     }
   },
   "questionsByPage": [
@@ -26,7 +28,21 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Use the Type Ia template to fit the data. A horizontal line will appear on the graph. Drag it to fit the peak apparent magnitude (m) of the light curve on the template.</p>",
+          "label": "<p>Use the Type Ia template to fit the data.</p>",
+          "answerPre": "<p>The </p>",
+          "answerPost": "<p> template fits the data for Supernoa #1</p>",
+          "answerAccessor": "light-curve-template"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "163",
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "<p>A horizontal line will appear on the graph. Use it to mark the peak apparent magnitude (m) of the light curve on the template.</p>",
           "answerPre": "<p>This supernova's magnitude is </p>",
           "answerAccessor": "magnitude"
         }

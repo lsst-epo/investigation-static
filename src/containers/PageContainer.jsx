@@ -6,7 +6,6 @@ import { WithQAing } from './WithQAing';
 import Page from '../components/page';
 import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
-import Placeholder from '../components/placeholder';
 import SupernovaSelectorWithLightCurve from './SupernovaSelectorWithLightCurveContainer';
 import GalaxySelector from './GalaxySelectorContainer';
 import HubblePlot from './HubblePlot2DContainer';
@@ -62,7 +61,7 @@ class PageContainer extends React.PureComponent {
     const options = widget ? widget.options : null;
     const Tag = this.layouts[layout || 'default'];
     const WidgetTag = widget ? this.widgetTags[widget.type] : null;
-    const MediaTag = WidgetTag || image || Placeholder;
+    const MediaTag = WidgetTag || image;
 
     return (
       <div className="container-page">
@@ -143,8 +142,10 @@ export const query = graphql`
             showSelector
             showLightCurve
             lightCurveTemplates
+            choosePeakMagnitude
             chooseLightCurveTemplate
             preSelectedLightCurveTemplate
+            preSelectedLightCurveMagnitude
             toggleDataPointsVisibility
             autoplay
             preSelected

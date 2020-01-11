@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QAs from '../qas';
 import { renderDef } from '../../lib/utilities.js';
-import ObservationsTable from '../charts/shared/ObservationsTable';
+import ObservationsTables from '../charts/shared/ObservationsTables';
+import Placeholder from '../placeholder';
 
 class TwoCol extends React.PureComponent {
   render() {
@@ -15,19 +16,18 @@ class TwoCol extends React.PureComponent {
           <section>
             <h2 className="section-title">{title}</h2>
             <div dangerouslySetInnerHTML={renderDef(content)} />
-            {tables &&
-              tables.map(table => (
-                <ObservationsTable
-                  key={table.id}
-                  answers={answers}
-                  {...table}
-                />
-              ))}
+            {tables && MediaTag && (
+              <ObservationsTables answers={answers} tables={tables} />
+            )}
             {questions && <QAs {...this.props} />}
           </section>
         </div>
         <div className="col padded col-width-50 col-fixed">
-          <MediaTag {...this.props} />
+          {!MediaTag && !tables && <Placeholder />}
+          {!MediaTag && tables && (
+            <ObservationsTables answers={answers} tables={tables} />
+          )}
+          {MediaTag && <MediaTag {...this.props} />}
         </div>
       </div>
     );

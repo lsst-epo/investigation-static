@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import styles from './styles.module.scss';
+import styles from './supernovaSelector.module.scss';
 
 class Point extends React.PureComponent {
   render() {

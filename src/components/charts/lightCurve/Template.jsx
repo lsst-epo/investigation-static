@@ -3,12 +3,18 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
-import { select as d3Select, event as d3Event } from 'd3-selection';
+import {
+  select as d3Select,
+  event as d3Event,
+  mouse as d3mouse,
+} from 'd3-selection';
 import { zoom as d3Zoom, zoomIdentity as d3ZoomIdentity } from 'd3-zoom';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import { line as d3Line, curveCardinal as d3CurveCardinal } from 'd3-shape';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
+import PeakMagnitude from './PeakMagnitude';
+import { closestPoint } from './lightCurveUtilities.js';
 import styles from './light-curve.module.scss';
 
 class LightCurveTemplate extends React.PureComponent {
@@ -32,10 +38,13 @@ class LightCurveTemplate extends React.PureComponent {
       showTooltip: false,
       xScale: this.getXScale(xDomain, width, padding, offsetRight),
       yScale: this.getYScale(yDomain, height, padding, offsetTop),
+      peakMagX: null,
+      peakMagY: null,
     };
 
     this.svgEl = React.createRef();
     this.linePath = React.createRef();
+    this.background = React.createRef();
   }
 
   componentDidMount() {
@@ -64,9 +73,9 @@ class LightCurveTemplate extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const { data, isInteractive } = this.props;
+    const { data, interactableTemplates } = this.props;
 
-    if (isInteractive) {
+    if (interactableTemplates) {
       this.addEventListeners();
     } else this.removeEventListeners();
 
@@ -124,6 +133,39 @@ class LightCurveTemplate extends React.PureComponent {
     this.lazyTemplateSelection(d3Event.transform);
   };
 
+  updateMag(callback) {
+    const $template = this.svgEl.current;
+    const $linePath = this.linePath.current;
+    const e = d3mouse($template);
+    const closest = closestPoint($linePath, e);
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        peakMagX: closest[0],
+        peakMagY: closest[1],
+      }),
+      () => {
+        const { peakMagScale } = this.props;
+        const { peakMagX, peakMagY } = this.state;
+        const magnitude = peakMagScale.invert(peakMagY);
+
+        if (callback) {
+          callback({ x: peakMagX, y: peakMagY, magnitude });
+        }
+      }
+    );
+  }
+
+  onPeakMagMouseMove = () => {
+    this.updateMag();
+  };
+
+  onPeakMagClick = () => {
+    const { peakMagCallback } = this.props;
+    this.updateMag(peakMagCallback);
+  };
+
   // add event listeners to Scatterplot and Points
   addEventListeners() {
     const { width, height, padding, offsetTop, offsetRight } = this.props;
@@ -143,7 +185,9 @@ class LightCurveTemplate extends React.PureComponent {
 
   removeEventListeners() {
     const $template = d3Select(this.svgEl.current);
+
     const zoom = d3Zoom().on('zoom', null);
+
     $template.call(zoom);
   }
 
@@ -179,12 +223,20 @@ class LightCurveTemplate extends React.PureComponent {
       padding,
       offsetTop,
       offsetRight,
+      interactablePeakMag,
+      peakMagX: peakMagXProp,
+      peakMagY: peakMagYProp,
     } = this.props;
+
+    const { peakMagY, peakMagX } = this.state;
 
     const svgClasses = classnames(styles.template, {
       loading: !data,
       [styles.loaded]: data,
     });
+
+    const calcWidth = width - padding - offsetRight;
+    const calcHeight = height - padding;
 
     return (
       <>
@@ -210,8 +262,8 @@ class LightCurveTemplate extends React.PureComponent {
                 <rect
                   x={padding}
                   y={offsetTop}
-                  width={width - padding - offsetRight}
-                  height={height - padding}
+                  width={calcWidth}
+                  height={calcHeight}
                 />
               </clipPath>
             </defs>
@@ -219,6 +271,17 @@ class LightCurveTemplate extends React.PureComponent {
               {data && (
                 <path ref={this.linePath} className={styles.templateLine} />
               )}
+              <PeakMagnitude
+                peakMagX={peakMagX || peakMagXProp}
+                peakMagY={peakMagY || peakMagYProp}
+                captureAreaHeight={calcHeight}
+                captureAreaX={padding}
+                captureAreaY={offsetTop}
+                captureAreaWidth={width}
+                isInteractable={interactablePeakMag}
+                mouseMoveHandler={this.onPeakMagMouseMove}
+                clickHandler={this.onPeakMagClick}
+              />
             </g>
           </svg>
         )}
@@ -235,7 +298,6 @@ LightCurveTemplate.defaultProps = {
   offsetRight: 7,
   xDomain: [-20, 90],
   yDomain: [8, 0],
-  // preSelected: false,
 };
 
 LightCurveTemplate.propTypes = {
@@ -250,9 +312,13 @@ LightCurveTemplate.propTypes = {
   padding: PropTypes.number,
   offsetTop: PropTypes.number,
   offsetRight: PropTypes.number,
-  // preSelected: PropTypes.bool,
+  peakMagScale: PropTypes.func,
+  peakMagX: PropTypes.number,
+  peakMagY: PropTypes.number,
   zoomCallback: PropTypes.func,
-  isInteractive: PropTypes.bool,
+  peakMagCallback: PropTypes.func,
+  interactableTemplates: PropTypes.bool,
+  interactablePeakMag: PropTypes.bool,
 };
 
 export default LightCurveTemplate;

@@ -12,11 +12,10 @@
     "type": "SupernovaSelectorWithLightCurve",
     "source": "ZTF19abqmpsr",
     "options": {
-      "showSelector": false,
       "showLightCurve": true,
+      "chooseLightCurveTemplate": true,
       "lightCurveTemplates": ["iab", "iip"],
-      "preSelectedLightCurveTemplate": "96",
-      "autoplay": false
+      "preSelectedLightCurveTemplate": "96"
     }
   },
   "questionsByPage": [

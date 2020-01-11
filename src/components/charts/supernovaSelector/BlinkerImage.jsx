@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Img from 'gatsby-image';
 import { getFluid } from './supernovaSelectorUtilities.js';
-import styles from './styles.module.scss';
+import styles from './supernovaSelector.module.scss';
 
 const BlinkerImage = ({ image, active, alertId }) => {
   const fluid = getFluid(image);

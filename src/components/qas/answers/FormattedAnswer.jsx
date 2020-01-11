@@ -42,7 +42,7 @@ class FormattedAnswer extends React.PureComponent {
 FormattedAnswer.propTypes = {
   type: PropTypes.string,
   pre: PropTypes.string,
-  body: PropTypes.string,
+  body: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   post: PropTypes.string,
 };
 

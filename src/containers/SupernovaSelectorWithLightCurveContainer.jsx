@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
 import isEmpty from 'lodash/isEmpty';
-import isObject from 'lodash/isObject';
-import isString from 'lodash/isString';
+import { zoomIdentity as d3ZoomIdentity } from 'd3-zoom';
 import { getActiveIndex } from '../components/charts/supernovaSelector/supernovaSelectorUtilities.js';
 import SupernovaSelector from '../components/charts/supernovaSelector';
 import LightCurve from '../components/charts/lightCurve/index.jsx';
@@ -26,12 +25,12 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       images,
       data: { alerts },
       answers,
-      options: { toggleDataPointsVisibility: selectorQId },
+      options: { toggleDataPointsVisibility: selectorQId, showSelector },
     } = this.props;
     const { activeAlert } = this.state;
     const selectorAnswer = answers[selectorQId];
 
-    if (!activeAlert) {
+    if (!activeAlert && showSelector) {
       this.setState(prevState => ({
         ...prevState,
         activeImageId: images[0].image_id,
@@ -58,7 +57,11 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
 
   templateZoomCallback = d => {
     const { updateAnswer, activeQuestionId } = this.props;
+    updateAnswer(activeQuestionId, d);
+  };
 
+  peakMagCallback = d => {
+    const { updateAnswer, activeQuestionId } = this.props;
     updateAnswer(activeQuestionId, d);
   };
 
@@ -88,25 +91,48 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     return activeImageIndex;
   }
 
-  getPreSelectedLightCurveTemplate(template) {
+  getTemplateAnswer(templates, typeOrAnswerId) {
     const { answers } = this.props;
+    const answer = answers[typeOrAnswerId];
+    const isAnswered = !isEmpty(answer);
+    const empty = {
+      transform: d3ZoomIdentity,
+      type: '',
+      templateAnswerId: typeOrAnswerId,
+    };
 
-    if (isObject(template)) {
-      return template;
-    }
-
-    if (isString(template)) {
-      const answer = answers[template];
-      const isAnswered = !isEmpty(answers[template]);
-
+    if (isAnswered) {
       return {
+        ...empty,
         transform: isAnswered ? answer.data.data : null,
         type: isAnswered ? answer.data.type : null,
-        templateAnswerId: template,
       };
     }
 
-    return {};
+    if (!templates) {
+      return empty;
+    }
+
+    if (templates.length === 1) {
+      return {
+        ...empty,
+        type: templates[0],
+      };
+    }
+
+    return empty;
+  }
+
+  getPeakMagAnswer(answerId) {
+    const { answers } = this.props;
+    const answer = answers[answerId];
+    const isAnswered = !isEmpty(answer);
+    const empty = { x: null, y: null, value: null, peakMagAnswerId: answerId };
+    if (isAnswered) {
+      return { ...empty, ...answer.data };
+    }
+
+    return empty;
   }
 
   render() {
@@ -125,18 +151,24 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         lightCurveTemplates,
         chooseLightCurveTemplate,
         preSelectedLightCurveTemplate,
+        preSelectedLightCurveMagnitude,
         preSelected,
         toggleDataPointsVisibility: selectorQId,
       },
     } = this.props;
+
     const activeAlertId = activeAlert ? activeAlert.alert_id.toString() : null;
-    const isAnswered =
+    const supernovaSelected =
       (showSelector || showLightCurve) && !isEmpty(answers[selectorQId]);
-    const {
-      transform,
-      type,
-      templateAnswerId,
-    } = this.getPreSelectedLightCurveTemplate(preSelectedLightCurveTemplate);
+    const { transform, type, templateAnswerId } = this.getTemplateAnswer(
+      lightCurveTemplates,
+      preSelectedLightCurveTemplate
+    );
+    const { x, y, peakMagAnswerId } = this.getPeakMagAnswer(
+      preSelectedLightCurveMagnitude
+    );
+    const interactableTemplates = activeQuestionId === templateAnswerId;
+    const interactablePeakMag = peakMagAnswerId === activeQuestionId;
 
     return (
       <div className="container-flex spaced">
@@ -153,7 +185,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                 autoplay,
                 activeAlertId,
                 preSelected,
-                isAnswered,
+                supernovaSelected,
               }}
               selectionCallback={this.supernovaSelectionCallback}
               blinkCallback={this.onAlertChange}
@@ -177,16 +209,19 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                 activeAlertId,
                 activeAnswer,
                 activeQuestionId,
-                templateAnswerId,
+                chooseLightCurveTemplate,
+                interactableTemplates,
+                interactablePeakMag,
               }}
-              pointsAreVisible={selectorQId ? isAnswered : true}
+              pointsAreVisible={selectorQId ? supernovaSelected : true}
               templates={lightCurveTemplates}
+              activePeakMag={{ peakMagX: x, peakMagY: y }}
               activeTemplate={type}
-              chooseLightCurveTemplate={chooseLightCurveTemplate}
               templateTransform={transform}
               activeData={activeAlert ? [activeAlert] : activeAlert}
               dataSelectionCallback={this.lightCurveSelectionCallback}
               templateZoomCallback={this.templateZoomCallback}
+              peakMagCallback={this.peakMagCallback}
             />
           </div>
         )}

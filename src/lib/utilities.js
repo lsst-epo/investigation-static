@@ -191,6 +191,7 @@ export const getValue = function(accessor, data) {
     {
       distance: formatValue(data, 0),
       velocity: formatValue(data, 0),
+      magnitude: formatValue(data, 2),
       luminosity: formatValue(data, 2),
       radius: formatValue(data, 2),
       mass: formatValue(data, 2),
