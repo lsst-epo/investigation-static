@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
 import { easeElastic as d3EaseElastic } from 'd3-ease';
+import PointLabel from './PointLabel';
 
 class Point extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.baseSize = 6;
+    this.baseRadius = 6;
+    this.baseDiameter = this.baseRadius * 2;
     this.svgEl = React.createRef();
   }
 
@@ -20,30 +22,39 @@ class Point extends React.PureComponent {
         .transition()
         .duration(800)
         .ease(d3EaseElastic)
-        .attr('r', this.baseSize * 2);
+        .attr('r', this.baseDiameter);
     } else {
       $point
         .transition()
         .duration(400)
-        .attr('r', this.baseSize);
+        .attr('r', this.baseRadius);
     }
   }
 
   render() {
-    const { x, y, classes, fill } = this.props;
+    const { x, y, classes, fill, label, selected, hovered } = this.props;
 
     return (
-      <circle
-        ref={this.svgEl}
-        className={classes}
-        cx={x}
-        cy={y}
-        r={this.baseSize}
-        strokeWidth={1}
-        fill={fill}
-        stroke="transparent"
-        tabIndex="0"
-      />
+      <g>
+        <circle
+          ref={this.svgEl}
+          className={classes}
+          cx={x}
+          cy={y}
+          r={this.baseRadius}
+          strokeWidth={1}
+          fill={fill}
+          stroke="transparent"
+          tabIndex="0"
+        />
+        {label && (
+          <PointLabel
+            {...{ label, selected, hovered }}
+            x={x + this.baseDiameter + this.baseRadius}
+            y={y + this.baseRadius}
+          />
+        )}
+      </g>
     );
   }
 }
@@ -55,6 +66,7 @@ Point.propTypes = {
   y: PropTypes.number,
   classes: PropTypes.string,
   fill: PropTypes.string,
+  label: PropTypes.string,
 };
 
 export default Point;

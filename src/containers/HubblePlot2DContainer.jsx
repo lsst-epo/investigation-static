@@ -13,7 +13,7 @@ class HubblePlot2DContainer extends React.PureComponent {
   }
 
   componentDidMount() {
-    axios.get('/galaxies.json').then(response => {
+    axios.get('/data/galaxies/galaxy_selector.json').then(response => {
       this.setState(prevState => ({
         ...prevState,
         data: response.data,

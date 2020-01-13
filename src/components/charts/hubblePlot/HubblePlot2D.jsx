@@ -72,17 +72,8 @@ class HubblePlot2D extends React.Component {
       hoverPointData: null,
       showTooltip: false,
       selectedData: null,
-      // showLasso: false,
-      // showEraser: false,
     }));
   }
-
-  // clearSelection() {
-  //   this.setState(prevState => ({
-  //     ...prevState,
-  //     selectedData: null,
-  //   }));
-  // }
 
   setSelection(d) {
     this.setState(prevState => ({

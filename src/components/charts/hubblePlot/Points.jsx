@@ -3,13 +3,8 @@ import PropTypes from 'prop-types';
 import includes from 'lodash/includes';
 import classnames from 'classnames';
 import Point from './Point.jsx';
-import styles from './hubble-plot.module.scss';
 
 class Points extends React.PureComponent {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
     const {
       data,
@@ -25,15 +20,15 @@ class Points extends React.PureComponent {
     return (
       <g className="data-points">
         {data.map((d, i) => {
-          const { source_id: id, name } = d;
+          const { source_id: id, name, label, color } = d;
           const key = `point-${id}-${i}`;
           const selected = includes(selectedData, d);
           const hovered = includes(hoveredData, d);
           const temp = d[xValueAccessor];
-          const classes = classnames(`data-point-${name} data-point`, {
+          const classes = classnames(`data-point-${name}`, 'data-point', {
             [pointClasses]: pointClasses,
-            [styles.selected]: selected,
-            [styles.hovered]: hovered,
+            selected,
+            hovered,
             'not-active':
               (selectedData || hoveredData) && !selected && !hovered,
           });
@@ -46,7 +41,8 @@ class Points extends React.PureComponent {
               hovered={hovered}
               x={xScale(temp)}
               y={yScale(d[yValueAccessor])}
-              fill="#000000"
+              label={label}
+              fill={color}
             />
           );
         })}
