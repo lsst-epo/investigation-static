@@ -14,7 +14,7 @@ import Button from '../components/site/button';
 
 import LightCurveContainer from './LightCurveContainer';
 
-import './galaxy-selector-container.scss';
+import styles from  './galaxy-selector-container.scss';
 import { getActiveIndex } from '../components/charts/galaxySelector/galaxySelectorUtilities';
 
 class GalaxySelectorContainer extends React.PureComponent {
@@ -112,7 +112,7 @@ class GalaxySelectorContainer extends React.PureComponent {
         name === 'ZTF19abqqmui' ||
         name === 'ZTF19abvhduf' ||
         name === 'ZTF19abucvgu';
-      const isDisabled = name === 'ZTF19abvhduf' || name === 'ZTF19abucvgu'; // some cool logic to disable links
+      const isDisabled = name === 'ZTF19abucvgu'; // some cool logic to disable links
       return {
         leftAvatar: <Star style={{ fill: color }} />,
         primaryText: name,

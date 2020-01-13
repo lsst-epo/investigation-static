@@ -1,12 +1,5 @@
 import findIndex from 'lodash/findIndex';
 
-export const getFluid = image => {
-  const {
-    childImageSharp: { fluid },
-  } = image;
-  return fluid;
-};
-
 export const parseName = originalName => {
   return originalName.split('_sci.')[0];
 };

@@ -31,10 +31,8 @@
         padding: 0;
         background: transparent;
 
-        .md-list-item.galaxy-item {
-          &.link-active {
-            background-color: $basePrimary;
-          }
+        .md-list-item.galaxy-item.link-active {
+          background-color: $basePrimary;
         }
 
         .md-list-tile {
@@ -64,20 +62,24 @@
           &.link-active {
             background-color: rgba(200, 200, 200, 0.3);
 
-            svg {
-              fill: $basePrimary;
-            }
+          }
+
+          &.link-active svg {
+            fill: $basePrimary;
           }
 
           &.link-item.link-is-not-complete {
             background: rgba(200, 0, 0, 0.3);
-            .md-text--disabled {
-              color: $neutral30;
-            }
-            svg {
-              // fill: $neutral30;
-              opacity: 0.7;
-            }
+
+          }
+
+          &.link-item.link-is-not-complete .md-text--disabled {
+            color: $neutral30;
+          }
+
+          &.link-item.link-is-not-complete svg {
+            // fill: $neutral30;
+            opacity: 0.7;
           }
 
           &.link-is-disabled {
@@ -104,11 +106,12 @@
           }
 
           &:not(.link-active):hover .md-list-tile--active {
-            background-color: rgba(255,255,255,0.5);
+            background-color: rgba(255, 255, 255, 0.5);
 
-            svg {
-              fill: $white;
-            }
+          }
+
+          &:not(.link-active):hover .md-list-tile--active svg {
+            fill: $white;
           }
 
           &.link-active {
@@ -118,19 +121,24 @@
 
           &.link-item.link-is-not-complete {
             background-color: rgba(200, 0, 0, 0.3);
-            .md-text--disabled {
-              color: $neutral30;
-            }
-            svg {
-              fill: $neutral30;
-            }
+
+          }
+
+          &.link-item.link-is-not-complete .md-text--disabled {
+            color: $neutral30;
+          }
+
+          &.link-item.link-is-not-complete svg {
+            fill: $neutral30;
           }
 
           &.link-is-disabled {
             pointer-events: none;
-            .md-text--disabled {
-              color: #777777;
-            }
+
+          }
+
+          &.link-is-disabled .md-text--disabled {
+            color: #777777;
           }
         }
       }
