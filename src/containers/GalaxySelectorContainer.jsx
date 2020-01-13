@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
-// import axios from 'axios';
-import PropTypes from 'prop-types';
+import axios from 'axios';
+// import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { NavigationDrawer, Card, Toolbar, CardActions } from 'react-md';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
@@ -14,35 +14,48 @@ import Button from '../components/site/button';
 
 import LightCurveContainer from './LightCurveContainer';
 
-import styles from  './galaxy-selector-container.scss';
+import './galaxy-selector-container.scss';
 import { getActiveIndex } from '../components/charts/galaxySelector/galaxySelectorUtilities';
 
 class GalaxySelectorContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    const { sources } = props.widget;
-
-    const galaxies = sources.map(source => {
-      source.images = this.generateImages(source.name, source.alerts);
-      return source;
-    });
-
-    console.log({ galaxies });
-
-    const { name, alerts } = galaxies[0];
+    // const { sources } = props.widget;
 
     this.state = {
       openScatterPlot: false,
       openMenu: false,
-      selectedGalaxy: name,
-      navItems: galaxies,
       activeImageIndex: 0,
-      activeAlertId: alerts[0].alert_id,
-      activeAlert: alerts[0],
-      data: [galaxies[0]],
-      images: galaxies[0].images,
+      selectedGalaxy: '',
+      navItems: [],
+      activeAlertId: null,
+      activeAlert: null,
+      data: [],
+      images: [],
     };
+  }
+
+  componentDidMount() {
+    axios.get('/data/galaxies/galaxy_selector.json').then(response => {
+      const galaxies = response.data.map(source => {
+        source.images = this.generateImages(source.name, source.alerts);
+        return source;
+      });
+
+      const { name, alerts } = galaxies[0];
+
+      this.setState(prevState => ({
+        ...prevState,
+        sources: response.data,
+        selectedGalaxy: name,
+        navItems: galaxies,
+        activeAlertId: alerts[0].alert_id,
+        activeAlert: alerts[0],
+        data: [galaxies[0]],
+        images: galaxies[0].images,
+      }));
+    });
   }
 
   chooseGalaxyAndCloseNav(event, galaxy) {
@@ -247,8 +260,8 @@ class GalaxySelectorContainer extends React.PureComponent {
 }
 
 GalaxySelectorContainer.propTypes = {
-  widget: PropTypes.object,
-  sources: PropTypes.array,
+  // widget: PropTypes.object,
+  // sources: PropTypes.array,
 };
 
 export default props => <GalaxySelectorContainer {...props} />;
