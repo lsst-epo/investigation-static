@@ -18,13 +18,16 @@
 }
 
 .galaxy-point {
-  fill: blue;
   stroke: 'transparent';
   transition: stroke $timing $duration, opacity $timing $duration;
-
 }
 
-.selected, .hovered {
-  fill: pink;
+.point-label {
+  @include labelPrimary;
+
+  &.active-label {
+    font-weight: $medium;
+  }
 }
+
 
