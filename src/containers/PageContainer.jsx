@@ -135,26 +135,7 @@ export const query = graphql`
         }
         widget {
           type
-          sources {
-            name
-            color
-            distance
-            Dec
-            velocity
-            RA
-            redshift
-            galaxyPoint {
-              x
-              y
-            }
-            alerts {
-              alert_id
-              error
-              date
-              magnitude
-              image_id
-            }
-          }
+          sources
           source
           options {
             showSelector
