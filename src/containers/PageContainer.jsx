@@ -9,6 +9,7 @@ import PageNav from '../components/pageNav';
 import SupernovaSelectorWithLightCurve from './SupernovaSelectorWithLightCurveContainer';
 import GalaxySelector from './GalaxySelectorContainer';
 import HubblePlot from './HubblePlot2DContainer';
+import HubblePlot3D from './HubblePlot3DContainer';
 
 @reactn
 class PageContainer extends React.PureComponent {
@@ -25,6 +26,7 @@ class PageContainer extends React.PureComponent {
       SupernovaSelectorWithLightCurve,
       GalaxySelector,
       HubblePlot,
+      HubblePlot3D,
     };
   }
 
