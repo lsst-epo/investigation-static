@@ -13,8 +13,6 @@
     "source": "ZTF19abqmpsr",
     "options": {
       "showSelector": true,
-      "showLightCurve": false,
-      "autoplay": false,
       "toggleDataPointsVisibility": "50"
     }
   },

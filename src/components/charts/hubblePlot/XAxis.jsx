@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
 import { axisBottom as d3AxisBottom } from 'd3-axis';
+import styles from './hubble-plot.module.scss';
 
 class XAxis extends React.PureComponent {
   constructor(props) {
@@ -46,7 +47,7 @@ class XAxis extends React.PureComponent {
         />
         <text
           key="x-axis-label"
-          className="x-axis-label"
+          className={styles.xAxisLabel}
           transform={`translate(${(width + padding + offsetRight) / 2},
            ${height - padding * 0.08})`}
         >

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEmpty from 'lodash/isEmpty';
 import axios from 'axios';
 import HubblePlot2D from '../components/charts/hubblePlot/HubblePlot2D.jsx';
 
@@ -29,9 +30,30 @@ class HubblePlot2DContainer extends React.PureComponent {
     // }
   };
 
+  userHubblePlotCallback = d => {
+    const {
+      options: { userHubblePlot },
+      updateAnswer,
+    } = this.props;
+
+    if (userHubblePlot) {
+      updateAnswer(userHubblePlot, d);
+    }
+  };
+
+  emptyUserData(data) {
+    if (!data) return data;
+
+    return data.map(galaxy => {
+      return { ...galaxy, distance: null, velocity: null };
+    });
+  }
+
   render() {
     const { data } = this.state;
-    const { options } = this.props;
+    const { options, answers } = this.props;
+    const { userHubblePlot } = options;
+    const userHubblePlotAnswer = answers[userHubblePlot];
 
     return (
       <div>
@@ -41,7 +63,14 @@ class HubblePlot2DContainer extends React.PureComponent {
             data,
             options,
           }}
+          userHubblePlotData={
+            !isEmpty(userHubblePlotAnswer)
+              ? userHubblePlotAnswer.data
+              : this.emptyUserData(data)
+          }
+          activeGalaxy={data ? data[0] : null}
           selectionCallback={this.hubbleSelectionCallback}
+          userHubblePlotCallback={this.userHubblePlotCallback}
         />
       </div>
     );

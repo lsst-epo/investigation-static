@@ -21,10 +21,12 @@ class Points extends React.PureComponent {
       <g className="data-points">
         {data.map((d, i) => {
           const { source_id: id, name, label, color } = d;
+          const xVal = d[xValueAccessor];
+          const yVal = d[yValueAccessor];
+          if (!xVal || !yVal) return null;
           const key = `point-${id}-${i}`;
           const selected = includes(selectedData, d);
           const hovered = includes(hoveredData, d);
-          const temp = d[xValueAccessor];
           const classes = classnames(`data-point-${name}`, 'data-point', {
             [pointClasses]: pointClasses,
             selected,
@@ -39,7 +41,7 @@ class Points extends React.PureComponent {
               classes={classes}
               selected={selected}
               hovered={hovered}
-              x={xScale(temp)}
+              x={xScale(d[xValueAccessor])}
               y={yScale(d[yValueAccessor])}
               label={label}
               fill={color}
