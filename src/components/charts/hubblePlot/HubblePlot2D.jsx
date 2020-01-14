@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
+import findIndex from 'lodash/findIndex';
 import classnames from 'classnames';
 import {
   select as d3Select,
   event as d3Event,
   clientPoint as d3ClientPoint,
+  mouse as d3mouse,
 } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
@@ -25,6 +27,7 @@ class HubblePlot2D extends React.Component {
 
     this.state = {
       loading: true,
+      userData: null,
       selectedData: null,
       hoverPointData: null,
       tooltipPosX: 0,
@@ -43,30 +46,28 @@ class HubblePlot2D extends React.Component {
   }
 
   componentDidMount() {
-    this.updateHubblePlot();
+    const { data, userHubblePlotData } = this.props;
+
+    if (data || userHubblePlotData) {
+      this.updateHubblePlot();
+    }
   }
 
   componentDidUpdate(prevProps) {
-    // const { selectedData } = this.state;
-    // const { data, isAnswered, preSelected } = this.props;
-    const { data } = this.props;
+    const { data, userHubblePlotData } = this.props;
+    const isNewDataProp = prevProps.data !== data;
+    const isNewUserData = prevProps.userHubblePlotData !== userHubblePlotData;
 
-    if (prevProps.data !== data) {
+    if (isNewDataProp || isNewUserData) {
       this.updateHubblePlot();
     }
-
-    // if (isAnswered && !selectedData) {
-    //   this.toggleSelection(data);
-    // } else if (!isAnswered && !preSelected && selectedData) {
-    //   this.clearSelection();
-    // }
   }
 
   componentWillUnmount() {
     this.removeEventListeners();
   }
 
-  clearGraph() {
+  clearSelection() {
     this.setState(prevState => ({
       ...prevState,
       hoverPointData: null,
@@ -116,6 +117,61 @@ class HubblePlot2D extends React.Component {
     );
   }
 
+  toggleUserPoint() {
+    const { xScale, yScale } = this.state;
+    const {
+      xValueAccessor,
+      yValueAccessor,
+      activeGalaxy,
+      userHubblePlotCallback,
+      userHubblePlotData,
+    } = this.props;
+    const pointPos = d3mouse(this.svgEl.current);
+
+    if (userHubblePlotData) {
+      const userData = [...userHubblePlotData];
+      let targetDatum = userData[userData.length - 1];
+      const userDatumIndex = findIndex(userData, d => {
+        return activeGalaxy.name === d.name;
+      });
+
+      const xVal = xScale.invert(pointPos[0]);
+      const yVal = yScale.invert(pointPos[1]);
+
+      if (userDatumIndex) {
+        targetDatum = userData[userDatumIndex];
+        targetDatum[xValueAccessor] = xVal;
+        targetDatum[yValueAccessor] = yVal;
+      } else {
+        const firstEmptyDatumIndex = findIndex(userData, d => {
+          return d[xValueAccessor] === null;
+        });
+        targetDatum =
+          firstEmptyDatumIndex !== -1
+            ? userData[firstEmptyDatumIndex]
+            : targetDatum;
+        targetDatum[xValueAccessor] = xVal;
+        targetDatum[yValueAccessor] = yVal;
+      }
+
+      this.setState(
+        prevState => ({
+          ...prevState,
+          hoverPointData: null,
+          showTooltip: false,
+          selectedData: [targetDatum],
+        }),
+        () => {
+          if (userHubblePlotCallback) {
+            userHubblePlotCallback(userData);
+          }
+        }
+      );
+    } else {
+      this.clearSelection();
+    }
+  }
+
   // mouseover/focus handler for point
   onMouseOver = d => {
     const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
@@ -148,13 +204,18 @@ class HubblePlot2D extends React.Component {
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
     $hubblePlot.on('click', () => {
+      const {
+        options: { userHubblePlot },
+      } = this.props;
       // remove styles and selections when click on non-point
       const pointData = d3Select(d3Event.target).datum();
 
       if (pointData) {
         this.toggleSelection(pointData);
+      } else if (userHubblePlot) {
+        this.toggleUserPoint();
       } else {
-        this.clearGraph();
+        this.clearSelection();
       }
     });
 
@@ -174,8 +235,14 @@ class HubblePlot2D extends React.Component {
   }
 
   updatePoints() {
-    const { data, preSelected, multiple } = this.props;
+    const {
+      data: dataProp,
+      userHubblePlotData,
+      preSelected,
+      multiple,
+    } = this.props;
     const { loading } = this.state;
+    const data = userHubblePlotData || dataProp;
 
     if (!data) {
       return;
@@ -211,17 +278,11 @@ class HubblePlot2D extends React.Component {
     } else {
       d3Select(this.svgEl.current)
         .selectAll('.data-point')
-        .data(data)
-        .transition()
-        .end()
-        .then(() => {
-          if (loading) {
-            this.setState(prevState => ({
-              ...prevState,
-              loading: false,
-            }));
-          }
-        });
+        .data(data);
+      this.setState(prevState => ({
+        ...prevState,
+        loading: false,
+      }));
     }
   }
 
@@ -237,7 +298,8 @@ class HubblePlot2D extends React.Component {
 
   render() {
     const {
-      data,
+      data: dataProp,
+      userHubblePlotData,
       width,
       height,
       multiple,
@@ -264,6 +326,8 @@ class HubblePlot2D extends React.Component {
       tooltipPosY,
       showTooltip,
     } = this.state;
+
+    const data = userHubblePlotData || dataProp;
 
     const svgClasses = classnames('svg-chart', styles.hubblePlot, {
       loading,
@@ -389,7 +453,9 @@ HubblePlot2D.propTypes = {
   offsetTop: PropTypes.number,
   offsetRight: PropTypes.number,
   data: PropTypes.array,
-  // isAnswered: PropTypes.bool,
+  userHubblePlotData: PropTypes.array,
+  activeGalaxy: PropTypes.object,
+  options: PropTypes.object,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
   tooltipAccessors: PropTypes.array,
@@ -403,6 +469,7 @@ HubblePlot2D.propTypes = {
   legend: PropTypes.node,
   name: PropTypes.string,
   selectionCallback: PropTypes.func,
+  userHubblePlotCallback: PropTypes.func,
 };
 
 export default HubblePlot2D;

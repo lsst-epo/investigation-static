@@ -15,7 +15,6 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       activeImageIndex: 0,
       activeImageId: null,
       activeAlert: null,
-      activeSupernova: null,
       data: [{ id: 'ZTF19abqmpsr', band: 'r', x: 600, y: 600 }],
     };
   }
@@ -24,18 +23,15 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     const {
       images,
       data: { alerts },
-      answers,
-      options: { toggleDataPointsVisibility: selectorQId, showSelector },
+      options: { showSelector },
     } = this.props;
     const { activeAlert } = this.state;
-    const selectorAnswer = answers[selectorQId];
 
     if (!activeAlert && showSelector) {
       this.setState(prevState => ({
         ...prevState,
         activeImageId: images[0].image_id,
         activeAlert: alerts[0],
-        lightCurvePointsAreVisible: !isEmpty(selectorAnswer),
       }));
     }
   }
@@ -47,12 +43,6 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     if (activeQuestionId) {
       updateAnswer(activeQuestionId, activeSupernova);
     }
-
-    this.setState(prevState => ({
-      ...prevState,
-      activeSupernova,
-      lightCurvePointsAreVisible: !!activeSupernova,
-    }));
   };
 
   templateZoomCallback = d => {
@@ -167,8 +157,6 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     const { x, y, peakMagAnswerId } = this.getPeakMagAnswer(
       preSelectedLightCurveMagnitude
     );
-    const interactableTemplates = activeQuestionId === templateAnswerId;
-    const interactablePeakMag = peakMagAnswerId === activeQuestionId;
 
     return (
       <div className="container-flex spaced">
@@ -210,9 +198,9 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                 activeAnswer,
                 activeQuestionId,
                 chooseLightCurveTemplate,
-                interactableTemplates,
-                interactablePeakMag,
               }}
+              interactableTemplates={activeQuestionId === templateAnswerId}
+              interactablePeakMag={peakMagAnswerId === activeQuestionId}
               pointsAreVisible={selectorQId ? supernovaSelected : true}
               templates={lightCurveTemplates}
               activePeakMag={{ peakMagX: x, peakMagY: y }}
