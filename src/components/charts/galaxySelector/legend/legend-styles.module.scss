@@ -1,0 +1,29 @@
+.legend {
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+  z-index: 20;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.legend-box {
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  text-align: center;
+  background: $neutral20;
+}
+
+.detail {
+  margin: 0;
+  font-weight: 500;
+  color: $black;
+}
+
+.output {
+  min-height: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  color: $black;
+}

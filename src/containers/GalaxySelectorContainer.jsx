@@ -4,15 +4,14 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
-import { NavigationDrawer, Card, Toolbar, CardActions } from 'react-md';
+import { NavigationDrawer, Card } from 'react-md';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
 import GalaxySelector from '../components/charts/galaxySelector';
-import ScatterPlot from '../components/site/icons/ScatterPlot';
+import Legend from '../components/charts/galaxySelector/legend';
 import Star from '../components/site/icons/Star';
-import ViewList from '../components/site/icons/ViewList';
-import Close from '../components/site/icons/Close';
 import Button from '../components/site/button';
-
+import Toolbar from '../components/charts/galaxySelector/toolbar';
+import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import HubblePlot from '../components/charts/hubblePlot/HubblePlot2D.jsx';
 
 import './galaxy-selector-container.scss';
@@ -27,11 +26,11 @@ class GalaxySelectorContainer extends React.PureComponent {
       openMenu: false,
       activeImageIndex: 0,
       activeGalaxy: null,
+      plottedData: null,
       activeAlertId: null,
       activeAlert: null,
       data: [],
       selectedGalaxiesAndSupernovae: {},
-      plottedData: null,
     };
   }
 
@@ -41,6 +40,7 @@ class GalaxySelectorContainer extends React.PureComponent {
         source.images = this.generateImages(source.name, source.alerts);
         return source;
       });
+
       const { alerts } = data[0];
 
       this.setState(prevState => ({
@@ -55,7 +55,10 @@ class GalaxySelectorContainer extends React.PureComponent {
 
   chooseGalaxyAndCloseNav(event, activeGalaxy) {
     if (event) {
+      const { openScatterPlot } = this.state;
       const { alerts } = activeGalaxy;
+
+      if (openScatterPlot) this.triggerScatterPlot('close');
 
       this.setState(prevState => ({
         ...prevState,
@@ -102,9 +105,11 @@ class GalaxySelectorContainer extends React.PureComponent {
 
   triggerScatterPlot = event => {
     if (event) {
+      const action = event === 'open' || event === 'close' ? false : null;
+
       this.setState(prevState => ({
         ...prevState,
-        openScatterPlot: !prevState.openScatterPlot,
+        openScatterPlot: action || !prevState.openScatterPlot,
       }));
     }
   };
@@ -169,9 +174,9 @@ class GalaxySelectorContainer extends React.PureComponent {
           'link-is-complete': complete,
           'link-is-not-complete': !complete,
           'link-is-disabled': disabled,
-        }), // boolean to add 'link-item'
+        }),
         disabled,
-        active, // default selected
+        active,
         onClick: e => this.chooseGalaxyAndCloseNav(e, item),
       };
     });
@@ -268,6 +273,7 @@ class GalaxySelectorContainer extends React.PureComponent {
       openMenu,
       openScatterPlot,
       activeGalaxy,
+      // plottedData,
     } = this.state;
 
     const {
@@ -285,26 +291,11 @@ class GalaxySelectorContainer extends React.PureComponent {
     return (
       <>
         <Toolbar
-          className="galaxy-selector--toolbar"
-          nav={
-            openMenu ? (
-              <Close onClick={this.handleCloseMenu} />
-            ) : (
-              <ViewList onClick={this.handleOpenMenu} />
-            )
-          }
-          title={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
-          actions={
-            <Button
-              primary
-              flat
-              iconBefore={false}
-              onClick={e => this.triggerScatterPlot(e)}
-              iconEl={!openScatterPlot ? <ScatterPlot /> : <Close />}
-            >
-              Hubble Plot
-            </Button>
-          }
+          {...{ activeGalaxy, openMenu }}
+          onMenuClose={this.handleCloseMenu}
+          onMenuOpen={this.handleOpenMenu}
+          scatterPlotTrigger={this.triggerScatterPlot}
+          openScatterPlot={openScatterPlot}
         />
         <Card id="galaxy-selector" className="galaxy-selector-container">
           <NavigationDrawer
@@ -320,6 +311,7 @@ class GalaxySelectorContainer extends React.PureComponent {
             overlay={false}
           >
             <div className="galaxy-selector-images--container">
+              <Legend {...{ activeGalaxy, selectedData }} />
               <GalaxySelector
                 className={`galaxy-selector-${data.name}`}
                 {...{ selectedData, activeGalaxy }}
@@ -355,14 +347,10 @@ class GalaxySelectorContainer extends React.PureComponent {
               <Button raised>Add Trend Line</Button>
             </div>
           </ScatterPlotSelectorContainer>
-          <CardActions centered>
-            <Button flat onClick={this.handlePrevGalaxy}>
-              Previous Galaxy
-            </Button>
-            <Button primary flat onClick={this.handleNextGalaxy}>
-              Next Galaxy
-            </Button>
-          </CardActions>
+          <Navigation
+            onPrevGalaxy={this.handlePrevGalaxy}
+            onNextGalaxy={this.handleNextGalaxy}
+          />
         </Card>
       </>
     );

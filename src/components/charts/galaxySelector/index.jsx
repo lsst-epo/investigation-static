@@ -84,6 +84,7 @@ class GalaxySelector extends React.PureComponent {
   toggleSelection(d) {
     const { selectedData: oldData } = this.state;
 
+    // <<<<<<< HEAD
     if (!isSelected(oldData, d)) {
       const selectedData = !oldData ? [d] : [...oldData, d];
 
@@ -98,6 +99,11 @@ class GalaxySelector extends React.PureComponent {
           if (selectionCallback) {
             selectionCallback(newData);
           }
+          // =======
+          // if (selectionCallback && Object.keys(newData[name]).length === 2) {
+          //         if (selectionCallback) {
+          //           selectionCallback(newData);
+          // >>>>>>> [F] Add legend for selected galaxy and supernova
         }
       );
     }

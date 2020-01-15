@@ -1,0 +1,15 @@
+.toolbar {
+  padding: 9px;
+
+  :global {
+    .md-title--toolbar {
+      flex: 1;
+      margin: 0.5rem 1rem;
+    }
+
+    .md-cell--right.md-toolbar--action-right {
+      align-self: center;
+      justify-self: flex-end;
+    }
+  }
+}
