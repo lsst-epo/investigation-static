@@ -3,10 +3,26 @@ import React from 'reactn';
 import PropTypes from 'prop-types';
 import includes from 'lodash/includes';
 import isObject from 'lodash/isObject';
+import filter from 'lodash/filter';
+import flattenDeep from 'lodash/flattenDeep';
 import { qById, getActiveQ } from '../components/qas/utilities.js';
 
 export const WithQAing = ComposedComponent => {
   class WrappedComponent extends React.PureComponent {
+    constructor(props) {
+      super(props);
+
+      this.answerAccessorGets = {
+        text: this.getTextContent,
+        'compound-select': this.getSelectContent,
+        select: this.getSelectContent,
+        count: this.getCountContent,
+        'light-curve-template': this.getTemplateContent,
+        magnitude: this.getMagnitudeContent,
+        galaxy: this.getGalaxyContent,
+      };
+    }
+
     componentDidMount() {
       const { answers } = this.global;
       const { data: pageData } = this.props;
@@ -39,7 +55,6 @@ export const WithQAing = ComposedComponent => {
     };
 
     // Methods related to updating answers
-
     getSelectContent(data) {
       return isObject(data) ? 'DEFAULT' : data;
     }
@@ -65,31 +80,46 @@ export const WithQAing = ComposedComponent => {
       return data[0] ? data[0][answerAccessor] : 'None Selected';
     }
 
+    getGalaxyContent(data) {
+      const selectedObjects = flattenDeep(
+        Object.keys(data).map(galaxyKey => {
+          return Object.keys(data[galaxyKey]).map(objKey => {
+            return objKey;
+          });
+        })
+      );
+
+      const numOfSupernovae = filter(
+        selectedObjects,
+        item => item === 'supernova'
+      ).length;
+      const numOfGalaxies = filter(selectedObjects, item => item === 'galaxy')
+        .length;
+
+      return `${numOfGalaxies} galaxies & ${numOfSupernovae} supernovae`;
+    }
+
+    getContent(answerAccessor, data) {
+      const getFunc = this.answerAccessorGets[answerAccessor];
+
+      if (getFunc) {
+        return getFunc(data) || data;
+      }
+
+      if (!includes(answerAccessor, 'range')) {
+        return this.getRangeContent(data, answerAccessor);
+      }
+
+      return data;
+    }
+
     // Callback method passed down to child components
     answerHandler = (id, data, eventType) => {
       if ((id && data) || eventType) {
         const { data: pageData } = this.props;
         const { questionsByPage: questions } = pageData.allPagesJson.nodes[0];
-        const answeredQuestion = qById(questions, id);
-        const { answerAccessor } = answeredQuestion;
-        let content = data;
-
-        if (answerAccessor === 'text') {
-          content = this.getTextContent(data);
-        } else if (
-          answerAccessor === 'compound-select' ||
-          answerAccessor === 'select'
-        ) {
-          content = this.getSelectContent(data);
-        } else if (answerAccessor === 'count') {
-          content = this.getCountContent(data);
-        } else if (answerAccessor === 'light-curve-template') {
-          content = this.getTemplateContent(data);
-        } else if (answerAccessor === 'magnitude') {
-          content = this.getMagnitudeContent(data);
-        } else if (!includes(answerAccessor, 'range')) {
-          content = this.getRangeContent(data, answerAccessor);
-        }
+        const { answerAccessor } = qById(questions, id);
+        const content = this.getContent(answerAccessor, data);
 
         this.dispatch.updateAnswer(id, content, data);
       } else {

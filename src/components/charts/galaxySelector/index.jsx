@@ -9,13 +9,14 @@ import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
+import { isSelected } from './galaxySelectorUtilities.js';
 import Blinker from './Blinker';
 import BlinkerControls from './BlinkerControls';
 import Points from './Points';
 import Legend from '../shared/Legend';
 import styles from './styles.module.scss';
 
-class GalaxySelector extends React.Component {
+class GalaxySelector extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -36,7 +37,7 @@ class GalaxySelector extends React.Component {
   }
 
   componentDidMount() {
-    const { autoplay, preSelected, data } = this.props;
+    const { autoplay, preSelected, selectedData, data } = this.props;
 
     this.updateGalaxySelector();
 
@@ -47,20 +48,17 @@ class GalaxySelector extends React.Component {
     if (preSelected) {
       this.setSelection(data);
     }
+
+    if (selectedData && !preSelected) {
+      this.setSelection(selectedData);
+    }
   }
 
   componentDidUpdate(prevProps) {
-    const { selectedData } = this.state;
-    const { data, isAnswered } = this.props;
-
-    if (prevProps.data !== data) {
+    const { activeGalaxy, selectedData: selectedDataProp } = this.props;
+    if (prevProps.activeGalaxy !== activeGalaxy) {
       this.updateGalaxySelector();
-    }
-
-    if (isAnswered && !selectedData) {
-      this.toggleSelection(data);
-    } else if (!isAnswered && selectedData) {
-      // this.clearSelection();
+      this.setSelection(selectedDataProp);
     }
   }
 
@@ -84,23 +82,25 @@ class GalaxySelector extends React.Component {
   }
 
   toggleSelection(d) {
-    const { id, name } = d;
     const { selectedData: oldData } = this.state;
-    const oldDataObj = !oldData ? {} : oldData[d.name];
-    this.setState(
-      prevState => ({
-        ...prevState,
-        selectedData: { [name]: { ...oldDataObj, [id]: d } },
-      }),
-      () => {
-        const { selectionCallback } = this.props;
-        const { selectedData: newData } = this.state;
 
-        if (selectionCallback && Object.keys(newData[name]).length === 2) {
-          selectionCallback(newData);
+    if (!isSelected(oldData, d)) {
+      const selectedData = !oldData ? [d] : [...oldData, d];
+
+      this.setState(
+        prevState => ({
+          ...prevState,
+          selectedData,
+        }),
+        () => {
+          const { selectionCallback } = this.props;
+          const { selectedData: newData } = this.state;
+          if (selectionCallback) {
+            selectionCallback(newData);
+          }
         }
-      }
-    );
+      );
+    }
   }
 
   getAlertFromImageId(imageId, alerts) {
@@ -227,17 +227,13 @@ class GalaxySelector extends React.Component {
         if (i === data.length - 1) {
           d3Select(this.svgEl.current)
             .selectAll(`.data-point.${supernova.className}`)
-            .data(supernova.data)
-            .transition()
-            .end()
-            .then(() => {
-              if (loading) {
-                this.setState(prevState => ({
-                  ...prevState,
-                  loading: false,
-                }));
-              }
-            });
+            .data(supernova.data);
+          if (loading) {
+            this.setState(prevState => ({
+              ...prevState,
+              loading: false,
+            }));
+          }
         } else {
           d3Select(this.svgEl.current)
             .selectAll(`.data-point${supernova.className}`)
@@ -247,17 +243,13 @@ class GalaxySelector extends React.Component {
     } else {
       d3Select(this.svgEl.current)
         .selectAll('.data-point')
-        .data(data)
-        .transition()
-        .end()
-        .then(() => {
-          if (loading) {
-            this.setState(prevState => ({
-              ...prevState,
-              loading: false,
-            }));
-          }
-        });
+        .data(data);
+      if (loading) {
+        this.setState(prevState => ({
+          ...prevState,
+          loading: false,
+        }));
+      }
     }
   }
 
@@ -369,11 +361,13 @@ GalaxySelector.propTypes = {
   height: PropTypes.number,
   padding: PropTypes.number,
   data: PropTypes.array,
+  selectedData: PropTypes.array,
+  activeGalaxy: PropTypes.object,
   alerts: PropTypes.array,
   images: PropTypes.array,
   activeImageId: PropTypes.string,
   activeImageIndex: PropTypes.number,
-  isAnswered: PropTypes.bool,
+  // isAnswered: PropTypes.bool,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
   xDomain: PropTypes.array,

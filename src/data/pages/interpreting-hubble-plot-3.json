@@ -16,14 +16,10 @@
   "content": "<p>Use your hubble plot to answer the questions.</p>",
   "widget": {
     "type": "HubblePlot",
-    "sources": [
-      "ZTF19abqmpsr",
-      "ZTF19abxvjkn",
-      "ZTF19abqqmui",
-      "ZTF19abvhduf",
-      "ZTF19abucvgu"
-    ],
-    "options": {}
+    "options": {
+      "userHubblePlot": "155",
+      "preSelected": true
+    }
   },
   "questionsByPage": [
     {

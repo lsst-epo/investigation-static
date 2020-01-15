@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import includes from 'lodash/includes';
+import { isSelected } from './galaxySelectorUtilities.js';
 import Point from './Point.jsx';
 
 class Points extends React.PureComponent {
@@ -20,7 +20,7 @@ class Points extends React.PureComponent {
         {data.map((d, i) => {
           const { id, color } = d;
           const key = `point-${id}-${i}`;
-          const selected = includes(selectedData, d);
+          const selected = isSelected(selectedData, d);
 
           return (
             <Point
@@ -41,7 +41,7 @@ class Points extends React.PureComponent {
 
 Points.propTypes = {
   data: PropTypes.array,
-  selectedData: PropTypes.object,
+  selectedData: PropTypes.array,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
   xScale: PropTypes.func,

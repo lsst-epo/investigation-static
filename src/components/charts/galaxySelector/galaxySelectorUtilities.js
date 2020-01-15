@@ -11,3 +11,16 @@ export const getActiveIndex = (images, activeId) => {
     return getNameFromImage(image) === activeId;
   });
 };
+
+export const isSelected = (data, datum) => {
+  let selected = false;
+  if (!data) return selected;
+
+  data.forEach(item => {
+    if (datum.id === item.id) {
+      selected = true;
+    }
+  });
+
+  return selected;
+};
