@@ -142,6 +142,7 @@ export const query = graphql`
             showSelector
             showLightCurve
             userHubblePlot
+            userTrendline
             lightCurveTemplates
             choosePeakMagnitude
             chooseLightCurveTemplate

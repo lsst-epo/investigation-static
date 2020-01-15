@@ -48,12 +48,10 @@ class TableOfContents extends React.PureComponent {
             primaryText: link.title,
             leftIcon: <Check />,
             active: this.setActivePage(link.id),
-            className: classnames(
-              'toc-link',
-              `link--page-id--${link.id}`,
-              this.setActivePage(link.id) ? 'link-active' : '',
-              this.checkQAProgress(link.id) ? 'qa-progress--complete' : ''
-            ),
+            className: classnames('toc-link', `link--page-id--${link.id}`, {
+              'link-active': this.setActivePage(link.id),
+              'qa-progress--complete': this.checkQAProgress(link.id),
+            }),
           };
         }
       ),

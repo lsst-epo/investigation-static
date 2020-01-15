@@ -46,19 +46,18 @@ class HubblePlot2D extends React.Component {
   }
 
   componentDidMount() {
-    const { data, userHubblePlotData } = this.props;
+    const { data } = this.props;
 
-    if (data || userHubblePlotData) {
+    if (data) {
       this.updateHubblePlot();
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { data, userHubblePlotData } = this.props;
-    const isNewDataProp = prevProps.data !== data;
-    const isNewUserData = prevProps.userHubblePlotData !== userHubblePlotData;
+    const { data } = this.props;
+    const isNewData = prevProps.data !== data;
 
-    if (isNewDataProp || isNewUserData) {
+    if (isNewData) {
       this.updateHubblePlot();
     }
   }
@@ -73,13 +72,6 @@ class HubblePlot2D extends React.Component {
       hoverPointData: null,
       showTooltip: false,
       selectedData: null,
-    }));
-  }
-
-  setSelection(d) {
-    this.setState(prevState => ({
-      ...prevState,
-      selectedData: arrayify(d),
     }));
   }
 
@@ -124,12 +116,12 @@ class HubblePlot2D extends React.Component {
       yValueAccessor,
       activeGalaxy,
       userHubblePlotCallback,
-      userHubblePlotData,
+      data,
     } = this.props;
     const pointPos = d3mouse(this.svgEl.current);
 
-    if (userHubblePlotData) {
-      const userData = [...userHubblePlotData];
+    if (data) {
+      const userData = [...data];
       let targetDatum = userData[userData.length - 1];
       const userDatumIndex = findIndex(userData, d => {
         return activeGalaxy.name === d.name;
@@ -200,24 +192,45 @@ class HubblePlot2D extends React.Component {
 
   // add event listeners to Scatterplot and Points
   addEventListeners() {
+    const {
+      options: { preSelected, userHubblePlot, userTrendline },
+    } = this.props;
     const $hubblePlot = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
-    $hubblePlot.on('click', () => {
-      const {
-        options: { userHubblePlot },
-      } = this.props;
-      // remove styles and selections when click on non-point
-      const pointData = d3Select(d3Event.target).datum();
+    if (!preSelected && userTrendline) {
+      $hubblePlot.on('click', () => {
+        const pointData = d3Select(d3Event.target).datum();
 
-      if (pointData) {
-        this.toggleSelection(pointData);
-      } else if (userHubblePlot) {
-        this.toggleUserPoint();
-      } else {
-        this.clearSelection();
-      }
-    });
+        if (pointData) {
+          this.toggleSelection(pointData);
+        } else {
+          this.clearSelection();
+        }
+      });
+    } else if (!preSelected && userHubblePlot) {
+      $hubblePlot.on('click', () => {
+        const pointData = d3Select(d3Event.target).datum();
+
+        if (pointData) {
+          this.toggleSelection(pointData);
+        } else if (userHubblePlot) {
+          this.toggleUserPoint();
+        } else {
+          this.clearSelection();
+        }
+      });
+    } else if (preSelected) {
+      $hubblePlot.on('click', () => {
+        const pointData = d3Select(d3Event.target).datum();
+
+        if (pointData) {
+          this.toggleSelection(pointData);
+        } else {
+          this.clearSelection();
+        }
+      });
+    }
 
     // add event listeners to points
     $allPoints
@@ -235,14 +248,8 @@ class HubblePlot2D extends React.Component {
   }
 
   updatePoints() {
-    const {
-      data: dataProp,
-      userHubblePlotData,
-      preSelected,
-      multiple,
-    } = this.props;
+    const { data, preSelected, multiple } = this.props;
     const { loading } = this.state;
-    const data = userHubblePlotData || dataProp;
 
     if (!data) {
       return;
@@ -298,8 +305,7 @@ class HubblePlot2D extends React.Component {
 
   render() {
     const {
-      data: dataProp,
-      userHubblePlotData,
+      data,
       width,
       height,
       multiple,
@@ -326,8 +332,6 @@ class HubblePlot2D extends React.Component {
       tooltipPosY,
       showTooltip,
     } = this.state;
-
-    const data = userHubblePlotData || dataProp;
 
     const svgClasses = classnames('svg-chart', styles.hubblePlot, {
       loading,
@@ -453,7 +457,6 @@ HubblePlot2D.propTypes = {
   offsetTop: PropTypes.number,
   offsetRight: PropTypes.number,
   data: PropTypes.array,
-  userHubblePlotData: PropTypes.array,
   activeGalaxy: PropTypes.object,
   options: PropTypes.object,
   xValueAccessor: PropTypes.string,

@@ -13,7 +13,7 @@
     "link": "/interpreting-a-hubble-plot-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>You will begin by hunting for Type Ia supernovae in LSST images of six galaxies. Select Galaxy 1 and compare the two images of the galaxy as you did before to find the location of the supernova. When you see the supernova, click on it. An information box will provide the distance to the supernova in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because the supernova is in the galaxy, the distances to the supernova and the galaxy are the same.</p><p>Next, click on the center of the galaxy. You will now see information about the galaxy, including its recessional velocity (in km/s).</p><p>Now move the cursor to the location on the Hubble plot at the right that corresponds to the velocity and distance of the galaxy. Click on the plot to add a dot at the correct location for that galaxy.</p>",
+  "content": "<p>You will begin by hunting for Type Ia supernovae in LSST images of six galaxies. Then you will identify the galaxies themselves.  Finally we'll use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble Plot.</p>",
   "widget": {
     "type": "GalaxySelector",
     "sources": [
@@ -24,7 +24,8 @@
       "ZTF19abucvgu"
     ],
     "options": {
-      "toggleDataPointsVisibility": "251"
+      "toggleDataPointsVisibility": "251",
+      "userHubblePlot": "252"
     }
   },
   "questionsByPage": [
@@ -32,12 +33,22 @@
       "question": [
         {
           "id": "251",
-          "questionType": "accordion",
-          "tool": "selection",
+          "questionType": "prompt",
           "title": "Question #1",
-          "label": "<p>Click on a point on the Image to select the supernova</p>",
-          "answerPre": "<span>Selected Supernova: </span>",
-          "answerAccessor": "data"
+          "label": "<p>Select a Galaxy from the menu. Compare the images of the galaxy as you did before to find the location of the supernova. When you see the supernova, click on it. An information box will provide the distance to the supernova in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because the supernova is in the galaxy, the distances to the supernova and the galaxy are the same.</p><p>Next, click on the center of the galaxy. You will now see information about the galaxy, including its recessional velocity (in km/s).</p>",
+          "answerAccessor": "galaxy"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "252",
+          "questionType": "prompt",
+          "title": "Question #1",
+          "label": "<p>Now move the cursor to the location on the Hubble plot that corresponds to the velocity and distance of the galaxy. Click on the plot to add a dot at the correct location for that galaxy.</p>",
+          "answerPre": "<span>Selected: </span>",
+          "answerAccessor": "galaxy"
         }
       ]
     }

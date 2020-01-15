@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
 import axios from 'axios';
 import HubblePlot2D from '../components/charts/hubblePlot/HubblePlot2D.jsx';
+import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
 class HubblePlot2DContainer extends React.PureComponent {
   constructor(props) {
@@ -14,10 +14,12 @@ class HubblePlot2DContainer extends React.PureComponent {
   }
 
   componentDidMount() {
+    const { options, answers } = this.props;
+
     axios.get('/data/galaxies/galaxy_selector.json').then(response => {
       this.setState(prevState => ({
         ...prevState,
-        data: response.data,
+        data: getHubblePlotData(response.data, options, answers),
       }));
     });
   }
@@ -30,64 +32,46 @@ class HubblePlot2DContainer extends React.PureComponent {
     // }
   };
 
-  userHubblePlotCallback = d => {
+  userHubblePlotCallback = data => {
     const {
       options: { userHubblePlot },
       updateAnswer,
     } = this.props;
 
-    if (userHubblePlot) {
-      updateAnswer(userHubblePlot, d);
-    }
+    updateAnswer(userHubblePlot, data);
+
+    this.setState(prevState => ({
+      ...prevState,
+      data,
+    }));
   };
-
-  emptyUserData(data) {
-    if (!data) return data;
-
-    return data.map(galaxy => {
-      return { ...galaxy, distance: null, velocity: null };
-    });
-  }
 
   render() {
     const { data } = this.state;
-    const { options, answers } = this.props;
-    const { userHubblePlot } = options;
-    const userHubblePlotAnswer = answers[userHubblePlot];
+    const { options } = this.props;
 
     return (
-      <div>
-        <HubblePlot2D
-          className="hubble-plot"
-          {...{
-            data,
-            options,
-          }}
-          userHubblePlotData={
-            !isEmpty(userHubblePlotAnswer)
-              ? userHubblePlotAnswer.data
-              : this.emptyUserData(data)
-          }
-          activeGalaxy={data ? data[0] : null}
-          selectionCallback={this.hubbleSelectionCallback}
-          userHubblePlotCallback={this.userHubblePlotCallback}
-        />
-      </div>
+      <HubblePlot2D
+        className="hubble-plot"
+        {...{
+          data,
+          options,
+        }}
+        activeGalaxy={data ? data[0] : null}
+        selectionCallback={this.hubbleSelectionCallback}
+        userHubblePlotCallback={this.userHubblePlotCallback}
+      />
     );
   }
 }
 
 HubblePlot2DContainer.propTypes = {
-  // images: PropTypes.array,
   data: PropTypes.object,
-  // templatesData: PropTypes.object,
   options: PropTypes.object,
   answers: PropTypes.object,
   activeQuestionId: PropTypes.string,
   activeAnswer: PropTypes.object,
   updateAnswer: PropTypes.func,
-  // preSelected: PropTypes.bool,
-  // toggleDataPointsVisibility: PropTypes.string,
 };
 
 export default HubblePlot2DContainer;

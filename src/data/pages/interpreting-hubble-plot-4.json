@@ -13,7 +13,14 @@
     "link": "/interpreting-a-hubble-plot-5/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now click add trendline and drag the line until you feel it best fits your data.</p>",
+  "content": "<p>Now click and drag to add a trendline to your hubble plot.  Click and drag until you feeel the line best fits your data.</p>",
+  "widget": {
+    "type": "HubblePlot",
+    "options": {
+      "userHubblePlot": "155",
+      "userTrendline": "7"
+    }
+  },
   "questionsByPage": [
     {
       "question": [
@@ -22,7 +29,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #7",
-          "label": "<p>Add a trendline and drag the line until you feel it best fits your data</p>",
+          "label": "<p>Click and drag anywhere on the hubble plot to add a trendline</p>",
           "answerPre": "<span>Slope: </span>",
           "answerAccessor": "data"
         }

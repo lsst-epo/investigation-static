@@ -29,6 +29,7 @@ Point.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   classes: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default Point;
