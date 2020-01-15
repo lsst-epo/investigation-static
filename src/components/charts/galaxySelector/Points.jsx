@@ -18,7 +18,7 @@ class Points extends React.PureComponent {
     return (
       <g className={`data-points ${pointClasses}`}>
         {data.map((d, i) => {
-          const { id } = d;
+          const { id, color } = d;
           const key = `point-${id}-${i}`;
           const selected = includes(selectedData, d);
 
@@ -28,6 +28,7 @@ class Points extends React.PureComponent {
               classes={pointClasses}
               x={xScale(d[xValueAccessor])}
               y={yScale(d[yValueAccessor])}
+              color={color}
               selected={selected}
               tabIndex="0"
             />
@@ -40,7 +41,7 @@ class Points extends React.PureComponent {
 
 Points.propTypes = {
   data: PropTypes.array,
-  selectedData: PropTypes.array,
+  selectedData: PropTypes.object,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
   xScale: PropTypes.func,

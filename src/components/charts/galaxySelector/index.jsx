@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
@@ -50,7 +51,7 @@ class GalaxySelector extends React.Component {
 
   componentDidUpdate(prevProps) {
     const { selectedData } = this.state;
-    const { data, isAnswered, preSelected } = this.props;
+    const { data, isAnswered } = this.props;
 
     if (prevProps.data !== data) {
       this.updateGalaxySelector();
@@ -58,8 +59,8 @@ class GalaxySelector extends React.Component {
 
     if (isAnswered && !selectedData) {
       this.toggleSelection(data);
-    } else if (!isAnswered && !preSelected && selectedData) {
-      this.clearSelection();
+    } else if (!isAnswered && selectedData) {
+      // this.clearSelection();
     }
   }
 
@@ -83,16 +84,19 @@ class GalaxySelector extends React.Component {
   }
 
   toggleSelection(d) {
+    const { id, name } = d;
+    const { selectedData: oldData } = this.state;
+    const oldDataObj = !oldData ? {} : oldData[d.name];
     this.setState(
       prevState => ({
         ...prevState,
-        selectedData: arrayify(d),
+        selectedData: { [name]: { ...oldDataObj, [id]: d } },
       }),
       () => {
         const { selectionCallback } = this.props;
         const { selectedData: newData } = this.state;
 
-        if (selectionCallback) {
+        if (selectionCallback && Object.keys(newData[name]).length === 2) {
           selectionCallback(newData);
         }
       }
@@ -283,7 +287,7 @@ class GalaxySelector extends React.Component {
 
     const { xScale, yScale, loading, selectedData, playing } = this.state;
 
-    const svgClasses = classnames('svg-chart', styles.GalaxySelector, {
+    const svgClasses = classnames('svg-chart', styles.galaxySelector, {
       loading,
       loaded: !loading,
     });
@@ -333,7 +337,7 @@ class GalaxySelector extends React.Component {
                 yScale={yScale}
                 xValueAccessor={xValueAccessor}
                 yValueAccessor={yValueAccessor}
-                pointClasses={`galaxy galaxy-${name}`}
+                pointClasses={`galaxy galaxy-${data.name}`}
               />
             )}
           </svg>
