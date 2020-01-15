@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
 import { NavigationDrawer, Card, Toolbar, CardActions } from 'react-md';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
@@ -12,7 +13,7 @@ import ViewList from '../components/site/icons/ViewList';
 import Close from '../components/site/icons/Close';
 import Button from '../components/site/button';
 
-import LightCurveContainer from './LightCurveContainer';
+import LightCurve from '../components/charts/lightCurve/index.jsx';
 
 import './galaxy-selector-container.scss';
 import { getActiveIndex } from '../components/charts/galaxySelector/galaxySelectorUtilities';
@@ -20,8 +21,6 @@ import { getActiveIndex } from '../components/charts/galaxySelector/galaxySelect
 class GalaxySelectorContainer extends React.PureComponent {
   constructor(props) {
     super(props);
-
-    // const { sources } = props.widget;
 
     this.state = {
       openScatterPlot: false,
@@ -33,6 +32,8 @@ class GalaxySelectorContainer extends React.PureComponent {
       activeAlert: null,
       data: [],
       images: [],
+      selectedGalaxiesAndSupernovae: {},
+      plottedData: [],
     };
   }
 
@@ -43,7 +44,7 @@ class GalaxySelectorContainer extends React.PureComponent {
         return source;
       });
 
-      const { name, alerts } = galaxies[0];
+      const { name, alerts, color } = galaxies[0];
 
       this.setState(prevState => ({
         ...prevState,
@@ -52,19 +53,29 @@ class GalaxySelectorContainer extends React.PureComponent {
         navItems: galaxies,
         activeAlertId: alerts[0].alert_id,
         activeAlert: alerts[0],
-        data: [galaxies[0]],
+        data: [
+          { id: 'galaxy', name, color, ...galaxies[0].galaxyPoint },
+          { id: 'supernova', name, color, ...galaxies[0].supernovaPoint },
+        ],
         images: galaxies[0].images,
       }));
     });
   }
 
+  componentDidUpdate() {
+    console.log(this.state);
+  }
+
   chooseGalaxyAndCloseNav(event, galaxy) {
     if (event) {
-      const { name, alerts } = galaxy;
+      const { name, alerts, color } = galaxy;
       this.setState(prevState => ({
         ...prevState,
         selectedGalaxy: name,
-        data: [galaxy],
+        data: [
+          { id: 'galaxy', name, color, ...galaxy.galaxyPoint },
+          { id: 'supernova', name, color, ...galaxy.supernovaPoint },
+        ],
         images: this.generateImages(name, alerts),
         activeImageIndex: 0,
         activeAlertId: alerts[0].alert_id,
@@ -153,8 +164,19 @@ class GalaxySelectorContainer extends React.PureComponent {
     });
   };
 
-  selectionCallback = () => {
-    // console.log(d ? `${d[0].id} is selected` : 'no selection');
+  selectionCallback = d => {
+    const { updateAnswer, activeQuestionId } = this.props;
+    const activeObject = d || null;
+
+    if (activeQuestionId) {
+      updateAnswer(activeQuestionId, activeObject);
+    }
+
+    const { selectedGalaxiesAndSupernovae: oldObj } = this.state;
+    this.setState(prevState => ({
+      ...prevState,
+      selectedGalaxiesAndSupernovae: { ...oldObj, ...d },
+    }));
   };
 
   onAlertChange = update => {
@@ -181,7 +203,15 @@ class GalaxySelectorContainer extends React.PureComponent {
       openScatterPlot,
       selectedGalaxy,
       images,
+      plottedData,
     } = this.state;
+
+    const {
+      answers,
+      options: { toggleDataPointsVisibility: selectorQId },
+    } = this.props;
+
+    const isAnswered = !isEmpty(answers[selectorQId]);
 
     return (
       <>
@@ -222,10 +252,9 @@ class GalaxySelectorContainer extends React.PureComponent {
           >
             <div className="galaxy-selector-images--container">
               <GalaxySelector
-                className={`galaxy-selector-${data.name} ${data.band}-band`}
-                data={data}
-                images={images}
-                selectionCallback={this.supernovaSelectionCallback}
+                className={`galaxy-selector-${data.name}`}
+                {...{ data, images, isAnswered }}
+                selectionCallback={this.selectionCallback}
                 blinkCallback={this.onAlertChange}
                 activeImageId={
                   activeAlert ? activeAlert.image_id : activeImageId
@@ -242,7 +271,15 @@ class GalaxySelectorContainer extends React.PureComponent {
             opened={openScatterPlot || false}
             handleClick={this.triggerScatterPlot}
           >
-            <LightCurveContainer />
+            {/* STAND-IN FOR HUBBLE PLOTTER */}
+            <LightCurve
+              className="light-curve-galaxy-selector-hubble-plot"
+              name="galaxy-selector-hubble-plot"
+              data={plottedData}
+              xAxisLabel="Distance (Mpc)"
+              yAxisLabel="Velocity (km/s"
+            />
+            {/* ========================= */}
             <div className="actions">
               <Button raised>Add Trend Line</Button>
             </div>
@@ -260,8 +297,11 @@ class GalaxySelectorContainer extends React.PureComponent {
 }
 
 GalaxySelectorContainer.propTypes = {
-  // widget: PropTypes.object,
-  // sources: PropTypes.array,
+  answers: PropTypes.object,
+  activeQuestionId: PropTypes.string,
+  activeAnswer: PropTypes.object,
+  options: PropTypes.object,
+  updateAnswer: PropTypes.func,
 };
 
 export default props => <GalaxySelectorContainer {...props} />;

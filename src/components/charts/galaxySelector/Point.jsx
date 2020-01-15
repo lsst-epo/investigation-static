@@ -5,8 +5,8 @@ import styles from './styles.module.scss';
 
 class Point extends React.PureComponent {
   render() {
-    const { selected, x, y, classes } = this.props;
-    const pointClasses = classnames(styles.supernova, 'data-point', classes, {
+    const { selected, x, y, color, classes } = this.props;
+    const pointClasses = classnames(styles.galaxy, 'data-point', classes, {
       [styles.selected]: selected,
     });
 
@@ -17,7 +17,7 @@ class Point extends React.PureComponent {
         cy={y}
         r={20}
         fill="transparent"
-        stroke="transparent"
+        stroke={!selected ? 'transparent' : color}
         strokeWidth={0}
       />
     );

@@ -33,7 +33,7 @@
   transition: fill $timing $duration;
 
   &.selected {
-    stroke: pink;
+    // stroke: pink;
     stroke-width: 2;
   }
 }
