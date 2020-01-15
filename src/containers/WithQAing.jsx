@@ -7,6 +7,19 @@ import { qById, getActiveQ } from '../components/qas/utilities.js';
 
 export const WithQAing = ComposedComponent => {
   class WrappedComponent extends React.PureComponent {
+    constructor(props) {
+      super(props);
+
+      this.answerAccessorGets = {
+        text: this.getTextContent,
+        'compound-select': this.getSelectContent,
+        select: this.getSelectContent,
+        count: this.getCountContent,
+        'light-curve-template': this.getTemplateContent,
+        magnitude: this.getMagnitudeContent,
+      };
+    }
+
     componentDidMount() {
       const { answers } = this.global;
       const { data: pageData } = this.props;
@@ -65,31 +78,27 @@ export const WithQAing = ComposedComponent => {
       return data[0] ? data[0][answerAccessor] : 'None Selected';
     }
 
+    getContent(answerAccessor, data) {
+      const getFunc = this.answerAccessorGets[answerAccessor];
+
+      if (getFunc) {
+        return getFunc(data) || data;
+      }
+
+      if (!includes(answerAccessor, 'range')) {
+        return this.getRangeContent(data, answerAccessor);
+      }
+
+      return data;
+    }
+
     // Callback method passed down to child components
     answerHandler = (id, data, eventType) => {
       if ((id && data) || eventType) {
         const { data: pageData } = this.props;
         const { questionsByPage: questions } = pageData.allPagesJson.nodes[0];
-        const answeredQuestion = qById(questions, id);
-        const { answerAccessor } = answeredQuestion;
-        let content = data;
-
-        if (answerAccessor === 'text') {
-          content = this.getTextContent(data);
-        } else if (
-          answerAccessor === 'compound-select' ||
-          answerAccessor === 'select'
-        ) {
-          content = this.getSelectContent(data);
-        } else if (answerAccessor === 'count') {
-          content = this.getCountContent(data);
-        } else if (answerAccessor === 'light-curve-template') {
-          content = this.getTemplateContent(data);
-        } else if (answerAccessor === 'magnitude') {
-          content = this.getMagnitudeContent(data);
-        } else if (!includes(answerAccessor, 'range')) {
-          content = this.getRangeContent(data, answerAccessor);
-        }
+        const { answerAccessor } = qById(questions, id);
+        const content = this.getContent(answerAccessor, data);
 
         this.dispatch.updateAnswer(id, content, data);
       } else {
