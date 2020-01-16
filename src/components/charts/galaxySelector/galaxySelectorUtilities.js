@@ -14,6 +14,7 @@ export const getActiveIndex = (images, activeId) => {
 
 export const isSelected = (data, datum) => {
   let selected = false;
+
   if (!data) return selected;
 
   data.forEach(item => {
