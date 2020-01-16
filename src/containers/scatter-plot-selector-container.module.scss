@@ -1,0 +1,70 @@
+.toggle,
+.inner {
+  background-color: $white;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  min-width: 300px;
+  max-width: 90%;
+  height: 100%;
+  padding: $minPadding / 2;
+  transform: translateX(-52px);
+
+  :global {
+    .space-bottom {
+      display: none;
+    }
+  }
+}
+
+.toggle {
+  z-index: 2;
+  width: 36px;
+  min-width: 36px;
+  height: 86px;
+  padding: 0.6rem;
+  border-radius: 3px 0 0 3px;
+
+  svg {
+    transition: transform 400ms ease-in-out;
+    transform: rotate(90deg);
+  }
+
+  &.toggle-open {
+    svg {
+      transition: transform 500ms ease-in-out;
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
+.container {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  z-index: 16;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 52px);
+  transition: right 300ms ease-in-out;
+
+  :global {
+    .md-btn.md-btn--flat {
+      height: 86px;
+      transform: translateX(-51px);
+    }
+  }
+
+  &.inner-open {
+    right: -71px;
+    transition: right 300ms ease-in-out;
+  }
+}

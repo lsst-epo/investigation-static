@@ -5,14 +5,14 @@ import Button from '../../site/button';
 
 class GalaxySelectorNav extends React.PureComponent {
   render() {
-    const { onPrevGalaxy, onNextGalaxy } = this.props;
+    const { handlePrevGalaxy, handleNextGalaxy } = this.props;
 
     return (
       <CardActions centered>
-        <Button flat onClick={onPrevGalaxy}>
+        <Button flat onClick={handlePrevGalaxy}>
           Previous Galaxy
         </Button>
-        <Button primary flat onClick={onNextGalaxy}>
+        <Button primary flat onClick={handleNextGalaxy}>
           Next Galaxy
         </Button>
       </CardActions>
@@ -23,6 +23,6 @@ class GalaxySelectorNav extends React.PureComponent {
 export default GalaxySelectorNav;
 
 GalaxySelectorNav.propTypes = {
-  onPrevGalaxy: PropTypes.func,
-  onNextGalaxy: PropTypes.func,
+  handlePrevGalaxy: PropTypes.func,
+  handleNextGalaxy: PropTypes.func,
 };

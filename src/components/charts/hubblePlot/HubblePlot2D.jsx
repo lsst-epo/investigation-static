@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
-import findIndex from 'lodash/findIndex';
+// import findIndex from 'lodash/findIndex';
+import find from 'lodash/find';
 import classnames from 'classnames';
 import {
   select as d3Select,
@@ -47,18 +48,22 @@ class HubblePlot2D extends React.Component {
 
   componentDidMount() {
     const { data } = this.props;
-
     if (data) {
       this.updateHubblePlot();
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { data } = this.props;
+    const { data, activeGalaxy } = this.props;
     const isNewData = prevProps.data !== data;
+    const isNewActiveGalaxy = prevProps.activeGalaxy !== activeGalaxy;
 
     if (isNewData) {
       this.updateHubblePlot();
+    }
+
+    if (isNewActiveGalaxy) {
+      this.updateSelectedData();
     }
   }
 
@@ -66,11 +71,28 @@ class HubblePlot2D extends React.Component {
     this.removeEventListeners();
   }
 
+  updateSelectedData() {
+    const { activeGalaxy, data } = this.props;
+    const activeData = find(data, d => {
+      return activeGalaxy.name === d.name;
+    });
+
+    this.setState(prevState => ({
+      ...prevState,
+      selectedData: arrayify(activeData) || prevState.selectedData,
+      tooltipPosX: 0,
+      tooltipPosY: 0,
+      showTooltip: false,
+    }));
+  }
+
   clearSelection() {
     this.setState(prevState => ({
       ...prevState,
       hoverPointData: null,
       showTooltip: false,
+      tooltipPosX: 0,
+      tooltipPosY: 0,
       selectedData: null,
     }));
   }
@@ -82,8 +104,6 @@ class HubblePlot2D extends React.Component {
     const newState = {
       tooltipPosX: pointPos[0],
       tooltipPosY: pointPos[1],
-      showLasso: false,
-      showEraser: false,
       showTooltip: true,
       selectedData: arrayify(d),
     };
@@ -123,25 +143,22 @@ class HubblePlot2D extends React.Component {
     if (data) {
       const userData = [...data];
       let targetDatum = userData[userData.length - 1];
-      const userDatumIndex = findIndex(userData, d => {
+      const userDatum = find(userData, d => {
         return activeGalaxy.name === d.name;
       });
 
       const xVal = xScale.invert(pointPos[0]);
       const yVal = yScale.invert(pointPos[1]);
 
-      if (userDatumIndex) {
-        targetDatum = userData[userDatumIndex];
+      if (userDatum) {
+        targetDatum = userDatum;
         targetDatum[xValueAccessor] = xVal;
         targetDatum[yValueAccessor] = yVal;
       } else {
-        const firstEmptyDatumIndex = findIndex(userData, d => {
+        const firstEmptyDatum = find(userData, d => {
           return d[xValueAccessor] === null;
         });
-        targetDatum =
-          firstEmptyDatumIndex !== -1
-            ? userData[firstEmptyDatumIndex]
-            : targetDatum;
+        targetDatum = firstEmptyDatum || targetDatum;
         targetDatum[xValueAccessor] = xVal;
         targetDatum[yValueAccessor] = yVal;
       }
@@ -265,17 +282,13 @@ class HubblePlot2D extends React.Component {
         if (i === data.length - 1) {
           d3Select(this.svgEl.current)
             .selectAll(`.data-point.${supernova.className}`)
-            .data(supernova.data)
-            .transition()
-            .end()
-            .then(() => {
-              if (loading) {
-                this.setState(prevState => ({
-                  ...prevState,
-                  loading: false,
-                }));
-              }
-            });
+            .data(supernova.data);
+          if (loading) {
+            this.setState(prevState => ({
+              ...prevState,
+              loading: false,
+            }));
+          }
         } else {
           d3Select(this.svgEl.current)
             .selectAll(`.data-point${supernova.className}`)

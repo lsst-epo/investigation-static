@@ -9,13 +9,13 @@ import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
 import GalaxySelector from '../components/charts/galaxySelector';
 import Legend from '../components/charts/galaxySelector/legend';
 import Star from '../components/site/icons/Star';
-import Button from '../components/site/button';
 import Toolbar from '../components/charts/galaxySelector/toolbar';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import HubblePlot from '../components/charts/hubblePlot/HubblePlot2D.jsx';
-
-import './galaxy-selector-container.scss';
 import { getActiveIndex } from '../components/charts/galaxySelector/galaxySelectorUtilities';
+import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
+
+import './galaxy-selector-container.module.scss';
 
 class GalaxySelectorContainer extends React.PureComponent {
   constructor(props) {
@@ -30,7 +30,6 @@ class GalaxySelectorContainer extends React.PureComponent {
       activeAlertId: null,
       activeAlert: null,
       data: [],
-      selectedGalaxiesAndSupernovae: {},
     };
   }
 
@@ -41,6 +40,8 @@ class GalaxySelectorContainer extends React.PureComponent {
         return source;
       });
 
+      const { options, answers } = this.props;
+
       const { alerts } = data[0];
 
       this.setState(prevState => ({
@@ -49,6 +50,7 @@ class GalaxySelectorContainer extends React.PureComponent {
         activeAlert: alerts[0],
         activeGalaxy: data[0],
         data,
+        plottedData: getHubblePlotData(data, options, answers),
       }));
     });
   }
@@ -103,22 +105,18 @@ class GalaxySelectorContainer extends React.PureComponent {
     }));
   };
 
-  triggerScatterPlot = event => {
-    if (event) {
-      const action = event === 'open' || event === 'close' ? false : null;
-
-      this.setState(prevState => ({
-        ...prevState,
-        openScatterPlot: action || !prevState.openScatterPlot,
-      }));
-    }
+  triggerScatterPlot = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      openScatterPlot: !prevState.openScatterPlot,
+    }));
   };
 
-  handlePrevGalaxy = () => {
+  gotToPrevGalaxy = () => {
     this.goToGalaxy(-1);
   };
 
-  handleNextGalaxy = () => {
+  goToNextGalaxy = () => {
     this.goToGalaxy(1);
   };
 
@@ -199,6 +197,7 @@ class GalaxySelectorContainer extends React.PureComponent {
       options: { toggleDataPointsVisibility },
     } = this.props;
     const { activeGalaxy } = this.state;
+
     const qId = toggleDataPointsVisibility || activeQuestionId;
     const dObj = { [activeGalaxy.name]: d };
     const answer = answers[qId];
@@ -208,10 +207,9 @@ class GalaxySelectorContainer extends React.PureComponent {
       updateAnswer(qId, answerObj);
     }
 
-    this.setState(prevState => ({
-      ...prevState,
-      selectedGalaxiesAndSupernovae: answerObj,
-    }));
+    if (d.length > 1) {
+      this.triggerScatterPlot();
+    }
   };
 
   onBlinkChange = update => {
@@ -273,7 +271,7 @@ class GalaxySelectorContainer extends React.PureComponent {
       openMenu,
       openScatterPlot,
       activeGalaxy,
-      // plottedData,
+      plottedData,
     } = this.state;
 
     const {
@@ -337,19 +335,16 @@ class GalaxySelectorContainer extends React.PureComponent {
             <HubblePlot
               className="hubble-plot"
               {...{
-                data,
                 options,
                 activeGalaxy,
               }}
+              data={plottedData}
               userHubblePlotCallback={this.userHubblePlotCallback}
             />
-            <div className="actions">
-              <Button raised>Add Trend Line</Button>
-            </div>
           </ScatterPlotSelectorContainer>
           <Navigation
-            onPrevGalaxy={this.handlePrevGalaxy}
-            onNextGalaxy={this.handleNextGalaxy}
+            handlePrevGalaxy={this.gotToPrevGalaxy}
+            handleNextGalaxy={this.goToNextGalaxy}
           />
         </Card>
       </>
