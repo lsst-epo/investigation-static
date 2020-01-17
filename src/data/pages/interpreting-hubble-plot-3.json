@@ -6,7 +6,7 @@
   "slug": "interpreting-a-hubble-plot-3/",
   "previous": {
     "title": "Interpreting a Hubble Plot",
-    "link": "/interpreting-a-hubble-plot-2/"
+    "link": "/interpreting-a-hubble-plot-1/"
   },
   "next": {
     "title": "Interpreting a Hubble Plot",
@@ -17,7 +17,7 @@
   "widget": {
     "type": "HubblePlot",
     "options": {
-      "userHubblePlot": "155",
+      "userHubblePlot": "252",
       "preSelected": true
     }
   },

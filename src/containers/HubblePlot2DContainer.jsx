@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEmpty from 'lodash/isEmpty';
 import API from '../lib/API.js';
 import HubblePlot2D from '../components/charts/hubblePlot/HubblePlot2D.jsx';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
@@ -32,13 +33,10 @@ class HubblePlot2DContainer extends React.PureComponent {
     // }
   };
 
-  userHubblePlotCallback = data => {
-    const {
-      options: { userHubblePlot },
-      updateAnswer,
-    } = this.props;
+  userHubblePlotCallback = (qId, data) => {
+    const { updateAnswer } = this.props;
 
-    updateAnswer(userHubblePlot, data);
+    updateAnswer(qId, data);
 
     this.setState(prevState => ({
       ...prevState,
@@ -46,9 +44,32 @@ class HubblePlot2DContainer extends React.PureComponent {
     }));
   };
 
+  userTrendlineCallback = (qId, data) => {
+    const { updateAnswer } = this.props;
+
+    updateAnswer(qId, data);
+  };
+
+  getHubbleConstant(qId) {
+    const { answers } = this.props;
+    const answer = answers[qId];
+
+    if (!isEmpty(answer)) {
+      return answer.data;
+    }
+
+    return null;
+  }
+
   render() {
     const { data } = this.state;
-    const { options } = this.props;
+    const {
+      activeQuestionId,
+      options,
+      options: { userTrendline, hubbleConstant },
+    } = this.props;
+
+    const trendlineInteractable = userTrendline === activeQuestionId;
 
     return (
       <HubblePlot2D
@@ -56,10 +77,15 @@ class HubblePlot2DContainer extends React.PureComponent {
         {...{
           data,
           options,
+          trendlineInteractable,
         }}
+        hubbleConstant={parseFloat(
+          hubbleConstant || this.getHubbleConstant(userTrendline)
+        )}
         activeGalaxy={data ? data[0] : null}
         selectionCallback={this.hubbleSelectionCallback}
         userHubblePlotCallback={this.userHubblePlotCallback}
+        userTrendlineCallback={this.userTrendlineCallback}
       />
     );
   }

@@ -100,13 +100,13 @@ export const WithQAing = ComposedComponent => {
     }
 
     getContent(answerAccessor, data) {
-      const getFunc = this.answerAccessorGets[answerAccessor];
+      const contentFunc = this.answerAccessorGets[answerAccessor];
 
-      if (getFunc) {
-        return getFunc(data) || data;
+      if (contentFunc) {
+        return contentFunc(data) || data;
       }
 
-      if (!includes(answerAccessor, 'range')) {
+      if (includes(answerAccessor, 'range')) {
         return this.getRangeContent(data, answerAccessor);
       }
 
@@ -120,7 +120,7 @@ export const WithQAing = ComposedComponent => {
         const { questionsByPage: questions } = pageData.allPagesJson.nodes[0];
         const { answerAccessor } = qById(questions, id);
         const content = this.getContent(answerAccessor, data);
-
+        // console.log(content, data);
         this.dispatch.updateAnswer(id, content, data);
       } else {
         this.dispatch.clearAnswer(id);

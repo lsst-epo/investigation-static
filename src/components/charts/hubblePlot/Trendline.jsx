@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { select as d3Select } from 'd3-selection';
+import { select as d3Select, mouse as d3mouse } from 'd3-selection';
+import { formatValue } from '../../../lib/utilities.js';
 
-class Trendline extends React.PureComponent {
+class Trendline extends React.Component {
   constructor(props) {
     super(props);
 
     this.background = React.createRef();
+    this.label = React.createRef();
+    this.offset = 5;
 
     this.state = {
-      peakMagX: null,
-      peakMagY: null,
-      peakSelected: false,
+      terminus: null,
+      trendlineSelected: false,
     };
   }
 
@@ -28,21 +30,34 @@ class Trendline extends React.PureComponent {
     this.removeEventListeners($background);
   }
 
-  addEventListeners($background) {
-    const { mouseMoveHandler, clickHandler } = this.props;
-    const { peakSelected } = this.state;
+  mouseMoveHandler = () => {
+    const { xScale, yScale } = this.props;
+    const $background = this.background.current;
+    const terminus = d3mouse($background);
+    const slope = yScale.invert(terminus[1]) / xScale.invert(terminus[0]);
 
-    if (!peakSelected) {
-      $background.on('mousemove', mouseMoveHandler);
+    this.setState(prevState => ({
+      ...prevState,
+      terminus,
+      slope: formatValue(slope, 1),
+    }));
+  };
+
+  addEventListeners($background) {
+    const { clickHandler } = this.props;
+    const { trendlineSelected } = this.state;
+
+    if (!trendlineSelected) {
+      $background.on('mousemove', this.mouseMoveHandler);
     }
 
     $background.on('click', () => {
-      if (peakSelected) {
-        $background.on('mousemove', mouseMoveHandler);
+      if (trendlineSelected) {
+        $background.on('mousemove', this.mouseMoveHandler);
         this.setState(
           prevState => ({
             ...prevState,
-            peakSelected: false,
+            trendlineSelected: false,
           }),
           clickHandler
         );
@@ -51,7 +66,7 @@ class Trendline extends React.PureComponent {
         this.setState(
           prevState => ({
             ...prevState,
-            peakSelected: true,
+            trendlineSelected: true,
           }),
           clickHandler
         );
@@ -70,40 +85,104 @@ class Trendline extends React.PureComponent {
 
     if (isInteractable) {
       this.addEventListeners($background);
-    } else this.removeEventListeners($background);
+    } else {
+      this.removeEventListeners($background);
+    }
+  }
+
+  terminusFromSlope(slope) {
+    const { xScale, yScale } = this.props;
+    const x = xScale.domain()[1] - 50;
+    const y = slope * x;
+
+    if (slope) {
+      return [xScale(x), yScale(y)];
+    }
+
+    return null;
+  }
+
+  getLabelDims() {
+    const $slopeLabel = this.label.current;
+    // console.log($slopeLabel.getBBox());
+    if ($slopeLabel) {
+      const { width, height } = $slopeLabel.getBBox();
+      return { width, height };
+    }
+
+    return { width: 0, height: 0 };
+  }
+
+  getMidPoint(a, b) {
+    if (!a || !b) return null;
+    return a.map((pos, i) => {
+      return (pos + b[i]) / 2;
+    });
   }
 
   render() {
+    const { terminus: terminusState, slope } = this.state;
     const {
-      peakMagX,
-      peakMagY,
+      hubbleConstant,
       captureAreaX,
       captureAreaY,
       captureAreaWidth,
       captureAreaHeight,
+      xScale,
+      yScale,
     } = this.props;
 
+    const start = [xScale(0), yScale(0)];
+    const terminus = terminusState || this.terminusFromSlope(hubbleConstant);
+    const textPos = this.getMidPoint(terminus, start);
+    const rectDims = this.getLabelDims();
+
     return (
-      <>
-        <g>
-          <circle
-            cx={peakMagX}
-            cy={peakMagY}
-            r="6"
-            strokeWidth={1}
-            stroke="#1d4a79"
-            fill="transparent"
-          />
-          <line
-            x1="0"
-            x2={captureAreaWidth}
-            y1={peakMagY}
-            y2={peakMagY}
-            strokeWidth={1}
-            stroke="#1d4a79"
-            strokeDasharray="10"
-          />
-        </g>
+      <svg>
+        <defs>
+          <marker
+            id="triangle"
+            viewBox="0 0 10 10"
+            refX="1"
+            refY="5"
+            markerUnits="strokeWidth"
+            markerWidth="15"
+            markerHeight="15"
+            orient="auto"
+          >
+            <path d="M 0 0 L 10 5 L 0 10 z" />
+          </marker>
+        </defs>
+        {terminus && (
+          <g>
+            <line
+              x1={start[0]}
+              x2={terminus[0]}
+              y1={captureAreaY + start[1]}
+              y2={terminus[1]}
+              strokeWidth={1}
+              stroke="#1d4a79"
+              strokeDasharray="10"
+              markerEnd="url(#triangle)"
+            />
+            {textPos && rectDims && (
+              <rect
+                width={rectDims.width + 2 * this.offset}
+                height={rectDims.height + 2 * this.offset}
+                x={textPos[0] - this.offset}
+                y={textPos[1] - rectDims.height}
+                fill="#ffffff"
+                strokeWidth="2"
+                stroke="#000000"
+              ></rect>
+            )}
+            {textPos && (
+              <text ref={this.label} x={textPos[0]} y={textPos[1]}>
+                slope = {formatValue(slope || hubbleConstant, 1)}
+              </text>
+            )}
+          </g>
+        )}
         <rect
           ref={this.background}
           x={captureAreaX}
@@ -112,20 +191,20 @@ class Trendline extends React.PureComponent {
           height={captureAreaHeight}
           fill="transparent"
         />
-      </>
+      </svg>
     );
   }
 }
 
 Trendline.propTypes = {
-  peakMagX: PropTypes.number,
-  peakMagY: PropTypes.number,
+  xScale: PropTypes.func,
+  yScale: PropTypes.func,
   captureAreaX: PropTypes.number,
   captureAreaY: PropTypes.number,
   captureAreaWidth: PropTypes.number,
   captureAreaHeight: PropTypes.number,
   isInteractable: PropTypes.bool,
-  mouseMoveHandler: PropTypes.func,
+  hubbleConstant: PropTypes.number,
   clickHandler: PropTypes.func,
 };
 

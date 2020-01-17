@@ -15,11 +15,12 @@ import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
+import Trendline from './Trendline.jsx';
 import Points from './Points';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
-import Legend from '../shared/Legend';
+// import Legend from '../shared/Legend';
 import styles from './hubble-plot.module.scss';
 
 class HubblePlot2D extends React.Component {
@@ -40,6 +41,7 @@ class HubblePlot2D extends React.Component {
       yScale: d3ScaleLinear()
         .domain(props.yDomain)
         .range([props.height - props.padding, 0]),
+      hubbleConstant: null,
     };
 
     this.svgEl = React.createRef();
@@ -137,6 +139,7 @@ class HubblePlot2D extends React.Component {
       activeGalaxy,
       userHubblePlotCallback,
       data,
+      options: { userHubblePlot },
     } = this.props;
     const pointPos = d3mouse(this.svgEl.current);
 
@@ -172,7 +175,7 @@ class HubblePlot2D extends React.Component {
         }),
         () => {
           if (userHubblePlotCallback) {
-            userHubblePlotCallback(userData);
+            userHubblePlotCallback(userHubblePlot, userData);
           }
         }
       );
@@ -205,6 +208,19 @@ class HubblePlot2D extends React.Component {
       hoverPointData: null,
       showTooltip: !!selectedData,
     }));
+  };
+
+  onTrendlineClick = () => {
+    const {
+      userTrendlineCallback,
+      options: { userTrendline },
+    } = this.props;
+    const { xScale, yScale } = this.state;
+    const $hubblePlot = this.svgEl.current;
+    const terminus = d3mouse($hubblePlot);
+    const slope = yScale.invert(terminus[1]) / xScale.invert(terminus[0]);
+
+    userTrendlineCallback(userTrendline, slope);
   };
 
   // add event listeners to Scatterplot and Points
@@ -329,10 +345,12 @@ class HubblePlot2D extends React.Component {
       yValueAccessor,
       xAxisLabel,
       yAxisLabel,
-      legend,
       name,
       tooltipAccessors,
       tooltipLabels,
+      hubbleConstant,
+      options: { userTrendline },
+      trendlineInteractable,
     } = this.props;
 
     const {
@@ -351,6 +369,8 @@ class HubblePlot2D extends React.Component {
       loaded: !loading,
     });
 
+    const calcHeight = height - padding;
+
     return (
       <>
         <h2 className="space-bottom">Hubble Plot</h2>
@@ -365,7 +385,6 @@ class HubblePlot2D extends React.Component {
               scale={3}
             />
           )}
-          {legend && !loading && <Legend content={legend} />}
           <Tooltip
             key="tooltip"
             data={selectedData || hoverPointData}
@@ -390,11 +409,11 @@ class HubblePlot2D extends React.Component {
                   x={padding}
                   y={offsetTop}
                   width={width - padding - offsetRight}
-                  height={height - padding}
+                  height={calcHeight}
                 />
               </clipPath>
             </defs>
-            <g clipPath="url('#clip')" className="data-points">
+            <g clipPath="url('#clip')">
               {data &&
                 multiple &&
                 data.map((set, i) => {
@@ -440,6 +459,17 @@ class HubblePlot2D extends React.Component {
               offsetTop={offsetTop}
               scale={yScale}
             />
+            {(userTrendline || hubbleConstant) && xScale && yScale && (
+              <Trendline
+                {...{ xScale, yScale, hubbleConstant }}
+                captureAreaX={padding}
+                captureAreaY={offsetTop}
+                captureAreaWidth={width}
+                captureAreaHeight={calcHeight}
+                clickHandler={this.onTrendlineClick}
+                isInteractable={trendlineInteractable}
+              />
+            )}
           </svg>
         </div>
       </>
@@ -482,10 +512,12 @@ HubblePlot2D.propTypes = {
   yDomain: PropTypes.array,
   preSelected: PropTypes.bool,
   multiple: PropTypes.bool,
-  legend: PropTypes.node,
+  hubbleConstant: PropTypes.number,
   name: PropTypes.string,
   selectionCallback: PropTypes.func,
   userHubblePlotCallback: PropTypes.func,
+  userTrendlineCallback: PropTypes.func,
+  trendlineInteractable: PropTypes.bool,
 };
 
 export default HubblePlot2D;

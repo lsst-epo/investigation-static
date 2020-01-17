@@ -14,6 +14,14 @@
   },
   "layout": "TwoCol",
   "content": "<p>The Hubble plots above were made from observations for a small sample of galaxies. LSST will detect millions of supernovae in host galaxies that are much farther away and dimmer than the galaxies you have investigated so far. Click the Run button on the plot below. It will display data for over a thousand supernovae and galaxies detected by LSST.</p><p>Notice in the plot above that not all the data points fit onto the trendline.</p>",
+  "widget": {
+    "type": "HubblePlot",
+    "options": {
+      "userHubblePlot": "252",
+      "preSelected": true,
+      "hubbleConstant": 69.8
+    }
+  },
   "questionsByPage": [
     {
       "question": [
