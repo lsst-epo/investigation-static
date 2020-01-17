@@ -324,12 +324,14 @@ class LightCurve extends React.PureComponent {
         <h2 className="space-bottom">Light Curve</h2>
         {templates && chooseLightCurveTemplate && (
           <Select
-            value={lightCurveType}
-            label="Pick a matching light curve"
-            placeholder="Select a light curve template"
+            value={lightCurveType || 'DEFAULT'}
             disabled={!interactableTemplates}
-            options={templates.map(template => {
-              return { label: `Type ${capitalize(template)}`, value: template };
+            placeholder="Select a light curve template"
+            options={[...templates].map(template => {
+              return {
+                label: `Type ${capitalize(template)}`,
+                value: template,
+              };
             })}
             handleChange={this.updateLightCurveType}
           />

@@ -50,7 +50,7 @@ class Layout extends React.Component {
 
     return (
       <>
-        <SEO title={pageContext.investigation} />
+        <SEO title={pageContext.investigation || 'Investigation'} />
         <Header
           siteTitle="Investigation"
           sidebarVisiblity={openSidebar}
