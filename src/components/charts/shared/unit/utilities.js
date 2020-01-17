@@ -1,4 +1,5 @@
 export const units = {
+  hubbleConstant: 'Km/s/Mpc',
   temperature: 'K',
   luminosity: 'L',
   mass: 'M',

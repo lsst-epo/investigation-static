@@ -13,11 +13,11 @@
     "link": "/interpreting-a-hubble-plot-5/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now click and drag to add a trendline to your hubble plot.  Click and drag until you feeel the line best fits your data.</p>",
+  "content": "<p>Click and drag to add a trendline to your hubble plot.  Click and drag until you feel the line best fits your data. The slope of this trendline is known as Hubble's Constant.</p>",
   "widget": {
     "type": "HubblePlot",
     "options": {
-      "userHubblePlot": "155",
+      "userHubblePlot": "252",
       "userTrendline": "7"
     }
   },
@@ -30,8 +30,8 @@
           "tool": "selection",
           "title": "Question #7",
           "label": "<p>Click and drag anywhere on the hubble plot to add a trendline</p>",
-          "answerPre": "<span>Slope: </span>",
-          "answerAccessor": "data"
+          "answerPre": "<span>Hubble's Constant: </span>",
+          "answerAccessor": "hubbleConstant"
         }
       ]
     }

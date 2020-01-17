@@ -189,6 +189,7 @@ export const getMegaLightYearsFromDistance = data => {
 export const getValue = function(accessor, data) {
   return (
     {
+      hubbleConstant: formatValue(data, 1),
       distance: formatValue(data, 0),
       velocity: formatValue(data, 0),
       magnitude: formatValue(data, 2),
