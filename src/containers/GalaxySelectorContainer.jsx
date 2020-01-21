@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
 import { NavigationDrawer, Card } from 'react-md';
+import API from '../lib/API.js';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
 import GalaxySelector from '../components/charts/galaxySelector';
 import Legend from '../components/charts/galaxySelector/legend';
@@ -34,7 +34,7 @@ class GalaxySelectorContainer extends React.PureComponent {
   }
 
   componentDidMount() {
-    axios.get('/data/galaxies/galaxy_selector.json').then(response => {
+    API.get('/data/galaxies/galaxy_selector.json').then(response => {
       const data = response.data.map(source => {
         source.images = this.generateImages(source.name, source.alerts);
         return source;
