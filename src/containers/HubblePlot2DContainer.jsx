@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import API from '../lib/API.js';
 import HubblePlot2D from '../components/charts/hubblePlot/HubblePlot2D.jsx';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
@@ -16,7 +16,7 @@ class HubblePlot2DContainer extends React.PureComponent {
   componentDidMount() {
     const { options, answers } = this.props;
 
-    axios.get('/data/galaxies/galaxy_selector.json').then(response => {
+    API.get('/data/galaxies/galaxy_selector.json').then(response => {
       this.setState(prevState => ({
         ...prevState,
         data: getHubblePlotData(response.data, options, answers),
