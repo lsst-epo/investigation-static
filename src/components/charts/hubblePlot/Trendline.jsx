@@ -130,6 +130,7 @@ class Trendline extends React.Component {
       captureAreaHeight,
       xScale,
       yScale,
+      isInteractable,
     } = this.props;
 
     const start = [xScale(0), yScale(0)];
@@ -183,14 +184,16 @@ class Trendline extends React.Component {
             )}
           </g>
         )}
-        <rect
-          ref={this.background}
-          x={captureAreaX}
-          y={captureAreaY}
-          width={captureAreaWidth}
-          height={captureAreaHeight}
-          fill="transparent"
-        />
+        {isInteractable && (
+          <rect
+            ref={this.background}
+            x={captureAreaX}
+            y={captureAreaY}
+            width={captureAreaWidth}
+            height={captureAreaHeight}
+            fill="transparent"
+          />
+        )}
       </svg>
     );
   }

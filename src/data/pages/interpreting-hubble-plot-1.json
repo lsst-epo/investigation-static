@@ -42,7 +42,7 @@
           "title": "Question #1",
           "label": "<p>Now move the cursor to the location on the Hubble plot that corresponds to the velocity and distance of the galaxy. Click on the plot to add a dot at the correct location for that galaxy.</p>",
           "answerPre": "<span>Selected: </span>",
-          "answerAccessor": "galaxy"
+          "answerAccessor": "hubblePlot"
         }
       ]
     }

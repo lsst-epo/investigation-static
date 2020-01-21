@@ -35,6 +35,7 @@ class TwoCol extends React.PureComponent {
     } = this.props;
     const leftColTables = this.filterTables('left', tables);
     const rightColTables = this.filterTables('right', tables);
+
     return (
       <div className="container-flex spaced">
         <div className="col padded col-width-50">
