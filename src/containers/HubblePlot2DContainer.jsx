@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import isArray from 'lodash/isArray';
 import API from '../lib/API.js';
 import HubblePlot2D from '../components/charts/hubblePlot/HubblePlot2D.jsx';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
@@ -15,12 +16,20 @@ class HubblePlot2DContainer extends React.PureComponent {
   }
 
   componentDidMount() {
-    const { options, answers } = this.props;
+    const {
+      widget: { source },
+      options,
+      answers,
+    } = this.props;
 
-    API.get('/data/galaxies/galaxy_selector.json').then(response => {
+    API.get(source).then(response => {
+      const responseData = isArray(response.data) ? response.data : [];
+
+      const data = getHubblePlotData(responseData, options, answers);
+
       this.setState(prevState => ({
         ...prevState,
-        data: getHubblePlotData(response.data, options, answers),
+        data,
       }));
     });
   }
@@ -34,9 +43,9 @@ class HubblePlot2DContainer extends React.PureComponent {
   };
 
   userHubblePlotCallback = (qId, data) => {
-    const { updateAnswer } = this.props;
+    const { updateAnswer, activeQuestionId } = this.props;
 
-    updateAnswer(qId, data);
+    updateAnswer(qId || activeQuestionId, data);
 
     this.setState(prevState => ({
       ...prevState,
@@ -45,9 +54,9 @@ class HubblePlot2DContainer extends React.PureComponent {
   };
 
   userTrendlineCallback = (qId, data) => {
-    const { updateAnswer } = this.props;
+    const { updateAnswer, activeQuestionId } = this.props;
 
-    updateAnswer(qId, data);
+    updateAnswer(qId || activeQuestionId, data);
   };
 
   getHubbleConstant(qId) {
@@ -84,7 +93,6 @@ class HubblePlot2DContainer extends React.PureComponent {
           hubbleConstant={parseFloat(
             hubbleConstant || this.getHubbleConstant(userTrendline)
           )}
-          activeGalaxy={data ? data[0] : null}
           selectionCallback={this.hubbleSelectionCallback}
           userHubblePlotCallback={this.userHubblePlotCallback}
           userTrendlineCallback={this.userTrendlineCallback}
@@ -97,6 +105,7 @@ class HubblePlot2DContainer extends React.PureComponent {
 HubblePlot2DContainer.propTypes = {
   data: PropTypes.object,
   options: PropTypes.object,
+  widget: PropTypes.object,
   answers: PropTypes.object,
   activeQuestionId: PropTypes.string,
   activeAnswer: PropTypes.object,

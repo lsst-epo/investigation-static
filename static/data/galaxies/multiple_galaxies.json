@@ -1,0 +1,26 @@
+[
+  {
+    "name": "1",
+    "distance": 100,
+    "velocity": 17000,
+    "redshift": 0.03
+  },
+  {
+    "name": "2",
+    "distance": 2003,
+    "velocity": 6000,
+    "redshift": 0.063
+  },
+  {
+    "name": "3",
+    "distance": 90,
+    "velocity": 8000,
+    "redshift": 0.05
+  },
+  {
+    "name": "4",
+    "distance": 160,
+    "velocity": 15000,
+    "redshift": 0.07
+  }
+]

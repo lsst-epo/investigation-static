@@ -79,7 +79,7 @@ class HubblePlot2D extends React.Component {
 
     this.setState(prevState => ({
       ...prevState,
-      selectedData: arrayify(activeData) || prevState.selectedData,
+      selectedData: activeData ? arrayify(activeData) : prevState.selectedData,
       tooltipPosX: 0,
       tooltipPosY: 0,
       showTooltip: false,
@@ -173,7 +173,7 @@ class HubblePlot2D extends React.Component {
           selectedData: [targetDatum],
         }),
         () => {
-          if (userHubblePlotCallback) {
+          if (userHubblePlotCallback && userHubblePlot) {
             userHubblePlotCallback(userHubblePlot, userData);
           }
         }
@@ -277,7 +277,7 @@ class HubblePlot2D extends React.Component {
   }
 
   updatePoints() {
-    const { data, preSelected, multiple } = this.props;
+    const { data, preSelected } = this.props;
     const { loading } = this.state;
 
     if (!data) {
@@ -289,24 +289,6 @@ class HubblePlot2D extends React.Component {
         ...prevState,
         loading: false,
       }));
-    } else if (multiple) {
-      data.forEach((supernova, i) => {
-        if (i === data.length - 1) {
-          d3Select(this.svgEl.current)
-            .selectAll(`.data-point.${supernova.className}`)
-            .data(supernova.data);
-          if (loading) {
-            this.setState(prevState => ({
-              ...prevState,
-              loading: false,
-            }));
-          }
-        } else {
-          d3Select(this.svgEl.current)
-            .selectAll(`.data-point${supernova.className}`)
-            .data(supernova.data);
-        }
-      });
     } else {
       d3Select(this.svgEl.current)
         .selectAll('.data-point')
@@ -320,12 +302,9 @@ class HubblePlot2D extends React.Component {
 
   // bind data to elements and add styles and attributes
   updateHubblePlot() {
-    const { preSelected } = this.props;
     this.updatePoints();
 
-    if (!preSelected) {
-      this.addEventListeners();
-    }
+    this.addEventListeners();
   }
 
   render() {
@@ -333,7 +312,6 @@ class HubblePlot2D extends React.Component {
       data,
       width,
       height,
-      multiple,
       padding,
       offsetTop,
       offsetRight,
@@ -411,24 +389,7 @@ class HubblePlot2D extends React.Component {
               </clipPath>
             </defs>
             <g clipPath="url('#clip')">
-              {data &&
-                multiple &&
-                data.map((set, i) => {
-                  const key = `points-${set.className}-${i}`;
-                  return (
-                    <Points
-                      key={key}
-                      pointClasses={set.className}
-                      data={set.data}
-                      selectedData={selectedData}
-                      xScale={xScale}
-                      yScale={yScale}
-                      xValueAccessor={xValueAccessor}
-                      yValueAccessor={yValueAccessor}
-                    />
-                  );
-                })}
-              {data && !multiple && (
+              {data && (
                 <Points
                   data={data}
                   selectedData={selectedData}
@@ -508,7 +469,6 @@ HubblePlot2D.propTypes = {
   xDomain: PropTypes.array,
   yDomain: PropTypes.array,
   preSelected: PropTypes.bool,
-  multiple: PropTypes.bool,
   hubbleConstant: PropTypes.number,
   name: PropTypes.string,
   selectionCallback: PropTypes.func,

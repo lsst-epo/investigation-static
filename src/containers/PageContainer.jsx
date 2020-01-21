@@ -6,11 +6,11 @@ import { WithQAing } from './WithQAing';
 import Page from '../components/page';
 import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
-import SupernovaSelectorWithLightCurve from './SupernovaSelectorWithLightCurveContainer';
-import GalaxyScrambler from './GalaxyScramblerContainer';
-import GalaxySelector from './GalaxySelectorContainer';
-import HubblePlot from './HubblePlot2DContainer';
-import HubblePlot3D from './HubblePlot3DContainer';
+import SupernovaSelectorWithLightCurve from './SupernovaSelectorWithLightCurveContainer.jsx';
+import GalaxyScrambler from './GalaxyScramblerContainer.jsx';
+import GalaxySelector from './GalaxySelectorContainer.jsx';
+import HubblePlot from './HubblePlot2DContainer.jsx';
+import HubblePlot3D from './HubblePlot3DContainer.jsx';
 
 @reactn
 class PageContainer extends React.PureComponent {
@@ -160,6 +160,7 @@ export const query = graphql`
             toggleDataPointsVisibility
             autoplay
             preSelected
+            multiple
           }
         }
         questionsByPage {
