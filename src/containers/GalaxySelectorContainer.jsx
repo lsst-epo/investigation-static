@@ -219,13 +219,10 @@ class GalaxySelectorContainer extends React.PureComponent {
     }));
   };
 
-  userHubblePlotCallback = plottedData => {
-    const {
-      options: { userHubblePlot },
-      updateAnswer,
-    } = this.props;
+  userHubblePlotCallback = (qId, plottedData) => {
+    const { updateAnswer } = this.props;
 
-    updateAnswer(userHubblePlot, plottedData);
+    updateAnswer(qId, plottedData);
 
     this.setState(prevState => ({
       ...prevState,
