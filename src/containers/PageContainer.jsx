@@ -118,6 +118,7 @@ export const query = graphql`
         content
         tables {
           id
+          title
           colTitles
           rowTitles
           rows {

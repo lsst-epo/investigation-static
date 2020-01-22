@@ -11,6 +11,7 @@
   "tables": [
     {
       "id": "1",
+      "title": "Temporary Table Title",
       "colTitles": [
         "Supernova",
         "Apparent Magnitude (m)",
