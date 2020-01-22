@@ -19,9 +19,9 @@ class PageNav extends React.PureComponent {
         component={Link}
         iconEl={
           type === 'previous' ? (
-            <ButtonIcon srText={title} Icon={ArrowLeft} />
+            <ButtonIcon srText={title || 'Home'} Icon={ArrowLeft} />
           ) : (
-            <ButtonIcon srText={title} Icon={ArrowRight} />
+            <ButtonIcon srText={title || 'Home'} Icon={ArrowRight} />
           )
         }
         iconBefore={type === 'previous'}
