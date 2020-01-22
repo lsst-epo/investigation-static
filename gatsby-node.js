@@ -6,7 +6,7 @@
 
 const path = require(`path`);
 
-exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
+exports.onCreateWebpackConfig = ({ getConfig, stage, loaders, actions }) => {
   const config = getConfig();
   if (stage.startsWith('develop') && config.resolve) {
     config.resolve.alias = {
@@ -18,6 +18,19 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, actions }) => {
   if (stage.startsWith('develop')) {
     actions.setWebpackConfig({
       devtool: 'eval-source-map',
+    });
+  }
+
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /echarts-gl/,
+            use: loaders.null(),
+          },
+        ],
+      },
     });
   }
 };
