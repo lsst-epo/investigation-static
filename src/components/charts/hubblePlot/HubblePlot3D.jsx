@@ -21,7 +21,7 @@ class HubblePlot3D extends React.PureComponent {
       nameGap: 25,
       type: 'value',
       nameTextStyle: {
-        fontSize: 15,
+        fontSize: 12,
         fontFamily: 'Roboto',
       },
     };
@@ -69,7 +69,7 @@ class HubblePlot3D extends React.PureComponent {
       <>
         {data && (
           <ReactEcharts
-            style={{ height: '500px', width: '100%' }}
+            style={{ height: '500%', width: '125%' }}
             option={this.getOption(data)}
           />
         )}
