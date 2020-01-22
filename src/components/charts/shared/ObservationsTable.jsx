@@ -40,20 +40,24 @@ class ObservationsTable extends React.PureComponent {
   }
 
   render() {
-    const { answers, rows, colTitles, rowTitles } = this.props;
+    const { title, answers, rows, colTitles, rowTitles } = this.props;
 
     return (
-      <Table
-        className="observations-table"
-        colTitles={colTitles}
-        includeRowTitles
-        rows={this.getRows(answers, colTitles, rowTitles, rows)}
-      />
+      <>
+        {title && <h1>{title}</h1>}
+        <Table
+          className="observations-table"
+          colTitles={colTitles}
+          includeRowTitles
+          rows={this.getRows(answers, colTitles, rowTitles, rows)}
+        />
+      </>
     );
   }
 }
 
 ObservationsTable.propTypes = {
+  title: PropTypes.string,
   answers: PropTypes.object,
   rows: PropTypes.array,
   colTitles: PropTypes.array,
