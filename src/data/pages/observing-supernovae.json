@@ -23,7 +23,7 @@
       "question": [
         {
           "id": "82",
-          "questionType": "accordion",
+          "questionType": "prompt",
           "tool": "selection",
           "title": "Question #1",
           "label": "<p>Click on a point on the Image to select the supernova</p>",

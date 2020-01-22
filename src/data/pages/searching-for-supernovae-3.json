@@ -22,7 +22,7 @@
       "question": [
         {
           "id": "60",
-          "questionType": "accordion",
+          "questionType": "prompt",
           "tool": "selection",
           "title": "Question #1",
           "label": "<p>Use the back and forward buttons to blink through blink through the images. When you find the supernova, click on its location in the image.</p>",
