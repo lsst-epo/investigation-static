@@ -20,7 +20,7 @@
     flex-direction: column;
     max-width: ($containerMaxWidth - 2 * $minPadding) / 2;
     height: 100%;
-    max-height: calc(100vh - #{$siteHeaderHeight} - 2 * #{$minPadding});
+    max-height: calc(100vh - #{$siteHeaderHeight} - 4 * #{$minPadding});
     overflow-y: auto;
 
     > .hero-image {
