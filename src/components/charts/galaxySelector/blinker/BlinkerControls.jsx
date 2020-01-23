@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../site/button';
-import Rewind from '../../site/icons/Rewind';
-import FastForward from '../../site/icons/FastForward';
-import Pause from '../../site/icons/Pause';
-import Play from '../../site/icons/Play';
-import styles from './styles.module.scss';
+import Button from '../../../site/button';
+import Rewind from '../../../site/icons/Rewind';
+import FastForward from '../../../site/icons/FastForward';
+import Pause from '../../../site/icons/Pause';
+import Play from '../../../site/icons/Play';
+import { controls, control } from './blinker.module.scss';
 
 const BlinkerControls = ({
   playing,
@@ -16,21 +16,21 @@ const BlinkerControls = ({
   const StartStopTag = playing ? Pause : Play;
 
   return (
-    <div className={styles.controls}>
+    <div className={controls}>
       <Button
-        className={styles.blinkerButtons}
+        className={control}
         icon
         iconEl={<Rewind />}
         onClick={handlePrevious}
       />
       <Button
-        className={styles.blinkerButtons}
+        className={control}
         icon
         iconEl={<StartStopTag />}
         onClick={handleStartStop}
       />
       <Button
-        className={styles.blinkerButtons}
+        className={control}
         icon
         iconEl={<FastForward />}
         onClick={handleNext}

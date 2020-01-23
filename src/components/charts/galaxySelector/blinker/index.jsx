@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getNameFromImage } from './supernovaSelectorUtilities.js';
 import BlinkerImage from './BlinkerImage';
-import styles from './supernovaSelector.module.scss';
+import { blinkContainer } from './blinker.module.scss';
 
 const Blinker = ({ images, activeId }) => {
   return (
-    <div className={styles.blinkContainer}>
+    <div className={blinkContainer}>
       {images.map((image, i) => {
-        const id = getNameFromImage(image);
+        const { id, name } = image;
         let active = activeId === id;
         if (!activeId && i === 0) active = true;
 
         return (
-          <BlinkerImage key={id} image={image} alertId={id} active={active} />
+          <BlinkerImage key={id} image={name} alertId={id} active={active} />
         );
       })}
     </div>

@@ -9,7 +9,7 @@
   "layout": "TwoCol",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "ZTF19abqmpsr",
+    "source": "/data/galaxies/ZTF19abqmpsr.json",
     "options": {
       "showSelector": false,
       "showLightCurve": true,

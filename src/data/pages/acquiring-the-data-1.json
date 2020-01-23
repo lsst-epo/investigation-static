@@ -16,12 +16,9 @@
   "content": "<p>In order to construct a Hubble plot, you need two pieces of information about each galaxy: its distance from Earth, and its recessional velocity (the speed at which it’s moving away from Earth).</p><h3>Using Supernovae to Measure Distance</h3><p>One of the most difficult challenges for astronomers is to determine distances to faraway objects like galaxies. One way to measure the distance to a galaxy is to look for a certain type of supernova (an exploded star) called a Type Ia (pronounced “type one-a”) supernova. Type Ia supernovae are useful because they all reach the same peak luminosity no matter where they occur in the Universe. So if the supernova appears very bright, we know it must be close to Earth, and if it appears very dim, we know it must be far away. If you can measure the distance to a Type Ia supernova, then you also know the distance to the galaxy it resides in.</p><p>Type Ia supernovae are useful because we understand how to model their changes in brightness very accurately to determine their luminosity.</p><p>The picture below shows a supernova that exploded in the galaxy M101. The supernova is marked with an arrow. Notice that it is bright compared to the other stars in the galaxy, and even brighter than the core of the galaxy itself.</p><p>Supernovae are rare events. A supernova explodes in a large galaxy once every 50 years, but with LSST’s ability to monitor billions of galaxies, we can find 1000 supernova every night!</p><p>Because supernovae often appear where no star was previously visible, they can be spotted by comparing images of the host galaxy taken at different times. The images below show a supernova discovered in the Fireworks Galaxy. There are two images of this galaxy—one taken before the explosion, and the second taken afterwards. Can you find it? When you spot the supernova, click on it.</p>",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "ZTF19abqmpsr",
+    "source": "/data/galaxies/ZTF19abqmpsr.json",
     "options": {
       "showSelector": true,
-      "showLightCurve": false,
-      "autoplay": false,
-      "preSelected": false,
       "toggleDataPointsVisibility": "1"
     }
   },

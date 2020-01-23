@@ -20,6 +20,7 @@ export const WithQAing = ComposedComponent => {
         'light-curve-template': this.getTemplateContent,
         magnitude: this.getMagnitudeContent,
         galaxy: this.getGalaxyContent,
+        supernova: this.getSupernovaContent,
       };
     }
 
@@ -83,8 +84,8 @@ export const WithQAing = ComposedComponent => {
     getGalaxyContent(data) {
       const selectedObjects = flattenDeep(
         Object.keys(data).map(galaxyKey => {
-          return Object.keys(data[galaxyKey]).map(objKey => {
-            return objKey;
+          return data[galaxyKey].map(obj => {
+            return obj.id;
           });
         })
       );
@@ -97,6 +98,20 @@ export const WithQAing = ComposedComponent => {
         .length;
 
       return `${numOfGalaxies} galaxies & ${numOfSupernovae} supernovae`;
+    }
+
+    getSupernovaContent(data) {
+      const selectedObjects = flattenDeep(
+        Object.keys(data).map(galaxyKey => {
+          return data[galaxyKey].map(obj => {
+            const { id, name } = obj;
+
+            return { [id]: name };
+          });
+        })
+      );
+
+      return selectedObjects[0].supernova;
     }
 
     getContent(answerAccessor, data) {
@@ -120,7 +135,7 @@ export const WithQAing = ComposedComponent => {
         const { questionsByPage: questions } = pageData.allPagesJson.nodes[0];
         const { answerAccessor } = qById(questions, id);
         const content = this.getContent(answerAccessor, data);
-        // console.log(content, data);
+
         this.dispatch.updateAnswer(id, content, data);
       } else {
         this.dispatch.clearAnswer(id);

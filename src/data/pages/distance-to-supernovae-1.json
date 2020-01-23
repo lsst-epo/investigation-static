@@ -10,7 +10,7 @@
   "content": "<p>In this part of the investigation, you will work only with Type Ia supernovae.</p>",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "ZTF19abqmpsr",
+    "source": "/data/galaxies/ZTF19abqmpsr.json",
     "options": {
       "showLightCurve": true,
       "choosePeakMagnitude": true,

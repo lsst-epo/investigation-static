@@ -318,7 +318,7 @@ class LightCurve extends React.PureComponent {
     const pointsClasses = classnames({
       [styles.hideDataPoints]: !pointsAreVisible,
     });
-
+    // console.log(selectedData, activeData);
     return (
       <>
         <h2 className="space-bottom">Light Curve</h2>
