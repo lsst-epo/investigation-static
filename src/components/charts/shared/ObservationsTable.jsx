@@ -43,15 +43,21 @@ class ObservationsTable extends React.PureComponent {
     const { title, answers, rows, colTitles, rowTitles } = this.props;
 
     return (
-      <>
-        {title && <h1>{title}</h1>}
+      <div className="table-container">
+        {title && (
+          <h1
+            style={{ fontSize: '1.5rem', lineHeight: '1', marginTop: '10px' }}
+          >
+            {title}
+          </h1>
+        )}
         <Table
           className="observations-table"
           colTitles={colTitles}
           includeRowTitles
           rows={this.getRows(answers, colTitles, rowTitles, rows)}
         />
-      </>
+      </div>
     );
   }
 }
