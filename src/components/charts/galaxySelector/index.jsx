@@ -10,8 +10,8 @@ import 'd3-transition';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
 import { isSelected } from './galaxySelectorUtilities.js';
-import Blinker from './Blinker';
-import BlinkerControls from './BlinkerControls';
+import Blinker from './blinker/index.jsx';
+import BlinkerControls from './blinker/BlinkerControls';
 import Points from './Points';
 import Legend from '../shared/Legend';
 import styles from './styles.module.scss';
@@ -39,26 +39,38 @@ class GalaxySelector extends React.PureComponent {
   componentDidMount() {
     const { autoplay, preSelected, selectedData, data } = this.props;
 
-    this.updateGalaxySelector();
+    if (data) {
+      this.updateGalaxySelector();
 
-    if (autoplay) {
-      this.startBlink();
-    }
+      if (autoplay) {
+        this.startBlink();
+      }
 
-    if (preSelected) {
-      this.setSelection(data);
-    }
+      if (preSelected) {
+        this.setSelection(data);
+      }
 
-    if (selectedData && !preSelected) {
-      this.setSelection(selectedData);
+      if (selectedData && !preSelected) {
+        this.setSelection(selectedData);
+      }
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { activeGalaxy, selectedData: selectedDataProp } = this.props;
+    const {
+      activeGalaxy,
+      data,
+      selectedData,
+      preSelected,
+      autoplay,
+    } = this.props;
     if (prevProps.activeGalaxy !== activeGalaxy) {
       this.updateGalaxySelector();
-      this.setSelection(selectedDataProp);
+      this.setSelection(preSelected ? data : selectedData);
+
+      if (autoplay) {
+        this.startBlink();
+      }
     }
   }
 
@@ -118,7 +130,7 @@ class GalaxySelector extends React.PureComponent {
   }
 
   getBlink(images, direction = 0) {
-    const { activeImageIndex: currentIndex, data } = this.props;
+    const { activeImageIndex: currentIndex, alerts } = this.props;
     const index = currentIndex + direction;
     const lastIndex = images.length - 1;
     let activeImageIndex = index;
@@ -132,13 +144,13 @@ class GalaxySelector extends React.PureComponent {
     }
 
     const activeImageId = images[activeImageIndex].id;
-    const activeAlert = this.getAlertFromImageId(activeImageId, data[0].alerts);
+    const activeAlert = this.getAlertFromImageId(activeImageId, alerts);
     return { activeImageId, activeImageIndex, activeAlert };
   }
 
   startBlink() {
     const { images } = this.props;
-
+    // console.log('start blink', images);
     this.setState(
       prevState => ({
         ...prevState,

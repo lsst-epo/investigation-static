@@ -12,7 +12,12 @@ import Star from '../components/site/icons/Star';
 import Toolbar from '../components/charts/galaxySelector/toolbar';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import HubblePlot from '../components/charts/hubblePlot/HubblePlot2D.jsx';
-import { getActiveIndex } from '../components/charts/galaxySelector/galaxySelectorUtilities';
+import {
+  getSelectedData,
+  getActiveImageIndex,
+  getAlertImages,
+  getGalaxyPointData,
+} from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
 import './galaxy-selector-container.module.scss';
@@ -34,10 +39,14 @@ class GalaxySelectorContainer extends React.PureComponent {
   }
 
   componentDidMount() {
-    API.get('/data/galaxies/galaxy_selector.json').then(response => {
-      const data = response.data.map(source => {
-        source.images = this.generateImages(source.name, source.alerts);
-        return source;
+    const {
+      widget: { source },
+    } = this.props;
+
+    API.get(source).then(response => {
+      const data = response.data.map(galaxy => {
+        galaxy.images = getAlertImages(galaxy.name, galaxy.alerts);
+        return galaxy;
       });
 
       const { options, answers } = this.props;
@@ -72,16 +81,6 @@ class GalaxySelectorContainer extends React.PureComponent {
 
       this.handleCloseMenu();
     }
-  }
-
-  getActiveImageIndex(activeAlert, activeImageIndex) {
-    const { activeGalaxy } = this.state;
-
-    if (activeAlert) {
-      return getActiveIndex(activeGalaxy.images, activeAlert.image_id);
-    }
-
-    return activeImageIndex;
   }
 
   handleOpenMenu = () => {
@@ -129,9 +128,9 @@ class GalaxySelectorContainer extends React.PureComponent {
     let activeGalaxy = oldActiveGalaxy;
 
     if (index < 0) {
-      activeGalaxy = data[0];
-    } else if (index > lastIndex) {
       activeGalaxy = data[lastIndex];
+    } else if (index > lastIndex) {
+      activeGalaxy = data[0];
     } else {
       activeGalaxy = data[index];
     }
@@ -180,15 +179,6 @@ class GalaxySelectorContainer extends React.PureComponent {
     });
   };
 
-  generateImages = (galaxyName, alerts) => {
-    return alerts.map(alert => {
-      return {
-        id: alert.image_id,
-        name: `/images/galaxies/${galaxyName}/${alert.image_id}_sci.jpeg`,
-      };
-    });
-  };
-
   selectionCallback = d => {
     const {
       answers,
@@ -230,35 +220,6 @@ class GalaxySelectorContainer extends React.PureComponent {
     }));
   };
 
-  getGalaxyPointData(activeGalaxy) {
-    if (!activeGalaxy) return null;
-
-    const { name, color, galaxyPoint, supernovaPoint } = activeGalaxy;
-
-    return [
-      { id: 'galaxy', name, color, ...galaxyPoint },
-      { id: 'supernova', name, color, ...supernovaPoint },
-    ];
-  }
-
-  getSelectedData(activeGalaxy, answers, qId) {
-    const answer = answers[qId];
-
-    if (!isEmpty(answer) && activeGalaxy) {
-      const { data } = answer;
-      const galaxy = data[activeGalaxy.name];
-      if (isEmpty(galaxy)) return null;
-
-      const selectedData = Object.keys(galaxy).map(key => {
-        return { ...galaxy[key] };
-      });
-
-      return selectedData;
-    }
-
-    return null;
-  }
-
   render() {
     const {
       activeAlert,
@@ -277,7 +238,7 @@ class GalaxySelectorContainer extends React.PureComponent {
       options: { toggleDataPointsVisibility },
     } = this.props;
 
-    const selectedData = this.getSelectedData(
+    const selectedData = getSelectedData(
       activeGalaxy,
       answers,
       toggleDataPointsVisibility
@@ -292,7 +253,7 @@ class GalaxySelectorContainer extends React.PureComponent {
           scatterPlotTrigger={this.triggerScatterPlot}
           openScatterPlot={openScatterPlot}
         />
-        <Card id="galaxy-selector" className="galaxy-selector-container">
+        <Card className="galaxy-selector-container">
           <NavigationDrawer
             navItems={this.generateNavItems(data)}
             position="left"
@@ -310,14 +271,16 @@ class GalaxySelectorContainer extends React.PureComponent {
               <GalaxySelector
                 className={`galaxy-selector-${data.name}`}
                 {...{ selectedData, activeGalaxy }}
-                data={this.getGalaxyPointData(activeGalaxy)}
+                data={getGalaxyPointData(activeGalaxy)}
+                alerts={activeGalaxy ? activeGalaxy.alerts : []}
                 images={activeGalaxy ? activeGalaxy.images : []}
                 selectionCallback={this.selectionCallback}
                 blinkCallback={this.onBlinkChange}
                 activeImageId={
                   activeAlert ? activeAlert.image_id : activeImageId
                 }
-                activeImageIndex={this.getActiveImageIndex(
+                activeImageIndex={getActiveImageIndex(
+                  activeGalaxy,
                   activeAlert,
                   activeImageIndex
                 )}
@@ -354,6 +317,7 @@ GalaxySelectorContainer.propTypes = {
   activeQuestionId: PropTypes.string,
   activeAnswer: PropTypes.object,
   options: PropTypes.object,
+  widget: PropTypes.object,
   updateAnswer: PropTypes.func,
 };
 

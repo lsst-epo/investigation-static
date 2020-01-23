@@ -1,3 +1,6 @@
+import isEmpty from 'lodash/isEmpty';
+import { zoomIdentity as d3ZoomIdentity } from 'd3-zoom';
+
 export const distance2 = (p, point) => {
   const dx = p.x - point[0];
   const dy = p.y - point[1];
@@ -53,4 +56,47 @@ export const closestPoint = (pathNode, point) => {
   best.distance = Math.sqrt(bestDistance);
 
   return best;
+};
+
+export const getPeakMagAnswer = (answerId, answers) => {
+  const answer = answers[answerId];
+  const isAnswered = !isEmpty(answer);
+  const empty = { x: null, y: null, value: null, peakMagAnswerId: answerId };
+
+  if (isAnswered) {
+    return { ...empty, ...answer.data };
+  }
+
+  return empty;
+};
+
+export const getTemplateAnswer = (templates, typeOrAnswerId, answers) => {
+  const answer = answers[typeOrAnswerId];
+  const isAnswered = !isEmpty(answer);
+  const empty = {
+    transform: d3ZoomIdentity,
+    type: '',
+    templateAnswerId: typeOrAnswerId,
+  };
+
+  if (isAnswered) {
+    return {
+      ...empty,
+      transform: isAnswered ? answer.data.data : null,
+      type: isAnswered ? answer.data.type : null,
+    };
+  }
+
+  if (!templates) {
+    return empty;
+  }
+
+  if (templates.length === 1) {
+    return {
+      ...empty,
+      type: templates[0],
+    };
+  }
+
+  return empty;
 };

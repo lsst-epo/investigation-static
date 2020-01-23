@@ -10,11 +10,10 @@
   "content": "<p>LSST monitors millions of galaxies on a regular basis and is contributing to a huge increase in the number of supernovae discovered each night. It’s your turn to examine some of these recently-discovered supernovae</p><p>Find the supernova by stepping through the images below. Once you have located the supernova and clicked on it, you will see a point representing its apparent magnitude on the graph at the right. Now go back through all of the other images and click on the supernova in each image and watch as the magnitude of the supernova gets added to the graph. This set of observations of the magnitude of the supernova at different times is known as a light curve.</p>",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "ZTF19abqmpsr",
+    "source": "/data/galaxies/ZTF19abqmpsr.json",
     "options": {
       "showSelector": true,
       "showLightCurve": true,
-      "autoplay": false,
       "toggleDataPointsVisibility": "82"
     }
   },
@@ -28,7 +27,7 @@
           "title": "Question #1",
           "label": "<p>Click on a point on the Image to select the supernova</p>",
           "answerPre": "<span>Selected: </span>",
-          "answerAccessor": "data"
+          "answerAccessor": "galaxy"
         }
       ]
     }

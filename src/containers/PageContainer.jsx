@@ -136,7 +136,6 @@ export const query = graphql`
         }
         widget {
           type
-          sources
           source
           options {
             showSelector
