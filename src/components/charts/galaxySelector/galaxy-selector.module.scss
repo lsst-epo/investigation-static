@@ -1,0 +1,78 @@
+.galaxy-selector {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.galaxy {
+  @include dataPoint;
+  fill: transparent;
+  transition: fill $timing $duration;
+
+  &.selected {
+    stroke-width: 2;
+  }
+}
+
+.container {
+  position: relative;
+  max-height: calc(100vh - 230px);
+  overflow: hidden;
+  box-shadow: none;
+}
+
+aside {
+  .galaxy-item {
+    margin-bottom: -1px;
+    background-color: $baseSecondaryLight;
+    transition: background-color $timing $duration;
+
+    &:hover {
+      background-color: rgba(200, 200, 200, 0.3);
+    }
+
+    &.link-active {
+      background-color: rgba(200, 200, 200, 0.3);
+    }
+
+    &.link-is-complete {
+      background-color: transparent;
+    }
+  }
+}
+
+nav {
+  .galaxy-item {
+    &.link-active {
+      background-color: $basePrimary;
+
+      :global {
+        .md-tile-text--primary.md-text--theme-primary {
+          color: $white;
+        }
+      }
+    }
+
+    &.link-is-complete {
+      background-color: $baseSecondaryDark;
+
+      :global {
+        .md-tile-text--primary, .md-text--theme-primary, .md-text {
+          color: $white !important; //stylelint-disable
+        }
+      }
+    }
+  }
+}
+
+.link-is-complete {
+  // background: yellow;
+}
+
+.link-is-not-complete {
+  // background: red;
+}
+
+.link-is-disabled {
+  // background: green;
+}

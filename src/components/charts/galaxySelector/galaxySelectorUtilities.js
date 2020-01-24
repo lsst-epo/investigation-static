@@ -1,3 +1,4 @@
+import find from 'lodash/find';
 import findIndex from 'lodash/findIndex';
 import isEmpty from 'lodash/isEmpty';
 
@@ -31,6 +32,14 @@ export const getActiveImageIndex = (
   }
 
   return activeImageIndex;
+};
+
+export const getAlertFromImageId = (imageId, alerts) => {
+  const newAlert = find(alerts, alert => {
+    return imageId === alert.image_id;
+  });
+
+  return newAlert;
 };
 
 export const getAlertImages = (galaxyName, alerts) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { formatValue } from '../../../../lib/utilities.js';
-import styles from './legend-styles.module.scss';
+import styles from './legend.module.scss';
 
 class Legend extends React.PureComponent {
   constructor(props) {

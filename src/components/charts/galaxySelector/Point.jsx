@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import styles from './styles.module.scss';
+import { galaxy, selected } from './galaxy-selector.module.scss';
 
 class Point extends React.PureComponent {
   render() {
-    const { selected, x, y, color, classes } = this.props;
-    const pointClasses = classnames(styles.galaxy, 'data-point', classes, {
-      [styles.selected]: selected,
+    const { selected: isSelected, x, y, color, classes } = this.props;
+    const pointClasses = classnames(galaxy, 'data-point', classes, {
+      [selected]: isSelected,
     });
 
     return (
@@ -17,7 +17,7 @@ class Point extends React.PureComponent {
         cy={y}
         r={20}
         fill="transparent"
-        stroke={!selected ? 'transparent' : color}
+        stroke={!isSelected ? 'transparent' : color}
         strokeWidth={0}
       />
     );

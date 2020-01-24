@@ -3,18 +3,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
-import find from 'lodash/find';
 import { select as d3Select, event as d3Event } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
-import { isSelected } from './galaxySelectorUtilities.js';
+import { isSelected, getAlertFromImageId } from './galaxySelectorUtilities.js';
 import Blinker from './blinker/index.jsx';
 import BlinkerControls from './blinker/BlinkerControls';
 import Points from './Points';
 import Legend from '../shared/Legend';
-import styles from './styles.module.scss';
+import { galaxySelector } from './galaxy-selector.module.scss';
 
 class GalaxySelector extends React.PureComponent {
   constructor(props) {
@@ -111,22 +110,9 @@ class GalaxySelector extends React.PureComponent {
           if (selectionCallback) {
             selectionCallback(newData);
           }
-          // =======
-          // if (selectionCallback && Object.keys(newData[name]).length === 2) {
-          //         if (selectionCallback) {
-          //           selectionCallback(newData);
-          // >>>>>>> [F] Add legend for selected galaxy and supernova
         }
       );
     }
-  }
-
-  getAlertFromImageId(imageId, alerts) {
-    const newAlert = find(alerts, alert => {
-      return imageId === alert.image_id;
-    });
-
-    return newAlert;
   }
 
   getBlink(images, direction = 0) {
@@ -144,7 +130,7 @@ class GalaxySelector extends React.PureComponent {
     }
 
     const activeImageId = images[activeImageIndex].id;
-    const activeAlert = this.getAlertFromImageId(activeImageId, alerts);
+    const activeAlert = getAlertFromImageId(activeImageId, alerts);
     return { activeImageId, activeImageIndex, activeAlert };
   }
 
@@ -297,7 +283,7 @@ class GalaxySelector extends React.PureComponent {
 
     const { xScale, yScale, loading, selectedData, playing } = this.state;
 
-    const svgClasses = classnames('svg-chart', styles.galaxySelector, {
+    const svgClasses = classnames('svg-chart', galaxySelector, {
       loading,
       loaded: !loading,
     });
@@ -385,7 +371,6 @@ GalaxySelector.propTypes = {
   images: PropTypes.array,
   activeImageId: PropTypes.string,
   activeImageIndex: PropTypes.number,
-  // isAnswered: PropTypes.bool,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
   xDomain: PropTypes.array,

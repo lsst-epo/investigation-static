@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
-import { NavigationDrawer, Card } from 'react-md';
+import { Card } from 'react-md';
 import API from '../lib/API.js';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
 import GalaxySelector from '../components/charts/galaxySelector';
@@ -11,6 +11,7 @@ import Legend from '../components/charts/galaxySelector/legend';
 import Star from '../components/site/icons/Star';
 import Toolbar from '../components/charts/galaxySelector/toolbar';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
+import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import HubblePlot from '../components/charts/hubblePlot/HubblePlot2D.jsx';
 import {
   getSelectedData,
@@ -20,7 +21,7 @@ import {
 } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
-import './galaxy-selector-container.module.scss';
+import styles from '../components/charts/galaxySelector/galaxy-selector.module.scss';
 
 class GalaxySelectorContainer extends React.PureComponent {
   constructor(props) {
@@ -146,7 +147,7 @@ class GalaxySelectorContainer extends React.PureComponent {
     }));
   }
 
-  generateNavItems = navItems => {
+  generateNavItems(navItems) {
     const { activeGalaxy } = this.state;
     const {
       answers,
@@ -166,18 +167,18 @@ class GalaxySelectorContainer extends React.PureComponent {
       return {
         leftAvatar: <Star style={{ fill: color }} />,
         primaryText: name,
-        className: classnames('galaxy-item', 'link-item', {
-          'link-active': active,
-          'link-is-complete': complete,
-          'link-is-not-complete': !complete,
-          'link-is-disabled': disabled,
+        className: classnames(styles.galaxyItem, {
+          [styles.linkActive]: active,
+          [styles.linkIsComplete]: complete,
+          [styles.linkIsNotComplete]: !complete,
+          [styles.linkIsDisabled]: disabled,
         }),
         disabled,
         active,
         onClick: e => this.chooseGalaxyAndCloseNav(e, item),
       };
     });
-  };
+  }
 
   selectionCallback = d => {
     const {
@@ -253,18 +254,14 @@ class GalaxySelectorContainer extends React.PureComponent {
           scatterPlotTrigger={this.triggerScatterPlot}
           openScatterPlot={openScatterPlot}
         />
-        <Card className="galaxy-selector-container">
-          <NavigationDrawer
+        <Card className={styles.container}>
+          <NavDrawer
             navItems={this.generateNavItems(data)}
-            position="left"
-            className="galaxy-selector--navigation-drawer"
+            classes="galaxy-nav-drawer"
             visible={openMenu}
             onVisibilityChange={this.handleLeftNavigationDrawerVisibility}
-            mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY_MINI}
-            tabletDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
-            desktopDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
-            contentClassName="main-galaxy-selector-content"
-            overlay={false}
+            contentClasses="galaxy-drawer-content"
+            drawerClasses={styles.galaxyDrawer}
           >
             <div className="galaxy-selector-images--container">
               <Legend {...{ activeGalaxy, selectedData }} />
@@ -286,7 +283,7 @@ class GalaxySelectorContainer extends React.PureComponent {
                 )}
               />
             </div>
-          </NavigationDrawer>
+          </NavDrawer>
 
           <ScatterPlotSelectorContainer
             opened={openScatterPlot || false}
@@ -321,4 +318,4 @@ GalaxySelectorContainer.propTypes = {
   updateAnswer: PropTypes.func,
 };
 
-export default props => <GalaxySelectorContainer {...props} />;
+export default GalaxySelectorContainer;
