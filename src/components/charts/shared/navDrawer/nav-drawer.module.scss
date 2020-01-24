@@ -1,0 +1,42 @@
+.nav-drawer-container {
+  :global  {
+    .md-drawer {
+      position: absolute;
+      overflow: auto;
+      background: transparent;
+      background-color: transparent;
+      box-shadow: none;
+
+      .md-list {
+        height: 100%;
+        padding: 0;
+        background: transparent;
+
+        .md-list-tile {
+          justify-content: center;
+          padding: 32px 26px;
+
+          .md-tile-addon--avatar {
+            height: auto;
+          }
+        }
+      }
+    }
+
+    nav.md-drawer {
+      background: $baseSecondaryLight;
+    }
+
+    .md-navigation-drawer-content {
+      margin: 0;
+    }
+  }
+
+  header {
+    display: none;
+  }
+}
+
+.drawer-inner {
+  margin: 0;
+}

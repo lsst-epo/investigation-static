@@ -6,7 +6,7 @@ import ViewList from '../../../site/icons/ViewList';
 import Close from '../../../site/icons/Close';
 import Button from '../../../site/button';
 
-import styles from './toolbar-styles.module.scss';
+import styles from './toolbar.module.scss';
 
 class GalaxySelectorToolbar extends React.PureComponent {
   render() {
