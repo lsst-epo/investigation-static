@@ -14,10 +14,19 @@
   }
 }
 
+.galaxy-nav-drawer {
+  position: relative;
+  outline: none;
+}
+
+.galaxy-drawer-content {
+  position: relative;
+}
+
 .container {
   position: relative;
-  max-height: calc(100vh - 230px);
-  overflow: hidden;
+  // max-height: calc(100vh - 230px);
+  // overflow: hidden;
   box-shadow: none;
 }
 
@@ -31,12 +40,12 @@ aside {
       background-color: rgba(200, 200, 200, 0.3);
     }
 
-    &.link-active {
-      background-color: rgba(200, 200, 200, 0.3);
-    }
-
     &.link-is-complete {
       background-color: transparent;
+    }
+
+    &.link-active {
+      background-color: rgba(200, 200, 200, 0.3);
     }
   }
 }
