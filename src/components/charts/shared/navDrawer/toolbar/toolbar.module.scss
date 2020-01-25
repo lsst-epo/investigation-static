@@ -19,6 +19,7 @@
   width: auto;
   min-width: 0;
   max-width: none;
+  /* stylelint-disable-next-line declaration-no-important */
   margin: 0 !important;
 
   :global {

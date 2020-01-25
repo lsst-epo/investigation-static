@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
-import capitalize from 'lodash/capitalize';
 import classnames from 'classnames';
 import {
   select as d3Select,
@@ -20,7 +19,8 @@ import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
 import Legend from '../shared/Legend.jsx';
 import Templates from './Templates.jsx';
-import Select from '../../site/forms/select';
+import NavDrawer from '../shared/navDrawer/index.jsx';
+
 import styles from './light-curve.module.scss';
 
 class LightCurve extends React.PureComponent {
@@ -244,9 +244,13 @@ class LightCurve extends React.PureComponent {
     }
   }
 
-  updateLightCurveType = e => {
-    const { templateZoomCallback, templateTransform } = this.props;
-    const { value } = e.target;
+  updateLightCurveType = value => {
+    const {
+      templateZoomCallback,
+      templateTransform,
+      templateAnswerId,
+    } = this.props;
+    // const { value } = item || e.target;
 
     if (value) {
       this.setState(prevState => ({
@@ -254,7 +258,7 @@ class LightCurve extends React.PureComponent {
         lightCurveType: value,
       }));
 
-      templateZoomCallback({
+      templateZoomCallback(templateAnswerId, {
         type: value,
         data: templateTransform || d3ZoomIdentity,
       });
@@ -263,10 +267,34 @@ class LightCurve extends React.PureComponent {
 
   // bind data to elements and add styles and attributes
   updateLightCurve() {
-    const { preSelected } = this.props;
+    const {
+      preSelected,
+      interactableTemplates,
+      interactablePeakMag,
+    } = this.props;
     this.updatePoints();
 
-    if (!preSelected) this.addEventListeners();
+    if (!preSelected && !interactableTemplates && !interactablePeakMag) {
+      this.addEventListeners();
+    }
+  }
+
+  generateNavItems(navItems) {
+    const { activeTemplate, interactableTemplates } = this.props;
+
+    return navItems.map(item => {
+      return {
+        leftAvatar: <span className={styles.navAvatar}>{item}</span>,
+        primaryText: `Type ${item} template`,
+        className: classnames(styles.templateItem, {
+          [styles.linkActive]: activeTemplate === item,
+          [styles.linkIsDisabled]: !interactableTemplates,
+        }),
+        onClick: interactableTemplates
+          ? () => this.updateLightCurveType(item)
+          : null,
+      };
+    });
   }
 
   render() {
@@ -296,6 +324,8 @@ class LightCurve extends React.PureComponent {
       interactableTemplates,
       interactablePeakMag,
       activePeakMag,
+      peakMagAnswerId,
+      templateAnswerId,
     } = this.props;
 
     const {
@@ -318,131 +348,130 @@ class LightCurve extends React.PureComponent {
     const pointsClasses = classnames({
       [styles.hideDataPoints]: !pointsAreVisible,
     });
-    // console.log(selectedData, activeData);
+
     return (
       <>
         <h2 className="space-bottom">Light Curve</h2>
-        {templates && chooseLightCurveTemplate && (
-          <Select
-            value={lightCurveType || 'DEFAULT'}
-            disabled={!interactableTemplates}
-            placeholder="Select a light curve template"
-            options={[...templates].map(template => {
-              return {
-                label: `Type ${capitalize(template)}`,
-                value: template,
-              };
-            })}
-            handleChange={this.updateLightCurveType}
-          />
-        )}
-        <div
-          key="svg-container"
-          ref={this.svgContainer}
-          className="svg-container scatter-plot-container"
+        <NavDrawer
+          cardClasses={styles.container}
+          interactableToolbar={interactableTemplates}
+          navItems={this.generateNavItems(templates || [])}
+          toolbarTitle={
+            `${lightCurveType} Template Selected` || 'No Template Selected'
+          }
+          showNavDrawer={chooseLightCurveTemplate}
+          contentClasses={styles.mainContent}
         >
-          {loading && (
-            <CircularProgress
-              id="graph-loading-progress"
-              key="loading"
-              className="chart-loader"
-              scale={3}
-            />
-          )}
-          {legend && !loading && <Legend key="legend" content={legend} />}
-          <Tooltip
-            key="tooltip"
-            data={selectedData || hoverPointData}
-            posX={tooltipPosX}
-            posY={tooltipPosY}
-            show={showTooltip}
-            accessors={tooltipAccessors}
-            labels={tooltipLabels}
-          />
-          {templates && (
-            <Templates
-              activeTemplate={lightCurveType}
-              activePeakMag={activePeakMag}
-              transform={templateTransform}
-              types={templates}
-              data={templatesData}
-              zoomCallback={templateZoomCallback}
-              peakMagScale={yScale}
-              {...{
-                peakMagCallback,
-                interactableTemplates,
-                interactablePeakMag,
-              }}
-            />
-          )}
-          <svg
-            key="scatter-plot"
-            className={svgClasses}
-            preserveAspectRatio="xMidYMid meet"
-            viewBox={`0 0 ${width} ${height}`}
-            ref={this.svgEl}
-            style={{ opacity: 0 }}
+          <div
+            key="svg-container"
+            ref={this.svgContainer}
+            className="svg-container scatter-plot-container"
           >
-            <defs>
-              <clipPath id="clip">
-                <rect
-                  x={padding}
-                  y={offsetTop}
-                  width={width - padding - offsetRight}
-                  height={height - padding}
-                />
-              </clipPath>
-            </defs>
-            <g clipPath="url('#clip')" className={pointsClasses}>
-              {data &&
-                multiple &&
-                data.map((selection, i) => {
-                  const key = `${selection.className}-${i}`;
+            {loading && (
+              <CircularProgress
+                id="graph-loading-progress"
+                key="loading"
+                className="chart-loader"
+                scale={3}
+              />
+            )}
+            {legend && !loading && <Legend key="legend" content={legend} />}
+            <Tooltip
+              key="tooltip"
+              data={selectedData || hoverPointData}
+              posX={tooltipPosX}
+              posY={tooltipPosY}
+              show={showTooltip}
+              accessors={tooltipAccessors}
+              labels={tooltipLabels}
+            />
+            {templates && (
+              <Templates
+                activeTemplate={lightCurveType}
+                activePeakMag={activePeakMag}
+                transform={templateTransform}
+                types={templates}
+                data={templatesData}
+                zoomCallback={templateZoomCallback}
+                peakMagScale={yScale}
+                {...{
+                  peakMagCallback,
+                  interactableTemplates,
+                  interactablePeakMag,
+                  peakMagAnswerId,
+                  templateAnswerId,
+                }}
+              />
+            )}
+            <svg
+              key="scatter-plot"
+              className={svgClasses}
+              preserveAspectRatio="xMidYMid meet"
+              viewBox={`0 0 ${width} ${height}`}
+              ref={this.svgEl}
+              style={{ opacity: 0 }}
+            >
+              <defs>
+                <clipPath id="clip">
+                  <rect
+                    x={padding}
+                    y={offsetTop}
+                    width={width - padding - offsetRight}
+                    height={height - padding}
+                  />
+                </clipPath>
+              </defs>
+              <g clipPath="url('#clip')" className={pointsClasses}>
+                {data &&
+                  multiple &&
+                  data.map((selection, i) => {
+                    const key = `${selection.className}-${i}`;
 
-                  return (
-                    <Points
-                      key={key}
-                      pointClasses={selection.className}
-                      data={selection.data}
-                      selectedData={selectedData || activeData}
-                      hoveredData={hoverPointData}
-                      xScale={xScale}
-                      yScale={yScale}
-                      xValueAccessor={xValueAccessor}
-                      yValueAccessor={yValueAccessor}
-                    />
-                  );
-                })}
-              {data && !multiple && (
-                <Points
-                  data={data}
-                  selectedData={selectedData}
-                  hoveredData={hoverPointData}
-                  xScale={xScale}
-                  yScale={yScale}
-                  xValueAccessor={xValueAccessor}
-                  yValueAccessor={yValueAccessor}
-                />
-              )}
-            </g>
-            <XAxis
-              label={xAxisLabel}
-              height={height}
-              width={width}
-              padding={padding}
-              offsetTop={offsetTop}
-              offsetRight={offsetRight}
-              scale={xScale}
-            />
-            <YAxis
-              label={yAxisLabel}
-              height={height}
-              padding={padding}
-              offsetTop={offsetTop}
-              scale={yScale}
-            />
-          </svg>
-        </div>
+                    return (
+                      <Points
+                        key={key}
+                        pointClasses={selection.className}
+                        data={selection.data}
+                        selectedData={selectedData || activeData}
+                        hoveredData={hoverPointData}
+                        xScale={xScale}
+                        yScale={yScale}
+                        xValueAccessor={xValueAccessor}
+                        yValueAccessor={yValueAccessor}
+                      />
+                    );
+                  })}
+                {data && !multiple && (
+                  <Points
+                    data={data}
+                    selectedData={selectedData}
+                    hoveredData={hoverPointData}
+                    xScale={xScale}
+                    yScale={yScale}
+                    xValueAccessor={xValueAccessor}
+                    yValueAccessor={yValueAccessor}
+                  />
+                )}
+              </g>
+              <XAxis
+                label={xAxisLabel}
+                height={height}
+                width={width}
+                padding={padding}
+                offsetTop={offsetTop}
+                offsetRight={offsetRight}
+                scale={xScale}
+              />
+              <YAxis
+                label={yAxisLabel}
+                height={height}
+                padding={padding}
+                offsetTop={offsetTop}
+                scale={yScale}
+              />
+            </svg>
+          </div>
+        </NavDrawer>
       </>
     );
   }
@@ -496,6 +525,8 @@ LightCurve.propTypes = {
   templateTransform: PropTypes.object,
   pointsAreVisible: PropTypes.bool,
   activePeakMag: PropTypes.object,
+  peakMagAnswerId: PropTypes.string,
+  templateAnswerId: PropTypes.string,
 };
 
 export default LightCurve;

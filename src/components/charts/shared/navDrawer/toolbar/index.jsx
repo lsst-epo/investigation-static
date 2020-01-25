@@ -9,7 +9,14 @@ import { toolbar, menuToggle } from './toolbar.module.scss';
 
 class NavDrawerToolbar extends React.PureComponent {
   render() {
-    const { title, onMenuOpen, onMenuClose, actions, menuIsOpen } = this.props;
+    const {
+      title,
+      onMenuOpen,
+      onMenuClose,
+      actions,
+      menuIsOpen,
+      interactableToolbar,
+    } = this.props;
 
     return (
       <Toolbar
@@ -17,6 +24,7 @@ class NavDrawerToolbar extends React.PureComponent {
         nav={
           <Button
             className={menuToggle}
+            disabled={!interactableToolbar}
             primary
             flat
             onClick={menuIsOpen ? onMenuClose : onMenuOpen}
@@ -39,4 +47,5 @@ NavDrawerToolbar.propTypes = {
   onMenuOpen: PropTypes.func,
   onMenuClose: PropTypes.func,
   menuIsOpen: PropTypes.bool,
+  interactableToolbar: PropTypes.bool,
 };

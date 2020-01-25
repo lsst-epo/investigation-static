@@ -6,7 +6,7 @@ import Close from '../components/site/icons/Close';
 import DragHandle from '../components/site/icons/DragHandle';
 import styles from './scatter-plot-selector-container.module.scss';
 
-const ScatterPlotSelector = ({ children, opened, handleClick }) => {
+const ScatterPlotSelector = ({ children, opened, onSlideOutClick }) => {
   const containerClasses = classnames(styles.container, {
     [styles.innerOpen]: opened,
   });
@@ -16,7 +16,7 @@ const ScatterPlotSelector = ({ children, opened, handleClick }) => {
 
   return (
     <div className={containerClasses}>
-      <Button className={toggleClasses} onClick={handleClick} flat>
+      <Button className={toggleClasses} onClick={onSlideOutClick} flat>
         {!opened ? <DragHandle /> : <Close />}
       </Button>
       <div className={styles.inner}>{children}</div>
@@ -27,7 +27,7 @@ const ScatterPlotSelector = ({ children, opened, handleClick }) => {
 ScatterPlotSelector.propTypes = {
   children: PropTypes.node,
   opened: PropTypes.bool,
-  handleClick: PropTypes.func,
+  onSlideOutClick: PropTypes.func,
 };
 
 export default ScatterPlotSelector;

@@ -16,6 +16,8 @@ class LightCurveTemplates extends React.PureComponent {
       interactablePeakMag,
       peakMagScale,
       activePeakMag,
+      peakMagAnswerId,
+      templateAnswerId,
     } = this.props;
 
     const { peakMagX, peakMagY } = activePeakMag || {};
@@ -35,6 +37,8 @@ class LightCurveTemplates extends React.PureComponent {
               peakMagScale,
               peakMagX,
               peakMagY,
+              peakMagAnswerId,
+              templateAnswerId,
             }}
             active={activeTemplate === type}
             data={data[type]}
@@ -60,6 +64,8 @@ LightCurveTemplates.propTypes = {
   transform: PropTypes.object,
   interactableTemplates: PropTypes.bool,
   interactablePeakMag: PropTypes.bool,
+  peakMagAnswerId: PropTypes.string,
+  templateAnswerId: PropTypes.string,
 };
 
 export default LightCurveTemplates;

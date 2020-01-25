@@ -76,16 +76,6 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     }
   };
 
-  templateZoomCallback = d => {
-    const { updateAnswer, activeQuestionId } = this.props;
-    updateAnswer(activeQuestionId, d);
-  };
-
-  peakMagCallback = d => {
-    const { updateAnswer, activeQuestionId } = this.props;
-    updateAnswer(activeQuestionId, d);
-  };
-
   lightCurveSelectionCallback = (id, d) => {
     const activeAlert = d[0];
 
@@ -110,6 +100,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       activeAnswer,
       templatesData,
       activeQuestionId,
+      updateAnswer,
       options: {
         autoplay,
         showSelector,
@@ -167,6 +158,8 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                 name,
                 band,
                 templatesData,
+                peakMagAnswerId,
+                templateAnswerId,
                 activeAnswer,
                 activeQuestionId,
                 chooseLightCurveTemplate,
@@ -174,8 +167,12 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
               activeAlertId={
                 activeAlert ? activeAlert.alert_id.toString() : null
               }
-              interactableTemplates={activeQuestionId === templateAnswerId}
-              interactablePeakMag={peakMagAnswerId === activeQuestionId}
+              interactableTemplates={
+                activeQuestionId && activeQuestionId === templateAnswerId
+              }
+              interactablePeakMag={
+                activeQuestionId && peakMagAnswerId === activeQuestionId
+              }
               pointsAreVisible={
                 selectorQId ? !isEmpty(answers[selectorQId]) : true
               }
@@ -183,10 +180,10 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
               activePeakMag={{ peakMagX: x, peakMagY: y }}
               activeTemplate={type}
               templateTransform={transform}
-              activeData={activeAlert ? [activeAlert] : null}
+              activeData={activeAlert && showSelector ? [activeAlert] : null}
               dataSelectionCallback={this.lightCurveSelectionCallback}
-              templateZoomCallback={this.templateZoomCallback}
-              peakMagCallback={this.peakMagCallback}
+              templateZoomCallback={updateAnswer}
+              peakMagCallback={updateAnswer}
             />
           </div>
         )}
@@ -245,7 +242,7 @@ export default props => (
       return (
         <SupernovaSelectorWithLightCurveContainer
           {...props}
-          templatesData={{ iab: iaBJson, iav: iaVJson, iip: iipVJson }}
+          templatesData={{ Ia: iaBJson, Iav: iaVJson, IIp: iipVJson }}
         />
       );
     }}

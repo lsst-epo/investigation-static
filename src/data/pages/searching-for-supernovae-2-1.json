@@ -14,7 +14,7 @@
     "options": {
       "showLightCurve": true,
       "chooseLightCurveTemplate": true,
-      "lightCurveTemplates": ["iab", "iip"],
+      "lightCurveTemplates": ["Ia", "IIp"],
       "preSelectedLightCurveTemplate": "94"
     }
   },

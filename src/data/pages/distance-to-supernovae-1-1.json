@@ -15,7 +15,7 @@
       "showLightCurve": true,
       "choosePeakMagnitude": true,
       "chooseLightCurveTemplate": true,
-      "lightCurveTemplates": ["iab"],
+      "lightCurveTemplates": ["Ia"],
       "preSelectedLightCurveTemplate": "64",
       "preSelectedLightCurveMagnitude": "164"
     }
