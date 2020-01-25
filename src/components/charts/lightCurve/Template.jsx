@@ -119,10 +119,10 @@ class LightCurveTemplate extends React.PureComponent {
   }
 
   templateSelection(transformEvent) {
-    const { zoomCallback, type } = this.props;
+    const { zoomCallback, type, templateAnswerId } = this.props;
 
     if (zoomCallback) {
-      zoomCallback({ type, data: transformEvent });
+      zoomCallback(templateAnswerId, { type, data: transformEvent });
     }
   }
 
@@ -134,6 +134,7 @@ class LightCurveTemplate extends React.PureComponent {
   };
 
   updateMag(callback) {
+    const { peakMagAnswerId } = this.props;
     const $template = this.svgEl.current;
     const $linePath = this.linePath.current;
     const e = d3mouse($template);
@@ -151,7 +152,7 @@ class LightCurveTemplate extends React.PureComponent {
         const magnitude = peakMagScale.invert(peakMagY);
 
         if (callback) {
-          callback({ x: peakMagX, y: peakMagY, magnitude });
+          callback(peakMagAnswerId, { x: peakMagX, y: peakMagY, magnitude });
         }
       }
     );
@@ -319,6 +320,8 @@ LightCurveTemplate.propTypes = {
   peakMagCallback: PropTypes.func,
   interactableTemplates: PropTypes.bool,
   interactablePeakMag: PropTypes.bool,
+  peakMagAnswerId: PropTypes.string,
+  templateAnswerId: PropTypes.string,
 };
 
 export default LightCurveTemplate;

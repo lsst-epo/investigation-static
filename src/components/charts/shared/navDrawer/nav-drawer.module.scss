@@ -1,4 +1,6 @@
 .nav-drawer-container {
+  position: relative;
+
   :global  {
     .md-drawer {
       position: absolute;

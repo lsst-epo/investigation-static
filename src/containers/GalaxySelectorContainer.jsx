@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
-import { Card } from 'react-md';
 import API from '../lib/API.js';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
 import GalaxySelector from '../components/charts/galaxySelector';
@@ -72,7 +71,7 @@ class GalaxySelectorContainer extends React.PureComponent {
       const { openScatterPlot } = this.state;
       const { alerts } = activeGalaxy;
 
-      if (openScatterPlot) this.triggerScatterPlot('close');
+      if (openScatterPlot) this.handleSlideOutPlot('close');
 
       this.setState(prevState => ({
         ...prevState,
@@ -84,7 +83,7 @@ class GalaxySelectorContainer extends React.PureComponent {
     }
   }
 
-  triggerScatterPlot = () => {
+  handleSlideOutPlot = () => {
     this.setState(prevState => ({
       ...prevState,
       openScatterPlot: !prevState.openScatterPlot,
@@ -178,7 +177,7 @@ class GalaxySelectorContainer extends React.PureComponent {
     }
 
     if (d.length > 1) {
-      this.triggerScatterPlot();
+      this.handleSlideOutPlot();
     }
   };
 
@@ -225,66 +224,63 @@ class GalaxySelectorContainer extends React.PureComponent {
 
     return (
       <>
-        <Card className={styles.container}>
-          <NavDrawer
-            classes={styles.galaxyNavDrawer}
-            contentClasses={styles.galaxyDrawerContent}
-            drawerClasses={styles.galaxyDrawer}
-            navItems={this.generateNavItems(data)}
-            toolbarTitle={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
-            toolbarActions={
-              <Button
-                primary
-                flat
-                iconBefore={false}
-                onClick={this.triggerScatterPlot}
-                iconEl={!openScatterPlot ? <ScatterPlotIcon /> : <CloseIcon />}
-              >
-                {!openScatterPlot ? 'Open Hubble Plot' : 'Close Hubble Plot'}
-              </Button>
-            }
-          >
-            <div className="galaxy-selector-images--container">
-              <Legend {...{ activeGalaxy, selectedData }} />
-              <GalaxySelector
-                className={`galaxy-selector-${data.name}`}
-                {...{ selectedData, activeGalaxy }}
-                data={getGalaxyPointData(activeGalaxy)}
-                alerts={activeGalaxy ? activeGalaxy.alerts : []}
-                images={activeGalaxy ? activeGalaxy.images : []}
-                selectionCallback={this.selectionCallback}
-                blinkCallback={this.onBlinkChange}
-                activeImageId={
-                  activeAlert ? activeAlert.image_id : activeImageId
-                }
-                activeImageIndex={getActiveImageIndex(
-                  activeGalaxy,
-                  activeAlert,
-                  activeImageIndex
-                )}
-              />
-            </div>
-            <ScatterPlotSelectorContainer
-              className={styles.slideOutHubble}
-              opened={openScatterPlot || false}
-              handleClick={this.triggerScatterPlot}
+        <NavDrawer
+          classes={styles.galaxyNavDrawer}
+          cardClasses={styles.container}
+          contentClasses={styles.galaxyDrawerContent}
+          drawerClasses={styles.galaxyDrawer}
+          navItems={this.generateNavItems(data)}
+          toolbarTitle={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
+          toolbarActions={
+            <Button
+              primary
+              flat
+              iconBefore={false}
+              onClick={this.handleSlideOutPlot}
+              iconEl={!openScatterPlot ? <ScatterPlotIcon /> : <CloseIcon />}
             >
-              <HubblePlot
-                className="hubble-plot"
-                {...{
-                  options,
-                  activeGalaxy,
-                }}
-                data={plottedData}
-                userHubblePlotCallback={this.userHubblePlotCallback}
-              />
-            </ScatterPlotSelectorContainer>
-            <Navigation
-              handlePrevGalaxy={this.gotToPrevGalaxy}
-              handleNextGalaxy={this.goToNextGalaxy}
+              {!openScatterPlot ? 'Open Hubble Plot' : 'Close Hubble Plot'}
+            </Button>
+          }
+        >
+          <div className="galaxy-selector-images--container">
+            <Legend {...{ activeGalaxy, selectedData }} />
+            <GalaxySelector
+              className={`galaxy-selector-${data.name}`}
+              {...{ selectedData, activeGalaxy }}
+              data={getGalaxyPointData(activeGalaxy)}
+              alerts={activeGalaxy ? activeGalaxy.alerts : []}
+              images={activeGalaxy ? activeGalaxy.images : []}
+              selectionCallback={this.selectionCallback}
+              blinkCallback={this.onBlinkChange}
+              activeImageId={activeAlert ? activeAlert.image_id : activeImageId}
+              activeImageIndex={getActiveImageIndex(
+                activeGalaxy,
+                activeAlert,
+                activeImageIndex
+              )}
             />
-          </NavDrawer>
-        </Card>
+          </div>
+          <ScatterPlotSelectorContainer
+            className={styles.slideOutHubble}
+            opened={openScatterPlot || false}
+            onSlideOutClick={this.handleSlideOutPlot}
+          >
+            <HubblePlot
+              className="hubble-plot"
+              {...{
+                options,
+                activeGalaxy,
+              }}
+              data={plottedData}
+              userHubblePlotCallback={this.userHubblePlotCallback}
+            />
+          </ScatterPlotSelectorContainer>
+          <Navigation
+            handlePrevGalaxy={this.gotToPrevGalaxy}
+            handleNextGalaxy={this.goToNextGalaxy}
+          />
+        </NavDrawer>
       </>
     );
   }
