@@ -63,7 +63,6 @@ class PageContainer extends React.PureComponent {
     const options = widget ? widget.options : null;
     const Tag = this.layouts[layout || 'default'];
     const WidgetTag = widget ? this.widgetTags[widget.type] : null;
-    const MediaTag = WidgetTag || image;
 
     return (
       <div className="container-page">
@@ -86,7 +85,7 @@ class PageContainer extends React.PureComponent {
             setActiveQuestion,
             activeQuestionId,
             options,
-            MediaTag,
+            WidgetTag,
           }}
         />
         <PageNav {...{ previous, next }} baseUrl={`/${investigation}`} />
@@ -116,6 +115,10 @@ export const query = graphql`
         id
         investigation
         content
+        image {
+          mediaPath
+          altText
+        }
         tables {
           id
           title
