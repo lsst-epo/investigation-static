@@ -8,7 +8,15 @@ import styles from './page.module.scss';
 
 class Page extends React.PureComponent {
   render() {
-    const { title, content, questions, answers, tables, MediaTag } = this.props;
+    const {
+      title,
+      content,
+      questions,
+      answers,
+      tables,
+      image,
+      WidgetTag,
+    } = this.props;
 
     return (
       <div className={styles.singleColGrid}>
@@ -26,9 +34,14 @@ class Page extends React.PureComponent {
         )}
         {/* </section> */}
         <br />
-        {MediaTag && (
-          <div className={styles.gridMedia}>
-            <MediaTag {...this.props} />
+        {WidgetTag && (
+          <div className={styles.gridWidget}>
+            <WidgetTag {...this.props} />
+          </div>
+        )}
+        {image && (
+          <div className={styles.gridImage}>
+            <img src={image.mediaPath} alt={image.altText} />
           </div>
         )}
       </div>
@@ -41,8 +54,8 @@ export default Page;
 Page.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
-  MediaTag: PropTypes.func,
-  image: PropTypes.string,
+  WidgetTag: PropTypes.func,
+  image: PropTypes.object,
   widget: PropTypes.object,
   options: PropTypes.object,
   questions: PropTypes.array,

@@ -24,7 +24,15 @@ class TwoCol extends React.PureComponent {
   }
 
   render() {
-    const { title, content, questions, answers, MediaTag, tables } = this.props;
+    const {
+      title,
+      content,
+      questions,
+      answers,
+      image,
+      WidgetTag,
+      tables,
+    } = this.props;
     const leftColTables = this.filterTables('left', tables);
     const rightColTables = this.filterTables('right', tables);
     return (
@@ -51,7 +59,7 @@ class TwoCol extends React.PureComponent {
         <div
           className={`col padded col-width-50 col-fixed ${styles.rightColGrid}`}
         >
-          {!MediaTag && !rightColTables && (
+          {!WidgetTag && !rightColTables && (
             <div className={styles.gridPlaceholder}>
               <Placeholder />
             </div>
@@ -59,9 +67,14 @@ class TwoCol extends React.PureComponent {
           {rightColTables && (
             <ObservationsTables answers={answers} tables={rightColTables} />
           )}
-          {MediaTag && (
-            <div className={styles.gridMedia}>
-              <MediaTag {...this.props} />
+          {WidgetTag && (
+            <div className={styles.gridWidget}>
+              <WidgetTag {...this.props} />
+            </div>
+          )}
+          {image && (
+            <div className={styles.gridImage}>
+              <img src={image.mediaPath} alt={image.altText} />
             </div>
           )}
         </div>
@@ -75,8 +88,8 @@ export default TwoCol;
 TwoCol.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
-  MediaTag: PropTypes.func,
-  image: PropTypes.string,
+  WidgetTag: PropTypes.func,
+  image: PropTypes.object,
   widget: PropTypes.object,
   options: PropTypes.object,
   questions: PropTypes.array,
