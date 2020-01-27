@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ObservationsTable from './ObservationsTable';
 
-class ObservationTables extends React.PureComponent {
+class ObservationsTables extends React.PureComponent {
   render() {
     const { tables, answers } = this.props;
     return (
@@ -15,9 +15,9 @@ class ObservationTables extends React.PureComponent {
   }
 }
 
-export default ObservationTables;
+export default ObservationsTables;
 
-ObservationTables.propTypes = {
+ObservationsTables.propTypes = {
   tables: PropTypes.array,
   answers: PropTypes.object,
 };

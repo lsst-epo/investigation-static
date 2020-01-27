@@ -2,6 +2,14 @@ import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
 import { extent as d3Extent, mean as d3Mean } from 'd3-array';
 
+export const dashSepToCamelCase = function(input) {
+  return input
+    .toLowerCase()
+    .replace(/-(.)/g, function dashCharToCap(match, group1) {
+      return group1.toUpperCase();
+    });
+};
+
 export const getAnswerData = function(answers, id) {
   const answer = answers[id];
   return !isEmpty(answer) ? answer.data : null;
