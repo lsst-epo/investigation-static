@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cloneDeep from 'lodash/cloneDeep';
-import Table from '../../site/forms/table/index.jsx';
+// import classnames from 'classnames';
+import { dashSepToCamelCase } from '../../../../lib/utilities.js';
+import Table from '../../../site/forms/table/index.jsx';
 import ObservationsTableCell from './ObservationsTableCell';
+import { tableTitle } from './observations-tables.module.scss';
+import styles from '../../../page/page.module.scss';
 
 class ObservationsTable extends React.PureComponent {
   getCell(answers, cell) {
@@ -39,18 +43,17 @@ class ObservationsTable extends React.PureComponent {
     return rows;
   }
 
+  getPositionClassname(position) {
+    if (!position) return 'gridTableDefault';
+    return styles[dashSepToCamelCase(`grid-table-${position}`)] || null;
+  }
+
   render() {
-    const { title, answers, rows, colTitles, rowTitles } = this.props;
+    const { title, answers, rows, colTitles, rowTitles, position } = this.props;
 
     return (
-      <div className="table-container">
-        {title && (
-          <h1
-            style={{ fontSize: '1.5rem', lineHeight: '1', marginTop: '10px' }}
-          >
-            {title}
-          </h1>
-        )}
+      <div className={this.getPositionClassname(position)}>
+        {title && <h1 className={tableTitle}>{title}</h1>}
         <Table
           className="observations-table"
           colTitles={colTitles}
@@ -68,6 +71,7 @@ ObservationsTable.propTypes = {
   rows: PropTypes.array,
   colTitles: PropTypes.array,
   rowTitles: PropTypes.array,
+  position: PropTypes.string,
 };
 
 export default ObservationsTable;

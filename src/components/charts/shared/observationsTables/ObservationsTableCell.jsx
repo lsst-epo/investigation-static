@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isArray from 'lodash/isArray';
 import isPlainObject from 'lodash/isPlainObject';
-import { getMean } from '../../../lib/utilities';
-import StellarValue from './StellarValue';
-import StellarValueRange from './StellarValueRange';
+import { getMean } from '../../../../lib/utilities';
+import StellarValue from '../StellarValue';
+import StellarValueRange from '../StellarValueRange';
 
 class ObservationsTableCell extends React.PureComponent {
   rangifier(answerRange) {

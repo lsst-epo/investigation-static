@@ -3,22 +3,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QAs from '../qas';
 import { renderDef } from '../../lib/utilities.js';
-import ObservationsTables from '../charts/shared/ObservationsTables';
+import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
+import styles from './page.module.scss';
 
 class Page extends React.PureComponent {
   render() {
     const { title, content, questions, answers, tables, MediaTag } = this.props;
 
     return (
-      <div>
-        <section>
-          <h2 className="section-title">{title}</h2>
-          <div dangerouslySetInnerHTML={renderDef(content)} />
-          {tables && <ObservationsTables answers={answers} tables={tables} />}
-          {questions && <QAs {...this.props} />}
-        </section>
+      <div className={styles.singleColGrid}>
+        {/* <section> */}
+        <h2 className={`section-title ${styles.gridTitle}`}>{title}</h2>
+        <div
+          className={styles.gridCopy}
+          dangerouslySetInnerHTML={renderDef(content)}
+        />
+        {tables && <ObservationsTables answers={answers} tables={tables} />}
+        {questions && (
+          <div className={styles.gridQas}>
+            <QAs {...this.props} />
+          </div>
+        )}
+        {/* </section> */}
         <br />
-        {MediaTag && <MediaTag {...this.props} />}
+        {MediaTag && (
+          <div className={styles.gridMedia}>
+            <MediaTag {...this.props} />
+          </div>
+        )}
       </div>
     );
   }

@@ -125,6 +125,7 @@ export const query = graphql`
             accessor
             id
           }
+          position
         }
         layout
         slug
