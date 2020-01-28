@@ -7,6 +7,16 @@
   "previous": {"title": "Calculating the Distance to Supernovae", "link": "/distance-to-supernovae-2/"},
   "next": {"title": "Galaxy Distances in the Local Universe", "link": "/distance-to-supernovae-4/"},
   "layout": "TwoCol",
+  "widget": {
+    "type": "SupernovaSelectorWithLightCurve",
+    "source": "/data/galaxies/galaxy_selector.json",
+    "options": {
+      "showSelector": true,
+      "autoplay": true,
+      "preSelected": true,
+      "multiple": true
+    }
+  },
   "questionsByPage": [
     {
       "question": [

@@ -55,7 +55,7 @@ class GalaxySelector extends React.PureComponent {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     const {
       activeGalaxy,
       data,
@@ -63,11 +63,12 @@ class GalaxySelector extends React.PureComponent {
       preSelected,
       autoplay,
     } = this.props;
+    const { playing } = prevState;
     if (prevProps.activeGalaxy !== activeGalaxy) {
       this.updateGalaxySelector();
       this.setSelection(preSelected ? data : selectedData);
 
-      if (autoplay) {
+      if (autoplay && !playing) {
         this.startBlink();
       }
     }
@@ -95,7 +96,6 @@ class GalaxySelector extends React.PureComponent {
   toggleSelection(d) {
     const { selectedData: oldData } = this.state;
 
-    // <<<<<<< HEAD
     if (!isSelected(oldData, d)) {
       const selectedData = !oldData ? [d] : [...oldData, d];
 

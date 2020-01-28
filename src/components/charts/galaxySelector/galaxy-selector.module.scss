@@ -30,6 +30,7 @@
   box-shadow: none;
 }
 
+// mini drawer
 aside {
   .galaxy-item {
     margin-bottom: -1px;
@@ -50,14 +51,16 @@ aside {
   }
 }
 
+// full size drawer
 nav {
   .galaxy-item {
     &.link-active {
       background-color: $basePrimary;
 
       :global {
-        .md-tile-text--primary.md-text--theme-primary {
-          color: $white;
+        .md-tile-text--primary.md-text--theme-primary, .md-text {
+          /* stylelint-disable-next-line declaration-no-important */
+          color: $white !important;
         }
       }
     }
@@ -67,7 +70,8 @@ nav {
 
       :global {
         .md-tile-text--primary, .md-text--theme-primary, .md-text {
-          color: $white !important; //stylelint-disable
+          /* stylelint-disable-next-line declaration-no-important */
+          color: $white !important;
         }
       }
     }
