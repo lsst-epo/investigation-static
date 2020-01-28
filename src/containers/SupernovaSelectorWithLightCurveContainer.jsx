@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
 import isEmpty from 'lodash/isEmpty';
+import classnames from 'classnames';
 import API from '../lib/API.js';
 import {
   getSelectedData,
@@ -13,18 +14,23 @@ import {
   getPeakMagAnswer,
   getTemplateAnswer,
 } from '../components/charts/lightCurve/lightCurveUtilities.js';
-import SupernovaSelector from '../components/charts/galaxySelector';
+import SupernovaSelector from '../components/charts/galaxySelector/index.jsx';
 import LightCurve from '../components/charts/lightCurve/index.jsx';
+import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
+import Star from '../components/site/icons/Star';
+import styles from '../components/charts/galaxySelector/galaxy-selector.module.scss';
 
 class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
+      data: null,
       activeGalaxy: null,
       activeImageIndex: 0,
       activeImageId: null,
       activeAlert: null,
+      navItems: [],
     };
   }
 
@@ -39,17 +45,33 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         return supernova;
       });
 
-      const { alerts } = data[0];
+      const galaxy = data[0];
+      const { alerts } = galaxy;
 
       this.setState(prevState => ({
         ...prevState,
         alerts,
         activeAlert: alerts[0],
-        activeGalaxy: data[0],
+        activeGalaxy: galaxy,
         data,
+        navItems: this.generateNavItems(data, galaxy),
       }));
     });
   }
+
+  setActiveGalaxy = galaxy => {
+    const { data } = this.state;
+    const { alerts } = galaxy;
+    const navItems = this.generateNavItems(data, galaxy);
+
+    this.setState(prevState => ({
+      ...prevState,
+      alerts,
+      activeAlert: alerts[0],
+      activeGalaxy: galaxy,
+      navItems,
+    }));
+  };
 
   supernovaSelectionCallback = d => {
     const {
@@ -92,8 +114,28 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     }));
   };
 
+  generateNavItems(galaxies, activeGalaxy) {
+    return galaxies.map(galaxy => {
+      const { name, color } = galaxy;
+      return {
+        leftAvatar: <Star style={{ fill: color }} />,
+        primaryText: name,
+        className: classnames(styles.galaxyItem, {
+          [styles.linkActive]: activeGalaxy === galaxy,
+        }),
+        onClick: () => this.setActiveGalaxy(galaxy),
+      };
+    });
+  }
+
   render() {
-    const { activeGalaxy, alerts, activeImageIndex, activeAlert } = this.state;
+    const {
+      activeGalaxy,
+      alerts,
+      activeImageIndex,
+      activeAlert,
+      navItems,
+    } = this.state;
 
     const {
       answers,
@@ -111,6 +153,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         preSelectedLightCurveMagnitude,
         preSelected,
         toggleDataPointsVisibility: selectorQId,
+        multiple,
       },
     } = this.props;
 
@@ -132,21 +175,28 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       <div className="container-flex spaced">
         {showSelector && (
           <div className={showLightCurve ? 'col padded col-width-50' : 'col'}>
-            <SupernovaSelector
-              className={`supernova-selector-${name}`}
-              {...{ selectedData, activeGalaxy, autoplay, preSelected }}
-              data={getSupernovaPointData(activeGalaxy)}
-              alerts={activeGalaxy ? activeGalaxy.alerts : []}
-              images={activeGalaxy ? activeGalaxy.images : []}
-              selectionCallback={this.supernovaSelectionCallback}
-              blinkCallback={this.onAlertChange}
-              activeImageId={activeAlert ? activeAlert.image_id : null}
-              activeImageIndex={getActiveImageIndex(
-                activeGalaxy,
-                activeAlert,
-                activeImageIndex
-              )}
-            />
+            <NavDrawer
+              interactableToolbar
+              navItems={navItems}
+              toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
+              showNavDrawer={multiple}
+            >
+              <SupernovaSelector
+                className={`supernova-selector-${name}`}
+                {...{ selectedData, activeGalaxy, autoplay, preSelected }}
+                data={getSupernovaPointData(activeGalaxy)}
+                alerts={activeGalaxy ? activeGalaxy.alerts : []}
+                images={activeGalaxy ? activeGalaxy.images : []}
+                selectionCallback={this.supernovaSelectionCallback}
+                blinkCallback={this.onAlertChange}
+                activeImageId={activeAlert ? activeAlert.image_id : null}
+                activeImageIndex={getActiveImageIndex(
+                  activeGalaxy,
+                  activeAlert,
+                  activeImageIndex
+                )}
+              />
+            </NavDrawer>
           </div>
         )}
         {showLightCurve && (

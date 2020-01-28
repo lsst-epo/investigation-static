@@ -155,6 +155,7 @@ export const query = graphql`
             toggleDataPointsVisibility
             autoplay
             preSelected
+            multiple
           }
         }
         questionsByPage {
