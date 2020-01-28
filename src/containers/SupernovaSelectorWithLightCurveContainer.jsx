@@ -202,41 +202,49 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         )}
         {showLightCurve && (
           <div className={showSelector ? 'col padded col-width-50' : 'col'}>
-            <LightCurve
-              className={`light-curve-${name} ${band}-band`}
-              multiple
-              {...{
-                data,
-                name,
-                band,
-                templatesData,
-                peakMagAnswerId,
-                templateAnswerId,
-                activeAnswer,
-                activeQuestionId,
-                chooseLightCurveTemplate,
-              }}
-              activeAlertId={
-                activeAlert ? activeAlert.alert_id.toString() : null
-              }
-              interactableTemplates={
-                activeQuestionId && activeQuestionId === templateAnswerId
-              }
-              interactablePeakMag={
-                activeQuestionId && peakMagAnswerId === activeQuestionId
-              }
-              pointsAreVisible={
-                selectorQId ? !isEmpty(answers[selectorQId]) : true
-              }
-              templates={lightCurveTemplates}
-              activePeakMag={{ peakMagX: x, peakMagY: y }}
-              activeTemplate={type}
-              templateTransform={transform}
-              activeData={activeAlert && showSelector ? [activeAlert] : null}
-              dataSelectionCallback={this.lightCurveSelectionCallback}
-              templateZoomCallback={updateAnswer}
-              peakMagCallback={updateAnswer}
-            />
+            <h2 className="space-bottom">Light Curve</h2>
+            <NavDrawer
+              interactableToolbar
+              navItems={navItems}
+              toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
+              showNavDrawer={data ? data.length > 1 : false}
+              contentClasses={mainContent}
+            >
+              <LightCurve
+                className={`light-curve-${name} ${band}-band`}
+                data={alerts}
+                {...{
+                  name,
+                  band,
+                  templatesData,
+                  peakMagAnswerId,
+                  templateAnswerId,
+                  activeAnswer,
+                  activeQuestionId,
+                  chooseLightCurveTemplate,
+                }}
+                activeAlertId={
+                  activeAlert ? activeAlert.alert_id.toString() : null
+                }
+                interactableTemplates={
+                  activeQuestionId && activeQuestionId === templateAnswerId
+                }
+                interactablePeakMag={
+                  activeQuestionId && peakMagAnswerId === activeQuestionId
+                }
+                pointsAreVisible={
+                  selectorQId ? !isEmpty(answers[selectorQId]) : true
+                }
+                templates={lightCurveTemplates}
+                activePeakMag={{ peakMagX: x, peakMagY: y }}
+                activeTemplate={type}
+                templateTransform={transform}
+                activeData={activeAlert && showSelector ? [activeAlert] : null}
+                dataSelectionCallback={this.lightCurveSelectionCallback}
+                templateZoomCallback={updateAnswer}
+                peakMagCallback={updateAnswer}
+              />
+            </NavDrawer>
           </div>
         )}
       </div>
