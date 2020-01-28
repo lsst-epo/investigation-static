@@ -7,5 +7,12 @@
   "previous": {"title": "Classifying Supernovae", "link": "/classifying-supernovae/"},
   "next": {"title": "Type Ia Supernovae", "link": "/classifying-supernovae-ia/"},
   "layout": "TwoCol",
-  "content": "<p>One type of supernova happens when a high mass, main sequence star nears the end of its life. If the star has a mass more than eight times that of the Sun, its core will eventually collapse, causing it to explosively blow off its outer layers. If a supernova of this type stays bright for over 90 days, it is called a Type IIp (pronounced “type two-p”) supernova. Supernovae from high mass stars are not all the same brightness. The peak brightness of a Type IIp supernova depends on the mass of the star.</p>"
+  "content": "<p>One type of supernova happens when a high mass, main sequence star nears the end of its life. If the star has a mass more than eight times that of the Sun, its core will eventually collapse, causing it to explosively blow off its outer layers. If a supernova of this type stays bright for over 90 days, it is called a Type IIp (pronounced “type two-p”) supernova. Supernovae from high mass stars are not all the same brightness. The peak brightness of a Type IIp supernova depends on the mass of the star.</p>",
+  "widget": {
+    "type": "SupernovaSelectorWithLightCurve",
+    "source": "/data/galaxies/ZTF19abqmpsr.json",
+    "options": {
+      "showLightCurve": true
+    }
+  }
 }

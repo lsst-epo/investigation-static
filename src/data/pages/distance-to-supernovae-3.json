@@ -13,8 +13,7 @@
     "options": {
       "showSelector": true,
       "autoplay": true,
-      "preSelected": true,
-      "multiple": true
+      "preSelected": true
     }
   },
   "questionsByPage": [

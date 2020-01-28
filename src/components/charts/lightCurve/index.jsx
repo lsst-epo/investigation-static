@@ -351,7 +351,6 @@ class LightCurve extends React.PureComponent {
 
     return (
       <>
-        <h2 className="space-bottom">Light Curve</h2>
         <NavDrawer
           cardClasses={styles.container}
           interactableToolbar={interactableTemplates}
