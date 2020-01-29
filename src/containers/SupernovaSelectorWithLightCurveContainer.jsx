@@ -46,16 +46,16 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         return supernova;
       });
 
-      const galaxy = data[0];
-      const { alerts } = galaxy;
+      const activeGalaxy = data[0];
+      const { alerts } = activeGalaxy;
 
       this.setState(prevState => ({
         ...prevState,
         alerts,
         activeAlert: alerts[0],
-        activeGalaxy: galaxy,
+        activeGalaxy,
         data,
-        navItems: this.generateNavItems(data, galaxy),
+        navItems: this.generateNavItems(data, activeGalaxy),
       }));
     });
   }

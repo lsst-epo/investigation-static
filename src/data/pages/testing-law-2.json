@@ -14,6 +14,13 @@
   },
   "layout": "TwoCol",
   "content": "<p>Click on different buttons to see what the Hubble plots would look like for astronomers living in other galaxies.</p>",
+  "widget": {
+    "type": "GalaxyScrambler",
+    "source": "/data/galaxies/scrambler.json",
+    "options": {
+      "preSelected": true
+    }
+  },
   "questionsByPage": [
     {
       "question": [

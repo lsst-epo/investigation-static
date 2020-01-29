@@ -72,21 +72,24 @@ class HubblePlot2DContainer extends React.PureComponent {
     const trendlineInteractable = userTrendline === activeQuestionId;
 
     return (
-      <HubblePlot2D
-        className="hubble-plot"
-        {...{
-          data,
-          options,
-          trendlineInteractable,
-        }}
-        hubbleConstant={parseFloat(
-          hubbleConstant || this.getHubbleConstant(userTrendline)
-        )}
-        activeGalaxy={data ? data[0] : null}
-        selectionCallback={this.hubbleSelectionCallback}
-        userHubblePlotCallback={this.userHubblePlotCallback}
-        userTrendlineCallback={this.userTrendlineCallback}
-      />
+      <>
+        <h2 className="space-bottom">Hubble Plot</h2>
+        <HubblePlot2D
+          className="hubble-plot"
+          {...{
+            data,
+            options,
+            trendlineInteractable,
+          }}
+          hubbleConstant={parseFloat(
+            hubbleConstant || this.getHubbleConstant(userTrendline)
+          )}
+          activeGalaxy={data ? data[0] : null}
+          selectionCallback={this.hubbleSelectionCallback}
+          userHubblePlotCallback={this.userHubblePlotCallback}
+          userTrendlineCallback={this.userTrendlineCallback}
+        />
+      </>
     );
   }
 }

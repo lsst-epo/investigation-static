@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
-// import findIndex from 'lodash/findIndex';
 import find from 'lodash/find';
 import classnames from 'classnames';
 import {
@@ -20,7 +19,6 @@ import Points from './Points';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
-// import Legend from '../shared/Legend';
 import styles from './hubble-plot.module.scss';
 
 class HubblePlot2D extends React.Component {
@@ -139,8 +137,9 @@ class HubblePlot2D extends React.Component {
       activeGalaxy,
       userHubblePlotCallback,
       data,
-      options: { userHubblePlot },
+      options,
     } = this.props;
+    const { userHubblePlot } = options || {};
     const pointPos = d3mouse(this.svgEl.current);
 
     if (data) {
@@ -211,10 +210,8 @@ class HubblePlot2D extends React.Component {
   };
 
   onTrendlineClick = () => {
-    const {
-      userTrendlineCallback,
-      options: { userTrendline },
-    } = this.props;
+    const { userTrendlineCallback, options } = this.props;
+    const { userTrendline } = options || {};
     const { xScale, yScale } = this.state;
     const $hubblePlot = this.svgEl.current;
     const terminus = d3mouse($hubblePlot);
@@ -225,9 +222,8 @@ class HubblePlot2D extends React.Component {
 
   // add event listeners to Scatterplot and Points
   addEventListeners() {
-    const {
-      options: { preSelected, userHubblePlot, userTrendline },
-    } = this.props;
+    const { options } = this.props;
+    const { preSelected, userHubblePlot, userTrendline } = options || {};
     const $hubblePlot = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
@@ -349,7 +345,7 @@ class HubblePlot2D extends React.Component {
       tooltipAccessors,
       tooltipLabels,
       hubbleConstant,
-      options: { userTrendline },
+      options,
       trendlineInteractable,
     } = this.props;
 
@@ -364,6 +360,8 @@ class HubblePlot2D extends React.Component {
       showTooltip,
     } = this.state;
 
+    const { userTrendline } = options || {};
+
     const svgClasses = classnames('svg-chart', styles.hubblePlot, {
       loading,
       loaded: !loading,
@@ -373,7 +371,6 @@ class HubblePlot2D extends React.Component {
 
     return (
       <>
-        <h2 className="space-bottom">Hubble Plot</h2>
         <div
           ref={this.svgContainer}
           className={`svg-container ${styles.hubblePlotContainer}`}

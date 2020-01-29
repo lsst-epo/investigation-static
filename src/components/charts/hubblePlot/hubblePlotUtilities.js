@@ -9,7 +9,7 @@ export const emptyUserData = data => {
 };
 
 export const getHubblePlotData = (data, options, answers) => {
-  const { userHubblePlot } = options;
+  const { userHubblePlot } = options || {};
   const userHubblePlotAnswer = answers[userHubblePlot];
 
   if (!isEmpty(userHubblePlotAnswer)) {
