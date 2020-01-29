@@ -5,7 +5,7 @@ import Button from '../site/button';
 import ButtonIcon from '../site/button/ButtonIcon';
 import ArrowLeft from '../site/icons/ArrowLeft';
 import ArrowRight from '../site/icons/ArrowRight';
-import styles from './pageNav.module.scss';
+import styles from './page-nav.module.scss';
 
 class PageNav extends React.PureComponent {
   renderNavItem(type, item, baseUrl) {

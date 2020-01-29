@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'echarts-gl';
 import ReactEcharts from 'echarts-for-react';
-import PropTypes from 'prop-types';
-// import 'echarts';
+import { hubblePlot } from './hubble-plot.module.scss';
 
 class HubblePlot3D extends React.PureComponent {
   componentDidMount() {
@@ -50,7 +50,7 @@ class HubblePlot3D extends React.PureComponent {
             show: true,
             distance: 3,
             formatter: params => {
-              return params.data.name;
+              return params.data.label;
             },
             textStyle: {
               fontSize: 10,
@@ -68,10 +68,7 @@ class HubblePlot3D extends React.PureComponent {
     return (
       <>
         {data && (
-          <ReactEcharts
-            style={{ height: '500%', width: '125%' }}
-            option={this.getOption(data)}
-          />
+          <ReactEcharts className={hubblePlot} option={this.getOption(data)} />
         )}
       </>
     );
