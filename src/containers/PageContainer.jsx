@@ -7,6 +7,7 @@ import Page from '../components/page';
 import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
 import SupernovaSelectorWithLightCurve from './SupernovaSelectorWithLightCurveContainer';
+import GalaxyScrambler from './GalaxyScramblerContainer';
 import GalaxySelector from './GalaxySelectorContainer';
 import HubblePlot from './HubblePlot2DContainer';
 import HubblePlot3D from './HubblePlot3DContainer';
@@ -24,6 +25,7 @@ class PageContainer extends React.PureComponent {
 
     this.widgetTags = {
       SupernovaSelectorWithLightCurve,
+      GalaxyScrambler,
       GalaxySelector,
       HubblePlot,
       HubblePlot3D,

@@ -13,7 +13,11 @@ class HubblePlot3DContainer extends React.PureComponent {
   }
 
   componentDidMount() {
-    axios.get('/data/galaxies/galaxy_selector.json').then(response => {
+    const {
+      widget: { source },
+    } = this.props;
+
+    axios.get(source).then(response => {
       this.setState(prevState => ({
         ...prevState,
         data: response.data,
@@ -48,6 +52,7 @@ class HubblePlot3DContainer extends React.PureComponent {
 
 HubblePlot3DContainer.propTypes = {
   data: PropTypes.object,
+  widget: PropTypes.object,
   options: PropTypes.object,
   answers: PropTypes.object,
   activeQuestionId: PropTypes.string,
