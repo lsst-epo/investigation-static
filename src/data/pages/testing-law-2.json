@@ -12,7 +12,7 @@
     "title": "The Universe through Time",
     "link": "/universe-through-time/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "content": "<p>Click on different buttons to see what the Hubble plots would look like for astronomers living in other galaxies.</p>",
   "widget": {
     "type": "GalaxyScrambler",

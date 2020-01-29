@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import API from '../lib/API.js';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import HubblePlot2D from '../components/charts/hubblePlot/HubblePlot2D.jsx';
+import HubblePlot3D from '../components/charts/hubblePlot/HubblePlot3D.jsx';
 import Star from '../components/site/icons/Star';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
@@ -120,15 +121,28 @@ class GalaxyScramblerContainer extends React.PureComponent {
             activeScramble ? `${activeScramble.name}` : 'Galaxy Scrambler'
           }
         >
-          <HubblePlot2D
-            className="hubble-plot"
-            {...{
-              data,
-              options,
-            }}
-            selectionCallback={this.hubbleSelectionCallback}
-            userHubblePlotCallback={this.userHubblePlotCallback}
-          />
+          <div className="container-flex spaced">
+            <div className="col padded col-width-50">
+              <HubblePlot2D
+                className="hubble-plot"
+                {...{
+                  data,
+                  options,
+                }}
+                selectionCallback={this.hubbleSelectionCallback}
+              />
+            </div>
+            <div className="col padded col-width-50">
+              <HubblePlot3D
+                className="hubble-plot"
+                {...{
+                  data,
+                  options,
+                }}
+                selectionCallback={this.hubbleSelectionCallback}
+              />
+            </div>
+          </div>
         </NavDrawer>
       </>
     );

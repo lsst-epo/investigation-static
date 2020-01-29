@@ -1,7 +1,8 @@
 .nav-drawer-container {
   position: relative;
+  overflow: hidden;
 
-  :global  {
+  :global {
     .md-drawer {
       position: absolute;
       overflow: auto;
