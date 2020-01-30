@@ -155,6 +155,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         preSelectedLightCurveMagnitude,
         preSelected,
         toggleDataPointsVisibility: selectorQId,
+        multiple,
       },
     } = this.props;
 
@@ -207,12 +208,12 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
               interactableToolbar
               navItems={navItems}
               toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
-              showNavDrawer={data ? data.length > 1 : false}
+              showNavDrawer={data && !multiple ? data.length > 1 : false}
               contentClasses={mainContent}
             >
               <LightCurve
                 className={`light-curve-${name} ${band}-band`}
-                data={alerts}
+                data={multiple ? data : alerts}
                 {...{
                   name,
                   band,
@@ -222,6 +223,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                   activeAnswer,
                   activeQuestionId,
                   chooseLightCurveTemplate,
+                  multiple,
                 }}
                 activeAlertId={
                   activeAlert ? activeAlert.alert_id.toString() : null
