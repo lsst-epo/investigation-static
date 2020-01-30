@@ -18,9 +18,9 @@
     "type": "HubblePlot",
     "source": "/data/galaxies/multiple_galaxies.json",
     "options": {
-      "userHubblePlot": "252",
-      "multiple": true,
+      "showUserHubblePlot": "252",
       "preSelected": true,
+      "multiple": true,
       "hubbleConstant": 69.8
     }
   },

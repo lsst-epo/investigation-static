@@ -9,22 +9,27 @@ export const emptyUserData = data => {
 };
 
 export const getHubblePlotData = (data, options, answers) => {
-  const { userHubblePlot } = options || {};
-  const userHubblePlotAnswer = answers[userHubblePlot];
-  // console.log(data, options, answers);
+  const { multiple, showUserHubblePlot, createUserHubblePlot, preSelected } =
+    options || {};
+  const userHubblePlotAnswer = answers[createUserHubblePlot];
+  const showUserHubblePlotAnswer = answers[showUserHubblePlot];
 
-  if (!isEmpty(userHubblePlotAnswer) && data) {
-    // console.log('answer', userHubblePlotAnswer.data, data);
-    return [...data, ...userHubblePlotAnswer.data];
+  if (!isEmpty(showUserHubblePlotAnswer)) {
+    const { data: answerData } = showUserHubblePlotAnswer;
+
+    return multiple ? [data, answerData] : [...data, ...answerData];
   }
 
   if (!isEmpty(userHubblePlotAnswer)) {
-    // console.log('no answer', userHubblePlotAnswer.data, data);
     return userHubblePlotAnswer.data;
   }
 
-  if (userHubblePlot && data) {
+  if (createUserHubblePlot && data && !preSelected) {
     return emptyUserData(data);
+  }
+
+  if (multiple) {
+    return [data];
   }
 
   return data;

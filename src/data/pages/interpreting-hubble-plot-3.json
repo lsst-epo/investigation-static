@@ -17,7 +17,7 @@
   "widget": {
     "type": "HubblePlot",
     "options": {
-      "userHubblePlot": "252",
+      "showUserHubblePlot": "252",
       "preSelected": true
     }
   },

@@ -43,7 +43,7 @@ class Point extends React.PureComponent {
           cy={y}
           r={this.baseRadius}
           strokeWidth={1}
-          fill={fill || '#087f80'}
+          fill={fill || '#525459'}
           stroke="transparent"
           tabIndex="0"
         />

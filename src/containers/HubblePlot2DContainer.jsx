@@ -26,7 +26,7 @@ class HubblePlot2DContainer extends React.PureComponent {
       const responseData = isArray(response.data) ? response.data : [];
 
       const data = getHubblePlotData(responseData, options, answers);
-
+      // console.log(data);
       this.setState(prevState => ({
         ...prevState,
         data,

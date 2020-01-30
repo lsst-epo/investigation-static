@@ -29,7 +29,7 @@ class HubblePlot2D extends React.Component {
       loading: true,
       userData: null,
       selectedData: null,
-      hoverPointData: null,
+      hoveredData: null,
       tooltipPosX: 0,
       tooltipPosY: 0,
       showTooltip: false,
@@ -89,7 +89,7 @@ class HubblePlot2D extends React.Component {
   clearSelection() {
     this.setState(prevState => ({
       ...prevState,
-      hoverPointData: null,
+      hoveredData: null,
       showTooltip: false,
       tooltipPosX: 0,
       tooltipPosY: 0,
@@ -139,7 +139,7 @@ class HubblePlot2D extends React.Component {
       data,
       options,
     } = this.props;
-    const { userHubblePlot } = options || {};
+    const { createUserHubblePlot } = options || {};
     const pointPos = d3mouse(this.svgEl.current);
 
     if (data) {
@@ -168,13 +168,13 @@ class HubblePlot2D extends React.Component {
       this.setState(
         prevState => ({
           ...prevState,
-          hoverPointData: null,
+          hoveredData: null,
           showTooltip: false,
           selectedData: [targetDatum],
         }),
         () => {
-          if (userHubblePlotCallback && userHubblePlot) {
-            userHubblePlotCallback(userHubblePlot, userData);
+          if (userHubblePlotCallback && createUserHubblePlot) {
+            userHubblePlotCallback(createUserHubblePlot, userData);
           }
         }
       );
@@ -190,7 +190,7 @@ class HubblePlot2D extends React.Component {
     // add hover style on point and show tooltip
     this.setState(prevState => ({
       ...prevState,
-      hoverPointData: arrayify(d),
+      hoveredData: arrayify(d),
       tooltipPosX: pointPos[0],
       tooltipPosY: pointPos[1],
       showTooltip: true,
@@ -204,7 +204,7 @@ class HubblePlot2D extends React.Component {
     // remove hover style on point but don't hide tooltip
     this.setState(prevState => ({
       ...prevState,
-      hoverPointData: null,
+      hoveredData: null,
       showTooltip: !!selectedData,
     }));
   };
@@ -223,7 +223,7 @@ class HubblePlot2D extends React.Component {
   // add event listeners to Scatterplot and Points
   addEventListeners() {
     const { options } = this.props;
-    const { preSelected, userHubblePlot, userTrendline } = options || {};
+    const { preSelected, createUserHubblePlot, userTrendline } = options || {};
     const $hubblePlot = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
@@ -237,13 +237,13 @@ class HubblePlot2D extends React.Component {
           this.clearSelection();
         }
       });
-    } else if (!preSelected && userHubblePlot) {
+    } else if (!preSelected && createUserHubblePlot) {
       $hubblePlot.on('click', () => {
         const pointData = d3Select(d3Event.target).datum();
 
         if (pointData) {
           this.toggleSelection(pointData);
-        } else if (userHubblePlot) {
+        } else if (createUserHubblePlot) {
           this.toggleUserPoint();
         } else {
           this.clearSelection();
@@ -277,22 +277,33 @@ class HubblePlot2D extends React.Component {
   }
 
   updatePoints() {
-    const { data, preSelected } = this.props;
+    const { data, preSelected, options } = this.props;
     const { loading } = this.state;
+    const { multiple } = options || {};
 
     if (!data) {
       return;
     }
+
+    const $hubblePlot = d3Select(this.svgEl.current);
 
     if (isEmpty(data) && preSelected && loading) {
       this.setState(prevState => ({
         ...prevState,
         loading: false,
       }));
+    } else if (multiple) {
+      data.forEach((set, i) => {
+        $hubblePlot.selectAll(`.data-point.set-${i}`).data(set);
+      });
+
+      this.setState(prevState => ({
+        ...prevState,
+        loading: false,
+      }));
     } else {
-      d3Select(this.svgEl.current)
-        .selectAll('.data-point')
-        .data(data);
+      $hubblePlot.selectAll('.data-point').data(data);
+
       this.setState(prevState => ({
         ...prevState,
         loading: false,
@@ -332,13 +343,13 @@ class HubblePlot2D extends React.Component {
       yScale,
       loading,
       selectedData,
-      hoverPointData,
+      hoveredData,
       tooltipPosX,
       tooltipPosY,
       showTooltip,
     } = this.state;
 
-    const { userTrendline } = options || {};
+    const { userTrendline, multiple } = options || {};
 
     const svgClasses = classnames('svg-chart', styles.hubblePlot, {
       loading,
@@ -362,7 +373,7 @@ class HubblePlot2D extends React.Component {
           )}
           <Tooltip
             key="tooltip"
-            data={selectedData || hoverPointData}
+            data={selectedData || hoveredData}
             posX={tooltipPosX}
             posY={tooltipPosY}
             show={showTooltip}
@@ -389,14 +400,38 @@ class HubblePlot2D extends React.Component {
               </clipPath>
             </defs>
             <g clipPath="url('#clip')">
-              {data && (
+              {data &&
+                multiple &&
+                data.map((set, i) => {
+                  const key = `galaxy-${i}`;
+
+                  return (
+                    <Points
+                      key={key}
+                      data={set}
+                      {...{
+                        xScale,
+                        yScale,
+                        xValueAccessor,
+                        yValueAccessor,
+                        selectedData,
+                        hoveredData,
+                      }}
+                      pointClasses={`set-${i} ${styles.galaxyPoint}`}
+                    />
+                  );
+                })}
+              {data && !multiple && (
                 <Points
-                  data={data}
-                  selectedData={selectedData}
-                  xScale={xScale}
-                  yScale={yScale}
-                  xValueAccessor={xValueAccessor}
-                  yValueAccessor={yValueAccessor}
+                  {...{
+                    data,
+                    xScale,
+                    yScale,
+                    xValueAccessor,
+                    yValueAccessor,
+                    selectedData,
+                    hoveredData,
+                  }}
                   pointClasses={styles.galaxyPoint}
                 />
               )}
