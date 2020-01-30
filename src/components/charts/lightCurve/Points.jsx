@@ -16,6 +16,7 @@ class Points extends React.PureComponent {
       xValueAccessor,
       yValueAccessor,
       pointClasses,
+      pointColor,
     } = this.props;
 
     return (
@@ -49,7 +50,7 @@ class Points extends React.PureComponent {
               errorYPos={yScale(yVal + error)}
               errorYNeg={yScale(yVal - error)}
               error={yScale(error)}
-              fill="#BEE7F5"
+              fill={pointColor || '#BEE7F5'}
             />
           );
         })}
@@ -67,6 +68,7 @@ Points.propTypes = {
   xScale: PropTypes.func,
   yScale: PropTypes.func,
   pointClasses: PropTypes.string,
+  pointColor: PropTypes.string,
 };
 
 export default Points;
