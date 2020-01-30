@@ -208,7 +208,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
               interactableToolbar
               navItems={navItems}
               toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
-              showNavDrawer={data ? data.length > 1 : false}
+              showNavDrawer={data && !multiple ? data.length > 1 : false}
               contentClasses={mainContent}
             >
               <LightCurve
@@ -223,6 +223,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                   activeAnswer,
                   activeQuestionId,
                   chooseLightCurveTemplate,
+                  multiple,
                 }}
                 activeAlertId={
                   activeAlert ? activeAlert.alert_id.toString() : null

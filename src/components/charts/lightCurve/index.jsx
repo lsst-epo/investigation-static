@@ -309,7 +309,6 @@ class LightCurve extends React.PureComponent {
       templates,
       tooltipAccessors,
       tooltipLabels,
-      activeData,
       templateZoomCallback,
       peakMagCallback,
       templateTransform,
