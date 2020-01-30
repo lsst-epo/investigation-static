@@ -11,6 +11,7 @@ class Points extends React.PureComponent {
       data,
       selectedData,
       hoveredData,
+      pointColor,
       xScale,
       yScale,
       xValueAccessor,
@@ -49,7 +50,7 @@ class Points extends React.PureComponent {
               errorYPos={yScale(yVal + error)}
               errorYNeg={yScale(yVal - error)}
               error={yScale(error)}
-              fill="#BEE7F5"
+              fill={pointColor || '#BEE7F5'}
             />
           );
         })}
@@ -62,6 +63,7 @@ Points.propTypes = {
   data: PropTypes.array,
   selectedData: PropTypes.array,
   hoveredData: PropTypes.array,
+  pointColor: PropTypes.string,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
   xScale: PropTypes.func,

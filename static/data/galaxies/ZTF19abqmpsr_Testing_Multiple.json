@@ -1,0 +1,213 @@
+[
+  {
+    "name": "ZTF19abqmpsr",
+    "band": "r",
+    "color": "#1ab579",
+    "distance": 141.69708547161875,
+    "Dec": 18.74361216,
+    "velocity": 9736.736057325023,
+    "RA": 45.08449499,
+    "redshift": 0.033,
+    "supernovaPoint": {"x": "600", "y": "600"},
+    "galaxyPoint": {"x": "700", "y": "460"},
+    "alerts": [
+      {
+        "alert_id": 149216727,
+        "error": 0.05,
+        "date": 58719.46459,
+        "magnitude": 17.58,
+        "image_id": "149331854"
+      },
+      {
+        "alert_id": 159607160,
+        "error": 0.04,
+        "date": 58722.4869,
+        "magnitude": 17.35,
+        "image_id": "159442774"
+      },
+      {
+        "alert_id": 166456030,
+        "error": 0.03,
+        "date": 58725.49949,
+        "magnitude": 17.24,
+        "image_id": "162160454"
+      },
+      {
+        "alert_id": 178322578,
+        "error": 0.04,
+        "date": 58732.47771,
+        "magnitude": 17.38,
+        "image_id": "166238950"
+      },
+      {
+        "alert_id": 184863430,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 17.61,
+        "image_id": "166456154"
+      },
+      {
+        "alert_id": 194530284,
+        "error": 0.05,
+        "date": 58738.50529,
+        "magnitude": 17.85,
+        "image_id": "169025701"
+      },
+      {
+        "alert_id": 194530250,
+        "error": 0.07,
+        "date": 58741.42101,
+        "magnitude": 17.93,
+        "image_id": "176820594"
+      },
+      {
+        "alert_id": 205538086,
+        "error": 0.06,
+        "date": 58747.44057,
+        "magnitude": 18.07,
+        "image_id": "184864020"
+      },
+      {
+        "alert_id": 213417642,
+        "error": 0.06,
+        "date": 58750.46681,
+        "magnitude": 18.16,
+        "image_id": "205658185"
+      },
+      {
+        "alert_id": 255350536,
+        "error": 0.07,
+        "date": 58759.37255,
+        "magnitude": 18.68,
+        "image_id": "213131370"
+      },
+      {
+        "alert_id": 255350594,
+        "error": 0.08,
+        "date": 58763.37458,
+        "magnitude": 18.81,
+        "image_id": "218619956"
+      },
+      {
+        "alert_id": 255350771,
+        "error": 0.1,
+        "date": 58766.4912,
+        "magnitude": 19.06,
+        "image_id": "255350573"
+      },
+      {
+        "alert_id": 255350485,
+        "error": 0.13,
+        "date": 58769.42076,
+        "magnitude": 18.9,
+        "image_id": "255350622"
+      }
+    ]
+  },
+
+  {
+    "name": "ZTF19abxvjkn",
+    "band": "r",
+    "color": "#fa2575",
+    "distance": 141.69708547161875,
+    "Dec": 18.74361216,
+    "velocity": 9736.736057325023,
+    "RA": 45.08449499,
+    "redshift": 0.033,
+    "supernovaPoint": {"x": "600", "y": "600"},
+    "galaxyPoint": {"x": "700", "y": "460"},
+    "alerts": [
+      {
+        "alert_id": 149216727,
+        "error": 0.05,
+        "date": 58719.46459,
+        "magnitude": 16.58,
+        "image_id": "149331854"
+      },
+      {
+        "alert_id": 159607160,
+        "error": 0.04,
+        "date": 58722.4869,
+        "magnitude": 16.35,
+        "image_id": "159442774"
+      },
+      {
+        "alert_id": 166456030,
+        "error": 0.03,
+        "date": 58725.49949,
+        "magnitude": 16.24,
+        "image_id": "162160454"
+      },
+      {
+        "alert_id": 178322578,
+        "error": 0.04,
+        "date": 58732.47771,
+        "magnitude": 16.38,
+        "image_id": "166238950"
+      },
+      {
+        "alert_id": 184863430,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 16.61,
+        "image_id": "166456154"
+      },
+      {
+        "alert_id": 194530284,
+        "error": 0.05,
+        "date": 58738.50529,
+        "magnitude": 16.85,
+        "image_id": "169025701"
+      },
+      {
+        "alert_id": 194530250,
+        "error": 0.07,
+        "date": 58741.42101,
+        "magnitude": 17.93,
+        "image_id": "176820594"
+      },
+      {
+        "alert_id": 205538086,
+        "error": 0.06,
+        "date": 58747.44057,
+        "magnitude": 17.07,
+        "image_id": "184864020"
+      },
+      {
+        "alert_id": 213417642,
+        "error": 0.06,
+        "date": 58750.46681,
+        "magnitude": 17.16,
+        "image_id": "205658185"
+      },
+      {
+        "alert_id": 255350536,
+        "error": 0.07,
+        "date": 58759.37255,
+        "magnitude": 17.68,
+        "image_id": "213131370"
+      },
+      {
+        "alert_id": 255350594,
+        "error": 0.08,
+        "date": 58763.37458,
+        "magnitude": 17.81,
+        "image_id": "218619956"
+      },
+      {
+        "alert_id": 255350771,
+        "error": 0.1,
+        "date": 58766.4912,
+        "magnitude": 18.06,
+        "image_id": "255350573"
+      },
+      {
+        "alert_id": 255350485,
+        "error": 0.13,
+        "date": 58769.42076,
+        "magnitude": 17.9,
+        "image_id": "255350622"
+      }
+    ]
+  }
+]

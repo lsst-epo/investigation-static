@@ -216,21 +216,15 @@ class LightCurve extends React.PureComponent {
         loading: false,
       }));
     } else if (multiple) {
-      data.forEach((selection, i) => {
-        if (i === data.length - 1) {
-          $lightCurve
-            .selectAll(`.data-point.${selection.className}`)
-            .data(selection.data);
-          if (loading) {
-            this.setState(prevState => ({
-              ...prevState,
-              loading: false,
-            }));
-          }
-        } else {
-          $lightCurve
-            .selectAll(`.data-point${selection.className}`)
-            .data(selection.data);
+      data.forEach((curve, i) => {
+        $lightCurve
+          .selectAll(`.data-point.${curve.name}-${i}`)
+          .data(curve.alerts);
+        if (loading) {
+          this.setState(prevState => ({
+            ...prevState,
+            loading: false,
+          }));
         }
       });
     } else {
@@ -423,15 +417,17 @@ class LightCurve extends React.PureComponent {
               <g clipPath="url('#clip')" className={pointsClasses}>
                 {data &&
                   multiple &&
-                  data.map((selection, i) => {
-                    const key = `${selection.className}-${i}`;
+                  data.map((curve, i) => {
+                    if (!curve.alerts) return null;
+                    const key = `${curve.name}-${i}`;
 
                     return (
                       <Points
                         key={key}
-                        pointClasses={selection.className}
-                        data={selection.data}
-                        selectedData={selectedData || activeData}
+                        pointClasses={key}
+                        data={curve.alerts}
+                        pointColor={curve.color}
+                        selectedData={selectedData}
                         hoveredData={hoverPointData}
                         xScale={xScale}
                         yScale={yScale}
