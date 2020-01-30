@@ -155,6 +155,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         preSelectedLightCurveMagnitude,
         preSelected,
         toggleDataPointsVisibility: selectorQId,
+        multiple,
       },
     } = this.props;
 
@@ -212,7 +213,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
             >
               <LightCurve
                 className={`light-curve-${name} ${band}-band`}
-                data={alerts}
+                data={multiple ? data : alerts}
                 {...{
                   name,
                   band,
