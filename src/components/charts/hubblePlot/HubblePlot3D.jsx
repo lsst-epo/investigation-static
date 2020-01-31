@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import 'echarts-gl';
 import ReactEcharts from 'echarts-for-react';
+import partition from 'lodash/partition';
 import { hubblePlot } from './hubble-plot.module.scss';
 
 class HubblePlot3D extends React.PureComponent {
@@ -28,13 +29,28 @@ class HubblePlot3D extends React.PureComponent {
   }
 
   getOption(data) {
+    const [labels, noLabels] = partition(data, function(o) {
+      return o.label;
+    });
+
+    const dataArr = [];
+    for (let i = 0; i < labels.length; i += 1) {
+      dataArr.push([
+        labels[i].distance,
+        labels[i].redshift,
+        labels[i].velocity,
+        labels[i].label,
+        labels[i].color,
+      ]);
+    }
+
     return {
       grid3D: {},
       xAxis3D: this.getAxisInfo('Distance'),
       yAxis3D: this.getAxisInfo('Redshift'),
       zAxis3D: this.getAxisInfo('Velocity'),
       dataset: {
-        source: data,
+        source: noLabels,
         dimensions: ['distance', 'redshift', 'velocity'],
       },
       series: [
@@ -46,11 +62,22 @@ class HubblePlot3D extends React.PureComponent {
               return params.data.color;
             },
           },
+        },
+        {
+          type: 'scatter3D',
+          name: 'Labeled Data',
+          data: dataArr,
+          symbolSize: 10,
+          itemStyle: {
+            color: params => {
+              return params.data[4];
+            },
+          },
           label: {
             show: true,
             distance: 3,
             formatter: params => {
-              return params.data.label;
+              return params.data[3];
             },
             textStyle: {
               fontSize: 10,
