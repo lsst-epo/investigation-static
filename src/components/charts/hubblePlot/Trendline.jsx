@@ -91,20 +91,19 @@ class Trendline extends React.Component {
   }
 
   terminusFromSlope(slope) {
+    if (!slope) return null;
+
     const { xScale, yScale } = this.props;
-    const x = xScale.domain()[1] - 50;
-    const y = slope * x;
+    const [low, high] = yScale.domain();
+    const y = high - (high - low) * 0.05;
+    const x = y / slope;
 
-    if (slope) {
-      return [xScale(x), yScale(y)];
-    }
-
-    return null;
+    return [xScale(x), yScale(y)];
   }
 
   getLabelDims() {
     const $slopeLabel = this.label.current;
-    // console.log($slopeLabel.getBBox());
+
     if ($slopeLabel) {
       const { width, height } = $slopeLabel.getBBox();
       return { width, height };

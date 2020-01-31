@@ -13,5 +13,16 @@
     "link": "/discuss-report/"
   },
   "layout": "TwoCol",
-  "content": "<p>A new observation can be made from this plot: The Hubble Constant is not the same throughout the history of the Universe. Many cosmologists attribute this change to the role of dark energy. Astronomers are actively engaged in new research to better understand the nature of dark energy. There are still many more secrets of the Universe to discover.</p>"
+  "content": "<p>A new observation can be made from this plot: The Hubble Constant is not the same throughout the history of the Universe. Many cosmologists attribute this change to the role of dark energy. Astronomers are actively engaged in new research to better understand the nature of dark energy. There are still many more secrets of the Universe to discover.</p>",
+  "widget": {
+    "type": "HubblePlot",
+    "source": "/data/galaxies/large_hubble_sample.json",
+    "options": {
+      "showUserHubblePlot": "252",
+      "preSelected": true,
+      "multiple": true,
+      "hubbleConstant": 69.8,
+      "domain": [[0, 5000], [0, 175000]]
+    }
+  }
 }
