@@ -162,6 +162,7 @@ export const query = graphql`
             autoplay
             preSelected
             multiple
+            legend
           }
         }
         questionsByPage {

@@ -18,7 +18,8 @@
     "source": "/data/galaxies/ZTF19abqmpsr_Testing_Multiple.json",
     "options": {
       "showLightCurve": true,
-      "multiple": true
+      "multiple": true,
+      "legend": true
     }
   },
   "questionsByPage": [

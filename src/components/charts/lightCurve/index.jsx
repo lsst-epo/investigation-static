@@ -345,6 +345,11 @@ class LightCurve extends React.PureComponent {
 
     return (
       <>
+        {legend && !loading && (
+          <div style={{ width: '50%' }}>
+            <Legend key="legend" content={legend} />
+          </div>
+        )}
         <NavDrawer
           cardClasses={styles.container}
           interactableToolbar={interactableTemplates}
@@ -368,7 +373,6 @@ class LightCurve extends React.PureComponent {
                 scale={3}
               />
             )}
-            {legend && !loading && <Legend key="legend" content={legend} />}
             <Tooltip
               key="tooltip"
               data={selectedData || hoverPointData}
