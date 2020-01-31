@@ -28,21 +28,20 @@ class HubblePlot3D extends React.PureComponent {
     };
   }
 
-  getOption(data) {
-    const [labels, noLabels] = partition(data, function(o) {
-      return o.label;
+  arrayifyLabelsData(data) {
+    return data.map(labelData => {
+      return [
+        labelData.distance,
+        labelData.redshift,
+        labelData.velocity,
+        labelData.label,
+        labelData.color,
+      ];
     });
+  }
 
-    const dataArr = [];
-    for (let i = 0; i < labels.length; i += 1) {
-      dataArr.push([
-        labels[i].distance,
-        labels[i].redshift,
-        labels[i].velocity,
-        labels[i].label,
-        labels[i].color,
-      ]);
-    }
+  getOption(data) {
+    const [labels, noLabels] = partition(data, o => o.label);
 
     return {
       grid3D: {},
@@ -66,7 +65,7 @@ class HubblePlot3D extends React.PureComponent {
         {
           type: 'scatter3D',
           name: 'Labeled Data',
-          data: dataArr,
+          data: this.arrayifyLabelsData(labels),
           symbolSize: 10,
           itemStyle: {
             color: params => {
