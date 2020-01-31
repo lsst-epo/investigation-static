@@ -164,6 +164,7 @@ export const query = graphql`
             preSelected
             multiple
             legend
+            domain
           }
         }
         questionsByPage {

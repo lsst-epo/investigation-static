@@ -204,7 +204,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
               interactableToolbar
               navItems={navItems}
               toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
-              showNavDrawer={data && !multiple ? data.length > 1 : false}
+              showNavDrawer={data ? data.length > 1 : false}
             >
               <SupernovaSelector
                 className={`supernova-selector-${name}`}

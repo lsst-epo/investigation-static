@@ -24,6 +24,8 @@ import styles from './hubble-plot.module.scss';
 class HubblePlot2D extends React.Component {
   constructor(props) {
     super(props);
+    const { options } = props;
+    const { domain } = options || {};
 
     this.state = {
       loading: true,
@@ -34,10 +36,10 @@ class HubblePlot2D extends React.Component {
       tooltipPosY: 0,
       showTooltip: false,
       xScale: d3ScaleLinear()
-        .domain(props.xDomain)
+        .domain(domain ? domain[0] : props.xDomain)
         .range([props.padding, props.width]),
       yScale: d3ScaleLinear()
-        .domain(props.yDomain)
+        .domain(domain ? domain[1] : props.yDomain)
         .range([props.height - props.padding, 0]),
       hubbleConstant: null,
     };
