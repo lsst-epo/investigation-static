@@ -18,6 +18,7 @@ import SupernovaSelector from '../components/charts/galaxySelector/index.jsx';
 import LightCurve from '../components/charts/lightCurve/index.jsx';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import Star from '../components/site/icons/Star';
+import LegendItem from '../components/charts/shared/LegendItem';
 import styles from '../components/charts/galaxySelector/galaxy-selector.module.scss';
 import { mainContent } from '../components/charts/lightCurve/light-curve.module.scss';
 
@@ -129,6 +130,18 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     });
   }
 
+  createLegend(data) {
+    return (
+      <>
+        {data &&
+          data.map((d, i) => {
+            const key = `${d.name}-${i}`;
+            return <LegendItem key={key} name={d.name} color={d.color} />;
+          })}
+      </>
+    );
+  }
+
   render() {
     const {
       data,
@@ -156,6 +169,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         preSelected,
         toggleDataPointsVisibility: selectorQId,
         multiple,
+        legend,
       },
     } = this.props;
 
@@ -225,6 +239,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                   chooseLightCurveTemplate,
                   multiple,
                 }}
+                legend={this.createLegend(data)}
                 activeAlertId={
                   activeAlert ? activeAlert.alert_id.toString() : null
                 }
