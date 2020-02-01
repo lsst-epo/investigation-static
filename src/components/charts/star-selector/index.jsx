@@ -7,7 +7,7 @@ import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import Points from './Points.jsx';
-import Legend from '../charts/shared/Legend.jsx';
+import Legend from '../charts/shared/legend/index.jsx';
 import Lasso from '../charts/shared/Lasso.jsx';
 
 class StarSelector extends React.Component {

@@ -17,7 +17,6 @@ import Points from './Points.jsx';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
-import Legend from '../shared/Legend.jsx';
 import Templates from './Templates.jsx';
 import NavDrawer from '../shared/navDrawer/index.jsx';
 
@@ -345,11 +344,7 @@ class LightCurve extends React.PureComponent {
 
     return (
       <>
-        {legend && !loading && (
-          <div style={{ width: '50%' }}>
-            <Legend key="legend" content={legend} />
-          </div>
-        )}
+        {legend}
         <NavDrawer
           cardClasses={styles.container}
           interactableToolbar={interactableTemplates}

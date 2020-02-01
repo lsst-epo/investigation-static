@@ -18,9 +18,13 @@ import SupernovaSelector from '../components/charts/galaxySelector/index.jsx';
 import LightCurve from '../components/charts/lightCurve/index.jsx';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import Star from '../components/site/icons/Star';
-import LegendItem from '../components/charts/shared/LegendItem';
+import Legend from '../components/charts/shared/legend/index.jsx';
+import LegendItem from '../components/charts/shared/legend/LegendItem.jsx';
 import styles from '../components/charts/galaxySelector/galaxy-selector.module.scss';
-import { mainContent } from '../components/charts/lightCurve/light-curve.module.scss';
+import {
+  container,
+  mainContent,
+} from '../components/charts/lightCurve/light-curve.module.scss';
 
 class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
   constructor(props) {
@@ -131,14 +135,15 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
   }
 
   createLegend(data) {
+    if (!data) return null;
+
     return (
-      <>
-        {data &&
-          data.map((d, i) => {
-            const key = `${d.name}-${i}`;
-            return <LegendItem key={key} name={d.name} color={d.color} />;
-          })}
-      </>
+      <Legend>
+        {data.map((d, i) => {
+          const key = `${d.name}-${i}`;
+          return <LegendItem key={key} name={d.name} color={d.color} />;
+        })}
+      </Legend>
     );
   }
 
@@ -219,6 +224,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
           <div className={showSelector ? 'col padded col-width-50' : 'col'}>
             <h2 className="space-bottom">Light Curve</h2>
             <NavDrawer
+              cardClasses={container}
               interactableToolbar
               navItems={navItems}
               toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
@@ -239,7 +245,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                   chooseLightCurveTemplate,
                   multiple,
                 }}
-                legend={this.createLegend(data)}
+                legend={legend ? this.createLegend(data) : null}
                 activeAlertId={
                   activeAlert ? activeAlert.alert_id.toString() : null
                 }
