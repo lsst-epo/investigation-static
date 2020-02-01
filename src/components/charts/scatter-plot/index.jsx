@@ -18,7 +18,7 @@ import Sun from './Sun.jsx';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../charts/shared/Tooltip.jsx';
-import Legend from '../charts/shared/Legend.jsx';
+import Legend from '../charts/shared/legend/index.jsx';
 import Lasso from '../charts/shared/Lasso.jsx';
 import Eraser from '../charts/shared/Eraser.jsx';
 import Region from '../charts/shared/Region.jsx';

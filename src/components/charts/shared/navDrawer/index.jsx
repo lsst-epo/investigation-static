@@ -71,7 +71,7 @@ class NavDrawer extends React.PureComponent {
     const { menuIsOpen } = this.state;
 
     const navClasses = classnames(navDrawerContainer, classes);
-
+    console.log(cardClasses);
     return (
       <>
         {showNavDrawer && (

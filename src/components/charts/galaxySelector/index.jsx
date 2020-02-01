@@ -12,7 +12,7 @@ import { isSelected, getAlertFromImageId } from './galaxySelectorUtilities.js';
 import Blinker from './blinker/index.jsx';
 import BlinkerControls from './blinker/BlinkerControls';
 import Points from './Points';
-import Legend from '../shared/Legend';
+import Legend from '../shared/legend/index.jsx';
 import { galaxySelector } from './galaxy-selector.module.scss';
 
 class GalaxySelector extends React.PureComponent {

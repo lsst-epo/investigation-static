@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import API from '../lib/API.js';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
 import GalaxySelector from '../components/charts/galaxySelector';
-import Legend from '../components/charts/galaxySelector/legend';
+import Legend from '../components/charts/galaxySelector/legend/index.jsx';
 import Star from '../components/site/icons/Star';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
