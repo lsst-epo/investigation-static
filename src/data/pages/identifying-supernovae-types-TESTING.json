@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abqmpsr_Testing_Multiple.json",
+    "source": "/data/galaxies/test-multiple.json",
     "options": {
       "showLightCurve": true,
       "multiple": true,

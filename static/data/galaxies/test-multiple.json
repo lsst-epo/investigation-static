@@ -1,0 +1,202 @@
+[
+  {
+    "name": "ZTF19abqmpsr",
+    "color": "#1ab579",
+    "distance": 141.69708547161875,
+    "Dec": 18.74361216,
+    "velocity": 9736.736057325023,
+    "RA": 45.08449499,
+    "redshift": 0.033,
+    "supernovaPoint": { "x": "600", "y": "600" },
+    "galaxyPoint": { "x": "700", "y": "460" },
+    "alerts": [
+      {
+        "alert_id": 149216727,
+        "error": 0.05,
+        "date": 58719.46459,
+        "magnitude": 17.58,
+        "image_id": "149331854"
+      },
+      {
+        "alert_id": 159607160,
+        "error": 0.04,
+        "date": 58722.4869,
+        "magnitude": 17.35,
+        "image_id": "159442774"
+      },
+      {
+        "alert_id": 166456030,
+        "error": 0.03,
+        "date": 58725.49949,
+        "magnitude": 17.24,
+        "image_id": "162160454"
+      },
+      {
+        "alert_id": 178322578,
+        "error": 0.04,
+        "date": 58732.47771,
+        "magnitude": 17.38,
+        "image_id": "166238950"
+      },
+      {
+        "alert_id": 184863430,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 17.61,
+        "image_id": "166456154"
+      },
+      {
+        "alert_id": 194530284,
+        "error": 0.05,
+        "date": 58738.50529,
+        "magnitude": 17.85,
+        "image_id": "169025701"
+      },
+      {
+        "alert_id": 194530250,
+        "error": 0.07,
+        "date": 58741.42101,
+        "magnitude": 17.93,
+        "image_id": "176820594"
+      },
+      {
+        "alert_id": 205538086,
+        "error": 0.06,
+        "date": 58747.44057,
+        "magnitude": 18.07,
+        "image_id": "184864020"
+      },
+      {
+        "alert_id": 213417642,
+        "error": 0.06,
+        "date": 58750.46681,
+        "magnitude": 18.16,
+        "image_id": "205658185"
+      },
+      {
+        "alert_id": 255350536,
+        "error": 0.07,
+        "date": 58759.37255,
+        "magnitude": 18.68,
+        "image_id": "213131370"
+      },
+      {
+        "alert_id": 255350594,
+        "error": 0.08,
+        "date": 58763.37458,
+        "magnitude": 18.81,
+        "image_id": "218619956"
+      },
+      {
+        "alert_id": 255350771,
+        "error": 0.1,
+        "date": 58766.4912,
+        "magnitude": 19.06,
+        "image_id": "255350573"
+      },
+      {
+        "alert_id": 255350485,
+        "error": 0.13,
+        "date": 58769.42076,
+        "magnitude": 18.9,
+        "image_id": "255350622"
+      }
+    ]
+  },
+  {
+    "name": "ZTF19abqqmui",
+    "band": "r",
+    "color": "#4c8cd2",
+    "distance": 213.8878328238106,
+    "Dec": 6.317683836,
+    "velocity": 14625.44589774079,
+    "RA": 330.4135403,
+    "redshift": 0.05,
+    "alerts": [
+      {
+        "alert_id": 140691952,
+        "error": 0.11,
+        "date": 58715.36619,
+        "magnitude": 19.4,
+        "image_id": 140691952
+      },
+      {
+        "alert_id": 145901608,
+        "error": 0.08,
+        "date": 58718.3739,
+        "magnitude": 18.62,
+        "image_id": 145901608
+      },
+      {
+        "alert_id": 159852862,
+        "error": 0.06,
+        "date": 58722.31458,
+        "magnitude": 18.21,
+        "image_id": 159852862
+      },
+      {
+        "alert_id": 174416023,
+        "error": 0.06,
+        "date": 58730.38434,
+        "magnitude": 17.95,
+        "image_id": 174416023
+      },
+      {
+        "alert_id": 199748652,
+        "error": 0.09,
+        "date": 58744.35912,
+        "magnitude": 18.68,
+        "image_id": 199748652
+      },
+      {
+        "alert_id": 205249808,
+        "error": 0.07,
+        "date": 58747.25475,
+        "magnitude": 18.71,
+        "image_id": 205249808
+      },
+      {
+        "alert_id": 213375032,
+        "error": 0.08,
+        "date": 58750.25714,
+        "magnitude": 18.7,
+        "image_id": 213375032
+      },
+      {
+        "alert_id": 220237747,
+        "error": 0.1,
+        "date": 58757.27556,
+        "magnitude": 18.84,
+        "image_id": 220237747
+      },
+      {
+        "alert_id": 271082693,
+        "error": 0.1,
+        "date": 58760.2747,
+        "magnitude": 19.08,
+        "image_id": 271082693
+      },
+      {
+        "alert_id": 271082848,
+        "error": 0.22,
+        "date": 58771.25457,
+        "magnitude": 19.57,
+        "image_id": 271082848
+      },
+      {
+        "alert_id": 271082532,
+        "error": 0.19,
+        "date": 58774.19245,
+        "magnitude": 19.7,
+        "image_id": 271082532
+      },
+      {
+        "alert_id": 278779290,
+        "error": 0.19,
+        "date": 58777.19229,
+        "magnitude": 19.72,
+        "image_id": 278779290
+      }
+    ]
+  }
+]
