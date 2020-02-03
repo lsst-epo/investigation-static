@@ -46,8 +46,8 @@
 .container {
   position: absolute;
   top: 0;
+  right: calc(-100% + -10px);
   bottom: 0;
-  right: -100%;
   z-index: 16;
   display: flex;
   flex-flow: row nowrap;

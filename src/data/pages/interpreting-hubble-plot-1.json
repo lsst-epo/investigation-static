@@ -12,7 +12,7 @@
     "title": "Interpreting a Hubble Plot",
     "link": "/interpreting-a-hubble-plot-3/"
   },
-  "layout": "TwoCol",
+  "layout": "default",
   "content": "<p>You will begin by hunting for Type Ia supernovae in LSST images of six galaxies. Then you will identify the galaxies themselves.  Finally we'll use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble Plot.</p>",
   "widget": {
     "type": "GalaxySelector",

@@ -11,9 +11,6 @@ import Star from '../components/site/icons/Star';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import HubblePlot from '../components/charts/hubblePlot/HubblePlot2D.jsx';
-import CloseIcon from '../components/site/icons/Close';
-import ScatterPlotIcon from '../components/site/icons/ScatterPlot';
-import Button from '../components/site/button';
 import {
   getSelectedData,
   getActiveImageIndex,
