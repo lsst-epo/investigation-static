@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CardActions } from 'react-md';
+// import { CardActions } from 'react-md';
 import Button from '../../site/button';
 
 class GalaxySelectorNav extends React.PureComponent {
@@ -8,14 +8,17 @@ class GalaxySelectorNav extends React.PureComponent {
     const { handlePrevGalaxy, handleNextGalaxy } = this.props;
 
     return (
-      <CardActions centered>
-        <Button flat onClick={handlePrevGalaxy}>
+      <div
+        className="container-flex middle centered"
+        style={{ marginTop: '20px' }}
+      >
+        <Button raised onClick={handlePrevGalaxy}>
           Previous Galaxy
         </Button>
-        <Button primary flat onClick={handleNextGalaxy}>
+        <Button primary raised onClick={handleNextGalaxy}>
           Next Galaxy
         </Button>
-      </CardActions>
+      </div>
     );
   }
 }

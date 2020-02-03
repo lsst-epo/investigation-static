@@ -230,21 +230,25 @@ class GalaxySelectorContainer extends React.PureComponent {
           contentClasses={styles.galaxyDrawerContent}
           drawerClasses={styles.galaxyDrawer}
           navItems={this.generateNavItems(data)}
+          toolbarStyle={{ backgroundColor: 'red' }}
           toolbarTitle={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
           toolbarActions={
-            <Button
-              primary
-              flat
-              iconBefore={false}
-              onClick={this.handleSlideOutPlot}
-              iconEl={!openScatterPlot ? <ScatterPlotIcon /> : <CloseIcon />}
-            >
-              {!openScatterPlot ? 'Open Hubble Plot' : 'Close Hubble Plot'}
-            </Button>
+            <>
+              <Legend {...{ activeGalaxy, selectedData }} />
+              {/* <Button
+                primary
+                flat
+                iconBefore={false}
+                onClick={this.handleSlideOutPlot}
+                iconEl={!openScatterPlot ? <ScatterPlotIcon /> : <CloseIcon />}
+              >
+                {!openScatterPlot ? 'Open Hubble Plot' : 'Close Hubble Plot'}
+              </Button> */}
+            </>
           }
         >
           <div className="galaxy-selector-images--container">
-            <Legend {...{ activeGalaxy, selectedData }} />
+            {/* <Legend {...{ activeGalaxy, selectedData }} /> */}
             <GalaxySelector
               className={`galaxy-selector-${data.name}`}
               {...{ selectedData, activeGalaxy }}
@@ -275,11 +279,11 @@ class GalaxySelectorContainer extends React.PureComponent {
               data={plottedData}
               userHubblePlotCallback={this.userHubblePlotCallback}
             />
+            <Navigation
+              handlePrevGalaxy={this.gotToPrevGalaxy}
+              handleNextGalaxy={this.goToNextGalaxy}
+            />
           </ScatterPlotSelectorContainer>
-          <Navigation
-            handlePrevGalaxy={this.gotToPrevGalaxy}
-            handleNextGalaxy={this.goToNextGalaxy}
-          />
         </NavDrawer>
       </>
     );
