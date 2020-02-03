@@ -46,6 +46,7 @@
 .container {
   position: absolute;
   top: 0;
+  bottom: 0;
   right: -100%;
   z-index: 16;
   display: flex;
@@ -53,7 +54,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: calc(100% - 52px);
+  height: 100%;
+  // height: calc(100% - 52px);
   transition: right 300ms ease-in-out;
 
   :global {

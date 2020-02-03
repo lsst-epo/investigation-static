@@ -8,10 +8,18 @@
 }
 
 .legend-box {
-  padding: 0.5rem 1rem;
-  margin-right: 1rem;
+  padding: 0.4rem 0.6rem;
+  margin-right: 0.4rem;
   text-align: center;
   background: $neutral20;
+  p {
+    line-height: 1.1;
+    font-size: 0.8rem;
+    &:last-child {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+  }
 }
 
 .detail {
