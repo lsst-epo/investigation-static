@@ -26,5 +26,10 @@
     .md-icon-text {
       display: none;
     }
+
+    .md-icon {
+      /* stylelint-disable-next-line declaration-no-important */
+      color: black !important;
+    }
   }
 }
