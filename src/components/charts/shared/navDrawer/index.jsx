@@ -67,6 +67,7 @@ class NavDrawer extends React.PureComponent {
       interactableToolbar,
       showNavDrawer,
       cardClasses,
+      toolbarStyles,
     } = this.props;
     const { menuIsOpen } = this.state;
 
@@ -83,6 +84,7 @@ class NavDrawer extends React.PureComponent {
               title={toolbarTitle}
               actions={toolbarActions}
               interactableToolbar={interactableToolbar}
+              toolbarStyles={toolbarStyles}
             />
             <NavigationDrawer
               navItems={navItems}
@@ -125,6 +127,7 @@ NavDrawer.propTypes = {
   toolbarActions: PropTypes.node,
   interactableToolbar: PropTypes.bool,
   showNavDrawer: PropTypes.bool,
+  toolbarStyles: PropTypes.object,
 };
 
 export default NavDrawer;

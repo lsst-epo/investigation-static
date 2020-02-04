@@ -16,11 +16,13 @@ class NavDrawerToolbar extends React.PureComponent {
       actions,
       menuIsOpen,
       interactableToolbar,
+      toolbarStyles,
     } = this.props;
 
     return (
       <Toolbar
         className={toolbar}
+        style={toolbarStyles}
         nav={
           <Button
             className={menuToggle}
@@ -48,4 +50,5 @@ NavDrawerToolbar.propTypes = {
   onMenuClose: PropTypes.func,
   menuIsOpen: PropTypes.bool,
   interactableToolbar: PropTypes.bool,
+  toolbarStyles: PropTypes.object,
 };
