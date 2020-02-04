@@ -199,6 +199,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       <div className="container-flex spaced">
         {data && showSelector && (
           <div className={showLightCurve ? 'col padded col-width-50' : 'col'}>
+            <h2 className="space-bottom">Supernova Images</h2>
             <NavDrawer
               interactableToolbar
               navItems={navItems}

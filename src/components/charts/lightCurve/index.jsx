@@ -10,7 +10,7 @@ import {
 } from 'd3-selection';
 import { zoomIdentity as d3ZoomIdentity } from 'd3-zoom';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
-import { min as d3Min, max as d3Max, extent as d3Extent } from 'd3-array';
+import { extent as d3Extent } from 'd3-array';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
 import Points from './Points.jsx';
@@ -25,21 +25,8 @@ import styles from './light-curve.module.scss';
 class LightCurve extends React.PureComponent {
   constructor(props) {
     super(props);
-    const {
-      // width,
-      // height,
-      // padding,
-      // offsetTop,
-      // offsetRight,
-      activeTemplate,
-      // data,
-      // multiple,
-      // xValueAccessor,
-      // yValueAccessor,
-    } = props;
 
-    // const xDomain = this.getDomain(data, multiple, xValueAccessor, 1);
-    // const yDomain = this.getDomain(data, multiple, yValueAccessor, -1);
+    const { activeTemplate } = props;
 
     this.state = {
       selectedData: null,
@@ -48,8 +35,6 @@ class LightCurve extends React.PureComponent {
       tooltipPosY: 0,
       showTooltip: false,
       loading: true,
-      // xScale: this.getXScale(xDomain, width, padding, offsetRight),
-      // yScale: this.getYScale(yDomain, height, padding, offsetTop),
       lightCurveType: activeTemplate || '',
     };
 

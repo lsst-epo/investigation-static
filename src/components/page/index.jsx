@@ -21,7 +21,9 @@ class Page extends React.PureComponent {
     return (
       <div className={styles.singleColGrid}>
         {/* <section> */}
-        <h2 className={`section-title ${styles.gridTitle}`}>{title}</h2>
+        <h2 className={`space-bottom section-title ${styles.gridTitle}`}>
+          {title}
+        </h2>
         <div
           className={styles.gridCopy}
           dangerouslySetInnerHTML={renderDef(content)}
@@ -33,7 +35,6 @@ class Page extends React.PureComponent {
           </div>
         )}
         {/* </section> */}
-        <br />
         {WidgetTag && (
           <div className={styles.gridWidget}>
             <WidgetTag {...this.props} />
