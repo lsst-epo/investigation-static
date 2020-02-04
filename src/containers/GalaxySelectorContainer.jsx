@@ -227,7 +227,9 @@ class GalaxySelectorContainer extends React.PureComponent {
           contentClasses={styles.galaxyDrawerContent}
           drawerClasses={styles.galaxyDrawer}
           navItems={this.generateNavItems(data)}
-          toolbarStyle={{ backgroundColor: 'red' }}
+          toolbarStyles={{
+            backgroundColor: activeGalaxy ? activeGalaxy.color : 'transparent',
+          }}
           toolbarTitle={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
           toolbarActions={
             <>
