@@ -50,7 +50,7 @@ class Points extends React.PureComponent {
               errorYPos={yScale(yVal + error)}
               errorYNeg={yScale(yVal - error)}
               error={yScale(error)}
-              fill={pointColor || '#BEE7F5'}
+              fill={pointColor}
             />
           );
         })}

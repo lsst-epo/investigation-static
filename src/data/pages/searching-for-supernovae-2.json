@@ -9,11 +9,9 @@
   "layout": "TwoCol",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abqmpsr.json",
+    "source": "/data/galaxies/ZTF19abvhduf_g_lightcurve.json",
     "options": {
       "showSelector": true,
-      "showLightCurve": false,
-      "autoplay": false,
       "toggleDataPointsVisibility": "59"
     }
   },

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
-import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
+import isEmpty from 'lodash/isEmpty';
+// import { min as d3Min, max as d3Max, extent as d3Extent } from 'd3-array';
 import API from '../lib/API.js';
 import {
   getSelectedData,
@@ -155,6 +156,8 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       activeImageIndex,
       activeAlert,
       navItems,
+      xDomain,
+      yDomain,
     } = this.state;
 
     const {
@@ -194,7 +197,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
 
     return (
       <div className="container-flex spaced">
-        {showSelector && (
+        {data && showSelector && (
           <div className={showLightCurve ? 'col padded col-width-50' : 'col'}>
             <NavDrawer
               interactableToolbar
@@ -220,7 +223,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
             </NavDrawer>
           </div>
         )}
-        {showLightCurve && (
+        {(data || alerts) && showLightCurve && (
           <div className={showSelector ? 'col padded col-width-50' : 'col'}>
             <h2 className="space-bottom">Light Curve</h2>
             <NavDrawer
@@ -244,7 +247,10 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                   activeQuestionId,
                   chooseLightCurveTemplate,
                   multiple,
+                  xDomain,
+                  yDomain,
                 }}
+                pointColor={activeGalaxy ? activeGalaxy.color : '#BEE7F5'}
                 legend={legend ? this.createLegend(data) : null}
                 activeAlertId={
                   activeAlert ? activeAlert.alert_id.toString() : null

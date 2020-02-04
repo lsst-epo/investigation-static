@@ -10,7 +10,11 @@ import styles from '../../../page/page.module.scss';
 
 class ObservationsTable extends React.PureComponent {
   getCell(answers, cell) {
-    const { accessor, id, ids, data } = cell;
+    const { accessor, id, ids, data, content } = cell;
+
+    if (content) {
+      return <span className="cell-body">{content}</span>;
+    }
 
     if (ids && accessor) {
       return (
@@ -39,7 +43,6 @@ class ObservationsTable extends React.PureComponent {
         rows[j].push(this.getCell(answers, cell));
       });
     }
-
     return rows;
   }
 
@@ -50,7 +53,7 @@ class ObservationsTable extends React.PureComponent {
 
   render() {
     const { title, answers, rows, colTitles, rowTitles, position } = this.props;
-
+    // console.log(title, answers, rows, colTitles, rowTitles, position);
     return (
       <div className={this.getPositionClassname(position)}>
         {title && <h1 className={tableTitle}>{title}</h1>}

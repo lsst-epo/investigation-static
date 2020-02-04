@@ -369,7 +369,7 @@ GalaxySelector.propTypes = {
   activeGalaxy: PropTypes.object,
   alerts: PropTypes.array,
   images: PropTypes.array,
-  activeImageId: PropTypes.string,
+  activeImageId: PropTypes.number,
   activeImageIndex: PropTypes.number,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
