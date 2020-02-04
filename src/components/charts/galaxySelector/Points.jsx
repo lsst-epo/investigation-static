@@ -17,14 +17,14 @@ class Points extends React.PureComponent {
 
     return (
       <g className={`data-points ${pointClasses}`}>
-        {data.map((d, i) => {
+        {data.map(d => {
           const { id, color } = d;
-          const key = `point-${id}-${i}`;
           const selected = isSelected(selectedData, d);
 
           return (
             <Point
-              key={key}
+              key={`point-${id}`}
+              id={id}
               classes={pointClasses}
               x={xScale(d[xValueAccessor])}
               y={yScale(d[yValueAccessor])}

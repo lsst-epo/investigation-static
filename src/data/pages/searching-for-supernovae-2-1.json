@@ -7,7 +7,7 @@
   "previous": {"title": "Searching Supernova #2", "link": "/searching-for-supernovae-2/"},
   "next": {"title": "Searching For Supernova #3", "link": "/searching-for-supernovae-3/"},
   "layout": "TwoCol",
-  "content": "<p>You can determine the type of supernova by overlaying supernovae light curve templates. Try this out by selecting a template from the dropdown menu. Then drag the light curve template over your light curve graph to try to match it to your data points. Try a different template.  Repeat this process until you find the template that best fits your data.</p>",
+  "content": "<p>You can determine the type of supernova by overlaying supernovae light curve templates. Try this out by first selecting a template from the menu to the left of the light curve graph, and then dragging the light curve template over your light curve graph. You can also scroll to change the size of the template. Try to match the template to your data points. Try a different template.  Repeat this process until you find the template that best fits your data.</p>",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abvhduf_g_lightcurve.json",

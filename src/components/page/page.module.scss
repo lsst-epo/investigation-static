@@ -1,6 +1,8 @@
 .single-col-grid,
 .left-col-grid,
 .right-col-grid {
+  @include copyPrimary;
+
   p {
     @include copyPrimary;
   }
@@ -17,23 +19,8 @@
     'grid-qas' auto
     'grid-table-bottom' auto
     'grid-widget' auto
+    'grid-image' auto
     / 100%;
-
-  .grid-title {
-    grid-area: grid-title;
-  }
-
-  .grid-copy {
-    grid-area: grid-copy;
-  }
-
-  .grid-qas {
-    grid-area: grid-qas;
-  }
-
-  .grid-widget {
-    grid-area: grid-widget;
-  }
 }
 
 .right-col-grid {
@@ -46,31 +33,37 @@
     'grid-table-bottom' auto
     'grid-table-default' auto
     / 100%;
+}
 
-  .grid-placeholder {
-    grid-area: grid-placeholder;
+.grid-title {
+  grid-area: grid-title;
+}
+
+.grid-copy {
+  grid-area: grid-copy;
+}
+
+.grid-qas {
+  grid-area: grid-qas;
+
+  + .grid-widget, + .grid-image, + .grid-table-bottom {
+    margin-top: $minPadding;
   }
+}
 
-  .grid-widget {
-    grid-area: grid-widget;
-  }
+.grid-placeholder {
+  grid-area: grid-placeholder;
+}
 
-  .grid-image {
-    grid-area: grid-image;
+.grid-widget {
+  grid-area: grid-widget;
+}
 
-    img {
-      width: 100%;
-      margin: 20px auto;
-    }
-  }
+.grid-image {
+  grid-area: grid-image;
 
-  .grid-image {
-    grid-area: grid-image;
-
-    img {
-      width: 100%;
-      height: auto;
-      margin: 20px auto;
-    }
+  img {
+    width: 100%;
+    margin: 20px auto;
   }
 }

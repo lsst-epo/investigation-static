@@ -1,7 +1,7 @@
 section {
-  .section-title + * {
-    margin-top: $verticalSpace;
-  }
+  // .section-title + * {
+  //   margin-top: $verticalSpace;
+  // }
 
   + .nav-secondary {
     margin-top: 2 * $minPadding;

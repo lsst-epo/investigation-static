@@ -41,7 +41,9 @@ class TwoCol extends React.PureComponent {
         <div className="col padded col-width-50">
           <div className={styles.leftColGrid}>
             {/* <section> */}
-            <h2 className={`section-title ${styles.gridTitle}`}>{title}</h2>
+            <h2 className={`space-bottom section-title ${styles.gridTitle}`}>
+              {title}
+            </h2>
             <div
               className={styles.gridCopy}
               dangerouslySetInnerHTML={renderDef(content)}
