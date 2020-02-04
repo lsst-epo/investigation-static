@@ -2,10 +2,10 @@
   "id": "12",
   "investigation": "exploding-stars",
   "order": "16",
-  "title": "Determining the Peak Apparent Magnitude of Supernova #1",
+  "title": "Determining the Peak Apparent Magnitude of Supernova #4",
   "slug": "distance-to-supernovae-1/",
   "previous": {"title": "Comparing Supernovae Light Curves", "link": "/searching-for-supernovae-4/"},
-  "next": {"title": "Determining the Peak Apparent Magnitude of Supernova #2", "link": "/distance-to-supernovae-1-1/"},
+  "next": {"title": "Determining the Peak Apparent Magnitude of Supernova #5", "link": "/distance-to-supernovae-1-1/"},
   "layout": "TwoCol",
   "content": "<p>In this part of the investigation, you will work only with Type Ia supernovae.</p>",
   "widget": {

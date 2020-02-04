@@ -10,11 +10,9 @@
   "content": "<p>Use the dropdown menu to review the supernova light curves from the previous sections.</p>",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abqmpsr.json",
+    "source": "/data/galaxies/three-kinds.json",
     "options": {
-      "showSelector": false,
-      "showLightCurve": true,
-      "autoplay": false
+      "showLightCurve": true
     }
   },
   "questionsByPage": [

@@ -10,124 +10,24 @@
   "content": "<p>By using Type Ia supernovae to measure the distance from Earth to other galaxies in the Universe, astronomers have been able to map the distribution of galaxies in space. Our Milky Way galaxy is orbited by dozens of small satellite galaxies, and it's a member of a larger group of galaxies called the Local Group. The Local Group is contained in the Laniakea Supercluster, along with other groups of galaxies. And again, thanks to observations of Type Ia supernovae, we know that galaxy superclusters are scattered throughout the Universe.</p><p>Refer to the chart of Locations and Distances to get an idea of the approximate distance of these locations.</p><p>Refer to the chart collecting your distance and magnitude observations from the previous section to get an idea of the approximate distance of Supernovae #4, #5, and #6.</p>",
   "tables": [
     {
-      "id": "1",
-      "title": "Table #1 (left-middle)",
-      "position": "left-middle",
-      "colTitles": [
-        "Supernova",
-        "Apparent Magnitude (m)",
-        "Distance (MPc)",
-        "Distance (MLy)"
-      ],
-      "rowTitles": [["#4"], ["#5"], ["#6"]],
-      "rows": [
-        [
-          { "accessor": "magnitude", "id": "163" },
-          { "accessor": "megaParsecs", "id": "66" },
-          { "accessor": "megaLightYears", "id": "66" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "164" },
-          { "accessor": "megaParsecs", "id": "67" },
-          { "accessor": "megaLightYears", "id": "67" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "165" },
-          { "accessor": "megaParsecs", "id": "68" },
-          { "accessor": "megaLightYears", "id": "68" }
-        ]
-      ]
-    },
-    {
       "id": "2",
-      "title": "Table #2 (right-bottom)",
-      "position": "right-bottom",
+      "title": "Locations & Distances",
+      "position": "right-top",
       "colTitles": [
-        "Supernova",
-        "Apparent Magnitude (m)",
-        "Distance (MPc)",
-        "Distance (MLy)"
+        "Location",
+        "Distance"
       ],
-      "rowTitles": [["#4"], ["#5"], ["#6"]],
+      "rowTitles": [["Inside the Milky Way"], ["Possible satellite galaxy of the Milky Way"], ["Member of the Local Group"], ["Member of the Laniakea Supercluster"]],
       "rows": [
-        [
-          { "accessor": "magnitude", "id": "163" },
-          { "accessor": "megaParsecs", "id": "66" },
-          { "accessor": "megaLightYears", "id": "66" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "164" },
-          { "accessor": "megaParsecs", "id": "67" },
-          { "accessor": "megaLightYears", "id": "67" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "165" },
-          { "accessor": "megaParsecs", "id": "68" },
-          { "accessor": "megaLightYears", "id": "68" }
-        ]
-      ]
-    },
-    {
-      "id": "3",
-      "title": "Table #3 (left-top)",
-      "position": "left-top",
-      "colTitles": [
-        "Supernova",
-        "Apparent Magnitude (m)",
-        "Distance (MPc)",
-        "Distance (MLy)"
-      ],
-      "rowTitles": [["#4"], ["#5"], ["#6"]],
-      "rows": [
-        [
-          { "accessor": "magnitude", "id": "163" },
-          { "accessor": "megaParsecs", "id": "66" },
-          { "accessor": "megaLightYears", "id": "66" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "164" },
-          { "accessor": "megaParsecs", "id": "67" },
-          { "accessor": "megaLightYears", "id": "67" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "165" },
-          { "accessor": "megaParsecs", "id": "68" },
-          { "accessor": "megaLightYears", "id": "68" }
-        ]
-      ]
-    },
-    {
-      "id": "4",
-      "title": "Table #4 (left-bottom)",
-      "position": "left-bottom",
-      "colTitles": [
-        "Supernova",
-        "Apparent Magnitude (m)",
-        "Distance (MPc)",
-        "Distance (MLy)"
-      ],
-      "rowTitles": [["#4"], ["#5"], ["#6"]],
-      "rows": [
-        [
-          { "accessor": "magnitude", "id": "163" },
-          { "accessor": "megaParsecs", "id": "66" },
-          { "accessor": "megaLightYears", "id": "66" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "164" },
-          { "accessor": "megaParsecs", "id": "67" },
-          { "accessor": "megaLightYears", "id": "67" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "165" },
-          { "accessor": "megaParsecs", "id": "68" },
-          { "accessor": "megaLightYears", "id": "68" }
-        ]
+        [{"content": "Less than 100 000 LY away"}],
+        [{"content": "100,000 - 1.4 million LY"}],
+        [{"content": "1.4 - 5 million LY"}],
+        [{"content": "5 - 520 million LY"}]
       ]
     },
     {
       "id": "5",
-      "title": "Table #5 (default-positioned)",
+      "title": "Magnitudes & Distances",
       "colTitles": [
         "Supernova",
         "Apparent Magnitude (m)",

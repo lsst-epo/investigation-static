@@ -10,7 +10,7 @@
   "content": "<p>The two images below show a supernova discovered in the galaxy NGC 6946. The first image was taken before the explosion and the second was taken afterwards. Blink the two images and look for the supernova, which appears as a bright star in one image but not the other. When you spot the supernova, click on it.</p>",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abqmpsr.json",
+    "source": "/data/galaxies/ZTF19abucvgu_g_lightcurve.json",
     "options": {
       "showSelector": true,
       "toggleDataPointsVisibility": "50"

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "ZTF19abqqmui",
+    "band": "g",
+    "color": "#4c8cd2",
+    "distance": 213.8878328238106,
+    "Dec": 6.317683836,
+    "velocity": 14625.44589774079,
+    "RA": 330.4135403,
+    "redshift": 0.05,
+    "supernovaPoint": {"x": "600", "y": "600"},
+    "galaxyPoint": {"x": "700", "y": "460"},
+    "alerts": [
+      {
+        "alert_id": 166166993,
+        "error": 0.07,
+        "date": 58725.32416,
+        "magnitude": 17.95,
+        "image_id": 166166993
+      },
+      {
+        "alert_id": 173570303,
+        "error": 0.06,
+        "date": 58730.30054,
+        "magnitude": 17.96,
+        "image_id": 173570303
+      },
+      {
+        "alert_id": 181009323,
+        "error": 0.08,
+        "date": 58733.31741,
+        "magnitude": 18.06,
+        "image_id": 181009323
+      },
+      {
+        "alert_id": 194347771,
+        "error": 0.15,
+        "date": 58741.20722,
+        "magnitude": 18.68,
+        "image_id": 194347771
+      },
+      {
+        "alert_id": 205249677,
+        "error": 0.14,
+        "date": 58747.29667,
+        "magnitude": 19.28,
+        "image_id": 205249677
+      },
+      {
+        "alert_id": 220237781,
+        "error": 0.2,
+        "date": 58754.27372,
+        "magnitude": 19.89,
+        "image_id": 220237781
+      }
+    ]
+  }
+]

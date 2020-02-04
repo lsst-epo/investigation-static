@@ -18,6 +18,7 @@
   "tables": [
     {
       "id": "1",
+      "position": "left-middle",
       "colTitles": [
         "Supernova",
         "Apparent Magnitude (m)",

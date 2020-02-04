@@ -14,12 +14,13 @@ class XAxis extends React.PureComponent {
     const { scale } = this.props;
     const xAxis = d3AxisBottom(scale);
     const $xAxis = d3Select(this.xAxisContainer.current);
+    const day0 = scale.domain()[0];
 
     $xAxis
       .call(xAxis)
       .selectAll('.tick text')
-      .each(function renderTick(d, i, ticks) {
-        d3Select(this).text(d - d3Select(ticks[0]).datum());
+      .each(function renderTick(d) {
+        d3Select(this).text(d - day0);
       });
   }
 

@@ -124,13 +124,14 @@ export const query = graphql`
         tables {
           id
           title
+          position
           colTitles
           rowTitles
           rows {
             accessor
             id
+            content
           }
-          position
         }
         layout
         slug

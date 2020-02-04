@@ -16,7 +16,7 @@
   "content": "<p>You can determine the type of supernova by overlaying supernovae light curve templates. Try this out by selecting a template from the dropdown menu. Then drag the light curve template over your light curve graph to try to match it to your data points. Try a different template.  Repeat this process until you find the template that best fits your data.</p>",
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abqmpsr.json",
+    "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
     "options": {
   	  "showLightCurve": true,
   	  "chooseLightCurveTemplate": true,

@@ -7,9 +7,40 @@
   "previous": {"title": "Calculating the Distance to Supernovae", "link": "/distance-to-supernovae-2/"},
   "next": {"title": "Galaxy Distances in the Local Universe", "link": "/distance-to-supernovae-4/"},
   "layout": "TwoCol",
+  "tables": [
+    {
+      "id": "5",
+      "title": "Magnitudes & Distances",
+      "position": "left-top",
+      "colTitles": [
+        "Supernova",
+        "Apparent Magnitude (m)",
+        "Distance (MPc)",
+        "Distance (MLy)"
+      ],
+      "rowTitles": [["#4"], ["#5"], ["#6"]],
+      "rows": [
+        [
+          { "accessor": "magnitude", "id": "163" },
+          { "accessor": "megaParsecs", "id": "66" },
+          { "accessor": "megaLightYears", "id": "66" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "164" },
+          { "accessor": "megaParsecs", "id": "67" },
+          { "accessor": "megaLightYears", "id": "67" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "165" },
+          { "accessor": "megaParsecs", "id": "68" },
+          { "accessor": "megaLightYears", "id": "68" }
+        ]
+      ]
+    }
+  ],
   "widget": {
     "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/galaxy_selector.json",
+    "source": "/data/galaxies/three-as.json",
     "options": {
       "showSelector": true,
       "autoplay": true,
@@ -22,7 +53,7 @@
         {
           "id": "71",
           "questionType": "textArea",
-          "label": "<p>Look at the images of Supernovae 4, 5, and 6 again. Compare the relative size of each galaxy with the distance to the supernova in that galaxy. What relationship exists between the apparent size of the galaxy and its distance from Earth?</p>",
+          "label": "<p>Look at the images of Supernovae 4, 5, and 6. Compare the relative size of each galaxy with the distance to the supernova in that galaxy. What relationship exists between the apparent size of the galaxy and its distance from Earth?</p>",
           "answerAccessor": "text"
         }
       ]

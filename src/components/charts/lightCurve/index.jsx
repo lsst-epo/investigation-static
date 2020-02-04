@@ -10,7 +10,7 @@ import {
 } from 'd3-selection';
 import { zoomIdentity as d3ZoomIdentity } from 'd3-zoom';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
-import 'd3-transition';
+import { min as d3Min, max as d3Max, extent as d3Extent } from 'd3-array';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
 import Points from './Points.jsx';
@@ -26,15 +26,20 @@ class LightCurve extends React.PureComponent {
   constructor(props) {
     super(props);
     const {
-      xDomain,
-      yDomain,
-      width,
-      height,
-      padding,
-      offsetTop,
-      offsetRight,
+      // width,
+      // height,
+      // padding,
+      // offsetTop,
+      // offsetRight,
       activeTemplate,
+      // data,
+      // multiple,
+      // xValueAccessor,
+      // yValueAccessor,
     } = props;
+
+    // const xDomain = this.getDomain(data, multiple, xValueAccessor, 1);
+    // const yDomain = this.getDomain(data, multiple, yValueAccessor, -1);
 
     this.state = {
       selectedData: null,
@@ -43,8 +48,8 @@ class LightCurve extends React.PureComponent {
       tooltipPosY: 0,
       showTooltip: false,
       loading: true,
-      xScale: this.getXScale(xDomain, width, padding, offsetRight),
-      yScale: this.getYScale(yDomain, height, padding, offsetTop),
+      // xScale: this.getXScale(xDomain, width, padding, offsetRight),
+      // yScale: this.getYScale(yDomain, height, padding, offsetTop),
       lightCurveType: activeTemplate || '',
     };
 
@@ -54,15 +59,20 @@ class LightCurve extends React.PureComponent {
 
   componentDidMount() {
     const {
-      xDomain,
-      yDomain,
       width,
       height,
       padding,
       offsetTop,
       offsetRight,
       activeData,
+      data,
+      multiple,
+      xValueAccessor,
+      yValueAccessor,
     } = this.props;
+
+    const xDomain = this.getDomain(data, multiple, xValueAccessor, 1);
+    const yDomain = this.getDomain(data, multiple, yValueAccessor, -1);
 
     this.setState(prevState => ({
       ...prevState,
@@ -81,6 +91,40 @@ class LightCurve extends React.PureComponent {
     }
 
     this.checkActive(activeData, prevProps.activeData);
+  }
+
+  getDomain(data, multiple, accessor, direction) {
+    let min;
+    let max;
+
+    if (multiple) {
+      data.forEach(datum => {
+        const ext = d3Extent(datum.alerts, d => d[accessor]);
+        if (!min || !max) {
+          min = ext[0];
+          max = ext[1];
+        } else {
+          if (ext[0] < min) {
+            min = ext[0];
+          }
+
+          if (ext[1] > max) {
+            max = ext[1];
+          }
+        }
+      });
+    } else {
+      const domain = d3Extent(data, d => d[accessor]);
+      min = domain[0];
+      max = domain[1];
+    }
+
+    const extent = [Math.floor(min), Math.ceil(max)];
+    if (direction < 0) {
+      return extent.reverse();
+    }
+
+    return extent;
   }
 
   checkActive(data, prevData) {
@@ -265,12 +309,36 @@ class LightCurve extends React.PureComponent {
       preSelected,
       interactableTemplates,
       interactablePeakMag,
+      width,
+      height,
+      padding,
+      offsetTop,
+      offsetRight,
+      multiple,
+      xValueAccessor,
+      yValueAccessor,
+      data,
     } = this.props;
-    this.updatePoints();
 
-    if (!preSelected && !interactableTemplates && !interactablePeakMag) {
-      this.addEventListeners();
-    }
+    const xDomain = this.getDomain(data, multiple, xValueAccessor, 1);
+    const yDomain = this.getDomain(data, multiple, yValueAccessor, -1);
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        xScale: this.getXScale(xDomain, width, padding, offsetRight),
+        yScale: this.getYScale(yDomain, height, padding, offsetTop),
+      }),
+      () => {
+        this.updatePoints();
+
+        if (!preSelected && !interactableTemplates && !interactablePeakMag) {
+          this.addEventListeners();
+        }
+      }
+    );
+
+    // this.updatePoints();
   }
 
   generateNavItems(navItems) {
@@ -319,6 +387,7 @@ class LightCurve extends React.PureComponent {
       activePeakMag,
       peakMagAnswerId,
       templateAnswerId,
+      pointColor,
     } = this.props;
 
     const {
@@ -415,17 +484,20 @@ class LightCurve extends React.PureComponent {
               </defs>
               <g clipPath="url('#clip')" className={pointsClasses}>
                 {data &&
+                  xScale &&
+                  yScale &&
                   multiple &&
                   data.map((curve, i) => {
+                    const { alerts, name, color } = curve;
                     if (!curve.alerts) return null;
-                    const key = `${curve.name}-${i}`;
+                    const key = `${name}-${i}`;
 
                     return (
                       <Points
                         key={key}
                         pointClasses={key}
-                        data={curve.alerts}
-                        pointColor={curve.color}
+                        data={alerts}
+                        pointColor={color}
                         selectedData={selectedData}
                         hoveredData={hoverPointData}
                         xScale={xScale}
@@ -435,9 +507,10 @@ class LightCurve extends React.PureComponent {
                       />
                     );
                   })}
-                {data && !multiple && (
+                {data && xScale && yScale && !multiple && (
                   <Points
                     data={data}
+                    pointColor={pointColor}
                     selectedData={selectedData}
                     hoveredData={hoverPointData}
                     xScale={xScale}
@@ -447,22 +520,26 @@ class LightCurve extends React.PureComponent {
                   />
                 )}
               </g>
-              <XAxis
-                label={xAxisLabel}
-                height={height}
-                width={width}
-                padding={padding}
-                offsetTop={offsetTop}
-                offsetRight={offsetRight}
-                scale={xScale}
-              />
-              <YAxis
-                label={yAxisLabel}
-                height={height}
-                padding={padding}
-                offsetTop={offsetTop}
-                scale={yScale}
-              />
+              {xScale && (
+                <XAxis
+                  label={xAxisLabel}
+                  height={height}
+                  width={width}
+                  padding={padding}
+                  offsetTop={offsetTop}
+                  offsetRight={offsetRight}
+                  scale={xScale}
+                />
+              )}
+              {yScale && (
+                <YAxis
+                  label={yAxisLabel}
+                  height={height}
+                  padding={padding}
+                  offsetTop={offsetTop}
+                  scale={yScale}
+                />
+              )}
             </svg>
           </div>
         </NavDrawer>
@@ -521,6 +598,7 @@ LightCurve.propTypes = {
   activePeakMag: PropTypes.object,
   peakMagAnswerId: PropTypes.string,
   templateAnswerId: PropTypes.string,
+  pointColor: PropTypes.string,
 };
 
 export default LightCurve;
