@@ -1,39 +1,26 @@
 .legend {
-  position: absolute;
-  top: 0;
-  right: 0.5rem;
-  z-index: 20;
+  // position: absolute;
+  // top: 0;
+  // right: 0.5rem;
+  // z-index: 20;
   display: flex;
   flex-flow: row nowrap;
 }
 
 .legend-box {
-  padding: 0.4rem 0.6rem;
-  margin-right: 0.4rem;
+  padding: 0;
   text-align: center;
-  background: $neutral20;
 
-  p {
-    font-size: 0.8rem;
-    line-height: 1.1;
-
-    &:last-child {
-      font-size: 1rem;
-      line-height: 1.8;
-    }
+  + .legend-box {
+    margin-left: $minPadding;
   }
 }
 
 .detail {
+  @include labelPrimary;
   margin: 0;
-  font-weight: 500;
-  color: $black;
 }
 
 .output {
-  min-height: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 1;
-  color: $black;
+  font-weight: $medium;
 }

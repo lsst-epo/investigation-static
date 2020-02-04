@@ -222,32 +222,20 @@ class GalaxySelectorContainer extends React.PureComponent {
     return (
       <>
         <NavDrawer
+          showNavDrawer
+          interactableToolbar
           classes={styles.galaxyNavDrawer}
           cardClasses={styles.container}
           contentClasses={styles.galaxyDrawerContent}
           drawerClasses={styles.galaxyDrawer}
           navItems={this.generateNavItems(data)}
-          toolbarStyles={{
-            backgroundColor: activeGalaxy ? activeGalaxy.color : 'transparent',
-          }}
-          toolbarTitle={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
-          toolbarActions={
-            <>
-              <Legend {...{ activeGalaxy, selectedData }} />
-              {/* <Button
-                primary
-                flat
-                iconBefore={false}
-                onClick={this.handleSlideOutPlot}
-                iconEl={!openScatterPlot ? <ScatterPlotIcon /> : <CloseIcon />}
-              >
-                {!openScatterPlot ? 'Open Hubble Plot' : 'Close Hubble Plot'}
-              </Button> */}
-            </>
+          toolbarStyles={
+            activeGalaxy ? { backgroundColor: activeGalaxy.color } : null
           }
+          toolbarTitle={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
+          toolbarActions={<Legend {...{ activeGalaxy, selectedData }} />}
         >
           <div className="galaxy-selector-images--container">
-            {/* <Legend {...{ activeGalaxy, selectedData }} /> */}
             <GalaxySelector
               className={`galaxy-selector-${data.name}`}
               {...{ selectedData, activeGalaxy }}
