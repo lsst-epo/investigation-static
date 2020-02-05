@@ -1,10 +1,12 @@
 import { addCallback, addReducer, setGlobal } from 'reactn';
 import ls from 'local-storage';
+import filter from 'lodash/filter';
+import uniq from 'lodash/uniq';
 
 class GlobalStore {
-  constructor(investigationId) {
+  constructor(initialGlobals) {
     this.emptyState = {
-      investigation: investigationId,
+      investigation: null,
       questions: null,
       answers: {},
       pageId: null,
@@ -14,10 +16,15 @@ class GlobalStore {
       clusterB: [],
       userDefinedRegions: [],
       investigationProgress: {},
+      totalPages: null,
+      totalQAsByInvestigation: null,
+      totalQAsByPage: null,
+      ...initialGlobals,
     };
+    const { investigation } = this.emptyState;
 
     // const existingState = this.emptyState;
-    const existingState = ls(investigationId) || this.emptyState;
+    const existingState = ls(investigation) || this.emptyState;
 
     setGlobal(existingState);
   }
@@ -39,110 +46,53 @@ class GlobalStore {
     });
 
     addReducer('updatePageId', (global, dispatch, pageId) => {
-      const { investigationProgress: prevIPS, pageId: prevPageId } = global;
-      const progress = prevIPS[prevPageId];
+      const { pageId: prevPageId, totalQAsByPage: prevTotals } = global;
 
-      if (!progress) {
+      if (!prevPageId) {
         return {
           ...global,
           pageId,
         };
       }
 
-      const { questions, answers } = progress;
-      if (questions === null && answers === null) {
-        return {
-          ...global,
-          pageId,
-          investigationProgress: {
-            ...prevIPS,
-            [prevPageId]: {
-              questions,
-              answers,
-              progress: 1,
-            },
-          },
-        };
-      }
+      const prevPageTotals = prevTotals[prevPageId];
+      const { questions, progress: prevProgress } = prevPageTotals;
+      const progress = questions.length === 0 ? 1 : prevProgress;
 
       return {
         ...global,
         pageId,
+        totalQAsByPage: {
+          ...prevTotals,
+          [prevPageId]: {
+            ...prevPageTotals,
+            progress,
+          },
+        },
       };
     });
 
     addReducer(
-      'setInvestigationProgress',
-      (global, dispatch, pageId, pageQuestionsData = null) => {
-        const {
-          investigationProgress: prevIPS,
-          answers: globalAnswers,
-          pageId: currentPageId,
-        } = global;
-
-        if (pageQuestionsData === null) {
-          return {
-            ...global,
-            investigationProgress: {
-              ...prevIPS,
-              [pageId]: {
-                questions: null,
-                answers: null,
-                progress: currentPageId === pageId ? 1 : 0,
-              },
-            },
-          };
-        }
-
-        const questions = [];
-        const answers = [];
-        pageQuestionsData.forEach(qData => {
-          qData.question.forEach(question => {
-            const { id: qId } = question;
-            questions.push(qId);
-            if (globalAnswers[qId]) {
-              answers.push(qId);
-            }
-          });
-        });
-
-        return {
-          ...global,
-          investigationProgress: {
-            ...prevIPS,
-            [pageId]: {
-              questions,
-              answers,
-              progress: answers.length / questions.length,
-            },
-          },
-        };
-      }
-    );
-
-    addReducer(
       'updateProgressByPage',
       (global, dispatch, pageId, qId, answered) => {
-        const { investigationProgress: prevIPS } = global;
-        const { questions, answers: prevAnswers } = prevIPS[pageId];
-        const indexOfprevAnswered = prevAnswers.indexOf(qId);
-        const prevAnswered = indexOfprevAnswered >= 0;
-        const answers = [...prevAnswers];
+        const { totalQAsByPage: prevTotals } = global;
+        const prevPageTotals = prevTotals[pageId];
+        const { questions, answers: prevAnswers } = prevTotals[pageId];
+        const qLength = questions.length;
 
-        if (prevAnswered && !answered) {
-          answers.splice(indexOfprevAnswered, 1);
-        } else if (!prevAnswered && answered) {
-          answers.push(qId);
-        }
+        const answers = answered
+          ? uniq([...prevAnswers, qId])
+          : filter(prevAnswers, qId);
+        const progress = qLength === 0 ? 1 : answers.length / qLength;
 
         return {
           ...global,
-          investigationProgress: {
-            ...prevIPS,
+          totalQAsByPage: {
+            ...prevTotals,
             [pageId]: {
-              questions,
+              ...prevPageTotals,
               answers,
-              progress: answers.length / questions.length,
+              progress,
             },
           },
         };

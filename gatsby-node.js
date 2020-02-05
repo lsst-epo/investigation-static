@@ -100,18 +100,18 @@ exports.createPages = async ({ graphql, actions }) => {
   // });
 
   pages.data.allPagesJson.nodes.forEach(page => {
-    const { id, slug, investigation, order } = page;
+    const { id, slug, investigation } = page;
 
-    if (order === '00') {
-      createPage({
-        path: `/${investigation}`,
-        component: path.resolve(`./src/containers/PageContainer.jsx`),
-        context: {
-          id,
-          investigation,
-        },
-      });
-    }
+    // if (order === '00') {
+    //   createPage({
+    //     path: `/${investigation}`,
+    //     component: path.resolve(`./src/containers/PageContainer.jsx`),
+    //     context: {
+    //       id,
+    //       investigation,
+    //     },
+    //   });
+    // }
 
     createPage({
       path: `/${investigation}/${slug}`,
