@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import reactn from 'reactn';
-import { Link, graphql, StaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import filter from 'lodash/filter';
 import classnames from 'classnames';
@@ -21,16 +21,6 @@ class TableOfContents extends React.PureComponent {
       },
       { divider: true },
     ];
-
-    const { navLinks } = props;
-    this.updateInvestigationProgress(navLinks);
-  }
-
-  updateInvestigationProgress(pages) {
-    pages.forEach(page => {
-      const { id, questionsByPage: questions } = page;
-      this.dispatch.setInvestigationProgress(id, questions);
-    });
   }
 
   getNavLinks(navLinks, investigation, useBaseUrl) {
@@ -60,8 +50,8 @@ class TableOfContents extends React.PureComponent {
   }
 
   checkQAProgress = pageId => {
-    const { investigationProgress: ips } = this.global;
-    const { progress } = ips[pageId];
+    const { totalQAsByPage } = this.global;
+    const { progress } = totalQAsByPage[pageId];
 
     return progress === 1;
   };
@@ -98,28 +88,30 @@ TableOfContents.propTypes = {
   investigation: PropTypes.string,
 };
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query MyQuery {
-        allPagesJson(sort: { fields: order, order: ASC }) {
-          nodes {
-            title
-            slug
-            id
-            investigation
-            order
-            questionsByPage {
-              question {
-                id
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={data => (
-      <TableOfContents {...props} navLinks={data.allPagesJson.nodes} />
-    )}
-  />
-);
+export default TableOfContents;
+// export default props => (
+//   <StaticQuery
+//     query={graphql`
+//       query MyQuery {
+//         allPagesJson(sort: { fields: order, order: ASC }) {
+//           nodes {
+//             title
+//             slug
+//             id
+//             investigation
+//             order
+//             questionsByPage {
+//               question {
+//                 id
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `}
+//     render={data => (
+//       <TableOfContents {...props} navLinks={data.allPagesJson.nodes} />
+//     )}
+//   />
+// );
+//
