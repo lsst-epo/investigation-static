@@ -177,7 +177,7 @@ export const solveForMegaParsecs = parsecs => {
 export const solveForLightYears = parsecs => {
   if (parsecs !== '?') {
     const ly = parsecs * 3.26156;
-    return formatValue(ly, 2);
+    return formatValue(ly, 0);
   }
   return '?';
 };
