@@ -15,8 +15,8 @@ class GlobalStore {
       clusterA: [],
       clusterB: [],
       userDefinedRegions: [],
-      investigationProgress: {},
       totalPages: null,
+      visitedPages: [],
       totalQAsByInvestigation: null,
       totalQAsByPage: null,
       ...initialGlobals,
@@ -46,7 +46,11 @@ class GlobalStore {
     });
 
     addReducer('updatePageId', (global, dispatch, pageId) => {
-      const { pageId: prevPageId, totalQAsByPage: prevTotals } = global;
+      const {
+        pageId: prevPageId,
+        totalQAsByPage: prevTotals,
+        visitedPages,
+      } = global;
 
       if (!prevPageId) {
         return {
@@ -62,6 +66,7 @@ class GlobalStore {
       return {
         ...global,
         pageId,
+        visitedPages,
         totalQAsByPage: {
           ...prevTotals,
           [prevPageId]: {
