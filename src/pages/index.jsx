@@ -29,7 +29,9 @@ class IndexPage extends React.PureComponent {
           const { id, title } = investigation;
           return (
             <div key={id}>
-              <Link to={`/${id}/introduction`}>Go to {title} Investigation</Link>
+              <Link to={`/${id}/introduction`}>
+                Go to {title} Investigation
+              </Link>
             </div>
           );
         })}
