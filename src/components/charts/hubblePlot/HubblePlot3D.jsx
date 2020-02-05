@@ -6,15 +6,15 @@ import partition from 'lodash/partition';
 import { hubblePlot } from './hubble-plot.module.scss';
 
 class HubblePlot3D extends React.PureComponent {
-  componentDidMount() {
-    const { data, options } = this.props;
-    console.log('component did mount', data, options); // eslint-disable-line no-console
-  }
+  // componentDidMount() {
+  //   const { data, options } = this.props;
+  //   console.log('component did mount', data, options); // eslint-disable-line no-console
+  // }
 
-  componentDidUpdate() {
-    const { data, options } = this.props;
-    console.log('component did update', data, options); // eslint-disable-line no-console
-  }
+  // componentDidUpdate() {
+  //   const { data, options } = this.props;
+  //   console.log('component did update', data, options); // eslint-disable-line no-console
+  // }
 
   getAxisInfo(axisName) {
     return {
@@ -44,7 +44,13 @@ class HubblePlot3D extends React.PureComponent {
     const [labels, noLabels] = partition(data, o => o.label);
 
     return {
-      grid3D: {},
+      grid3D: {
+        bottom: '20%',
+        viewControl: {
+          projection: 'perspective',
+          distance: 220,
+        },
+      },
       xAxis3D: this.getAxisInfo('Distance'),
       yAxis3D: this.getAxisInfo('Redshift'),
       zAxis3D: this.getAxisInfo('Velocity'),
@@ -90,11 +96,14 @@ class HubblePlot3D extends React.PureComponent {
 
   render() {
     const { data } = this.props;
-
     return (
       <>
         {data && (
-          <ReactEcharts className={hubblePlot} option={this.getOption(data)} />
+          <ReactEcharts
+            className={hubblePlot}
+            style={{ width: '100%', height: '80%' }}
+            option={this.getOption(data)}
+          />
         )}
       </>
     );
@@ -103,7 +112,7 @@ class HubblePlot3D extends React.PureComponent {
 
 HubblePlot3D.propTypes = {
   data: PropTypes.array,
-  options: PropTypes.object,
+  // options: PropTypes.object,
 };
 
 export default HubblePlot3D;
