@@ -125,7 +125,12 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     return galaxies.map(galaxy => {
       const { name, color } = galaxy;
       return {
-        leftAvatar: <Star style={{ fill: color }} />,
+        leftAvatar: (
+          <span>
+            <Star style={{ fill: color }} />
+            <span className="screen-reader-only">{name}</span>
+          </span>
+        ),
         primaryText: name,
         className: classnames(styles.galaxyItem, {
           [styles.linkActive]: activeGalaxy === galaxy,

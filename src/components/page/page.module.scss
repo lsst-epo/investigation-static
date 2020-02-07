@@ -37,6 +37,9 @@
 
 .grid-title {
   grid-area: grid-title;
+  font-size: 24px;
+  line-height: 32px;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .grid-copy {
@@ -46,7 +49,9 @@
 .grid-qas {
   grid-area: grid-qas;
 
-  + .grid-widget, + .grid-image, + .grid-table-bottom {
+  + .grid-widget,
+  + .grid-image,
+  + .grid-table-bottom {
     margin-top: $minPadding;
   }
 }

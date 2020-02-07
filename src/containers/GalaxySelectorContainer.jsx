@@ -87,6 +87,13 @@ class GalaxySelectorContainer extends React.PureComponent {
     }));
   };
 
+  closeScatterPlot = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      openScatterPlot: false,
+    }));
+  };
+
   gotToPrevGalaxy = () => {
     this.goToGalaxy(-1);
   };
@@ -140,7 +147,12 @@ class GalaxySelectorContainer extends React.PureComponent {
       const disabled = false;
 
       return {
-        leftAvatar: <Star style={{ fill: color }} />,
+        leftAvatar: (
+          <span>
+            <Star style={{ fill: color }} />
+            <span className="screen-reader-only">{name}</span>
+          </span>
+        ),
         primaryText: name,
         className: classnames(styles.galaxyItem, {
           [styles.linkActive]: active,
@@ -234,6 +246,7 @@ class GalaxySelectorContainer extends React.PureComponent {
           }
           toolbarTitle={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
           toolbarActions={<Legend {...{ activeGalaxy, selectedData }} />}
+          menuOpenCallback={this.closeScatterPlot}
         >
           <div className="galaxy-selector-images--container">
             <GalaxySelector
