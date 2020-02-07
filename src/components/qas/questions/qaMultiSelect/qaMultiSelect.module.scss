@@ -1,0 +1,71 @@
+:global {
+  @include react-md-menus-media;
+  @include react-md-selection-controls;
+
+  .qa-multi-select {
+    label,
+    .label-pre,
+    .label-post {
+      @include copySecondary;
+      line-height: $baseLineHeight;
+    }
+
+    select {
+      @include copyPrimary;
+    }
+
+    &:not(.answerable) {
+      .select-wrapper::after {
+        border-top-color: $neutral20;
+      }
+
+      select,
+      label,
+      .label-pre,
+      .label-post,
+      .multi-select--options {
+        position: relative;
+        color: $neutral20;
+        pointer-events: none;
+      }
+
+      select {
+        &:focus,
+        &:hover {
+          + hr {
+            max-height: 1px;
+            background-color: $neutral20;
+          }
+        }
+      }
+
+      hr {
+        max-height: 1px;
+        background-color: $neutral20;
+      }
+    }
+
+    &.answerable {
+      label,
+      .label-pre {
+        color: $basePrimary;
+      }
+    }
+  }
+}
+
+.multi-select-dropdown {
+  position: relative;
+
+  :global .md-list--menu {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .selected-options {
+    @include copyPrimary;
+    height: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid $black;
+  }
+}

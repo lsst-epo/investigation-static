@@ -16,6 +16,7 @@ export const WithQAing = ComposedComponent => {
         text: this.getTextContent,
         'compound-select': this.getSelectContent,
         select: this.getSelectContent,
+        'multi-select': this.getMultiSelectContent,
         count: this.getCountContent,
         'light-curve-template': this.getTemplateContent,
         magnitude: this.getMagnitudeContent,
@@ -58,6 +59,10 @@ export const WithQAing = ComposedComponent => {
     // Methods related to updating answers
     getSelectContent(data) {
       return isObject(data) ? 'DEFAULT' : data;
+    }
+
+    getMultiSelectContent(data) {
+      return data.length ? data.join(', ') : 'None Select';
     }
 
     getTemplateContent(data) {

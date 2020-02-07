@@ -6,6 +6,7 @@ import QATextInput from './questions/qaTextInput';
 import QASelect from './questions/qaSelect';
 import DistanceCalculator from './questions/qaCalculators/distanceCalculator';
 import Prompt from './questions/Prompt';
+import QAMultiSelect from './questions/qaMultiSelect/index.jsx';
 
 const questions = {
   accordion: QAExpansionList,
@@ -14,6 +15,7 @@ const questions = {
   select: QASelect,
   compoundSelect: QASelect,
   'inline-select': QASelect,
+  multiSelect: QAMultiSelect,
   DistanceCalculator,
   prompt: Prompt,
 };
