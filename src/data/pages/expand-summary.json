@@ -14,27 +14,6 @@
     {
       "question": [
         {
-          "id": "27",
-          "questionType": "select",
-          "title": "Question #1",
-          "labelPre": "(Choose the two variables that best complete this sentence) To construct a Hubble Plot you need to determine the ",
-          "labelPost": " of galaxies.",
-          "options": [
-            {"label": "color", "value": "color"},
-            {"label": "brightness", "value": "brightness"},
-            {"label": "distance", "value": "distance"},
-            {"label": "recessional velocity", "value": "recessional velocity"},
-            {"label": "age", "value": "age"}
-          ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
           "id": "28",
           "questionType": "compoundSelect",
           "compoundQuestion": ["28", "29"],
@@ -71,14 +50,11 @@
     {
       "question": [
         {
-          "id": "30",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["30", "31"],
-          "labelPre": "To construct a Hubble Plot, for the vertical axis you would plot the ",
-          "labelPost": " of galaxies",
-          "srLabel": "...",
-          "answerAccessor": "compound-select",
-          "placeholder": "Select",
+          "id": "27",
+          "questionType": "multiSelect",
+          "title": "Question #1",
+          "labelPre": "(Choose the two variables that best complete this sentence) To construct a Hubble Plot you need to determine the ",
+          "labelPost": " of galaxies.",
           "options": [
             {"label": "color", "value": "color"},
             {"label": "brightness", "value": "brightness"},
@@ -86,27 +62,9 @@
             {"label": "recessional velocity", "value": "recessional velocity"},
             {"label": "age", "value": "age"}
           ],
-          "answerPre": " ",
-          "answerPost": "."
-        },
-        {
-          "id": "31",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["30", "31"],
-          "labelPre": " and on the horizontal axis their ",
-          "labelPost": ".",
-          "srLabel": "...",
-          "answerAccessor": "compound-select",
           "placeholder": "Select",
-          "options": [
-            {"label": "color", "value": "color"},
-            {"label": "brightness", "value": "brightness"},
-            {"label": "distance", "value": "distance"},
-            {"label": "recessional velocity", "value": "recessional velocity"},
-            {"label": "age", "value": "age"}
-          ],
-          "answerPre": " ",
-          "answerPost": "."
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "multi-select"
         }
       ]
     },

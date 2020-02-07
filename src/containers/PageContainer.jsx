@@ -171,7 +171,6 @@ export const query = graphql`
             autoplay
             preSelected
             multiple
-            legend
             domain
           }
         }

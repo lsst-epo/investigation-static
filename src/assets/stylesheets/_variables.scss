@@ -39,6 +39,7 @@ $md-error-color: $error;
 $md-data-table-contextual-fallback-color: rgba($basePrimary, 0.32);
 $md-linear-progress-fallback-color: rgba($basePrimary, 0.54);
 $md-switch-fallback-color: rgba($basePrimary, 0.87);
+$md-switch-ball-fallback-color: $md-switch-fallback-color;
 
 $md-slider-warn-md: false; // only need to set this if using the dark theme.
 
