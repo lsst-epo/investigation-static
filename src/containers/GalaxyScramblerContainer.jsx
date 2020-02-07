@@ -96,7 +96,12 @@ class GalaxyScramblerContainer extends React.PureComponent {
     return scrambles.map(scramble => {
       const { name, color } = scramble;
       return {
-        leftAvatar: <Star style={{ fill: color }} />,
+        leftAvatar: (
+          <span>
+            <Star style={{ fill: color }} />
+            <span className="screen-reader-only">{name}</span>
+          </span>
+        ),
         primaryText: name,
         className: classnames(scrambleItem, {
           [linkActive]: activeScramble.name === scramble.name,

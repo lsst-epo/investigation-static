@@ -6,8 +6,11 @@ import ViewListIcon from '../../../../site/icons/ViewList';
 import CloseIcon from '../../../../site/icons/Close';
 
 import { toolbar, menuToggle } from './toolbar.module.scss';
+import ButtonIcon from '../../../../site/button/ButtonIcon';
 
 class NavDrawerToolbar extends React.PureComponent {
+  icon = (Icon, srText) => <ButtonIcon srText={srText} Icon={Icon} />;
+
   render() {
     const {
       title,
@@ -30,7 +33,11 @@ class NavDrawerToolbar extends React.PureComponent {
             primary
             flat
             onClick={menuIsOpen ? onMenuClose : onMenuOpen}
-            iconEl={menuIsOpen ? <CloseIcon /> : <ViewListIcon />}
+            iconEl={
+              menuIsOpen
+                ? this.icon(CloseIcon, 'Close')
+                : this.icon(ViewListIcon, 'Open')
+            }
           >
             {menuIsOpen ? 'Close Nav Drawer' : 'Open Nav Drawer'}
           </Button>

@@ -12,7 +12,7 @@ class Table extends React.PureComponent {
     const { colTitles, includeRowTitles, rows, className } = this.props;
 
     return (
-      <DataTable plain fullWidth className={className}>
+      <DataTable plain fullWidth tabIndex="0" className={className}>
         {colTitles && (
           <TableHeader>
             <TableRow>

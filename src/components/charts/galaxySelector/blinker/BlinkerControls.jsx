@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../site/button';
+import ButtonIcon from '../../../site/button/ButtonIcon';
 import Rewind from '../../../site/icons/Rewind';
 import FastForward from '../../../site/icons/FastForward';
 import Pause from '../../../site/icons/Pause';
@@ -20,19 +21,19 @@ const BlinkerControls = ({
       <Button
         className={control}
         icon
-        iconEl={<Rewind />}
+        iconEl={<ButtonIcon srText="Rewind" Icon={Rewind} />}
         onClick={handlePrevious}
       />
       <Button
         className={control}
         icon
-        iconEl={<StartStopTag />}
+        iconEl={<ButtonIcon srText="Start/Stop" Icon={StartStopTag} />}
         onClick={handleStartStop}
       />
       <Button
         className={control}
         icon
-        iconEl={<FastForward />}
+        iconEl={<ButtonIcon srText="Fast Forward" Icon={FastForward} />}
         onClick={handleNext}
       />
     </div>

@@ -21,9 +21,9 @@ class Page extends React.PureComponent {
     return (
       <div className={styles.singleColGrid}>
         {/* <section> */}
-        <h2 className={`space-bottom section-title ${styles.gridTitle}`}>
+        <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
           {title}
-        </h2>
+        </h1>
         <div
           className={styles.gridCopy}
           dangerouslySetInnerHTML={renderDef(content)}
