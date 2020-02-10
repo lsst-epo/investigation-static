@@ -50,7 +50,7 @@ class TableOfContents extends React.PureComponent {
   }
 
   checkQAProgress = pageId => {
-    const { totalQAsByPage } = this.global;
+    const { totalQAsByPage, visitedPages, totalPages } = this.global;
     const { progress } = totalQAsByPage[pageId];
 
     return progress === 1;

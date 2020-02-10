@@ -2,6 +2,7 @@ import { addCallback, addReducer, setGlobal } from 'reactn';
 import ls from 'local-storage';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
+import isEqual from 'lodash/isEqual';
 
 class GlobalStore {
   constructor(initialGlobals) {
@@ -36,6 +37,16 @@ class GlobalStore {
     });
   }
 
+  containsObject(obj, list) {
+    for (let i = 0; i < list.length; i += 1) {
+      if (isEqual(list[i], obj)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   addReducers() {
     addReducer('empty', () => {
       return this.emptyState;
@@ -54,10 +65,20 @@ class GlobalStore {
           pageId,
         };
       }
-
       const prevPageTotals = prevTotals[prevPageId];
       const { questions, progress: prevProgress } = prevPageTotals;
       const progress = questions.length === 0 ? 1 : prevProgress;
+
+      const keys = Object.keys(prevTotals);
+      for (let i = 0; i < keys.length; i += 1) {
+        const key = keys[i];
+        if (
+          prevTotals[key].progress === 1 &&
+          !this.containsObject(prevTotals[key], visitedPages)
+        ) {
+          visitedPages.push(prevTotals[key]);
+        }
+      }
 
       return {
         ...global,
