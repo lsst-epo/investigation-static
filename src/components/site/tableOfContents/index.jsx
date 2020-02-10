@@ -49,9 +49,10 @@ class TableOfContents extends React.PureComponent {
   }
 
   checkQAProgress = pageId => {
-    const { totalQAsByPage } = this.global;
+    const { totalQAsByPage, visitedPages, totalPages } = this.global;
     const { progress } = totalQAsByPage[pageId];
-
+    console.log(visitedPages.length);
+    console.log(totalPages);
     return progress === 1;
   };
 
@@ -65,7 +66,6 @@ class TableOfContents extends React.PureComponent {
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
     const { visible, navLinks, investigation } = this.props;
-
     return (
       <Drawer
         type={TEMPORARY}
