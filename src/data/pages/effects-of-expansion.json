@@ -1,0 +1,33 @@
+{
+  "id": "observable4",
+  "investigation": "observable-universe",
+  "order": "04",
+  "title": "Effects of Expansion",
+  "slug": "effects-of-expansion/",
+  "previous": {
+    "title": "Exploring the Deep",
+    "link": "/exploring-the-deep/"
+  },
+  "next": {
+    "title": "Exploring the Relationship between Color & Distance",
+    "link": "/color-and-distance/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Suppose there are three galaxies that have the same shape, mass, size, and color. If all three galaxies were the same distance from Earth they would look identical. Now imagine how these same three galaxies would look at different distances from Earth.</p>",
+  "image": {
+    "mediaPath": "/images/three-galaxies.png",
+    "altText": "Three galaxies at increasing distances from Earth. A is closest, C is farthest."
+  },
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "5",
+          "questionType": "text",
+          "label": "Are the apparent sizes and brightnesses of these three galaxies consistent with the trends you identified in the previous two questions?",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

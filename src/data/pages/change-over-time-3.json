@@ -1,0 +1,64 @@
+{
+  "id": "observable13",
+  "investigation": "observable-universe",
+  "order": "13",
+  "title": "Observing How the Universe Changed over Time",
+  "slug": "change-over-time-3/",
+  "previous": {
+    "title": "Observing How the Universe Changed over Time",
+    "link": "/change-over-time-2/"
+  },
+  "next": {
+    "title": "Observing How the Universe Changed over Time",
+    "link": "/change-over-time-4/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Here is a series of maps that show the concentration of galaxies at certain distances away from Earth. Each map can be thought of as a view back to a particular time in the history of the Universe—at greater distances we see the Universe as it was at earlier times.</p><p>Use the tool below to explore how the Universe has changed over time. Explore each map in all directions.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "23",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Look at the map of the farthest distance. Does this map represent a time long ago (early in the Universe) or a recent time (later in the history of the Universe)?",
+          "options": [
+            {"label": "long ago", "value": "long ago"},
+            {"label": "recent", "value": "recent"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "24",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Look at the map of the closest distance. Does this map represent a time long ago (early in the Universe) or a recent time (later in the history of the Universe)?",
+          "options": [
+            {"label": "long ago", "value": "long ago"},
+            {"label": "recent", "value": "recent"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "25",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "<p>Describe how the <u>distribution</u> of galaxies in the Universe has changed over time. When were large numbers of galaxies clumped together (more concentrated) in some places? When were galaxies distributed more evenly?</p>"
+        }
+      ]
+    }
+  ]
+}

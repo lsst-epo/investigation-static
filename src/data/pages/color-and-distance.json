@@ -1,0 +1,106 @@
+{
+  "id": "observable5",
+  "investigation": "observable-universe",
+  "order": "05",
+  "title": "Exploring the Relationship between Color & Distance",
+  "slug": "color-and-distance/",
+  "previous": {
+    "title": "Effects of Expansion",
+    "link": "/effects-of-expansion/"
+  },
+  "next": {
+    "title": "The Cosmological Principle",
+    "link": "/cosmological-principle/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>You will now explore the different galaxies in this image by using a plot of color vs distance. On this plot, <u>smaller</u> flux ratio numbers are <u>redder</u> colors.  Let’s think about how this happens.  Recall from the Hubble-Lemaitre Law that the Universe is expanding, and this expansion causes light waves to appear to be stretched to longer wavelengths. This is called <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/c/cosmological+redshift'>cosmological redshift</a>.</p>",
+  "image": {
+    "mediaPath": "/images/observable-galaxies.png",
+    "altText": "A vast array of visible galaxies"
+  },
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "6",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "Based on the data in this plot, galaxies that are far away appear ",
+          "labelPost": " , as compared to nearby galaxies.",
+          "options": [
+            {"label": "redder", "value": "redder"},
+            {"label": "less red", "value": "less red"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "7",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "As the Universe expands and a galaxy’s light is stretched to longer wavelengths, would the light you observe from this galaxy appear ",
+          "labelPost": " .",
+          "options": [
+            {"label": "redder", "value": "redder"},
+            {"label": "less red", "value": "less red"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "8",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "Light that travels a large distance (and for a long time) while the Universe is expanding will be redshifted ",
+          "labelPost": " than light that travels a short distance.",
+          "options": [
+            {"label": "more", "value": "more"},
+            {"label": "less", "value": "less"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "9",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "Galaxies that are very far away will appear ",
+          "labelPost": " than galaxies that are near Earth.",
+          "options": [
+            {"label": "redder", "value": "redder"},
+            {"label": "less red", "value": "less red"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "10",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Using all of the three properties (apparent size, color and brightness) you have established thus far in the investigation, which of the three galaxies (A, B or C) is farthest from Earth?  Explain your answer."
+        }
+      ]
+    }
+  ]
+}
