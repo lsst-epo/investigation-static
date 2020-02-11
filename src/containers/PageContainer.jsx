@@ -147,6 +147,10 @@ export const query = graphql`
         widget {
           type
           source
+          layout {
+            col
+            row
+          }
           options {
             showSelector
             showLightCurve
