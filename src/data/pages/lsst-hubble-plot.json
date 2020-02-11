@@ -14,17 +14,23 @@
   },
   "layout": "TwoCol",
   "content": "<p>Your Hubble plot was made from observations for a small sample of galaxies. LSST will detect millions of supernovae in host galaxies that are much farther away and dimmer than the galaxies you have investigated so far. This plot shows the galaxies you plotted in color, and data for over a thousand supernovae and galaxies detected by LSST in grey.</p><p>Notice not all the data points fit onto the trendline.</p>",
-  "widget": {
-    "type": "HubblePlot",
-    "source": "/data/galaxies/large_hubble_sample.json",
-    "options": {
-      "showUserHubblePlot": "252",
-      "preSelected": true,
-      "multiple": true,
-      "hubbleConstant": 69.8,
-      "domain": [[0, 5000], [0, 175000]]
+  "widgets": [
+    {
+      "type": "HubblePlot",
+      "source": "/data/galaxies/large_hubble_sample.json",
+      "layout": {
+        "col": "right",
+        "row": "bottom"
+      },
+      "options": {
+        "showUserHubblePlot": "252",
+        "preSelected": true,
+        "multiple": true,
+        "hubbleConstant": 69.8,
+        "domain": [[0, 5000], [0, 175000]]
+      }
     }
-  },
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -45,8 +51,14 @@
           "labelPre": "The data does not fit the trendline for ",
           "labelPost": " .",
           "options": [
-            {"label": "relatively nearby galaxies", "value": "relatively nearby galaxies"},
-            {"label": "the most distant galaxies", "value": "the most distant galaxies"}
+            {
+              "label": "relatively nearby galaxies",
+              "value": "relatively nearby galaxies"
+            },
+            {
+              "label": "the most distant galaxies",
+              "value": "the most distant galaxies"
+            }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -73,8 +85,8 @@
           "labelPre": "The slope of data for galaxies that are far away is ",
           "labelPost": " than the slope of the data for nearby galaxies.",
           "options": [
-            {"label": "flatter", "value": "flatter"},
-            {"label": "steeper", "value": "steeper"}
+            { "label": "flatter", "value": "flatter" },
+            { "label": "steeper", "value": "steeper" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",

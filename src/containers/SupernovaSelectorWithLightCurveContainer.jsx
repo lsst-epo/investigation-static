@@ -171,20 +171,21 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       templatesData,
       activeQuestionId,
       updateAnswer,
-      options: {
-        autoplay,
-        showSelector,
-        showLightCurve,
-        lightCurveTemplates,
-        chooseLightCurveTemplate,
-        preSelectedLightCurveTemplate,
-        preSelectedLightCurveMagnitude,
-        preSelected,
-        toggleDataPointsVisibility: selectorQId,
-        multiple,
-        legend,
-      },
+      options,
     } = this.props;
+    const {
+      autoplay,
+      showSelector,
+      showLightCurve,
+      lightCurveTemplates,
+      chooseLightCurveTemplate,
+      preSelectedLightCurveTemplate,
+      preSelectedLightCurveMagnitude,
+      preSelected,
+      toggleDataPointsVisibility: selectorQId,
+      multiple,
+      legend,
+    } = options || {};
 
     const { transform, type, templateAnswerId } = getTemplateAnswer(
       lightCurveTemplates,

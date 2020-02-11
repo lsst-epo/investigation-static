@@ -7,14 +7,14 @@
   "previous": {"title": "Classifying Supernova #2", "link": "/searching-for-supernovae-2/"},
   "next": {"title": "Classifying Supernova #3", "link": "/searching-for-supernovae-3-1/"},
   "layout": "TwoCol",
-  "widget": {
+  "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abucvgu_g_lightcurve.json",
     "options": {
       "showSelector": true,
       "toggleDataPointsVisibility": "60"
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [

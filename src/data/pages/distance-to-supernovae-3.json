@@ -34,7 +34,7 @@
       ]
     }
   ],
-  "widget": {
+  "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/three-as.json",
     "options": {
@@ -42,7 +42,7 @@
       "autoplay": true,
       "preSelected": true
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [

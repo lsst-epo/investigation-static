@@ -14,13 +14,13 @@
   },
   "layout": "TwoCol",
   "content": "<p>Use your hubble plot to answer the questions.</p>",
-  "widget": {
+  "widgets": [{
     "type": "HubblePlot",
     "options": {
       "showUserHubblePlot": "252",
       "preSelected": true
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [

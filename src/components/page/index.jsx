@@ -2,21 +2,60 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import QAs from '../qas';
-import { renderDef } from '../../lib/utilities.js';
+import { renderDef, capitalize } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
 import styles from './page.module.scss';
 
 class Page extends React.PureComponent {
-  render() {
+  renderWidget = row => {
     const {
-      title,
-      content,
+      widgets,
+      WidgetTags,
       questions,
       answers,
-      tables,
-      image,
-      WidgetTag,
+      updateAnswer,
+      activeAnswer,
+      advanceActiveQuestion,
+      setActiveQuestion,
+      activeQuestionId,
     } = this.props;
+    if (!widgets) return null;
+
+    return widgets.map((widget, i) => {
+      const { layout, options } = widget || {};
+      const { row: widgetRow } = layout || {};
+      const ROW = row || 'bottom';
+      if (WidgetTags[i] && ROW === (widgetRow || 'bottom')) {
+        const WidgetTag = WidgetTags[i];
+        const key = `${widgetRow}_${i}`;
+
+        return (
+          <div
+            key={key}
+            className={styles[`gridWidget${capitalize(widgetRow || 'bottom')}`]}
+          >
+            <WidgetTag
+              {...{
+                questions,
+                answers,
+                updateAnswer,
+                activeAnswer,
+                advanceActiveQuestion,
+                setActiveQuestion,
+                activeQuestionId,
+                widget,
+                options,
+              }}
+            />
+          </div>
+        );
+      }
+      return null;
+    });
+  };
+
+  render() {
+    const { title, content, questions, answers, tables, image } = this.props;
 
     return (
       <div className={styles.singleColGrid}>
@@ -24,6 +63,7 @@ class Page extends React.PureComponent {
         <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
           {title}
         </h1>
+        {this.renderWidget('top')}
         <div
           className={styles.gridCopy}
           dangerouslySetInnerHTML={renderDef(content)}
@@ -35,16 +75,12 @@ class Page extends React.PureComponent {
           </div>
         )}
         {/* </section> */}
-        {WidgetTag && (
-          <div className={styles.gridWidget}>
-            <WidgetTag {...this.props} />
-          </div>
-        )}
         {image && (
           <div className={styles.gridImage}>
             <img src={image.mediaPath} alt={image.altText} />
           </div>
         )}
+        {this.renderWidget('bottom')}
       </div>
     );
   }
@@ -55,9 +91,9 @@ export default Page;
 Page.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
-  WidgetTag: PropTypes.func,
+  WidgetTags: PropTypes.array,
   image: PropTypes.object,
-  widget: PropTypes.object,
+  widgets: PropTypes.array,
   options: PropTypes.object,
   questions: PropTypes.array,
   answers: PropTypes.object,

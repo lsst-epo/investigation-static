@@ -37,7 +37,6 @@ class GalaxyScramblerContainer extends React.PureComponent {
       const activeScramble = scrambles[0];
       const { data, name } = activeScramble;
       const activeGalaxy = this.getGalaxyFromName(data, name);
-
       this.setState(prevState => ({
         ...prevState,
         data,

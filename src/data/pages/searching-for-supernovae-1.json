@@ -7,7 +7,7 @@
   "previous": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-2/"},
   "next": {"title": "Classifying Supernova #1", "link": "/searching-for-supernovae-1-1/"},
   "layout": "TwoCol",
-  "widget": {
+  "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
     "options": {
@@ -16,7 +16,7 @@
       "autoplay": false,
       "toggleDataPointsVisibility": "90"
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [
