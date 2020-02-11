@@ -14,7 +14,7 @@
   },
   "layout": "SingleCol",
   "content": "<p>Click on different buttons to see what the Hubble plots would look like for astronomers living in other galaxies.</p>",
-  "widget": {
+  "widgets": [{
     "type": "GalaxyScrambler",
     "source": "/data/galaxies/scrambler-2.json",
     "options": {
@@ -22,7 +22,7 @@
       "hubbleConstant": 69.8,
       "domain": [[0, 4500], [0, 210000]]
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [

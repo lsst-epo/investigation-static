@@ -8,13 +8,13 @@
   "next": {"title": "Determining the Peak Apparent Magnitude of Supernova #1", "link": "/distance-to-supernovae-1/"},
   "layout": "TwoCol",
   "content": "<p>Use the menu to the left of the light curve graph to review the supernovae light curves from the previous sections.</p>",
-  "widget": {
+  "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/three-kinds.json",
     "options": {
       "showLightCurve": true
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [

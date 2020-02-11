@@ -14,7 +14,7 @@
   },
   "layout": "SingleCol",
   "content": "<p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law. But does this law apply only from our perspective in the Milky Way, or from other places in the Universe as well? To find out, let’s explore another LSST data set.</p><p>We will begin by viewing the data for six galaxies observed from the Milky Way Galaxy</p><p>Imagine there are alien astronomers living in galaxy #3</p>",
-  "widget": {
+  "widgets": [{
     "type": "GalaxyScrambler",
     "source": "/data/galaxies/scramble.json",
     "options": {
@@ -22,7 +22,7 @@
       "hubbleConstant": 69.8,
       "domain": [[0, 5000], [0, 220000]]
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [

@@ -8,7 +8,7 @@
   "next": {"title": "Determining the Peak Apparent Magnitude of Supernova #5", "link": "/distance-to-supernovae-1-1/"},
   "layout": "TwoCol",
   "content": "<p>In this part of the investigation, you will work only with Type Ia supernovae.</p>",
-  "widget": {
+  "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abqmpsr.json",
     "options": {
@@ -19,7 +19,7 @@
       "preSelectedLightCurveTemplate": "63",
       "preSelectedLightCurveMagnitude": "163"
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [

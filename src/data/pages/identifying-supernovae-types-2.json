@@ -7,13 +7,13 @@
   "previous": {"title": "Using a Light Curve to Classify Supernova #1", "link": "/identifying-supernovae-types-1/"},
   "next": {"title": "Searching for Supernova #1", "link": "/searching-for-supernovae-1/"},
   "layout": "TwoCol",
-  "widget": {
+  "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19aadnxnl_r_lightcurve.json",
     "options": {
       "showLightCurve": true
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [

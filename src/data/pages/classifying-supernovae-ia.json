@@ -8,7 +8,7 @@
   "next": {"title": "Using Light Curves to Classify Supernovae", "link": "/classifying-supernovae-light-curves/"},
   "layout": "TwoCol",
   "content": "<p>A different type of supernova can form when a white dwarf star quickly approaches a mass limit of about 1.4 times the mass of the Sun. This is called the Chandrasekhar Limit. If a white dwarf becomes more massive than this limit, it will collapse under its own gravity and explode as a Type Ia (pronounced “type one-a”) supernova.</p><p>There are a few common models for how this collapse can take place. In one case, a binary star system contains a white dwarf and a red giant star. If the two stars are close enough to each other as they orbit, the white dwarf can pull gas from the red giant until the white dwarf reaches the Chandrasekhar Limit. Another model for the origin of a Type Ia supernova is when two white dwarf stars merge together. In either case, Type Ia supernovae attain the same peak brightness because they are the result of white dwarfs exceeding the Chandrasekhar Limit.</p>",
-  "widget": {
+  "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abxvjkn_g_lightcurve.json",
     "options": {
@@ -16,5 +16,5 @@
       "autoplay": true,
       "preSelected": true
     }
-  }
+  }]
 }

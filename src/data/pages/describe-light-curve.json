@@ -8,7 +8,7 @@
   "next": {"title": "Classifying Supernovae", "link": "/classifying-supernovae/"},
   "layout": "TwoCol",
   "content": "<p>Use this light curve to answer the following questions</p>",
-  "widget": {
+  "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abqmpsr.json",
     "options": {
@@ -16,7 +16,7 @@
       "showLightCurve": true,
       "autoplay": false
     }
-  },
+  }],
   "questionsByPage": [
     {
       "question": [

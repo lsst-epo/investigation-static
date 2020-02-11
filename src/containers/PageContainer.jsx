@@ -58,13 +58,14 @@ class PageContainer extends React.PureComponent {
       next,
       content,
       image,
-      widget,
+      widgets,
       tables,
       questionsByPage: questions,
     } = data.allPagesJson.nodes[0];
-    const options = widget ? widget.options : null;
     const Tag = this.layouts[layout || 'default'];
-    const WidgetTag = widget ? this.widgetTags[widget.type] : null;
+    const WidgetTags = widgets
+      ? widgets.map(w => this.widgetTags[w.type])
+      : null;
 
     return (
       <div className="container-page">
@@ -76,7 +77,7 @@ class PageContainer extends React.PureComponent {
             previous,
             next,
             content,
-            widget,
+            widgets,
             tables,
             image,
             questions,
@@ -86,8 +87,7 @@ class PageContainer extends React.PureComponent {
             advanceActiveQuestion,
             setActiveQuestion,
             activeQuestionId,
-            options,
-            WidgetTag,
+            WidgetTags,
           }}
         />
         <PageNav {...{ previous, next }} baseUrl={`/${investigation}`} />
@@ -116,7 +116,18 @@ export const query = graphql`
       nodes {
         id
         investigation
+        layout
+        slug
+        title
         content
+        next {
+          title
+          link
+        }
+        previous {
+          title
+          link
+        }
         image {
           mediaPath
           altText
@@ -133,20 +144,13 @@ export const query = graphql`
             content
           }
         }
-        layout
-        slug
-        title
-        next {
-          title
-          link
-        }
-        previous {
-          title
-          link
-        }
-        widget {
+        widgets {
           type
           source
+          layout {
+            col
+            row
+          }
           options {
             showSelector
             showLightCurve
