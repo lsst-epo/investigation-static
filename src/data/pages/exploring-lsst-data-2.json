@@ -1,0 +1,59 @@
+{
+  "id": "observable8",
+  "investigation": "observable-universe",
+  "order": "08",
+  "title": "Exploring LSST Data: brightness vs distance",
+  "slug": "exploring-lsst-data-2/",
+  "previous": {
+    "title": "Exploring LSST Data: flux vs distance",
+    "link": "/exploring-lsst-data-1/"
+  },
+  "next": {
+    "title": "Defining the Observable Universe",
+    "link": "/defining-observable-universe/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Now let’s look at the plot of brightness vs. distance for all of the objects observed by LSST.  Notice that in the plot above there are galaxies at distances much greater than 13.8 billion light years away. But the Universe is only 13.8 billion years old. How can that happen?</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "16",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "If it took 13 billion years for the light from a distant galaxy to travel to Earth, and the Universe wasn’t expanding, how far away would this galaxy be from Earth?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "17",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "Since the Universe has been expanding during the time the light has been travelling to us, the distance to this galaxy is ",
+          "labelPost": " than 13 billion light years away.",
+          "options": [
+            {"label": "more", "value": "more"},
+            {"label": "less", "value": "less"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "18",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Based on your answer do you think it’s possible to observe galaxies that are now farther from Earth than 13.8 billion light years? Explain your reasoning."
+        }
+      ]
+    }
+  ]
+}

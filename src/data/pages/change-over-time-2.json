@@ -1,0 +1,60 @@
+{
+  "id": "observable12",
+  "investigation": "observable-universe",
+  "order": "12",
+  "title": "Observing How the Universe Changed over Time",
+  "slug": "change-over-time-2/",
+  "previous": {
+    "title": "Observing How the Universe Changed over Time",
+    "link": "/change-over-time-1/"
+  },
+  "next": {
+    "title": "Observing How the Universe Changed over Time",
+    "link": "/change-over-time-3/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>LSST has discovered so many galaxies in the Universe that, if we were to display them all on a map of the sky, they could not be counted by eye. To work with very large numbers of galaxies, astronomers use <i>concentration maps</i>.</p><p>Concentration maps use colors to represent how many galaxies are in a particular area. They are like population density maps. Areas of high population density show many people living in a relatively small area. <a target='_blank' href='http://luminocity3d.org/WorldPopDen/#3/12.00/10.00'>Look at this example</a>.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "20",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Since the Universe has been expanding during the time the light has been travelling to us, the distance to this galaxy is ",
+          "options": [
+            {"label": "Sizes of individual galaxies", "value": "Sizes of individual galaxies"},
+            {"label": "The number of galaxies in a certain area", "value": "The number of galaxies in a certain area"},
+            {"label": "The number of stars in individual galaxies", "value": "The number of stars in individual galaxies"},
+            {"label": "Masses of individual galaxies", "value": "Masses of individual galaxies"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "21",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What color represents a high concentration of galaxies?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "22",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Why are some regions white? Does this mean there are no galaxies in those areas?"
+        }
+      ]
+    }
+  ]
+}

@@ -62,7 +62,7 @@ class TwoCol extends React.PureComponent {
         <div
           className={`col padded col-width-50 col-fixed ${styles.rightColGrid}`}
         >
-          {!WidgetTag && !rightColTables && (
+          {!WidgetTag && !image && !rightColTables && (
             <div className={styles.gridPlaceholder}>
               <Placeholder />
             </div>

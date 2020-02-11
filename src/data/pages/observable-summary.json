@@ -1,0 +1,220 @@
+{
+  "id": "observable16",
+  "investigation": "observable-universe",
+  "order": "16",
+  "title": "Summary",
+  "slug": "summary/",
+  "previous": {
+    "title": "Discuss & Report",
+    "link": "/discuss-report/"
+  },
+  "next": {
+    "title": "Introduction",
+    "link": "/introduction/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>If you look at the concentration maps for the most recent times, you will notice that there are some areas that have a very low concentration of galaxies. Areas of very low galaxy concentrations are referred to as voids.</p><p>The changes in the large-scale structure are important to our understanding of the Universe. By seeing how the Universe has changed over time, cosmologists get clues to what processes might have created the structures in the first place.</p><p>Making these observations will give astronomers powerful new ways to tackle complex questions about the fundamental nature and interactions of matter and energy. The observations can be used to improve cosmological models of the Universe, which attempt to explain the profound connections between energy, matter, time and space. Perhaps we will be forced to make a new model that better explains the nature of dark energy and dark matter, which collectively account for 95% of the Universe. Perhaps we will discover new forms of energy or matter, new forces of nature, or even how the Universe was born.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "32",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["32", "33", "34", "35", "36"],
+          "labelPre": "The color of a galaxy can be used to infer its distance, where ",
+          "labelPost": " galaxies ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "redder", "value": "redder"},
+            {"label": "bluer", "value": "bluer"}
+          ],
+          "answerPre": "Selected",
+          "answerPost": " galaxy."
+        },
+        {
+          "id": "33",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["32", "33", "34", "35", "36"],
+          "labelPre": "tend to be ",
+          "labelPost": " us. ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "farther away from", "value": "farther away from"},
+            {"label": "closer to", "value": "closer to"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "34",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["32", "33", "34", "35", "36"],
+          "labelPre": "Our observable Universe, based on the light we can detect, is limited by the ",
+          "labelPost": " of the Universe. ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "age", "value": "age"},
+            {"label": "size", "value": "size"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "35",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["32", "33", "34", "35", "36"],
+          "labelPre": "Because the Universe is expanding, the distance to the farthest galaxies we can see is ",
+          "labelPost": " the distance light could travel over the age of the Universe (13.8 billion light years). ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "more than", "value": "more than"},
+            {"label": "less than", "value": "less than"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "36",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["32", "33", "34", "35", "36"],
+          "labelPre": "When observing distant galaxies in the Universe we see them as they ",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "are now", "value": "are now"},
+            {"label": "were in the past", "value": "were in the past"},
+            {"label": "will be in the future", "value": "will be in the future"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "37",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["37", "38", "39", "40", "41", "42", "43"],
+          "labelPre": "By studying the Universe at different times in its history, we see that the large-scale structure of the Universe has ",
+          "labelPost": ", ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "changed", "value": "changed"},
+            {"label": "stayed the same", "value": "stayed the same"}
+          ],
+          "answerPre": "Selected",
+          "answerPost": " galaxy."
+        },
+        {
+          "id": "38",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["37", "38", "39", "40", "41", "42", "43"],
+          "labelPre": "with a ",
+          "labelPost": " distribution of galaxies long ago, ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "relativeluy smooth", "value": "relativeluy smooth"},
+            {"label": "clumpy", "value": "clumpy"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "39",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["37", "38", "39", "40", "41", "42", "43"],
+          "labelPre": "to a distribution now with ",
+          "labelPost": " concentrations of galaxies ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "large", "value": "large"},
+            {"label": "small", "value": "small"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "40",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["37", "38", "39", "40", "41", "42", "43"],
+          "labelPre": "and ",
+          "labelPost": " voids.",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "large", "value": "large"},
+            {"label": "small", "value": "small"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "41",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["37", "38", "39", "40", "41", "42", "43"],
+          "labelPre": " Over time the force of gravity has caused galaxies to move ",
+          "labelPost": ", creating the regions of low galaxy concentrations called voids. ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "closer together", "value": "closer together"},
+            {"label": "further apart", "value": "further apart"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "42",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["37", "38", "39", "40", "41", "42", "43"],
+          "labelPre": "The change in the large-scale structure of the Universe is ",
+          "labelPost": " depending on which direction we observe, ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "the same", "value": "the same"},
+            {"label": "different", "value": "different"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "43",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["37", "38", "39", "40", "41", "42", "43"],
+          "labelPre": "which is consistent with ",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "the cosmological principle", "value": "the cosmological principle"},
+            {"label": "cosmological redshift", "value": "cosmological redshift"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        }
+      ]
+    }
+  ]
+}

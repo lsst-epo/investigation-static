@@ -1,0 +1,34 @@
+{
+  "id": "observable6",
+  "investigation": "observable-universe",
+  "order": "06",
+  "title": "The Cosmological Principle",
+  "slug": "cosmological-principle/",
+  "previous": {
+    "title": "Exploring the Relationship between Color & Distance",
+    "link": "/color-and-distance/"
+  },
+  "next": {
+    "title": "Exploring LSST Data: flux vs distance",
+    "link": "/exploring-lsst-data-1/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Astronomers who study the Universe (cosmologists) have made a basic assumption that for any particular time, the Universe appears to look very similar in every direction, no matter where you are located within it. This is known as the cosmological principle.</p><p>The cosmological principle doesn’t mean that the Universe is exactly the same in all directions. Imagine that you are in the middle of a desert.  As you look around you in every direction, you see sand, rocks, mountains and maybe some plants. Not every mountain peak looks identical, and some places may have some more plants than others, but it is generally the same landscape.</p><p>Example: <a target='_blank' href='https://www.eso.org/public/hungary/images/uhd-img1312pv2-cc-eq-extended/?lang'>Atacama desert moving pan</a></p><p>Every person in your class has an LSST deep field image from different, random areas in the sky as viewed from Earth. Compare your image and plot to others from the class (or choose a few more fields from the list) to see if the patterns in your data agree with the patterns in their data sets and answer the following question:</p>",
+  "image": {
+    "mediaPath": "/images/observable-galaxies.png",
+    "altText": "A vast array of visible galaxies"
+  },
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "11",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Do plots from different directions show similar distributions of galaxy distances and colors? Explain."
+        }
+      ]
+    }
+  ]
+}

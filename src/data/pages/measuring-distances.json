@@ -1,0 +1,17 @@
+{
+  "id": "observable2",
+  "investigation": "observable-universe",
+  "order": "02",
+  "title": "Measuring Distances in the Universe",
+  "slug": "measuring-distances/",
+  "previous": {
+    "title": "Introduction",
+    "link": "/introduction/"
+  },
+  "next": {
+    "title": "Exploring the Deep",
+    "link": "/exploring-the-deep/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Over its ten-year survey, Rubin Observatory will detect about 20 billion galaxies, most of them very faint. To calculate the distance to these very faint galaxies, Rubin Observatory uses a technique called <i><u>photometric redshift</u></i>, in which the brightness of a galaxy is measured through different filters to determine its color. </p><p><i>Machine learning</i> and <i>template fitting</i> techniques will compare the galaxy’s color information to different galaxy models. These models take into account star formation histories and the amounts of mass, dark matter, and dust in different types of galaxies. From this information, a redshift value is produced which can then be converted into an estimated distance of how far away the galaxy is in space at the present time.</p>"
+}

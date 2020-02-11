@@ -1,0 +1,62 @@
+{
+  "id": "observable15",
+  "investigation": "observable-universe",
+  "order": "15",
+  "title": "Discuss & Report",
+  "slug": "discuss-report/",
+  "previous": {
+    "title": "Observing How the Universe Changed over Time",
+    "link": "/change-over-time-4/"
+  },
+  "next": {
+    "title": "Summary",
+    "link": "/summary/"
+  },
+  "layout": "SingleCol",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "28",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "If the Universe had started out with a higher initial amount of matter, would galaxies join together to form large structures faster or slower? Explain your reasoning using the concept of gravitational interactions of matter."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "29",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "The total amount of matter of the Universe does not change over time. Explain how this applies to the changes in the size of voids and concentrations of galaxies over time."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "30",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "While looking up at the night sky a friend of yours says, “Did you know that all of the stars we see  up there have long since burned out and died? We just don’t know it yet because it takes so long for their light to get here.” Considering that stars typically live for several billion years, and that most of the stars you can see are within 1000 light years of us, how would you respond to your friend?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "31",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "New telescopes are being designed that will be able to collect ten times as much light as the largest telescopes that currently exist. With these new telescopes, do you think that astronomers will be able to see galaxies ten times farther away than those we can see now? Explain your reasoning."
+        }
+      ]
+    }
+  ]
+}
