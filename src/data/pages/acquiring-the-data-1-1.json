@@ -1,0 +1,40 @@
+{
+  "id": "expand2-1",
+  "investigation": "expanding-universe",
+  "order": "011",
+  "title": "Using Supernovae to Measure Distance",
+  "slug": "acquiring-the-data-1-1/",
+  "previous": {
+    "title": "Using Supernovae to Measure Distance",
+    "link": "/acquiring-the-data-1/"
+  },
+  "next": {
+    "title": "Using Photometric Redshift to Measure Velocity",
+    "link": "/acquiring-the-data-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Supernovae are rare events. A supernova explodes in a large galaxy once every 50 years, but with LSST’s ability to monitor billions of galaxies, we can find 1000 supernova every night!</p><p>Because supernovae often appear where no star was previously visible, they can be spotted by comparing images of the host galaxy taken at different times. The images below show a supernova discovered in the Fireworks Galaxy. There are two images of this galaxy—one taken before the explosion, and the second taken afterwards. Can you find it? When you spot the supernova, click on it.</p>",
+  "widget": {
+    "type": "SupernovaSelectorWithLightCurve",
+    "source": "/data/galaxies/ZTF19abqmpsr.json",
+    "options": {
+      "showSelector": true,
+      "toggleDataPointsVisibility": "1"
+    }
+  },
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "1",
+          "questionType": "prompt",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "<p>Click on a point on the Image to select the supernova</p>",
+          "answerPre": "<span>Selected Supernova: </span>",
+          "answerAccessor": "data"
+        }
+      ]
+    }
+  ]
+}

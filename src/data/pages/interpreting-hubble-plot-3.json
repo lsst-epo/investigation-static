@@ -28,9 +28,9 @@
           "id": "2",
           "questionType": "compoundSelect",
           "compoundQuestion": ["2", "3"],
-          "labelPre": "Based on its position and the scale of the axis on the plot, the data point for Galaxy 1 indicates that it is ",
+          "labelPre": "Based on its position and the scale of the axes on the plot, the data point for Galaxy 1 indicates that it is ",
           "labelPost": " ",
-          "srLabel": "Based on its position and the scale of the axis on the plot, the data point for Galaxy 1 indicates that it is",
+          "srLabel": "Based on its position and the scale of the axes on the plot, the data point for Galaxy 1 indicates that it is",
           "answerAccessor": "compound-select",
           "placeholder": "Select a distance",
           "options": [

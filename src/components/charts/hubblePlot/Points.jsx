@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import includes from 'lodash/includes';
 import classnames from 'classnames';
 import Point from './Point.jsx';
+import { notActive, invisible } from './hubble-plot.module.scss';
 
 class Points extends React.PureComponent {
   render() {
@@ -15,24 +16,24 @@ class Points extends React.PureComponent {
       xValueAccessor,
       yValueAccessor,
       pointClasses,
+      offsetTop,
     } = this.props;
 
     return (
       <g className="data-points">
         {data.map((d, i) => {
-          const { source_id: id, name, label, color } = d;
-          const xVal = d[xValueAccessor];
-          const yVal = d[yValueAccessor];
-          if (!xVal || !yVal) return null;
+          const { id, name, label, color } = d;
           const key = `point-${id}-${i}`;
+          const x = d[xValueAccessor];
+          const y = d[yValueAccessor];
           const selected = includes(selectedData, d);
           const hovered = includes(hoveredData, d);
           const classes = classnames(`data-point-${name}`, 'data-point', {
             [pointClasses]: pointClasses,
             selected,
             hovered,
-            'not-active':
-              (selectedData || hoveredData) && !selected && !hovered,
+            [notActive]: (selectedData || hoveredData) && !selected && !hovered,
+            [invisible]: !x || !y,
           });
 
           return (
@@ -41,8 +42,8 @@ class Points extends React.PureComponent {
               classes={classes}
               selected={selected}
               hovered={hovered}
-              x={xScale(d[xValueAccessor])}
-              y={yScale(d[yValueAccessor])}
+              x={xScale(x)}
+              y={yScale(y) + offsetTop}
               label={label}
               fill={color}
             />
@@ -62,6 +63,7 @@ Points.propTypes = {
   xScale: PropTypes.func,
   yScale: PropTypes.func,
   pointClasses: PropTypes.string,
+  offsetTop: PropTypes.number,
 };
 
 export default Points;

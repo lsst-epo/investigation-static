@@ -250,3 +250,12 @@ export const getUnit = function(accessor) {
 
   return '';
 };
+
+export const getElDims = function($el) {
+  if ($el) {
+    const { width, height } = $el.getBBox();
+    return { width, height };
+  }
+
+  return { width: 0, height: 0 };
+};

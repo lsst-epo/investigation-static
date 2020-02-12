@@ -42,12 +42,11 @@ class Point extends React.PureComponent {
           cx={x}
           cy={y}
           r={this.baseRadius}
-          strokeWidth={1}
           fill={fill || '#525459'}
           stroke="transparent"
           tabIndex="0"
         />
-        {label && (
+        {label && x && y && (
           <PointLabel
             {...{ label, selected, hovered }}
             x={x + this.baseDiameter + this.baseRadius}

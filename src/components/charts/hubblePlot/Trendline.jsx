@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select, mouse as d3mouse } from 'd3-selection';
-import { formatValue } from '../../../lib/utilities.js';
+import { formatValue, getElDims } from '../../../lib/utilities.js';
 
 class Trendline extends React.Component {
   constructor(props) {
@@ -101,16 +101,16 @@ class Trendline extends React.Component {
     return [xScale(x), yScale(y)];
   }
 
-  getLabelDims() {
-    const $slopeLabel = this.label.current;
+  // getLabelDims() {
+  //   const $slopeLabel = this.label.current;
 
-    if ($slopeLabel) {
-      const { width, height } = $slopeLabel.getBBox();
-      return { width, height };
-    }
+  //   if ($slopeLabel) {
+  //     const { width, height } = $slopeLabel.getBBox();
+  //     return { width, height };
+  //   }
 
-    return { width: 0, height: 0 };
-  }
+  //   return { width: 0, height: 0 };
+  // }
 
   getMidPoint(a, b) {
     if (!a || !b) return null;
@@ -135,7 +135,7 @@ class Trendline extends React.Component {
     const start = [xScale(0), yScale(0)];
     const terminus = terminusState || this.terminusFromSlope(hubbleConstant);
     const textPos = this.getMidPoint(terminus, start);
-    const rectDims = this.getLabelDims();
+    const rectDims = getElDims(this.label.current);
 
     return (
       <svg>

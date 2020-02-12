@@ -18,8 +18,12 @@
 }
 
 .galaxy-point {
-  stroke: 'transparent';
+  stroke: none;
   transition: stroke $timing $duration, opacity $timing $duration;
+
+  &.invisible {
+    opacity: 0;
+  }
 }
 
 .point-label {
