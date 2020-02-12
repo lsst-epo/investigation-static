@@ -114,6 +114,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
   render() {
     const { data, navItems, activeScramble } = this.state;
     const { options } = this.props;
+    const { hubbleConstant } = options || {};
 
     return (
       <>
@@ -133,6 +134,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
                 {...{
                   data,
                   options,
+                  hubbleConstant,
                 }}
                 selectionCallback={this.hubbleSelectionCallback}
               />

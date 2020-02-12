@@ -13,7 +13,7 @@
     "link": "/interpreting-a-hubble-plot-5/"
   },
   "layout": "TwoCol",
-  "content": "<p>Click and drag to add a trendline to your hubble plot.  Click and drag until you feel the line best fits your data. The slope of this trendline is known as Hubble's Constant.</p>",
+  "content": "<p>Click and drag on the graph to add a trendline to your hubble plot.  Place your trendline where you feel it best fits your data. The slope of this trendline is known as Hubble's Constant.</p>",
   "widget": {
     "type": "HubblePlot",
     "options": {

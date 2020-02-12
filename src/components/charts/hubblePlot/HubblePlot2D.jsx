@@ -352,12 +352,10 @@ class HubblePlot2D extends React.Component {
     } = this.state;
 
     const { userTrendline, multiple } = options || {};
-
     const svgClasses = classnames('svg-chart', styles.hubblePlot, {
       loading,
       loaded: !loading,
     });
-
     const calcHeight = height - padding;
 
     return (
@@ -401,43 +399,6 @@ class HubblePlot2D extends React.Component {
                 />
               </clipPath>
             </defs>
-            <g clipPath="url('#clip')">
-              {data &&
-                multiple &&
-                data.map((set, i) => {
-                  const key = `galaxy-${i}`;
-
-                  return (
-                    <Points
-                      key={key}
-                      data={set}
-                      {...{
-                        xScale,
-                        yScale,
-                        xValueAccessor,
-                        yValueAccessor,
-                        selectedData,
-                        hoveredData,
-                      }}
-                      pointClasses={`set-${i} ${styles.galaxyPoint}`}
-                    />
-                  );
-                })}
-              {data && !multiple && (
-                <Points
-                  {...{
-                    data,
-                    xScale,
-                    yScale,
-                    xValueAccessor,
-                    yValueAccessor,
-                    selectedData,
-                    hoveredData,
-                  }}
-                  pointClasses={styles.galaxyPoint}
-                />
-              )}
-            </g>
             <XAxis
               label={xAxisLabel}
               height={height}
@@ -454,6 +415,45 @@ class HubblePlot2D extends React.Component {
               offsetTop={offsetTop}
               scale={yScale}
             />
+            <g>
+              {data &&
+                multiple &&
+                data.map((set, i) => {
+                  const key = `galaxy-${i}`;
+
+                  return (
+                    <Points
+                      key={key}
+                      data={set}
+                      {...{
+                        xScale,
+                        yScale,
+                        xValueAccessor,
+                        yValueAccessor,
+                        selectedData,
+                        hoveredData,
+                        offsetTop,
+                      }}
+                      pointClasses={`set-${i} ${styles.galaxyPoint}`}
+                    />
+                  );
+                })}
+              {data && !multiple && (
+                <Points
+                  {...{
+                    data,
+                    xScale,
+                    yScale,
+                    xValueAccessor,
+                    yValueAccessor,
+                    selectedData,
+                    hoveredData,
+                    offsetTop,
+                  }}
+                  pointClasses={styles.galaxyPoint}
+                />
+              )}
+            </g>
             {(userTrendline || hubbleConstant) && xScale && yScale && (
               <Trendline
                 {...{ xScale, yScale, hubbleConstant }}

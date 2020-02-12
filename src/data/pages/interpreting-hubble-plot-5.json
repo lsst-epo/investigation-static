@@ -14,6 +14,13 @@
   },
   "layout": "TwoCol",
   "content": "<p>The slope of a Hubble plot is known as Hubble's Constant, and the steepness of the slope corresponds with the rate of expansion of the Universe. A steeper slope indicates a faster rate of expansion.</p>",
+  "widget": {
+    "type": "HubblePlot",
+    "options": {
+      "showUserHubblePlot": "252",
+      "userTrendline": "7"
+    }
+  },
   "questionsByPage": [
     {
       "question": [

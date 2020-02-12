@@ -31,9 +31,9 @@ class HubblePlot3D extends React.PureComponent {
   arrayifyLabelsData(data) {
     return data.map(labelData => {
       return [
-        labelData.distance,
-        labelData.redshift,
-        labelData.velocity,
+        labelData.x,
+        labelData.y,
+        labelData.z,
         labelData.label,
         labelData.color,
       ];
@@ -51,16 +51,17 @@ class HubblePlot3D extends React.PureComponent {
           distance: 220,
         },
       },
-      xAxis3D: this.getAxisInfo('Distance'),
-      yAxis3D: this.getAxisInfo('Redshift'),
-      zAxis3D: this.getAxisInfo('Velocity'),
+      xAxis3D: this.getAxisInfo('x'),
+      yAxis3D: this.getAxisInfo('y'),
+      zAxis3D: this.getAxisInfo('z'),
       dataset: {
         source: noLabels,
-        dimensions: ['distance', 'redshift', 'velocity'],
+        dimensions: ['x', 'y', 'z'],
       },
       series: [
         {
           type: 'scatter3D',
+          animation: false,
           symbolSize: 10,
           itemStyle: {
             color: params => {
@@ -71,6 +72,7 @@ class HubblePlot3D extends React.PureComponent {
         {
           type: 'scatter3D',
           name: 'Labeled Data',
+          animation: false,
           data: this.arrayifyLabelsData(labels),
           symbolSize: 10,
           itemStyle: {
