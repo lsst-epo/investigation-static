@@ -57,7 +57,7 @@ class PageContainer extends React.PureComponent {
       previous,
       next,
       content,
-      image,
+      images,
       widget,
       tables,
       questionsByPage: questions,
@@ -78,7 +78,7 @@ class PageContainer extends React.PureComponent {
             content,
             widget,
             tables,
-            image,
+            images,
             questions,
             answers,
             updateAnswer,
@@ -117,7 +117,7 @@ export const query = graphql`
         id
         investigation
         content
-        image {
+        images {
           mediaPath
           altText
         }
@@ -147,6 +147,10 @@ export const query = graphql`
         widget {
           type
           source
+          layout {
+            col
+            row
+          }
           options {
             showSelector
             showLightCurve

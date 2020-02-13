@@ -7,6 +7,19 @@ import ObservationsTables from '../charts/shared/observationsTables/Observations
 import styles from './page.module.scss';
 
 class Page extends React.PureComponent {
+  renderImages = () => {
+    const { images } = this.props;
+    return (
+      images &&
+      images.map((image, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div className={styles.gridImage} key={`${image.altText}_${i}`}>
+          <img src={image.mediaPath} alt={image.altText} />
+        </div>
+      ))
+    );
+  };
+
   render() {
     const {
       title,
@@ -14,9 +27,12 @@ class Page extends React.PureComponent {
       questions,
       answers,
       tables,
-      image,
       WidgetTag,
+      widget,
     } = this.props;
+    const { layout } = widget || {};
+    const { row: widgetRow } = layout || {};
+    const Images = this.renderImages();
 
     return (
       <div className={styles.singleColGrid}>
@@ -24,6 +40,11 @@ class Page extends React.PureComponent {
         <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
           {title}
         </h1>
+        {widgetRow === 'top' && WidgetTag && (
+          <div className={styles[`gridWidget${widgetRow}`]}>
+            <WidgetTag {...this.props} />
+          </div>
+        )}
         <div
           className={styles.gridCopy}
           dangerouslySetInnerHTML={renderDef(content)}
@@ -35,14 +56,10 @@ class Page extends React.PureComponent {
           </div>
         )}
         {/* </section> */}
-        {WidgetTag && (
-          <div className={styles.gridWidget}>
+        {Images}
+        {(widgetRow === 'bottom' || !widgetRow) && WidgetTag && (
+          <div className={styles[`gridWidget${widgetRow}`]}>
             <WidgetTag {...this.props} />
-          </div>
-        )}
-        {image && (
-          <div className={styles.gridImage}>
-            <img src={image.mediaPath} alt={image.altText} />
           </div>
         )}
       </div>
@@ -56,7 +73,7 @@ Page.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   WidgetTag: PropTypes.func,
-  image: PropTypes.object,
+  images: PropTypes.array,
   widget: PropTypes.object,
   options: PropTypes.object,
   questions: PropTypes.array,

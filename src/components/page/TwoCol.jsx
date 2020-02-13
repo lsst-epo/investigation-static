@@ -23,18 +23,34 @@ class TwoCol extends React.PureComponent {
     });
   }
 
+  renderImages = () => {
+    const { images } = this.props;
+    return (
+      images &&
+      images.map((image, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div className={styles.gridImage} key={`${image.altText}_${i}`}>
+          <img src={image.mediaPath} alt={image.altText} />
+        </div>
+      ))
+    );
+  };
+
   render() {
     const {
       title,
       content,
       questions,
       answers,
-      image,
       WidgetTag,
+      widget,
       tables,
     } = this.props;
+    const { layout } = widget || {};
+    const { row: widgetRow, col: widgetCol } = layout || {};
     const leftColTables = this.filterTables('left', tables);
     const rightColTables = this.filterTables('right', tables);
+    const Images = this.renderImages();
 
     return (
       <div className="container-flex spaced">
@@ -44,6 +60,11 @@ class TwoCol extends React.PureComponent {
             <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
               {title}
             </h1>
+            {widgetCol === 'left' && widgetRow === 'top' && WidgetTag && (
+              <div className={styles[`gridWidget${widgetRow}`]}>
+                <WidgetTag {...this.props} />
+              </div>
+            )}
             <div
               className={styles.gridCopy}
               dangerouslySetInnerHTML={renderDef(content)}
@@ -56,13 +77,23 @@ class TwoCol extends React.PureComponent {
                 <QAs {...this.props} />
               </div>
             )}
+            {widgetCol === 'left' && widgetRow === 'bottom' && WidgetTag && (
+              <div className={styles[`gridWidget${widgetRow}`]}>
+                <WidgetTag {...this.props} />
+              </div>
+            )}
             {/* </section> */}
           </div>
         </div>
         <div
           className={`col padded col-width-50 col-fixed ${styles.rightColGrid}`}
         >
-          {!WidgetTag && !image && !rightColTables && (
+          {widgetCol === 'right' && widgetRow === 'top' && WidgetTag && (
+            <div className={styles[`gridWidget${widgetRow}`]}>
+              <WidgetTag {...this.props} />
+            </div>
+          )}
+          {!WidgetTag && !rightColTables && (
             <div className={styles.gridPlaceholder}>
               <Placeholder />
             </div>
@@ -70,16 +101,14 @@ class TwoCol extends React.PureComponent {
           {rightColTables && (
             <ObservationsTables answers={answers} tables={rightColTables} />
           )}
-          {WidgetTag && (
-            <div className={styles.gridWidget}>
-              <WidgetTag {...this.props} />
-            </div>
-          )}
-          {image && (
-            <div className={styles.gridImage}>
-              <img src={image.mediaPath} alt={image.altText} />
-            </div>
-          )}
+          {widgetCol === 'right' &&
+            (widgetRow === 'bottom' || !widgetRow) &&
+            WidgetTag && (
+              <div className={styles[`gridWidget${widgetRow}`]}>
+                <WidgetTag {...this.props} />
+              </div>
+            )}
+          {Images}
         </div>
       </div>
     );
@@ -92,7 +121,7 @@ TwoCol.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   WidgetTag: PropTypes.func,
-  image: PropTypes.object,
+  images: PropTypes.array,
   widget: PropTypes.object,
   options: PropTypes.object,
   questions: PropTypes.array,
