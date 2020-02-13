@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import includes from 'lodash/includes';
 import QAs from '../qas';
-import { renderDef, capitalize } from '../../lib/utilities.js';
+import { renderDef } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
 import Placeholder from '../placeholder';
 import styles from './page.module.scss';
@@ -48,7 +48,7 @@ class TwoCol extends React.PureComponent {
               {title}
             </h2>
             {widgetCol === 'left' && widgetRow === 'top' && WidgetTag && (
-              <div className={styles[`gridWidget${capitalize(widgetRow)}`]}>
+              <div className={styles[`gridWidget${widgetRow}`]}>
                 <WidgetTag {...this.props} />
               </div>
             )}
@@ -65,7 +65,7 @@ class TwoCol extends React.PureComponent {
               </div>
             )}
             {widgetCol === 'left' && widgetRow === 'bottom' && WidgetTag && (
-              <div className={styles[`gridWidget${capitalize(widgetRow)}`]}>
+              <div className={styles[`gridWidget${widgetRow}`]}>
                 <WidgetTag {...this.props} />
               </div>
             )}
@@ -76,7 +76,7 @@ class TwoCol extends React.PureComponent {
           className={`col padded col-width-50 col-fixed ${styles.rightColGrid}`}
         >
           {widgetCol === 'right' && widgetRow === 'top' && WidgetTag && (
-            <div className={styles[`gridWidget${capitalize(widgetRow)}`]}>
+            <div className={styles[`gridWidget${widgetRow}`]}>
               <WidgetTag {...this.props} />
             </div>
           )}
@@ -91,7 +91,7 @@ class TwoCol extends React.PureComponent {
           {widgetCol === 'right' &&
             (widgetRow === 'bottom' || !widgetRow) &&
             WidgetTag && (
-              <div className={styles[`gridWidget${capitalize(widgetRow)}`]}>
+              <div className={styles[`gridWidget${widgetRow}`]}>
                 <WidgetTag {...this.props} />
               </div>
             )}

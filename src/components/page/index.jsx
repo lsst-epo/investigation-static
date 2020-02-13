@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import QAs from '../qas';
-import { renderDef, capitalize } from '../../lib/utilities.js';
+import { renderDef } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
 import styles from './page.module.scss';
 
@@ -28,7 +28,7 @@ class Page extends React.PureComponent {
           {title}
         </h2>
         {widgetRow === 'top' && WidgetTag && (
-          <div className={styles[`gridWidget${capitalize(widgetRow)}`]}>
+          <div className={styles[`gridWidget${widgetRow}`]}>
             <WidgetTag {...this.props} />
           </div>
         )}
@@ -49,7 +49,7 @@ class Page extends React.PureComponent {
           </div>
         )}
         {(widgetRow === 'bottom' || !widgetRow) && WidgetTag && (
-          <div className={styles[`gridWidget${capitalize(widgetRow)}`]}>
+          <div className={styles[`gridWidget${widgetRow}`]}>
             <WidgetTag {...this.props} />
           </div>
         )}
