@@ -14,10 +14,12 @@
   },
   "layout": "TwoCol",
   "content": "<p>Below is your assigned deep field image. Nearly all of the objects in this image are galaxies, but some appear so small they could easily be mistaken for stars. This image shows thousands of galaxies of different sizes, brightnesses, and colors. Clicking on a galaxy will add a data point to the plot. Be sure you select enough galaxies so that your data spans the entire range of distances along the x-axis on the plot (to accomplish this you will need to select some very small and faint galaxies). Select at least 40 galaxies.</p>",
-  "image": {
-    "mediaPath": "/images/observable-galaxies.png",
-    "altText": "A vast array of visible galaxies"
-  },
+  "images": [
+    {
+      "mediaPath": "/images/observable-galaxies.png",
+      "altText": "A vast array of visible galaxies"
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -28,8 +30,8 @@
           "labelPre": "Use the plot above to answer this question: Most of the bright galaxies are found at ",
           "labelPost": " distances from Earth.",
           "options": [
-            {"label": "closer", "value": "closer"},
-            {"label": "farther", "value": "farther"}
+            { "label": "closer", "value": "closer" },
+            { "label": "farther", "value": "farther" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -46,8 +48,8 @@
           "labelPre": "Use the plot plus your image to answer this question: Most of the bright galaxies appear ",
           "labelPost": " on the image.",
           "options": [
-            {"label": "large", "value": "large"},
-            {"label": "small", "value": "small"}
+            { "label": "large", "value": "large" },
+            { "label": "small", "value": "small" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -67,8 +69,8 @@
           "answerAccessor": "compound-select",
           "placeholder": "Select",
           "options": [
-            {"label": "big", "value": "big"},
-            {"label": "small", "value": "small"}
+            { "label": "big", "value": "big" },
+            { "label": "small", "value": "small" }
           ],
           "answerPre": " ",
           "answerPost": "."
@@ -83,8 +85,8 @@
           "answerAccessor": "compound-select",
           "placeholder": "Select",
           "options": [
-            {"label": "bright", "value": "bright"},
-            {"label": "dim", "value": "dim"}
+            { "label": "bright", "value": "bright" },
+            { "label": "dim", "value": "dim" }
           ],
           "answerPre": " ",
           "answerPost": "."

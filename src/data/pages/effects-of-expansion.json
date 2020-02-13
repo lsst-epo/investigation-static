@@ -12,12 +12,18 @@
     "title": "Exploring the Relationship between Color & Distance",
     "link": "/color-and-distance/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "content": "<p>Suppose there are three galaxies that have the same shape, mass, size, and color. If all three galaxies were the same distance from Earth they would look identical. Now imagine how these same three galaxies would look at different distances from Earth.</p>",
-  "image": {
-    "mediaPath": "/images/three-galaxies.png",
-    "altText": "Three galaxies at increasing distances from Earth. A is closest, C is farthest."
-  },
+  "images": [
+    {
+      "mediaPath": "/images/three-galaxies.png",
+      "altText": "Three galaxies at increasing distances from Earth. A is closest, C is farthest.",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

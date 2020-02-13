@@ -14,10 +14,12 @@
   },
   "layout": "TwoCol",
   "content": "<p>You will now explore the different galaxies in this image by using a plot of color vs distance. On this plot, <u>smaller</u> flux ratio numbers are <u>redder</u> colors.  Let’s think about how this happens.  Recall from the Hubble-Lemaitre Law that the Universe is expanding, and this expansion causes light waves to appear to be stretched to longer wavelengths. This is called <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/c/cosmological+redshift'>cosmological redshift</a>.</p>",
-  "image": {
-    "mediaPath": "/images/observable-galaxies.png",
-    "altText": "A vast array of visible galaxies"
-  },
+  "images": [
+    {
+      "mediaPath": "/images/observable-galaxies.png",
+      "altText": "A vast array of visible galaxies"
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -28,8 +30,8 @@
           "labelPre": "Based on the data in this plot, galaxies that are far away appear ",
           "labelPost": " , as compared to nearby galaxies.",
           "options": [
-            {"label": "redder", "value": "redder"},
-            {"label": "less red", "value": "less red"}
+            { "label": "redder", "value": "redder" },
+            { "label": "less red", "value": "less red" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -46,8 +48,8 @@
           "labelPre": "As the Universe expands and a galaxy’s light is stretched to longer wavelengths, would the light you observe from this galaxy appear ",
           "labelPost": " .",
           "options": [
-            {"label": "redder", "value": "redder"},
-            {"label": "less red", "value": "less red"}
+            { "label": "redder", "value": "redder" },
+            { "label": "less red", "value": "less red" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -64,8 +66,8 @@
           "labelPre": "Light that travels a large distance (and for a long time) while the Universe is expanding will be redshifted ",
           "labelPost": " than light that travels a short distance.",
           "options": [
-            {"label": "more", "value": "more"},
-            {"label": "less", "value": "less"}
+            { "label": "more", "value": "more" },
+            { "label": "less", "value": "less" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -82,8 +84,8 @@
           "labelPre": "Galaxies that are very far away will appear ",
           "labelPost": " than galaxies that are near Earth.",
           "options": [
-            {"label": "redder", "value": "redder"},
-            {"label": "less red", "value": "less red"}
+            { "label": "redder", "value": "redder" },
+            { "label": "less red", "value": "less red" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
