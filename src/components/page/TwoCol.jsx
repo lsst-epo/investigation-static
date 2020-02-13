@@ -7,6 +7,7 @@ import { renderDef, capitalize } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
 import Placeholder from '../placeholder';
 import styles from './page.module.scss';
+import ImageBlock from './shared/imageBlock';
 
 class TwoCol extends React.PureComponent {
   filterTables(side, tables) {
@@ -74,15 +75,75 @@ class TwoCol extends React.PureComponent {
     });
   };
 
+  renderImages = (row, col) => {
+    const { images } = this.props;
+    const uRow = row || 'bottom';
+    const uCol = col || 'right';
+    const img =
+      images &&
+      images.map((image, i) => {
+        const { layout } = image;
+        const { row: iRow, col: iCol } = layout || {};
+        const COL = iCol || 'right';
+        const ROW = iRow || 'bottom';
+        return (
+          uCol === COL &&
+          uRow === ROW && (
+            <ImageBlock
+              // eslint-disable-next-line react/no-array-index-key
+              key={image.altText + i}
+              {...{ image }}
+              classname={styles[`gridImage${capitalize(ROW)}`]}
+            />
+          )
+        );
+      });
+    return img;
+  };
+
+  renderImages = (row, col) => {
+    const { images } = this.props;
+    const uRow = row || 'bottom';
+    const uCol = col || 'right';
+    const img =
+      images &&
+      images.map((image, i) => {
+        const { layout } = image;
+        const { row: iRow, col: iCol } = layout || {};
+        const COL = iCol || 'right';
+        const ROW = iRow || 'bottom';
+        return (
+          uCol === COL &&
+          uRow === ROW && (
+            <ImageBlock
+              // eslint-disable-next-line react/no-array-index-key
+              key={image.altText + i}
+              {...{ image }}
+              classname={styles[`gridImage${capitalize(ROW)}`]}
+            />
+          )
+        );
+      });
+    return img;
+  };
+
   render() {
-    const { title, content, questions, answers, image, tables } = this.props;
+    const { title, content, questions, answers, tables } = this.props;
+
     const leftColTables = this.filterTables('left', tables);
     const rightColTables = this.filterTables('right', tables);
+
     const topLeftWidgets = this.renderWidget('top', 'left');
     const bottomLeftWidgets = this.renderWidget('bottom', 'left');
     const topRightWidgets = this.renderWidget('top', 'right');
     const bottomRightWidgets = this.renderWidget('bottom', 'right');
     const rightColWidgets = topRightWidgets || bottomRightWidgets;
+
+    const imageLeftTop = this.renderImages('top', 'left');
+    const imageLeftBottom = this.renderImages('bottom', 'left');
+    const imageRightTop = this.renderImages('top', 'right');
+    const imageRightBottom = this.renderImages('bottom', 'right');
+    const rightColImages = imageRightTop || imageRightBottom;
 
     return (
       <div className="container-flex spaced">
@@ -95,6 +156,7 @@ class TwoCol extends React.PureComponent {
               className={styles.gridCopy}
               dangerouslySetInnerHTML={renderDef(content)}
             />
+            {imageLeftTop}
             {topLeftWidgets}
             {leftColTables && (
               <ObservationsTables answers={answers} tables={leftColTables} />
@@ -104,23 +166,21 @@ class TwoCol extends React.PureComponent {
                 <QAs {...this.props} />
               </div>
             )}
+            {imageLeftBottom}
             {bottomLeftWidgets}
           </div>
         </div>
         <div
           className={`col padded col-width-50 col-fixed ${styles.rightColGrid}`}
         >
+          {imageRightTop}
           {topRightWidgets}
           {rightColTables && (
             <ObservationsTables answers={answers} tables={rightColTables} />
           )}
+          {imageRightBottom}
           {bottomRightWidgets}
-          {image && (
-            <div className={styles.gridImage}>
-              <img src={image.mediaPath} alt={image.altText} />
-            </div>
-          )}
-          {!rightColWidgets && !rightColTables && !image && (
+          {!rightColWidgets && !rightColTables && !rightColImages && (
             <div className={styles.gridPlaceholder}>
               <Placeholder />
             </div>
@@ -137,8 +197,8 @@ TwoCol.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
   WidgetTags: PropTypes.array,
-  image: PropTypes.object,
   widgets: PropTypes.array,
+  images: PropTypes.array,
   options: PropTypes.object,
   questions: PropTypes.array,
   answers: PropTypes.object,
