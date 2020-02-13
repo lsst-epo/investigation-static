@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import QAs from '../qas';
-import { renderDef } from '../../lib/utilities.js';
+import { renderDef, capitalize } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
 import styles from './page.module.scss';
 
@@ -16,7 +16,10 @@ class Page extends React.PureComponent {
       tables,
       image,
       WidgetTag,
+      widget,
     } = this.props;
+    const { layout } = widget || {};
+    const { row: widgetRow } = layout;
 
     return (
       <div className={styles.singleColGrid}>
@@ -24,6 +27,11 @@ class Page extends React.PureComponent {
         <h2 className={`space-bottom section-title ${styles.gridTitle}`}>
           {title}
         </h2>
+        {widgetRow === 'top' && WidgetTag && (
+          <div className={styles[`gridWidget${capitalize(widgetRow)}`]}>
+            <WidgetTag {...this.props} />
+          </div>
+        )}
         <div
           className={styles.gridCopy}
           dangerouslySetInnerHTML={renderDef(content)}
@@ -35,14 +43,14 @@ class Page extends React.PureComponent {
           </div>
         )}
         {/* </section> */}
-        {WidgetTag && (
-          <div className={styles.gridWidget}>
-            <WidgetTag {...this.props} />
-          </div>
-        )}
         {image && (
           <div className={styles.gridImage}>
             <img src={image.mediaPath} alt={image.altText} />
+          </div>
+        )}
+        {(widgetRow === 'bottom' || !widgetRow) && WidgetTag && (
+          <div className={styles[`gridWidget${capitalize(widgetRow)}`]}>
+            <WidgetTag {...this.props} />
           </div>
         )}
       </div>
