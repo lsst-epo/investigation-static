@@ -19,7 +19,7 @@ class Page extends React.PureComponent {
       widget,
     } = this.props;
     const { layout } = widget || {};
-    const { row: widgetRow } = layout;
+    const { row: widgetRow } = layout || {};
 
     return (
       <div className={styles.singleColGrid}>
