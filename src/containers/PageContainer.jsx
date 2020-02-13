@@ -57,8 +57,8 @@ class PageContainer extends React.PureComponent {
       previous,
       next,
       content,
-      image,
       widgets,
+      images,
       tables,
       questionsByPage: questions,
     } = data.allPagesJson.nodes[0];
@@ -79,7 +79,7 @@ class PageContainer extends React.PureComponent {
             content,
             widgets,
             tables,
-            image,
+            images,
             questions,
             answers,
             updateAnswer,
@@ -128,9 +128,13 @@ export const query = graphql`
           title
           link
         }
-        image {
+        images {
           mediaPath
           altText
+          layout {
+            col
+            row
+          }
         }
         tables {
           id

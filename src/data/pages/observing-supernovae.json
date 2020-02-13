@@ -11,6 +11,10 @@
   "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abqmpsr.json",
+    "layout": {
+      "col": "left",
+      "row": "top"
+    },
     "options": {
       "showSelector": true,
       "showLightCurve": true,
