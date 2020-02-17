@@ -10,36 +10,27 @@ import Check from '../icons/Check';
 
 @reactn
 class TableOfContents extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.routes = [
-      {
-        primaryText: 'Table of Contents',
-        subheader: true,
-      },
-      {
-        primaryText: '',
-        subheader: true,
-      },
-      { divider: true },
-    ];
-  }
-
-  componentDidUpdate() {
-    const { visitedPages, totalPages } = this.global;
-    this.routes[1].primaryText =
-      'Pages Visited: ' + visitedPages.length + '/' + totalPages;
-  }
-
   getNavLinks(navLinks, investigation, useBaseUrl) {
+    const { visitedPages, totalPages } = this.global;
+
     return [
-      ...this.routes,
+      ...[
+        {
+          primaryText: 'Table of Contents',
+          subheader: true,
+        },
+        {
+          primaryText: `Pages Visited: ${visitedPages.length}/${totalPages}`,
+          subheader: true,
+        },
+        { divider: true },
+      ],
       ...filter(navLinks, link => link.investigation === investigation).map(
         link => {
           if (link.divider || link.subheader) return link;
           const { title, id, investigation: linkBaseUrl, slug } = link;
           const baseUrl = linkBaseUrl && useBaseUrl ? `/${linkBaseUrl}/` : '/';
+          const isActive = this.isActivePage(id);
 
           return {
             component: Link,
@@ -47,9 +38,9 @@ class TableOfContents extends React.PureComponent {
             to: baseUrl + slug,
             primaryText: title,
             leftIcon: <Check />,
-            active: this.setActivePage(id),
+            active: isActive,
             className: classnames('toc-link', `link--page-id--${id}`, {
-              'link-active': this.setActivePage(id),
+              'link-active': isActive,
               'qa-progress--complete': this.checkQAProgress(id),
             }),
           };
@@ -58,14 +49,16 @@ class TableOfContents extends React.PureComponent {
     ];
   }
 
-  checkQAProgress = pageId => {
+  checkQAProgress(pageId) {
     const { totalQAsByPage } = this.global;
-    const { progress } = totalQAsByPage[pageId];
+    const { progress } = totalQAsByPage[pageId] || {};
 
     return progress === 1;
-  };
+  }
 
-  setActivePage = linkId => linkId === this.global.pageId;
+  isActivePage = linkId => {
+    return linkId === this.global.pageId;
+  };
 
   handleVisibility = visible => {
     const { toggleToc } = this.props;
@@ -98,29 +91,3 @@ TableOfContents.propTypes = {
 };
 
 export default TableOfContents;
-// export default props => (
-//   <StaticQuery
-//     query={graphql`
-//       query MyQuery {
-//         allPagesJson(sort: { fields: order, order: ASC }) {
-//           nodes {
-//             title
-//             slug
-//             id
-//             investigation
-//             order
-//             questionsByPage {
-//               question {
-//                 id
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `}
-//     render={data => (
-//       <TableOfContents {...props} navLinks={data.allPagesJson.nodes} />
-//     )}
-//   />
-// );
-//
