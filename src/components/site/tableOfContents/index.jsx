@@ -19,8 +19,18 @@ class TableOfContents extends React.PureComponent {
         primaryText: 'Table of Contents',
         subheader: true,
       },
+      {
+        primaryText: '',
+        subheader: true,
+      },
       { divider: true },
     ];
+  }
+
+  componentDidUpdate() {
+    const { visitedPages, totalPages } = this.global;
+    this.routes[1].primaryText =
+      'Pages Visited: ' + visitedPages.length + '/' + totalPages;
   }
 
   getNavLinks(navLinks, investigation) {
@@ -49,10 +59,8 @@ class TableOfContents extends React.PureComponent {
   }
 
   checkQAProgress = pageId => {
-    const { totalQAsByPage, visitedPages, totalPages } = this.global;
+    const { totalQAsByPage } = this.global;
     const { progress } = totalQAsByPage[pageId];
-    console.log(visitedPages.length);
-    console.log(totalPages);
     return progress === 1;
   };
 
