@@ -69,17 +69,6 @@ class GlobalStore {
       const { questions, progress: prevProgress } = prevPageTotals;
       const progress = questions.length === 0 ? 1 : prevProgress;
 
-      const keys = Object.keys(prevTotals);
-      for (let i = 0; i < keys.length; i += 1) {
-        const key = keys[i];
-        if (
-          prevTotals[key].progress === 1 &&
-          !this.containsObject(prevTotals[key], visitedPages)
-        ) {
-          visitedPages.push(prevTotals[key]);
-        }
-      }
-
       return {
         ...global,
         pageId,
@@ -109,7 +98,7 @@ class GlobalStore {
         // } else if (!prevAnswered && answered) {
         //   answers.push(qId);
         // }
-        const { totalQAsByPage: prevTotals } = global;
+        const { totalQAsByPage: prevTotals, visitedPages } = global;
         const prevPageTotals = prevTotals[pageId];
         const { questions, answers: prevAnswers } = prevTotals[pageId];
         const qLength = questions.length;
@@ -118,6 +107,17 @@ class GlobalStore {
           ? uniq([...prevAnswers, qId])
           : filter(prevAnswers, qId);
         const progress = qLength === 0 ? 1 : answers.length / qLength;
+
+        const keys = Object.keys(prevTotals);
+        for (let i = 0; i < keys.length; i += 1) {
+          const key = keys[i];
+          if (
+            prevTotals[key].progress === 1 &&
+            !this.containsObject(prevTotals[key], visitedPages)
+          ) {
+            visitedPages.push(prevTotals[key]);
+          }
+        }
 
         return {
           ...global,
