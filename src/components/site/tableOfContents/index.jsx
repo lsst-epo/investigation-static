@@ -11,35 +11,25 @@ import Check from '../icons/Check';
 
 @reactn
 class TableOfContents extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.routes = [
-      {
-        primaryText: 'Table of Contents',
-        subheader: true,
-      },
-      {
-        primaryText: '',
-        subheader: true,
-      },
-      { divider: true },
-    ];
-  }
-
-  componentDidUpdate() {
-    const { visitedPages, totalPages } = this.global;
-    this.routes[1].primaryText =
-      'Pages Visited: ' + visitedPages.length + '/' + totalPages;
-  }
-
   getNavLinks(navLinks, investigation) {
+    const { visitedPages, totalPages } = this.global;
+
     return [
-      ...this.routes,
+      ...[
+        {
+          primaryText: 'Table of Contents',
+          subheader: true,
+        },
+        {
+          primaryText: `Pages Visited: ${visitedPages.length}/${totalPages}`,
+          subheader: true,
+        },
+        { divider: true },
+      ],
       ...filter(navLinks, link => link.investigation === investigation).map(
         link => {
-          if (link.divider || link.subheader) return link;
           const baseUrl = link.investigation ? `/${link.investigation}/` : '/';
+          const isActive = this.isActivePage(link.id);
 
           return {
             component: Link,
@@ -47,9 +37,9 @@ class TableOfContents extends React.PureComponent {
             to: baseUrl + link.slug,
             primaryText: link.title,
             leftIcon: <Check />,
-            active: this.setActivePage(link.id),
+            active: isActive,
             className: classnames('toc-link', `link--page-id--${link.id}`, {
-              'link-active': this.setActivePage(link.id),
+              'link-active': isActive,
               'qa-progress--complete': this.checkQAProgress(link.id),
             }),
           };
@@ -58,13 +48,15 @@ class TableOfContents extends React.PureComponent {
     ];
   }
 
-  checkQAProgress = pageId => {
+  checkQAProgress(pageId) {
     const { totalQAsByPage } = this.global;
-    const { progress } = totalQAsByPage[pageId];
+    const { progress } = totalQAsByPage[pageId] || {};
     return progress === 1;
-  };
+  }
 
-  setActivePage = linkId => linkId === this.global.pageId;
+  isActivePage = linkId => {
+    return linkId === this.global.pageId;
+  };
 
   handleVisibility = visible => {
     const { toggleSidebar } = this.props;
