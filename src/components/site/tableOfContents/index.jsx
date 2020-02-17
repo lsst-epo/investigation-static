@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import reactn from 'reactn';
 import { Link } from 'gatsby';
@@ -19,8 +18,18 @@ class TableOfContents extends React.PureComponent {
         primaryText: 'Table of Contents',
         subheader: true,
       },
+      {
+        primaryText: '',
+        subheader: true,
+      },
       { divider: true },
     ];
+  }
+
+  componentDidUpdate() {
+    const { visitedPages, totalPages } = this.global;
+    this.routes[1].primaryText =
+      'Pages Visited: ' + visitedPages.length + '/' + totalPages;
   }
 
   getNavLinks(navLinks, investigation, useBaseUrl) {
@@ -50,7 +59,7 @@ class TableOfContents extends React.PureComponent {
   }
 
   checkQAProgress = pageId => {
-    const { totalQAsByPage, visitedPages, totalPages } = this.global;
+    const { totalQAsByPage } = this.global;
     const { progress } = totalQAsByPage[pageId];
 
     return progress === 1;
