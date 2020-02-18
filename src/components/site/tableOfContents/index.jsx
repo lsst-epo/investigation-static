@@ -51,6 +51,7 @@ class TableOfContents extends React.PureComponent {
   checkQAProgress(pageId) {
     const { totalQAsByPage } = this.global;
     const { progress } = totalQAsByPage[pageId] || {};
+
     return progress === 1;
   }
 
@@ -87,29 +88,3 @@ TableOfContents.propTypes = {
 };
 
 export default TableOfContents;
-// export default props => (
-//   <StaticQuery
-//     query={graphql`
-//       query MyQuery {
-//         allPagesJson(sort: { fields: order, order: ASC }) {
-//           nodes {
-//             title
-//             slug
-//             id
-//             investigation
-//             order
-//             questionsByPage {
-//               question {
-//                 id
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `}
-//     render={data => (
-//       <TableOfContents {...props} navLinks={data.allPagesJson.nodes} />
-//     )}
-//   />
-// );
-//

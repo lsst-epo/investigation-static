@@ -2,7 +2,6 @@ import { addCallback, addReducer, setGlobal } from 'reactn';
 import ls from 'local-storage';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
-import isEqual from 'lodash/isEqual';
 
 class GlobalStore {
   constructor(initialGlobals) {
