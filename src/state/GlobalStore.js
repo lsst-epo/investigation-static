@@ -86,7 +86,6 @@ class GlobalStore {
         const prevPageTotals = prevTotals[pageId];
         const { questions, answers: prevAnswers } = prevTotals[pageId];
         const qLength = questions.length;
-
         const answers = answered
           ? uniq([...prevAnswers, qId])
           : filter(prevAnswers, qId);
@@ -107,8 +106,10 @@ class GlobalStore {
     );
 
     addReducer('updateAnswer', (global, dispatch, id, content, data) => {
-      const { answers: prevAnswers, pageId } = global;
+      const { answers: prevAnswers, pageId, totalQAsByInvestigation } = global;
       const prevAnswer = { ...prevAnswers[id] };
+
+      totalQAsByInvestigation.answers = Object.keys(prevAnswers).length;
 
       return {
         ...dispatch.updateProgressByPage(pageId, id, true),
