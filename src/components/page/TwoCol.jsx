@@ -7,6 +7,7 @@ import { renderDef } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
 import Placeholder from '../placeholder';
 import styles from './page.module.scss';
+import Images from './shared/images';
 
 class TwoCol extends React.PureComponent {
   filterTables(side, tables) {
@@ -24,16 +25,7 @@ class TwoCol extends React.PureComponent {
   }
 
   renderImages = () => {
-    const { images } = this.props;
-    return (
-      images &&
-      images.map((image, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <div className={styles.gridImage} key={`${image.altText}_${i}`}>
-          <img src={image.mediaPath} alt={image.altText} />
-        </div>
-      ))
-    );
+    return <Images {...this.props} classname={styles.gridImage} />;
   };
 
   render() {
@@ -50,7 +42,7 @@ class TwoCol extends React.PureComponent {
     const { row: widgetRow, col: widgetCol } = layout || {};
     const leftColTables = this.filterTables('left', tables);
     const rightColTables = this.filterTables('right', tables);
-    const Images = this.renderImages();
+    const images = this.renderImages();
 
     return (
       <div className="container-flex spaced">
@@ -101,6 +93,7 @@ class TwoCol extends React.PureComponent {
           {rightColTables && (
             <ObservationsTables answers={answers} tables={rightColTables} />
           )}
+          {images}
           {widgetCol === 'right' &&
             (widgetRow === 'bottom' || !widgetRow) &&
             WidgetTag && (
@@ -108,7 +101,6 @@ class TwoCol extends React.PureComponent {
                 <WidgetTag {...this.props} />
               </div>
             )}
-          {Images}
         </div>
       </div>
     );

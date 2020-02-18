@@ -4,20 +4,12 @@ import PropTypes from 'prop-types';
 import QAs from '../qas';
 import { renderDef } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
+import Images from './shared/images';
 import styles from './page.module.scss';
 
 class Page extends React.PureComponent {
   renderImages = () => {
-    const { images } = this.props;
-    return (
-      images &&
-      images.map((image, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <div className={styles.gridImage} key={`${image.altText}_${i}`}>
-          <img src={image.mediaPath} alt={image.altText} />
-        </div>
-      ))
-    );
+    return <Images {...this.props} classname={styles.gridImage} />;
   };
 
   render() {
@@ -32,7 +24,7 @@ class Page extends React.PureComponent {
     } = this.props;
     const { layout } = widget || {};
     const { row: widgetRow } = layout || {};
-    const Images = this.renderImages();
+    const images = this.renderImages();
 
     return (
       <div className={styles.singleColGrid}>
@@ -56,7 +48,7 @@ class Page extends React.PureComponent {
           </div>
         )}
         {/* </section> */}
-        {Images}
+        {images}
         {(widgetRow === 'bottom' || !widgetRow) && WidgetTag && (
           <div className={styles[`gridWidget${widgetRow}`]}>
             <WidgetTag {...this.props} />

@@ -13,27 +13,29 @@
   display: grid;
   grid-template:
     'grid-title' auto
+    'grid-image-top' auto
     'grid-widget-top' auto
     'grid-table-top' auto
     'grid-copy' auto
     'grid-table-middle' auto
     'grid-qas' auto
     'grid-table-bottom' auto
+    'grid-image-bottom' auto
     'grid-widget-bottom' auto
-    'grid-image' auto
     / 100%;
 }
 
 .right-col-grid {
   display: grid;
   grid-template:
+    'grid-image-top' auto
     'grid-widget-top' auto
     'grid-table-top' auto
     'grid-placeholder' auto
-    'grid-widget-bottom' auto
-    'grid-image' auto
     'grid-table-bottom' auto
     'grid-table-default' auto
+    'grid-image-bottom' auto
+    'grid-widget-bottom' auto
     / 100%;
 }
 
