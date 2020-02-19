@@ -33,7 +33,7 @@ class Points extends React.PureComponent {
             selected,
             hovered,
             [notActive]: (selectedData || hoveredData) && !selected && !hovered,
-            [invisible]: !x || !y,
+            [invisible]: x === null || y === null,
           });
 
           return (

@@ -88,15 +88,14 @@ class TwoCol extends React.PureComponent {
       <div className="container-flex spaced">
         <div className="col padded col-width-50">
           <div className={styles.leftColGrid}>
-            {/* <section> */}
             <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
               {title}
             </h1>
-            {topLeftWidgets}
             <div
               className={styles.gridCopy}
               dangerouslySetInnerHTML={renderDef(content)}
             />
+            {topLeftWidgets}
             {leftColTables && (
               <ObservationsTables answers={answers} tables={leftColTables} />
             )}
@@ -106,18 +105,12 @@ class TwoCol extends React.PureComponent {
               </div>
             )}
             {bottomLeftWidgets}
-            {/* </section> */}
           </div>
         </div>
         <div
           className={`col padded col-width-50 col-fixed ${styles.rightColGrid}`}
         >
           {topRightWidgets}
-          {!rightColWidgets && !rightColTables && (
-            <div className={styles.gridPlaceholder}>
-              <Placeholder />
-            </div>
-          )}
           {rightColTables && (
             <ObservationsTables answers={answers} tables={rightColTables} />
           )}
@@ -125,6 +118,11 @@ class TwoCol extends React.PureComponent {
           {image && (
             <div className={styles.gridImage}>
               <img src={image.mediaPath} alt={image.altText} />
+            </div>
+          )}
+          {!rightColWidgets && !rightColTables && !image && (
+            <div className={styles.gridPlaceholder}>
+              <Placeholder />
             </div>
           )}
         </div>

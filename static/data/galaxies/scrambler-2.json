@@ -103,6 +103,16 @@
         "color": "#4c8cd2"
       },
       {
+        "distance": 74.8104329796111,
+        "redshift": 0.01736323305897762,
+        "velocity": 5163.75433786765,
+        "y": 0.0, "x": 0.0, "z": 0.0,
+        "name": "Milky Way",
+        "label": "Milky Way",
+        "id": "MW",
+        "color": "#a3bb0d"
+      },
+      {
         "distance": 0.0,
         "redshift": 0.0,
         "velocity": 0,
@@ -129,15 +139,6 @@
         "name": "2E2978",
         "id": "Gal3",
         "color": "#c82960"
-      },
-      {
-        "distance": 74.8104329796111,
-        "redshift": 0.01736323305897762,
-        "velocity": 5163.75433786765,
-        "y": 0.0, "x": 0.0, "z": 0.0,
-        "name": "Milky Way",
-        "id": "MW",
-        "color": "#a3bb0d"
       }
     ]
   },
@@ -207,6 +208,7 @@
         "velocity": 14860.61404232586,
         "y": 0.0, "x": 0.0, "z": 0.0,
         "name": "Milky Way",
+        "label": "Milky Way",
         "id": "MW",
         "color": "#a3bb0d"
       }
@@ -278,6 +280,7 @@
         "velocity": 42598.60037135644,
         "y": 0.0, "x": 0.0, "z": 0.0,
         "name": "Milky Way",
+        "label": "Milky Way",
         "id": "MW",
         "color": "#a3bb0d"
       }
@@ -349,6 +352,7 @@
         "velocity": 50761.392955421004,
         "y": 0.0, "x": 0.0, "z": 0.0,
         "name": "Milky Way",
+        "label": "Milky Way",
         "id": "MW",
         "color": "#a3bb0d"
       }
@@ -420,6 +424,7 @@
         "velocity": 65843.71603633497,
         "y": 0.0, "x": 0.0, "z": 0.0,
         "name": "Milky Way",
+        "label": "Milky Way",
         "id": "MW",
         "color": "#a3bb0d"
       }
@@ -492,6 +497,7 @@
         "velocity": 172241.69958126324,
         "y": 0.0, "x": 0.0, "z": 0.0,
         "name": "Milky Way",
+        "label": "Milky Way",
         "id": "MW",
         "color": "#a3bb0d"
       }
