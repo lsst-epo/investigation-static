@@ -17,6 +17,9 @@
   "widgets": [{
     "type": "GalaxyScrambler",
     "source": "/data/galaxies/scrambler-2.json",
+    "layout": {
+      "row": "top"
+    },
     "options": {
       "preSelected": true,
       "hubbleConstant": 69.8,

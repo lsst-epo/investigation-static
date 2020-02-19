@@ -59,22 +59,20 @@ class Page extends React.PureComponent {
 
     return (
       <div className={styles.singleColGrid}>
-        {/* <section> */}
         <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
           {title}
         </h1>
-        {this.renderWidget('top')}
         <div
           className={styles.gridCopy}
           dangerouslySetInnerHTML={renderDef(content)}
         />
+        {this.renderWidget('top')}
         {tables && <ObservationsTables answers={answers} tables={tables} />}
         {questions && (
           <div className={styles.gridQas}>
             <QAs {...this.props} />
           </div>
         )}
-        {/* </section> */}
         {image && (
           <div className={styles.gridImage}>
             <img src={image.mediaPath} alt={image.altText} />

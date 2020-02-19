@@ -233,6 +233,7 @@ class GalaxySelectorContainer extends React.PureComponent {
 
     return (
       <>
+        <h2 className="space-bottom">Galaxy Selector</h2>
         <NavDrawer
           showNavDrawer
           interactableToolbar
