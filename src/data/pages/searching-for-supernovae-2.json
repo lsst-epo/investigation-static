@@ -12,7 +12,8 @@
     "source": "/data/galaxies/ZTF19abvhduf_g_lightcurve.json",
     "options": {
       "showSelector": true,
-      "toggleDataPointsVisibility": "59"
+      "toggleDataPointsVisibility": "59",
+      "autoplay": true
     }
   }],
   "questionsByPage": [

@@ -13,7 +13,7 @@
     "link": "/searching-for-supernovae-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>You can determine the type of supernova by overlaying supernovae light curve templates. Try this out by first selecting a template from the menu to the left of the light curve graph, and then dragging the light curve template over your light curve graph. You can also scroll to change the size of the template. Try to match the template to your data points. Try a different template.  Repeat this process until you find the template that best fits your data.</p>",
+  "content": "<p>Astronomers are interested in studying different types of supernovae for several reasons. Although all types of star explosions enrich the Universe with heavy elements, some specific types of supernovae are linked to gamma ray bursts or the production of many different types of neutrinos. Type Ia supernovae, are particularly useful for calculating distances. Let’s look at a few different supernovae and try to classify them. You can determine the type of supernova by overlaying supernovae light curve templates. Try this out by first selecting a template from the menu to the left of the light curve graph, and then dragging the light curve template over your light curve graph. You can also scroll to change the size of the template. Try to match the template to your data points. Try a different template.  Repeat this process until you find the template that best fits your data.</p>",
   "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
@@ -44,7 +44,7 @@
         {
           "id": "93",
           "questionType": "textArea",
-          "label": "What type of supernova do you think this is? Explain your answer—which aspects of the shape of the light curve caused you to choose this type?",
+          "label": "Explain your answer—which aspects of the shape of the light curve caused you to choose this type?",
           "answerAccessor": "text"
         }
       ]
