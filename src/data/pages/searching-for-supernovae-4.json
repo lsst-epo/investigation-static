@@ -21,7 +21,7 @@
         {
           "id": "61",
           "questionType": "textArea",
-          "label": "Which of the three supernovae formed from a white dwarf star?",
+          "label": "List the names of the supernovae formed by white dwarf stars.",
           "answerAccessor": "text"
         }
       ]
@@ -31,7 +31,7 @@
         {
           "id": "62",
           "questionType": "textArea",
-          "label": "Which of the three supernovae formed from a high mass main sequence star?",
+          "label": "List the names of the supernovae formed from high mass main sequence stars.",
           "answerAccessor": "text"
         }
       ]

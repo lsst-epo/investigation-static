@@ -14,7 +14,8 @@
       "showSelector": true,
       "showLightCurve": false,
       "autoplay": false,
-      "toggleDataPointsVisibility": "90"
+      "toggleDataPointsVisibility": "90",
+      "autoplay": true
     }
   }],
   "questionsByPage": [

@@ -38,7 +38,7 @@
         {
           "id": "95",
           "questionType": "textArea",
-          "label": "What type of supernova do you think this is? Explain your answer—which aspects of the shape of the light curve caused you to choose this type?",
+          "label": "Explain your answer—which aspects of the shape of the light curve caused you to choose this type?",
           "answerAccessor": "text"
         }
       ]

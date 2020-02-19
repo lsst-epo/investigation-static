@@ -20,21 +20,21 @@
       "colTitles": [
         "Supernova",
         "Apparent Magnitude (m)",
-        "Distance (Ly)"
+        "Distance (Mly)"
       ],
       "rowTitles": [["#4"], ["#5"], ["#6"]],
       "rows": [
         [
           { "accessor": "magnitude", "id": "163" },
-          { "accessor": "lightYears", "id": "66" }
+          { "accessor": "megaLightYears", "id": "66" }
         ],
         [
           { "accessor": "magnitude", "id": "164" },
-          { "accessor": "lightYears", "id": "67" }
+          { "accessor": "megaLightYears", "id": "67" }
         ],
         [
           { "accessor": "magnitude", "id": "165" },
-          { "accessor": "lightYears", "id": "68" }
+          { "accessor": "megaLightYears", "id": "68" }
         ]
       ]
     }
@@ -46,7 +46,7 @@
           "id": "66",
           "questionType": "DistanceCalculator",
           "title": "Question #1",
-          "label": "<p>Enter the peak apparent magnitude (m) for supernova #4 to find it's distance from Earth.</p>",
+          "label": "<p>Enter the peak apparent magnitude (m) for supernova #4 to find its distance from Earth.</p>",
           "placeholder": "Enter peak magnitude",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "text"
@@ -59,7 +59,7 @@
           "id": "67",
           "questionType": "DistanceCalculator",
           "title": "Question #1",
-          "label": "<p>Enter the peak apparent magnitude (m) for supernova #5 to find it's distance from Earth.</p>",
+          "label": "<p>Enter the peak apparent magnitude (m) for supernova #5 to find its distance from Earth.</p>",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "text"
         }
@@ -71,7 +71,7 @@
           "id": "68",
           "questionType": "DistanceCalculator",
           "title": "Question #1",
-          "label": "<p>Enter the peak apparent magnitude (m) for supernova #6 to find it's distance from Earth.</p>",
+          "label": "<p>Enter the peak apparent magnitude (m) for supernova #6 to find its distance from Earth.</p>",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "text"
         }

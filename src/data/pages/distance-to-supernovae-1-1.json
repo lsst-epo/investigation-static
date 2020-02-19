@@ -7,7 +7,7 @@
   "previous": {"title": "Determining the Peak Apparent Magnitude of Supernova #4", "link": "/distance-to-supernovae-1/"},
   "next": {"title": "Determining the Peak Apparent Magnitude of Supernova #6", "link": "/distance-to-supernovae-1-2/"},
   "layout": "TwoCol",
-  "content": "<p>In this part of the investigation, you will work only with Type Ia supernovae.</p>",
+  "content": "<p>Here’s another Type Ia supernovae.</p>",
   "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abxvjkn_g_lightcurve.json",

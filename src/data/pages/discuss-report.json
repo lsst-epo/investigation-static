@@ -6,11 +6,11 @@
   "slug": "discuss-report/",
   "previous": {
     "title": "Finding the distance to Supernovae",
-    "link": "/distance-to-supernovae-4/"
+    "link": "/distance-to-supernovae-3/"
   },
   "next": { "title": "Summary", "link": "/summary/" },
   "layout": "TwoCol",
-  "content": "<p>Recall the relationship (from question 15) that exists between the relative size of a galaxy and its distance from Earth. The supernova pictured below is from a galaxy of a similar size as the galaxies that contained Supernovae 4, 5, and 6.</p><p>Refer to the chart collecting your distance and magnitude observations from the previous section to get an idea of the approximate distance of Supernovae #4, #5, and #6.</p>",
+  "content": "<p>Recall the relationship that exists between the relative size of a galaxy and its distance from Earth. The supernova marked by an arrow in the image is from a galaxy of a similar size as the galaxies that contained Supernovae 4, 5, and 6.</p><p>Refer to the chart collecting your distance and magnitude observations from the previous section to get an idea of the approximate distance of Supernovae #4, #5, and #6.</p>",
   "images": [{
     "mediaPath": "/images/expoloding-universe_discuss-report.jpg",
     "altText": "Superonva among other celestial objects"
@@ -18,7 +18,7 @@
   "tables": [
     {
       "id": "1",
-      "position": "left-middle",
+      "position": "right-middle",
       "colTitles": [
         "Supernova",
         "Apparent Magnitude (m)",
@@ -42,16 +42,6 @@
     }
   ],
   "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "76",
-          "questionType": "text",
-          "label": "<p>Who has the most distant supernova in your group/class? What is its distance in light years?</p>",
-          "answerAccessor": "text"
-        }
-      ]
-    },
     {
       "question": [
         {
@@ -82,6 +72,8 @@
           "options": [
             { "label": "1 million", "value": "1 million" },
             { "label": "10 million", "value": "10 million" },
+            { "label": "100 million", "value": "100 million" },
+            { "label": "1 billion", "value": "1 billion" },
             { "label": "10 billion", "value": "10 billion" }
           ],
           "answerPre": "This supernova is ",
