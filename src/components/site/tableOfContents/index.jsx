@@ -11,7 +11,11 @@ import Check from '../icons/Check';
 @reactn
 class TableOfContents extends React.PureComponent {
   getNavLinks(navLinks, investigation, useBaseUrl) {
-    const { visitedPages, totalPages } = this.global;
+    const { visitedPages, totalPages, totalQAsByInvestigation } = this.global;
+    const {
+      answers: totalAnswered,
+      questions: totalQuestions,
+    } = totalQAsByInvestigation;
 
     return [
       ...[
@@ -21,6 +25,10 @@ class TableOfContents extends React.PureComponent {
         },
         {
           primaryText: `Pages Visited: ${visitedPages.length}/${totalPages}`,
+          subheader: true,
+        },
+        {
+          primaryText: `Questions Answered: ${totalAnswered}/${totalQuestions}`,
           subheader: true,
         },
         { divider: true },
