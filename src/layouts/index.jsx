@@ -1,4 +1,5 @@
 import React from 'react';
+import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
 import flattenDeep from 'lodash/flattenDeep';
@@ -10,6 +11,7 @@ import TableOfContents from '../components/site/tableOfContents';
 
 import styles from './layout.module.scss';
 
+@reactn
 class Layout extends React.Component {
   constructor(props) {
     super(props);
@@ -21,9 +23,23 @@ class Layout extends React.Component {
       pages: filter(allInvestigationsPages, ['investigation', investigation]),
     };
 
-    const store = new GlobalStore(this.getInitialGlobals());
-    store.addCallbacks();
-    store.addReducers();
+    // console.log('constructor', this.state.investigation, this.props.pageContext.investigation);
+    this.store = new GlobalStore(this.getInitialGlobals());
+    this.store.addCallbacks();
+    this.store.addReducers();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { pageContext: prevPageContext } = prevProps;
+    const { investigation: prevInvestigation } = prevPageContext || {};
+    const { pageContext } = this.props;
+    const { investigation } = pageContext || {};
+
+    if (prevInvestigation !== (investigation && investigation !== undefined)) {
+      // this.store.dispatch.updateGlobalFromIvestigation(investigation);
+      // console.log(this.global);
+    }
+    // console.log('update', this.state.investigation, this.props.pageContext.investigation);
   }
 
   getTotalQAs() {

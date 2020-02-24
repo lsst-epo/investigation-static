@@ -45,6 +45,14 @@ class GlobalStore {
       return emptyGlobal;
     });
 
+    // addReducer(
+    //   'updateGlobalFromIvestigation',
+    //   (global, dispatch, investigationId) => {
+    //     console.log(investigationId, ls(investigationId) || this.emptyState);
+    //     return ls(investigationId) || this.emptyState;
+    //   }
+    // );
+
     addReducer('updatePageId', (global, dispatch, pageId) => {
       const {
         pageId: prevPageId,
@@ -105,35 +113,48 @@ class GlobalStore {
       }
     );
 
-    addReducer('updateAnswer', (global, dispatch, id, content, data) => {
-      const { answers: prevAnswers, pageId, totalQAsByInvestigation } = global;
-      const prevAnswer = { ...prevAnswers[id] };
-
-      totalQAsByInvestigation.answers = Object.keys(prevAnswers).length;
+    addReducer('updateAnswerTotals', (global, dispatch, answers) => {
+      const { totalQAsByInvestigation: prevTotals } = global;
 
       return {
-        ...dispatch.updateProgressByPage(pageId, id, true),
-        answers: {
-          ...prevAnswers,
-          [id]: {
-            ...prevAnswer,
-            id,
-            content,
-            data,
-          },
+        ...global,
+        totalQAsByInvestigation: {
+          ...prevTotals,
+          answers: Object.keys(answers).length,
         },
+      };
+    });
+
+    addReducer('updateAnswer', (global, dispatch, id, content, data) => {
+      const { answers: prevAnswers, pageId } = global;
+      const prevAnswer = { ...prevAnswers[id] };
+      const answers = {
+        ...prevAnswers,
+        [id]: {
+          ...prevAnswer,
+          id,
+          content,
+          data,
+        },
+      };
+      return {
+        ...dispatch.updateProgressByPage(pageId, id, true),
+        ...dispatch.updateAnswerTotals(answers),
+        answers,
       };
     });
 
     addReducer('clearAnswer', (global, dispatch, id) => {
       const { answers: prevAnswers, pageId } = global;
+      const answers = {
+        ...prevAnswers,
+        [id]: {},
+      };
 
       return {
         ...dispatch.updateProgressByPage(pageId, id, false),
-        answers: {
-          ...prevAnswers,
-          [id]: {},
-        },
+        ...dispatch.updateAnswerTotals(answers),
+        answers,
       };
     });
 
