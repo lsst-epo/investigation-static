@@ -2,104 +2,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import QAs from '../qas';
-import { renderDef, capitalize } from '../../lib/utilities.js';
+import { renderDef } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
-import ImageBlock from './shared/imageBlock';
+import ImagesBlock from './shared/imagesBlock';
+import WidgetsBlock from './shared/widgetsBlock';
 import styles from './page.module.scss';
 
 class Page extends React.PureComponent {
-  renderImages = row => {
-    const { images } = this.props;
-    const uRow = row || 'bottom';
-    const img =
-      images &&
-      images.map((image, i) => {
-        const { layout } = image;
-        const { row: iRow } = layout || {};
-        const ROW = iRow || 'bottom';
-        return (
-          uRow === ROW && (
-            <ImageBlock
-              // eslint-disable-next-line react/no-array-index-key
-              key={image.altText + i}
-              {...{ image }}
-              classname={styles[`gridImage${capitalize(ROW)}`]}
-            />
-          )
-        );
-      });
-    return img;
-  };
-
-  renderWidget = row => {
-    const {
-      widgets,
-      WidgetTags,
-      questions,
-      answers,
-      updateAnswer,
-      activeAnswer,
-      advanceActiveQuestion,
-      setActiveQuestion,
-      activeQuestionId,
-    } = this.props;
-    if (!widgets) return null;
-
-    return widgets.map((widget, i) => {
-      const { layout, options } = widget || {};
-      const { row: widgetRow } = layout || {};
-      const ROW = row || 'bottom';
-      if (WidgetTags[i] && ROW === (widgetRow || 'bottom')) {
-        const WidgetTag = WidgetTags[i];
-        const key = `${widgetRow}_${i}`;
-
-        return (
-          <div
-            key={key}
-            className={styles[`gridWidget${capitalize(widgetRow || 'bottom')}`]}
-          >
-            <WidgetTag
-              {...{
-                questions,
-                answers,
-                updateAnswer,
-                activeAnswer,
-                advanceActiveQuestion,
-                setActiveQuestion,
-                activeQuestionId,
-                widget,
-                options,
-              }}
-            />
-          </div>
-        );
-      }
-      return null;
-    });
-  };
-
   render() {
-    const { title, content, questions, answers, tables } = this.props;
+    const { title, content, questions, answers, tables, images } = this.props;
 
     return (
       <div className={styles.singleColGrid}>
         <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
           {title}
         </h1>
-        {this.renderImages('top')}
+        <ImagesBlock row="top" {...{ images, styles }} />
         <div
           className={styles.gridCopy}
           dangerouslySetInnerHTML={renderDef(content)}
         />
-        {this.renderWidget('top')}
-        {tables && <ObservationsTables answers={answers} tables={tables} />}
+        <WidgetsBlock row="top" props={this.props} {...{ styles }} />
+        <ObservationsTables row="top" {...{ tables, answers, styles }} />
         {questions && (
           <div className={styles.gridQas}>
             <QAs {...this.props} />
           </div>
         )}
-        {this.renderWidget('bottom')}
-        {this.renderImages('bottom')}
+        <ObservationsTables row="middle" {...{ tables, answers, styles }} />
+        <WidgetsBlock row="bottom" props={this.props} {...{ styles }} />
+        <ImagesBlock row="bottom" {...{ images, styles }} />
+        <ObservationsTables row="bottom" {...{ tables, answers, styles }} />
       </div>
     );
   }

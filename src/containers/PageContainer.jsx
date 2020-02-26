@@ -139,7 +139,10 @@ export const query = graphql`
         tables {
           id
           title
-          position
+          layout {
+            col
+            row
+          }
           colTitles
           rowTitles
           rows {
