@@ -1,123 +1,35 @@
 /* eslint-disable react/no-danger, react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import includes from 'lodash/includes';
+import find from 'lodash/find';
 import QAs from '../qas';
-import { renderDef, capitalize } from '../../lib/utilities.js';
+import { renderDef } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
 import Placeholder from '../placeholder';
 import styles from './page.module.scss';
-import ImageBlock from './shared/imageBlock';
+import ImagesBlock from './shared/imagesBlock';
+import WidgetsBlock from './shared/widgetsBlock';
 
 class TwoCol extends React.PureComponent {
-  filterTables(side, tables) {
-    if (!tables) return null;
-
-    return tables.filter(table => {
-      const { position } = table;
-
-      if (includes(position, side) || (side !== 'left' && !position)) {
-        return table;
-      }
-
-      return null;
+  isPosEmpty = (layout = { col: 'right', row: 'bottom' }, targets) => {
+    return !find(targets, target => {
+      const { col, row } = layout;
+      const { layout: targetLayout } = target || {};
+      const { col: targetCol, row: targetRow } = targetLayout || layout;
+      return targetCol === col || targetRow === row;
     });
-  }
-
-  renderWidget = (row, col) => {
-    const {
-      widgets,
-      WidgetTags,
-      questions,
-      answers,
-      updateAnswer,
-      activeAnswer,
-      advanceActiveQuestion,
-      setActiveQuestion,
-      activeQuestionId,
-    } = this.props;
-    if (!widgets) return null;
-    return widgets.map((widget, i) => {
-      const { layout, options } = widget;
-      const { row: widgetRow, col: widgetCol } = layout || {};
-      const COLUMN = col || 'right';
-      const ROW = row || 'bottom';
-      if (
-        WidgetTags[i] &&
-        COLUMN === (widgetCol || 'right') &&
-        ROW === (widgetRow || 'bottom')
-      ) {
-        const WidgetTag = WidgetTags[i];
-        const key = `${widgetRow}_${widgetCol}_${i}`;
-
-        return (
-          <div
-            key={key}
-            className={styles[`gridWidget${capitalize(widgetRow || 'bottom')}`]}
-          >
-            <WidgetTag
-              {...{
-                questions,
-                answers,
-                updateAnswer,
-                activeAnswer,
-                advanceActiveQuestion,
-                setActiveQuestion,
-                activeQuestionId,
-                widget,
-                options,
-              }}
-            />
-          </div>
-        );
-      }
-      return null;
-    });
-  };
-
-  renderImages = (row, col) => {
-    const { images } = this.props;
-    const uRow = row || 'bottom';
-    const uCol = col || 'right';
-    const img =
-      images &&
-      images.map((image, i) => {
-        const { layout } = image;
-        const { row: iRow, col: iCol } = layout || {};
-        const COL = iCol || 'right';
-        const ROW = iRow || 'bottom';
-        return (
-          uCol === COL &&
-          uRow === ROW && (
-            <ImageBlock
-              // eslint-disable-next-line react/no-array-index-key
-              key={image.altText + i}
-              {...{ image }}
-              classname={styles[`gridImage${capitalize(ROW)}`]}
-            />
-          )
-        );
-      });
-    return img;
   };
 
   render() {
-    const { title, content, questions, answers, tables } = this.props;
-
-    const leftColTables = this.filterTables('left', tables);
-    const rightColTables = this.filterTables('right', tables);
-
-    const topLeftWidgets = this.renderWidget('top', 'left');
-    const bottomLeftWidgets = this.renderWidget('bottom', 'left');
-    const topRightWidgets = this.renderWidget('top', 'right');
-    const bottomRightWidgets = this.renderWidget('bottom', 'right');
-    const rightColWidgets = topRightWidgets || bottomRightWidgets;
-
-    const imageLeftTop = this.renderImages('top', 'left');
-    const imageLeftBottom = this.renderImages('bottom', 'left');
-    const imageRightTop = this.renderImages('top', 'right');
-    const imageRightBottom = this.renderImages('bottom', 'right');
-    const rightColImages = imageRightTop || imageRightBottom;
+    const {
+      title,
+      content,
+      questions,
+      answers,
+      tables,
+      images,
+      widgets,
+    } = this.props;
 
     return (
       <div className="container-flex spaced">
@@ -130,31 +42,74 @@ class TwoCol extends React.PureComponent {
               className={styles.gridCopy}
               dangerouslySetInnerHTML={renderDef(content)}
             />
-            {imageLeftTop}
-            {topLeftWidgets}
-            {leftColTables && (
-              <ObservationsTables answers={answers} tables={leftColTables} />
-            )}
+            <ImagesBlock getRow="top" getCol="left" {...{ images, styles }} />
+            <WidgetsBlock
+              getRow="top"
+              getCol="left"
+              {...{ styles, widgetProps: this.props }}
+            />
+            <ObservationsTables
+              getCol="left"
+              getRow="top"
+              {...{ tables, answers, styles }}
+            />
+            <ObservationsTables
+              getCol="left"
+              getRow="middle"
+              {...{ tables, answers, styles }}
+            />
             {questions && (
               <div className={styles.gridQas}>
                 <QAs {...this.props} />
               </div>
             )}
-            {imageLeftBottom}
-            {bottomLeftWidgets}
+            <ImagesBlock
+              getRow="bottom"
+              getCol="left"
+              {...{ images, styles }}
+            />
+            <WidgetsBlock
+              getRow="bottom"
+              getCol="left"
+              {...{ styles, widgetProps: this.props }}
+            />
+            <ObservationsTables
+              getCol="left"
+              getRow="bottom"
+              {...{ tables, answers, styles }}
+            />
           </div>
         </div>
         <div
           className={`col padded col-width-50 col-fixed ${styles.rightColGrid}`}
         >
-          {imageRightTop}
-          {topRightWidgets}
-          {rightColTables && (
-            <ObservationsTables answers={answers} tables={rightColTables} />
-          )}
-          {imageRightBottom}
-          {bottomRightWidgets}
-          {!rightColWidgets && !rightColTables && !rightColImages && (
+          <ImagesBlock getRow="top" getCol="right" {...{ images, styles }} />
+          <WidgetsBlock
+            getRow="top"
+            getCol="right"
+            {...{ styles, widgetProps: this.props }}
+          />
+          <ObservationsTables
+            getCol="right"
+            getRow="top"
+            {...{ tables, answers, styles }}
+          />
+          <ImagesBlock getRow="bottom" getCol="right" {...{ images, styles }} />
+          <WidgetsBlock
+            getRow="bottom"
+            getCol="right"
+            {...{ styles, widgetProps: this.props }}
+          />
+          <ObservationsTables
+            getCol="right"
+            getRow="bottom"
+            {...{ tables, answers, styles }}
+          />
+          {this.isPosEmpty({ col: 'right' }, [
+            ...(tables || []),
+            ...(images || []),
+            ...(widgets || []),
+          ]) && (
             <div className={styles.gridPlaceholder}>
               <Placeholder />
             </div>
@@ -164,8 +119,6 @@ class TwoCol extends React.PureComponent {
     );
   }
 }
-
-export default TwoCol;
 
 TwoCol.propTypes = {
   title: PropTypes.string,
@@ -184,3 +137,5 @@ TwoCol.propTypes = {
   advanceActiveQuestion: PropTypes.func,
   setActiveQuestion: PropTypes.func,
 };
+
+export default TwoCol;
