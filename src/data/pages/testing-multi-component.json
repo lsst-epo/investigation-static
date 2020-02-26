@@ -1,0 +1,121 @@
+{
+  "id": "expand4",
+  "investigation": "expanding-universe",
+  "order": "03",
+  "title": "Interpreting a Hubble Plot",
+  "slug": "testing-multi-component/",
+  "previous": {
+    "title": "Using Photometric Redshift to Measure Velocity",
+    "link": "/acquiring-the-data-2/"
+  },
+  "next": {
+    "title": "Interpreting a Hubble Plot",
+    "link": "/interpreting-a-hubble-plot-3/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>You will begin by hunting for Type Ia supernovae in LSST images of six galaxies. Then you will identify the galaxies themselves.  Finally we'll use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble Plot.</p>",
+  "images": [
+    {
+      "mediaPath": "/images/m101sn2011fe-500.jpg",
+      "altText": "[SN2011fe in M101]",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    },
+    {
+      "mediaPath": "/images/F2_large.jpg",
+      "altText": "Velocity-Distance Relation among Extra-Galactic Nebulae. Radial velocities, corrected for solar motion, are plotted against distances estimated from involved stars and mean luminosities of nebulae in a cluster. The black discs and full line represent the solution for solar motion using the nebulae individually; the circles and broken line represent the solution combining the nebulae into groups; the cross represents the mean velocity corresponding to the mean distance of 22 nebulae whose distances could not be estimated individually.",
+      "layout": {
+        "col": "right",
+        "row": "bottom"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "type": "GalaxySelector",
+      "source": "/data/galaxies/galaxy_selector.json",
+      "layout": {
+        "row": "top",
+        "col": "right"
+      },
+      "options": {
+        "toggleDataPointsVisibility": "251",
+        "createUserHubblePlot": "252"
+      }
+    },
+    {
+      "type": "HubblePlot",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "options": {
+        "showUserHubblePlot": "252",
+        "preSelected": true
+      }
+    }
+  ],
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "col": "left",
+        "row": "middle"
+      },
+      "colTitles": ["Supernova", "Apparent Magnitude (m)", "Distance (Ly)"],
+      "rowTitles": [["#4"], ["#5"], ["#6"]],
+      "rows": [
+        [
+          { "accessor": "magnitude", "id": "163" },
+          { "accessor": "lightYears", "id": "66" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "164" },
+          { "accessor": "lightYears", "id": "67" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "165" },
+          { "accessor": "lightYears", "id": "68" }
+        ]
+      ]
+    },
+    {
+      "id": "2",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "colTitles": ["Supernova", "Apparent Magnitude (m)", "Distance (Ly)"],
+      "rowTitles": [["#4"], ["#5"], ["#6"]],
+      "rows": [
+        [
+          { "accessor": "magnitude", "id": "163" },
+          { "accessor": "lightYears", "id": "66" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "164" },
+          { "accessor": "lightYears", "id": "67" }
+        ],
+        [
+          { "accessor": "magnitude", "id": "165" },
+          { "accessor": "lightYears", "id": "68" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "251",
+          "questionType": "prompt",
+          "title": "Question #1",
+          "label": "<p>Select a Galaxy from the menu. Compare the images of the galaxy as you did before to find the location of the supernova. When you see the supernova, click on it. The information box above the images will provide you with the distance to the selected supernova in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because the supernova is in the galaxy, the distances to the supernova and the galaxy are the same.</p><p>Next, click on the center of the galaxy. The information box above the images will provide you with the recessional velocity of selected galaxy in kilometers per second (km/s).</p>",
+          "answerAccessor": "galaxy"
+        }
+      ]
+    }
+  ]
+}

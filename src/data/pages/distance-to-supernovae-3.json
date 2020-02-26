@@ -12,7 +12,10 @@
     {
       "id": "2",
       "title": "Locations & Distances",
-      "position": "right-top",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
       "colTitles": [
         "Location",
         "Distance"
@@ -29,6 +32,10 @@
     {
       "id": "5",
       "title": "Magnitudes & Distances",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
       "colTitles": [
         "Supernova",
         "Apparent Magnitude (m)",
