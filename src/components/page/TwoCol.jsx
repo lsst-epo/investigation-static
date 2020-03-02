@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger, react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import QAs from '../qas';
 import { renderDef } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
@@ -10,15 +11,15 @@ import ImagesBlock from './shared/imagesBlock';
 import WidgetsBlock from './shared/widgetsBlock';
 
 class TwoCol extends React.PureComponent {
-  getRightColElements = elements => {
-    return (
-      elements &&
-      elements.filter(element => {
-        const { layout } = element || {};
-        const { col } = layout || {};
-        return col === 'right';
-      })
-    );
+  defaultLayout = { col: 'right', row: 'bottom' };
+
+  isPosEmpty = (layout, ...widgets) => {
+    return !_.find(...widgets, widget => {
+      const { col, row } = layout || {};
+      const { layout: wLayout } = widget || {};
+      const { col: wCol, row: wRow } = wLayout || this.defaultLayout;
+      return (wCol && wCol === col) || (wRow && wRow === row);
+    });
   };
 
   render() {
@@ -32,9 +33,10 @@ class TwoCol extends React.PureComponent {
       widgets,
     } = this.props;
 
-    const rightColTables = this.getRightColElements(tables);
-    const rightColImages = this.getRightColElements(images);
-    const rightColWidgets = this.getRightColElements(widgets);
+    const rightColEmpty = this.isPosEmpty(
+      { col: 'right' },
+      { ...tables, ...images, ...widgets }
+    );
 
     return (
       <div className="container-flex spaced">
@@ -107,7 +109,7 @@ class TwoCol extends React.PureComponent {
             row="bottom"
             {...{ tables, answers, styles }}
           />
-          {!rightColWidgets && !rightColTables && !rightColImages && (
+          {rightColEmpty && (
             <div className={styles.gridPlaceholder}>
               <Placeholder />
             </div>

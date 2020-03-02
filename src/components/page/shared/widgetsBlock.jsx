@@ -15,18 +15,24 @@ function WidgetsBlock({ col, row, styles, props }) {
     activeQuestionId,
   } = props;
 
+  const defaultLayout = {
+    col: 'right',
+    row: 'bottom',
+  };
+
   if (!widgets) return null;
 
   return widgets.map((widget, i) => {
     const { layout, options } = widget;
-    const { row: widgetRow, col: widgetCol } = layout || {};
-    const COLUMN = col || 'right';
-    const ROW = row || 'bottom';
+    const { col: dCol, row: dRow } = defaultLayout;
+    const { row: widgetRow, col: widgetCol } = layout || defaultLayout;
+    const COLUMN = col || dCol;
+    const ROW = row || dRow;
 
     if (
       WidgetTags[i] &&
-      COLUMN === (widgetCol || 'right') &&
-      ROW === (widgetRow || 'bottom')
+      COLUMN === (widgetCol || dCol) &&
+      ROW === (widgetRow || dRow)
     ) {
       const WidgetTag = WidgetTags[i];
       const key = `${widgetRow}_${widgetCol}_${i}`;
@@ -34,7 +40,7 @@ function WidgetsBlock({ col, row, styles, props }) {
       return (
         <div
           key={key}
-          className={styles[`gridWidget${capitalize(widgetRow || 'bottom')}`]}
+          className={styles[`gridWidget${capitalize(widgetRow || dRow)}`]}
         >
           <WidgetTag
             {...{

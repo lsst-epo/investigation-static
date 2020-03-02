@@ -3,20 +3,23 @@ import PropTypes from 'prop-types';
 import { capitalize } from '../../../lib/utilities';
 
 function ImagesBlock({ row, col, styles, images }) {
-  const uRow = row || 'bottom';
-  const uCol = col || 'right';
+  const defaultLayout = {
+    col: 'right',
+    row: 'bottom',
+  };
+
+  const uRow = row || defaultLayout.row;
+  const uCol = col || defaultLayout.col;
   const img =
     images &&
     images.map(image => {
       const { layout } = image;
-      const { row: iRow, col: iCol } = layout || {};
-      const COL = iCol || 'right';
-      const ROW = iRow || 'bottom';
+      const { row: iRow, col: iCol } = layout || defaultLayout;
       return (
-        uCol === COL &&
-        uRow === ROW && (
+        uCol === iCol &&
+        uRow === iRow && (
           <div
-            className={styles[`gridImage${capitalize(ROW)}`]}
+            className={styles[`gridImage${capitalize(iRow)}`]}
             key={`${image.mediaPath}_${row}-${col}`}
           >
             <img src={image.mediaPath} alt={image.altText} />
