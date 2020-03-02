@@ -44,19 +44,17 @@ class ObservationsTable extends React.PureComponent {
     return rows;
   }
 
-  getPositionClassname(position) {
-    if (!position) return `${styles.gridTable} ${styles.gridTableDefault}`;
-
+  getPositionClassname(layout) {
     return `${styles.gridTable} ${
-      styles[dashSepToCamelCase(`grid-table-${position}`)]
+      styles[dashSepToCamelCase(`grid-table-${layout.col}-${layout.row}`)]
     }`;
   }
 
   render() {
-    const { title, answers, rows, colTitles, rowTitles, position } = this.props;
+    const { title, answers, rows, colTitles, rowTitles, layout } = this.props;
 
     return (
-      <div className={this.getPositionClassname(position)}>
+      <div className={this.getPositionClassname(layout)}>
         {title && <h1 className={styles.tableTitle}>{title}</h1>}
         <Table
           className="observations-table"
@@ -75,7 +73,7 @@ ObservationsTable.propTypes = {
   rows: PropTypes.array,
   colTitles: PropTypes.array,
   rowTitles: PropTypes.array,
-  position: PropTypes.string,
+  layout: PropTypes.object,
 };
 
 export default ObservationsTable;
