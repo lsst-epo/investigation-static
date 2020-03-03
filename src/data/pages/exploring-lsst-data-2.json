@@ -16,14 +16,22 @@
   "content": "<p>Now let’s look at the plot of brightness vs. distance for all of the objects observed by LSST.  Notice that in the plot above there are galaxies at distances much greater than 13.8 billion light years away. But the Universe is only 13.8 billion years old. How can that happen?</p>",
   "widgets": [
     {
-      "type": "BrightnessVsDistance",
+      "type": "GalacticProperties",
       "source": "/data/galaxies/brightnessVsDistance.json",
       "layout": {
         "col": "right",
         "row": "top"
       },
       "options": {
-        "preSelected": true
+        "title": "Brightness Vs Distance",
+        "xAxisLabel": "Distance (Billion Ly)",
+        "yAxisLabel": "Total Brightness",
+        "xValueAccessor": "distance",
+        "yValueAccessor": "brightness",
+        "tooltipAccessors": ["distance", "brightness"],
+        "tooltipUnits": ["Billion Ly"],
+        "tooltipLabels": ["Distance", "Brightness"],
+        "domain": [[0, 100], [0, 100]]
       }
     }
   ],

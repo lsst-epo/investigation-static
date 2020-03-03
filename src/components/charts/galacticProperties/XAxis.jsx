@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
 import { axisBottom as d3AxisBottom } from 'd3-axis';
-import styles from './brightness-vs-distance.module.scss';
+import styles from './galactic-properties.module.scss';
 
 class XAxis extends React.PureComponent {
   constructor(props) {

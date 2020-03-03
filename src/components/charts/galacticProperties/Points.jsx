@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import includes from 'lodash/includes';
 import classnames from 'classnames';
 import Point from './Point.jsx';
+import { notActive } from './galactic-properties.module.scss';
 
 class Points extends React.PureComponent {
   render() {
@@ -21,7 +22,7 @@ class Points extends React.PureComponent {
     return (
       <g className="data-points">
         {data.map((d, i) => {
-          const { id, name, label } = d;
+          const { id, name, label, color } = d;
           const key = `point-${id}-${i}`;
           const x = d[xValueAccessor];
           const y = d[yValueAccessor];
@@ -29,7 +30,12 @@ class Points extends React.PureComponent {
           const hovered = includes(hoveredData, d);
           const classes = classnames(`data-point-${name}`, 'data-point', {
             [pointClasses]: pointClasses,
+            selected,
+            hovered,
+            [notActive]: (selectedData || hoveredData) && !selected && !hovered,
           });
+          const blueColorPercent = Math.floor((color / 2) * 100);
+          const redColorPercent = 100 - blueColorPercent;
 
           return (
             <Point
@@ -40,6 +46,11 @@ class Points extends React.PureComponent {
               x={xScale(x)}
               y={yScale(y) + offsetTop}
               label={label}
+              fill={
+                yValueAccessor === 'color'
+                  ? `rgb(${redColorPercent}%, 0%, ${blueColorPercent}%)`
+                  : 'darkgrey'
+              }
             />
           );
         })}

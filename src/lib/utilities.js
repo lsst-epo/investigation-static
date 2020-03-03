@@ -211,6 +211,7 @@ export const getValue = function(accessor, data) {
       megaParsecs: getMegaParsecsFromDistance(data),
       lightYears: getLightYearsFromDistance(data),
       megaLightYears: getMegaLightYearsFromDistance(data),
+      color: formatValue(data, 2),
     }[accessor] || data
   );
 };

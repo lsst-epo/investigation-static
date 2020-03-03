@@ -11,7 +11,7 @@ import GalaxyScrambler from './GalaxyScramblerContainer.jsx';
 import GalaxySelector from './GalaxySelectorContainer.jsx';
 import HubblePlot from './HubblePlot2DContainer.jsx';
 import HubblePlot3D from './HubblePlot3DContainer.jsx';
-import BrightnessVsDistance from './BrightnessVsDistanceContainer.jsx';
+import GalacticProperties from './GalacticPropertiesContainer.jsx';
 
 @reactn
 class PageContainer extends React.PureComponent {
@@ -30,7 +30,7 @@ class PageContainer extends React.PureComponent {
       GalaxySelector,
       HubblePlot,
       HubblePlot3D,
-      BrightnessVsDistance,
+      GalacticProperties,
     };
   }
 
@@ -161,6 +161,7 @@ export const query = graphql`
             row
           }
           options {
+            title
             showSelector
             showLightCurve
             createUserHubblePlot
@@ -177,6 +178,13 @@ export const query = graphql`
             preSelected
             multiple
             domain
+            xAxisLabel
+            yAxisLabel
+            xValueAccessor
+            yValueAccessor
+            tooltipAccessors
+            tooltipUnits
+            tooltipLabels
           }
         }
         questionsByPage {

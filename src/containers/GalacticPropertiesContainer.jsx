@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isArray from 'lodash/isArray';
 import API from '../lib/API.js';
-import BrightnessVsDistance from '../components/charts/brightnessVsDistance/BrightnessVsDistance.jsx';
+import GalacticProperties from '../components/charts/galacticProperties/index.jsx';
 
-class BrightnessVsDistanceContainer extends React.PureComponent {
+class GalacticPropertiesContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -30,34 +30,51 @@ class BrightnessVsDistanceContainer extends React.PureComponent {
     });
   }
 
-  userBrightnessVsDistanceCallback = data => {
+  userGalacticPropertiesCallback = data => {
     console.log({ data });
   };
 
   render() {
     const { data } = this.state;
     const { options } = this.props;
+    const {
+      title,
+      xAxisLabel,
+      yAxisLabel,
+      xValueAccessor,
+      yValueAccessor,
+      tooltipAccessors,
+      tooltipUnits,
+      tooltipLabels,
+    } = options || {};
 
     return (
       <>
-        <h2 className="space-bottom">Brightness Vs Distance</h2>
-        <BrightnessVsDistance
+        <h2 className="space-bottom">{title || 'Brightness Vs Distance'}</h2>
+        <GalacticProperties
           className="brightness-vs-distance"
           {...{
             data,
             options,
+            xAxisLabel,
+            yAxisLabel,
+            xValueAccessor,
+            yValueAccessor,
+            tooltipAccessors,
+            tooltipUnits,
+            tooltipLabels,
           }}
-          selectionCallback={this.userBrightnessVsDistanceCallback}
+          selectionCallback={this.userGalacticPropertiesCallback}
         />
       </>
     );
   }
 }
 
-BrightnessVsDistanceContainer.propTypes = {
+GalacticPropertiesContainer.propTypes = {
   data: PropTypes.object,
   options: PropTypes.object,
   widget: PropTypes.object,
 };
 
-export default BrightnessVsDistanceContainer;
+export default GalacticPropertiesContainer;
