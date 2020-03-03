@@ -1,0 +1,106 @@
+.brightness-vs-distance-container {
+  width: 100%;
+}
+
+.brightness-vs-distance {
+  width: 100%;
+  height: auto;
+
+  &.loaded {
+    visibility: visible;
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 1 !important;
+  }
+}
+
+.x-axis-label {
+  text-anchor: middle;
+}
+
+.galaxy-point {
+  stroke: none;
+  transition: stroke $timing $duration, opacity $timing $duration;
+}
+
+// NavDrawer related styles
+
+// .drawer-container {
+//   position: relative;
+//   padding-right: $minPadding;
+//   padding-bottom: $minPadding;
+//   box-shadow: none;
+// }
+
+// .brightness-vs-distance-drawer-content {
+//   padding-left: 72px;
+//   outline: none;
+// }
+
+// // mini drawer
+// aside {
+//   .scramble-item {
+//     margin-bottom: -1px;
+//     background-color: $baseSecondaryLight;
+//     transition: background-color $timing $duration;
+
+//     .nav-avatar {
+//       @include labelPrimary;
+//       font-weight: $medium;
+//       color: $basePrimary;
+//     }
+
+//     :global {
+//       .md-icon {
+//         fill: $basePrimary;
+//       }
+//     }
+
+//     &:hover {
+//       background-color: $basePrimary;
+
+//       .nav-avatar {
+//         color: $white;
+//       }
+//     }
+
+//     &.link-active {
+//       background-color: $basePrimary;
+
+//       .nav-avatar {
+//         color: $white;
+//       }
+//     }
+
+//     &.link-is-disabled {
+//       background-color: rgba(200, 200, 200, 0.6);
+
+//       .nav-avatar {
+//         color: $neutral10;
+//       }
+//     }
+//   }
+// }
+
+// // full size drawer
+// nav {
+//   .scramble-item {
+//     :global {
+//       .md-text {
+//         @include labelPrimary;
+//         font-weight: $medium;
+//       }
+//     }
+
+//     &.link-active {
+//       background-color: $basePrimary;
+
+//       :global {
+//         .md-tile-text--primary, .md-tile-text--primary.md-text--theme-primary, .md-text {
+//           /* stylelint-disable-next-line declaration-no-important */
+//           color: $white !important;
+//         }
+//       }
+//     }
+//   }
+// }
+

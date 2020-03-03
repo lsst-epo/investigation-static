@@ -14,6 +14,19 @@
   },
   "layout": "TwoCol",
   "content": "<p>Now let’s look at the plot of brightness vs. distance for all of the objects observed by LSST.  Notice that in the plot above there are galaxies at distances much greater than 13.8 billion light years away. But the Universe is only 13.8 billion years old. How can that happen?</p>",
+  "widgets": [
+    {
+      "type": "BrightnessVsDistance",
+      "source": "/data/galaxies/brightnessVsDistance.json",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "options": {
+        "preSelected": true
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -35,8 +48,8 @@
           "labelPre": "Since the Universe has been expanding during the time the light has been travelling to us, the distance to this galaxy is ",
           "labelPost": " than 13 billion light years away.",
           "options": [
-            {"label": "more", "value": "more"},
-            {"label": "less", "value": "less"}
+            { "label": "more", "value": "more" },
+            { "label": "less", "value": "less" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
