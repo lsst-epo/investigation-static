@@ -71,39 +71,44 @@ class Tooltip extends React.PureComponent {
       .style('opacity', 0);
   }
 
-  renderValue(accessor, data) {
+  renderValue(accessor, data, unit) {
     return (
       <>
         <span>{getValue(accessor, data)}</span>
-        <Unit type={accessor} />
+        {unit ? (
+          <span className="unit">&nbsp;({unit})</span>
+        ) : (
+          <Unit type={accessor} />
+        )}
       </>
     );
   }
 
-  renderRange(accessor, data) {
+  renderRange(accessor, data, unit) {
     const minMax = extentFromSet(data, accessor);
 
     return (
       <>
-        {this.renderValue(accessor, minMax[0])}
+        {this.renderValue(accessor, minMax[0], unit)}
         {` – `}
-        {this.renderValue(accessor, minMax[1])}
+        {this.renderValue(accessor, minMax[1], unit)}
       </>
     );
   }
 
-  renderAccessor(accessor, label, data) {
+  renderAccessor(accessor, label, data, unit) {
     return (
       <div className="value-row" key={accessor}>
         <span>{label || capitalize(accessor)}: </span>
-        {data.length > 1 && this.renderRange(accessor, data)}
-        {data.length === 1 && this.renderValue(accessor, data[0][accessor])}
+        {data.length > 1 && this.renderRange(accessor, data, unit)}
+        {data.length === 1 &&
+          this.renderValue(accessor, data[0][accessor], unit)}
       </div>
     );
   }
 
   render() {
-    const { data, accessors, labels } = this.props;
+    const { data, accessors, units, labels } = this.props;
 
     return (
       <>
@@ -114,10 +119,10 @@ class Tooltip extends React.PureComponent {
             )}
             {accessors.map((accessor, i) => {
               if (labels) {
-                return this.renderAccessor(accessor, labels[i], data);
+                return this.renderAccessor(accessor, labels[i], data, units[i]);
               }
 
-              return this.renderAccessor(accessor, null, data);
+              return this.renderAccessor(accessor, null, data, units[i]);
             })}
           </div>
         )}
@@ -128,6 +133,7 @@ class Tooltip extends React.PureComponent {
 
 Tooltip.defaultProps = {
   graph: 'scatter',
+  units: [],
 };
 
 Tooltip.propTypes = {
@@ -137,6 +143,7 @@ Tooltip.propTypes = {
   posY: PropTypes.number,
   show: PropTypes.bool,
   accessors: PropTypes.array,
+  units: PropTypes.array,
   labels: PropTypes.array,
 };
 
