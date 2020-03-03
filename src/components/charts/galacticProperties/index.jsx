@@ -17,9 +17,9 @@ import Points from './Points';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
-import styles from './brightness-vs-distance.module.scss';
+import styles from './galactic-properties.module.scss';
 
-class BrightnessVsDistance extends React.Component {
+class GalacticProperties extends React.Component {
   constructor(props) {
     super(props);
     const { options } = props;
@@ -48,7 +48,7 @@ class BrightnessVsDistance extends React.Component {
   componentDidMount() {
     const { data } = this.props;
     if (data) {
-      this.updateBrightnessVsDistance();
+      this.updateGalacticProperties();
     }
   }
 
@@ -58,7 +58,7 @@ class BrightnessVsDistance extends React.Component {
     const isNewActiveGalaxy = prevProps.activeGalaxy !== activeGalaxy;
 
     if (isNewData) {
-      this.updateBrightnessVsDistance();
+      this.updateGalacticProperties();
     }
 
     if (isNewActiveGalaxy) {
@@ -156,10 +156,10 @@ class BrightnessVsDistance extends React.Component {
 
   // add event listeners to Scatterplot and Points
   addEventListeners() {
-    const $brightnessVsDistance = d3Select(this.svgEl.current);
+    const $galacticProperties = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
-    $brightnessVsDistance.on('click', () => {
+    $galacticProperties.on('click', () => {
       const pointData = d3Select(d3Event.target).datum();
 
       if (pointData) {
@@ -177,9 +177,9 @@ class BrightnessVsDistance extends React.Component {
 
   // add event listeners to Scatterplot and Points
   removeEventListeners() {
-    const $brightnessVsDistance = d3Select(this.svgEl.current);
+    const $galacticProperties = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
-    $brightnessVsDistance.on('click', null);
+    $galacticProperties.on('click', null);
 
     $allPoints.on('mouseover', null).on('mouseout', null);
   }
@@ -193,7 +193,7 @@ class BrightnessVsDistance extends React.Component {
       return;
     }
 
-    const $brightnessVsDistance = d3Select(this.svgEl.current);
+    const $galacticProperties = d3Select(this.svgEl.current);
 
     if (isEmpty(data) && preSelected && loading) {
       this.setState(prevState => ({
@@ -202,7 +202,7 @@ class BrightnessVsDistance extends React.Component {
       }));
     } else if (multiple) {
       data.forEach((set, i) => {
-        $brightnessVsDistance.selectAll(`.data-point.set-${i}`).data(set);
+        $galacticProperties.selectAll(`.data-point.set-${i}`).data(set);
       });
 
       this.setState(prevState => ({
@@ -210,7 +210,7 @@ class BrightnessVsDistance extends React.Component {
         loading: false,
       }));
     } else {
-      $brightnessVsDistance.selectAll('.data-point').data(data);
+      $galacticProperties.selectAll('.data-point').data(data);
 
       this.setState(prevState => ({
         ...prevState,
@@ -220,7 +220,7 @@ class BrightnessVsDistance extends React.Component {
   }
 
   // bind data to elements and add styles and attributes
-  updateBrightnessVsDistance() {
+  updateGalacticProperties() {
     this.updatePoints();
 
     this.addEventListeners();
@@ -257,7 +257,7 @@ class BrightnessVsDistance extends React.Component {
     } = this.state;
 
     const { multiple } = options || {};
-    const svgClasses = classnames('svg-chart', styles.brightnessVsDistance, {
+    const svgClasses = classnames('svg-chart', styles.galacticProperties, {
       loading,
       loaded: !loading,
     });
@@ -267,7 +267,7 @@ class BrightnessVsDistance extends React.Component {
       <>
         <div
           ref={this.svgContainer}
-          className={`svg-container ${styles.brightnessVsDistanceContainer}`}
+          className={`svg-container ${styles.galacticPropertiesContainer}`}
         >
           {loading && (
             <CircularProgress
@@ -367,7 +367,7 @@ class BrightnessVsDistance extends React.Component {
   }
 }
 
-BrightnessVsDistance.defaultProps = {
+GalacticProperties.defaultProps = {
   width: 600,
   height: 600,
   padding: 70,
@@ -384,7 +384,7 @@ BrightnessVsDistance.defaultProps = {
   tooltipLabels: ['Distance', 'Brightness'],
 };
 
-BrightnessVsDistance.propTypes = {
+GalacticProperties.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   padding: PropTypes.number,
@@ -405,7 +405,6 @@ BrightnessVsDistance.propTypes = {
   preSelected: PropTypes.bool,
   name: PropTypes.string,
   selectionCallback: PropTypes.func,
-  userbrightnessVsDistanceCallback: PropTypes.func,
 };
 
-export default BrightnessVsDistance;
+export default GalacticProperties;
