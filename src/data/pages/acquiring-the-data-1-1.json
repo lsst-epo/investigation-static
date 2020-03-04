@@ -13,7 +13,7 @@
     "link": "/acquiring-the-data-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Supernovae are rare events. A supernova explodes in a large galaxy once every 50 years, but with LSST’s ability to monitor billions of galaxies, we can find 1000 supernova every night!</p><p>Because supernovae often appear where no star was previously visible, they can be spotted by comparing images of the host galaxy taken at different times. The images below show a supernova discovered in the Fireworks Galaxy. There are two images of this galaxy—one taken before the explosion, and the second taken afterwards. Can you find it? When you spot the supernova, click on it.</p>",
+  "content": "<p>Supernovae are rare events. A supernova explodes in a large galaxy once every 50 years, but with Rubin Observatory’s ability to monitor billions of galaxies, we can find 1000 supernova every night!</p><p>Because supernovae often appear where no star was previously visible, they can be spotted by comparing images of the host galaxy taken at different times. The images on this page show a supernova discovered in a galaxy. Can you find it? When you spot the supernova, click on it.</p>",
   "widgets": [{
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abqmpsr.json",

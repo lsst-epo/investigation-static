@@ -13,7 +13,7 @@
     "link": "/interpreting-a-hubble-plot-4/"
   },
   "layout": "TwoCol",
-  "content": "<p>Use your hubble plot to answer the questions.</p>",
+  "content": "<p>Use your Hubble plot to answer the questions.</p>",
   "widgets": [{
     "type": "HubblePlot",
     "options": {

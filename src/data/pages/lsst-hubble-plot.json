@@ -2,18 +2,18 @@
   "id": "expand12",
   "investigation": "expanding-universe",
   "order": "12",
-  "title": "The LSST Hubble Plot",
+  "title": "The Rubin Observatory Hubble Plot",
   "slug": "lsst-hubble-plot/",
   "previous": {
     "title": "The Universe through Time",
     "link": "/universe-through-time/"
   },
   "next": {
-    "title": "The LSST Hubble Plot",
+    "title": "The Rubin Observatory Hubble Plot",
     "link": "/lsst-hubble-plot-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Your Hubble plot was made from observations for a small sample of galaxies. LSST will detect millions of supernovae in host galaxies that are much farther away and dimmer than the galaxies you have investigated so far. This plot shows the galaxies you plotted in color, and data for over a thousand supernovae and galaxies detected by LSST in grey.</p><p>Notice not all the data points fit onto the trendline.</p>",
+  "content": "<p>Your Hubble plot was made from observations for a small sample of galaxies. Rubin Observatory will detect millionss of supernovae in host galaxies that are much farther away and dimmer than the galaxies you have investigated so far. This plot shows the galaxies you plotted in color, and data for over a thousand supernovae and galaxies detected by Rubin Observatory in grey.</p><p>Notice not all the data points fit onto the trendline.</p>",
   "widgets": [
     {
       "type": "HubblePlot",
@@ -37,7 +37,7 @@
         {
           "id": "20",
           "questionType": "textArea",
-          "label": "Do the results you found from your data regarding the expansion of the Universe agree with the LSST data? Explain your reasoning.",
+          "label": "Do the results you found from your data regarding the expansion of the Universe agree with the Rubin Observatory data? Explain your reasoning.",
           "answerAccessor": "text"
         }
       ]

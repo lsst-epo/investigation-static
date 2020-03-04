@@ -2,18 +2,18 @@
   "id": "expand4",
   "investigation": "expanding-universe",
   "order": "03",
-  "title": "Interpreting a Hubble Plot",
+  "title": "Interpreting a Hubble plot",
   "slug": "interpreting-a-hubble-plot-1/",
   "previous": {
     "title": "Using Photometric Redshift to Measure Velocity",
     "link": "/acquiring-the-data-2/"
   },
   "next": {
-    "title": "Interpreting a Hubble Plot",
+    "title": "Interpreting a Hubble plot",
     "link": "/interpreting-a-hubble-plot-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>You will begin by hunting for Type Ia supernovae in LSST images of six galaxies. Then you will identify the galaxies themselves.  Finally we'll use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble Plot.</p>",
+  "content": "<p>You will begin by hunting for Type Ia supernovae in Rubin Observatory images of six galaxies. Then you will identify the galaxies themselves.  Finally we'll use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble plot.</p>",
   "widgets": [{
     "type": "GalaxySelector",
     "source": "/data/galaxies/galaxy_selector.json",
