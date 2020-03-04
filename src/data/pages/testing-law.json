@@ -9,21 +9,21 @@
     "link": "/interpreting-a-hubble-plot-5/"
   },
   "next": {
-    "title": "Interpreting a Hubble Plot",
-    "link": "/testing-law-2/"
+    "title": "The Universe through Time",
+    "link": "/universe-through-time/"
   },
   "layout": "SingleCol",
-  "content": "<p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law. But does this law apply only from our perspective in the Milky Way, or from other places in the Universe as well? To find out, let’s explore another LSST data set.</p><p>We will begin by viewing the data for six galaxies observed from the Milky Way Galaxy</p><p>Imagine there are alien astronomers living in galaxy #3</p>",
+  "content": "<p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law. But does this law apply only from our perspective in the Milky Way, or from other places in the Universe as well? To find out, let’s explore another Rubin Observatory data set.</p><p>We will begin by viewing the data for six galaxies observed from the Milky Way Galaxy.</p><p>Now click on different buttons to see what the Hubble plots would look like for astronomers living in other galaxies.</p>",
   "widgets": [{
     "type": "GalaxyScrambler",
-    "source": "/data/galaxies/scramble.json",
+    "source": "/data/galaxies/scrambler-2.json",
     "layout": {
       "row": "top"
     },
     "options": {
       "preSelected": true,
       "hubbleConstant": 69.8,
-      "domain": [[0, 5000], [0, 220000]]
+      "domain": [[0, 4500], [0, 210000]]
     }
   }],
   "questionsByPage": [
@@ -33,7 +33,7 @@
           "id": "10",
           "questionType": "select",
           "title": "Question #1",
-          "label": "If we were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
+          "label": "Imagine there are alien astronomers living in galaxy #3. If we were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
           "options": [
             {"label": "next to the origin", "value": "next to the origin"},
             {"label": "next to the Milky Way Galaxy", "value": "next to the Milky Way Galaxy"},
@@ -71,8 +71,55 @@
         {
           "id": "13",
           "questionType": "textArea",
-          "label": "Does this mean that the alien astronomers and Earth astronomers are observing the Universe expanding at the same rate or at different rates? If different, who observers the Universe expanding faster?",
+          "label": "Does this mean that the alien astronomers and Earth astronomers are observing the Universe expanding at the same rate or at different rates? If different, who observes the Universe expanding faster?",
           "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "14",
+          "questionType": "textArea",
+          "label": "Based on your investigations, would astronomers at all locations in the Universe observe that all galaxies are moving away from them?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "15",
+          "questionType": "textArea",
+          "label": "Based on your investigations, would astronomers at all locations in the Universe observe that the Universe is expanding at the same rate?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "16",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "What do the above observations imply about the center of the Universe?",
+          "options": [
+            {
+              "label": "the Universe is centered on the Milky Way Galaxy",
+              "value": "the Universe is centered on the Milky Way Galaxy"
+            },
+            {
+              "label": "the Universe is centered on some other single location",
+              "value": "the Universe is centered on some other single location"
+            },
+            {
+              "label": "all locations observe the Universe to be expanding in the same way and therefore there is no center",
+              "value": "all locations observe the Universe to be expanding in the same way and therefore there is no center"
+            }
+          ],
+          "placeholder": "Select the best description",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
         }
       ]
     }
