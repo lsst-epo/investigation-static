@@ -5,12 +5,17 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import filter from 'lodash/filter';
 import classnames from 'classnames';
+import LinearProgress from 'react-md/lib/Progress/LinearProgress';
 import { Drawer } from 'react-md';
 import styles from './table-of-contents.module.scss';
 import Check from '../icons/Check';
 
 @reactn
 class TableOfContents extends React.PureComponent {
+  componentWillUnmount() {
+    this.clearTimeout();
+  }
+
   getNavLinks(navLinks, investigation) {
     const { visitedPages, totalPages, totalQAsByInvestigation } = this.global;
     const {
@@ -20,18 +25,6 @@ class TableOfContents extends React.PureComponent {
 
     return [
       ...[
-        {
-          primaryText: 'Table of Contents',
-          subheader: true,
-        },
-        {
-          primaryText: `Pages Visited: ${visitedPages.length}/${totalPages}`,
-          subheader: true,
-        },
-        {
-          primaryText: `Questions Answered: ${totalAnswered}/${totalQuestions}`,
-          subheader: true,
-        },
         { divider: true },
       ],
       ...filter(navLinks, link => link.investigation === investigation).map(
@@ -75,8 +68,24 @@ class TableOfContents extends React.PureComponent {
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
     const { visible, navLinks, investigation } = this.props;
+    const { visitedPages, totalPages, totalQAsByInvestigation } = this.global;
+    const {
+      answers: totalAnswered,
+      questions: totalQuestions,
+    } = totalQAsByInvestigation;
+    const pagesProgress = (visitedPages.length / totalPages) * 100;
+    const questionsProgress = (totalAnswered / totalQuestions) * 100;
     return (
       <Drawer
+        header={
+          <div>
+            <div className="headerTitle">Table of Contents</div>
+            <div className="headerTitle">Pages Visited:</div>
+            <LinearProgress id="PagesBar" value={pagesProgress} />
+            <div className="headerTitle">Questions Answered:</div>
+            <LinearProgress id="questionsBar" value={questionsProgress} />
+          </div>
+        }
         type={TEMPORARY}
         className={styles.tableOfContents}
         visible={visible}

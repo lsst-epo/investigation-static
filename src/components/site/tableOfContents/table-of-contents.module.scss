@@ -1,14 +1,30 @@
 :global {
   @include react-md-drawers;
   @include react-md-lists;
+  @include react-md-progress-linear;
 
   .md-drawer {
     // .md-toolbar {}
+      .md-progress--linear {
+          height: 20px;
+          width: 87%;
+      }
+
+      .md-progress {
+          margin-top: 0em;
+          margin-left: 1em;
+      }
+
+      .headerTitle {
+        margin-left: 1em;
+        margin-top: 1em;
+      }
+
     .md-list.md-list--drawer {
+
       .md-subheader {
         padding-left: 1rem;
       }
-
       .md-list-item {
         .md-list-tile {
           transition: background-color $durationSlow $timing;
@@ -76,6 +92,6 @@
 .table-of-contents {
   // some content
   z-index: 14;
+  height: calc(100% - 162px - #{$siteHeaderHeight});
   padding-top: calc(#{$siteHeaderHeight} + 10px);
-  padding-bottom: $minPadding;
 }
