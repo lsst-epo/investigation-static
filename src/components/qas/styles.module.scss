@@ -5,7 +5,17 @@
     }
 
     > .qa {
-      margin-top: 2 * $minPadding;
+      + .qa {
+        margin-top: $minPadding / 4;
+      }
+
+      &.qa-prompt {
+        margin-top: $minPadding;
+      }
+
+      &:first-child {
+        margin-top: 2 * $minPadding;
+      }
     }
 
     + .stellar-properties, + .hrd-observations, + .observations-table {

@@ -35,7 +35,12 @@ class QA extends React.PureComponent {
   }
 
   render() {
-    return <div className="qa">{this.renderQA()}</div>;
+    const { questionType } = this.props;
+    return (
+      <div className={`qa qa-${questionType.toLowerCase()}`}>
+        {this.renderQA()}
+      </div>
+    );
   }
 }
 
