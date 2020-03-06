@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger, react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import find from 'lodash/find';
 import QAs from '../qas';
 import { renderDef } from '../../lib/utilities.js';
 import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
@@ -11,14 +11,12 @@ import ImagesBlock from './shared/imagesBlock';
 import WidgetsBlock from './shared/widgetsBlock';
 
 class TwoCol extends React.PureComponent {
-  defaultLayout = { col: 'right', row: 'bottom' };
-
-  isPosEmpty = (layout, ...widgets) => {
-    return !_.find(...widgets, widget => {
-      const { col, row } = layout || {};
-      const { layout: wLayout } = widget || {};
-      const { col: wCol, row: wRow } = wLayout || this.defaultLayout;
-      return (wCol && wCol === col) || (wRow && wRow === row);
+  isPosEmpty = (layout = { col: 'right', row: 'bottom' }, targets) => {
+    return !find(targets, target => {
+      const { col, row } = layout;
+      const { layout: targetLayout } = target || {};
+      const { col: targetCol, row: targetRow } = targetLayout || layout;
+      return targetCol === col || targetRow === row;
     });
   };
 
@@ -33,10 +31,11 @@ class TwoCol extends React.PureComponent {
       widgets,
     } = this.props;
 
-    const rightColEmpty = this.isPosEmpty(
-      { col: 'right' },
-      { ...tables, ...images, ...widgets }
-    );
+    const rightColEmpty = this.isPosEmpty({ col: 'right' }, [
+      ...tables,
+      ...images,
+      ...widgets,
+    ]);
 
     return (
       <div className="container-flex spaced">
@@ -49,20 +48,20 @@ class TwoCol extends React.PureComponent {
               className={styles.gridCopy}
               dangerouslySetInnerHTML={renderDef(content)}
             />
-            <ImagesBlock row="top" col="left" {...{ images, styles }} />
+            <ImagesBlock getRow="top" getCol="left" {...{ images, styles }} />
             <WidgetsBlock
-              row="top"
-              col="left"
-              {...{ styles, props: this.props }}
+              getRow="top"
+              getCol="left"
+              {...{ styles, widgetProps: this.props }}
             />
             <ObservationsTables
-              col="left"
-              row="top"
+              getCol="left"
+              getRow="top"
               {...{ tables, answers, styles }}
             />
             <ObservationsTables
-              col="left"
-              row="middle"
+              getCol="left"
+              getRow="middle"
               {...{ tables, answers, styles }}
             />
             {questions && (
@@ -70,16 +69,19 @@ class TwoCol extends React.PureComponent {
                 <QAs {...this.props} />
               </div>
             )}
-            <ImagesBlock row="bottom" col="left" {...{ images, styles }} />
+            <ImagesBlock
+              getRow="bottom"
+              getCol="left"
+              {...{ images, styles }}
+            />
             <WidgetsBlock
-              row="bottom"
-              col="left"
-              props={this.props}
-              {...{ styles }}
+              getRow="bottom"
+              getCol="left"
+              {...{ styles, widgetProps: this.props }}
             />
             <ObservationsTables
-              col="left"
-              row="bottom"
+              getCol="left"
+              getRow="bottom"
               {...{ tables, answers, styles }}
             />
           </div>
@@ -87,26 +89,26 @@ class TwoCol extends React.PureComponent {
         <div
           className={`col padded col-width-50 col-fixed ${styles.rightColGrid}`}
         >
-          <ImagesBlock row="top" col="right" {...{ images, styles }} />
+          <ImagesBlock getRow="top" getCol="right" {...{ images, styles }} />
           <WidgetsBlock
-            row="top"
-            col="right"
-            {...{ styles, props: this.props }}
+            getRow="top"
+            getCol="right"
+            {...{ styles, widgetProps: this.props }}
           />
           <ObservationsTables
-            col="right"
-            row="top"
+            getCol="right"
+            getRow="top"
             {...{ tables, answers, styles }}
           />
-          <ImagesBlock row="bottom" col="right" {...{ images, styles }} />
+          <ImagesBlock getRow="bottom" getCol="right" {...{ images, styles }} />
           <WidgetsBlock
-            row="bottom"
-            col="right"
-            {...{ styles, props: this.props }}
+            getRow="bottom"
+            getCol="right"
+            {...{ styles, widgetProps: this.props }}
           />
           <ObservationsTables
-            col="right"
-            row="bottom"
+            getCol="right"
+            getRow="bottom"
             {...{ tables, answers, styles }}
           />
           {rightColEmpty && (

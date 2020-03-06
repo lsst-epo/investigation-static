@@ -3,24 +3,14 @@ import PropTypes from 'prop-types';
 import ObservationsTable from './ObservationsTable';
 
 class ObservationsTables extends React.PureComponent {
-  defaultLayout = {
-    col: 'right',
-    row: 'bottom',
-  };
-
-  filterTables({ row, col }, tables) {
+  filterTables({ getRow, getCol }, tables) {
+    const { col, row } = this.props;
     return tables.filter(table => {
-      const { col: dCol, row: dRow } = this.defaultLayout;
-      const { layout } = table || this.defaultLayout;
+      const { layout } = table || {};
       const { col: tableCol, row: tableRow } = layout || {};
-      const COLUMN = col || dCol;
-      const ROW = row || dRow;
 
-      if (COLUMN === (tableCol || dCol) && ROW === (tableRow || dRow)) {
-        table.layout = {
-          col: COLUMN,
-          row: ROW,
-        };
+      if (getCol === (tableCol || col) && getRow === (tableRow || row)) {
+        table.layout = { col: getCol, row: getRow };
         return table;
       }
 
@@ -29,24 +19,31 @@ class ObservationsTables extends React.PureComponent {
   }
 
   render() {
-    const { tables, row, col, answers } = this.props;
-    const Tables = tables ? this.filterTables({ row, col }, tables) : [];
+    const { tables, getRow, getCol, answers } = this.props;
 
     return (
       <>
-        {Tables.map(table => {
-          return (
-            <ObservationsTable key={table.id} answers={answers} {...table} />
-          );
-        })}
+        {tables &&
+          this.filterTables({ getRow, getCol }, tables).map(table => {
+            return (
+              <ObservationsTable key={table.id} answers={answers} {...table} />
+            );
+          })}
       </>
     );
   }
 }
 
+ObservationsTables.defaultProps = {
+  col: 'left',
+  row: 'bottom',
+};
+
 export default ObservationsTables;
 
 ObservationsTables.propTypes = {
+  getRow: PropTypes.string,
+  getCol: PropTypes.string,
   row: PropTypes.string,
   col: PropTypes.string,
   tables: PropTypes.array,

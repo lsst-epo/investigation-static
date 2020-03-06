@@ -17,22 +17,42 @@ class Page extends React.PureComponent {
         <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
           {title}
         </h1>
-        <ImagesBlock row="top" {...{ images, styles }} />
+        <ImagesBlock getRow="top" getCol="left" {...{ images, styles }} />
         <div
           className={styles.gridCopy}
           dangerouslySetInnerHTML={renderDef(content)}
         />
-        <WidgetsBlock row="top" props={this.props} {...{ styles }} />
-        <ObservationsTables row="top" {...{ tables, answers, styles }} />
+        <WidgetsBlock
+          getRow="top"
+          getCol="left"
+          {...{ styles, widgetProps: this.props }}
+        />
+        <ObservationsTables
+          getRow="top"
+          getCol="left"
+          {...{ tables, answers, styles }}
+        />
         {questions && (
           <div className={styles.gridQas}>
             <QAs {...this.props} />
           </div>
         )}
-        <ObservationsTables row="middle" {...{ tables, answers, styles }} />
-        <WidgetsBlock row="bottom" props={this.props} {...{ styles }} />
-        <ImagesBlock row="bottom" {...{ images, styles }} />
-        <ObservationsTables row="bottom" {...{ tables, answers, styles }} />
+        <ObservationsTables
+          getRow="middle"
+          getCol="left"
+          {...{ tables, answers, styles }}
+        />
+        <WidgetsBlock
+          getRow="bottom"
+          getCol="left"
+          {...{ styles, widgetProps: this.props }}
+        />
+        <ImagesBlock getRow="bottom" getCol="left" {...{ images, styles }} />
+        <ObservationsTables
+          getRow="bottom"
+          getCol="left"
+          {...{ tables, answers, styles }}
+        />
       </div>
     );
   }
