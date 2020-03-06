@@ -31,12 +31,6 @@ class TwoCol extends React.PureComponent {
       widgets,
     } = this.props;
 
-    const rightColEmpty = this.isPosEmpty({ col: 'right' }, [
-      ...tables,
-      ...images,
-      ...widgets,
-    ]);
-
     return (
       <div className="container-flex spaced">
         <div className="col padded col-width-50">
@@ -111,7 +105,11 @@ class TwoCol extends React.PureComponent {
             getRow="bottom"
             {...{ tables, answers, styles }}
           />
-          {rightColEmpty && (
+          {this.isPosEmpty({ col: 'right' }, [
+            ...(tables || []),
+            ...(images || []),
+            ...(widgets || []),
+          ]) && (
             <div className={styles.gridPlaceholder}>
               <Placeholder />
             </div>
@@ -121,8 +119,6 @@ class TwoCol extends React.PureComponent {
     );
   }
 }
-
-export default TwoCol;
 
 TwoCol.propTypes = {
   title: PropTypes.string,
@@ -141,3 +137,5 @@ TwoCol.propTypes = {
   advanceActiveQuestion: PropTypes.func,
   setActiveQuestion: PropTypes.func,
 };
+
+export default TwoCol;
