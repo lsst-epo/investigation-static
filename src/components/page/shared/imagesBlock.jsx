@@ -2,37 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { capitalize } from '../../../lib/utilities';
 
-function ImagesBlock({ row, col, styles, images }) {
-  const defaultLayout = {
-    col: 'right',
-    row: 'bottom',
-  };
-
-  const uRow = row || defaultLayout.row;
-  const uCol = col || defaultLayout.col;
-  const img =
-    images &&
-    images.map(image => {
-      const { layout } = image;
-      const { row: iRow, col: iCol } = layout || defaultLayout;
-      return (
-        uCol === iCol &&
-        uRow === iRow && (
-          <div
-            className={styles[`gridImage${capitalize(iRow)}`]}
-            key={`${image.mediaPath}_${row}-${col}`}
-          >
-            <img src={image.mediaPath} alt={image.altText} />
-          </div>
-        )
-      );
-    });
-  return img;
+class ImagesBlock extends React.PureComponent {
+  render() {
+    const { col, row, getRow, getCol, styles, images } = this.props;
+    return (
+      images &&
+      images.map(image => {
+        if (!image.layout) image.layout = { col, row };
+        const { layout } = image;
+        const { row: iRow, col: iCol } = layout || {};
+        return (
+          getCol === iCol &&
+          getRow === iRow && (
+            <div
+              className={styles[`gridImage${capitalize(iRow)}`]}
+              key={`${image.mediaPath}_${getRow}-${getCol}`}
+            >
+              <img src={image.mediaPath} alt={image.altText} />
+            </div>
+          )
+        );
+      })
+    );
+  }
 }
+
+ImagesBlock.defaultProps = {
+  col: 'right',
+  row: 'bottom',
+};
 
 ImagesBlock.propTypes = {
   row: PropTypes.string,
   col: PropTypes.string,
+  getRow: PropTypes.string,
+  getCol: PropTypes.string,
   styles: PropTypes.object,
   images: PropTypes.array,
 };
