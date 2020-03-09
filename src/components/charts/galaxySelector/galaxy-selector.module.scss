@@ -38,16 +38,16 @@ aside {
     background-color: $baseSecondaryLight;
     transition: background-color $timing $duration;
 
-    &:hover {
-      background-color: rgba(200, 200, 200, 0.3);
-    }
-
     &.link-is-complete {
-      background-color: transparent;
+      background-color: $baseSecondaryDark;
     }
 
     &.link-active {
-      background-color: rgba(200, 200, 200, 0.3);
+      background-color: $basePrimary;
+    }
+
+    &:hover {
+      background-color: $basePrimary;
     }
   }
 }

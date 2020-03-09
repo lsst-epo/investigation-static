@@ -5,14 +5,20 @@ import Button from '../components/site/button';
 import ButtonIcon from '../components/site/button/ButtonIcon';
 import Close from '../components/site/icons/Close';
 import DragHandle from '../components/site/icons/DragHandle';
-import styles from './scatter-plot-selector-container.module.scss';
+import {
+  toggle,
+  innerOpen,
+  toggleOpen,
+  container,
+  inner,
+} from './scatter-plot-selector-container.module.scss';
 
 const ScatterPlotSelector = ({ children, opened, onSlideOutClick }) => {
-  const containerClasses = classnames(styles.container, {
-    [styles.innerOpen]: opened,
+  const containerClasses = classnames(container, {
+    [innerOpen]: opened,
   });
-  const toggleClasses = classnames(styles.toggle, {
-    [styles.toggleOpen]: opened,
+  const toggleClasses = classnames(toggle, {
+    [toggleOpen]: opened,
   });
 
   return (
@@ -24,7 +30,7 @@ const ScatterPlotSelector = ({ children, opened, onSlideOutClick }) => {
           <ButtonIcon srText="Close Plotter" Icon={Close} />
         )}
       </Button>
-      <div className={styles.inner}>{children}</div>
+      <div className={inner}>{children}</div>
     </div>
   );
 };

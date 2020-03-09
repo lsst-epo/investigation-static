@@ -25,12 +25,16 @@
   display: flex;
   justify-content: center;
   transform: translateX(-50%);
-}
 
-.control {
-  background-color: rgba(200,200,200,0.5);
+  :global {
+    .md-btn {
+      color: $black;
+      background-color: rgba(200,200,200,0.5);
 
-  &:hover {
-    background-color: $white;
+      &:hover {
+        background-color: $white;
+      }
+    }
   }
 }
+

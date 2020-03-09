@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { CardActions } from 'react-md';
 import Button from '../../site/button';
 
 class GalaxySelectorNav extends React.PureComponent {

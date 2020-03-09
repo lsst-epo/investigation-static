@@ -18,6 +18,7 @@
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abqmpsr.json",
     "options": {
+      "autoplay": true,
       "showSelector": true,
       "toggleDataPointsVisibility": "1"
     }

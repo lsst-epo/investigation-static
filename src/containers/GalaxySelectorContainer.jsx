@@ -267,7 +267,6 @@ class GalaxySelectorContainer extends React.PureComponent {
             />
           </div>
           <ScatterPlotSelectorContainer
-            className={styles.slideOutHubble}
             opened={openScatterPlot || false}
             onSlideOutClick={this.handleSlideOutPlot}
           >

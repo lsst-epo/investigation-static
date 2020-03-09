@@ -6,7 +6,8 @@ import Rewind from '../../../site/icons/Rewind';
 import FastForward from '../../../site/icons/FastForward';
 import Pause from '../../../site/icons/Pause';
 import Play from '../../../site/icons/Play';
-import { controls, control } from './blinker.module.scss';
+
+import { controls } from './blinker.module.scss';
 
 const BlinkerControls = ({
   playing,
@@ -19,19 +20,16 @@ const BlinkerControls = ({
   return (
     <div className={controls}>
       <Button
-        className={control}
         icon
         iconEl={<ButtonIcon srText="Rewind" Icon={Rewind} />}
         onClick={handlePrevious}
       />
       <Button
-        className={control}
         icon
         iconEl={<ButtonIcon srText="Start/Stop" Icon={StartStopTag} />}
         onClick={handleStartStop}
       />
       <Button
-        className={control}
         icon
         iconEl={<ButtonIcon srText="Fast Forward" Icon={FastForward} />}
         onClick={handleNext}

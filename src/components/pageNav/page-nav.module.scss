@@ -1,6 +1,4 @@
 :global {
-  @include react-md-buttons;
-
   .md-btn {
     &.md-btn--icon {
       .md-icon {
@@ -29,7 +27,6 @@
   bottom: 0;
   left: 0;
   z-index: 20;
-  // padding: $minPadding;
   padding: 8px 1rem;
   background-color: $md-primary-color;
 
