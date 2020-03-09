@@ -6,12 +6,6 @@ import { WithQAing } from './WithQAing';
 import Page from '../components/page';
 import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
-import SupernovaSelectorWithLightCurve from './SupernovaSelectorWithLightCurveContainer.jsx';
-import GalaxyScrambler from './GalaxyScramblerContainer.jsx';
-import GalaxySelector from './GalaxySelectorContainer.jsx';
-import HubblePlot from './HubblePlot2DContainer.jsx';
-import HubblePlot3D from './HubblePlot3DContainer.jsx';
-import GalacticProperties from './GalacticPropertiesContainer.jsx';
 
 @reactn
 class PageContainer extends React.PureComponent {
@@ -22,15 +16,6 @@ class PageContainer extends React.PureComponent {
       default: Page,
       TwoCol,
       SingleCol: Page,
-    };
-
-    this.widgetTags = {
-      SupernovaSelectorWithLightCurve,
-      GalaxyScrambler,
-      GalaxySelector,
-      HubblePlot,
-      HubblePlot3D,
-      GalacticProperties,
     };
   }
 
@@ -51,6 +36,7 @@ class PageContainer extends React.PureComponent {
       advanceActiveQuestion,
       setActiveQuestion,
     } = this.props;
+
     const {
       id,
       investigation,
@@ -65,9 +51,14 @@ class PageContainer extends React.PureComponent {
       questionsByPage: questions,
     } = data.allPagesJson.nodes[0];
     const Tag = this.layouts[layout || 'default'];
-    const WidgetTags = widgets
-      ? widgets.map(w => this.widgetTags[w.type])
-      : null;
+
+    const shared = {
+      updateAnswer,
+      activeAnswer,
+      advanceActiveQuestion,
+      setActiveQuestion,
+      activeQuestionId,
+    };
 
     return (
       <div className="container-page">
@@ -84,12 +75,7 @@ class PageContainer extends React.PureComponent {
             images,
             questions,
             answers,
-            updateAnswer,
-            activeAnswer,
-            advanceActiveQuestion,
-            setActiveQuestion,
-            activeQuestionId,
-            WidgetTags,
+            shared,
           }}
         />
         <PageNav {...{ previous, next }} baseUrl={`/${investigation}`} />

@@ -1,58 +1,117 @@
 /* eslint-disable react/no-danger, react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import QAs from '../qas';
 import { renderDef } from '../../lib/utilities.js';
-import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
-import ImagesBlock from './shared/imagesBlock';
-import WidgetsBlock from './shared/widgetsBlock';
-import styles from './page.module.scss';
+import QAs from '../qas';
+import Blocks from './blocks/index.jsx';
+
+import {
+  singleColGrid,
+  gridTitle,
+  gridCopy,
+  gridQas,
+} from './page.module.scss';
 
 class Page extends React.PureComponent {
   render() {
-    const { title, content, questions, answers, tables, images } = this.props;
+    const {
+      title,
+      content,
+      questions,
+      answers,
+      tables,
+      images,
+      widgets,
+      shared,
+    } = this.props;
 
+    const interactiveShared = {
+      questions,
+      answers,
+      ...shared,
+    };
     return (
-      <div className={styles.singleColGrid}>
-        <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
-          {title}
-        </h1>
-        <ImagesBlock getRow="top" getCol="left" {...{ images, styles }} />
-        <div
-          className={styles.gridCopy}
-          dangerouslySetInnerHTML={renderDef(content)}
-        />
-        <WidgetsBlock
-          getRow="top"
-          getCol="left"
-          {...{ styles, widgetProps: this.props }}
-        />
-        <ObservationsTables
-          getRow="top"
-          getCol="left"
-          {...{ tables, answers, styles }}
-        />
+      <div className={singleColGrid}>
+        <h1 className={`space-bottom section-title ${gridTitle}`}>{title}</h1>
+        {images && (
+          <Blocks
+            blocks={images}
+            type="image"
+            getRow="top"
+            getCol="left"
+            defaultLayout={{ col: 'left', row: 'top' }}
+          />
+        )}
+        {content && (
+          <div
+            className={gridCopy}
+            dangerouslySetInnerHTML={renderDef(content)}
+          />
+        )}
+        {widgets && (
+          <Blocks
+            blocks={widgets}
+            type="widget"
+            blockShared={interactiveShared}
+            getRow="top"
+            getCol="left"
+            defaultLayout={{ col: 'left', row: 'top' }}
+          />
+        )}
+        {tables && (
+          <Blocks
+            blocks={tables}
+            type="table"
+            blockShared={answers}
+            getRow="top"
+            getCol="left"
+            defaultLayout={{ col: 'left', row: 'top' }}
+          />
+        )}
         {questions && (
-          <div className={styles.gridQas}>
-            <QAs {...this.props} />
+          <div className={gridQas}>
+            <QAs {...interactiveShared} />
           </div>
         )}
-        <ObservationsTables
-          getRow="middle"
-          getCol="left"
-          {...{ tables, answers, styles }}
-        />
-        <WidgetsBlock
-          getRow="bottom"
-          getCol="left"
-          {...{ styles, widgetProps: this.props }}
-        />
-        <ImagesBlock getRow="bottom" getCol="left" {...{ images, styles }} />
-        <ObservationsTables
-          getRow="bottom"
-          getCol="left"
-          {...{ tables, answers, styles }}
-        />
+        {tables && (
+          <Blocks
+            blocks={tables}
+            type="table"
+            blockShared={answers}
+            defaultLayout={{ col: 'left', row: 'top' }}
+            getRow="middle"
+            getCol="left"
+          />
+        )}
+        {widgets && (
+          <Blocks
+            blocks={widgets}
+            type="widget"
+            blockShared={interactiveShared}
+            getRow="bottom"
+            getCol="left"
+            defaultLayout={{ col: 'left', row: 'top' }}
+          />
+        )}
+        {images && (
+          <Blocks
+            blocks={images}
+            type="image"
+            getRow="bottom"
+            getCol="left"
+            defaultLayout={{ col: 'left', row: 'top' }}
+          />
+        )}
+        {tables && (
+          <Blocks
+            blocks={tables}
+            type="table"
+            blockShared={answers}
+            getRow="bottom"
+            getCol="left"
+            defaultLayout={{ col: 'left', row: 'top' }}
+          />
+        )}
       </div>
     );
   }
@@ -63,17 +122,10 @@ export default Page;
 Page.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
-  WidgetTags: PropTypes.array,
-  widgets: PropTypes.array,
-  images: PropTypes.array,
-  options: PropTypes.object,
   questions: PropTypes.array,
   answers: PropTypes.object,
+  images: PropTypes.array,
   tables: PropTypes.array,
-  activeId: PropTypes.string,
-  updateAnswer: PropTypes.func,
-  activeAnswer: PropTypes.object,
-  activeQuestionId: PropTypes.string,
-  advanceActiveQuestion: PropTypes.func,
-  setActiveQuestion: PropTypes.func,
+  widgets: PropTypes.array,
+  shared: PropTypes.object,
 };

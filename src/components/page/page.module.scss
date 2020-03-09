@@ -96,3 +96,25 @@
 .grid-image-bottom {
   grid-area: grid-image-bottom;
 }
+
+.grid-table {
+  + .grid-table {
+    margin-top: $minPadding;
+  }
+}
+
+.grid-table-default {
+  grid-area: grid-table-default;
+}
+
+.grid-table-top {
+  grid-area: grid-table-top;
+}
+
+.grid-table-bottom {
+  grid-area: grid-table-bottom;
+}
+
+.grid-table-middle {
+  grid-area: grid-table-middle;
+}

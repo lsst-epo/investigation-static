@@ -3,26 +3,3 @@
   font-size: 1.5rem;
   line-height: 1;
 }
-
-.grid-table {
-  + .grid-table {
-    margin-top: $minPadding;
-  }
-}
-
-.grid-table-default {
-  grid-area: grid-table-default;
-}
-
-.grid-table-top, .grid-table-right-top, .grid-table-left-top {
-  grid-area: grid-table-top;
-}
-
-.grid-table-bottom, .grid-table-right-bottom, .grid-table-left-bottom {
-  grid-area: grid-table-bottom;
-}
-
-
-.grid-table-middle, .grid-table-right-middle, .grid-table-left-middle {
-  grid-area: grid-table-middle;
-}

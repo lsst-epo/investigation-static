@@ -1,25 +1,22 @@
-/* eslint-disable react/no-danger, react/jsx-props-no-spreading */
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
-import find from 'lodash/find';
-import QAs from '../qas';
 import { renderDef } from '../../lib/utilities.js';
-import ObservationsTables from '../charts/shared/observationsTables/ObservationsTables';
+import { isPosEmpty } from './blocks/blocksUtilities.js';
+import QAs from '../qas';
+import Blocks from './blocks/index.jsx';
 import Placeholder from '../placeholder';
-import styles from './page.module.scss';
-import ImagesBlock from './shared/imagesBlock';
-import WidgetsBlock from './shared/widgetsBlock';
+
+import {
+  leftColGrid,
+  gridTitle,
+  gridCopy,
+  gridQas,
+  rightColGrid,
+  gridPlaceholder,
+} from './page.module.scss';
 
 class TwoCol extends React.PureComponent {
-  isPosEmpty = (layout = { col: 'right', row: 'bottom' }, targets) => {
-    return !find(targets, target => {
-      const { col, row } = layout;
-      const { layout: targetLayout } = target || {};
-      const { col: targetCol, row: targetRow } = targetLayout || layout;
-      return targetCol === col || targetRow === row;
-    });
-  };
-
   render() {
     const {
       title,
@@ -29,88 +26,145 @@ class TwoCol extends React.PureComponent {
       tables,
       images,
       widgets,
+      shared,
     } = this.props;
+
+    const interactiveShared = {
+      questions,
+      answers,
+      ...shared,
+    };
 
     return (
       <div className="container-flex spaced">
         <div className="col padded col-width-50">
-          <div className={styles.leftColGrid}>
-            <h1 className={`space-bottom section-title ${styles.gridTitle}`}>
+          <div className={leftColGrid}>
+            <h1 className={`space-bottom section-title ${gridTitle}`}>
               {title}
             </h1>
-            <div
-              className={styles.gridCopy}
-              dangerouslySetInnerHTML={renderDef(content)}
-            />
-            <ImagesBlock getRow="top" getCol="left" {...{ images, styles }} />
-            <WidgetsBlock
-              getRow="top"
-              getCol="left"
-              {...{ styles, widgetProps: this.props }}
-            />
-            <ObservationsTables
-              getCol="left"
-              getRow="top"
-              {...{ tables, answers, styles }}
-            />
-            <ObservationsTables
-              getCol="left"
-              getRow="middle"
-              {...{ tables, answers, styles }}
-            />
+            {content && (
+              <div
+                className={gridCopy}
+                dangerouslySetInnerHTML={renderDef(content)}
+              />
+            )}
+            {images && (
+              <Blocks blocks={images} type="image" getRow="top" getCol="left" />
+            )}
+            {widgets && (
+              <Blocks
+                blocks={widgets}
+                type="widget"
+                blockShared={interactiveShared}
+                getRow="top"
+                getCol="left"
+              />
+            )}
+            {tables && (
+              <Blocks
+                blocks={tables}
+                type="table"
+                blockShared={answers}
+                getRow="top"
+                getCol="left"
+              />
+            )}
+            {tables && (
+              <Blocks
+                blocks={tables}
+                type="table"
+                blockShared={answers}
+                getRow="top"
+                getCol="middle"
+              />
+            )}
             {questions && (
-              <div className={styles.gridQas}>
-                <QAs {...this.props} />
+              <div className={gridQas}>
+                <QAs {...interactiveShared} />
               </div>
             )}
-            <ImagesBlock
-              getRow="bottom"
-              getCol="left"
-              {...{ images, styles }}
-            />
-            <WidgetsBlock
-              getRow="bottom"
-              getCol="left"
-              {...{ styles, widgetProps: this.props }}
-            />
-            <ObservationsTables
-              getCol="left"
-              getRow="bottom"
-              {...{ tables, answers, styles }}
-            />
+            {images && (
+              <Blocks
+                blocks={images}
+                type="image"
+                getRow="bottom"
+                getCol="left"
+              />
+            )}
+            {widgets && (
+              <Blocks
+                blocks={widgets}
+                type="widget"
+                blockShared={interactiveShared}
+                getRow="bottom"
+                getCol="left"
+              />
+            )}
+            {tables && (
+              <Blocks
+                blocks={tables}
+                type="table"
+                blockShared={answers}
+                getRow="bottom"
+                getCol="left"
+              />
+            )}
           </div>
         </div>
-        <div
-          className={`col padded col-width-50 col-fixed ${styles.rightColGrid}`}
-        >
-          <ImagesBlock getRow="top" getCol="right" {...{ images, styles }} />
-          <WidgetsBlock
-            getRow="top"
-            getCol="right"
-            {...{ styles, widgetProps: this.props }}
-          />
-          <ObservationsTables
-            getCol="right"
-            getRow="top"
-            {...{ tables, answers, styles }}
-          />
-          <ImagesBlock getRow="bottom" getCol="right" {...{ images, styles }} />
-          <WidgetsBlock
-            getRow="bottom"
-            getCol="right"
-            {...{ styles, widgetProps: this.props }}
-          />
-          <ObservationsTables
-            getCol="right"
-            getRow="bottom"
-            {...{ tables, answers, styles }}
-          />
-          {this.isPosEmpty({ col: 'right' }, [
+        <div className={`col padded col-width-50 col-fixed ${rightColGrid}`}>
+          {images && (
+            <Blocks blocks={images} type="image" getRow="top" getCol="right" />
+          )}
+          {widgets && (
+            <Blocks
+              blocks={widgets}
+              type="widget"
+              blockShared={interactiveShared}
+              getRow="top"
+              getCol="right"
+            />
+          )}
+          {tables && (
+            <Blocks
+              blocks={tables}
+              type="table"
+              blockShared={answers}
+              getRow="top"
+              getCol="right"
+            />
+          )}
+          {images && (
+            <Blocks
+              blocks={images}
+              type="image"
+              getRow="bottom"
+              getCol="right"
+            />
+          )}
+          {widgets && (
+            <Blocks
+              blocks={widgets}
+              type="widget"
+              blockShared={interactiveShared}
+              getRow="bottom"
+              getCol="right"
+            />
+          )}
+          {tables && (
+            <Blocks
+              blocks={tables}
+              type="table"
+              blockShared={answers}
+              getRow="bottom"
+              getCol="right"
+            />
+          )}
+          {isPosEmpty({ col: 'right' }, [
             ...(tables || []),
             ...(images || []),
             ...(widgets || []),
           ]) && (
-            <div className={styles.gridPlaceholder}>
+            <div className={gridPlaceholder}>
               <Placeholder />
             </div>
           )}
@@ -123,19 +177,12 @@ class TwoCol extends React.PureComponent {
 TwoCol.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
-  WidgetTags: PropTypes.array,
-  widgets: PropTypes.array,
-  images: PropTypes.array,
-  options: PropTypes.object,
   questions: PropTypes.array,
   answers: PropTypes.object,
+  images: PropTypes.array,
   tables: PropTypes.array,
-  activeId: PropTypes.string,
-  updateAnswer: PropTypes.func,
-  activeAnswer: PropTypes.object,
-  activeQuestionId: PropTypes.string,
-  advanceActiveQuestion: PropTypes.func,
-  setActiveQuestion: PropTypes.func,
+  widgets: PropTypes.array,
+  shared: PropTypes.object,
 };
 
 export default TwoCol;
