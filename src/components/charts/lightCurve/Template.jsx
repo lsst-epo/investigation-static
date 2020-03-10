@@ -178,7 +178,10 @@ class LightCurveTemplate extends React.PureComponent {
       //   [width - offsetRight, Infinity],
       // ])
       .scaleExtent([1, 20])
-      .extent([[padding, offsetTop], [width - offsetRight, height - padding]])
+      .extent([
+        [padding, offsetTop],
+        [width - offsetRight, height - padding],
+      ])
       .on('zoom', this.onZoom);
 
     $template.call(zoom);
