@@ -1,1 +1,520 @@
-[ { "name": "Type Ia", "band": "g", "color": "#4c8cd2", "distance": 213.8878328238106, "Dec": 6.317683836, "velocity": 14625.44589774079, "RA": 330.4135403, "redshift": 0.05, "supernovaPoint": {"x": "600", "y": "600"}, "galaxyPoint": {"x": "700", "y": "460"}, "alerts": [ { "alert_id": 166166993, "error": 0.07, "date": 58725.32416, "magnitude": 17.95, "image_id": 166166993 }, { "alert_id": 173570303, "error": 0.06, "date": 58730.30054, "magnitude": 17.96, "image_id": 173570303 }, { "alert_id": 181009323, "error": 0.08, "date": 58733.31741, "magnitude": 18.06, "image_id": 181009323 }, { "alert_id": 194347771, "error": 0.15, "date": 58741.20722, "magnitude": 18.68, "image_id": 194347771 }, { "alert_id": 205249677, "error": 0.14, "date": 58747.29667, "magnitude": 19.28, "image_id": 205249677 }, { "alert_id": 220237781, "error": 0.2, "date": 58754.27372, "magnitude": 19.89, "image_id": 220237781 } ] }, {"name": "Type IIp", "band": "r", "color": "#eb7c39", "alerts": [{"alert_id": 35358263, "error": 0.04, "date": 58650.43473, "magnitude": 17.19, "image_id": 35358263}, {"alert_id": 37861019, "error": 0.04, "date": 58653.44752, "magnitude": 17.18, "image_id": 37861019}, {"alert_id": 42315300, "error": 0.04, "date": 58657.4327, "magnitude": 17.23, "image_id": 42315300}, {"alert_id": 51662914, "error": 0.03, "date": 58665.45221, "magnitude": 17.26, "image_id": 51662914}, {"alert_id": 60288973, "error": 0.04, "date": 58668.36834, "magnitude": 17.23, "image_id": 60288973}, {"alert_id": 60288936, "error": 0.04, "date": 58671.42169, "magnitude": 17.25, "image_id": 60288936}, {"alert_id": 63779110, "error": 0.04, "date": 58674.47684, "magnitude": 17.22, "image_id": 63779110}, {"alert_id": 66649842, "error": 0.05, "date": 58677.48843, "magnitude": 17.27, "image_id": 66649842}, {"alert_id": 68202712, "error": 0.03, "date": 58680.42535, "magnitude": 17.25, "image_id": 68202712}, {"alert_id": 72623227, "error": 0.04, "date": 58683.44403, "magnitude": 17.25, "image_id": 72623227}, {"alert_id": 78226170, "error": 0.04, "date": 58686.40541, "magnitude": 17.26, "image_id": 78226170}, {"alert_id": 82245911, "error": 0.04, "date": 58690.43531, "magnitude": 17.28, "image_id": 82245911}, {"alert_id": 89613210, "error": 0.04, "date": 58693.46882, "magnitude": 17.31, "image_id": 89613210}, {"alert_id": 101783938, "error": 0.04, "date": 58696.47091, "magnitude": 17.32, "image_id": 101783938}, {"alert_id": 109810878, "error": 0.04, "date": 58699.38275, "magnitude": 17.37, "image_id": 109810878}, {"alert_id": 118766962, "error": 0.04, "date": 58703.42968, "magnitude": 17.44, "image_id": 118766962}, {"alert_id": 126153967, "error": 0.04, "date": 58706.40814, "magnitude": 17.49, "image_id": 126153967}, {"alert_id": 135212686, "error": 0.05, "date": 58712.37773, "magnitude": 17.72, "image_id": 135212686}, {"alert_id": 140761562, "error": 0.04, "date": 58715.42388, "magnitude": 17.87, "image_id": 140761562}, {"alert_id": 146806499, "error": 0.05, "date": 58718.47359, "magnitude": 18.02, "image_id": 146806499}, {"alert_id": 163707486, "error": 0.06, "date": 58724.40968, "magnitude": 18.25, "image_id": 163707486}, {"alert_id": 171038003, "error": 0.05, "date": 58727.48766, "magnitude": 18.38, "image_id": 171038003}, {"alert_id": 177578451, "error": 0.06, "date": 58732.46677, "magnitude": 18.48, "image_id": 177578451}, {"alert_id": 185274121, "error": 0.06, "date": 58735.38497, "magnitude": 18.52, "image_id": 185274121}, {"alert_id": 191423552, "error": 0.08, "date": 58738.38662, "magnitude": 18.54, "image_id": 191423552}, {"alert_id": 194545535, "error": 0.08, "date": 58741.42672, "magnitude": 18.44, "image_id": 194545535}, {"alert_id": 199835982, "error": 0.1, "date": 58744.37522, "magnitude": 18.67, "image_id": 199835982}, {"alert_id": 206067509, "error": 0.07, "date": 58747.42122, "magnitude": 18.61, "image_id": 206067509}, {"alert_id": 212902413, "error": 0.07, "date": 58750.32513, "magnitude": 18.68, "image_id": 212902413}, {"alert_id": 230060099, "error": 0.07, "date": 58758.31785, "magnitude": 18.78, "image_id": 230060099}, {"alert_id": 230060051, "error": 0.07, "date": 58761.34286, "magnitude": 18.77, "image_id": 230060051}, {"alert_id": 240632536, "error": 0.1, "date": 58764.13076, "magnitude": 18.73, "image_id": 240632536}, {"alert_id": 243644418, "error": 0.1, "date": 58765.13095, "magnitude": 18.79, "image_id": 243644418}, {"alert_id": 247016113, "error": 0.12, "date": 58766.13068, "magnitude": 18.81, "image_id": 247016113}, {"alert_id": 249181102, "error": 0.15, "date": 58768.13109, "magnitude": 18.84, "image_id": 249181102}, {"alert_id": 252844217, "error": 0.17, "date": 58769.13063, "magnitude": 18.91, "image_id": 252844217}, {"alert_id": 261136464, "error": 0.19, "date": 58771.13167, "magnitude": 18.82, "image_id": 261136464}, {"alert_id": 264478788, "error": 0.11, "date": 58772.13186, "magnitude": 18.7, "image_id": 264478788}, {"alert_id": 267014631, "error": 0.12, "date": 58773.13176, "magnitude": 18.92, "image_id": 267014631}, {"alert_id": 274244213, "error": 0.08, "date": 58776.13157, "magnitude": 18.91, "image_id": 274244213}, {"alert_id": 276665478, "error": 0.13, "date": 58777.13198, "magnitude": 18.98, "image_id": 276665478}, {"alert_id": 279519348, "error": 0.09, "date": 58778.13216, "magnitude": 18.94, "image_id": 279519348}, {"alert_id": 282411985, "error": 0.1, "date": 58779.13196, "magnitude": 19.0, "image_id": 282411985}, {"alert_id": 287047822, "error": 0.12, "date": 58782.13095, "magnitude": 18.94, "image_id": 287047822}, {"alert_id": 289121954, "error": 0.1, "date": 58783.13218, "magnitude": 18.97, "image_id": 289121954}, {"alert_id": 291982224, "error": 0.12, "date": 58785.13179, "magnitude": 18.95, "image_id": 291982224}, {"alert_id": 292611634, "error": 0.11, "date": 58786.13867, "magnitude": 18.99, "image_id": 292611634}, {"alert_id": 294710959, "error": 0.13, "date": 58787.13104, "magnitude": 19.02, "image_id": 294710959}, {"alert_id": 297867284, "error": 0.12, "date": 58788.13193, "magnitude": 19.07, "image_id": 297867284}, {"alert_id": 299723869, "error": 0.12, "date": 58789.13231, "magnitude": 19.02, "image_id": 299723869}, {"alert_id": 309165725, "error": 0.13, "date": 58789.26036, "magnitude": 19.01, "image_id": 309165725}, {"alert_id": 309165559, "error": 0.13, "date": 58793.12454, "magnitude": 19.21, "image_id": 309165559}, {"alert_id": 315373884, "error": 0.15, "date": 58796.11002, "magnitude": 19.05, "image_id": 315373884}, {"alert_id": 325590818, "error": 0.16, "date": 58800.30427, "magnitude": 19.12, "image_id": 325590818}, {"alert_id": 327571901, "error": 0.17, "date": 58801.3038, "magnitude": 19.26, "image_id": 327571901}, {"alert_id": 330001573, "error": 0.18, "date": 58803.25977, "magnitude": 19.32, "image_id": 330001573}, {"alert_id": 330001238, "error": 0.13, "date": 58803.2802, "magnitude": 19.19, "image_id": 330001238}, {"alert_id": 338028490, "error": 0.12, "date": 58806.2175, "magnitude": 19.24, "image_id": 338028490}, {"alert_id": 345463075, "error": 0.14, "date": 58811.15363, "magnitude": 19.3, "image_id": 345463075}, {"alert_id": 357166702, "error": 0.14, "date": 58819.15987, "magnitude": 19.43, "image_id": 357166702}, {"alert_id": 358079900, "error": 0.13, "date": 58831.09731, "magnitude": 19.51, "image_id": 358079900}, {"alert_id": 365501759, "error": 0.14, "date": 58837.08105, "magnitude": 19.48, "image_id": 365501759}, {"alert_id": 369990034, "error": 0.14, "date": 58846.11487, "magnitude": 19.69, "image_id": 369990034}, {"alert_id": 372439102, "error": 0.15, "date": 58849.08032, "magnitude": 19.83, "image_id": 372439102}, {"alert_id": 373007980, "error": 0.14, "date": 58849.15112, "magnitude": 19.65, "image_id": 373007980}]} ]
+[
+  {
+    "name": "Type IIp",
+    "band": "r",
+    "color": "#eb7c39",
+    "alerts": [
+      {
+        "alert_id": 35358263,
+        "error": 0.04,
+        "date": 58650.43473,
+        "magnitude": 17.19,
+        "image_id": 35358263
+      },
+      {
+        "alert_id": 37861019,
+        "error": 0.04,
+        "date": 58653.44752,
+        "magnitude": 17.18,
+        "image_id": 37861019
+      },
+      {
+        "alert_id": 42315300,
+        "error": 0.04,
+        "date": 58657.4327,
+        "magnitude": 17.23,
+        "image_id": 42315300
+      },
+      {
+        "alert_id": 51662914,
+        "error": 0.03,
+        "date": 58665.45221,
+        "magnitude": 17.26,
+        "image_id": 51662914
+      },
+      {
+        "alert_id": 60288973,
+        "error": 0.04,
+        "date": 58668.36834,
+        "magnitude": 17.23,
+        "image_id": 60288973
+      },
+      {
+        "alert_id": 60288936,
+        "error": 0.04,
+        "date": 58671.42169,
+        "magnitude": 17.25,
+        "image_id": 60288936
+      },
+      {
+        "alert_id": 63779110,
+        "error": 0.04,
+        "date": 58674.47684,
+        "magnitude": 17.22,
+        "image_id": 63779110
+      },
+      {
+        "alert_id": 66649842,
+        "error": 0.05,
+        "date": 58677.48843,
+        "magnitude": 17.27,
+        "image_id": 66649842
+      },
+      {
+        "alert_id": 68202712,
+        "error": 0.03,
+        "date": 58680.42535,
+        "magnitude": 17.25,
+        "image_id": 68202712
+      },
+      {
+        "alert_id": 72623227,
+        "error": 0.04,
+        "date": 58683.44403,
+        "magnitude": 17.25,
+        "image_id": 72623227
+      },
+      {
+        "alert_id": 78226170,
+        "error": 0.04,
+        "date": 58686.40541,
+        "magnitude": 17.26,
+        "image_id": 78226170
+      },
+      {
+        "alert_id": 82245911,
+        "error": 0.04,
+        "date": 58690.43531,
+        "magnitude": 17.28,
+        "image_id": 82245911
+      },
+      {
+        "alert_id": 89613210,
+        "error": 0.04,
+        "date": 58693.46882,
+        "magnitude": 17.31,
+        "image_id": 89613210
+      },
+      {
+        "alert_id": 101783938,
+        "error": 0.04,
+        "date": 58696.47091,
+        "magnitude": 17.32,
+        "image_id": 101783938
+      },
+      {
+        "alert_id": 109810878,
+        "error": 0.04,
+        "date": 58699.38275,
+        "magnitude": 17.37,
+        "image_id": 109810878
+      },
+      {
+        "alert_id": 118766962,
+        "error": 0.04,
+        "date": 58703.42968,
+        "magnitude": 17.44,
+        "image_id": 118766962
+      },
+      {
+        "alert_id": 126153967,
+        "error": 0.04,
+        "date": 58706.40814,
+        "magnitude": 17.49,
+        "image_id": 126153967
+      },
+      {
+        "alert_id": 135212686,
+        "error": 0.05,
+        "date": 58712.37773,
+        "magnitude": 17.72,
+        "image_id": 135212686
+      },
+      {
+        "alert_id": 140761562,
+        "error": 0.04,
+        "date": 58715.42388,
+        "magnitude": 17.87,
+        "image_id": 140761562
+      },
+      {
+        "alert_id": 146806499,
+        "error": 0.05,
+        "date": 58718.47359,
+        "magnitude": 18.02,
+        "image_id": 146806499
+      },
+      {
+        "alert_id": 163707486,
+        "error": 0.06,
+        "date": 58724.40968,
+        "magnitude": 18.25,
+        "image_id": 163707486
+      },
+      {
+        "alert_id": 171038003,
+        "error": 0.05,
+        "date": 58727.48766,
+        "magnitude": 18.38,
+        "image_id": 171038003
+      },
+      {
+        "alert_id": 177578451,
+        "error": 0.06,
+        "date": 58732.46677,
+        "magnitude": 18.48,
+        "image_id": 177578451
+      },
+      {
+        "alert_id": 185274121,
+        "error": 0.06,
+        "date": 58735.38497,
+        "magnitude": 18.52,
+        "image_id": 185274121
+      },
+      {
+        "alert_id": 191423552,
+        "error": 0.08,
+        "date": 58738.38662,
+        "magnitude": 18.54,
+        "image_id": 191423552
+      },
+      {
+        "alert_id": 194545535,
+        "error": 0.08,
+        "date": 58741.42672,
+        "magnitude": 18.44,
+        "image_id": 194545535
+      },
+      {
+        "alert_id": 199835982,
+        "error": 0.1,
+        "date": 58744.37522,
+        "magnitude": 18.67,
+        "image_id": 199835982
+      },
+      {
+        "alert_id": 206067509,
+        "error": 0.07,
+        "date": 58747.42122,
+        "magnitude": 18.61,
+        "image_id": 206067509
+      },
+      {
+        "alert_id": 212902413,
+        "error": 0.07,
+        "date": 58750.32513,
+        "magnitude": 18.68,
+        "image_id": 212902413
+      },
+      {
+        "alert_id": 230060099,
+        "error": 0.07,
+        "date": 58758.31785,
+        "magnitude": 18.78,
+        "image_id": 230060099
+      },
+      {
+        "alert_id": 230060051,
+        "error": 0.07,
+        "date": 58761.34286,
+        "magnitude": 18.77,
+        "image_id": 230060051
+      },
+      {
+        "alert_id": 240632536,
+        "error": 0.1,
+        "date": 58764.13076,
+        "magnitude": 18.73,
+        "image_id": 240632536
+      },
+      {
+        "alert_id": 243644418,
+        "error": 0.1,
+        "date": 58765.13095,
+        "magnitude": 18.79,
+        "image_id": 243644418
+      },
+      {
+        "alert_id": 247016113,
+        "error": 0.12,
+        "date": 58766.13068,
+        "magnitude": 18.81,
+        "image_id": 247016113
+      },
+      {
+        "alert_id": 249181102,
+        "error": 0.15,
+        "date": 58768.13109,
+        "magnitude": 18.84,
+        "image_id": 249181102
+      },
+      {
+        "alert_id": 252844217,
+        "error": 0.17,
+        "date": 58769.13063,
+        "magnitude": 18.91,
+        "image_id": 252844217
+      },
+      {
+        "alert_id": 261136464,
+        "error": 0.19,
+        "date": 58771.13167,
+        "magnitude": 18.82,
+        "image_id": 261136464
+      },
+      {
+        "alert_id": 264478788,
+        "error": 0.11,
+        "date": 58772.13186,
+        "magnitude": 18.7,
+        "image_id": 264478788
+      },
+      {
+        "alert_id": 267014631,
+        "error": 0.12,
+        "date": 58773.13176,
+        "magnitude": 18.92,
+        "image_id": 267014631
+      },
+      {
+        "alert_id": 274244213,
+        "error": 0.08,
+        "date": 58776.13157,
+        "magnitude": 18.91,
+        "image_id": 274244213
+      },
+      {
+        "alert_id": 276665478,
+        "error": 0.13,
+        "date": 58777.13198,
+        "magnitude": 18.98,
+        "image_id": 276665478
+      },
+      {
+        "alert_id": 279519348,
+        "error": 0.09,
+        "date": 58778.13216,
+        "magnitude": 18.94,
+        "image_id": 279519348
+      },
+      {
+        "alert_id": 282411985,
+        "error": 0.1,
+        "date": 58779.13196,
+        "magnitude": 19.0,
+        "image_id": 282411985
+      },
+      {
+        "alert_id": 287047822,
+        "error": 0.12,
+        "date": 58782.13095,
+        "magnitude": 18.94,
+        "image_id": 287047822
+      },
+      {
+        "alert_id": 289121954,
+        "error": 0.1,
+        "date": 58783.13218,
+        "magnitude": 18.97,
+        "image_id": 289121954
+      },
+      {
+        "alert_id": 291982224,
+        "error": 0.12,
+        "date": 58785.13179,
+        "magnitude": 18.95,
+        "image_id": 291982224
+      },
+      {
+        "alert_id": 292611634,
+        "error": 0.11,
+        "date": 58786.13867,
+        "magnitude": 18.99,
+        "image_id": 292611634
+      },
+      {
+        "alert_id": 294710959,
+        "error": 0.13,
+        "date": 58787.13104,
+        "magnitude": 19.02,
+        "image_id": 294710959
+      },
+      {
+        "alert_id": 297867284,
+        "error": 0.12,
+        "date": 58788.13193,
+        "magnitude": 19.07,
+        "image_id": 297867284
+      },
+      {
+        "alert_id": 299723869,
+        "error": 0.12,
+        "date": 58789.13231,
+        "magnitude": 19.02,
+        "image_id": 299723869
+      },
+      {
+        "alert_id": 309165725,
+        "error": 0.13,
+        "date": 58789.26036,
+        "magnitude": 19.01,
+        "image_id": 309165725
+      },
+      {
+        "alert_id": 309165559,
+        "error": 0.13,
+        "date": 58793.12454,
+        "magnitude": 19.21,
+        "image_id": 309165559
+      },
+      {
+        "alert_id": 315373884,
+        "error": 0.15,
+        "date": 58796.11002,
+        "magnitude": 19.05,
+        "image_id": 315373884
+      },
+      {
+        "alert_id": 325590818,
+        "error": 0.16,
+        "date": 58800.30427,
+        "magnitude": 19.12,
+        "image_id": 325590818
+      },
+      {
+        "alert_id": 327571901,
+        "error": 0.17,
+        "date": 58801.3038,
+        "magnitude": 19.26,
+        "image_id": 327571901
+      },
+      {
+        "alert_id": 330001573,
+        "error": 0.18,
+        "date": 58803.25977,
+        "magnitude": 19.32,
+        "image_id": 330001573
+      },
+      {
+        "alert_id": 330001238,
+        "error": 0.13,
+        "date": 58803.2802,
+        "magnitude": 19.19,
+        "image_id": 330001238
+      },
+      {
+        "alert_id": 338028490,
+        "error": 0.12,
+        "date": 58806.2175,
+        "magnitude": 19.24,
+        "image_id": 338028490
+      },
+      {
+        "alert_id": 345463075,
+        "error": 0.14,
+        "date": 58811.15363,
+        "magnitude": 19.3,
+        "image_id": 345463075
+      },
+      {
+        "alert_id": 357166702,
+        "error": 0.14,
+        "date": 58819.15987,
+        "magnitude": 19.43,
+        "image_id": 357166702
+      },
+      {
+        "alert_id": 358079900,
+        "error": 0.13,
+        "date": 58831.09731,
+        "magnitude": 19.51,
+        "image_id": 358079900
+      },
+      {
+        "alert_id": 365501759,
+        "error": 0.14,
+        "date": 58837.08105,
+        "magnitude": 19.48,
+        "image_id": 365501759
+      },
+      {
+        "alert_id": 369990034,
+        "error": 0.14,
+        "date": 58846.11487,
+        "magnitude": 19.69,
+        "image_id": 369990034
+      },
+      {
+        "alert_id": 372439102,
+        "error": 0.15,
+        "date": 58849.08032,
+        "magnitude": 19.83,
+        "image_id": 372439102
+      },
+      {
+        "alert_id": 373007980,
+        "error": 0.14,
+        "date": 58849.15112,
+        "magnitude": 19.65,
+        "image_id": 373007980
+      }
+    ]
+  },
+  {
+    "name": "Type Ia",
+    "band": "g",
+    "color": "#4c8cd2",
+    "distance": 213.8878328238106,
+    "Dec": 6.317683836,
+    "velocity": 14625.44589774079,
+    "RA": 330.4135403,
+    "redshift": 0.05,
+    "supernovaPoint": { "x": "600", "y": "600" },
+    "galaxyPoint": { "x": "700", "y": "460" },
+    "alerts": [
+      {
+        "alert_id": 166166993,
+        "error": 0.07,
+        "date": 58725.32416,
+        "magnitude": 17.95,
+        "image_id": 166166993
+      },
+      {
+        "alert_id": 173570303,
+        "error": 0.06,
+        "date": 58730.30054,
+        "magnitude": 17.96,
+        "image_id": 173570303
+      },
+      {
+        "alert_id": 181009323,
+        "error": 0.08,
+        "date": 58733.31741,
+        "magnitude": 18.06,
+        "image_id": 181009323
+      },
+      {
+        "alert_id": 194347771,
+        "error": 0.15,
+        "date": 58741.20722,
+        "magnitude": 18.68,
+        "image_id": 194347771
+      },
+      {
+        "alert_id": 205249677,
+        "error": 0.14,
+        "date": 58747.29667,
+        "magnitude": 19.28,
+        "image_id": 205249677
+      },
+      {
+        "alert_id": 220237781,
+        "error": 0.2,
+        "date": 58754.27372,
+        "magnitude": 19.89,
+        "image_id": 220237781
+      }
+    ]
+  }
+]

@@ -9,7 +9,7 @@ import {
   clientPoint as d3ClientPoint,
 } from 'd3-selection';
 import { zoomIdentity as d3ZoomIdentity } from 'd3-zoom';
-import { scaleLinear as d3ScaleLinear } from 'd3-scale';
+import { scaleLinear as d3ScaleLinear, nice as d3Nice } from 'd3-scale';
 import { extent as d3Extent } from 'd3-array';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
@@ -104,7 +104,12 @@ class LightCurve extends React.PureComponent {
       max = domain[1];
     }
 
-    const extent = [Math.floor(min), Math.ceil(max)];
+    let extent = [Math.floor(min), Math.ceil(max)];
+    if (accessor === 'magnitude') {
+      const buffer = (max - min) * 0.1;
+      extent = [Math.floor(extent[0] - buffer), extent[1]];
+    }
+
     if (direction < 0) {
       return extent.reverse();
     }
@@ -540,7 +545,7 @@ LightCurve.defaultProps = {
   offsetTop: 7,
   offsetRight: 7,
   xDomain: [58690, 58780],
-  yDomain: [21, 17],
+  yDomain: [24, 14],
   xValueAccessor: 'date',
   yValueAccessor: 'magnitude',
   xAxisLabel: 'Days',
