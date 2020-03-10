@@ -61,7 +61,8 @@ nav {
       background-color: $basePrimary;
 
       :global {
-        .md-tile-text--primary.md-text--theme-primary, .md-text {
+        .md-tile-text--primary.md-text--theme-primary,
+        .md-text {
           /* stylelint-disable-next-line declaration-no-important */
           color: $white !important;
         }
@@ -72,7 +73,9 @@ nav {
       background-color: $baseSecondaryDark;
 
       :global {
-        .md-tile-text--primary, .md-text--theme-primary, .md-text {
+        .md-tile-text--primary,
+        .md-text--theme-primary,
+        .md-text {
           /* stylelint-disable-next-line declaration-no-important */
           color: $white !important;
         }
@@ -91,4 +94,11 @@ nav {
 
 .link-is-disabled {
   // background: green;
+}
+
+.single-image {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

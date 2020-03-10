@@ -222,7 +222,7 @@ class GalaxySelectorContainer extends React.PureComponent {
     const {
       answers,
       options,
-      options: { toggleDataPointsVisibility },
+      options: { toggleDataPointsVisibility, image },
     } = this.props;
 
     const selectedData = getSelectedData(
@@ -255,6 +255,7 @@ class GalaxySelectorContainer extends React.PureComponent {
               {...{ selectedData, activeGalaxy }}
               data={getGalaxyPointData(activeGalaxy)}
               alerts={activeGalaxy ? activeGalaxy.alerts : []}
+              image={image}
               images={activeGalaxy ? activeGalaxy.images : []}
               selectionCallback={this.selectionCallback}
               blinkCallback={this.onBlinkChange}

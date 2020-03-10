@@ -13,7 +13,7 @@ import Blinker from './blinker/index.jsx';
 import BlinkerControls from './blinker/BlinkerControls';
 import Points from './Points';
 import Legend from '../shared/legend/index.jsx';
-import { galaxySelector } from './galaxy-selector.module.scss';
+import { galaxySelector, singleImage } from './galaxy-selector.module.scss';
 
 class GalaxySelector extends React.PureComponent {
   constructor(props) {
@@ -272,6 +272,7 @@ class GalaxySelector extends React.PureComponent {
       data,
       width,
       height,
+      image,
       images,
       multiple,
       xValueAccessor,
@@ -337,13 +338,23 @@ class GalaxySelector extends React.PureComponent {
               />
             )}
           </svg>
-          <Blinker images={images} activeId={activeImageId} />
-          <BlinkerControls
-            playing={playing}
-            handleStartStop={this.startStopBlink}
-            handleNext={this.onNextBlink}
-            handlePrevious={this.onPreviousBlink}
-          />
+          {image ? (
+            <img
+              className={singleImage}
+              src={image.mediaPath}
+              alt={image.altText}
+            />
+          ) : (
+            <>
+              <Blinker images={images} activeId={activeImageId} />
+              <BlinkerControls
+                playing={playing}
+                handleStartStop={this.startStopBlink}
+                handleNext={this.onNextBlink}
+                handlePrevious={this.onPreviousBlink}
+              />
+            </>
+          )}
         </div>
       </>
     );
@@ -368,6 +379,7 @@ GalaxySelector.propTypes = {
   selectedData: PropTypes.array,
   activeGalaxy: PropTypes.object,
   alerts: PropTypes.array,
+  image: PropTypes.object,
   images: PropTypes.array,
   activeImageId: PropTypes.number,
   activeImageIndex: PropTypes.number,
@@ -381,7 +393,7 @@ GalaxySelector.propTypes = {
   name: PropTypes.string,
   autoplay: PropTypes.bool,
   selectionCallback: PropTypes.func,
-  blinkCallback: PropTypes.func.isRequired,
+  blinkCallback: PropTypes.func,
 };
 
 export default GalaxySelector;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SupernovaSelectorWithLightCurve from '../../../containers/SupernovaSelectorWithLightCurveContainer.jsx';
 import GalaxyScrambler from '../../../containers/GalaxyScramblerContainer.jsx';
 import GalaxySelector from '../../../containers/GalaxySelectorContainer.jsx';
+import GalaxiesSelector from '../../../containers/GalaxiesSelectorContainer.jsx';
 import HubblePlot from '../../../containers/HubblePlot2DContainer.jsx';
 import HubblePlot3D from '../../../containers/HubblePlot3DContainer.jsx';
 import GalacticProperties from '../../../containers/GalacticPropertiesContainer.jsx';
@@ -21,6 +22,7 @@ class WidgetBlock extends React.PureComponent {
       SupernovaSelectorWithLightCurve,
       GalaxyScrambler,
       GalaxySelector,
+      GalaxiesSelector,
       HubblePlot,
       HubblePlot3D,
       GalacticProperties,

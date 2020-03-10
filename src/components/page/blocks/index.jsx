@@ -25,6 +25,7 @@ class Blocks extends React.PureComponent {
       defaultLayout,
       type,
     } = this.props;
+
     return blocks.map((block, i) => {
       const { layout } = block;
       const { row, col } = getLayout(defaultLayout, layout);
