@@ -54,7 +54,7 @@ $break80: 1024px;
 // $break70: ;
 // $break60: ;
 $break50: 768px;
-// $break40: ;
+$break40: 420px;
 $break30: 320px;
 // $break20: ;
 // $break10: ;
@@ -70,6 +70,7 @@ $minPadding: 20px;
 
 $baseLineHeight: 1.4;
 $verticalSpace: $baseLineHeight * 1em;
+$tallestSquareWidget: calc(90vh - (2 * #{$siteHeaderHeight}) - (#{$minPadding} * 4));
 
 // $durationFast: 0.1s;
 $duration: 0.2s;

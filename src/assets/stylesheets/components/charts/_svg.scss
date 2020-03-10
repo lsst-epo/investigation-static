@@ -1,12 +1,14 @@
 .svg-container {
   position: relative;
+  min-width: $break40;
+  max-width: $tallestSquareWidget;
 }
 
 .svg-chart {
   display: block;
   width: 100%;
-  min-width: $break30;
-  max-width: calc(95vh - #{$siteHeaderHeight} - (#{$minPadding} * 2));
+  min-width: $break40;
+  max-width: $tallestSquareWidget;
   height: 100%;
   visibility: hidden;
   opacity: 0;
