@@ -33,7 +33,7 @@ class TableBlock extends React.PureComponent {
 
 TableBlock.propTypes = {
   block: PropTypes.object,
-  blockShared: PropTypes.array,
+  blockShared: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   row: PropTypes.string,
 };
 

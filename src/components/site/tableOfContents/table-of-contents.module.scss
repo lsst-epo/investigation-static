@@ -3,10 +3,9 @@
   @include react-md-lists;
 
   .md-drawer {
-    // .md-toolbar {}
     .md-list.md-list--drawer {
       .md-subheader {
-        padding-left: 1rem;
+        padding-left: $minPadding;
       }
 
       .md-list-item {
@@ -28,7 +27,7 @@
 
         .md-text-theme-primary,
         .md-text {
-          font-size: 14px;
+          @include labelPrimary;
           font-weight: $medium;
           color: $basePrimary;
         }
@@ -48,9 +47,6 @@
         &.link-active {
           background-color: $basePrimary;
 
-          // .md-tile-addon--icon svg {
-          // 	fill: $basePrimary;
-          // }
           .md-text--theme-primary,
           .md-text {
             color: $protonWhite;
@@ -74,8 +70,7 @@
 }
 
 .table-of-contents {
-  // some content
   z-index: 14;
   padding-top: calc(#{$siteHeaderHeight} + 10px);
-  padding-bottom: $minPadding;
+  padding-bottom: 56px;
 }

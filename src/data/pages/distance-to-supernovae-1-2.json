@@ -30,7 +30,7 @@
           "title": "Question #1",
           "label": "<p>Use the Type Ia template to fit the data.</p>",
           "answerPre": "<p>The Type </p>",
-          "answerPost": "<p> template fits the data for Supernoa #6</p>",
+          "answerPost": "<p> template fits the data for Supernova #6</p>",
           "answerAccessor": "light-curve-template"
         }
       ]

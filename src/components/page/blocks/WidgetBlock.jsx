@@ -55,7 +55,7 @@ class WidgetBlock extends React.PureComponent {
 
 WidgetBlock.propTypes = {
   block: PropTypes.object,
-  blockShared: PropTypes.object,
+  blockShared: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   row: PropTypes.string,
 };
 

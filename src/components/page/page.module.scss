@@ -40,10 +40,9 @@
 }
 
 .grid-title {
+  @include headingPrimary;
   grid-area: grid-title;
-  font-size: 24px;
-  line-height: 32px;
-  color: rgba(0, 0, 0, 0.87);
+  color: $black;
 }
 
 .grid-copy {
@@ -53,7 +52,7 @@
   + .grid-widget-top,
   + .grid-widget-bottom,
   + .grid-image,
-  + .grid-table-bottom {
+  + .grid-table {
     margin-top: $minPadding;
   }
 }
@@ -61,10 +60,10 @@
 .grid-qas {
   grid-area: grid-qas;
 
-  + .grid-widget-top,
-  + .grid-widget-bottom,
-  + .grid-image-bottom,
-  + .grid-table-bottom {
+  + .grid-widget,
+  + .grid-widget,
+  + .grid-image,
+  + .grid-table {
     margin-top: $minPadding;
   }
 }

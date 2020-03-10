@@ -48,7 +48,7 @@ class ObservationsTable extends React.PureComponent {
 
     return (
       <>
-        {title && <h1 className={tableTitle}>{title}</h1>}
+        {title && <h2 className={`${tableTitle} space-bottom`}>{title}</h2>}
         <Table
           className="observations-table"
           colTitles={colTitles}

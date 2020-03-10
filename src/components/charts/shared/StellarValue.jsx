@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getValue } from '../../../lib/utilities.js';
+import { getValue, addTheCommas } from '../../../lib/utilities.js';
 import Unit from './unit/index.jsx';
 
 class StellarValue extends React.PureComponent {
   render() {
     const { type, value, isSvg } = this.props;
     const tempValue = getValue(type, value);
-    const formattedValue = isNaN(tempValue) ? value : tempValue; // eslint-disable-line no-restricted-globals
+    const formattedValue = addTheCommas(isNaN(tempValue) ? value : tempValue); // eslint-disable-line no-restricted-globals
 
     return (
       <>
