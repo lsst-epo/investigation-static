@@ -14,14 +14,16 @@
   },
   "layout": "TwoCol",
   "content": "<p>You will begin by hunting for Type Ia supernovae in Rubin Observatory images of six galaxies. Then you will identify the galaxies themselves.  Finally we'll use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble plot.</p>",
-  "widgets": [{
-    "type": "GalaxySelector",
-    "source": "/data/galaxies/galaxy_selector.json",
-    "options": {
-      "toggleDataPointsVisibility": "251",
-      "createUserHubblePlot": "252"
+  "widgets": [
+    {
+      "type": "GalaxySelector",
+      "source": "/data/galaxies/galaxy_selector.json",
+      "options": {
+        "toggleDataPointsVisibility": "251",
+        "createUserHubblePlot": "252"
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [

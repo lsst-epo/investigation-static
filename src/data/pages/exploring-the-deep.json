@@ -12,12 +12,17 @@
     "title": "Effects of Expansion",
     "link": "/effects-of-expansion/"
   },
-  "layout": "TwoCol",
   "content": "<p>Below is your assigned deep field image. Nearly all of the objects in this image are galaxies, but some appear so small they could easily be mistaken for stars. This image shows thousands of galaxies of different sizes, brightnesses, and colors. Clicking on a galaxy will add a data point to the plot. Be sure you select enough galaxies so that your data spans the entire range of distances along the x-axis on the plot (to accomplish this you will need to select some very small and faint galaxies). Select at least 40 galaxies.</p>",
-  "images": [
+  "widgets": [
     {
-      "mediaPath": "/images/observable-galaxies.png",
-      "altText": "A vast array of visible galaxies"
+      "type": "GalaxiesSelector",
+      "source": "/data/galaxies/galaxy_selector.json",
+      "options": {
+        "image": {
+          "mediaPath": "/images/observable-galaxies.png",
+          "altText": "A vast array of visible galaxies"
+        }
+      }
     }
   ],
   "questionsByPage": [

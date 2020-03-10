@@ -30,6 +30,7 @@ class Page extends React.PureComponent {
       answers,
       ...shared,
     };
+
     return (
       <div className={singleColGrid}>
         <h1 className={`space-bottom section-title ${gridTitle}`}>{title}</h1>

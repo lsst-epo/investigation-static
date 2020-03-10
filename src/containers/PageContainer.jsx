@@ -160,6 +160,10 @@ export const query = graphql`
             preSelectedLightCurveTemplate
             preSelectedLightCurveMagnitude
             toggleDataPointsVisibility
+            image {
+              mediaPath
+              altText
+            }
             autoplay
             preSelected
             multiple
