@@ -15,13 +15,13 @@ class GalacticPropertiesContainer extends React.PureComponent {
 
   componentDidMount() {
     const {
-      widget: { source },
+      widget: { source, options },
     } = this.props;
+    const { multiple } = options || {};
 
     API.get(source).then(response => {
       const { data } = response;
-      const { objects: galaxies } = data || {};
-      const responseData = isArray(galaxies) ? galaxies : [];
+      const responseData = this.getDataObjects(data, multiple);
 
       this.setState(prevState => ({
         ...prevState,
@@ -29,6 +29,16 @@ class GalacticPropertiesContainer extends React.PureComponent {
       }));
     });
   }
+
+  getDataObjects = (data, multiple) => {
+    if (multiple) {
+      return data.map(targetData => {
+        if (!targetData.objects) return null;
+        return targetData.objects;
+      });
+    }
+    return isArray(data.objects) ? data.objects : [];
+  };
 
   userGalacticPropertiesCallback = data => {
     console.log({ data });

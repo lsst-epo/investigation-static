@@ -53,9 +53,9 @@ class GalacticProperties extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { data, activeGalaxy } = this.props;
+    const { data, activeGroup } = this.props;
     const isNewData = prevProps.data !== data;
-    const isNewActiveGalaxy = prevProps.activeGalaxy !== activeGalaxy;
+    const isNewActiveGalaxy = prevProps.activeGroup !== activeGroup;
 
     if (isNewData) {
       this.updateGalacticProperties();
@@ -71,9 +71,9 @@ class GalacticProperties extends React.Component {
   }
 
   updateSelectedData() {
-    const { activeGalaxy, data } = this.props;
+    const { activeGroup, data } = this.props;
     const activeData = find(data, d => {
-      return activeGalaxy.name === d.name;
+      return activeGroup.name === d.name;
     });
 
     this.setState(prevState => ({
@@ -131,7 +131,6 @@ class GalacticProperties extends React.Component {
   // mouseover/focus handler for point
   onMouseOver = d => {
     const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
-
     // add hover style on point and show tooltip
     this.setState(prevState => ({
       ...prevState,
@@ -261,7 +260,6 @@ class GalacticProperties extends React.Component {
       loading,
       loaded: !loading,
     });
-    const calcHeight = height - padding;
 
     return (
       <>
@@ -301,7 +299,7 @@ class GalacticProperties extends React.Component {
                   x={padding}
                   y={offsetTop}
                   width={width - padding - offsetRight}
-                  height={calcHeight}
+                  height={height - padding}
                 />
               </clipPath>
             </defs>
@@ -325,11 +323,14 @@ class GalacticProperties extends React.Component {
               {data &&
                 multiple &&
                 data.map((set, i) => {
-                  const key = `galaxy-${i}`;
+                  const setId = `set-${i}`;
+                  const pointClasses = classnames(setId, styles.groupPoint, {
+                    [styles[`colorSet${i}`]]: i > 0,
+                  });
 
                   return (
                     <Points
-                      key={key}
+                      key={setId}
                       data={set}
                       {...{
                         xScale,
@@ -340,7 +341,7 @@ class GalacticProperties extends React.Component {
                         hoveredData,
                         offsetTop,
                       }}
-                      pointClasses={`set-${i} ${styles.galaxyPoint}`}
+                      pointClasses={pointClasses}
                     />
                   );
                 })}
@@ -356,7 +357,7 @@ class GalacticProperties extends React.Component {
                     hoveredData,
                     offsetTop,
                   }}
-                  pointClasses={styles.galaxyPoint}
+                  pointClasses={styles.groupPoint}
                 />
               )}
             </g>
@@ -391,7 +392,7 @@ GalacticProperties.propTypes = {
   offsetTop: PropTypes.number,
   offsetRight: PropTypes.number,
   data: PropTypes.array,
-  activeGalaxy: PropTypes.object,
+  activeGroup: PropTypes.object,
   options: PropTypes.object,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
