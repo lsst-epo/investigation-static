@@ -9,7 +9,7 @@ import {
   clientPoint as d3ClientPoint,
 } from 'd3-selection';
 import { zoomIdentity as d3ZoomIdentity } from 'd3-zoom';
-import { scaleLinear as d3ScaleLinear, nice as d3Nice } from 'd3-scale';
+import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import { extent as d3Extent } from 'd3-array';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';

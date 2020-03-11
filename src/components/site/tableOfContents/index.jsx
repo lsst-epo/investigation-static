@@ -96,8 +96,6 @@ TableOfContents.propTypes = {
   investigation: PropTypes.string,
 };
 
-// export default TableOfContents;
-
 export default props => (
   <StaticQuery
     query={graphql`

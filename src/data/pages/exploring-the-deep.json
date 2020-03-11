@@ -16,13 +16,7 @@
   "widgets": [
     {
       "type": "GalaxiesSelector",
-      "source": "/data/galaxies/galaxy_selector.json",
-      "options": {
-        "image": {
-          "mediaPath": "/images/observable-galaxies.png",
-          "altText": "A vast array of visible galaxies"
-        }
-      }
+      "source": "/data/galaxies/hsc/hsc_sub01.json"
     }
   ],
   "questionsByPage": [
