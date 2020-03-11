@@ -17,7 +17,7 @@
   "widgets": [
     {
       "type": "GalacticProperties",
-      "source": "/data/galaxies/brightnessVsDistance.json",
+      "source": "/data/galaxies/hsc/hsc_sub01.json",
       "layout": {
         "col": "right",
         "row": "top"
@@ -31,7 +31,7 @@
         "tooltipAccessors": ["distance", "brightness"],
         "tooltipUnits": ["Billion Ly"],
         "tooltipLabels": ["Distance", "Brightness"],
-        "domain": [[0, 100], [0, 100]]
+        "domain": [[0, 28], [0, 100]]
       }
     }
   ],

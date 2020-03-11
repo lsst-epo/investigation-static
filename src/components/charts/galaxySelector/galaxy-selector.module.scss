@@ -14,6 +14,14 @@
   }
 }
 
+.single-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+}
+
 .galaxy-nav-drawer {
   position: relative;
   outline: none;
@@ -94,11 +102,4 @@ nav {
 
 .link-is-disabled {
   // background: green;
-}
-
-.single-image {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
 }

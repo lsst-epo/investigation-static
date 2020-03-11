@@ -7,8 +7,8 @@
     "velocity": 9736.736057325023,
     "RA": 45.08449499,
     "redshift": 0.033,
-    "supernovaPoint": {"x": "600", "y": "600"},
-    "galaxyPoint": {"x": "700", "y": "460"},
+    "supernovaPoint": {"ra": "600", "dec": "600"},
+    "galaxyPoint": {"ra": "700", "dec": "460"},
     "alerts": [
       {
         "alert_id": 149216727,
@@ -102,7 +102,7 @@
         "image_id": 255350622
       }
     ]
-  }, {"name": "ZTF19abxvjkn", "band": "g", "color": "#eb7c39", "distance": 231.55354261593232, "Dec": 16.60698643, "velocity": 15814.291346935735, "RA": 118.300078, "redshift": 0.05418, "supernovaPoint": {"x": "600", "y": "600"}, "galaxyPoint": {"x": "700", "y": "460"}, "alerts": [{"alert_id": 188185951, "error": 0.1, "date": 58733.48881, "magnitude": 18.13, "image_id": 188185951}, {"alert_id": 188185946, "error": 0.07, "date": 58736.49079, "magnitude": 17.97, "image_id": 188185946}, {"alert_id": 192986531, "error": 0.09, "date": 58739.52449, "magnitude": 17.89, "image_id": 192986531}, {"alert_id": 196470635, "error": 0.14, "date": 58742.52403, "magnitude": 17.98, "image_id": 196470635}, {"alert_id": 202035027, "error": 0.08, "date": 58745.52657, "magnitude": 18.1, "image_id": 202035027}, {"alert_id": 208008473, "error": 0.08, "date": 58748.51598, "magnitude": 18.42, "image_id": 208008473}, {"alert_id": 218992784, "error": 0.1, "date": 58751.48296, "magnitude": 18.74, "image_id": 218992784}, {"alert_id": 218992758, "error": 0.11, "date": 58756.46904, "magnitude": 19.24, "image_id": 218992758}, {"alert_id": 255648158, "error": 0.12, "date": 58758.51201, "magnitude": 19.43, "image_id": 255648158}, {"alert_id": 255648176, "error": 0.14, "date": 58759.47334, "magnitude": 19.6, "image_id": 255648176}]},
+  }, {"name": "ZTF19abxvjkn", "band": "g", "color": "#eb7c39", "distance": 231.55354261593232, "Dec": 16.60698643, "velocity": 15814.291346935735, "RA": 118.300078, "redshift": 0.05418, "supernovaPoint": {"ra": "600", "dec": "600"}, "galaxyPoint": {"ra": "700", "dec": "460"}, "alerts": [{"alert_id": 188185951, "error": 0.1, "date": 58733.48881, "magnitude": 18.13, "image_id": 188185951}, {"alert_id": 188185946, "error": 0.07, "date": 58736.49079, "magnitude": 17.97, "image_id": 188185946}, {"alert_id": 192986531, "error": 0.09, "date": 58739.52449, "magnitude": 17.89, "image_id": 192986531}, {"alert_id": 196470635, "error": 0.14, "date": 58742.52403, "magnitude": 17.98, "image_id": 196470635}, {"alert_id": 202035027, "error": 0.08, "date": 58745.52657, "magnitude": 18.1, "image_id": 202035027}, {"alert_id": 208008473, "error": 0.08, "date": 58748.51598, "magnitude": 18.42, "image_id": 208008473}, {"alert_id": 218992784, "error": 0.1, "date": 58751.48296, "magnitude": 18.74, "image_id": 218992784}, {"alert_id": 218992758, "error": 0.11, "date": 58756.46904, "magnitude": 19.24, "image_id": 218992758}, {"alert_id": 255648158, "error": 0.12, "date": 58758.51201, "magnitude": 19.43, "image_id": 255648158}, {"alert_id": 255648176, "error": 0.14, "date": 58759.47334, "magnitude": 19.6, "image_id": 255648176}]},
   {
     "name": "ZTF19abqqmui",
     "band": "g",
@@ -112,8 +112,8 @@
     "velocity": 14625.44589774079,
     "RA": 330.4135403,
     "redshift": 0.05,
-    "supernovaPoint": {"x": "600", "y": "600"},
-    "galaxyPoint": {"x": "700", "y": "460"},
+    "supernovaPoint": {"ra": "600", "dec": "600"},
+    "galaxyPoint": {"ra": "700", "dec": "460"},
     "alerts": [
       {
         "alert_id": 166166993,

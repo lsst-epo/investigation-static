@@ -62,7 +62,10 @@ class GalaxySelector extends React.PureComponent {
       selectedData,
       preSelected,
       autoplay,
+      xDomain,
+      yDomain,
     } = this.props;
+
     const { playing } = prevState;
     if (prevProps.activeGalaxy !== activeGalaxy) {
       this.updateGalaxySelector();
@@ -72,11 +75,32 @@ class GalaxySelector extends React.PureComponent {
         this.startBlink();
       }
     }
+
+    if (xDomain !== prevProps.xDomain || yDomain !== prevProps.yDomain) {
+      this.updateScale();
+    }
   }
 
   componentWillUnmount() {
     clearInterval(this.blinkerInterval);
     this.removeEventListeners();
+  }
+
+  updateScale() {
+    const { xDomain, yDomain, padding, width, height } = this.props;
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        xScale: d3ScaleLinear()
+          .domain(xDomain)
+          .range([padding, width]),
+        yScale: d3ScaleLinear()
+          .domain(yDomain)
+          .range([height - padding, 0]),
+      }),
+      this.updateGalaxySelector
+    );
   }
 
   clearSelection() {
@@ -367,8 +391,8 @@ GalaxySelector.defaultProps = {
   padding: 0,
   xDomain: [0, 1200],
   yDomain: [0, 1200],
-  xValueAccessor: 'x',
-  yValueAccessor: 'y',
+  xValueAccessor: 'ra',
+  yValueAccessor: 'dec',
 };
 
 GalaxySelector.propTypes = {

@@ -8,8 +8,8 @@
     "velocity": 14625.44589774079,
     "RA": 77.673833,
     "redshift": 0.05,
-    "supernovaPoint": {"x": "600", "y": "600"},
-    "galaxyPoint": {"x": "700", "y": "460"},
+    "supernovaPoint": {"ra": "600", "dec": "600"},
+    "galaxyPoint": {"ra": "700", "dec": "460"},
     "alerts": [
       {
         "alert_id": 169105051,
