@@ -6,16 +6,6 @@ import partition from 'lodash/partition';
 import { hubblePlot } from './hubble-plot.module.scss';
 
 class HubblePlot3D extends React.PureComponent {
-  // componentDidMount() {
-  //   const { data, options } = this.props;
-  //   console.log('component did mount', data, options); // eslint-disable-line no-console
-  // }
-
-  // componentDidUpdate() {
-  //   const { data, options } = this.props;
-  //   console.log('component did update', data, options); // eslint-disable-line no-console
-  // }
-
   getAxisInfo(axisName) {
     return {
       name: axisName,

@@ -1,5 +1,3 @@
-
-
 // Variables
 //----------
 
@@ -7,17 +5,17 @@
 // --------------------------------------------------------
 //  Brand Colors
 $protonWhite: #ffffff;
-$duskGray: #2B2E34;
-$lightBlue: #BEE7F5;
-$mediumBlue: #2979C1;
-$darkBlue: #074A9C;
+$duskGray: #2b2e34;
+$lightBlue: #bee7f5;
+$mediumBlue: #2979c1;
+$darkBlue: #074a9c;
 $ral5018HR: #087f80; // #058B8C was slightly too light to reach WCAG AA certification with normal-sized text
-$boldRed: #DF0039;
+$boldRed: #df0039;
 
 $white: $protonWhite;
 $black: $duskGray;
 
-$neutral10: #F3F3F3;
+$neutral10: #f3f3f3;
 $neutral20: #737373;
 $neutral30: #828287;
 $neutral40: #525459;
@@ -42,6 +40,19 @@ $md-switch-fallback-color: rgba($basePrimary, 0.87);
 $md-switch-ball-fallback-color: $md-switch-fallback-color;
 
 $md-slider-warn-md: false; // only need to set this if using the dark theme.
+
+// Chart colors
+$chart00: $neutral30;
+$chart01: #1ab579;
+$chart02: #eb7c39;
+$chart03: #4c8cd2;
+$chart04: #fed828;
+$chart05: #8e3efe;
+$chart06: #a3bb0d;
+$chart07: #c82960;
+
+$chartColors: $chart00 $chart01 $chart02 $chart03 $chart04 $chart05 $chart06
+  $chart07;
 
 // Responsive breakpoints
 // --------------------------------------------------------
@@ -70,7 +81,9 @@ $minPadding: 20px;
 
 $baseLineHeight: 1.4;
 $verticalSpace: $baseLineHeight * 1em;
-$tallestSquareWidget: calc(90vh - (2 * #{$siteHeaderHeight}) - (#{$minPadding} * 4));
+$tallestSquareWidget: calc(
+  90vh - (2 * #{$siteHeaderHeight}) - (#{$minPadding} * 4)
+);
 
 // $durationFast: 0.1s;
 $duration: 0.2s;

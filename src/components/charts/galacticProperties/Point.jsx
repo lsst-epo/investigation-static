@@ -34,18 +34,16 @@ class Point extends React.PureComponent {
     const { x, y, classes, fill } = this.props;
 
     return (
-      <g>
-        <circle
-          ref={this.svgEl}
-          className={classes}
-          cx={x}
-          cy={y}
-          r={this.baseRadius}
-          fill={fill || '#828287'}
-          stroke="transparent"
-          tabIndex="0"
-        />
-      </g>
+      <circle
+        ref={this.svgEl}
+        className={classes}
+        cx={x}
+        cy={y}
+        r={this.baseRadius}
+        fill={fill || '#828287'}
+        stroke="transparent"
+        tabIndex="0"
+      />
     );
   }
 }

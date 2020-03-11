@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import includes from 'lodash/includes';
 import classnames from 'classnames';
 import Point from './Point.jsx';
-import { notActive } from './galactic-properties.module.scss';
+import { invisible } from './galactic-properties.module.scss';
 
 class Points extends React.PureComponent {
   render() {
@@ -22,20 +22,22 @@ class Points extends React.PureComponent {
     return (
       <g className="data-points">
         {data.map((d, i) => {
-          const { id, name, label, color } = d;
+          const { id, name, label, color, use_color: useColor } = d;
           const key = `point-${id}-${i}`;
+          const plottingColor = yValueAccessor === 'color';
           const x = d[xValueAccessor];
           const y = d[yValueAccessor];
           const selected = includes(selectedData, d);
           const hovered = includes(hoveredData, d);
-          const classes = classnames(`data-point-${name}`, 'data-point', {
+          const classes = classnames(`data-point-${name || id}`, 'data-point', {
             [pointClasses]: pointClasses,
             selected,
             hovered,
-            [notActive]: (selectedData || hoveredData) && !selected && !hovered,
+            [invisible]: !useColor && plottingColor,
           });
           const blueColorPercent = Math.floor((color / 2) * 100);
           const redColorPercent = 100 - blueColorPercent;
+          const colorShift = `rgb(${redColorPercent}%, 0%, ${blueColorPercent}%)`;
 
           return (
             <Point
@@ -46,11 +48,7 @@ class Points extends React.PureComponent {
               x={xScale(x)}
               y={yScale(y) + offsetTop}
               label={label}
-              fill={
-                yValueAccessor === 'color'
-                  ? `rgb(${redColorPercent}%, 0%, ${blueColorPercent}%)`
-                  : 'darkgrey'
-              }
+              fill={plottingColor ? colorShift : null}
             />
           );
         })}
