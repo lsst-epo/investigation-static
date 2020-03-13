@@ -87,3 +87,16 @@ export const getSelectedData = (activeGalaxy, answers, qId) => {
 
   return null;
 };
+
+export const getSelectedGalaxies = (answers, qId) => {
+  const answer = answers[qId];
+
+  if (!isEmpty(answer)) {
+    const { data } = answer;
+    if (isEmpty(data)) return null;
+
+    return data;
+  }
+
+  return null;
+};

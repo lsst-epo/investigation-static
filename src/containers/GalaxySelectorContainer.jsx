@@ -292,11 +292,10 @@ class GalaxySelectorContainer extends React.PureComponent {
 }
 
 GalaxySelectorContainer.propTypes = {
+  widget: PropTypes.object,
+  options: PropTypes.object,
   answers: PropTypes.object,
   activeQuestionId: PropTypes.string,
-  activeAnswer: PropTypes.object,
-  options: PropTypes.object,
-  widget: PropTypes.object,
   updateAnswer: PropTypes.func,
 };
 

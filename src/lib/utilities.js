@@ -206,6 +206,7 @@ export const getValue = function(accessor, data) {
       mass: formatValue(data, 2),
       lifetime: formatValue(data / 1000000000, 2),
       temperature: formatValue(data, 0),
+      brightness: formatValue(data, 2),
       date: mjdToUTC(data, 'MDYT'),
       parsecs: getParsecsFromDistance(data),
       megaParsecs: getMegaParsecsFromDistance(data),

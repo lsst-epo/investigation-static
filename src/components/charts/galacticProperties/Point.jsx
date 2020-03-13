@@ -32,6 +32,7 @@ class Point extends React.PureComponent {
 
   render() {
     const { x, y, classes, fill } = this.props;
+    const fillColor = fill || '#828287';
 
     return (
       <circle
@@ -42,6 +43,8 @@ class Point extends React.PureComponent {
         r={this.baseRadius}
         fill={fill || '#828287'}
         stroke="transparent"
+        fill={fillColor}
+        stroke={fillColor}
         tabIndex="0"
       />
     );
