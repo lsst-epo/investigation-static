@@ -16,9 +16,27 @@
   "widgets": [
     {
       "type": "GalaxiesSelector",
-      "source": "/data/galaxies/hsc/hsc_sub01.json",
+      "sources": [
+        "/data/galaxies/hsc/hsc_sub01.json",
+        "/data/galaxies/hsc/hsc_sub02.json",
+        "/data/galaxies/hsc/hsc_sub03.json",
+        "/data/galaxies/hsc/hsc_sub04.json",
+        "/data/galaxies/hsc/hsc_sub05.json",
+        "/data/galaxies/hsc/hsc_sub06.json",
+        "/data/galaxies/hsc/hsc_sub07.json",
+        "/data/galaxies/hsc/hsc_sub08.json",
+        "/data/galaxies/hsc/hsc_sub09.json",
+        "/data/galaxies/hsc/hsc_sub10.json",
+        "/data/galaxies/hsc/hsc_sub11.json",
+        "/data/galaxies/hsc/hsc_sub12.json",
+        "/data/galaxies/hsc/hsc_sub13.json",
+        "/data/galaxies/hsc/hsc_sub14.json",
+        "/data/galaxies/hsc/hsc_sub15.json",
+        "/data/galaxies/hsc/hsc_sub16.json"
+      ],
       "options": {
-        "toggleDataPointsVisibility": "44"
+        "toggleDataPointsVisibility": "44",
+        "randomSource": true
       }
     }
   ],

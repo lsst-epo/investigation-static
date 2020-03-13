@@ -16,7 +16,6 @@
   "widgets": [
     {
       "type": "GalaxiesSelector",
-      "source": "/data/galaxies/hsc/hsc_sub01.json",
       "options": {
         "preSelected": true,
         "showUserPlot": "44"

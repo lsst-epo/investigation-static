@@ -14,10 +14,26 @@
   },
   "layout": "TwoCol",
   "content": "<p>You will now explore the different galaxies in this image by using a plot of color vs distance. On this plot, <u>smaller</u> flux ratio numbers are <u>redder</u> colors.  Let’s think about how this happens.  Recall from the Hubble-Lemaitre Law that the Universe is expanding, and this expansion causes light waves to appear to be stretched to longer wavelengths. This is called <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/c/cosmological+redshift'>cosmological redshift</a>.</p>",
-  "images": [
+  "widgets": [
     {
-      "mediaPath": "/images/galaxies/hsc/hsc.png",
-      "altText": "A vast array of visible galaxies"
+      "type": "GalacticProperties",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "options": {
+        "preSelected": true,
+        "showUserPlot": "44",
+        "title": "Color Vs Distance",
+        "xAxisLabel": "Distance (Billion Ly)",
+        "yAxisLabel": "Flux ratio i/z (color)",
+        "xValueAccessor": "distance",
+        "yValueAccessor": "color",
+        "tooltipAccessors": ["distance", "color"],
+        "tooltipUnits": ["Billion Ly", "Flux ratio"],
+        "tooltipLabels": ["Distance", "Color"],
+        "domain": [[0, 16], [0, 2]]
+      }
     }
   ],
   "questionsByPage": [
