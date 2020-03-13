@@ -17,7 +17,7 @@
   "widgets": [{
     "type": "HubblePlot",
     "options": {
-      "showUserHubblePlot": "252",
+      "showUserPlot": "252",
       "userTrendline": "7"
     }
   }],
