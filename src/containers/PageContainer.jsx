@@ -3,7 +3,7 @@ import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { WithQAing } from './WithQAing';
-import Page from '../components/page';
+import SingleCol from '../components/page/SingleCol.jsx';
 import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
 
@@ -13,9 +13,9 @@ class PageContainer extends React.PureComponent {
     super(props);
 
     this.layouts = {
-      default: Page,
+      default: SingleCol,
       TwoCol,
-      SingleCol: Page,
+      SingleCol,
     };
   }
 
@@ -151,7 +151,7 @@ export const query = graphql`
             showSelector
             showLightCurve
             createUserHubblePlot
-            showUserHubblePlot
+            showUserPlot
             hubbleConstant
             userTrendline
             lightCurveTemplates

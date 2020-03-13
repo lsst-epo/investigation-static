@@ -41,7 +41,7 @@ class GalacticPropertiesContainer extends React.PureComponent {
   };
 
   userGalacticPropertiesCallback = data => {
-    console.log({ data });
+    console.log({ data }); // eslint-disable-line no-console
   };
 
   render() {

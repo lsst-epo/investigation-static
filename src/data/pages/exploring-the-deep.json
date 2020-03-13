@@ -9,8 +9,8 @@
     "link": "/measuring-distances/"
   },
   "next": {
-    "title": "Effects of Expansion",
-    "link": "/effects-of-expansion/"
+    "title": "Exploring the Deep",
+    "link": "/exploring-the-deep-1/"
   },
   "content": "<p>Below is your assigned deep field image. Nearly all of the objects in this image are galaxies, but some appear so small they could easily be mistaken for stars. This image shows thousands of galaxies of different sizes, brightnesses, and colors. Clicking on a galaxy will add a data point to the plot. Be sure you select enough galaxies so that your data spans the entire range of distances along the x-axis on the plot (to accomplish this you will need to select some very small and faint galaxies). Select at least 40 galaxies.</p>",
   "widgets": [
@@ -33,78 +33,6 @@
           "label": "<p>Click on a galaxy to add a data point to the plot. Be sure you select enough galaxies so that your data spans the entire range of distances along the x-axis on the plot (to accomplish this you will need to select some very small and faint galaxies). Select at least 40 galaxies.</p>",
           "answerPre": "<span>Selected Galaxies: </span>",
           "answerAccessor": "galaxies"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "4",
-          "questionType": "select",
-          "title": "Question #1",
-          "labelPre": "Use the plot above to answer this question: Most of the bright galaxies are found at ",
-          "labelPost": " distances from Earth.",
-          "options": [
-            { "label": "closer", "value": "closer" },
-            { "label": "farther", "value": "farther" }
-          ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "1",
-          "questionType": "select",
-          "title": "Question #1",
-          "labelPre": "Use the plot plus your image to answer this question: Most of the bright galaxies appear ",
-          "labelPost": " on the image.",
-          "options": [
-            { "label": "large", "value": "large" },
-            { "label": "small", "value": "small" }
-          ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "2",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["2", "3"],
-          "labelPre": "Use the plot and your image to answer this question: Galaxies that are far away tend to have an apparent size that is ",
-          "labelPost": ", ",
-          "srLabel": "...",
-          "answerAccessor": "compound-select",
-          "placeholder": "Select",
-          "options": [
-            { "label": "big", "value": "big" },
-            { "label": "small", "value": "small" }
-          ],
-          "answerPre": " ",
-          "answerPost": "."
-        },
-        {
-          "id": "3",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["2", "3"],
-          "labelPre": " and they appear ",
-          "labelPost": ".",
-          "srLabel": "...",
-          "answerAccessor": "compound-select",
-          "placeholder": "Select",
-          "options": [
-            { "label": "bright", "value": "bright" },
-            { "label": "dim", "value": "dim" }
-          ],
-          "answerPre": " ",
-          "answerPost": "."
         }
       ]
     }

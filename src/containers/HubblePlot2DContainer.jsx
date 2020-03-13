@@ -26,21 +26,13 @@ class HubblePlot2DContainer extends React.PureComponent {
       const responseData = isArray(response.data) ? response.data : [];
 
       const data = getHubblePlotData(responseData, options, answers);
-      // console.log(data);
+
       this.setState(prevState => ({
         ...prevState,
         data,
       }));
     });
   }
-
-  hubbleSelectionCallback = d => {
-    console.log(d); // eslint-disable-line no-console
-    // const { activeQuestionId } = this.props;
-    // if (activeQuestionId) {
-    //   updateAnswer(activeQuestionId, activeSupernova);
-    // }
-  };
 
   userHubblePlotCallback = (qId, data) => {
     const { updateAnswer, activeQuestionId } = this.props;
@@ -93,7 +85,6 @@ class HubblePlot2DContainer extends React.PureComponent {
           hubbleConstant={parseFloat(
             hubbleConstant || this.getHubbleConstant(userTrendline)
           )}
-          selectionCallback={this.hubbleSelectionCallback}
           userHubblePlotCallback={this.userHubblePlotCallback}
           userTrendlineCallback={this.userTrendlineCallback}
         />

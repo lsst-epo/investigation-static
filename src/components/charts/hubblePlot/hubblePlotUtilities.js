@@ -9,13 +9,13 @@ export const emptyUserData = data => {
 };
 
 export const getHubblePlotData = (data, options, answers) => {
-  const { multiple, showUserHubblePlot, createUserHubblePlot, preSelected } =
+  const { multiple, showUserPlot, createUserHubblePlot, preSelected } =
     options || {};
   const userHubblePlotAnswer = answers[createUserHubblePlot];
-  const showUserHubblePlotAnswer = answers[showUserHubblePlot];
+  const userPlotAnswer = answers[showUserPlot];
 
-  if (!isEmpty(showUserHubblePlotAnswer)) {
-    const { data: answerData } = showUserHubblePlotAnswer;
+  if (!isEmpty(userPlotAnswer)) {
+    const { data: answerData } = userPlotAnswer;
 
     return multiple ? [data, answerData] : [...data, ...answerData];
   }

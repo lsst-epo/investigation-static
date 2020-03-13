@@ -9,7 +9,7 @@ class Point extends React.PureComponent {
       {
         supernova: 20,
         galaxy: 40,
-      }[id] || 5
+      }[id] || 8
     );
   }
 
