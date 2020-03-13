@@ -49,6 +49,8 @@
       }
 
       &.answered:not(.active) {
+        padding: $minPadding;
+
         .md-fake-btn .md-text, .md-fake-btn .md-text p {
           color: $basePrimary;
         }

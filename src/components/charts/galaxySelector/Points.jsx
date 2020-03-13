@@ -29,8 +29,8 @@ class Points extends React.PureComponent {
               classes={pointClasses}
               x={xScale(d[xValueAccessor])}
               y={yScale(d[yValueAccessor])}
-              color={isNumber(color) ? '#fed828' : color}
-              selected={isNumber(color) ? true : selected}
+              color={isNumber(color) ? '#c82960' : color}
+              selected={selected}
               tabIndex="0"
             />
           );

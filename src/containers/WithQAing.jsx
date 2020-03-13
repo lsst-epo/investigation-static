@@ -21,6 +21,7 @@ export const WithQAing = ComposedComponent => {
         'light-curve-template': this.getTemplateContent,
         magnitude: this.getMagnitudeContent,
         galaxy: this.getGalaxyContent,
+        galaxies: this.getGalaxiesContent,
         supernova: this.getSupernovaContent,
       };
     }
@@ -103,6 +104,13 @@ export const WithQAing = ComposedComponent => {
         .length;
 
       return `${numOfGalaxies} galaxies & ${numOfSupernovae} supernovae`;
+    }
+
+    getGalaxiesContent(data) {
+      const numGalaxies = Object.keys(data).length;
+      return `${numGalaxies} ${
+        numGalaxies > 1 ? 'galaxies' : 'galaxy'
+      } selected`;
     }
 
     getSupernovaContent(data) {

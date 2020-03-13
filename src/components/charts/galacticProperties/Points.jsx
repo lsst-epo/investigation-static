@@ -37,7 +37,7 @@ class Points extends React.PureComponent {
           });
           const blueColorPercent = Math.floor((color / 2) * 100);
           const redColorPercent = 100 - blueColorPercent;
-          const colorShift = `rgb(${redColorPercent}%, 0%, ${blueColorPercent}%)`;
+          const colorShift = `rgba(${redColorPercent}%, 0%, ${blueColorPercent}%, 0.85)`;
 
           return (
             <Point
