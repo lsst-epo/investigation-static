@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
-import uniq from 'lodash/uniq';
+import isArray from 'lodash/isArray';
 import API from '../lib/API.js';
 import { getSelectedGalaxies } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
 import GalaxySelector from '../components/charts/galaxySelector/index.jsx';
@@ -13,8 +12,10 @@ class GalaxiesSelectorContainer extends React.PureComponent {
 
     this.state = {
       data: null,
+      name: null,
       imagePath: null,
       domain: [],
+      activeGalaxy: null,
     };
   }
 
@@ -46,24 +47,30 @@ class GalaxiesSelectorContainer extends React.PureComponent {
       .split('.')[0];
   }
 
-  selectionCallback = d => {
-    const {
-      answers,
-      updateAnswer,
-      options: { toggleDataPointsVisibility },
-    } = this.props;
+  updateActiveGalaxyState(activeGalaxy) {
+    const { activeGalaxy: prevActiveGalaxy } = this.state;
 
-    const qId = toggleDataPointsVisibility;
-    const answer = answers[qId];
-    const answerData = !isEmpty(answer) ? uniq([...d, ...answer.data]) : d;
-
-    if (qId) {
-      updateAnswer(qId, answerData);
+    if (prevActiveGalaxy !== activeGalaxy) {
+      this.setState(prevState => ({
+        ...prevState,
+        activeGalaxy,
+      }));
     }
+  }
+
+  selectionCallback = (allSelected, selection) => {
+    const { updateAnswer, options } = this.props;
+    const { toggleDataPointsVisibility: qId } = options || {};
+
+    if (qId && isArray(allSelected)) {
+      updateAnswer(qId, allSelected);
+    }
+
+    this.updateActiveGalaxyState(selection);
   };
 
-  userGalacticPropertiesCallback = data => {
-    console.log({ data }); // eslint-disable-line no-console
+  userGalacticPropertiesCallback = d => {
+    this.updateActiveGalaxyState(d ? d[0] : null);
   };
 
   render() {
@@ -71,7 +78,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
       answers,
       options: { toggleDataPointsVisibility, showUserPlot, preSelected },
     } = this.props;
-    const { imagePath, data, name, domain } = this.state;
+    const { imagePath, data, name, domain, activeGalaxy } = this.state;
 
     const selectedData = getSelectedGalaxies(
       answers,
@@ -85,7 +92,8 @@ class GalaxiesSelectorContainer extends React.PureComponent {
           <div className="galaxies-selector-images--container">
             <GalaxySelector
               className="galaxies-selector"
-              {...{ selectedData, data, preSelected }}
+              data={preSelected ? selectedData : data}
+              {...{ selectedData, preSelected, activeGalaxy }}
               image={{ mediaPath: imagePath, altText: name }}
               xDomain={domain[0]}
               yDomain={domain[1]}
@@ -99,8 +107,9 @@ class GalaxiesSelectorContainer extends React.PureComponent {
             className="brightness-vs-distance"
             data={selectedData || []}
             xDomain={[0, 28]}
-            yDomain={[0, 100]}
+            yDomain={[0, 1500]}
             selectionCallback={this.userGalacticPropertiesCallback}
+            {...{ activeGalaxy, name }}
           />
         </div>
       </div>

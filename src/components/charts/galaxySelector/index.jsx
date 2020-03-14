@@ -1,14 +1,14 @@
-/* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import find from 'lodash/find';
 import classnames from 'classnames';
 import { select as d3Select, event as d3Event } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
-import { isSelected, getAlertFromImageId } from './galaxySelectorUtilities.js';
+import { getAlertFromImageId } from './galaxySelectorUtilities.js';
 import Blinker from './blinker/index.jsx';
 import BlinkerControls from './blinker/BlinkerControls';
 import Points from './Points';
@@ -38,7 +38,7 @@ class GalaxySelector extends React.PureComponent {
   componentDidMount() {
     const { autoplay, preSelected, selectedData, data } = this.props;
     if (data) {
-      this.updateGalaxySelector();
+      this.updatePoints();
 
       if (autoplay) {
         this.startBlink();
@@ -65,14 +65,15 @@ class GalaxySelector extends React.PureComponent {
 
     const { selectedData: prevSelectedData } = prevProps;
     const { playing } = prevState;
+
     if (
       prevProps.activeGalaxy !== activeGalaxy ||
       prevSelectedData !== selectedData
     ) {
-      this.updateGalaxySelector();
+      this.updatePoints();
       this.setSelection(preSelected ? data : selectedData);
 
-      if (autoplay && !playing) {
+      if (autoplay && !playing && !selectedData) {
         this.startBlink();
       }
     }
@@ -100,7 +101,7 @@ class GalaxySelector extends React.PureComponent {
           .domain(yDomain)
           .range([height - padding, 0]),
       }),
-      this.updateGalaxySelector
+      this.updatePoints
     );
   }
 
@@ -120,8 +121,9 @@ class GalaxySelector extends React.PureComponent {
 
   toggleSelection(d) {
     const { selectedData: oldData } = this.state;
+    const { selectionCallback, preSelected } = this.props;
 
-    if (!isSelected(oldData, d)) {
+    if (!find(oldData, d) && !!d && !preSelected) {
       const selectedData = !oldData ? [d] : [...oldData, d];
 
       this.setState(
@@ -130,13 +132,14 @@ class GalaxySelector extends React.PureComponent {
           selectedData,
         }),
         () => {
-          const { selectionCallback } = this.props;
           const { selectedData: newData } = this.state;
           if (selectionCallback) {
-            selectionCallback(newData);
+            selectionCallback(newData, d);
           }
         }
       );
+    } else if (selectionCallback) {
+      selectionCallback(null, d);
     }
   }
 
@@ -161,7 +164,7 @@ class GalaxySelector extends React.PureComponent {
 
   startBlink() {
     const { images } = this.props;
-    // console.log('start blink', images);
+
     this.setState(
       prevState => ({
         ...prevState,
@@ -221,19 +224,16 @@ class GalaxySelector extends React.PureComponent {
     this.previousBlink(images);
   };
 
-  // add event listeners to Scatterplot and Points
+  // add event listeners to plot
   addEventListeners() {
     d3Select(this.svgEl.current).on('click', () => {
-      // remove styles and selections when click on non-point
       const pointData = d3Select(d3Event.target).datum();
 
-      if (pointData) {
-        this.toggleSelection(pointData);
-      }
+      this.toggleSelection(pointData || null);
     });
   }
 
-  // add event listeners to Scatterplot and Points
+  // remove event listeners from plot
   removeEventListeners() {
     d3Select(this.svgEl.current).on('click', null);
   }
@@ -280,16 +280,8 @@ class GalaxySelector extends React.PureComponent {
         }));
       }
     }
-  }
 
-  // bind data to elements and add styles and attributes
-  updateGalaxySelector() {
-    const { preSelected } = this.props;
-    this.updatePoints();
-
-    if (!preSelected) {
-      this.addEventListeners();
-    }
+    this.addEventListeners();
   }
 
   render() {
@@ -305,6 +297,7 @@ class GalaxySelector extends React.PureComponent {
       legend,
       name,
       activeImageId,
+      activeGalaxy,
     } = this.props;
 
     const { xScale, yScale, loading, selectedData, playing } = this.state;
@@ -348,6 +341,7 @@ class GalaxySelector extends React.PureComponent {
                     yScale={yScale}
                     xValueAccessor={xValueAccessor}
                     yValueAccessor={yValueAccessor}
+                    active={activeGalaxy}
                   />
                 );
               })}
@@ -360,6 +354,7 @@ class GalaxySelector extends React.PureComponent {
                 xValueAccessor={xValueAccessor}
                 yValueAccessor={yValueAccessor}
                 pointClasses={`galaxy galaxy-${data.name}`}
+                active={activeGalaxy}
               />
             )}
           </svg>

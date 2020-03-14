@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
-// import { min as d3Min, max as d3Max, extent as d3Extent } from 'd3-array';
 import API from '../lib/API.js';
 import {
   getSelectedData,
@@ -81,6 +80,8 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
   };
 
   supernovaSelectionCallback = d => {
+    if (!d) return;
+
     const {
       answers,
       updateAnswer,
@@ -88,13 +89,13 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       options: { toggleDataPointsVisibility },
     } = this.props;
     const { activeGalaxy } = this.state;
-
     const qId = toggleDataPointsVisibility || activeQuestionId;
-    const dObj = { [activeGalaxy.name]: d };
-    const answer = answers[qId];
-    const answerObj = !isEmpty(answer) ? { ...answer.data, ...dObj } : dObj;
 
     if (qId) {
+      const dObj = { [activeGalaxy.name]: d };
+      const answer = answers[qId];
+      const answerObj = !isEmpty(answer) ? { ...answer.data, ...dObj } : dObj;
+
       updateAnswer(qId, answerObj);
     }
 
@@ -214,7 +215,8 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
             >
               <SupernovaSelector
                 className={`supernova-selector-${name}`}
-                {...{ selectedData, activeGalaxy, autoplay, preSelected }}
+                autoplay={autoplay && !selectedData}
+                {...{ selectedData, activeGalaxy, preSelected }}
                 data={getSupernovaPointData(activeGalaxy)}
                 alerts={activeGalaxy ? activeGalaxy.alerts : []}
                 images={activeGalaxy ? activeGalaxy.images : []}

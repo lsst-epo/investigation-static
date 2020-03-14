@@ -31,7 +31,7 @@
         "tooltipAccessors": ["distance", "brightness"],
         "tooltipUnits": ["Billion Ly"],
         "tooltipLabels": ["Distance", "Brightness"],
-        "domain": [[0, 28], [0, 100]]
+        "domain": [[0, 28], [0, 200]]
       }
     }
   ],

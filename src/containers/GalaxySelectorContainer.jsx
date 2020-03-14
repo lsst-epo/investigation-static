@@ -168,6 +168,8 @@ class GalaxySelectorContainer extends React.PureComponent {
   }
 
   selectionCallback = d => {
+    if (!d) return;
+
     const {
       answers,
       updateAnswer,
@@ -175,13 +177,13 @@ class GalaxySelectorContainer extends React.PureComponent {
       options: { toggleDataPointsVisibility },
     } = this.props;
     const { activeGalaxy } = this.state;
-
     const qId = toggleDataPointsVisibility || activeQuestionId;
-    const dObj = { [activeGalaxy.name]: d };
-    const answer = answers[qId];
-    const answerObj = !isEmpty(answer) ? { ...answer.data, ...dObj } : dObj;
 
     if (qId) {
+      const dObj = { [activeGalaxy.name]: d };
+      const answer = answers[qId];
+      const answerObj = !isEmpty(answer) ? { ...answer.data, ...dObj } : dObj;
+
       updateAnswer(qId, answerObj);
     }
 

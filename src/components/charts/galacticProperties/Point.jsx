@@ -9,7 +9,6 @@ class Point extends React.PureComponent {
     super(props);
 
     this.baseRadius = 6;
-    this.baseDiameter = this.baseRadius * 2;
     this.svgEl = React.createRef();
   }
 
@@ -22,7 +21,7 @@ class Point extends React.PureComponent {
         .transition()
         .duration(800)
         .ease(d3EaseElastic)
-        .attr('r', this.baseDiameter);
+        .attr('r', this.baseRadius * 2);
     } else {
       $point
         .transition()
