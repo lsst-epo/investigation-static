@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import includes from 'lodash/includes';
+import find from 'lodash/find';
 import classnames from 'classnames';
 import Point from './Point.jsx';
 import { invisible } from './galactic-properties.module.scss';
@@ -27,8 +27,8 @@ class Points extends React.PureComponent {
           const plottingColor = yValueAccessor === 'color';
           const x = d[xValueAccessor];
           const y = d[yValueAccessor];
-          const selected = includes(selectedData, d);
-          const hovered = includes(hoveredData, d);
+          const selected = !!find(selectedData, { id });
+          const hovered = !!find(hoveredData, { id });
           const classes = classnames(`data-point-${name || id}`, 'data-point', {
             [pointClasses]: pointClasses,
             selected,

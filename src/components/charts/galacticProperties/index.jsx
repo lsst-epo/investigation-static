@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
-import find from 'lodash/find';
 import classnames from 'classnames';
 import {
   select as d3Select,
@@ -48,21 +47,21 @@ class GalacticProperties extends React.Component {
   componentDidMount() {
     const { data } = this.props;
     if (data) {
-      this.updateGalacticProperties();
+      this.updatePoints();
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { data, activeGroup } = this.props;
+    const { data, activeGalaxy } = this.props;
     const isNewData = prevProps.data !== data;
-    const isNewActiveGalaxy = prevProps.activeGroup !== activeGroup;
+    const isNewActiveGalaxy = prevProps.activeGalaxy !== activeGalaxy;
 
     if (isNewData) {
-      this.updateGalacticProperties();
+      this.updatePoints();
     }
 
     if (isNewActiveGalaxy) {
-      this.updateSelectedData();
+      this.updateSelectedData(activeGalaxy);
     }
   }
 
@@ -70,36 +69,35 @@ class GalacticProperties extends React.Component {
     this.removeEventListeners();
   }
 
-  updateSelectedData() {
-    const { activeGroup, data } = this.props;
-    const activeData = find(data, d => {
-      return activeGroup.name === d.name;
-    });
-
+  updateSelectedData(activeGalaxy) {
     this.setState(prevState => ({
       ...prevState,
-      selectedData: activeData ? arrayify(activeData) : prevState.selectedData,
-      tooltipPosX: 0,
-      tooltipPosY: 0,
-      showTooltip: false,
+      selectedData: activeGalaxy ? [activeGalaxy] : null,
     }));
   }
 
   clearSelection() {
-    this.setState(prevState => ({
-      ...prevState,
-      hoveredData: null,
-      showTooltip: false,
-      tooltipPosX: 0,
-      tooltipPosY: 0,
-      selectedData: null,
-    }));
+    const { selectionCallback } = this.props;
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        hoveredData: null,
+        showTooltip: false,
+        tooltipPosX: 0,
+        tooltipPosY: 0,
+        selectedData: null,
+      }),
+      () => {
+        if (selectionCallback) {
+          selectionCallback(null, null);
+        }
+      }
+    );
   }
 
-  toggleSelection(d) {
+  toggleSelection(d, pointPos) {
     const { selectedData } = this.state;
-    const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
-
     const newState = {
       tooltipPosX: pointPos[0],
       tooltipPosY: pointPos[1],
@@ -131,6 +129,7 @@ class GalacticProperties extends React.Component {
   // mouseover/focus handler for point
   onMouseOver = d => {
     const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
+
     // add hover style on point and show tooltip
     this.setState(prevState => ({
       ...prevState,
@@ -153,20 +152,23 @@ class GalacticProperties extends React.Component {
     }));
   };
 
+  onClick = () => {
+    const pointData = d3Select(d3Event.target).datum();
+    if (pointData) {
+      const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
+      this.toggleSelection(pointData, pointPos);
+    } else {
+      this.clearSelection();
+    }
+  };
+
   // add event listeners to Scatterplot and Points
   addEventListeners() {
+    this.removeEventListeners();
     const $galacticProperties = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
-    $galacticProperties.on('click', () => {
-      const pointData = d3Select(d3Event.target).datum();
-
-      if (pointData) {
-        this.toggleSelection(pointData);
-      } else {
-        this.clearSelection();
-      }
-    });
+    $galacticProperties.on('click', this.onClick);
 
     // add event listeners to points
     $allPoints
@@ -216,11 +218,6 @@ class GalacticProperties extends React.Component {
         loading: false,
       }));
     }
-  }
-
-  // bind data to elements and add styles and attributes
-  updateGalacticProperties() {
-    this.updatePoints();
 
     this.addEventListeners();
   }
@@ -392,7 +389,7 @@ GalacticProperties.propTypes = {
   offsetTop: PropTypes.number,
   offsetRight: PropTypes.number,
   data: PropTypes.array,
-  activeGroup: PropTypes.object,
+  activeGalaxy: PropTypes.object,
   options: PropTypes.object,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,

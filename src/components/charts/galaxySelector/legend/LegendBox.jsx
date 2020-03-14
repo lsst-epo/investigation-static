@@ -1,22 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import find from 'lodash/find';
 import StellarValue from '../../shared/StellarValue';
 import { legendBox, detail, output } from './legend.module.scss';
 
 class LegendBox extends React.PureComponent {
-  isSelected(id, data) {
-    let selected = false;
-    if (!data) return selected;
-
-    data.forEach(datum => {
-      if (datum.id === id) {
-        selected = true;
-      }
-    });
-
-    return selected;
-  }
-
   render() {
     const { id, selectedData, label, valueAccessor, value } = this.props;
 
@@ -24,7 +12,7 @@ class LegendBox extends React.PureComponent {
       <div className={legendBox}>
         <div className={detail}>{label}</div>
         <div className={`${detail} ${output}`}>
-          {this.isSelected(id, selectedData) ? (
+          {find(selectedData, { id }) ? (
             <StellarValue type={valueAccessor} value={value} />
           ) : (
             <span>&nbsp;</span>
