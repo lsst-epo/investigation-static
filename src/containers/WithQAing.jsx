@@ -5,7 +5,7 @@ import includes from 'lodash/includes';
 import isObject from 'lodash/isObject';
 import filter from 'lodash/filter';
 import flattenDeep from 'lodash/flattenDeep';
-import { qById, getActiveQ } from '../components/qas/utilities.js';
+import { qById, getActiveQ } from '../components/qas/qasUtilities.js';
 
 export const WithQAing = ComposedComponent => {
   class WrappedComponent extends React.PureComponent {
@@ -146,7 +146,7 @@ export const WithQAing = ComposedComponent => {
       if ((id && data) || eventType) {
         const { data: pageData } = this.props;
         const { questionsByPage: questions } = pageData.allPagesJson.nodes[0];
-        const { answerAccessor } = qById(questions, id);
+        const { answerAccessor } = qById(questions, id) || {};
         const content = this.getContent(answerAccessor, data);
 
         this.dispatch.updateAnswer(id, content, data);

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isArray from 'lodash/isArray';
+// import axios from 'axios';
 import API from '../lib/API.js';
+import { randomIntFromInterval } from '../lib/utilities.js';
 import { getSelectedGalaxies } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
 import GalaxySelector from '../components/charts/galaxySelector/index.jsx';
 import GalacticProperties from '../components/charts/galacticProperties/index.jsx';
@@ -21,9 +23,31 @@ class GalaxiesSelectorContainer extends React.PureComponent {
 
   componentDidMount() {
     const {
-      widget: { source },
+      widget: { source, sources },
+      options,
+      updateAnswer,
+      answers,
     } = this.props;
+    const { randomSource } = options || {};
+    const aId = 'randomGalaxies';
+    const randomGalaxiesAnswer = answers[aId];
 
+    if (source) {
+      this.getSetData(source);
+    } else if (randomGalaxiesAnswer) {
+      const { data: sourcePath } = randomGalaxiesAnswer;
+
+      this.getSetData(sourcePath);
+    } else if (sources && randomSource) {
+      const randomSourcePath =
+        sources[randomIntFromInterval(0, sources.length - 1)];
+
+      this.getSetData(randomSourcePath);
+      updateAnswer(aId, randomSourcePath);
+    }
+  }
+
+  getSetData(source) {
     API.get(source).then(response => {
       const {
         data: { objects, ra, dec },
@@ -33,7 +57,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
       this.setState(prevState => ({
         ...prevState,
         data: objects,
-        imagePath: `/images/galaxies/hsc/${name}.png`,
+        imagePath: `/images/galaxies/hsc/${name}.jpg`,
         name,
         domain: [ra.reverse(), dec],
       }));
@@ -74,10 +98,9 @@ class GalaxiesSelectorContainer extends React.PureComponent {
   };
 
   render() {
-    const {
-      answers,
-      options: { toggleDataPointsVisibility, showUserPlot, preSelected },
-    } = this.props;
+    const { answers, options } = this.props;
+    const { toggleDataPointsVisibility, showUserPlot, preSelected } =
+      options || {};
     const { imagePath, data, name, domain, activeGalaxy } = this.state;
 
     const selectedData = getSelectedGalaxies(
@@ -107,7 +130,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
             className="brightness-vs-distance"
             data={selectedData || []}
             xDomain={[0, 28]}
-            yDomain={[0, 1500]}
+            yDomain={[0, 200]}
             selectionCallback={this.userGalacticPropertiesCallback}
             {...{ activeGalaxy, name }}
           />

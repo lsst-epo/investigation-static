@@ -142,6 +142,7 @@ export const query = graphql`
         widgets {
           type
           source
+          sources
           layout {
             col
             row
@@ -160,6 +161,7 @@ export const query = graphql`
             preSelectedLightCurveTemplate
             preSelectedLightCurveMagnitude
             toggleDataPointsVisibility
+            randomSource
             autoplay
             preSelected
             multiple
