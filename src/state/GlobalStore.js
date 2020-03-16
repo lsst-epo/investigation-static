@@ -124,7 +124,18 @@ class GlobalStore {
       'updateProgressByPage',
       (global, dispatch, pageId, qId, answered) => {
         const { investigationProgress: prevIPS } = global;
-        const { questions, answers: prevAnswers } = prevIPS[pageId];
+        const prevPageIPS = prevIPS[pageId];
+
+        if (!prevIPS[pageId]) {
+          return global;
+        }
+
+        const { questions, answers: prevAnswers } = prevPageIPS;
+
+        if (!questions[qId]) {
+          return global;
+        }
+
         const indexOfprevAnswered = prevAnswers.indexOf(qId);
         const prevAnswered = indexOfprevAnswered >= 0;
         const answers = [...prevAnswers];

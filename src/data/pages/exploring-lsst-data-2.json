@@ -17,7 +17,7 @@
   "widgets": [
     {
       "type": "GalacticProperties",
-      "source": "/data/galaxies/hsc/hsc_sub01.json",
+      "source": "/data/galaxies/hsc/hsc.json",
       "layout": {
         "col": "right",
         "row": "top"
@@ -31,7 +31,9 @@
         "tooltipAccessors": ["distance", "brightness"],
         "tooltipUnits": ["Billion Ly"],
         "tooltipLabels": ["Distance", "Brightness"],
-        "domain": [[0, 28], [0, 200]]
+        "domain": [[0, 28], [0, 200]],
+        "multiple": true,
+        "showUserPlot": "44"
       }
     }
   ],

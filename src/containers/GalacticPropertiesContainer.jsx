@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import isArray from 'lodash/isArray';
 import API from '../lib/API.js';
+import { randomIntFromInterval } from '../lib/utilities.js';
 import GalacticProperties from '../components/charts/galacticProperties/index.jsx';
+// import { getSelectedGalaxies } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
 
 class GalacticPropertiesContainer extends React.PureComponent {
   constructor(props) {
@@ -15,8 +18,71 @@ class GalacticPropertiesContainer extends React.PureComponent {
 
   componentDidMount() {
     const {
-      widget: { source, options },
+      widget: { source, sources },
+      options,
+      updateAnswer,
+      answers,
     } = this.props;
+    const { randomSource, showUserPlot, multiple } = options || {};
+    const randoGalsAnsId = 'randomGalaxies';
+    const randomGalaxiesAnswer = answers[randoGalsAnsId];
+    const userPlotAnswer = answers[showUserPlot];
+    const userPlot = userPlotAnswer ? userPlotAnswer.data : [];
+
+    if (sources && showUserPlot && multiple) {
+      axios.all(this.allGets(sources)).then(
+        axios.spread((...responses) => {
+          const data = responses
+            .map(reponse => {
+              const { data: rData } = reponse;
+              const { objects } = rData;
+              return objects || [];
+            })
+            .flat();
+
+          this.setState(prevState => ({
+            ...prevState,
+            data: [data, userPlot],
+          }));
+        })
+      );
+    } else if (source && showUserPlot && multiple) {
+      API.get(source).then(response => {
+        const { data } = response;
+        const { objects } = data || {};
+
+        this.setState(prevState => ({
+          ...prevState,
+          data: [objects || [], userPlot],
+        }));
+      });
+    } else if (showUserPlot) {
+      this.setState(prevState => ({
+        ...prevState,
+        data: userPlot,
+      }));
+    } else if (source) {
+      this.getSetData(source);
+    } else if (randomGalaxiesAnswer) {
+      const { data: sourcePath } = randomGalaxiesAnswer;
+
+      this.getSetData(sourcePath);
+    } else if (sources && randomSource) {
+      const randomSourcePath =
+        sources[randomIntFromInterval(0, sources.length - 1)];
+
+      this.getSetData(randomSourcePath);
+      updateAnswer(randoGalsAnsId, randomSourcePath);
+    }
+  }
+
+  allGets(sources) {
+    return sources.map(source => {
+      return API.get(source);
+    });
+  }
+
+  getSetData(source, options) {
     const { multiple } = options || {};
 
     API.get(source).then(response => {
@@ -37,11 +103,8 @@ class GalacticPropertiesContainer extends React.PureComponent {
         return targetData.objects;
       });
     }
-    return isArray(data.objects) ? data.objects : [];
-  };
 
-  userGalacticPropertiesCallback = data => {
-    console.log({ data }); // eslint-disable-line no-console
+    return isArray(data.objects) ? data.objects : [];
   };
 
   render() {
@@ -56,6 +119,7 @@ class GalacticPropertiesContainer extends React.PureComponent {
       tooltipAccessors,
       tooltipUnits,
       tooltipLabels,
+      preSelected,
     } = options || {};
 
     return (
@@ -73,8 +137,8 @@ class GalacticPropertiesContainer extends React.PureComponent {
             tooltipAccessors,
             tooltipUnits,
             tooltipLabels,
+            preSelected,
           }}
-          selectionCallback={this.userGalacticPropertiesCallback}
         />
       </>
     );
@@ -85,6 +149,8 @@ GalacticPropertiesContainer.propTypes = {
   data: PropTypes.object,
   options: PropTypes.object,
   widget: PropTypes.object,
+  answers: PropTypes.object,
+  updateAnswer: PropTypes.func,
 };
 
 export default GalacticPropertiesContainer;

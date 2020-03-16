@@ -8,6 +8,8 @@ export const qWithEmptyA = function(qArray, answers) {
 };
 
 export const qInArrayById = function(qs, id) {
+  if (!qs || !id) return null;
+
   const q = find(qs, nestedQ => {
     return nestedQ.id === id;
   });
@@ -19,6 +21,8 @@ export const qById = function(questions, id) {
   const identifiedQ = find(questions, q => {
     return !!qInArrayById(q.question, id);
   });
+
+  if (!identifiedQ) return null;
 
   if (identifiedQ.question.length > 1) {
     return qInArrayById(identifiedQ.question, id);
