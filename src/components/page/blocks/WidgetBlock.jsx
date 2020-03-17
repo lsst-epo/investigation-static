@@ -8,6 +8,7 @@ import HubblePlot from '../../../containers/HubblePlot2DContainer.jsx';
 import HubblePlot3D from '../../../containers/HubblePlot3DContainer.jsx';
 import LargeScaleStructurePlot from '../../../containers/LargeScaleStructurePlotContainer.jsx';
 import GalacticProperties from '../../../containers/GalacticPropertiesContainer.jsx';
+import GalacticPropertiesCombo from '../../../containers/GalacticPropertiesComboContainer.jsx';
 
 import {
   gridWidget,
@@ -28,6 +29,7 @@ class WidgetBlock extends React.PureComponent {
       HubblePlot3D,
       GalacticProperties,
       LargeScaleStructurePlot,
+      GalacticPropertiesCombo,
     };
 
     this.gridClasses = {

@@ -1,0 +1,43 @@
+{
+  "id": "observable5a",
+  "investigation": "observable-universe",
+  "order": "05a",
+  "title": "Exploring the Relationship between Color, Brightness, & Apparent Size",
+  "slug": "brightness-color-distance/",
+  "previous": {
+    "title": "Exploring the Relationship between Color & Distance",
+    "link": "/color-and-distance/"
+  },
+  "next": {
+    "title": "The Cosmological Principle",
+    "link": "/cosmological-principle/"
+  },
+  "layout": "TwoCol",
+  "widgets": [
+    {
+      "type": "GalacticPropertiesCombo",
+      "source": "/data/galaxies/hsc/hsc_sub01.json",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "options": {
+        "preSelected": true,
+        "showUserPlot": "44"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "10",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Using all of the three properties (apparent size, color and brightness) you have established thus far in the investigation, which of the three galaxies (A, B or C) is farthest from Earth?  Explain your answer."
+        }
+      ]
+    }
+  ]
+}
