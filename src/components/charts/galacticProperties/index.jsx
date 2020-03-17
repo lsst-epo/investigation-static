@@ -21,8 +21,6 @@ import styles from './galactic-properties.module.scss';
 class GalacticProperties extends React.Component {
   constructor(props) {
     super(props);
-    const { options } = props;
-    const { domain } = options || {};
 
     this.state = {
       loading: true,
@@ -32,12 +30,8 @@ class GalacticProperties extends React.Component {
       tooltipPosX: 0,
       tooltipPosY: 0,
       showTooltip: false,
-      xScale: d3ScaleLinear()
-        .domain(domain ? domain[0] : props.xDomain)
-        .range([props.padding, props.width]),
-      yScale: d3ScaleLinear()
-        .domain(domain ? domain[1] : props.yDomain)
-        .range([props.height - props.padding, 0]),
+      xScale: this.getXScale(),
+      yScale: this.getYScale(),
     };
 
     this.svgEl = React.createRef();
@@ -55,9 +49,14 @@ class GalacticProperties extends React.Component {
     const { data, activeGalaxy } = this.props;
     const isNewData = prevProps.data !== data;
     const isNewActiveGalaxy = prevProps.activeGalaxy !== activeGalaxy;
+    const shouldUpdateScales = this.shouldUpdateScales(prevProps, this.props);
 
-    if (isNewData) {
+    if (isNewData && !shouldUpdateScales) {
       this.updatePoints();
+    }
+
+    if (shouldUpdateScales) {
+      this.updateScales();
     }
 
     if (isNewActiveGalaxy) {
@@ -67,6 +66,54 @@ class GalacticProperties extends React.Component {
 
   componentWillUnmount() {
     this.removeEventListeners();
+  }
+
+  shouldUpdateScales(prevProps, props) {
+    const { height, width, padding, domain, xDomain, yDomain } = props;
+    const {
+      height: prevHeight,
+      width: prevWidth,
+      padding: prevPadding,
+      domain: prevDomain,
+      xDomain: prevXDomain,
+      yDomain: prevYDomain,
+    } = prevProps;
+
+    return (
+      height !== prevHeight ||
+      width !== prevWidth ||
+      padding !== prevPadding ||
+      domain !== prevDomain ||
+      xDomain !== prevXDomain ||
+      yDomain !== prevYDomain
+    );
+  }
+
+  getXScale() {
+    const { width, padding, xDomain, options } = this.props;
+    const { domain } = options || {};
+    return d3ScaleLinear()
+      .domain(domain ? domain[0] : xDomain)
+      .range([padding, width]);
+  }
+
+  getYScale() {
+    const { height, padding, yDomain, options } = this.props;
+    const { domain } = options || {};
+    return d3ScaleLinear()
+      .domain(domain ? domain[1] : yDomain)
+      .range([height - padding, 0]);
+  }
+
+  updateScales() {
+    this.setState(
+      prevState => ({
+        ...prevState,
+        xScale: this.getXScale(),
+        yScale: this.getYScale(),
+      }),
+      this.updatePoints
+    );
   }
 
   updateSelectedData(activeGalaxy) {
@@ -371,8 +418,8 @@ GalacticProperties.defaultProps = {
   padding: 70,
   offsetTop: 7,
   offsetRight: 0,
-  xDomain: [0, 100],
-  yDomain: [0, 100],
+  xDomain: [0, 28],
+  yDomain: [0, 200],
   xValueAccessor: 'distance',
   yValueAccessor: 'brightness',
   xAxisLabel: 'Distance (Billion LY)',
@@ -398,6 +445,7 @@ GalacticProperties.propTypes = {
   tooltipLabels: PropTypes.array,
   xAxisLabel: PropTypes.string,
   yAxisLabel: PropTypes.string,
+  domain: PropTypes.array,
   xDomain: PropTypes.array,
   yDomain: PropTypes.array,
   preSelected: PropTypes.bool,

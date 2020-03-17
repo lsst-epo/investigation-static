@@ -1,8 +1,8 @@
 :global {
   .qas {
-    &.form {
-      margin-top: 1.5 * $minPadding;
-    }
+    // &.form {
+    //   margin-top: 1.5 * $minPadding;
+    // }
 
     > .qa {
       + .qa {
@@ -11,10 +11,6 @@
 
       &.qa-prompt {
         margin-top: $minPadding;
-      }
-
-      &:first-child {
-        margin-top: 2 * $minPadding;
       }
     }
 

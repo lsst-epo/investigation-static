@@ -23,8 +23,8 @@
           "title": "Question #1",
           "label": "Look at the map of the farthest distance. Does this map represent a time long ago (early in the Universe) or a recent time (later in the history of the Universe)?",
           "options": [
-            {"label": "long ago", "value": "long ago"},
-            {"label": "recent", "value": "recent"}
+            { "label": "long ago", "value": "long ago" },
+            { "label": "recent", "value": "recent" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -40,8 +40,8 @@
           "title": "Question #1",
           "label": "Look at the map of the closest distance. Does this map represent a time long ago (early in the Universe) or a recent time (later in the history of the Universe)?",
           "options": [
-            {"label": "long ago", "value": "long ago"},
-            {"label": "recent", "value": "recent"}
+            { "label": "long ago", "value": "long ago" },
+            { "label": "recent", "value": "recent" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",

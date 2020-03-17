@@ -9,8 +9,8 @@
     "link": "/effects-of-expansion/"
   },
   "next": {
-    "title": "The Cosmological Principle",
-    "link": "/cosmological-principle/"
+    "title": "Exploring the Relationship between Color, Brightness, & Apparent Size",
+    "link": "/brightness-color-distance/"
   },
   "layout": "TwoCol",
   "content": "<p>You will now explore the different galaxies in this image by using a plot of color vs distance. On this plot, <u>smaller</u> flux ratio numbers are <u>redder</u> colors.  Let’s think about how this happens.  Recall from the Hubble-Lemaitre Law that the Universe is expanding, and this expansion causes light waves to appear to be stretched to longer wavelengths. This is called <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/c/cosmological+redshift'>cosmological redshift</a>.</p>",
@@ -106,17 +106,6 @@
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "10",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Using all of the three properties (apparent size, color and brightness) you have established thus far in the investigation, which of the three galaxies (A, B or C) is farthest from Earth?  Explain your answer."
         }
       ]
     }

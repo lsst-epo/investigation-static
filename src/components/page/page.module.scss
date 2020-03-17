@@ -49,10 +49,9 @@
   grid-area: grid-copy;
 
   + .grid-widget,
-  + .grid-widget-top,
-  + .grid-widget-bottom,
   + .grid-image,
-  + .grid-table {
+  + .grid-table,
+  + .grid-qas {
     margin-top: $minPadding;
   }
 }

@@ -34,6 +34,10 @@
         "/data/galaxies/hsc/hsc_sub15.json",
         "/data/galaxies/hsc/hsc_sub16.json"
       ],
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      },
       "options": {
         "toggleDataPointsVisibility": "44",
         "randomSource": true

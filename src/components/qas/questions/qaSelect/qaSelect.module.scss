@@ -42,5 +42,12 @@
     label, .label-pre {
       color: $basePrimary;
     }
+
+  }
+
+  &.answered {
+    select {
+      color: $black;
+    }
   }
 }
