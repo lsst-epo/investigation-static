@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import API from '../lib/API.js';
-import LargeScaleStructurePlot from '../components/charts/LargeScaleStructurePlot/index.jsx';
+import LargeScaleStructurePlot from '../components/charts/largeScaleStructurePlot/index.jsx';
 
 class LargeScaleStructurePlotContainer extends React.PureComponent {
   constructor(props) {
