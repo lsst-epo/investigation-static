@@ -15,22 +15,23 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     this.state = {
       data: null,
       name: null,
+      sourcePath: null,
       imagePath: null,
       domain: [],
       activeGalaxy: null,
     };
+
+    this.aId = 'randomGalaxies';
   }
 
   componentDidMount() {
     const {
       widget: { source, sources },
       options,
-      updateAnswer,
       answers,
     } = this.props;
     const { randomSource } = options || {};
-    const aId = 'randomGalaxies';
-    const randomGalaxiesAnswer = answers[aId];
+    const randomGalaxiesAnswer = answers[this.aId];
 
     if (source) {
       this.getSetData(source);
@@ -43,7 +44,19 @@ class GalaxiesSelectorContainer extends React.PureComponent {
         sources[randomIntFromInterval(0, sources.length - 1)];
 
       this.getSetData(randomSourcePath);
-      updateAnswer(aId, randomSourcePath);
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { updateAnswer, options, answers } = this.props;
+    const { randomSource } = options || {};
+
+    const { sourcePath } = this.state;
+    const newSource = prevState.sourcePath !== sourcePath && !!sourcePath;
+    const randomGalaxiesAnswer = answers[this.aId];
+
+    if (newSource && randomSource && !randomGalaxiesAnswer) {
+      updateAnswer(this.aId, sourcePath);
     }
   }
 
@@ -57,6 +70,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
       this.setState(prevState => ({
         ...prevState,
         data: objects,
+        sourcePath: source,
         imagePath: `/images/galaxies/hsc/${name}.jpg`,
         name,
         domain: [ra.reverse(), dec],
