@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ButtonIcon = ({ srText, Icon }) => (
   <>
     <Icon />
-    <span className="screen-reader-only">{srText}</span>
+    {srText && <span className="screen-reader-only">{srText}</span>}
   </>
 );
 

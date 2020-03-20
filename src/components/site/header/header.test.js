@@ -1,13 +1,46 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, fireEvent } from '@testing-library/react';
+import Header from './index.jsx';
 
-import Header from '../header';
+const testTitle = 'Test Title';
 
-describe('Header', () => {
-  it('renders correctly', () => {
-    const tree = renderer
-      .create(<Header siteTitle="Default Starter" />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+test('Header renders without props', () => {
+  // Arrange
+  const { getByTestId } = render(<Header />);
+  // Assert
+  expect(getByTestId('site-header')).toBeInTheDocument();
+});
+
+test('Header Logo alt text is Site Title', () => {
+  // Arrange
+  const { getByAltText, getByText } = render(<Header logo="fake/image/path" siteTitle={testTitle} />);
+  const logoLink = getByAltText(testTitle);
+  // Assert
+  expect(getByText(testTitle)).toBeInTheDocument();
+  expect(logoLink).toBeInTheDocument();
+});
+
+test('When TOC is visible Header TOC toggle reads "Close..."', () => {
+  // Arrange
+  const { getByRole } = render(<Header tocVisability />);
+  // Assert
+  expect(getByRole('button')).toHaveTextContent('Close Table of Contents');
+});
+
+test('When TOC is visible Header TOC toggle reads "Open..."', () => {
+  // Arrange
+  const { getByRole } = render(<Header />);
+  // Assert
+  expect(getByRole('button')).toHaveTextContent('Open Table of Contents');
+});
+
+test('When Header TOC toggle is clicked toggleToc callback fires"', async () => {
+  // Arrange
+  const handleToggleClick = jest.fn();
+  const { getByRole } = render(<Header toggleToc={handleToggleClick} />);
+  const tocToggle = getByRole('button');
+  // Act
+  fireEvent.click(tocToggle);
+  // Assert
+  expect(handleToggleClick).toHaveBeenCalled();
 });
