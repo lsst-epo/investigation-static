@@ -5,6 +5,7 @@ import GlobalStore from '../state/GlobalStore';
 import SEO from '../components/seo';
 import Header from '../components/site/header';
 import TableOfContents from '../components/site/tableOfContents';
+import logo from '../images/lsst-logo.svg';
 
 import styles from './layout.module.scss';
 
@@ -19,7 +20,7 @@ class Layout extends React.Component {
     store.addReducers();
 
     this.state = {
-      openSidebar: false,
+      tocIsOpen: false,
     };
   }
 
@@ -36,16 +37,16 @@ class Layout extends React.Component {
     return investigationId;
   }
 
-  toggleSidebar = () => {
-    const { openSidebar } = this.state;
+  toggleToc = () => {
+    const { tocIsOpen } = this.state;
     this.setState(prevState => ({
       ...prevState,
-      openSidebar: !openSidebar,
+      tocIsOpen: !tocIsOpen,
     }));
   };
 
   render() {
-    const { openSidebar } = this.state;
+    const { tocIsOpen } = this.state;
     const { children, pageContext } = this.props;
 
     return (
@@ -53,18 +54,18 @@ class Layout extends React.Component {
         <SEO title={pageContext.investigation || 'Investigation'} />
         <Header
           siteTitle="Investigation"
-          sidebarVisiblity={openSidebar}
-          toggleSidebar={this.toggleSidebar}
+          tocVisability={tocIsOpen}
+          toggleToc={this.toggleToc}
+          logo={logo}
         />
         <TableOfContents
-          visible={openSidebar}
-          toggleSidebar={this.toggleSidebar}
+          visible={tocIsOpen}
+          toggleToc={this.toggleToc}
           investigation={pageContext.investigation}
         />
         <div>
           <main className={styles.container}>{children}</main>
         </div>
-        {/* <Footer /> */}
       </>
     );
   }

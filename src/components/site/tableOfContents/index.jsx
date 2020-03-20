@@ -68,8 +68,8 @@ class TableOfContents extends React.PureComponent {
   setActivePage = linkId => linkId === this.global.pageId;
 
   handleVisibility = visible => {
-    const { toggleSidebar } = this.props;
-    toggleSidebar(visible);
+    const { toggleToc } = this.props;
+    toggleToc(visible);
   };
 
   render() {
@@ -91,7 +91,7 @@ class TableOfContents extends React.PureComponent {
 
 TableOfContents.propTypes = {
   visible: PropTypes.bool,
-  toggleSidebar: PropTypes.func.isRequired,
+  toggleToc: PropTypes.func.isRequired,
   navLinks: PropTypes.array,
   investigation: PropTypes.string,
 };

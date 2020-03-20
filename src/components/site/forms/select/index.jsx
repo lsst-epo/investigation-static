@@ -24,6 +24,7 @@ class Select extends React.PureComponent {
         {showLabel && <label htmlFor={`select-${id}`}>{label}</label>}
         <div className="select-wrapper">
           <select
+            data-testid="select"
             id={`select-${id}`}
             name={name}
             value={value}
@@ -69,7 +70,7 @@ class Select extends React.PureComponent {
 
 Select.propTypes = {
   id: PropTypes.string,
-  options: PropTypes.array,
+  options: PropTypes.array.isRequired,
   label: PropTypes.string,
   name: PropTypes.string,
   value: PropTypes.any,
