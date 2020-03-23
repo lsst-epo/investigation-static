@@ -11,9 +11,9 @@ class LargeScaleStructurePlotContainer extends React.PureComponent {
       data: null,
       selectedData: null,
       sliderVal1: null,
-      sliderVal2: null,
       min: null,
       max: null,
+      toggleMinVal: null,
     };
   }
 
@@ -31,6 +31,7 @@ class LargeScaleStructurePlotContainer extends React.PureComponent {
         data: galaxies,
         min: this.getMin(galaxies),
         max: this.getMax(galaxies),
+        toggleMinVal: this.getMin(galaxies),
         formatedData: this.arrayifyData(galaxies),
       }));
     });
@@ -68,18 +69,27 @@ class LargeScaleStructurePlotContainer extends React.PureComponent {
   }
 
   sliderCallback = value => {
-    const { data } = this.state;
-    const [min, max] = value;
+    const { data, min, max } = this.state;
+    const val = value.length ? +value[0] : +value;
+    const toggleMinVal = value.length && val > min ? val : min;
+    const toggleMaxVal = toggleMinVal + 0.01;
+    const actualToggleMax = toggleMaxVal <= max ? toggleMaxVal : max;
+
+    const sliderVal1 = parseFloat(min, 10);
+    const selectedData = this.arrayifyData(
+      data.filter(obj => {
+        const start =
+          toggleMinVal >= min && toggleMinVal < max
+            ? toggleMinVal
+            : actualToggleMax - 0.01;
+        return obj.redshift >= start && obj.redshift <= actualToggleMax;
+      })
+    );
 
     this.setState(prevState => ({
       ...prevState,
-      sliderVal1: parseFloat(min, 10),
-      sliderVal2: parseFloat(max, 10),
-      selectedData: this.arrayifyData(
-        data.filter(obj => {
-          return obj.redshift >= min && obj.redshift <= max;
-        })
-      ),
+      sliderVal1,
+      selectedData,
     }));
   };
 
@@ -89,8 +99,8 @@ class LargeScaleStructurePlotContainer extends React.PureComponent {
       selectedData,
       max,
       min,
+      toggleMinVal,
       sliderVal1,
-      sliderVal2,
     } = this.state;
 
     return (
@@ -98,7 +108,13 @@ class LargeScaleStructurePlotContainer extends React.PureComponent {
         <LargeScaleStructurePlot
           className="heat-map-3d-plot"
           data={formatedData}
-          {...{ min, max, selectedData, sliderVal1, sliderVal2 }}
+          {...{
+            min,
+            max,
+            toggleMinVal,
+            selectedData,
+            sliderVal1,
+          }}
           sliderCallback={this.sliderCallback}
         />
       </>

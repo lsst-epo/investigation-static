@@ -11,7 +11,7 @@ class LargeScaleStructurePlot extends React.PureComponent {
     const {
       min,
       max,
-      sliderVal2,
+      toggleMinVal,
       sliderVal1,
       data,
       selectedData,
@@ -29,14 +29,6 @@ class LargeScaleStructurePlot extends React.PureComponent {
             altData={selectedData}
           />
         )}
-        <h3
-          style={{
-            marginTop: '75px',
-            textAlign: 'center',
-          }}
-        >
-          Redshift Range Displayed: {sliderVal1} - {sliderVal2}
-        </h3>
         <div
           style={{
             marginTop: '50px',
@@ -49,9 +41,9 @@ class LargeScaleStructurePlot extends React.PureComponent {
             <Nouislider
               onUpdate={debouncedSliderCallback}
               range={{ min, max }}
-              start={[min, max]}
-              tooltips={[true, true]}
-              connect
+              start={toggleMinVal}
+              tooltips
+              connect="lower"
             />
           )}
         </div>
@@ -65,8 +57,8 @@ LargeScaleStructurePlot.propTypes = {
   selectedData: PropTypes.array,
   min: PropTypes.number,
   max: PropTypes.number,
+  toggleMinVal: PropTypes.number,
   sliderVal1: PropTypes.number,
-  sliderVal2: PropTypes.number,
   sliderCallback: PropTypes.func,
 };
 

@@ -12,6 +12,11 @@
     padding: 0 17px;
   }
 
+  .noUi-connects {
+    width: calc(100% + 18px);
+    left: -19px;
+  }
+
   .noUi-base {
     .noUi-connect {
       background-image: linear-gradient(
@@ -33,7 +38,7 @@
     .noUi-handle {
       position: absolute;
       top: 0;
-      left: 0;
+      left: 30px;
       z-index: 2;
       display: table;
       width: $control-width;
