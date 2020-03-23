@@ -110,7 +110,7 @@
           "id": "32",
           "questionType": "select",
           "title": "Question #1",
-          "labelPre": "The Hubble plot constructed from LSST data supports the idea of a Universe that is ",
+          "labelPre": "The Hubble plot constructed from Rubin Observatory data supports the idea of a Universe that is ",
           "labelPost": " in size.",
           "options": [
             {"label": "getting bigger", "value": "getting bigger"},

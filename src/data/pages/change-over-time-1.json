@@ -13,7 +13,7 @@
     "link": "/change-over-time-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>The distribution and concentration of matter in the Universe for sizes larger than a galaxy is called the <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/L/Large-scale+Structure'>large-scale structure</a> of the Universe. Astronomers can measure the distance to billions of galaxies using data from LSST. Using the distances and position of galaxies astronomers can create a map of the observable Universe that reveals this large-scale structure. This structure is possible to see by viewing a concentration map of a region of the Universe.</p><p>Here is a sample galaxy concentration map. Examine the color legend at the map bottom. White areas of the map are places that LSST has not observed the sky.</p>",
+  "content": "<p>The distribution and concentration of matter in the Universe for sizes larger than a galaxy is called the <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/L/Large-scale+Structure'>large-scale structure</a> of the Universe. Astronomers can measure the distance to billions of galaxies using data from the Rubin Observatory. Using the distances and position of galaxies astronomers can create a map of the observable Universe that reveals this large-scale structure. This structure is possible to see by viewing a concentration map of a region of the Universe.</p><p>Here is a sample galaxy concentration map. Examine the color legend at the map bottom. White areas of the map are places that Rubin Observatory has not observed the sky.</p>",
   "widgets": [
     {
       "type": "LargeScaleStructurePlot",
