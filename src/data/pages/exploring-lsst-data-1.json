@@ -2,18 +2,18 @@
   "id": "observable7",
   "investigation": "observable-universe",
   "order": "07",
-  "title": "Exploring LSST Data: flux vs distance",
+  "title": "Exploring Rubin Observatory Data: flux vs distance",
   "slug": "exploring-lsst-data-1/",
   "previous": {
     "title": "The Cosmological Principle",
     "link": "/cosmological-principle/"
   },
   "next": {
-    "title": "Exploring LSST Data: brightness vs distance",
+    "title": "Exploring Rubin Observatory Data: brightness vs distance",
     "link": "/exploring-lsst-data-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let’s add in data from every direction that can be observed by LSST.</p>",
+  "content": "<p>Now let’s add in data from every direction that can be observed by the Rubin Observatory.</p>",
   "widgets": [
     {
       "type": "GalacticProperties",
@@ -45,7 +45,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Compare your deep field data to the LSST data. Do they show similar distributions of galaxy distances and colors? Explain."
+          "label": "Compare your deep field data to the Rubin Observatory data. Do they show similar distributions of galaxy distances and colors? Explain."
         }
       ]
     },

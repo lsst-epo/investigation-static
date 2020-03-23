@@ -44,7 +44,7 @@ class GalaxySelectorContainer extends React.PureComponent {
 
     API.get(source).then(response => {
       const data = response.data.map(galaxy => {
-        galaxy.images = getAlertImages(galaxy.name, galaxy.alerts);
+        galaxy.images = getAlertImages(galaxy.id || galaxy.name, galaxy.alerts);
         return galaxy;
       });
 

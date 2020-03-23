@@ -1,5 +1,6 @@
 [{
-  "name": "ZTF19abqmpsr",
+  "name": "Galaxy #1",
+  "id": "ZTF19abqmpsr",
   "color": "#1ab579",
   "distance": 141.69708547161875,
   "Dec": 18.74361216,
@@ -94,7 +95,8 @@
     "image_id": 255350622
   }]
 }, {
-  "name": "ZTF19abxvjkn",
+  "name": "Galaxy #2",
+  "id": "ZTF19abxvjkn",
   "color": "#eb7c39",
   "distance": 231.55354261593232,
   "Dec": 16.60698643,
@@ -171,7 +173,8 @@
     "image_id": 255648176
   }]
 }, {
-  "name": "ZTF19abqqmui",
+  "name": "Galaxy #3",
+  "id": "ZTF19abqqmui",
   "color": "#4c8cd2",
   "distance": 213.8878328238106,
   "Dec": 6.317683836,
@@ -224,7 +227,8 @@
     "image_id": 220237781
   }]
 }, {
-  "name": "ZTF19abvhduf",
+  "name": "Galaxy #4",
+  "id": "ZTF19abvhduf",
   "color": "#fed828",
   "distance": 124.63102831794073,
   "Dec": 56.07525,
@@ -419,58 +423,5 @@
     "date": 58864.1977,
     "magnitude": 19.05,
     "image_id": 396235175
-  }]
-}, {
-  "name": "ZTF19abucvgu",
-  "color": "#8e3efe",
-  "distance": 213.8878328238106,
-  "Dec": -18.607289,
-  "velocity": 14625.44589774079,
-  "RA": 77.673833,
-  "redshift": 0.05,
-  "supernovaPoint": {
-    "ra": "600",
-    "dec": "600"
-  },
-  "galaxyPoint": {
-    "ra": "500",
-    "dec": "480"
-  },
-  "alerts": [{
-    "alert_id": 169105051,
-    "error": 0.14,
-    "date": 58726.48072,
-    "magnitude": 18.61,
-    "image_id": 169105051
-  }, {
-    "alert_id": 188199303,
-    "error": 0.06,
-    "date": 58736.50027,
-    "magnitude": 17.66,
-    "image_id": 188199303
-  }, {
-    "alert_id": 192998323,
-    "error": 0.06,
-    "date": 58739.50259,
-    "magnitude": 17.72,
-    "image_id": 192998323
-  }, {
-    "alert_id": 219416159,
-    "error": 0.06,
-    "date": 58749.48073,
-    "magnitude": 18.23,
-    "image_id": 219416159
-  }, {
-    "alert_id": 259367248,
-    "error": 0.12,
-    "date": 58759.45302,
-    "magnitude": 19.13,
-    "image_id": 259367248
-  }, {
-    "alert_id": 259367289,
-    "error": 0.17,
-    "date": 58764.50419,
-    "magnitude": 19.6,
-    "image_id": 259367289
   }]
 }]
