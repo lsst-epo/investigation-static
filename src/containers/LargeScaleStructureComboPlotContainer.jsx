@@ -4,14 +4,15 @@ import filter from 'lodash/filter';
 import API from '../lib/API.js';
 import { extentFromSet, formatValue } from '../lib/utilities.js';
 import LargeScaleStructurePlot from '../components/charts/largeScaleStructurePlot/index.jsx';
+import LargeScaleStructure2DPlot from '../components/charts/largeScaleStructurePlot/2DChart.jsx';
 
-class LargeScaleStructurePlotContainer extends React.PureComponent {
+class LargeScaleStructureComboPlotContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: null,
-      selectedData: null,
+      data: [],
+      selectedData: [],
       sliderVal1: null,
       min: null,
       max: null,
@@ -73,25 +74,40 @@ class LargeScaleStructurePlotContainer extends React.PureComponent {
     const { formattedData, selectedData, max, min, sliderVal } = this.state;
 
     return (
-      <>
-        <LargeScaleStructurePlot
-          data={formattedData}
-          {...{
-            min,
-            max,
-            sliderVal,
-            selectedData,
-          }}
-          sliderIncrement={this.increment}
-          sliderCallback={this.sliderCallback}
-        />
-      </>
+      <div className="container-flex spaced">
+        <div className="col padded col-width-50">
+          <LargeScaleStructure2DPlot
+            data={formattedData}
+            {...{
+              min,
+              max,
+              sliderVal,
+              selectedData,
+            }}
+            sliderIncrement={this.increment}
+            sliderCallback={this.sliderCallback}
+          />
+        </div>
+        <div className="col padded col-width-50">
+          <LargeScaleStructurePlot
+            data={formattedData}
+            {...{
+              min,
+              max,
+              sliderVal,
+              selectedData,
+            }}
+            sliderIncrement={this.increment}
+            sliderCallback={this.sliderCallback}
+          />
+        </div>
+      </div>
     );
   }
 }
 
-LargeScaleStructurePlotContainer.propTypes = {
+LargeScaleStructureComboPlotContainer.propTypes = {
   widget: PropTypes.object,
 };
 
-export default LargeScaleStructurePlotContainer;
+export default LargeScaleStructureComboPlotContainer;

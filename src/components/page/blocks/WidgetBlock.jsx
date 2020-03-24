@@ -7,6 +7,7 @@ import GalaxiesSelector from '../../../containers/GalaxiesSelectorContainer.jsx'
 import HubblePlot from '../../../containers/HubblePlot2DContainer.jsx';
 import HubblePlot3D from '../../../containers/HubblePlot3DContainer.jsx';
 import LargeScaleStructurePlot from '../../../containers/LargeScaleStructurePlotContainer.jsx';
+import LargeScaleStructureComboPlot from '../../../containers/LargeScaleStructureComboPlotContainer.jsx';
 import GalacticProperties from '../../../containers/GalacticPropertiesContainer.jsx';
 import GalacticPropertiesCombo from '../../../containers/GalacticPropertiesComboContainer.jsx';
 
@@ -29,6 +30,7 @@ class WidgetBlock extends React.PureComponent {
       HubblePlot3D,
       GalacticProperties,
       LargeScaleStructurePlot,
+      LargeScaleStructureComboPlot,
       GalacticPropertiesCombo,
     };
 

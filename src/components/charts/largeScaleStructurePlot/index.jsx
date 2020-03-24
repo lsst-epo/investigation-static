@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-md/lib/Sliders/Slider';
 import SelectionControl from 'react-md/lib/SelectionControls/SelectionControl';
-// import CheckBox from '../../site/icons/CheckBox';
-// import CheckBoxOutlineBlank from '../../site/icons/CheckBoxOutlineBlank';
 import { formatValue } from '../../../lib/utilities.js';
 import LargeScaleStructureScatterPlot from './LargeScaleStructureScatterPlot';
 import './large-scale-structure-plot.module.scss';
 
-class LargeScaleStructurePlot extends React.PureComponent {
+class LargeScaleStructure3DPlot extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -76,7 +74,11 @@ class LargeScaleStructurePlot extends React.PureComponent {
   }
 }
 
-LargeScaleStructurePlot.propTypes = {
+LargeScaleStructure3DPlot.defaultProps = {
+  sliderIncrement: 0.01,
+};
+
+LargeScaleStructure3DPlot.propTypes = {
   data: PropTypes.array,
   selectedData: PropTypes.array,
   min: PropTypes.number,
@@ -86,4 +88,4 @@ LargeScaleStructurePlot.propTypes = {
   sliderCallback: PropTypes.func,
 };
 
-export default LargeScaleStructurePlot;
+export default LargeScaleStructure3DPlot;
