@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import filter from 'lodash/filter';
 import API from '../lib/API.js';
+import { extentFromSet, formatValue } from '../lib/utilities.js';
 import LargeScaleStructurePlot from '../components/charts/largeScaleStructurePlot/index.jsx';
 
 class LargeScaleStructurePlotContainer extends React.PureComponent {
@@ -13,8 +15,9 @@ class LargeScaleStructurePlotContainer extends React.PureComponent {
       sliderVal1: null,
       min: null,
       max: null,
-      toggleMinVal: null,
     };
+
+    this.increment = 0.01;
   }
 
   componentDidMount() {
@@ -25,38 +28,18 @@ class LargeScaleStructurePlotContainer extends React.PureComponent {
     API.get(source).then(response => {
       const { data } = response;
       const { galaxies } = data || {};
+      const [min, max] = extentFromSet(galaxies, 'redshift');
+      const formattedData = this.arrayifyData(galaxies);
 
       this.setState(prevState => ({
         ...prevState,
         data: galaxies,
-        min: this.getMin(galaxies),
-        max: this.getMax(galaxies),
-        toggleMinVal: this.getMin(galaxies),
-        formatedData: this.arrayifyData(galaxies),
+        min: formatValue(min, 2),
+        max: formatValue(max, 2),
+        formattedData,
+        selectedData: formattedData,
       }));
     });
-  }
-
-  getMax(arrObj) {
-    let temp = 0;
-    for (let i = 0; i < arrObj.length; i += 1) {
-      const obj = arrObj[i];
-      if (obj.redshift > temp) {
-        temp = obj.redshift;
-      }
-    }
-    return temp;
-  }
-
-  getMin(arrObj) {
-    let temp = 1000;
-    for (let i = 0; i < arrObj.length; i += 1) {
-      const obj = arrObj[i];
-      if (obj.redshift < temp) {
-        temp = obj.redshift;
-      }
-    }
-    return temp;
   }
 
   arrayifyData(arrObj) {
@@ -69,52 +52,37 @@ class LargeScaleStructurePlotContainer extends React.PureComponent {
   }
 
   sliderCallback = value => {
-    const { data, min, max } = this.state;
-    const val = value.length ? +value[0] : +value;
-    const toggleMinVal = value.length && val > min ? val : min;
-    const toggleMaxVal = toggleMinVal + 0.01;
-    const actualToggleMax = toggleMaxVal <= max ? toggleMaxVal : max;
+    const { formattedData } = this.state;
+    const sliderVal = formatValue(value, 2);
+    const selectedData = filter(formattedData, d => {
+      const redshift = d[1];
+      const greaterThanMin = redshift >= sliderVal;
+      const lessThanMax = redshift < sliderVal + this.increment;
 
-    const sliderVal1 = parseFloat(min, 10);
-    const selectedData = this.arrayifyData(
-      data.filter(obj => {
-        const start =
-          toggleMinVal >= min && toggleMinVal < max
-            ? toggleMinVal
-            : actualToggleMax - 0.01;
-        return obj.redshift >= start && obj.redshift <= actualToggleMax;
-      })
-    );
+      return greaterThanMin && lessThanMax;
+    });
 
     this.setState(prevState => ({
       ...prevState,
-      sliderVal1,
       selectedData,
+      sliderVal,
     }));
   };
 
   render() {
-    const {
-      formatedData,
-      selectedData,
-      max,
-      min,
-      toggleMinVal,
-      sliderVal1,
-    } = this.state;
+    const { formattedData, selectedData, max, min, sliderVal } = this.state;
 
     return (
       <>
         <LargeScaleStructurePlot
-          className="heat-map-3d-plot"
-          data={formatedData}
+          data={formattedData}
           {...{
             min,
             max,
-            toggleMinVal,
+            sliderVal,
             selectedData,
-            sliderVal1,
           }}
+          sliderIncrement={this.increment}
           sliderCallback={this.sliderCallback}
         />
       </>
