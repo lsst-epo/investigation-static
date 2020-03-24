@@ -19,6 +19,7 @@
       "type": "GalaxySelector",
       "source": "/data/galaxies/galaxy_selector.json",
       "options": {
+        "autoplay": true,
         "toggleDataPointsVisibility": "251",
         "createUserHubblePlot": "252"
       }
