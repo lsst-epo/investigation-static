@@ -17,10 +17,6 @@
   stroke: 'transparent';
   transition: stroke $timing $duration, opacity $timing $duration;
 
-  &.selected, &.hovered {
-    stroke: pink;
-  }
-
   &.invisible-data-point {
     opacity: 0;
   }
