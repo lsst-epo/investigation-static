@@ -52,29 +52,28 @@ class GalaxySelector extends React.PureComponent {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     const {
       activeGalaxy,
       data,
       selectedData,
       preSelected,
-      autoplay,
       xDomain,
       yDomain,
     } = this.props;
+    const { playing } = this.state;
+    const isNewData = prevProps.data !== data;
+    const isNewActiveGalaxy = prevProps.activeGalaxy !== activeGalaxy;
+    const isNewSelectedData = prevProps.selectedData !== selectedData;
 
-    const { selectedData: prevSelectedData } = prevProps;
-    const { playing } = prevState;
-
-    if (
-      prevProps.activeGalaxy !== activeGalaxy ||
-      prevSelectedData !== selectedData
-    ) {
+    if (isNewData || isNewActiveGalaxy || isNewSelectedData) {
       this.updatePoints();
       this.setSelection(preSelected ? data : selectedData);
 
-      if (autoplay && !playing && !selectedData) {
-        this.startBlink();
+      if (!playing) {
+        this.stopBlink();
+      } else if (playing) {
+        this.restartBlink();
       }
     }
 
@@ -160,6 +159,23 @@ class GalaxySelector extends React.PureComponent {
     const activeImageId = images[activeImageIndex].id;
     const activeAlert = getAlertFromImageId(activeImageId, alerts);
     return { activeImageId, activeImageIndex, activeAlert };
+  }
+
+  restartBlink() {
+    clearInterval(this.blinkerInterval);
+    const { images } = this.props;
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        playing: true,
+      }),
+      () => {
+        this.blinkerInterval = setInterval(() => {
+          this.nextBlink(images);
+        }, 200);
+      }
+    );
   }
 
   startBlink() {
