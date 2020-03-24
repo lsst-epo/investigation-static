@@ -1,23 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Nouislider from 'nouislider-react';
-import debounce from 'lodash/debounce';
+import Slider from 'react-md/lib/Sliders/Slider';
+import SelectionControl from 'react-md/lib/SelectionControls/SelectionControl';
+// import CheckBox from '../../site/icons/CheckBox';
+// import CheckBoxOutlineBlank from '../../site/icons/CheckBoxOutlineBlank';
+import { formatValue } from '../../../lib/utilities.js';
 import LargeScaleStructureScatterPlot from './LargeScaleStructureScatterPlot';
-import 'nouislider/distribute/nouislider.css';
 import './large-scale-structure-plot.module.scss';
 
 class LargeScaleStructurePlot extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showRange: false,
+    };
+  }
+
+  handleRangeToggle = showRange => {
+    this.setState(prevState => ({
+      ...prevState,
+      showRange,
+    }));
+  };
+
   render() {
+    const { showRange } = this.state;
     const {
       min,
       max,
-      toggleMinVal,
-      sliderVal1,
       data,
       selectedData,
+      sliderVal,
+      sliderIncrement,
       sliderCallback,
     } = this.props;
-    const debouncedSliderCallback = debounce(sliderCallback, 15);
+    const selectedRange = sliderVal
+      ? `${sliderVal} - ${formatValue(sliderVal + sliderIncrement, 2)}`
+      : '';
 
     return (
       <>
@@ -29,24 +49,28 @@ class LargeScaleStructurePlot extends React.PureComponent {
             altData={selectedData}
           />
         )}
-        <div
-          style={{
-            marginTop: '50px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {min && max && (
-            <Nouislider
-              onUpdate={debouncedSliderCallback}
-              range={{ min, max }}
-              start={toggleMinVal}
-              tooltips
-              connect="lower"
-            />
-          )}
-        </div>
+        <SelectionControl
+          id="range-selector-toggle"
+          type="switch"
+          label="Toggle Range Selector"
+          name="lights"
+          onChange={this.handleRangeToggle}
+        />
+        {min && max && (
+          <>
+            <div>
+              <div>Selected Range: {selectedRange}</div>
+              <Slider
+                value={sliderVal}
+                min={min}
+                max={max - sliderIncrement}
+                step={sliderIncrement}
+                onChange={sliderCallback}
+                disabled={!showRange}
+              />
+            </div>
+          </>
+        )}
       </>
     );
   }
@@ -57,8 +81,8 @@ LargeScaleStructurePlot.propTypes = {
   selectedData: PropTypes.array,
   min: PropTypes.number,
   max: PropTypes.number,
-  toggleMinVal: PropTypes.number,
-  sliderVal1: PropTypes.number,
+  sliderVal: PropTypes.number,
+  sliderIncrement: PropTypes.number,
   sliderCallback: PropTypes.func,
 };
 
