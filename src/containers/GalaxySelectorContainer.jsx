@@ -27,7 +27,7 @@ class GalaxySelectorContainer extends React.PureComponent {
     this.state = {
       data: null,
       plottedData: null,
-      openScatterPlot: false,
+      plotIsOpen: false,
       activeGalaxy: null,
       activeAlert: null,
       activeImageIndex: 0,
@@ -63,8 +63,8 @@ class GalaxySelectorContainer extends React.PureComponent {
 
   chooseGalaxyAndClosePlot(event, activeGalaxy) {
     if (event) {
-      const { openScatterPlot } = this.state;
-      if (openScatterPlot) this.handleSlideOutPlot('close');
+      const { plotIsOpen } = this.state;
+      if (plotIsOpen) this.handleSlideOutPlot('close');
 
       const { alerts } = activeGalaxy;
       const activeAlert = alerts[0];
@@ -82,14 +82,14 @@ class GalaxySelectorContainer extends React.PureComponent {
   handleSlideOutPlot = () => {
     this.setState(prevState => ({
       ...prevState,
-      openScatterPlot: !prevState.openScatterPlot,
+      plotIsOpen: !prevState.plotIsOpen,
     }));
   };
 
   closeScatterPlot = () => {
     this.setState(prevState => ({
       ...prevState,
-      openScatterPlot: false,
+      plotIsOpen: false,
     }));
   };
 
@@ -102,11 +102,12 @@ class GalaxySelectorContainer extends React.PureComponent {
   };
 
   goToGalaxy(direction) {
-    const { activeGalaxy: oldActiveGalaxy, data } = this.state;
+    const { activeGalaxy: oldActiveGalaxy, data, plotIsOpen } = this.state;
+    const { answers, options } = this.props;
+    const { toggleDataPointsVisibility } = options || {};
     const lastIndex = data.length - 1;
     const oldIndex = data.indexOf(oldActiveGalaxy);
     const index = oldIndex + direction;
-
     let activeGalaxy = oldActiveGalaxy;
 
     if (index < 0) {
@@ -116,6 +117,12 @@ class GalaxySelectorContainer extends React.PureComponent {
     } else {
       activeGalaxy = data[index];
     }
+
+    const galSnSelected =
+      (getSelectedData(activeGalaxy, answers, toggleDataPointsVisibility) || [])
+        .length >= 2;
+
+    if (plotIsOpen && !galSnSelected) this.handleSlideOutPlot('close');
 
     const { alerts } = activeGalaxy;
     const activeAlert = alerts[0];
@@ -216,16 +223,13 @@ class GalaxySelectorContainer extends React.PureComponent {
       activeImageId,
       activeImageIndex,
       data,
-      openScatterPlot,
+      plotIsOpen,
       activeGalaxy,
       plottedData,
     } = this.state;
 
-    const {
-      answers,
-      options,
-      options: { toggleDataPointsVisibility, image, autoplay },
-    } = this.props;
+    const { answers, options } = this.props;
+    const { toggleDataPointsVisibility, image, autoplay } = options || {};
 
     const selectedData = getSelectedData(
       activeGalaxy,
@@ -273,7 +277,7 @@ class GalaxySelectorContainer extends React.PureComponent {
               />
             </div>
             <ScatterPlotSelectorContainer
-              opened={openScatterPlot || false}
+              opened={plotIsOpen || false}
               onSlideOutClick={this.handleSlideOutPlot}
             >
               <HubblePlot
