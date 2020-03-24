@@ -23,27 +23,18 @@ class LargeScaleStructureScatterPlot extends React.PureComponent {
   getOption() {
     const { dataProp, altData, shouldTrim, maximum } = this.props;
 
-    if (Object.keys(dataProp).length === 0 || altData === null) {
-      return {};
-    }
-    let bigData = dataProp;
-    let showData = dataProp;
-    if (altData !== null && altData.length !== 0) {
-      showData = altData;
+    if (dataProp) {
+      if (Object.keys(dataProp).length === 0 || altData === null) return {};
     }
 
-    let ptColor = '#a70000';
-    if (shouldTrim) {
-      bigData = [];
-      ptColor = '#A8D0E6';
-    } else {
-      ptColor = '#A8D0E6';
-    }
+    const isAltData = altData !== null && altData.length !== 0;
+    const showData = isAltData ? altData : dataProp;
+
     return {
       grid3D: {},
       dataset: {
         source: showData,
-        dimensions: ['RA', 'redshift', 'Dec'],
+        dimensions: ['RA', 'Dec', 'redshift'],
       },
       xAxis3D: this.getAxisOptions('RA'),
       zAxis3D: {
@@ -81,8 +72,13 @@ class LargeScaleStructureScatterPlot extends React.PureComponent {
       series: [
         {
           name: 'Big Dataset',
-          data: bigData,
           type: 'scatter3D',
+          encode: {
+            x: 'RA',
+            y: 'redshift',
+            z: 'Dec',
+          },
+          data: shouldTrim ? [] : dataProp,
           symbolSize: 2.5,
           itemStyle: {
             color: '#ffbaba',
@@ -93,9 +89,14 @@ class LargeScaleStructureScatterPlot extends React.PureComponent {
         {
           name: 'Highlight Dataset',
           type: 'scatter3D',
+          encode: {
+            x: 'RA',
+            y: 'redshift',
+            z: 'Dec',
+          },
           symbolSize: 2.5,
           itemStyle: {
-            color: ptColor,
+            color: '#A8D0E6',
             borderColor: '#374785',
             borderWidth: 0.01,
           },
