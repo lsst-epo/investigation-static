@@ -67,6 +67,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "deploy": "jest --verbose && gatsby build",
     "start": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx}\"",
     "styles": "stylelint --config \"./.stylelintrc\" --color --fix \"**/*.{css,scss}\"",
