@@ -1,9 +1,14 @@
 import find from 'lodash/find';
 
 export const getLayout = function(defaultLayout, layout) {
-  const row = layout ? layout.row : null || defaultLayout.row;
-  const col = layout ? layout.col : null || defaultLayout.col;
-  return { row, col };
+  if (layout) {
+    const row = layout.row || defaultLayout.row;
+    const col = layout.col || defaultLayout.col;
+
+    return { row, col };
+  }
+
+  return defaultLayout;
 };
 
 export const isPosEmpty = function(

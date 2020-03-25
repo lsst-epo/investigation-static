@@ -11,6 +11,11 @@
         display: none;
       }
 
+      .md-panel-header {
+        height: auto;
+        padding: $minPadding 0;
+      }
+
       .md-fake-btn .md-text, .md-fake-btn .md-text p {
         @include copySecondary;
         /* stylelint-disable-next-line declaration-no-important */
@@ -23,7 +28,7 @@
         }
 
         p {
-          margin: 0;
+          margin-bottom: 0;
         }
       }
 

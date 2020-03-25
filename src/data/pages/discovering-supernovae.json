@@ -11,11 +11,7 @@
   "images": [
     {
       "mediaPath": "/images/discovering-supernovae.png",
-      "altText": "Superonva on the edge of a galaxy",
-      "layout": {
-        "col": "left",
-        "row": "top"
-      }
+      "altText": "Superonva on the edge of a galaxy"
     }
   ]
 }

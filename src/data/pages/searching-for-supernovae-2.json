@@ -21,12 +21,12 @@
       "question": [
         {
           "id": "59",
-          "questionType": "prompt",
+          "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
           "label": "<p>Use the controls to play, pause, and skip between images. Can you spot the supernova? Click on the supernova when you find it.</p>",
           "answerPre": "<span>Selected Supernova: </span>",
-          "answerAccessor": "data"
+          "answerAccessor": "supernova"
         }
       ]
     }

@@ -10,10 +10,6 @@
   "tables": [
     {
       "id": "1",
-      "layout": {
-        "col": "right",
-        "row": "middle"
-      },
       "colTitles": [
         "Supernova",
         "Apparent Magnitude (m)"
