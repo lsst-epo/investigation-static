@@ -100,7 +100,6 @@ class LightCurve extends React.PureComponent {
       });
     } else {
       const domain = d3Extent(data, d => d[accessor]);
-      console.log(domain);
       min = domain[0];
       max = domain[1];
     }

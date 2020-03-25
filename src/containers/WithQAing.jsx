@@ -23,6 +23,7 @@ export const WithQAing = ComposedComponent => {
         galaxy: this.getGalaxyContent,
         galaxies: this.getGalaxiesContent,
         supernova: this.getSupernovaContent,
+        hubblePlot: this.getHubblePlotContent,
       };
     }
 
@@ -103,7 +104,26 @@ export const WithQAing = ComposedComponent => {
       const numOfGalaxies = filter(selectedObjects, item => item === 'galaxy')
         .length;
 
-      return `${numOfGalaxies} galaxies & ${numOfSupernovae} supernovae`;
+      return `${numOfGalaxies} ${
+        numOfGalaxies > 1 ? 'galaxies' : 'galaxy'
+      }${numOfSupernovae && ' & '}${numOfSupernovae} ${
+        numOfSupernovae > 1 ? 'supernovae' : 'supernova'
+      }`;
+    }
+
+    getHubblePlotContent(data) {
+      const filteredData = filter(data, d => {
+        const { distance, velocity } = d;
+        return distance && velocity;
+      });
+
+      if (!filteredData) {
+        return 'No points plotted';
+      }
+
+      const numPts = filteredData.length;
+
+      return `${numPts} ${numPts > 1 ? 'points' : 'point'} plotted`;
     }
 
     getGalaxiesContent(data) {

@@ -31,7 +31,16 @@ class Point extends React.PureComponent {
   }
 
   render() {
-    const { x, y, errorYPos, errorYNeg, classes, fill, selected, hovered } = this.props;
+    const {
+      x,
+      y,
+      errorYPos,
+      errorYNeg,
+      classes,
+      fill,
+      selected,
+      hovered,
+    } = this.props;
 
     return (
       <g>
@@ -78,7 +87,7 @@ class Point extends React.PureComponent {
           cx={x}
           cy={y}
           r={this.baseSize * 5}
-          stroke={selected || hovered ? fill : "transparent"}
+          stroke={selected || hovered ? fill : 'transparent'}
           strokeWidth={1}
           fill="transparent"
         />

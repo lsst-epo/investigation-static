@@ -298,10 +298,18 @@ class GalaxySelector extends React.PureComponent {
       name,
       activeImageId,
       activeGalaxy,
+      selectedData: selectedDataProp,
     } = this.props;
 
-    const { xScale, yScale, loading, selectedData, playing } = this.state;
+    const {
+      xScale,
+      yScale,
+      loading,
+      selectedData: selectedDataState,
+      playing,
+    } = this.state;
 
+    const selectedData = selectedDataState || selectedDataProp;
     const svgClasses = classnames('svg-chart', galaxySelector, {
       loading,
       loaded: !loading,

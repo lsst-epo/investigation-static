@@ -12,8 +12,7 @@
     "type": "SupernovaSelectorWithLightCurve",
     "source": "/data/galaxies/ZTF19abqmpsr.json",
     "layout": {
-      "col": "left",
-      "row": "top"
+      "row": "bottom"
     },
     "options": {
       "showSelector": true,
@@ -27,12 +26,12 @@
       "question": [
         {
           "id": "82",
-          "questionType": "prompt",
+          "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
           "label": "<p>Click on a point on the Image to select the supernova</p>",
           "answerPre": "<span>Selected: </span>",
-          "answerAccessor": "galaxy"
+          "answerAccessor": "supernova"
         }
       ]
     }
