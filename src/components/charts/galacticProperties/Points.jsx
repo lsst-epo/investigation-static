@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import find from 'lodash/find';
 import classnames from 'classnames';
 import Point from './Point.jsx';
+import { getFluxRgba } from './galacticPropertiesUtilities.js';
 import { invisible } from './galactic-properties.module.scss';
 
 class Points extends React.PureComponent {
@@ -24,20 +25,15 @@ class Points extends React.PureComponent {
         {data.map((d, i) => {
           const { id, name, label, color, use_color: useColor } = d;
           const key = `point-${id}-${i}`;
-          const plottingColor = yValueAccessor === 'color';
-          const x = d[xValueAccessor];
-          const y = d[yValueAccessor];
+          const useFluxColor = yValueAccessor === 'color';
           const selected = !!find(selectedData, { id });
           const hovered = !!find(hoveredData, { id });
           const classes = classnames(`data-point-${name || id}`, 'data-point', {
             [pointClasses]: pointClasses,
             selected,
             hovered,
-            [invisible]: !useColor && plottingColor,
+            [invisible]: !useColor && useFluxColor,
           });
-          const blueColorPercent = Math.floor((color / 2) * 100);
-          const redColorPercent = 100 - blueColorPercent;
-          const colorShift = `rgba(${redColorPercent}%, 0%, ${blueColorPercent}%, 0.85)`;
 
           return (
             <Point
@@ -45,10 +41,10 @@ class Points extends React.PureComponent {
               classes={classes}
               selected={selected}
               hovered={hovered}
-              x={xScale(x)}
-              y={yScale(y) + offsetTop}
+              x={xScale(d[xValueAccessor])}
+              y={yScale(d[yValueAccessor]) + offsetTop}
               label={label}
-              fill={plottingColor ? colorShift : null}
+              fill={useFluxColor ? getFluxRgba(color) : null}
             />
           );
         })}

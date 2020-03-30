@@ -31,6 +31,7 @@ $chartColorsLength: length($chartColors) - 1;
 @for $i from 0 through $chartColorsLength - 1 {
   .color-set-#{$i} {
     $chartColor: nth($chartColors, $i + 1);
+    background-color: transparentize($chartColor, 0.15);
     fill: transparentize($chartColor, 0.15);
     stroke: lighten($chartColor, 5%);
   }
@@ -118,4 +119,35 @@ nav {
       }
     }
   }
+}
+
+// Multiple datasets Legend
+.legend {
+  display: inline-block;
+  // width: auto;
+  // max-width: 100%;
+  padding: $minPadding / 2;
+  margin-bottom: $minPadding;
+}
+
+.legend-row {
+  @include labelPrimary;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  + .legend-row {
+    margin-top: $minPadding / 2;
+  }
+}
+
+.legend-point {
+  width: 14px;
+  height: 14px;
+  margin-right: $minPadding;
+  border-radius: 50%;
+}
+
+.default-point {
+  background-color: $neutral30;
 }

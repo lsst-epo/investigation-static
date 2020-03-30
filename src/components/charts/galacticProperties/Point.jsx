@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-duplicate-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
@@ -41,8 +40,6 @@ class Point extends React.PureComponent {
         cx={x}
         cy={y}
         r={this.baseRadius}
-        fill={fill || '#828287'}
-        stroke="transparent"
         fill={fillColor}
         stroke={fillColor}
         tabIndex="0"
