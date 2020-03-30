@@ -42,7 +42,6 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     } else if (sources && randomSource) {
       const randomSourcePath =
         sources[randomIntFromInterval(0, sources.length - 1)];
-
       this.getSetData(randomSourcePath);
     }
   }

@@ -15,6 +15,7 @@ import { arrayify } from '../../../lib/utilities.js';
 import Points from './Points';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
+import LegendMultiple from './LegendMultiple.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
 import styles from './galactic-properties.module.scss';
 
@@ -307,6 +308,12 @@ class GalacticProperties extends React.Component {
 
     return (
       <>
+        {multiple && data && (
+          <LegendMultiple
+            yValueAccessor={yValueAccessor}
+            numOfSets={data.length}
+          />
+        )}
         <div
           ref={this.svgContainer}
           className={`svg-container ${styles.galacticPropertiesContainer}`}
