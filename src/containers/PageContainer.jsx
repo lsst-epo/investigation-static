@@ -149,10 +149,12 @@ export const query = graphql`
           }
           options {
             title
+            show2D
+            show3D
             showSelector
             showLightCurve
-            createUserHubblePlot
             showUserPlot
+            createUserHubblePlot
             hubbleConstant
             userTrendline
             lightCurveTemplates
