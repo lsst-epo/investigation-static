@@ -20,16 +20,18 @@ class Points extends React.PureComponent {
     return (
       <g className={`data-points ${pointClasses}`}>
         {data.map(d => {
-          const { id, color } = d;
+          const { id, color, radius } = d;
+          const xVal = d[xValueAccessor];
+          const modR = 0.6 * radius;
           const isSelected = !!find(selectedData, { id: d.id });
           const isActive = active ? active.id === d.id : false;
-
           return (
             <Point
               key={`point-${id}`}
-              {...{ id, isSelected, isActive }}
+              {...{ id, isActive, isSelected }}
+              radius={xScale(xVal - modR) - xScale(xVal + modR)}
               classes={pointClasses}
-              x={xScale(d[xValueAccessor])}
+              x={xScale(xVal)}
               y={yScale(d[yValueAccessor])}
               color={isNumber(color) ? '#c82960' : color}
               tabIndex="0"
