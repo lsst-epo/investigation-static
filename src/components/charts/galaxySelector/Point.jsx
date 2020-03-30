@@ -13,16 +13,16 @@ class Point extends React.PureComponent {
   }
 
   componentDidUpdate() {
-    const { isActive, id } = this.props;
+    const { isActive, id, radius } = this.props;
     const $point = d3Select(this.svgEl.current);
-    const baseRadius = this.getRadius(id);
+    const baseRadius = this.getRadius(id, radius);
 
     if (isActive) {
       $point
         .transition()
         .duration(800)
         .ease(d3EaseElastic)
-        .attr('r', baseRadius * 2);
+        .attr('r', baseRadius < 10 ? 10 : baseRadius * 1.2);
     } else {
       $point
         .transition()
@@ -31,7 +31,11 @@ class Point extends React.PureComponent {
     }
   }
 
-  getRadius(id) {
+  getRadius(id, radius) {
+    if (radius) {
+      return radius;
+    }
+
     return (
       {
         supernova: 20,
@@ -53,7 +57,16 @@ class Point extends React.PureComponent {
   }
 
   render() {
-    const { isActive, isSelected, x, y, color, classes, id } = this.props;
+    const {
+      isActive,
+      isSelected,
+      x,
+      y,
+      radius,
+      color,
+      classes,
+      id,
+    } = this.props;
     const pointClasses = classnames(
       galaxy,
       'data-point',
@@ -70,7 +83,7 @@ class Point extends React.PureComponent {
         className={pointClasses}
         cx={x}
         cy={y}
-        r={this.getRadius(id)}
+        r={this.getRadius(id, radius)}
         fill="transparent"
         stroke={this.getStroke(isActive, isSelected, color)}
         strokeWidth={0}
@@ -85,6 +98,7 @@ Point.propTypes = {
   isActive: PropTypes.bool,
   x: PropTypes.number,
   y: PropTypes.number,
+  radius: PropTypes.number,
   classes: PropTypes.string,
   color: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
