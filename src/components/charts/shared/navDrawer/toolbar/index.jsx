@@ -11,11 +11,15 @@ import ButtonIcon from '../../../../site/button/ButtonIcon';
 class NavDrawerToolbar extends React.PureComponent {
   icon = (Icon, srText) => <ButtonIcon srText={srText} Icon={Icon} />;
 
+  handleClick = () => {
+    const { toggleMenu, menuIsOpen } = this.props;
+
+    toggleMenu(!menuIsOpen);
+  };
+
   render() {
     const {
       title,
-      onMenuOpen,
-      onMenuClose,
       actions,
       menuIsOpen,
       interactableToolbar,
@@ -32,7 +36,7 @@ class NavDrawerToolbar extends React.PureComponent {
             disabled={!interactableToolbar}
             primary
             flat
-            onClick={menuIsOpen ? onMenuClose : onMenuOpen}
+            onClick={this.handleClick}
             iconEl={
               menuIsOpen
                 ? this.icon(CloseIcon, 'Close')
@@ -53,8 +57,7 @@ export default NavDrawerToolbar;
 NavDrawerToolbar.propTypes = {
   title: PropTypes.string,
   actions: PropTypes.node,
-  onMenuOpen: PropTypes.func,
-  onMenuClose: PropTypes.func,
+  toggleMenu: PropTypes.func,
   menuIsOpen: PropTypes.bool,
   interactableToolbar: PropTypes.bool,
   toolbarStyles: PropTypes.object,

@@ -15,36 +15,15 @@ class NavDrawer extends React.PureComponent {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    const { navItems: prevNavItems } = prevProps;
-    const { navItems } = this.props;
-
-    if (navItems !== prevNavItems) {
-      this.handleMenuClose();
-    }
-  }
-
-  handleMenuOpen = () => {
-    const { menuOpenCallback } = this.props;
+  menuToggler = menuIsOpen => {
+    const { menuOpenCallback, menuCloseCallback } = this.props;
 
     this.setState(
       prevState => ({
         ...prevState,
-        menuIsOpen: true,
+        menuIsOpen,
       }),
-      menuOpenCallback
-    );
-  };
-
-  handleMenuClose = () => {
-    const { menuCloseCallback } = this.props;
-
-    this.setState(
-      prevState => ({
-        ...prevState,
-        menuIsOpen: false,
-      }),
-      menuCloseCallback
+      menuIsOpen ? menuOpenCallback : menuCloseCallback
     );
   };
 
@@ -72,15 +51,14 @@ class NavDrawer extends React.PureComponent {
     const { menuIsOpen } = this.state;
 
     const navClasses = classnames(navDrawerContainer, classes);
-
+    // console.log(this.props, this.state);
     return (
       <>
         {showNavDrawer && (
           <Card className={cardClasses}>
             <NavDrawerToolbar
               menuIsOpen={menuIsOpen}
-              onMenuOpen={this.handleMenuOpen}
-              onMenuClose={this.handleMenuClose}
+              toggleMenu={this.menuToggler}
               title={toolbarTitle}
               actions={toolbarActions}
               interactableToolbar={interactableToolbar}
