@@ -18,8 +18,8 @@
     "source": "/data/galaxies/scrambler-2.json",
     "options": {
       "preSelected": true,
-      "hubbleConstant": 69.8,
-      "domain": [[0, 4500], [0, 210000]]
+      "hubbleConstant": 65.7,
+      "domain": [[0, 1300], [0, 75000]]
     }
   }],
   "questionsByPage": [
