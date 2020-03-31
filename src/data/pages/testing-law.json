@@ -29,7 +29,7 @@
           "id": "10",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Imagine there are alien astronomers living in galaxy #3. If we were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
+          "label": "Imagine there are alien astronomers living in Galaxy #3. If we were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
           "options": [
             {"label": "next to the origin", "value": "next to the origin"},
             {"label": "next to the Milky Way Galaxy", "value": "next to the Milky Way Galaxy"},
@@ -57,7 +57,7 @@
         {
           "id": "12",
           "questionType": "textArea",
-          "label": "How does the Hubble Constant for the observations made by the alien astronomers in galaxy #3 compare to the Hubble Constant you measured from Earth (in the Milky Way Galaxy)?",
+          "label": "How does the Hubble Constant for the observations made by the alien astronomers in Galaxy #3 compare to the Hubble Constant you measured from Earth (in the Milky Way Galaxy)?",
           "answerAccessor": "text"
         }
       ]

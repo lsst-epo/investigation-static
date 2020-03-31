@@ -28,7 +28,7 @@
           "id": "2",
           "questionType": "compoundSelect",
           "compoundQuestion": ["2", "3"],
-          "labelPre": "Based on its position and the scale of the axes on the plot, the data point for Galaxy 1 indicates that it is ",
+          "labelPre": "Based on its position and the scale of the axes on the plot, the data point for Galaxy 1 (click or hover over a point to see details about that galaxy) indicates that it is ",
           "labelPost": " ",
           "srLabel": "Based on its position and the scale of the axes on the plot, the data point for Galaxy 1 indicates that it is",
           "answerAccessor": "compound-select",
@@ -44,16 +44,16 @@
           "id": "3",
           "questionType": "compoundSelect",
           "compoundQuestion": ["2", "3"],
-          "labelPre": " from the Milky Way Galaxy and is moving ",
+          "labelPre": " from the Milky Way galaxy and is moving ",
           "labelPost": " .",
-          "srLabel": "from the Milky Way Galaxy and is moving",
+          "srLabel": "from the Milky Way galaxy and is moving",
           "answerAccessor": "compound-select",
           "placeholder": "Select a speed",
           "options": [
             { "label": "fast", "value": "fast" },
             { "label": "slow", "value": "slow" }
           ],
-          "answerPre": "from the Milky Way Galaxy and is moving ",
+          "answerPre": "from the Milky Way galaxy and is moving ",
           "answerPost": "."
         }
       ]
@@ -99,7 +99,7 @@
         {
           "id": "6",
           "questionType": "textArea",
-          "label": "Where would you plot the location of the Milky Way Galaxy on this Hubble plot? Explain your reasoning.",
+          "label": "Where would you plot the location of the Milky Way galaxy on this Hubble plot? Explain your reasoning.",
           "answerAccessor": "text"
         }
       ]
