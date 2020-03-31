@@ -12,6 +12,7 @@ class Trendline extends React.Component {
     this.offset = 5;
 
     this.state = {
+      slope: null,
       terminus: null,
       trendlineSelected: false,
     };
@@ -21,13 +22,29 @@ class Trendline extends React.Component {
     this.handleEventListeners();
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+    const { hubbleConstant } = this.props;
+    const { hubbleConstant: prevHubbleConstant } = prevProps;
+
+    if (!hubbleConstant && prevHubbleConstant) {
+      this.resetSlope();
+    }
+
     this.handleEventListeners();
   }
 
   componentWillUnmount() {
     const $background = d3Select(this.background.current);
     this.removeEventListeners($background);
+  }
+
+  resetSlope() {
+    this.setState(prevState => ({
+      ...prevState,
+      slope: null,
+      terminus: null,
+      trendlineSelected: false,
+    }));
   }
 
   mouseMoveHandler = () => {
@@ -47,36 +64,38 @@ class Trendline extends React.Component {
     const { clickHandler } = this.props;
     const { trendlineSelected } = this.state;
 
-    if (!trendlineSelected) {
-      $background.on('mousemove', this.mouseMoveHandler);
-    }
-
-    $background.on('click', () => {
+    $background.on('mousedown', () => {
       if (trendlineSelected) {
-        $background.on('mousemove', this.mouseMoveHandler);
-        this.setState(
-          prevState => ({
-            ...prevState,
-            trendlineSelected: false,
-          }),
-          clickHandler
-        );
-      } else {
-        $background.on('mousemove', null);
-        this.setState(
-          prevState => ({
-            ...prevState,
-            trendlineSelected: true,
-          }),
-          clickHandler
-        );
+        this.setState(prevState => ({
+          ...prevState,
+          trendlineSelected: false,
+        }));
       }
+
+      $background.on('mousemove', this.mouseMoveHandler);
+    });
+
+    $background.on('mouseup', () => {
+      $background.on('mousemove', null);
+
+      this.setState(
+        prevState => ({
+          ...prevState,
+          trendlineSelected: true,
+        }),
+        () => {
+          if (!trendlineSelected) {
+            clickHandler();
+          }
+        }
+      );
     });
   }
 
   removeEventListeners($background) {
     $background.on('mousemove', null);
-    $background.on('click', null);
+    $background.on('mousedown', null);
+    $background.on('mouseup', null);
   }
 
   handleEventListeners() {
@@ -92,25 +111,22 @@ class Trendline extends React.Component {
 
   terminusFromSlope(slope) {
     if (!slope) return null;
-
+    const bufferPercent = 0.08;
     const { xScale, yScale } = this.props;
-    const [low, high] = yScale.domain();
-    const y = high - (high - low) * 0.05;
-    const x = y / slope;
+    const [minY, maxY] = yScale.domain();
+    const [minX, maxX] = xScale.domain();
+    const bufferedMaxX = maxX - (maxX - minX) * bufferPercent;
+
+    let y = maxY - (maxY - minY) * bufferPercent;
+    let x = y / slope;
+
+    if (x > bufferedMaxX) {
+      x = bufferedMaxX;
+      y = slope * x;
+    }
 
     return [xScale(x), yScale(y)];
   }
-
-  // getLabelDims() {
-  //   const $slopeLabel = this.label.current;
-
-  //   if ($slopeLabel) {
-  //     const { width, height } = $slopeLabel.getBBox();
-  //     return { width, height };
-  //   }
-
-  //   return { width: 0, height: 0 };
-  // }
 
   getMidPoint(a, b) {
     if (!a || !b) return null;

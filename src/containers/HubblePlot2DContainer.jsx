@@ -51,12 +51,14 @@ class HubblePlot2DContainer extends React.PureComponent {
     updateAnswer(qId || activeQuestionId, data);
   };
 
-  getHubbleConstant(qId) {
+  getHubbleConstant(qId, hubbleConstant) {
+    if (hubbleConstant) return parseFloat(hubbleConstant);
+
     const { answers } = this.props;
     const answer = answers[qId];
 
     if (!isEmpty(answer)) {
-      return answer.data;
+      return parseFloat(answer.data);
     }
 
     return null;
@@ -82,9 +84,7 @@ class HubblePlot2DContainer extends React.PureComponent {
             options,
             trendlineInteractable,
           }}
-          hubbleConstant={parseFloat(
-            hubbleConstant || this.getHubbleConstant(userTrendline)
-          )}
+          hubbleConstant={this.getHubbleConstant(userTrendline, hubbleConstant)}
           userHubblePlotCallback={this.userHubblePlotCallback}
           userTrendlineCallback={this.userTrendlineCallback}
         />
