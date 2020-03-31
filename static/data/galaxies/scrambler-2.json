@@ -17,7 +17,7 @@
         "z": 0.0
       },
       {
-        "name": "IC4687",
+        "name": "Galaxy #1",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.017460998578026438,
@@ -28,7 +28,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Mrk34",
+        "name": "Galaxy #2",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.0510100004154595,
@@ -39,7 +39,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "2E2978",
+        "name": "Galaxy #3",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.15434000264721354,
@@ -50,7 +50,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "ACO383",
+        "name": "Galaxy #4",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.18710000071334348,
@@ -61,7 +61,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "SPG2002_G2",
+        "name": "Galaxy #5",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.2509999995498257,
@@ -74,7 +74,7 @@
     ]
   },
   {
-    "name": "IC4687",
+    "name": "Galaxy #1",
     "id": "Gal1",
     "color": "#1ab579",
     "data": [
@@ -91,9 +91,9 @@
         "z": 0.0
       },
       {
-        "name": "IC4687",
+        "name": "Galaxy #1",
         "id": "Gal1",
-        "label": "IC4687",
+        "label": "Galaxy #1",
         "color": "#1ab579",
         "redshift": 0.0,
         "distance": 0.0,
@@ -103,7 +103,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Mrk34",
+        "name": "Galaxy #2",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.0613910838414253,
@@ -114,7 +114,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "2E2978",
+        "name": "Galaxy #3",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.14775923305753288,
@@ -125,7 +125,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "ACO383",
+        "name": "Galaxy #4",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.17704817067161657,
@@ -136,7 +136,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "SPG2002_G2",
+        "name": "Galaxy #5",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.2356790053991114,
@@ -149,7 +149,7 @@
     ]
   },
   {
-    "name": "Mrk34",
+    "name": "Galaxy #2",
     "id": "Gal2",
     "color": "#8e3efe",
     "data": [
@@ -166,7 +166,7 @@
         "z": 0.0
       },
       {
-        "name": "IC4687",
+        "name": "Galaxy #1",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.0613910838414253,
@@ -177,9 +177,9 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Mrk34",
+        "name": "Galaxy #2",
         "id": "Gal2",
-        "label": "Mrk34",
+        "label": "Galaxy #2",
         "color": "#8e3efe",
         "redshift": 0.0,
         "distance": 0.0,
@@ -189,7 +189,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "2E2978",
+        "name": "Galaxy #3",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.12791316944140987,
@@ -200,7 +200,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "ACO383",
+        "name": "Galaxy #4",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.16984799489596916,
@@ -211,7 +211,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "SPG2002_G2",
+        "name": "Galaxy #5",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.248554861551478,
@@ -224,7 +224,7 @@
     ]
   },
   {
-    "name": "2E2978",
+    "name": "Galaxy #3",
     "id": "Gal3",
     "color": "#c82960",
     "data": [
@@ -241,7 +241,7 @@
         "z": 0.0
       },
       {
-        "name": "IC4687",
+        "name": "Galaxy #1",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.14775923305753288,
@@ -252,7 +252,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Mrk34",
+        "name": "Galaxy #2",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.12791316944140987,
@@ -263,9 +263,9 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "2E2978",
+        "name": "Galaxy #3",
         "id": "Gal3",
-        "label": "2E2978",
+        "label": "Galaxy #3",
         "color": "#c82960",
         "redshift": 0.0,
         "distance": 0.0,
@@ -275,7 +275,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "ACO383",
+        "name": "Galaxy #4",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.05458799133987719,
@@ -286,7 +286,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "SPG2002_G2",
+        "name": "Galaxy #5",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.1365819319086266,
@@ -299,7 +299,7 @@
     ]
   },
   {
-    "name": "ACO383",
+    "name": "Galaxy #4",
     "id": "Gal4",
     "color": "#eb7c39",
     "data": [
@@ -316,7 +316,7 @@
         "z": 0.0
       },
       {
-        "name": "IC4687",
+        "name": "Galaxy #1",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.17704817067161657,
@@ -327,7 +327,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Mrk34",
+        "name": "Galaxy #2",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.16984799489596916,
@@ -338,7 +338,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "2E2978",
+        "name": "Galaxy #3",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.05458799133987719,
@@ -349,9 +349,9 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "ACO383",
+        "name": "Galaxy #4",
         "id": "Gal4",
-        "label": "ACO383",
+        "label": "Galaxy #4",
         "color": "#eb7c39",
         "redshift": 0.0,
         "distance": 0.0,
@@ -361,7 +361,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "SPG2002_G2",
+        "name": "Galaxy #5",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.11198617000021581,
@@ -374,7 +374,7 @@
     ]
   },
   {
-    "name": "SPG2002_G2",
+    "name": "Galaxy #5",
     "id": "Gal5",
     "color": "#fed828",
     "data": [
@@ -391,7 +391,7 @@
         "z": 0.0
       },
       {
-        "name": "IC4687",
+        "name": "Galaxy #1",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.2356790053991114,
@@ -402,7 +402,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Mrk34",
+        "name": "Galaxy #2",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.248554861551478,
@@ -413,7 +413,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "2E2978",
+        "name": "Galaxy #3",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.1365819319086266,
@@ -424,7 +424,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "ACO383",
+        "name": "Galaxy #4",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.11198617000021581,
@@ -435,9 +435,9 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "SPG2002_G2",
+        "name": "Galaxy #5",
         "id": "Gal5",
-        "label": "SPG2002_G2",
+        "label": "Galaxy #5",
         "color": "#fed828",
         "redshift": 0.0,
         "distance": 0.0,
