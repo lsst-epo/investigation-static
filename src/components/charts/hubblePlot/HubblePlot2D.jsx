@@ -229,7 +229,10 @@ class HubblePlot2D extends React.Component {
     const $hubblePlot = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
-    if (!preSelected && userTrendline) {
+    if (
+      (!preSelected && userTrendline) ||
+      (preSelected && !createUserHubblePlot)
+    ) {
       $hubblePlot.on('click', () => {
         const pointData = d3Select(d3Event.target).datum();
 
@@ -247,16 +250,6 @@ class HubblePlot2D extends React.Component {
           this.toggleSelection(pointData);
         } else if (createUserHubblePlot) {
           this.toggleUserPoint();
-        } else {
-          this.clearSelection();
-        }
-      });
-    } else if (preSelected) {
-      $hubblePlot.on('click', () => {
-        const pointData = d3Select(d3Event.target).datum();
-
-        if (pointData) {
-          this.toggleSelection(pointData);
         } else {
           this.clearSelection();
         }
