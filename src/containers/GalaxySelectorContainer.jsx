@@ -63,9 +63,6 @@ class GalaxySelectorContainer extends React.PureComponent {
 
   chooseGalaxyAndClosePlot(event, activeGalaxy) {
     if (event) {
-      const { plotIsOpen } = this.state;
-      if (plotIsOpen) this.handleSlideOutPlot('close');
-
       const { alerts } = activeGalaxy;
       const activeAlert = alerts[0];
 
@@ -75,6 +72,7 @@ class GalaxySelectorContainer extends React.PureComponent {
         activeImageIndex: 0,
         activeImageId: activeAlert.image_id,
         activeAlert: alerts[0],
+        plotIsOpen: false,
       }));
     }
   }
@@ -122,7 +120,7 @@ class GalaxySelectorContainer extends React.PureComponent {
       (getSelectedData(activeGalaxy, answers, toggleDataPointsVisibility) || [])
         .length >= 2;
 
-    if (plotIsOpen && !galSnSelected) this.handleSlideOutPlot('close');
+    if (plotIsOpen && !galSnSelected) this.handleSlideOutPlot();
 
     const { alerts } = activeGalaxy;
     const activeAlert = alerts[0];
