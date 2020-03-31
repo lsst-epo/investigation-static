@@ -21,7 +21,7 @@
       "showUserPlot": "252",
       "preSelected": true,
       "multiple": true,
-      "hubbleConstant": 69.8,
+      "hubbleConstant": 65.7,
       "domain": [[0, 5000], [0, 175000]]
     }
   }]
