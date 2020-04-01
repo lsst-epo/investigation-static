@@ -44,6 +44,25 @@ class LargeScaleStructure3D extends React.PureComponent {
           fontFamily: 'Roboto',
         },
       },
+      visualMap: [
+        {
+          show: true,
+          type: 'piecewise',
+          min: 0,
+          max: !showSelection ? 2000 : 800,
+          dimension: 3,
+          // pieces: [
+          //   { min: 0, max: 0.09, color: '#ffbaba' },
+          //   { min: 0.09, max: 0.15, color: '#ff5252' },
+          //   { min: 0.15, max: 0.2, color: ' #a70000' },
+          // ],
+          inRange: {
+            symbolSize: [0.2, 10],
+            color: ['#A8D0E6', '#374785'],
+            colorAlpha: [0.1, 0.8],
+          },
+        },
+      ],
       series: [
         {
           name: 'Big Dataset',
