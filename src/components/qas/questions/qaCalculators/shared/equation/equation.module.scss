@@ -19,4 +19,17 @@
       @include exponent;
     }
   }
+
+  .exponent {
+    @include exponent;
+    position: relative;
+    top: -7px;
+    left: -3px;
+  }
+
+  .square-root {
+    &::before {
+      content: '√';
+    }
+  }
 }

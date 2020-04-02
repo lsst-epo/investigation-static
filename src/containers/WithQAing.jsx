@@ -19,6 +19,7 @@ export const WithQAing = ComposedComponent => {
         'multi-select': this.getMultiSelectContent,
         count: this.getCountContent,
         'light-curve-template': this.getTemplateContent,
+        'size-calc': this.getSizeCalcContent,
         magnitude: this.getMagnitudeContent,
         galaxy: this.getGalaxyContent,
         galaxies: this.getGalaxiesContent,
@@ -73,6 +74,10 @@ export const WithQAing = ComposedComponent => {
 
     getMagnitudeContent(data) {
       return data.magnitude || 'None Selected';
+    }
+
+    getSizeCalcContent(data) {
+      return data.d || 'None Selected';
     }
 
     getCountContent(data) {
