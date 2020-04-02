@@ -5,6 +5,7 @@ import QAExpansionList from './questions/qaExpansionList/index.jsx';
 import QATextInput from './questions/qaTextInput';
 import QASelect from './questions/qaSelect';
 import DistanceCalculator from './questions/qaCalculators/distanceCalculator';
+import SizeCalculator from './questions/qaCalculators/sizeCalculator';
 import Prompt from './questions/Prompt';
 import QAMultiSelect from './questions/qaMultiSelect/index.jsx';
 
@@ -17,6 +18,7 @@ const questions = {
   'inline-select': QASelect,
   multiSelect: QAMultiSelect,
   DistanceCalculator,
+  SizeCalculator,
   prompt: Prompt,
 };
 

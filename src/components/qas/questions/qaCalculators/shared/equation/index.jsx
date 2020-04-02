@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
+import FindDiameter from './FindDiameter';
 import FindDistanceModulus from './FindDistanceModulus';
 import FindParsecs from './FindParsecs';
 import './equation.module.scss';
@@ -22,6 +23,7 @@ DefaultEquation.propTypes = {
 export default function Equation(props) {
   const { component } = props;
   const components = {
+    FindDiameter,
     FindDistanceModulus,
     FindParsecs,
   };

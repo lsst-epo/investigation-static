@@ -46,10 +46,10 @@ class DistanceCalculator extends React.PureComponent {
     const { answerable, value } = this.state;
     const { question, activeId, answer } = this.props;
     const { id } = question;
-    const claculatableValue = isEmpty(answer) ? value : answer.content;
+    const calculatableValue = isEmpty(answer) ? value : answer.content;
 
     this.checkAnswerable(answerable, activeId === id);
-    this.updateCalculatedMeasurements(claculatableValue);
+    this.updateCalculatedMeasurements(calculatableValue);
   }
 
   componentDidUpdate() {

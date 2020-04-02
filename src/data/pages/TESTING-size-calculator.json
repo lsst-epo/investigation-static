@@ -1,0 +1,27 @@
+{
+  "id": "solarSizeCalc",
+  "investigation": "solar-system",
+  "order": "00",
+  "title": "Placeholder for the Size Calculator",
+  "slug": "size-calculator/",
+  "previous": {
+    "title": "Index",
+    "link": "/"
+  },
+  "next": { "title": "", "link": "" },
+  "layout": "TwoCol",
+  "content": "<p>Checkout the size calculator...</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "1",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "answerPre": "<span>Asteroid Size Calculator: </span>",
+          "answerAccessor": "size-calc"
+        }
+      ]
+    }
+  ]
+}

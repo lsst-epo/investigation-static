@@ -10,11 +10,15 @@ function CalculatedMeasurement({ unit, value }) {
     Mpc: 'Mega Parsecs (Mpc)',
     ly: 'Light Years (ly)',
     Mly: 'Mega Light Years (Mly)',
+    D: 'D',
   };
 
   return (
     <div className={styles.calculationBlock}>
-      <p>{`${labels[unit] || unit} = ${value ? addTheCommas(value) : '?'}`}</p>
+      <p>
+        <strong>{`${labels[unit] || unit}`}</strong> ={' '}
+        {`${value ? addTheCommas(value) : '?'}`}
+      </p>
     </div>
   );
 }

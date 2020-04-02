@@ -1,18 +1,18 @@
 [
   {
     "title": "Exploding Stars",
-    "id" : "exploding-stars"
+    "id": "exploding-stars"
   },
   {
     "title": "Expanding Universe",
-    "id" : "expanding-universe"
+    "id": "expanding-universe"
   },
   {
-    "title": "Expoloring the Observable Universe",
-    "id" : "observable-universe"
+    "title": "Exploring the Observable Universe",
+    "id": "observable-universe"
   },
   {
     "title": "Surveying the Solar System",
-    "id" : "solar-system"
+    "id": "solar-system"
   }
 ]
