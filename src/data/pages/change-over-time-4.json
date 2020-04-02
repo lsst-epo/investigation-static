@@ -17,9 +17,9 @@
   "widgets": [
     {
       "type": "LargeScaleStructure",
-      "source": "/data/sample_data/SDSS_SpecGals_DR8_25000.json",
+      "source": "/data/sample_data/sdss_photoz_25000_xyz_Mpc.json",
       "options": {
-        "show2D": true,
+        "show2D": false,
         "show3D": true
       }
     }

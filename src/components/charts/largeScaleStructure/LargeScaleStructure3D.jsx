@@ -19,69 +19,94 @@ class LargeScaleStructure3D extends React.PureComponent {
   }
 
   getOption() {
-    const { data, selectedData, max, min } = this.props;
+    const { data, selectedData } = this.props;
     let showSelection = false;
 
     showSelection = selectedData && selectedData.length !== 0;
 
     return {
-      grid3D: {},
-      xAxis3D: this.getAxisOptions('RA'),
-      zAxis3D: {
-        max: 80,
-        name: 'Dec',
-        type: 'value',
-        nameTextStyle: {
-          fontFamily: 'Roboto',
+      xAxis3D: this.getAxisOptions('X'),
+      yAxis3D: this.getAxisOptions('Y'),
+      zAxis3D: this.getAxisOptions('Z'),
+      grid3D: {
+        show: false,
+        environment: '#000000',
+        viewControl: {
+          minDistance: 0,
+          maxDistance: 100,
         },
+        // postEffect: {
+        // enable: true,
+        // bloom: {
+        //   enable: true,
+        //   bloomIntensity: 1,
+        // },
+        // SSAO: {
+        //   enable: true,
+        //   quality: 'high',
+        //   radius: 10,
+        //   insensity: 0.5,
+        // },
+        // },
       },
-      yAxis3D: {
-        max,
-        min,
-        name: 'Redshift',
-        type: 'value',
-        nameTextStyle: {
-          fontFamily: 'Roboto',
-        },
-      },
+      // visualMap: {
+      //   show: false,
+      // dimension: 1,
+      // splitNumber: 100,
+      // min: 0,
+      // max: 3000,
+      // inRange: {
+      //   opacity: [0.05, 1],
+      // },
+      //   hoverlink: false,
+      //   tooltip: {
+      //     show: false,
+      //   },
+      // },
       series: [
         {
           name: 'Big Dataset',
           data,
-          dimensions: ['RA', 'Dec', 'redshift'],
+          dimensions: ['x', 'y', 'z'],
           type: 'scatter3D',
+          hoverlink: false,
+          tooltip: {
+            show: false,
+          },
+          blendMode: 'lighter',
           encode: {
-            x: 'RA',
-            z: 'Dec',
-            y: 'redshift',
+            x: 'x',
+            y: 'y',
+            z: 'z',
           },
-          symbolSize: 2.5,
+          hoverAnimation: false,
+          symbolSize: 3,
           itemStyle: {
-            color: colorSecondary,
-            borderColor: colorPrimary,
-            borderWidth: !showSelection ? 0.01 : 0,
-            opacity: showSelection ? 0.2 : 1,
-          },
-        },
-        {
-          name: 'Highlight Dataset',
-          data: selectedData,
-          dimensions: ['RA', 'Dec', 'redshift'],
-          type: 'scatter3D',
-          encode: {
-            x: 'RA',
-            z: 'Dec',
-            y: 'redshift',
-          },
-          symbolSize: 2.5,
-          itemStyle: {
-            color: colorSecondary,
-            borderColor: colorPrimary,
-            borderWidth: 0.01,
+            color: colorPrimary,
+            opacity: 0.2,
           },
         },
       ],
     };
+  }
+
+  onChartClick = params => {
+    const ptArr = [params.value[0], params.value[1], params.value[2]];
+    if (params.seriesIndex === 0) {
+      console.log(ptArr);
+      // this.setState(prevState => ({
+      //   ...prevState,
+      //   selectedPt: [...prevState.selectedPt, ptArr],
+      //   clickedPt: params.value,
+      // }));
+    }
+  };
+
+  getEvent() {
+    const onEvents = {
+      click: this.onChartClick,
+    };
+    return onEvents;
   }
 
   render() {
@@ -91,6 +116,7 @@ class LargeScaleStructure3D extends React.PureComponent {
       <>
         {data && (
           <ReactEcharts
+            onEvents={this.getEvent()}
             style={{ height: '500px', width: '100%' }}
             option={this.getOption()}
           />

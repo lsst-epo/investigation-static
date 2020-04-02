@@ -5,7 +5,7 @@ import Slider from 'react-md/lib/Sliders/Slider';
 import SelectionControl from 'react-md/lib/SelectionControls/SelectionControl';
 import API from '../lib/API.js';
 import { extentFromSet, formatValue } from '../lib/utilities.js';
-import { arrayifyData } from '../components/charts/largeScaleStructure/largeScaleStructureUtilities.js';
+// import { arrayifyData } from '../components/charts/largeScaleStructure/largeScaleStructureUtilities.js';
 import LargeScaleStructure3D from '../components/charts/largeScaleStructure/LargeScaleStructure3D.jsx';
 import LargeScaleStructure2D from '../components/charts/largeScaleStructure/LargeScaleStructure2D.jsx';
 import '../components/charts/largeScaleStructure/large-scale-structure-plot.module.scss';
@@ -34,25 +34,30 @@ class LargeScaleStructureContainer extends React.PureComponent {
 
     API.get(source).then(response => {
       const { data } = response;
-      const { galaxies } = data || {};
-      const [min, max] = extentFromSet(galaxies, 'redshift');
-      const formattedMin = formatValue(min, 2);
+      // const { galaxies } = data || {};
+      // const [min, max] = extentFromSet(galaxies, 'redshift');
+      // const formattedMin = formatValue(min, 2);
+
+      // this.setState(prevState => ({
+      //   ...prevState,
+      //   data: galaxies,
+      //   sliderVal: formattedMin,
+      //   min: formattedMin,
+      //   max: formatValue(max, 2),
+      //   formattedData: arrayifyData(galaxies),
+      // }));
 
       this.setState(prevState => ({
         ...prevState,
-        data: galaxies,
-        sliderVal: formattedMin,
-        min: formattedMin,
-        max: formatValue(max, 2),
-        formattedData: arrayifyData(galaxies),
+        data,
       }));
     });
   }
 
   handleRangeToggle = rangeSliderEnabled => {
-    const { sliderVal, formattedData } = this.state;
+    const { sliderVal, data } = this.state;
     const selectedData = rangeSliderEnabled
-      ? this.getSelectedData(formattedData, sliderVal)
+      ? this.getSelectedData(data, sliderVal)
       : null;
 
     this.setState(prevState => ({
@@ -63,8 +68,8 @@ class LargeScaleStructureContainer extends React.PureComponent {
   };
 
   getSelectedData = (newData, newValue) => {
-    const { formattedData, sliderVal } = this.state;
-    const data = newData || formattedData;
+    const { data: oldData, sliderVal } = this.state;
+    const data = newData || oldData;
     const value = newValue || sliderVal;
 
     return data.filter(d => {
@@ -83,10 +88,10 @@ class LargeScaleStructureContainer extends React.PureComponent {
         sliderVal: formatValue(value / 100, 2),
       }),
       debounce(() => {
-        const { sliderVal, formattedData } = this.state;
+        const { sliderVal, data } = this.state;
         this.setState(prevState => ({
           ...prevState,
-          selectedData: this.getSelectedData(formattedData, sliderVal),
+          selectedData: this.getSelectedData(data, sliderVal),
         }));
       }, 400)
     );
@@ -94,7 +99,7 @@ class LargeScaleStructureContainer extends React.PureComponent {
 
   render() {
     const {
-      formattedData,
+      data,
       selectedData,
       max,
       min,
@@ -133,12 +138,14 @@ class LargeScaleStructureContainer extends React.PureComponent {
             </div>
           </div>
         )}
-        <div className={show2D && show3D && 'container-flex spaced'}>
-          <div className={show2D && show3D && 'col padded col-width-50'}>
+        <div className={show2D && show3D ? 'container-flex spaced' : undefined}>
+          <div
+            className={show2D && show3D ? 'col padded col-width-50' : undefined}
+          >
             {show2D && (
               <LargeScaleStructure2D
-                data={formattedData}
                 {...{
+                  data,
                   min,
                   max,
                   sliderVal,
@@ -147,11 +154,13 @@ class LargeScaleStructureContainer extends React.PureComponent {
               />
             )}
           </div>
-          <div className={show2D && show3D && 'col padded col-width-50'}>
+          <div
+            className={show2D && show3D ? 'col padded col-width-50' : undefined}
+          >
             {show3D && (
               <LargeScaleStructure3D
-                data={formattedData}
                 {...{
+                  data,
                   min,
                   max,
                   sliderVal,
