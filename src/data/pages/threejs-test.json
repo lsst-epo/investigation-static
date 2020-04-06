@@ -1,0 +1,18 @@
+{
+  "id": "solarSystem100",
+  "investigation": "solar-system",
+  "order": "100",
+  "title": "ThreeJS Orbital Viewer Test",
+  "slug": "threejs-test/",
+  "layout": "SingleCol",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json",
+      "options": {
+        "show2D": true,
+        "show3D": true
+      }
+    }
+  ]
+}
