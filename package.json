@@ -1,5 +1,5 @@
 {
-  "name": "supernovae-investigation",
+  "name": "investigations",
   "private": true,
   "description": "Educational Investigation about Supernovae",
   "version": "0.0.1",
@@ -35,7 +35,9 @@
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-md": "^1.12.3",
-    "reactn": "^2.2.5"
+    "react-three-fiber": "^4.0.25",
+    "reactn": "^2.2.5",
+    "three": "^0.115.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.6.0",
