@@ -23,9 +23,9 @@
       "rowTitles": [["Inside the Milky Way"], ["Possible satellite galaxy of the Milky Way"], ["Member of the Local Group"], ["Member of the Laniakea Supercluster"], ["Beyond the Laniakea Supercluster"]],
       "rows": [
         [{"content": "Less than 100,000 LY away"}],
-        [{"content": "100,000 - 1.4 million LY"}],
-        [{"content": "1.4 - 5 million LY"}],
-        [{"content": "5 - 520 million LY"}],
+        [{"content": "100,000 - 1.4 Mly"}],
+        [{"content": "1.4 - 5 Mly"}],
+        [{"content": "5 - 520 Mly"}],
         [{"content": "Beyond 520 Mly"}]
       ]
     },
