@@ -26,8 +26,12 @@ class QA extends React.PureComponent {
 
     if (questionType) {
       const QuestionComponent = questions[questionType];
-      return (
+      return QuestionComponent ? (
         <QuestionComponent {...this.props} handleAnswerSelect={answerHandler} />
+      ) : (
+        <div>
+          Question Placeholder: {questionType} Question Type does not Exist
+        </div>
       );
     }
 

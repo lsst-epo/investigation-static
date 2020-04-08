@@ -1,0 +1,14 @@
+{
+  "id": "solarsystem00",
+  "investigation": "solar-system",
+  "order": "00",
+  "title": "Introduction",
+  "slug": "introduction/",
+  "previous": { "title": "", "link": "" },
+  "next": {
+    "title": "Detecting Solar System Objects",
+    "link": "/detecting-objects/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>For hundreds of years we had a simple model of our Solar System: some large planets and their moons, and occasionally a passing comet. Then came the discovery of the first asteroid, Ceres, in 1801, an indication there was more going on out there than we thought. Sure enough, over the next 200 years about 800,000 small Solar System objects (which includes asteroids, comets, and trans-Neptunian objects) were discovered. At first the rate of discovery was slow, but advances in technology, which have made it possible to detect smaller and more distant objects, have sped up the process.</p><p>The Vera C. Rubin Observatory provides the most powerful observational tool we’ve ever had to study objects that move through the sky; the size of the telescope’s mirrors and the sensitivity of its camera combine to help us see more objects in our Solar System than ever before. Each image taken by Rubin Observatory covers a large area of the sky, and captures light even from very faint objects, making it possible to measure the motions of millions of small Solar System objects per night. Many of these are brand new discoveries.</p><p>In this investigation, you will use real data from Rubin Observatory to develop a deeper understanding of how small objects are distributed throughout the Solar System. You will also examine the orbits and characteristics of some newly detected Solar System objects, in order to classify them. Together, these observations will help us put together the story of how our Solar System formed, and give us insights into what we might find around other stars that have exoplanets.</p><h3>Essential Questions</h3><ul><li>What unique orbital properties exist among the different small objects in the Solar System?</li><li>How can observations of small objects give us information about their sizes and compositions?</li><li>What can observations of small objects reveal about the formation and history of the Solar System?</li></ul>"
+}

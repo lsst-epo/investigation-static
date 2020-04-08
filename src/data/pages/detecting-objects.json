@@ -1,0 +1,69 @@
+{
+  "id": "solarsystem02",
+  "investigation": "solar-system",
+  "order": "02",
+  "title": "Detecting Solar System Objects",
+  "slug": "detecting-objects/",
+  "previous": { "title": "Introduction", "link": "/introduction/" },
+  "next": {
+    "title": "Characterizing the orbit of a Solar System Object",
+    "link": "/characterizing-orbits/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Each night, the Rubin Observatory telescope takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an alert is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves in relation to the star field. Each image is a 30-second exposure.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "1",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Is the amount of time it takes for the two objects to move across the sky approximately the same?",
+          "options": [
+            { "label": "yes", "value": "yes" },
+            { "label": "no", "value": "no" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "2",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["2", "3"],
+          "labelPre": "The object that takes a longer time to move across the field of view is ",
+          "labelPost": " from the Sun, ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select",
+          "options": [
+            {"label": "closer", "value": "closer"},
+            {"label": "farther", "value": "farther"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "3",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["2", "3"],
+          "labelPre": " and will have a ",
+          "labelPost": " orbital period.",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "long", "value": "long"},
+            {"label": "short", "value": "short"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        }
+      ]
+    }
+  ]
+}

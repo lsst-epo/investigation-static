@@ -1,0 +1,90 @@
+{
+  "id": "solarsystem32",
+  "investigation": "solar-system",
+  "order": "32",
+  "title": "Summary",
+  "slug": "solar-system-summary-4/",
+  "previous": {
+    "title": "Summary",
+    "link": "/solar-system-summary-3/"
+  },
+  "next": {
+    "title": "Summary",
+    "link": "/solar-system-summary-5/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Enter an absolute magnitude and albedo to calculate the dimater of your objects. Use an albedo of 0.15.</p>",
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      },
+      "colTitles": [
+        "Property",
+        "Min",
+        "Max",
+        "Average"
+      ],
+      "rowTitles": [["Distance"], ["Eccentricity"], ["Inclination"], ["Diameter"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "55" },
+          { "accessor": "data", "id": "56" },
+          { "accessor": "data", "id": "57" }
+        ],
+        [
+          { "accessor": "data", "id": "58" },
+          { "accessor": "data", "id": "59" },
+          { "accessor": "data", "id": "60" }
+        ],
+        [
+          { "accessor": "data", "id": "61" },
+          { "accessor": "data", "id": "62" },
+          { "accessor": "data", "id": "63" }
+        ],
+        [
+          { "accessor": "data", "id": "64" },
+          { "accessor": "data", "id": "65" },
+          { "accessor": "data", "id": "66" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "64",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the smallest size (diameter)?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "65",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the greatest size (diameter)?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "66",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the average size (diameter)?"
+        }
+      ]
+    }
+  ]
+}
