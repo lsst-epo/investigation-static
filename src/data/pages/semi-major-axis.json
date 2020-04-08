@@ -1,0 +1,23 @@
+{
+  "id": "solarsystem04",
+  "investigation": "solar-system",
+  "order": "04",
+  "title": "Semi-Major Axis",
+  "slug": "semi-major-axis/",
+  "previous": {
+    "title": "Characterizing the orbit of a Solar System Object",
+    "link": "/characterizing-orbits/"
+  },
+  "next": {
+    "title": "Eccentricity",
+    "link": "/eccentricity/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>The <a href='https://en.wikipedia.org/wiki/Semi-major_and_semi-minor_axes' target='_blank'>semi-major axis</a> is half of the longest diameter of an ellipse. Simply put, this number indicates the size of the orbit. It is measured in <a href='https://cneos.jpl.nasa.gov/glossary/au.html' target='_blank'>astronomical units</a> (AU).</p>",
+  "images": [
+    {
+      "mediaPath": "/images/semi-major-axis.png",
+      "altText": "An image indicating the semi-major and semi-minor axis of an ellipse."
+    }
+  ]
+}

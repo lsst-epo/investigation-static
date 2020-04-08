@@ -1,0 +1,17 @@
+{
+  "id": "solarsystem03",
+  "investigation": "solar-system",
+  "order": "03",
+  "title": "Characterizing the orbit of a Solar System Object",
+  "slug": "characterizing-orbits/",
+  "previous": {
+    "title": "Detecting Solar System Objects",
+    "link": "/detecting-objects/"
+  },
+  "next": {
+    "title": "Semi-Major Axis",
+    "link": "/semi-major-axis/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>To estimate the orbit of a newly discovered Solar System object, astronomers map its position and record the time it takes to travel from one place to another. By making a series of careful measurements, they can determine a preliminary orbit for the object. The orbit is mathematically expressed through a set of orbital elements.</p>"
+}

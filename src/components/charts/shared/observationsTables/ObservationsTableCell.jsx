@@ -22,6 +22,10 @@ class ObservationsTableCell extends React.PureComponent {
     if (answer && !answerRange) {
       let value = answer.data;
 
+      if (value && accessor === 'data') {
+        return <span>{value}</span>;
+      }
+
       if (accessor === 'count') {
         value = answer.content;
       } else if (isArray(value)) {

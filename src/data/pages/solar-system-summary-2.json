@@ -1,0 +1,89 @@
+{
+  "id": "solarsystem30",
+  "investigation": "solar-system",
+  "order": "30",
+  "title": "Summary",
+  "slug": "solar-system-summary-2/",
+  "previous": {
+    "title": "Summary",
+    "link": "/solar-system-summary-1/"
+  },
+  "next": {
+    "title": "Summary",
+    "link": "/solar-system-summary-3/"
+  },
+  "layout": "TwoCol",
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      },
+      "colTitles": [
+        "Property",
+        "Min",
+        "Max",
+        "Average"
+      ],
+      "rowTitles": [["Distance"], ["Eccentricity"], ["Inclination"], ["Diameter"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "55" },
+          { "accessor": "data", "id": "56" },
+          { "accessor": "data", "id": "57" }
+        ],
+        [
+          { "accessor": "data", "id": "58" },
+          { "accessor": "data", "id": "59" },
+          { "accessor": "data", "id": "60" }
+        ],
+        [
+          { "accessor": "data", "id": "61" },
+          { "accessor": "data", "id": "62" },
+          { "accessor": "data", "id": "63" }
+        ],
+        [
+          { "accessor": "data", "id": "64" },
+          { "accessor": "data", "id": "65" },
+          { "accessor": "data", "id": "66" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "58",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the smallest orbital eccentricity?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "59",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the greatest orbital eccentricity?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "60",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the average orbital eccentricity?"
+        }
+      ]
+    }
+  ]
+}

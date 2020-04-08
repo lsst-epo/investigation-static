@@ -1,0 +1,86 @@
+{
+  "id": "solarsystem33",
+  "investigation": "solar-system",
+  "order": "33",
+  "title": "Summary",
+  "slug": "solar-system-summary-5/",
+  "previous": {
+    "title": "Summary",
+    "link": "/solar-system-summary-4/"
+  },
+  "next": {
+    "title": "",
+    "link": ""
+  },
+  "layout": "TwoCol",
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "colTitles": [
+        "Property",
+        "Min",
+        "Max",
+        "Average"
+      ],
+      "rowTitles": [["Distance"], ["Eccentricity"], ["Inclination"], ["Diameter"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "55" },
+          { "accessor": "data", "id": "56" },
+          { "accessor": "data", "id": "57" }
+        ],
+        [
+          { "accessor": "data", "id": "58" },
+          { "accessor": "data", "id": "59" },
+          { "accessor": "data", "id": "60" }
+        ],
+        [
+          { "accessor": "data", "id": "61" },
+          { "accessor": "data", "id": "62" },
+          { "accessor": "data", "id": "63" }
+        ],
+        [
+          { "accessor": "data", "id": "64" },
+          { "accessor": "data", "id": "65" },
+          { "accessor": "data", "id": "66" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "69",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "Based on the data you have determined for this new group of objects, ",
+          "labelPost": " of them orbit the Sun in the opposite direction of Earth’s orbit.",
+          "options": [
+            { "label": "most", "value": "most" },
+            { "label": "many", "value": "many" },
+            { "label": "few", "value": "few" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "70",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Where was your spacecraft located in the Solar System when you flew past the first of these new objects? Answer by using the orbits of major planets as reference points."
+        }
+      ]
+    }
+  ]
+}

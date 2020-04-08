@@ -1,0 +1,22 @@
+{
+  "id": "solarsystem06",
+  "investigation": "solar-system",
+  "order": "06",
+  "title": "Inclination",
+  "slug": "inclination/",
+  "previous": {
+    "title": "Eccentricity",
+    "link": "/eccentricity/"
+  },
+  "next": {
+    "title": "The Big View of the Solar System",
+    "link": "/big-view/"
+  },
+  "layout": "TwoCol",
+  "content": "<p><a href='https://en.wikipedia.org/wiki/Orbital_inclination' target='_blank'>Inclination</a> is the angle that the object’s orbital plane is tilted, relative to Earth’s orbital plane around the Sun. A value of 0° means that the orbit is parallel with Earth’s orbit. A value of 90° means that the orbit is tilted at a right angle to Earth’s orbit. Sometimes a value between 90° and 180° is listed. These objects are in retrograde orbits around the Sun, orbiting in the opposite direction of most Solar System objects.</p>",
+  "images": [
+    {
+      "mediaPath": "/images/inclination.png",
+      "altText": "Examples of orbital ellipses with different eccentricities."
+    }
+  ]}

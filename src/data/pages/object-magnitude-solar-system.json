@@ -1,0 +1,132 @@
+{
+  "id": "solarsystem21",
+  "investigation": "solar-system",
+  "order": "21",
+  "title": "The Sizes of Small Solar System Objects",
+  "slug": "object-magnitude-solar-system/",
+  "previous": {
+    "title": "The Sizes of Small Solar System Objects",
+    "link": "/object-size-solar-system/"
+  },
+  "next": {
+    "title": "Classifying Newly Detected Solar System Objects",
+    "link": "/classifying-objects/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>To estimate the size of an asteroid, we use its absolute magnitude, which can be thought of as the asteroid’s actual brightness (as opposed to how bright it appears to an observer on Earth). An asteroid’s absolute magnitude depends only on its size and its albedo. Albedo is a measure of the reflectivity of the surface of an object. An object that is pure white will reflect 100% of the light that hits it and will have an albedo of 1. An object that is pure black will reflect 0% of the light that hits it and will have an albedo of 0. The albedos for asteroids depend on the material on the surface, but they range from 0.05 (5%) to 0.25 (25%). Since we don’t know the albedos for all objects, we will assume an average value of 0.15 for this investigation.</p><p>The equation for calculating the size of an asteroid is given by:</p><p>equation</p><p>Where D is the diameter of the asteroid (in kilometers), H is the absolute magnitude of the asteroid, and p is the albedo of the asteroid. You can visit this website to calculate the diameter.</p><p>Examine this scatter plot of size on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis. Select all categories of objects.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "39",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Based on the scatter plot, which of the four main groups is mostly made up of dim, small objects?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "40",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Based on the scatter plot, which of the four main groups is mostly made of bright, large objects?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "41",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "If there were many bright, large NEOs, would the scatter plot have looked different? If so, how (where would this data have been on your plot)?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "42",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "The scatter plot shows few dim, small TNOs. Is it possible that there are small TNOs that we don't see at all? Why might we not be able to see them?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "43",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Based upon the scatter plot and your answers for the previous questions, are there mostly small objects (less than 10 km in diameter) nearby?",
+          "options": [
+            {
+              "label": "yes",
+              "value": "yes"
+            },
+            {
+              "label": "no",
+              "value": "no"
+            }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "44",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Based upon the scatter plot and your answers for the previous questions, are there mostly large objects (greater than 10 km in diameter) far away?",
+          "options": [
+            {
+              "label": "yes",
+              "value": "yes"
+            },
+            {
+              "label": "no",
+              "value": "no"
+            }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "45",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Based upon the scatter plot and your answers for the previous questions, are there far more small objects than large object throught the solar system?",
+          "options": [
+            {
+              "label": "yes",
+              "value": "yes"
+            },
+            {
+              "label": "no",
+              "value": "no"
+            }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    }
+  ]
+}

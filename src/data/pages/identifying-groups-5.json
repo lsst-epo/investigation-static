@@ -1,0 +1,49 @@
+{
+  "id": "solarsystem18",
+  "investigation": "solar-system",
+  "order": "18",
+  "title": "Identifying Types of Solar System Objects",
+  "slug": "identifying-groups-5/",
+  "previous": {
+    "title": "Identifying Types of Solar System Objects",
+    "link": "/identifying-groups-4/"
+  },
+  "next": {
+    "title": "The History of the Solar System",
+    "link": "/history-solar-system-2/"
+  },
+  "layout": "TwoCol",
+  "content":"<p>Now let’s look at a histogram of the number of all small Solar System objects on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "30",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "According to data displayed in the histogram, which group of Solar System objects is the largest in number? ",
+          "options": [
+            { "label": "NEOs", "value": "NEOs" },
+            { "label": "Comets", "value": "Comets" },
+            { "label": "TNOs", "value": "TNOs" },
+            { "label": "MBAs", "value": "MBAs" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "31",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Two of the four main groups above make up most of the small Solar System objects. One group is centered at a distance of approximately ___ AU from the Sun, and the second group is centered at a distance of ___ AU from the Sun."
+        }
+      ]
+    }
+  ]
+}

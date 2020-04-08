@@ -1,0 +1,73 @@
+{
+  "id": "solarsystem14",
+  "investigation": "solar-system",
+  "order": "14",
+  "title": "Identifying Types of Solar System Objects",
+  "slug": "identifying-groups-1/",
+  "previous": {
+    "title": "Identifying Types of Solar System Objects",
+    "link": "/identifying-groups/"
+  },
+  "next": {
+    "title": "Identifying Types of Solar System Objects",
+    "link": "/identifying-groups-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Use the data visualization tool to explore the orbital characteristics of a representative set of some small Solar System objects. All of the displayed points and their motions represent real objects. Notice that you can change the view to above or below the Sun, as well as along the plane of the Solar System (as if you were a planet orbiting the Sun).</p>",
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "colTitles": [
+        "Group",
+        "Eccentricity",
+        "Inclination",
+        "Size of Orbit",
+        "Direction of Orbit"
+      ],
+      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "4" },
+          { "accessor": "data", "id": "5" },
+          { "accessor": "data", "id": "6" },
+          { "accessor": "data", "id": "7" }
+        ],
+        [
+          { "accessor": "data", "id": "8" },
+          { "accessor": "data", "id": "9" },
+          { "accessor": "data", "id": "10" },
+          { "accessor": "data", "id": "11" }
+        ],
+        [
+          { "accessor": "data", "id": "12" },
+          { "accessor": "data", "id": "13" },
+          { "accessor": "data", "id": "14" },
+          { "accessor": "data", "id": "15" }
+        ],
+        [
+          { "accessor": "data", "id": "16" },
+          { "accessor": "data", "id": "17" },
+          { "accessor": "data", "id": "18" },
+          { "accessor": "data", "id": "19" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "23",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain."
+        }
+      ]
+    }
+  ]
+}
