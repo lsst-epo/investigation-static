@@ -18,10 +18,10 @@ const BlinkerControls = ({
   const StartStopTag = playing ? Pause : Play;
 
   return (
-    <div className={controls}>
+    <div className={controls} data-testid="blinker-controls">
       <Button
         icon
-        iconEl={<ButtonIcon srText="Rewind" Icon={Rewind} />}
+        iconEl={<ButtonIcon srText="Backward" Icon={Rewind} />}
         onClick={handlePrevious}
       />
       <Button
@@ -31,7 +31,7 @@ const BlinkerControls = ({
       />
       <Button
         icon
-        iconEl={<ButtonIcon srText="Fast Forward" Icon={FastForward} />}
+        iconEl={<ButtonIcon srText="Forward" Icon={FastForward} />}
         onClick={handleNext}
       />
     </div>
