@@ -10,7 +10,6 @@ import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
 import { getAlertFromImageId } from './galaxySelectorUtilities.js';
 import Blinker from './blinker/index.jsx';
-import BlinkerControls from './blinker/BlinkerControls';
 import Points from './Points';
 import Legend from '../shared/legend/index.jsx';
 import { galaxySelector, singleImage } from './galaxy-selector.module.scss';
@@ -36,6 +35,7 @@ class GalaxySelector extends React.PureComponent {
   }
 
   componentDidMount() {
+    // console.log(JSON.stringify(this.props));
     const { autoplay, preSelected, selectedData, data } = this.props;
     if (data) {
       this.updatePoints();
@@ -389,15 +389,14 @@ class GalaxySelector extends React.PureComponent {
               alt={image.altText}
             />
           ) : (
-            <>
-              <Blinker images={images} activeId={activeImageId} />
-              <BlinkerControls
-                playing={playing}
-                handleStartStop={this.startStopBlink}
-                handleNext={this.onNextBlink}
-                handlePrevious={this.onPreviousBlink}
-              />
-            </>
+            <Blinker
+              images={images}
+              activeId={activeImageId}
+              playing={playing}
+              handleStartStop={this.startStopBlink}
+              handleNext={this.onNextBlink}
+              handlePrevious={this.onPreviousBlink}
+            />
           )}
         </div>
       </>

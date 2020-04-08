@@ -1,27 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BlinkerImage from './BlinkerImage';
-import { blinkContainer } from './blinker.module.scss';
+import BlinkerImages from './BlinkerImages';
+import BlinkerControls from './BlinkerControls';
 
-const Blinker = ({ images, activeId }) => {
+const Blinker = ({
+  images,
+  activeId,
+  playing,
+  handleStartStop,
+  handleNext,
+  handlePrevious,
+}) => {
   return (
-    <div className={blinkContainer}>
-      {images.map((image, i) => {
-        const { id, name } = image;
-        let active = activeId === id;
-        if (!activeId && i === 0) active = true;
-
-        return (
-          <BlinkerImage key={id} image={name} alertId={id} active={active} />
-        );
-      })}
-    </div>
+    <>
+      <BlinkerImages images={images} activeId={activeId} />
+      <BlinkerControls
+        playing={playing}
+        handleStartStop={handleStartStop}
+        handleNext={handleNext}
+        handlePrevious={handlePrevious}
+      />
+    </>
   );
 };
 
 Blinker.propTypes = {
-  images: PropTypes.array,
+  images: PropTypes.array.isRequired,
   activeId: PropTypes.number,
+  playing: PropTypes.bool,
+  handleStartStop: PropTypes.func,
+  handleNext: PropTypes.func,
+  handlePrevious: PropTypes.func,
 };
 
 export default Blinker;

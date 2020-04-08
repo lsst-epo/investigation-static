@@ -12,7 +12,13 @@ class Table extends React.PureComponent {
     const { colTitles, includeRowTitles, rows, className } = this.props;
 
     return (
-      <DataTable plain fullWidth tabIndex="0" className={className}>
+      <DataTable
+        plain
+        fullWidth
+        tabIndex="0"
+        className={className}
+        data-testid="test-table"
+      >
         {colTitles && (
           <TableHeader>
             <TableRow>
@@ -24,25 +30,27 @@ class Table extends React.PureComponent {
             </TableRow>
           </TableHeader>
         )}
-        <TableBody>
-          {/* eslint-disable react/no-array-index-key */}
-          {rows.map((row, i) => (
-            <TableRow key={`row-${i}`}>
-              {row.map((col, j) => {
-                if (includeRowTitles && j === 0) {
-                  return (
-                    <TableColumn key={`col-${j}`} className="row-title">
-                      {col}
-                    </TableColumn>
-                  );
-                }
+        {rows && (
+          <TableBody>
+            {/* eslint-disable react/no-array-index-key */}
+            {rows.map((row, i) => (
+              <TableRow key={`row-${i}`}>
+                {row.map((col, j) => {
+                  if (includeRowTitles && j === 0) {
+                    return (
+                      <TableColumn key={`col-${j}`} className="row-title">
+                        {col}
+                      </TableColumn>
+                    );
+                  }
 
-                return <TableColumn key={`col-${j}`}>{col}</TableColumn>;
-              })}
-            </TableRow>
-          ))}
-          {/* eslint-enable react/no-array-index-key */}
-        </TableBody>
+                  return <TableColumn key={`col-${j}`}>{col}</TableColumn>;
+                })}
+              </TableRow>
+            ))}
+            {/* eslint-enable react/no-array-index-key */}
+          </TableBody>
+        )}
       </DataTable>
     );
   }

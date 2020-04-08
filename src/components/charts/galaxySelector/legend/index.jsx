@@ -27,7 +27,7 @@ class Legend extends React.PureComponent {
     return (
       <>
         {activeGalaxy && (
-          <div className={legend}>
+          <div className={legend} data-testid="gs-legend">
             {this.boxes.map(box => {
               const { name } = activeGalaxy;
               const { id, label, valueAccessor } = box;
