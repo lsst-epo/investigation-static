@@ -6,7 +6,7 @@ export default function FindDiameter(props) {
 
   return (
     <p className="equation">
-      <span className="color">{solution}</span> ={' '}
+      <span>D = </span>
       <span className="fraction">
         <span className="numerator">1329</span>
         <span className="denominator">
@@ -21,6 +21,8 @@ export default function FindDiameter(props) {
           -0.2 * <span className="color">{H}</span>
         </span>
       </span>
+      <span>= </span>
+      <span className="color">{solution}</span>
     </p>
   );
 }

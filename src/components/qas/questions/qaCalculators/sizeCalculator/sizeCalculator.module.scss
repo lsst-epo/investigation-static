@@ -52,10 +52,25 @@
     }
   }
 
-  .underline-hightlight {
+  .underline-highlight {
     display: inline-block;
     min-width: 40%;
     padding-bottom: 2px;
     border-bottom: 1px solid #333;
   }
+}
+
+.icon {
+  font-weight: $medium;
+  white-space: nowrap;
+  font-size: 17px;
+  font-size: 1.2rem;
+}
+
+.margin-top {
+  margin-top: $minPadding;
+}
+
+.align-items-center {
+  align-items: center;
 }
