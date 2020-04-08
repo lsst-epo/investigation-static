@@ -77,7 +77,7 @@ export const WithQAing = ComposedComponent => {
     }
 
     getSizeCalcContent(data) {
-      return data.d || 'None Selected';
+      return data.diameter || 'None Selected';
     }
 
     getCountContent(data) {

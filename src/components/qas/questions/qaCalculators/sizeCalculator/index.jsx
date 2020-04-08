@@ -1,32 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
 import React from 'react';
-import { CardText, CardActions } from 'react-md';
+import { CardText } from 'react-md';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
-// import Calculation from '../shared/calculation';
-import CalculatedMeasurement from '../shared/CalculatedMeasurement';
 import Equation from '../shared/equation';
 import TextField from '../../../../site/forms/textField';
 import Card from '../../../../site/card';
 import { renderDef, formatValue } from '../../../../../lib/utilities.js';
-import './sizeCalculator.module.scss';
+import styles from './sizeCalculator.module.scss';
 
 const HIcon = () => {
-  return (
-    <div>
-      <strong>H</strong> =
-    </div>
-  );
+  return <span className={styles.icon}>H =</span>;
 };
 
 const PIcon = () => {
-  return (
-    <div>
-      <strong>p</strong> =
-    </div>
-  );
+  return <span className={styles.icon}>p =</span>;
 };
 
 class SizeCalculator extends React.PureComponent {
@@ -34,7 +24,11 @@ class SizeCalculator extends React.PureComponent {
     super(props);
 
     this.state = {
-      value: undefined,
+      value: {
+        magnitude: null,
+        albedo: null,
+        diameter: null,
+      },
       cardActive: false,
       hasFocus: false,
       answerable: false,
@@ -42,13 +36,22 @@ class SizeCalculator extends React.PureComponent {
   }
 
   componentDidMount() {
-    const { answerable, value } = this.state;
+    const { answerable } = this.state;
     const { question, activeId, answer } = this.props;
     const { id } = question;
-    const calculateValue = isEmpty(answer) ? value : answer.content;
+    const { data } = answer || {};
+    const { magnitude, albedo, diameter } = data || {};
 
     this.checkAnswerable(answerable, activeId === id);
-    this.updateCalculatedMeasurements(calculateValue);
+
+    this.setState(prevState => ({
+      ...prevState,
+      value: {
+        magnitude,
+        albedo,
+        diameter,
+      },
+    }));
   }
 
   componentDidUpdate() {
@@ -68,10 +71,10 @@ class SizeCalculator extends React.PureComponent {
     }
   }
 
-  calculateDiameter(value) {
-    if (value && value.h && value.p) {
+  calculateDiameter({ magnitude, albedo }) {
+    if (magnitude && albedo) {
       const diameter = formatValue(
-        (1329 / Math.sqrt(value.p)) * 10 ** (-0.2 * value.h),
+        (1329 / Math.sqrt(albedo)) * 10 ** (-0.2 * magnitude),
         3
       );
       return diameter;
@@ -80,19 +83,24 @@ class SizeCalculator extends React.PureComponent {
   }
 
   updateCalculatedMeasurements(value) {
+    const { magnitude, albedo } = value;
     const diameter = this.calculateDiameter(value);
     this.setState(prevState => ({
       ...prevState,
-      value: { ...value, d: diameter },
+      value: {
+        magnitude,
+        albedo,
+        diameter,
+      },
     }));
   }
 
-  handleHChange = value => {
-    this.handleChange(value, 'h');
+  handleChangeMagnitude = value => {
+    this.handleChange(value, 'magnitude');
   };
 
-  handlePChange = value => {
-    this.handleChange(value, 'p');
+  handleChangeAlbedo = value => {
+    this.handleChange(value, 'albedo');
   };
 
   handleChange = (value, index) => {
@@ -104,35 +112,34 @@ class SizeCalculator extends React.PureComponent {
       [index]: value,
     };
 
-    if (newVal.h && newVal.p && newVal.d) {
+    if (newVal.magnitude && newVal.albedo) {
       answerHandler(id, newVal, 'change');
     }
 
     this.updateCalculatedMeasurements(newVal);
   };
 
-  handleHBlur = ev => {
+  handleBlurMagnitude = ev => {
     const { value } = ev.currentTarget;
-    this.handleBlurFocusEvent(value, 'h', 'blur');
+    this.handleBlurFocusEvent(value, 'magnitude', 'blur');
   };
 
-  handlePBlur = ev => {
+  handleBlurAlbedo = ev => {
     const { value } = ev.currentTarget;
-    this.handleBlurFocusEvent(value, 'p', 'blur');
+    this.handleBlurFocusEvent(value, 'albedo', 'blur');
   };
 
-  handleHFocus = ev => {
+  handleFocusMagnitude = ev => {
     const { value } = ev.currentTarget;
-    this.handleBlurFocusEvent(value, 'h', 'focus');
+    this.handleBlurFocusEvent(value, 'magnitude', 'focus');
   };
 
-  handlePFocus = ev => {
+  handleFocusAlbedo = ev => {
     const { value } = ev.currentTarget;
-    this.handleBlurFocusEvent(value, 'p', 'focus');
+    this.handleBlurFocusEvent(value, 'albedo', 'focus');
   };
 
   handleBlurFocusEvent = (value, index, eventType) => {
-    // TODO: Toggle expander onExpanderClick() to close
     const { question, answerHandler } = this.props;
     const { id } = question;
     const { value: oldValue } = this.state;
@@ -140,11 +147,14 @@ class SizeCalculator extends React.PureComponent {
       ...oldValue,
       [index]: value,
     };
-    answerHandler(id, newVal || ' ', eventType);
+
+    if (newVal.magnitude && newVal.albedo) {
+      answerHandler(id, newVal || {}, eventType);
+    }
 
     this.setState(prevState => ({
       ...prevState,
-      [index]: newVal,
+      value: newVal,
       hasFocus: eventType === 'focus',
     }));
   };
@@ -155,10 +165,8 @@ class SizeCalculator extends React.PureComponent {
       // cardActive,
       hasFocus,
       answerable,
+      value: { magnitude, albedo, diameter },
     } = this.state;
-
-    const { data } = answer || {};
-    const { h: absoluteMagnitude, p: albedo, d: diameter } = data || {};
 
     const { id, questionType, label, placeholder } = question;
     const isTextArea = questionType === 'textArea';
@@ -190,10 +198,10 @@ class SizeCalculator extends React.PureComponent {
               label={<div dangerouslySetInnerHTML={renderDef(label)} />}
               lineDirection="center"
               placeholder={placeholder}
-              defaultValue={answered ? absoluteMagnitude : null}
-              onBlur={this.handleHBlur}
-              onFocus={this.handleHFocus}
-              onChange={this.handleHChange}
+              defaultValue={answered ? magnitude : null}
+              onBlur={this.handleBlurMagnitude}
+              onFocus={this.handleFocusMagnitude}
+              onChange={this.handleChangeMagnitude}
               disabled={!(answerable || answered || active)}
             />
           </div>
@@ -208,24 +216,20 @@ class SizeCalculator extends React.PureComponent {
               lineDirection="center"
               placeholder={placeholder}
               defaultValue={answered ? albedo : null}
-              onBlur={this.handlePBlur}
-              onFocus={this.handlePFocus}
-              onChange={this.handlePChange}
+              onBlur={this.handleBlurAlbedo}
+              onFocus={this.handleFocusAlbedo}
+              onChange={this.handleChangeAlbedo}
               disabled={!(answerable || answered || active)}
             />
           </div>
-          <div className="results-list">
-            <CalculatedMeasurement unit="D" value={diameter} />
+          <div className={styles.marginTop}>
+            <Equation
+              component="FindDiameter"
+              solution={diameter || 'D'}
+              H={magnitude || 'H'}
+              p={albedo || 'p'}
+            />
           </div>
-        </CardText>
-        <CardActions expander style={{ display: 'none' }} />
-        <CardText expandable>
-          <Equation
-            component="FindDiameter"
-            solution={diameter || 'D'}
-            H={absoluteMagnitude || 'H'}
-            p={albedo || 'p'}
-          />
         </CardText>
       </Card>
     );
