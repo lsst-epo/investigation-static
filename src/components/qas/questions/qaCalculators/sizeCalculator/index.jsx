@@ -72,91 +72,61 @@ class SizeCalculator extends React.PureComponent {
   }
 
   calculateDiameter({ magnitude, albedo }) {
-    if (magnitude && albedo) {
-      const diameter = formatValue(
-        (1329 / Math.sqrt(albedo)) * 10 ** (-0.2 * magnitude),
-        3
-      );
-      return diameter;
-    }
-    return null;
+    if (!magnitude || !albedo) return null;
+
+    return formatValue(
+      (1329 / Math.sqrt(albedo)) * 10 ** (-0.2 * magnitude),
+      3
+    );
   }
 
-  updateCalculatedMeasurements(value) {
-    const { magnitude, albedo } = value;
-    const diameter = this.calculateDiameter(value);
-    this.setState(prevState => ({
-      ...prevState,
-      value: {
-        magnitude,
-        albedo,
-        diameter,
-      },
-    }));
+  getNewVal(value, valType) {
+    const { value: oldValue } = this.state;
+
+    if (!value || !valType) return oldValue;
+
+    const newVal = {
+      ...oldValue,
+      [valType]: value,
+    };
+
+    return {
+      ...newVal,
+      diameter: this.calculateDiameter(newVal),
+    };
   }
 
-  handleChangeMagnitude = value => {
-    this.handleChange(value, 'magnitude');
-  };
-
-  handleChangeAlbedo = value => {
-    this.handleChange(value, 'albedo');
-  };
-
-  handleChange = (value, index) => {
-    const { question, answerHandler } = this.props;
-    const { id } = question;
-    const { value: oldValue } = this.state;
-    const newVal = {
-      ...oldValue,
-      [index]: value,
-    };
-
-    if (newVal.magnitude && newVal.albedo) {
-      answerHandler(id, newVal, 'change');
-    }
-
-    this.updateCalculatedMeasurements(newVal);
-  };
-
-  handleBlurMagnitude = ev => {
-    const { value } = ev.currentTarget;
-    this.handleBlurFocusEvent(value, 'magnitude', 'blur');
-  };
-
-  handleBlurAlbedo = ev => {
-    const { value } = ev.currentTarget;
-    this.handleBlurFocusEvent(value, 'albedo', 'blur');
-  };
-
-  handleFocusMagnitude = ev => {
-    const { value } = ev.currentTarget;
-    this.handleBlurFocusEvent(value, 'magnitude', 'focus');
-  };
-
-  handleFocusAlbedo = ev => {
-    const { value } = ev.currentTarget;
-    this.handleBlurFocusEvent(value, 'albedo', 'focus');
-  };
-
-  handleBlurFocusEvent = (value, index, eventType) => {
-    const { question, answerHandler } = this.props;
-    const { id } = question;
-    const { value: oldValue } = this.state;
-    const newVal = {
-      ...oldValue,
-      [index]: value,
-    };
-
-    if (newVal.magnitude && newVal.albedo) {
-      answerHandler(id, newVal || {}, eventType);
-    }
-
+  handleFocus = () => {
     this.setState(prevState => ({
       ...prevState,
-      value: newVal,
-      hasFocus: eventType === 'focus',
+      hasFocus: true,
     }));
+  };
+
+  handleBlur = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      hasFocus: false,
+    }));
+  };
+
+  handleChange = (value, valType) => {
+    const { question, answerHandler } = this.props;
+    const { id } = question;
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        hasFocus: true,
+        value: {
+          ...this.getNewVal(value, valType),
+        },
+      }),
+      () => {
+        const { value: updatedVal } = this.state;
+        answerHandler(id, updatedVal, 'change');
+      }
+    );
   };
 
   render() {
@@ -199,9 +169,9 @@ class SizeCalculator extends React.PureComponent {
               lineDirection="center"
               placeholder={placeholder}
               defaultValue={answered ? magnitude : null}
-              onBlur={this.handleBlurMagnitude}
-              onFocus={this.handleFocusMagnitude}
-              onChange={this.handleChangeMagnitude}
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              onChange={value => this.handleChange(value, 'magnitude')}
               disabled={!(answerable || answered || active)}
             />
           </div>
@@ -216,18 +186,16 @@ class SizeCalculator extends React.PureComponent {
               lineDirection="center"
               placeholder={placeholder}
               defaultValue={answered ? albedo : null}
-              onBlur={this.handleBlurAlbedo}
-              onFocus={this.handleFocusAlbedo}
-              onChange={this.handleChangeAlbedo}
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              onChange={value => this.handleChange(value, 'albedo')}
               disabled={!(answerable || answered || active)}
             />
           </div>
           <div className={styles.marginTop}>
             <Equation
               component="FindDiameter"
-              solution={diameter || 'D'}
-              H={magnitude || 'H'}
-              p={albedo || 'p'}
+              {...{ diameter, magnitude, albedo }}
             />
           </div>
         </CardText>

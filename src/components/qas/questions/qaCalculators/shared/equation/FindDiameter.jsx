@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function FindDiameter(props) {
-  const { solution, H, p } = props;
+  const { diameter, magnitude, albedo } = props;
 
   return (
     <p className="equation">
@@ -11,24 +11,24 @@ export default function FindDiameter(props) {
         <span className="numerator">1329</span>
         <span className="denominator">
           <span className="square-root">
-            <span className="color">{p}</span>
+            <span className="color">{albedo || 'p'}</span>
           </span>
         </span>
       </span>
       <span>
         <span> 10 </span>
         <span className="exponent">
-          -0.2 * <span className="color">{H}</span>
+          -0.2 * <span className="color">{magnitude || 'H'}</span>
         </span>
       </span>
       <span>= </span>
-      <span className="color">{solution}</span>
+      <span className="color">{diameter || '?'}</span>
     </p>
   );
 }
 
 FindDiameter.propTypes = {
-  solution: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  H: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  p: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  diameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  magnitude: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  albedo: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
