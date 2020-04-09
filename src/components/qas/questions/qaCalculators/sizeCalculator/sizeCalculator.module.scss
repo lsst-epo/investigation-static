@@ -14,8 +14,7 @@
   }
 
   .qa-card {
-    font-size: 15px;
-    font-weight: $medium;
+    @include copySecondary;
 
     .md-card-text {
       padding: 16px 0;
@@ -61,10 +60,8 @@
 }
 
 .icon {
-  font-weight: $medium;
+  @include copySecondary;
   white-space: nowrap;
-  font-size: 17px;
-  font-size: 1.2rem;
 }
 
 .margin-top {
