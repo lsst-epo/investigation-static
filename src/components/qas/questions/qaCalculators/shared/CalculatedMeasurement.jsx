@@ -1,8 +1,7 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './calculation/calculation.module.scss';
-import { addTheCommas } from '../../../../../lib/utilities';
+import { addTheCommas, toSigFigs } from '../../../../../lib/utilities';
 
 function CalculatedMeasurement({ unit, value }) {
   const labels = {
@@ -15,10 +14,9 @@ function CalculatedMeasurement({ unit, value }) {
 
   return (
     <div className={styles.calculationBlock}>
-      <p>
-        <strong>{`${labels[unit] || unit}`}</strong> ={' '}
-        {`${value ? addTheCommas(value) : '?'}`}
-      </p>
+      <p>{`${labels[unit] || unit} = ${
+        value ? addTheCommas(toSigFigs(value, 3)) : '?'
+      }`}</p>
     </div>
   );
 }

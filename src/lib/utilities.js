@@ -1,5 +1,6 @@
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
+import isNumber from 'lodash/isNumber';
 import { extent as d3Extent, mean as d3Mean } from 'd3-array';
 
 export const randomIntFromInterval = function(min, max) {
@@ -193,9 +194,46 @@ export const getLightYearsFromDistance = data => {
   return solveForLightYears(+parsecs);
 };
 
+function round(precision, number) {
+  return parseFloat(number.toPrecision(precision));
+}
+
+function getSigFigPadding(isInt, precision, numFloorDigits, numDigits) {
+  return isInt ? precision - numFloorDigits : precision - numDigits + 1;
+}
+
+export const toSigFigs = (number, precision) => {
+  if (!isNumber(number)) return '';
+  if (number === 0) return '0';
+
+  const roundedValue = round(precision, number);
+  const floorValue = Math.floor(roundedValue);
+
+  const isInt = Math.abs(floorValue - roundedValue) < Number.EPSILON;
+  const numFloorDigits = String(floorValue).length;
+  const numDigits = String(roundedValue).length;
+
+  if (numFloorDigits > precision) {
+    return String(floorValue);
+  }
+
+  const padding = getSigFigPadding(isInt, precision, numFloorDigits, numDigits);
+
+  if (padding > 0 && isInt) {
+    return `${String(floorValue)}.${'0'.repeat(padding)}`;
+  }
+
+  if (padding > 0) {
+    return `${String(roundedValue)}${'0'.repeat(padding)}`;
+  }
+
+  return String(roundedValue);
+};
+
 export const getMegaLightYearsFromDistance = data => {
   const lightYears = getLightYearsFromDistance(+data);
-  return solveForMegaLightYears(+lightYears);
+  const megaLightYears = solveForMegaLightYears(+lightYears);
+  return toSigFigs(megaLightYears, 3);
 };
 
 export const getValue = function(accessor, data) {
