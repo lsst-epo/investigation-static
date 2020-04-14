@@ -22,7 +22,7 @@ class YAxis extends React.Component {
     const { height, padding, label, offsetTop } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <g
           key="y-axis"
           className="y-axis axis"
@@ -38,7 +38,7 @@ class YAxis extends React.Component {
         >
           {label}
         </text>
-      </React.Fragment>
+      </>
     );
   }
 }

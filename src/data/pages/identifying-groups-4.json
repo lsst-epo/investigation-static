@@ -13,6 +13,12 @@
     "link": "/identifying-groups-5/"
   },
   "layout": "TwoCol",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
   "tables": [
     {
       "id": "1",
@@ -57,6 +63,17 @@
     }
   ],
   "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "126",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Which of the four groups of Solar System objects have orbits that cross Earth’s orbit?"
+        }
+      ]
+    },
     {
       "question": [
         {

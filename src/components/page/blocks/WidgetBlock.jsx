@@ -10,6 +10,7 @@ import LargeScaleStructure from '../../../containers/LargeScaleStructureContaine
 import GalacticProperties from '../../../containers/GalacticPropertiesContainer.jsx';
 import GalacticPropertiesCombo from '../../../containers/GalacticPropertiesComboContainer.jsx';
 import OrbitalViewer from '../../../containers/OrbitalViewerContainer.jsx';
+import OrbitalProperties from '../../../containers/OrbitalPropertiesContainer.jsx';
 
 import {
   gridWidget,
@@ -32,6 +33,7 @@ class WidgetBlock extends React.PureComponent {
       GalacticPropertiesCombo,
       LargeScaleStructure,
       OrbitalViewer,
+      OrbitalProperties,
     };
 
     this.gridClasses = {

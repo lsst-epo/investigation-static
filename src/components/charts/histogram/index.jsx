@@ -6,36 +6,25 @@ import { select as d3Select, event as d3Event } from 'd3-selection';
 import {
   histogram as d3Histogram,
   thresholdScott as d3ThresholdScott,
+  // threshholdFreedmanDiaconis as d3ThresholdFreedmanDiaconis,
+  // thresholdSturges as d3ThresholdSturges,
   max as d3Max,
 } from 'd3-array';
-// threshholdFreedmanDiaconis as d3ThresholdFreedmanDiaconis,
-// thresholdSturges as d3ThresholdSturges,
-// thresholdScott as d3ThresholdScott,
 import {
   scalePoint as d3ScalePoint,
   scaleLinear as d3ScaleLinear,
 } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
-import { capitalize } from '../../lib/utilities';
-import StellarUnit from '../charts/shared/StellarUnit';
+import { capitalize } from '../../../lib/utilities';
+import Unit from '../shared/unit/index.jsx';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Bars from './Bars.jsx';
-import MeanBar from './MeanBar.jsx';
-import Tooltip from '../charts/shared/Tooltip.jsx';
+// import MeanBar from './MeanBar.jsx';
+import Tooltip from '../shared/Tooltip.jsx';
 
 class Histogram extends React.PureComponent {
-  static defaultProps = {
-    width: 600,
-    height: 600,
-    padding: 80,
-    offsetTop: 7,
-    offsetRight: 7,
-    yAxisLabel: 'Number of Stars',
-    tooltipAccessors: ['temperature'],
-  };
-
   constructor(props) {
     super(props);
     const {
@@ -125,6 +114,7 @@ class Histogram extends React.PureComponent {
   }
 
   histogramData(data, valueAccessor, domain) {
+    // console.log(data, valueAccessor, domain);
     if (valueAccessor === 'luminosity') {
       return d3Histogram()
         .value(d => {
@@ -193,7 +183,7 @@ class Histogram extends React.PureComponent {
   getLabel(type) {
     return (
       <tspan>
-        {capitalize(type)} (<StellarUnit type={type} isSvg />)
+        {capitalize(type)} (<Unit type={type} isSvg />)
       </tspan>
     );
   }
@@ -204,7 +194,6 @@ class Histogram extends React.PureComponent {
       hoveredData: null,
       showTooltip: false,
       selectedData: null,
-      // showLasso: false,
     }));
   }
 
@@ -306,7 +295,7 @@ class Histogram extends React.PureComponent {
 
   render() {
     const {
-      data: meanData,
+      // data: meanData,
       width,
       height,
       padding,
@@ -316,6 +305,8 @@ class Histogram extends React.PureComponent {
       offsetRight,
       valueAccessor,
       tooltipAccessors,
+      tooltipUnits,
+      tooltipLabels,
     } = this.props;
 
     const {
@@ -339,9 +330,9 @@ class Histogram extends React.PureComponent {
       <div className="svg-container histogram-container">
         {loading && (
           <CircularProgress
+            id="graph-loading-progress"
             className="chart-loader"
             scale={3}
-            value={loading}
           />
         )}
         <Tooltip
@@ -352,6 +343,8 @@ class Histogram extends React.PureComponent {
           posY={tooltipPosY}
           show={showTooltip}
           accessors={tooltipAccessors}
+          units={tooltipUnits}
+          labels={tooltipLabels}
         />
         <svg
           key={valueAccessor}
@@ -361,7 +354,7 @@ class Histogram extends React.PureComponent {
           ref={this.svgEl}
         >
           {xScale && yScale && (
-            <React.Fragment>
+            <>
               <Bars
                 data={data}
                 selectedData={selectedData}
@@ -372,7 +365,7 @@ class Histogram extends React.PureComponent {
                 graphHeight={height}
                 padding={padding}
               />
-              {meanData && valueAccessor && (
+              {/* {meanData && valueAccessor && (
                 <MeanBar
                   data={meanData}
                   bins={data}
@@ -383,8 +376,8 @@ class Histogram extends React.PureComponent {
                   offsetRight={offsetRight}
                   padding={padding}
                 />
-              )}
-            </React.Fragment>
+              )} */}
+            </>
           )}
           {xScale && (
             <XAxis
@@ -413,6 +406,17 @@ class Histogram extends React.PureComponent {
   }
 }
 
+Histogram.defaultProps = {
+  width: 600,
+  height: 600,
+  padding: 80,
+  offsetTop: 15,
+  offsetRight: 7,
+  yAxisLabel: 'Number of Stars',
+  tooltipAccessors: ['temperature'],
+  tooltipLabels: ['stars', 'Temperature'],
+};
+
 Histogram.propTypes = {
   data: PropTypes.array,
   activeId: PropTypes.string,
@@ -429,6 +433,8 @@ Histogram.propTypes = {
   domain: PropTypes.array,
   preSelected: PropTypes.bool,
   tooltipAccessors: PropTypes.array,
+  tooltipLabels: PropTypes.array,
+  tooltipUnits: PropTypes.array,
   // multiple: PropTypes.bool,
 };
 

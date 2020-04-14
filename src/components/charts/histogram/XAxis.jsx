@@ -79,7 +79,11 @@ class XAxis extends React.Component {
       return d3AxisBottom(scale).tickFormat(d3Format('0.01f'));
     }
 
-    return d3AxisBottom(scale).tickFormat(d3Format('1.0f'));
+    if (valueAccessor === 'eccentricity') {
+      return d3AxisBottom(scale).tickFormat(d3Format('0.02f'));
+    }
+
+    return d3AxisBottom(scale);
   }
 
   render() {
@@ -93,7 +97,7 @@ class XAxis extends React.Component {
     } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <g
           key="x-axis"
           className="x-axis axis"
@@ -109,7 +113,7 @@ class XAxis extends React.Component {
         >
           {label}
         </text>
-      </React.Fragment>
+      </>
     );
   }
 }

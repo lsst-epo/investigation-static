@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
+import isEmpty from 'lodash/isEmpty';
 import 'd3-transition';
 import { capitalize, extentFromSet, getValue } from '../../../lib/utilities.js';
 import Unit from './unit/index.jsx';
@@ -16,11 +17,12 @@ class Tooltip extends React.PureComponent {
   componentDidUpdate(prevProps) {
     const { data, posX, posY, show } = this.props;
     const { show: isVisible, data: prevData } = prevProps;
+    const dataEmpty = isEmpty(data);
     const $tooltip = d3Select(this.el.current);
 
-    if (show && !isVisible) {
+    if (show && !isVisible && !dataEmpty) {
       this.show($tooltip, data, posX, posY, show);
-    } else if (show && isVisible && data !== prevData) {
+    } else if (show && isVisible && data !== prevData && !dataEmpty) {
       this.move($tooltip, data, posX, posY, show);
     } else if (!show) {
       this.hide($tooltip, show);
@@ -72,6 +74,7 @@ class Tooltip extends React.PureComponent {
   }
 
   renderValue(accessor, data, unit) {
+    // console.log(accessor, data, unit);
     return (
       <>
         <span>{getValue(accessor, data)}</span>
@@ -97,12 +100,22 @@ class Tooltip extends React.PureComponent {
   }
 
   renderAccessor(accessor, label, data, unit) {
+    const isCount = accessor === 'count';
+
+    let content = '';
+
+    if (isCount) {
+      content = this.renderValue(accessor, data.length, unit || label);
+    } else if (data.length > 1) {
+      content = this.renderRange(accessor, data, unit);
+    } else if (data.length === 1) {
+      content = this.renderValue(accessor, data[0][accessor], unit);
+    }
+
     return (
       <div className="value-row" key={accessor}>
-        <span>{label || capitalize(accessor)}: </span>
-        {data.length > 1 && this.renderRange(accessor, data, unit)}
-        {data.length === 1 &&
-          this.renderValue(accessor, data[0][accessor], unit)}
+        {!isCount && <span>{label || capitalize(accessor)}: </span>}
+        {content}
       </div>
     );
   }
@@ -114,15 +127,21 @@ class Tooltip extends React.PureComponent {
       <>
         {data && (
           <div ref={this.el} style={{ opacity: 0 }} className="tooltip">
-            {data.length > 1 && (
+            {/* {data.length > 1 && (
               <div className="value-row">{data.length} stars</div>
-            )}
+            )} */}
             {accessors.map((accessor, i) => {
-              if (labels) {
-                return this.renderAccessor(accessor, labels[i], data, units[i]);
-              }
+              const label = labels ? labels[i] : null;
+              const unit = units ? units[i] : null;
+              // if (i === 0 && labels[0] && data.length > 1) {
+              //   return (
+              //     <div className="value-row">
+              //       {data.length} {labels[0] || 'stars'}
+              //     </div>
+              //   );
+              // }
 
-              return this.renderAccessor(accessor, null, data, units[i]);
+              return this.renderAccessor(accessor, label, data, unit);
             })}
           </div>
         )}

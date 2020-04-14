@@ -57,6 +57,41 @@
       ]
     }
   ],
+  "widgets": [
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/MBA_inclination.json",
+      "options": {
+        "xAxisLabel": "MBA Inclinations",
+        "xValueAccessor": "inclination",
+        "domain": [[0, 180], []],
+        "tooltipAccessors": ["count", "inclination"],
+        "tooltipLabels": ["galaxies", "Inclination"]
+      }
+    },
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/MBA_eccentricity.json",
+      "options": {
+        "xAxisLabel": "MBA Eccentricities",
+        "xValueAccessor": "eccentricity",
+        "domain": [[0, 1], []],
+        "tooltipAccessors": ["count", "eccentricity"],
+        "tooltipLabels": ["galaxies", "Eccentricity"]
+      }
+    },
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/MBA_semimajor_axis.json",
+      "options": {
+        "xAxisLabel": "MBA Orbit Sizes",
+        "xValueAccessor": "semimajor_axis",
+        "domain": [[0, 60], []],
+        "tooltipAccessors": ["count", "semimajor_axis"],
+        "tooltipLabels": ["galaxies", "Orbit Size"]
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
