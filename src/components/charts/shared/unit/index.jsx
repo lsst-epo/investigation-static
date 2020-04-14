@@ -16,6 +16,8 @@ const Unit = props => {
       luminosity: <StellarUnit {...props} />,
       mass: <StellarUnit {...props} />,
       radius: <StellarUnit {...props} />,
+      inclination: <StandardUnit {...props} />,
+      semimajor_axis: <StandardUnit {...props} />,
     }[props.type] || null
   );
 };

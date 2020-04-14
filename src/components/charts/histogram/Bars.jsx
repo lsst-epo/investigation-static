@@ -49,8 +49,8 @@ class Bars extends React.PureComponent {
 
 Bars.propTypes = {
   data: PropTypes.array,
-  selectedData: PropTypes.bool,
-  hoveredData: PropTypes.bool,
+  selectedData: PropTypes.array,
+  hoveredData: PropTypes.array,
   offsetTop: PropTypes.number,
   graphHeight: PropTypes.number,
   padding: PropTypes.number,

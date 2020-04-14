@@ -14,6 +14,12 @@
   },
   "layout": "TwoCol",
   "content":"<p>Now you’ll use a data visualization tool to explore the orbital characteristics of a representative set of some small Solar System objects. All of the displayed points and their motions represent real objects. Notice that you can change the view to above or below the Sun, as well as along the plane of the Solar System (as if you were a planet orbiting the Sun).</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
   "tables": [
     {
       "id": "1",
