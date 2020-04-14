@@ -57,6 +57,41 @@
       ]
     }
   ],
+  "widgets": [
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/comets_inclination.json",
+      "options": {
+        "xAxisLabel": "Comet Inclinations",
+        "xValueAccessor": "inclination",
+        "domain": [[0, 180], []],
+        "tooltipAccessors": ["count", "inclination"],
+        "tooltipLabels": ["Comets", "Inclination"]
+      }
+    },
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/comets_eccentricity.json",
+      "options": {
+        "xAxisLabel": "Comet Eccentricities",
+        "xValueAccessor": "eccentricity",
+        "domain": [[0, 1], []],
+        "tooltipAccessors": ["count", "eccentricity"],
+        "tooltipLabels": ["Comets", "Eccentricity"]
+      }
+    },
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/comets_semimajor_axis.json",
+      "options": {
+        "xAxisLabel": "Comet Orbit Sizes",
+        "xValueAccessor": "semimajor_axis",
+        "domain": [[0, 60], []],
+        "tooltipAccessors": ["count", "semimajor_axis"],
+        "tooltipLabels": ["Comets", "Orbit Size"]
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

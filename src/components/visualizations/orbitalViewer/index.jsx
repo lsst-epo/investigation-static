@@ -7,12 +7,13 @@ import Box from '../shared/Box.jsx';
 import Orbital from './Orbital.jsx';
 import Camera from './Camera.jsx';
 import CameraController from './CameraController.jsx';
+import { container } from './orbital-viewer.module.scss';
 
 function OrbitalViewer(props) {
   const { neos } = props;
-  console.log(neos);
+
   return (
-    <div style={{ width: '100vw', height: '70vh' }}>
+    <div className={container}>
       <Canvas invalidateFrameloop>
         <CameraController />
         <Camera far={200000} near={0.1} fov={75} position={[0, 0, 300]} />

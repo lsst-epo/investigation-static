@@ -255,6 +255,10 @@ export const getValue = function(accessor, data) {
       lightYears: getLightYearsFromDistance(data),
       megaLightYears: getMegaLightYearsFromDistance(data),
       color: formatValue(data, 2),
+      inclination: formatValue(data, 0),
+      eccentricity: formatValue(data, 2),
+      semimajor_axis: formatValue(data, 2),
+      count: formatValue(data ? data.length : 0, 0),
     }[accessor] || data
   );
 };
@@ -272,27 +276,15 @@ export const getSymbol = function(accessor) {
 };
 
 export const getUnit = function(accessor) {
-  if (accessor === 'luminosity') {
-    return `L${getSymbol(accessor)}`;
-  }
-
-  if (accessor === 'radius') {
-    return `R${getSymbol(accessor)}`;
-  }
-
-  if (accessor === 'mass') {
-    return `M${getSymbol(accessor)}`;
-  }
-
-  if (accessor === 'lifetime') {
-    return 'Gyr';
-  }
-
-  if (accessor === 'temperature') {
-    return 'K';
-  }
-
-  return '';
+  return (
+    {
+      luminosity: `L${getSymbol(accessor)}`,
+      radius: `R${getSymbol(accessor)}`,
+      mass: `M${getSymbol(accessor)}`,
+      lifetime: 'Gyr',
+      temperature: 'K',
+    }[accessor] || ''
+  );
 };
 
 export const getElDims = function($el) {

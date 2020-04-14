@@ -14,6 +14,20 @@
   },
   "layout": "TwoCol",
   "content":"<p>Now let’s look at a histogram of the number of all small Solar System objects on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/all_semimajor_by_category.json",
+      "options": {
+        "xAxisLabel": "Small Object Orbit Sizes",
+        "xValueAccessor": "semimajor_axis",
+        "domain": [[0, 60], []],
+        "tooltipAccessors": ["count", "semimajor_axis"],
+        "tooltipLabels": ["galaxies", "Orbit Size"],
+        "multiple": true
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

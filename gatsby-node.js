@@ -38,6 +38,7 @@ const isAll = INVESTIGATION === 'all' || !INVESTIGATION;
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+
   const investigationsResponse = await graphql(`
     query {
       allInvestigationsJson {

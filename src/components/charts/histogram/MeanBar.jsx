@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { max as d3Max } from 'd3-array';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
-import { getMean } from '../../lib/utilities';
-import StellarValue from '../charts/shared/StellarValue';
+import { getMean } from '../../../lib/utilities';
+import Unit from '../shared/unit/index.jsx';
 
 class MeanBar extends React.PureComponent {
   getXScale() {
@@ -42,7 +42,7 @@ class MeanBar extends React.PureComponent {
         />
         <text className="mean-text" x={x} y={y - width} textAnchor="middle">
           <tspan className="inner-text">
-            Mean: <StellarValue value={mean} type={valueAccessor} isSvg />
+            Mean: <Unit value={mean} type={valueAccessor} isSvg />
           </tspan>
         </text>
       </g>
