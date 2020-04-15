@@ -21,32 +21,35 @@ class Header extends React.PureComponent {
         title={siteTitle}
         titleClassName="screen-reader-only"
         className="header-primary"
-        nav={
-          <Button
-            icon
-            iconEl={
-              tocVisability ? (
-                <ButtonIcon srText="Close Table of Contents" Icon={Close} />
-              ) : (
-                <ButtonIcon srText="Open Table of Contents" Icon={Menu} />
-              )
-            }
-            onClick={toggleToc}
-          />
-        }
       >
-        <div className={styles.headerInner}>
-          <Link to="/" className={logo && styles.logoWrapper}>
-            <span className={`${logo && 'screen-reader-only'}`}>Home</span>
-            {logo && (
-              <img
-                aria-hidden
-                src={logo}
-                alt={siteTitle}
-                className={styles.siteLogo}
-              />
-            )}
-          </Link>
+        <div className={styles.innerContainer}>
+          {toggleToc && (
+            <Button
+              className="md-btn--toolbar md-toolbar--action-left"
+              icon
+              iconEl={
+                tocVisability ? (
+                  <ButtonIcon srText="Close Table of Contents" Icon={Close} />
+                ) : (
+                  <ButtonIcon srText="Open Table of Contents" Icon={Menu} />
+                )
+              }
+              onClick={toggleToc}
+            />
+          )}
+          <div className={styles.headerInner}>
+            <Link to="/" className={logo && styles.logoWrapper}>
+              <span className={`${logo && 'screen-reader-only'}`}>Home</span>
+              {logo && (
+                <img
+                  aria-hidden
+                  src={logo}
+                  alt={siteTitle}
+                  className={styles.siteLogo}
+                />
+              )}
+            </Link>
+          </div>
         </div>
         {/* <LinearProgress className="{styles.pageProgress} value={pageProgress} /> */}
         {/*        <SiteNav

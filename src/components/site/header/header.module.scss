@@ -2,10 +2,16 @@
   @include react-md-toolbars;
 }
 
+.inner-container {
+  display: flex;
+  width: 100%;
+  max-width: $containerMaxWidth;
+  margin: 0 auto;
+}
+
 .header-inner {
   display: flex;
   justify-content: space-between;
-  max-width: $containerMaxWidth;
 }
 
 .logo-wrapper {

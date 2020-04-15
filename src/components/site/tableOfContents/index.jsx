@@ -33,24 +33,25 @@ class TableOfContents extends React.PureComponent {
     });
   }
 
-  getNavLinks(navLinks, investigation) {
+  getNavLinks(navLinks, investigation, useBaseUrl) {
     return [
       ...this.routes,
       ...filter(navLinks, link => link.investigation === investigation).map(
         link => {
           if (link.divider || link.subheader) return link;
-          const baseUrl = link.investigation ? `/${link.investigation}/` : '/';
+          const { title, id, investigation: linkBaseUrl, slug } = link;
+          const baseUrl = linkBaseUrl && useBaseUrl ? `/${linkBaseUrl}/` : '/';
 
           return {
             component: Link,
-            label: link.title,
-            to: baseUrl + link.slug,
-            primaryText: link.title,
+            label: title,
+            to: baseUrl + slug,
+            primaryText: title,
             leftIcon: <Check />,
-            active: this.setActivePage(link.id),
-            className: classnames('toc-link', `link--page-id--${link.id}`, {
-              'link-active': this.setActivePage(link.id),
-              'qa-progress--complete': this.checkQAProgress(link.id),
+            active: this.setActivePage(id),
+            className: classnames('toc-link', `link--page-id--${id}`, {
+              'link-active': this.setActivePage(id),
+              'qa-progress--complete': this.checkQAProgress(id),
             }),
           };
         }
@@ -74,7 +75,7 @@ class TableOfContents extends React.PureComponent {
 
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
-    const { visible, navLinks, investigation } = this.props;
+    const { visible, navLinks, investigation, isAll } = this.props;
 
     return (
       <Drawer
@@ -82,7 +83,7 @@ class TableOfContents extends React.PureComponent {
         className={styles.tableOfContents}
         visible={visible}
         onVisibilityChange={this.handleVisibility}
-        navItems={this.getNavLinks(navLinks, investigation)}
+        navItems={this.getNavLinks(navLinks, investigation, isAll)}
         overlay
       />
     );
@@ -90,6 +91,7 @@ class TableOfContents extends React.PureComponent {
 }
 
 TableOfContents.propTypes = {
+  isAll: PropTypes.bool,
   visible: PropTypes.bool,
   toggleToc: PropTypes.func.isRequired,
   navLinks: PropTypes.array,

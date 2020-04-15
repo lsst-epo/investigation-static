@@ -35,6 +35,7 @@ class PageContainer extends React.PureComponent {
       activeQuestionId,
       advanceActiveQuestion,
       setActiveQuestion,
+      pageContext,
     } = this.props;
 
     const {
@@ -50,6 +51,7 @@ class PageContainer extends React.PureComponent {
       tables,
       questionsByPage: questions,
     } = data.allPagesJson.nodes[0];
+    const { env } = pageContext || {};
     const Tag = this.layouts[layout || 'default'];
 
     const shared = {
@@ -78,7 +80,10 @@ class PageContainer extends React.PureComponent {
             shared,
           }}
         />
-        <PageNav {...{ previous, next }} baseUrl={`/${investigation}`} />
+        <PageNav
+          {...{ previous, next }}
+          baseUrl={!env || env === 'all' ? `/${investigation}` : '/'}
+        />
       </div>
     );
   }

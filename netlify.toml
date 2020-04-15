@@ -1,0 +1,14 @@
+[context."master"]
+  command = "cross-env INVESTIGATION='all' yarn deploy"
+
+[context."exploding-stars-staging"]
+  command = "cross-env INVESTIGATION='exploding-stars' yarn deploy"
+
+[context."expanding-universe-staging"]
+  command = "cross-env INVESTIGATION='expanding-universe' yarn deploy"
+
+[context."observable-universe-staging"]
+  command = "cross-env INVESTIGATION='observable-universe' yarn deploy"
+
+[context."solar-system-staging"]
+  command = "cross-env INVESTIGATION='solar-system' yarn deploy"
