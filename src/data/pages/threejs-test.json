@@ -8,11 +8,7 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/nea_extended.json",
-      "options": {
-        "show2D": true,
-        "show3D": true
-      }
+      "source": "/data/neos/nea_extended.json"
     }
   ]
 }

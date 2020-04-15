@@ -31,11 +31,7 @@ class GlobalStore {
 
   addReducers() {
     addReducer('empty', () => {
-      const emptyGlobal = this.emptyState;
-
-      ls(global.investigation, emptyGlobal);
-
-      return emptyGlobal;
+      return this.emptyState;
     });
 
     addReducer('updatePageId', (global, dispatch, pageId) => {

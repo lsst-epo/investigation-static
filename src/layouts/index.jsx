@@ -5,6 +5,7 @@ import GlobalStore from '../state/GlobalStore';
 import SEO from '../components/seo';
 import Header from '../components/site/header';
 import TableOfContents from '../components/site/tableOfContents';
+// import LandingPage from '../components/site/LandingPage.jsx';
 import logo from '../images/lsst-logo.svg';
 
 import styles from './layout.module.scss';
@@ -48,21 +49,25 @@ class Layout extends React.Component {
   render() {
     const { tocIsOpen } = this.state;
     const { children, pageContext } = this.props;
+    const { investigation, env } = pageContext;
 
     return (
       <>
-        <SEO title={pageContext.investigation || 'Investigation'} />
+        <SEO title={investigation || 'Investigation'} />
         <Header
           siteTitle="Investigation"
           tocVisability={tocIsOpen}
-          toggleToc={this.toggleToc}
+          toggleToc={investigation && this.toggleToc}
           logo={logo}
         />
-        <TableOfContents
-          visible={tocIsOpen}
-          toggleToc={this.toggleToc}
-          investigation={pageContext.investigation}
-        />
+        {investigation && (
+          <TableOfContents
+            visible={tocIsOpen}
+            toggleToc={this.toggleToc}
+            investigation={investigation}
+            isAll={!env || env === 'all'}
+          />
+        )}
         <div>
           <main className={styles.container}>{children}</main>
         </div>

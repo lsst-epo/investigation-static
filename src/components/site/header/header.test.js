@@ -3,6 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import Header from './index.jsx';
 
 const testTitle = 'Test Title';
+const handleToggleClick = jest.fn();
 
 test('Header renders without props', () => {
   // Arrange
@@ -22,21 +23,22 @@ test('Header Logo alt text is Site Title', () => {
 
 test('When TOC is visible Header TOC toggle reads "Close..."', () => {
   // Arrange
-  const { getByRole } = render(<Header tocVisability />);
+
+  const { getByRole } = render(<Header tocVisability toggleToc={handleToggleClick} />);
   // Assert
   expect(getByRole('button')).toHaveTextContent('Close Table of Contents');
 });
 
 test('When TOC is visible Header TOC toggle reads "Open..."', () => {
   // Arrange
-  const { getByRole } = render(<Header />);
+
+  const { getByRole } = render(<Header toggleToc={handleToggleClick} />);
   // Assert
   expect(getByRole('button')).toHaveTextContent('Open Table of Contents');
 });
 
 test('When Header TOC toggle is clicked toggleToc callback fires"', async () => {
   // Arrange
-  const handleToggleClick = jest.fn();
   const { getByRole } = render(<Header toggleToc={handleToggleClick} />);
   const tocToggle = getByRole('button');
   // Act
