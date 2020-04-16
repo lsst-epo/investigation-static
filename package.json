@@ -77,7 +77,7 @@
     "format": "prettier --write \"**/*.{js,jsx}\"",
     "styles": "stylelint --config \"./.stylelintrc\" --color --fix \"**/*.{css,scss}\"",
     "serve": "gatsby serve",
-    "test": "jest -update-snapshots --verbose",
+    "test": "jest --verbose",
     "watch-test": "jest --watch --verbose",
     "clean": "gatsby clean"
   },
