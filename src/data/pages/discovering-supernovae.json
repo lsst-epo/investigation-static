@@ -11,7 +11,8 @@
   "images": [
     {
       "mediaPath": "/images/discovering-supernovae.png",
-      "altText": "Superonva on the edge of a galaxy"
+      "altText": "Superonva on the edge of a galaxy",
+      "figText": "Supernova 2011fe in the spiral galaxy Messier 101."
     }
   ]
 }
