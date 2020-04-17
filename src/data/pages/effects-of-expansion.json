@@ -18,6 +18,7 @@
     {
       "mediaPath": "/images/three-galaxies.png",
       "altText": "Three galaxies at increasing distances from Earth. A is closest, C is farthest.",
+      "figText": "Three galaxies at increasing distances from Earth. A is closest, C is farthest.",
       "layout": {
         "col": "right",
         "row": "top"

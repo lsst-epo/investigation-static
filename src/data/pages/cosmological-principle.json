@@ -17,7 +17,8 @@
   "images": [
     {
       "mediaPath": "/images/galaxies/hsc/hsc.jpg",
-      "altText": "A vast array of visible galaxies"
+      "altText": "A vast array of visible galaxies",
+      "figText": "A vast array of visible galaxies"
     }
   ],
   "questionsByPage": [
