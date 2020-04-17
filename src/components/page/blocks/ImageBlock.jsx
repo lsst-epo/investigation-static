@@ -15,11 +15,13 @@ class ImageBlock extends React.PureComponent {
 
   render() {
     const { block: image, row } = this.props;
+    const { mediaPath, figText, altText } = image;
 
     return (
-      <div className={`${gridImage} ${this.gridClasses[row]}`}>
-        <img src={image.mediaPath} alt={image.altText} />
-      </div>
+      <figure className={`${gridImage} ${this.gridClasses[row]}`}>
+        <img src={mediaPath} alt={altText || ''} />
+        {figText && <figcaption>{figText}</figcaption>}
+      </figure>
     );
   }
 }

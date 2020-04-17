@@ -95,6 +95,18 @@
   @include labelPrimary;
 }
 
+@mixin labelSecondary {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: $medium;
+  line-height: 1.333;
+  color: $black;
+}
+
+.label-secondary {
+  @include labelSecondary;
+}
+
 
 // Navigation
 // --------------------------------------------------------

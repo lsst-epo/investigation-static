@@ -17,6 +17,7 @@
   "images": [
     {
       "mediaPath": "/images/inclination.png",
-      "altText": "Examples of orbital ellipses with different eccentricities."
+      "altText": "Examples of orbital ellipses with different eccentricities.",
+      "figText": "An image describing the inclination of an orbit. Credit: Modified from image by Lassuncty, Creative Commons 3.0 Unported."
     }
   ]}

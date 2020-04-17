@@ -17,7 +17,8 @@
   "images": [
     {
       "mediaPath": "/images/semi-major-axis.png",
-      "altText": "An image indicating the semi-major and semi-minor axis of an ellipse."
+      "altText": "An image indicating the semi-major and semi-minor axis of an ellipse.",
+      "figText": "An image indicating the semi-major and semi-minor axis of an ellipse. Credit: Sae1962, Creative Commons 4.0 international."
     }
   ]
 }

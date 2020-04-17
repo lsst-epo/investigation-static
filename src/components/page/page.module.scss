@@ -81,18 +81,28 @@
 
 .grid-image-top,
 .grid-image-bottom {
+  display: block;
+  width: 100%;
+
   img {
+    display: block;
     width: 100%;
-    margin: $minPadding auto;
+  }
+
+  figcaption {
+    @include labelSecondary;
+    margin-top: $minPadding / 2;
   }
 }
 
 .grid-image-top {
   grid-area: grid-image-top;
+  margin-bottom: $minPadding;
 }
 
 .grid-image-bottom {
   grid-area: grid-image-bottom;
+  margin-top: $minPadding;
 }
 
 .grid-table {

@@ -13,7 +13,8 @@
   "content": "<p>Recall the relationship that exists between the relative size of a galaxy and its distance from Earth. The supernova marked by an arrow in the image is from a galaxy of a similar size as the galaxies that contained Supernovae 4, 5, and 6.</p><p>Refer to the chart collecting your distance and magnitude observations from the previous section to get an idea of the approximate distance of Supernovae #4, #5, and #6.</p>",
   "images": [{
     "mediaPath": "/images/expoloding-universe_discuss-report.jpg",
-    "altText": "Superonva among other celestial objects"
+    "altText": "Superonva among other celestial objects",
+    "figText": "Supernova imaged by the Hubble Space Telescope. The image on the left shows a section of the Hubble Deep Field. The image on the right shows a very magnified view of the boxed area in the left image. The supernova is marked by the arrow. Image credit: NASA, Adam Riess (Space Telescope Science Institute, Baltimore, MD)."
   }],
   "tables": [
     {

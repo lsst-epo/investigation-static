@@ -14,7 +14,8 @@
   "images": [
     {
       "mediaPath": "/images/F2_large.jpg",
-      "altText": "Velocity-Distance Relation among Extra-Galactic Nebulae. Radial velocities, corrected for solar motion, are plotted against distances estimated from involved stars and mean luminosities of nebulae in a cluster. The black discs and full line represent the solution for solar motion using the nebulae individually; the circles and broken line represent the solution combining the nebulae into groups; the cross represents the mean velocity corresponding to the mean distance of 22 nebulae whose distances could not be estimated individually."
+      "altText": "Velocity-Distance Relation among Extra-Galactic Nebulae. Radial velocities, corrected for solar motion, are plotted against distances estimated from involved stars and mean luminosities of nebulae in a cluster. The black discs and full line represent the solution for solar motion using the nebulae individually; the circles and broken line represent the solution combining the nebulae into groups; the cross represents the mean velocity corresponding to the mean distance of 22 nebulae whose distances could not be estimated individually.",
+      "figText": "The original “Velocity-Distance Relation among Extra-Galactic Nebulae,” created by Edwin Hubble and published in the Proceedings of the National Academy of Sciences, March 15, 1929 15 (3) 168-173; https://doi.org/10.1073/pnas.15.3.168."
     }
   ]
 }

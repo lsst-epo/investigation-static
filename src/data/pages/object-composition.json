@@ -17,7 +17,8 @@
   "images": [
     {
       "mediaPath": "/images/filters.png",
-      "altText": "Comparison of visible color wavelength ranges with Rubin Observatory filters  (nm = nanometers)"
+      "altText": "Comparison of visible color wavelength ranges with Rubin Observatory filters  (nm = nanometers)",
+      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters  (nm = nanometers)"
     }
   ]
 }
