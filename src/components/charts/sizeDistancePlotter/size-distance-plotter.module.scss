@@ -1,0 +1,153 @@
+.galactic-properties-container {
+  width: 100%;
+}
+
+.galactic-properties {
+  width: 100%;
+  height: auto;
+
+  &.loaded {
+    visibility: visible;
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 1 !important;
+  }
+}
+
+.x-axis-label {
+  text-anchor: middle;
+}
+
+.group-point {
+  stroke: none;
+  transition: stroke $timing $duration, opacity $timing $duration;
+}
+
+.invisible {
+  display: none;
+}
+
+$chartColorsLength: length($chartColors) - 1;
+
+@for $i from 0 through $chartColorsLength - 1 {
+  .color-set-#{$i} {
+    $chartColor: nth($chartColors, $i + 1);
+    background-color: transparentize($chartColor, 0.15);
+    fill: transparentize($chartColor, 0.15);
+    stroke: lighten($chartColor, 5%);
+  }
+}
+
+// NavDrawer related styles
+
+.drawer-container {
+  position: relative;
+  padding-right: $minPadding;
+  padding-bottom: $minPadding;
+  box-shadow: none;
+}
+
+.galactic-properties-drawer-content {
+  padding-left: 72px;
+  outline: none;
+}
+
+// mini drawer
+aside {
+  .property-item {
+    margin-bottom: -1px;
+    background-color: $baseSecondaryLight;
+    transition: background-color $timing $duration;
+
+    .nav-avatar {
+      @include labelPrimary;
+      font-weight: $medium;
+      color: $basePrimary;
+    }
+
+    :global {
+      .md-icon {
+        fill: $basePrimary;
+      }
+    }
+
+    &:hover {
+      background-color: $basePrimary;
+
+      .nav-avatar {
+        color: $white;
+      }
+    }
+
+    &.link-active {
+      background-color: $basePrimary;
+
+      .nav-avatar {
+        color: $white;
+      }
+    }
+
+    &.link-is-disabled {
+      background-color: rgba(200, 200, 200, 0.6);
+
+      .nav-avatar {
+        color: $neutral10;
+      }
+    }
+  }
+}
+
+// full size drawer
+nav {
+  .property-item {
+    :global {
+      .md-text {
+        @include labelPrimary;
+        font-weight: $medium;
+      }
+    }
+
+    &.link-active {
+      background-color: $basePrimary;
+
+      :global {
+        .md-tile-text--primary,
+        .md-tile-text--primary.md-text--theme-primary,
+        .md-text {
+          /* stylelint-disable-next-line declaration-no-important */
+          color: $white !important;
+        }
+      }
+    }
+  }
+}
+
+// Multiple datasets Legend
+.legend {
+  display: inline-block;
+  // width: auto;
+  // max-width: 100%;
+  padding: $minPadding / 2;
+  margin-bottom: $minPadding;
+}
+
+.legend-row {
+  @include labelPrimary;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  + .legend-row {
+    margin-top: $minPadding / 2;
+  }
+}
+
+.legend-point {
+  width: 14px;
+  height: 14px;
+  margin-right: $minPadding;
+  border-radius: 50%;
+}
+
+.default-point {
+  background-color: $neutral30;
+}
