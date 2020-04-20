@@ -59,37 +59,49 @@
   ],
   "widgets": [
     {
-      "type": "OrbitalProperties",
-      "source": "/data/neos/NEO_inclination.json",
-      "options": {
-        "xAxisLabel": "NEO Inclinations",
-        "xValueAccessor": "inclination",
-        "domain": [[0, 180], []],
-        "tooltipAccessors": ["count", "inclination"],
-        "tooltipLabels": ["galaxies", "Inclination"]
-      }
-    },
-    {
-      "type": "OrbitalProperties",
-      "source": "/data/neos/NEO_eccentricity.json",
-      "options": {
-        "xAxisLabel": "NEO Eccentricities",
-        "xValueAccessor": "eccentricity",
-        "domain": [[0, 1], []],
-        "tooltipAccessors": ["count", "eccentricity"],
-        "tooltipLabels": ["galaxies", "Eccentricity"]
-      }
-    },
-    {
-      "type": "OrbitalProperties",
-      "source": "/data/neos/NEO_semimajor_axis.json",
-      "options": {
-        "xAxisLabel": "NEO Orbit Sizes",
-        "xValueAccessor": "semimajor_axis",
-        "domain": [[0, 60], []],
-        "tooltipAccessors": ["count", "semimajor_axis"],
-        "tooltipLabels": ["galaxies", "Orbit Size"]
-      }
+      "type": "ChartSwitcher",
+      "widgets": [
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/NEO_inclination.json",
+          "options": {
+            "title": "NEO Inclinations",
+            "xAxisLabel": "Inclinations",
+            "xValueAccessor": "inclination",
+            "yAxisLabel": "Number of NEOs",
+            "domain": [[0, 180], null],
+            "tooltipAccessors": ["count", "inclination"],
+            "tooltipLabels": ["NEOs", "Inclination"]
+          }
+        },
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/NEO_eccentricity.json",
+          "options": {
+            "title": "NEO Eccentricities",
+            "xAxisLabel": "Eccentricities",
+            "xValueAccessor": "eccentricity",
+            "yAxisLabel": "Number of NEOs",
+            "domain": [[0, 1], []],
+            "tooltipAccessors": ["count", "eccentricity"],
+            "tooltipLabels": ["NEOs", "Eccentricity"]
+          }
+        },
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/NEO_semimajor_axis.json",
+          "options": {
+            "title": "NEO Orbit Sizes",
+            "xAxisLabel": "Orbit Sizes",
+            "xValueAccessor": "semimajor_axis",
+            "yAxisLabel": "Number of NEOs",
+            "domain": [[0, 60], []],
+            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipLabels": ["NEOs", "Orbit Size"]
+          }
+        }
+      ],
+      "options": {}
     }
   ],
   "questionsByPage": [
@@ -101,9 +113,18 @@
           "title": "Question #1",
           "label": "Eccentricity: ",
           "options": [
-            { "label": "Most orbits are similar to the shape of Earth’s orbit  (0.0 - 0.3)", "value": "Similar to Earth’s" },
-            { "label": "Most orbits are noticeably more elliptical than the shape of Earth’s orbit (greater than 0.3)", "value": "More elliptical than Earth’s" },
-            { "label": "There is a wide range in the shapes of the orbits", "value": "Wide range of shapes" }
+            {
+              "label": "Most orbits are similar to the shape of Earth’s orbit  (0.0 - 0.3)",
+              "value": "Similar to Earth’s"
+            },
+            {
+              "label": "Most orbits are noticeably more elliptical than the shape of Earth’s orbit (greater than 0.3)",
+              "value": "More elliptical than Earth’s"
+            },
+            {
+              "label": "There is a wide range in the shapes of the orbits",
+              "value": "Wide range of shapes"
+            }
           ],
           "placeholder": "Select best description of NEOs",
           "answerPre": "<p>Selected: </p>",
@@ -119,9 +140,18 @@
           "title": "Question #1",
           "label": "Inclination: ",
           "options": [
-            { "label": "Most orbits are similar to Earth’s orbital plane  (0-20 degrees)", "value": "Similar to Earth’s" },
-            { "label": "Most orbits are considerably tilted compared to Earth’s orbital plane (more than 20 degrees)", "value": "Most tilted than Earth’s" },
-            { "label": "There is a wide range in the tilt of the orbits", "value": "Wide range in tilts" }
+            {
+              "label": "Most orbits are similar to Earth’s orbital plane  (0-20 degrees)",
+              "value": "Similar to Earth’s"
+            },
+            {
+              "label": "Most orbits are considerably tilted compared to Earth’s orbital plane (more than 20 degrees)",
+              "value": "Most tilted than Earth’s"
+            },
+            {
+              "label": "There is a wide range in the tilt of the orbits",
+              "value": "Wide range in tilts"
+            }
           ],
           "placeholder": "Select best description of NEOs",
           "answerPre": "<p>Selected: </p>",
@@ -137,9 +167,18 @@
           "title": "Question #1",
           "label": "Size of the orbit: ",
           "options": [
-            { "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 AU", "value": "Within inner Solar System" },
-            { "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 AU", "value": "In the outer Solar System" },
-            { "label": "The orbits span both the inner and outer Solar System", "value": "Span inner and outer Solar System" }
+            {
+              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 AU",
+              "value": "Within inner Solar System"
+            },
+            {
+              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 AU",
+              "value": "In the outer Solar System"
+            },
+            {
+              "label": "The orbits span both the inner and outer Solar System",
+              "value": "Span inner and outer Solar System"
+            }
           ],
           "placeholder": "Select best description of NEOs",
           "answerPre": "<p>Selected: </p>",
@@ -155,8 +194,14 @@
           "title": "Question #1",
           "label": "Direction of the orbit: ",
           "options": [
-            { "label": "Most objects orbit the Sun in the same direction of Earth’s orbit.", "value": "Same direction as Earth’s" },
-            { "label": "A significant number of objects (more than 10%) orbit the Sun in the opposite direction of Earth’s orbit, i >90 ", "value": "Opposite direction as Earth’s" }
+            {
+              "label": "Most objects orbit the Sun in the same direction of Earth’s orbit.",
+              "value": "Same direction as Earth’s"
+            },
+            {
+              "label": "A significant number of objects (more than 10%) orbit the Sun in the opposite direction of Earth’s orbit, i >90 ",
+              "value": "Opposite direction as Earth’s"
+            }
           ],
           "placeholder": "Select best description of NEOs",
           "answerPre": "<p>Selected: </p>",

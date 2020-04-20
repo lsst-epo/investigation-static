@@ -27,34 +27,16 @@ import Tooltip from '../shared/Tooltip.jsx';
 class Histogram extends React.PureComponent {
   constructor(props) {
     super(props);
-    const {
-      data,
-      valueAccessor,
-      domain,
-      width,
-      height,
-      padding,
-      offsetRight,
-      offsetTop,
-    } = props;
-
-    const histData = this.histogramData(data, valueAccessor, domain);
 
     this.state = {
-      data: histData,
+      data: null,
       selectedData: null,
       hoverDataBar: null,
       tooltipPosX: 0,
       tooltipPosY: 0,
       showTooltip: false,
-      xScale: this.getXScale(
-        histData,
-        valueAccessor,
-        width,
-        padding,
-        offsetRight
-      ),
-      yScale: this.getYScale(histData, height, padding, offsetTop),
+      xScale: null,
+      yScale: null,
       loading: true,
     };
 
@@ -92,8 +74,8 @@ class Histogram extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const { data, activeData } = this.props;
-    const { loading } = this.state;
+    const { activeData } = this.props;
+    const { loading, data } = this.state;
 
     if (!isEmpty(data) && loading) {
       this.updateHistogram();
@@ -114,7 +96,6 @@ class Histogram extends React.PureComponent {
   }
 
   histogramData(data, valueAccessor, domain) {
-    // console.log(data, valueAccessor, domain);
     if (valueAccessor === 'luminosity') {
       return d3Histogram()
         .value(d => {
@@ -175,7 +156,7 @@ class Histogram extends React.PureComponent {
         0,
         d3Max(data, d => {
           return d.length;
-        }) + 10,
+        }) * 1.1,
       ])
       .range([height - padding, offsetTop]);
   }
@@ -410,7 +391,7 @@ Histogram.defaultProps = {
   width: 600,
   height: 600,
   padding: 80,
-  offsetTop: 15,
+  offsetTop: 0,
   offsetRight: 7,
   yAxisLabel: 'Number of Stars',
   tooltipAccessors: ['temperature'],

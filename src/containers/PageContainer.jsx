@@ -92,6 +92,7 @@ class PageContainer extends React.PureComponent {
 export default WithQAing(PageContainer);
 
 PageContainer.propTypes = {
+  pageContext: PropTypes.object,
   data: PropTypes.object,
   answers: PropTypes.object,
   updateAnswer: PropTypes.func,
@@ -107,100 +108,18 @@ export const query = graphql`
       filter: { id: { eq: $id }, investigation: { eq: $investigation } }
     ) {
       nodes {
-        id
-        investigation
-        layout
-        slug
-        title
-        content
-        next {
-          title
-          link
-        }
-        previous {
-          title
-          link
-        }
+        ...PageMeta
         images {
-          mediaPath
-          altText
-          layout {
-            col
-            row
-          }
+          ...Image
         }
         tables {
-          id
-          title
-          layout {
-            col
-            row
-          }
-          colTitles
-          rowTitles
-          rows {
-            accessor
-            id
-            content
-          }
+          ...Table
         }
         widgets {
-          type
-          source
-          sources
-          layout {
-            col
-            row
-          }
-          options {
-            title
-            show2D
-            show3D
-            showSelector
-            showLightCurve
-            showUserPlot
-            createUserHubblePlot
-            hubbleConstant
-            userTrendline
-            lightCurveTemplates
-            choosePeakMagnitude
-            chooseLightCurveTemplate
-            preSelectedLightCurveTemplate
-            preSelectedLightCurveMagnitude
-            toggleDataPointsVisibility
-            randomSource
-            autoplay
-            preSelected
-            multiple
-            domain
-            xAxisLabel
-            yAxisLabel
-            xValueAccessor
-            yValueAccessor
-            tooltipAccessors
-            tooltipUnits
-            tooltipLabels
-          }
+          ...Widget
         }
         questionsByPage {
-          question {
-            id
-            questionType
-            compoundQuestion
-            tool
-            label
-            labelPre
-            labelPost
-            srLabel
-            answerPre
-            answerPost
-            answerAccessor
-            placeholder
-            options {
-              label
-              value
-            }
-          }
+          ...Question
         }
       }
     }

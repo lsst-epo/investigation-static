@@ -12,7 +12,7 @@
     "title": "Identifying Types of Solar System Objects",
     "link": "/identifying-groups/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "tables": [
     {
       "id": "1",
@@ -64,7 +64,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Based on the data from the histograms and the results you recorded in the table above, describe the <i>similarities</i> that exist between these four groups of objects."
+          "label": "Based on the observations you recorded in your table, describe the <i>similarities</i> that exist between these four groups of objects."
         }
       ]
     },
@@ -75,7 +75,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Based on the data from the histograms and the results you recorded in the table above, describe the <i>differences</i> that exist between these four groups of objects."
+          "label": "Based on the observations you recorded in your table, describe the <i>differences</i> that exist between these four groups of objects."
         }
       ]
     }

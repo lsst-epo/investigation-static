@@ -12,10 +12,10 @@ import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUti
 
 import {
   drawerContainer,
-  hubbleDrawerContent,
   scrambleItem,
   linkActive,
 } from '../components/charts/hubblePlot/hubble-plot.module.scss';
+import { paddedDrawerInner } from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 
 class GalaxyScramblerContainer extends React.PureComponent {
   constructor(props) {
@@ -120,7 +120,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
         <NavDrawer
           interactableToolbar
           cardClasses={drawerContainer}
-          contentClasses={hubbleDrawerContent}
+          contentClasses={paddedDrawerInner}
           navItems={navItems}
           toolbarTitle={
             activeScramble ? `${activeScramble.name}` : 'Galaxy Scrambler'
