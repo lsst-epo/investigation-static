@@ -7,11 +7,11 @@ import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import GalacticProperties from '../components/charts/galacticProperties/index.jsx';
 import ScatterPlot from '../components/site/icons/Star';
 import {
-  drawerContainer,
-  galacticPropertiesDrawerContent,
+  card,
   linkActive,
   propertyItem,
 } from '../components/charts/galacticProperties/galactic-properties.module.scss';
+import { paddedDrawerInner } from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 
 class GalacticPropertiesComboContainer extends React.PureComponent {
   constructor(props) {
@@ -87,7 +87,7 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
   };
 
   userGalacticPropertiesCallback = data => {
-    console.log({ data }); // eslint-disable-line no-console
+    return null;
   };
 
   setActiveProperty = activeProperty => {
@@ -133,38 +133,36 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
     } = activeProperty.options || {};
 
     return (
-      <>
-        <NavDrawer
-          interactableToolbar
-          cardClasses={drawerContainer}
-          contentClasses={galacticPropertiesDrawerContent}
-          navItems={navItems}
-          toolbarTitle={title}
-        >
-          <div className="container-flex spaced">
-            <div className="col padded">
-              {/* <h2 className="space-bottom">{title}</h2> */}
-              <GalacticProperties
-                className="color-brightness-vs-distance-combo"
-                options={activeProperty.options}
-                {...{
-                  data,
-                  xAxisLabel,
-                  yAxisLabel,
-                  xValueAccessor,
-                  yValueAccessor,
-                  tooltipAccessors,
-                  tooltipUnits,
-                  tooltipLabels,
-                  xDomain,
-                  yDomain,
-                }}
-                selectionCallback={this.userGalacticPropertiesCallback}
-              />
-            </div>
+      <NavDrawer
+        interactableToolbar
+        cardClasses={card}
+        contentClasses={paddedDrawerInner}
+        navItems={navItems}
+        toolbarTitle={title}
+      >
+        <div className="container-flex spaced">
+          <div className="col padded">
+            {/* <h2 className="space-bottom">{title}</h2> */}
+            <GalacticProperties
+              className="color-brightness-vs-distance-combo"
+              options={activeProperty.options}
+              {...{
+                data,
+                xAxisLabel,
+                yAxisLabel,
+                xValueAccessor,
+                yValueAccessor,
+                tooltipAccessors,
+                tooltipUnits,
+                tooltipLabels,
+                xDomain,
+                yDomain,
+              }}
+              selectionCallback={this.userGalacticPropertiesCallback}
+            />
           </div>
-        </NavDrawer>
-      </>
+        </div>
+      </NavDrawer>
     );
   }
 }

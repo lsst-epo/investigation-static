@@ -35,4 +35,8 @@
       transform: translateX(50%);
     }
   }
+
+  .tick {
+    @include labelPrimary;
+  }
 }

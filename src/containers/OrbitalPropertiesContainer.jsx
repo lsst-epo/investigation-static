@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import API from '../lib/API.js';
-import Histogram from '../components/charts/histogram/index.jsx';
+import OrbitalProperties from '../components/charts/orbitalProperties/index.jsx';
 
 class OrbitalPropertiesContainer extends React.PureComponent {
   constructor(props) {
@@ -15,6 +15,7 @@ class OrbitalPropertiesContainer extends React.PureComponent {
   componentDidMount() {
     const { widget } = this.props;
     const { source } = widget || {};
+
     API.get(source).then(response => {
       const { data } = response;
 
@@ -25,10 +26,6 @@ class OrbitalPropertiesContainer extends React.PureComponent {
       }));
     });
   }
-
-  callback = () => {
-    return null;
-  };
 
   render() {
     const { data } = this.state;
@@ -46,24 +43,19 @@ class OrbitalPropertiesContainer extends React.PureComponent {
 
     return (
       <>
-        <h2>Orbital Properties</h2>
-        {data && (
-          <Histogram
-            {...{
-              data,
-              valueAccessor,
-              domain,
-              preSelected,
-              yAxisLabel,
-              xAxisLabel,
-              tooltipLabels,
-              tooltipAccessors,
-              tooltipUnits,
-            }}
-            dataSelectionCallback={this.callback}
-            domain={domain ? domain[0] : [0, 1000]}
-          />
-        )}
+        <OrbitalProperties
+          {...{
+            data,
+            valueAccessor,
+            domain,
+            preSelected,
+            yAxisLabel,
+            xAxisLabel,
+            tooltipLabels,
+            tooltipAccessors,
+            tooltipUnits,
+          }}
+        />
       </>
     );
   }

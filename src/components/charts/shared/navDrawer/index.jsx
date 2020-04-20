@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { Card, NavigationDrawer } from 'react-md';
 import NavDrawerToolbar from './toolbar/index.jsx';
 
-import { navDrawerContainer } from './nav-drawer.module.scss';
+import { navDrawerContainer, drawerCard } from './nav-drawer.module.scss';
 
 class NavDrawer extends React.PureComponent {
   constructor(props) {
@@ -51,11 +51,12 @@ class NavDrawer extends React.PureComponent {
     const { menuIsOpen } = this.state;
 
     const navClasses = classnames(navDrawerContainer, classes);
-    // console.log(this.props, this.state);
+    const cardContainerClasses = classnames(drawerCard, cardClasses);
+
     return (
       <>
         {showNavDrawer && (
-          <Card className={cardClasses}>
+          <Card className={cardContainerClasses}>
             <NavDrawerToolbar
               menuIsOpen={menuIsOpen}
               toggleMenu={this.menuToggler}
