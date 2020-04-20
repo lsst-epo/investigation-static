@@ -20,11 +20,16 @@ import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import Star from '../components/site/icons/Star';
 import Legend from '../components/charts/shared/legend/index.jsx';
 import LegendItem from '../components/charts/shared/legend/LegendItem.jsx';
-import styles from '../components/charts/galaxySelector/galaxy-selector.module.scss';
+
+import {
+  galaxyItem,
+  linkActive,
+} from '../components/charts/galaxySelector/galaxy-selector.module.scss';
 import {
   container,
   mainContent,
 } from '../components/charts/lightCurve/light-curve.module.scss';
+import { paddedDrawerInner } from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 
 class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
   constructor(props) {
@@ -133,8 +138,8 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
           </span>
         ),
         primaryText: name,
-        className: classnames(styles.galaxyItem, {
-          [styles.linkActive]: activeGalaxy === galaxy,
+        className: classnames(galaxyItem, {
+          [linkActive]: activeGalaxy === galaxy,
         }),
         onClick: () => this.setActiveGalaxy(galaxy),
       };
@@ -241,7 +246,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
               navItems={navItems}
               toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
               showNavDrawer={data && !multiple ? data.length > 1 : false}
-              contentClasses={mainContent}
+              contentClasses={paddedDrawerInner}
             >
               <LightCurve
                 className={`light-curve-${name} ${band}-band`}

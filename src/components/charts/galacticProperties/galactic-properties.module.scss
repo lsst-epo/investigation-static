@@ -38,24 +38,16 @@ $chartColorsLength: length($chartColors) - 1;
 }
 
 // NavDrawer related styles
-
-.drawer-container {
+.card {
   position: relative;
-  padding-right: $minPadding;
-  padding-bottom: $minPadding;
   box-shadow: none;
-}
-
-.galactic-properties-drawer-content {
-  padding-left: 72px;
-  outline: none;
 }
 
 // mini drawer
 aside {
   .property-item {
     margin-bottom: -1px;
-    background-color: $baseSecondaryLight;
+    background-color: $neutral10;
     transition: background-color $timing $duration;
 
     .nav-avatar {
