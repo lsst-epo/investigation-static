@@ -25,10 +25,7 @@ import {
   galaxyItem,
   linkActive,
 } from '../components/charts/galaxySelector/galaxy-selector.module.scss';
-import {
-  container,
-  mainContent,
-} from '../components/charts/lightCurve/light-curve.module.scss';
+import { container } from '../components/charts/lightCurve/light-curve.module.scss';
 import { paddedDrawerInner } from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 
 class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {

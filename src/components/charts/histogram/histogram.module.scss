@@ -1,0 +1,42 @@
+// .histogram {
+
+//   .mean-bar {
+//     fill: $black;
+//   }
+
+//   .mean-text {
+//     font-size: 12px;
+
+//     .inner-text {
+//       transform: translateX(50%);
+//     }
+//   }
+// }
+
+.tick {
+  @include labelPrimary;
+}
+
+.data-bar {
+  stroke: transparentize($black, 0.5);
+}
+
+.default-color {
+  opacity: 1;
+  fill: $baseSecondaryLight;
+  stroke: $black;
+}
+
+.hovered-bar {
+  fill: $baseSecondary;
+}
+
+.selected-bar {
+  fill: $baseSecondaryDark;
+}
+
+.data-bar-diff {
+  &.hovered-bar, &.selected-bar {
+    fill: $neutral10;
+  }
+}

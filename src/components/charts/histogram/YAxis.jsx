@@ -32,7 +32,7 @@ class YAxis extends React.Component {
         <text
           key="y-axis-label"
           className="y-axis-label"
-          transform={`translate(${padding * 0.33},
+          transform={`translate(${15},
            ${(height - padding + offsetTop) / 2}) rotate(-90)`}
           style={{ textAnchor: 'middle' }}
         >

@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+// import * as THREE from 'three';
 
 const G = 6.67384e-11;
 // const MIN_GHOST_DISTANCE = 100;

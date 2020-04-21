@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {
+  dataBarWrapper,
+  dataBarDiff,
+  dataBar,
+  selectedBar,
+  hoveredBar,
+  defaultColor,
+} from './histogram.module.scss';
 
 class Bar extends React.PureComponent {
   render() {
@@ -14,21 +22,24 @@ class Bar extends React.PureComponent {
       selected,
       hovered,
       classes,
+      colorClass,
     } = this.props;
-    // const barClasses = classnames(`data-bar-wrapper ${classes || ""}`, {
-    //   selected,
-    //   hovered,
-    // });
 
-    const barWrapperClasses = classnames('data-bar-wrapper', {
-      selected,
-      hovered,
+    const barWrapperClasses = classnames(dataBarWrapper);
+    const diffClasses = classnames(dataBarDiff, classes, {
+      [selectedBar]: selected,
+      [hoveredBar]: hovered,
+    });
+    const barClasses = classnames('data-bar-data', classes);
+    const dataClasses = classnames(dataBar, colorClass || defaultColor, {
+      [selectedBar]: selected,
+      [hoveredBar]: hovered,
     });
 
     return (
       <g className={barWrapperClasses}>
         <rect
-          className="data-bar"
+          className={dataClasses}
           x={x}
           y={y}
           height={height}
@@ -37,7 +48,7 @@ class Bar extends React.PureComponent {
           fill="transparent"
         />
         <rect
-          className={`data-bar-diff ${classes || ''}`}
+          className={diffClasses}
           x={x}
           y={absentY}
           height={absentHeight}
@@ -46,7 +57,7 @@ class Bar extends React.PureComponent {
           stroke="transparent"
         />
         <rect
-          className="data-bar-data"
+          className={barClasses}
           x={x}
           y={absentY}
           height={absentHeight + height + 1}
@@ -69,6 +80,7 @@ Bar.propTypes = {
   height: PropTypes.number,
   absentHeight: PropTypes.number,
   classes: PropTypes.string,
+  colorClass: PropTypes.string,
 };
 
 export default Bar;

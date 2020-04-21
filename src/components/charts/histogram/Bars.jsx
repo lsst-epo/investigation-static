@@ -20,7 +20,9 @@ class Bars extends React.PureComponent {
       graphHeight,
       padding,
       barClasses,
+      colorClass,
     } = this.props;
+
     return (
       <g className="data-bars">
         {data.map((d, i) => {
@@ -30,13 +32,14 @@ class Bars extends React.PureComponent {
           return (
             <Bar
               key={key}
+              classes={barClasses}
+              colorClass={colorClass}
               x={xScale(d.x0)}
               y={yScale(d.length) + offsetTop}
               absentY={offsetTop}
               width={xScale(d.x1) - xScale(d.x0)}
               height={barHeight}
               absentHeight={graphHeight - padding - barHeight - 1}
-              classes={barClasses}
               selected={this.isMatch(selectedData, d)}
               hovered={this.isMatch(hoveredData, d)}
             />
@@ -57,6 +60,7 @@ Bars.propTypes = {
   xScale: PropTypes.func,
   yScale: PropTypes.func,
   barClasses: PropTypes.string,
+  colorClass: PropTypes.string,
 };
 
 export default Bars;
