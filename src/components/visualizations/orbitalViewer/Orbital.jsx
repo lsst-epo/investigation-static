@@ -87,7 +87,8 @@ function Orbital(props) {
   }
 
   // Called every frame
-  useFrame((state, delta) => {
+  // (state, delta)
+  useFrame(() => {
     updatePoint();
     // if (delta > interval) {
     // setInterval(FPS);
@@ -109,7 +110,7 @@ function Orbital(props) {
       <mesh
         rotation={point.rotation}
         position={point.position}
-        onClick={e => setActive(!active)}
+        onClick={() => setActive(!active)}
       >
         <sphereBufferGeometry attach="geometry" args={[ObjRadius, 7, 6]} />
         <meshBasicMaterial
@@ -118,23 +119,23 @@ function Orbital(props) {
         />
       </mesh>
       {/* Minor Axis */}
-      {/*      <mesh position={[0, -minAxis, 0]}>
+      {/* <mesh position={[0, -minAxis, 0]}>
         <sphereBufferGeometry attach="geometry" args={[2, 10, 10]} />
         <meshBasicMaterial attach="material" color={'green'} />
       </mesh>
       <mesh position={[0, minAxis, 0]}>
         <sphereBufferGeometry attach="geometry" args={[2, 10, 10]} />
         <meshBasicMaterial attach="material" color={'green'} />
-      </mesh>*/}
+      </mesh> */}
       {/* Major Axis */}
-      {/*      <mesh position={[majAxis, 0, 0]}>
+      {/* <mesh position={[majAxis, 0, 0]}>
         <sphereBufferGeometry attach="geometry" args={[2, 10, 10]} />
         <meshBasicMaterial attach="material" color={'red'} />
       </mesh>
       <mesh position={[-majAxis, 0, 0]}>
         <sphereBufferGeometry attach="geometry" args={[2, 10, 10]} />
         <meshBasicMaterial attach="material" color={'red'} />
-      </mesh>*/}
+      </mesh> */}
     </group>
   );
 }

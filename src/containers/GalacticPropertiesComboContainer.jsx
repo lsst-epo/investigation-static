@@ -86,7 +86,7 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
     return isArray(data.objects) ? data.objects : [];
   };
 
-  userGalacticPropertiesCallback = data => {
+  userGalacticPropertiesCallback = () => {
     return null;
   };
 

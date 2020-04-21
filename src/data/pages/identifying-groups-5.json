@@ -13,18 +13,24 @@
     "link": "/history-solar-system-2/"
   },
   "layout": "TwoCol",
-  "content":"<p>Now let’s look at a histogram of the number of all small Solar System objects on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p>",
+  "content": "<p>Now let’s look at a histogram of the number of all small Solar System objects on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p>",
   "widgets": [
     {
       "type": "OrbitalProperties",
-      "source": "/data/neos/all_semimajor_by_category.json",
+      "sources": [
+        "/data/neos/NEO_semimajor_axis.json",
+        "/data/neos/MBA_semimajor_axis.json",
+        "/data/neos/TNO_semimajor_axis.json",
+        "/data/neos/comets_semimajor_axis.json"
+      ],
       "options": {
-        "xAxisLabel": "Small Object Orbit Sizes",
+        "title": "Small Object Orbit Sizes",
+        "xAxisLabel": "Orbit Sizes",
         "xValueAccessor": "semimajor_axis",
+        "yAxisLabel": "Number of Objects",
         "domain": [[0, 60], []],
         "tooltipAccessors": ["count", "semimajor_axis"],
-        "tooltipLabels": ["galaxies", "Orbit Size"],
-        "multiple": true
+        "tooltipLabels": ["objects", "Orbit Size"]
       }
     }
   ],

@@ -38,6 +38,7 @@ class Histogram extends React.PureComponent {
       xScale: null,
       yScale: null,
       loading: true,
+      groupNames: null,
     };
 
     this.svgEl = React.createRef();
@@ -53,10 +54,16 @@ class Histogram extends React.PureComponent {
       height,
       valueAccessor,
       domain,
+      multiple,
     } = this.props;
 
     if (!isEmpty(data)) {
-      const histData = this.histogramData(data, valueAccessor, domain);
+      const histData = this.histogramData(
+        data,
+        valueAccessor,
+        domain,
+        multiple
+      );
 
       this.setState(prevState => ({
         ...prevState,
@@ -66,9 +73,11 @@ class Histogram extends React.PureComponent {
           valueAccessor,
           width,
           padding,
-          offsetRight
+          offsetRight,
+          multiple
         ),
-        yScale: this.getYScale(histData, height, padding, offsetTop),
+        groupNames: multiple && data.map(set => set.group.toLowerCase()),
+        yScale: this.getYScale(histData, height, padding, offsetTop, multiple),
       }));
     }
   }
@@ -95,7 +104,7 @@ class Histogram extends React.PureComponent {
     }
   }
 
-  histogramData(data, valueAccessor, domain) {
+  histogramData(data, valueAccessor, domain, multiple) {
     if (valueAccessor === 'luminosity') {
       return d3Histogram()
         .value(d => {
@@ -112,6 +121,19 @@ class Histogram extends React.PureComponent {
     //     .thresholds(10)(data);
     // }
 
+    if (domain && multiple) {
+      return data.map(set => {
+        const { data: dataset } = set;
+
+        return d3Histogram()
+          .value(d => {
+            return d[valueAccessor]; // eslint-disable-line dot-notation
+          })
+          .thresholds(20)
+          .domain(domain)(dataset);
+      });
+    }
+
     if (domain) {
       return d3Histogram()
         .value(d => {
@@ -125,19 +147,7 @@ class Histogram extends React.PureComponent {
     })(data);
   }
 
-  getXScale(data, valueAccessor, width, padding, offsetRight) {
-    if (valueAccessor === 'luminosity') {
-      const last = data[data.length - 1];
-      const domain = data.map(d => {
-        return d.x0;
-      });
-
-      domain.push(last.x1);
-      return d3ScalePoint()
-        .domain(domain)
-        .range([padding, width - offsetRight]);
-    }
-
+  getLuminosityXScale(data, width, padding, offsetRight) {
     const last = data[data.length - 1];
     const domain = data.map(d => {
       return d.x0;
@@ -150,7 +160,38 @@ class Histogram extends React.PureComponent {
       .range([padding, width - offsetRight]);
   }
 
-  getYScale(data, height, padding, offsetTop) {
+  getPointXScale(data, width, padding, offsetRight) {
+    const last = data[data.length - 1];
+    const domain = data.map(d => {
+      return d.x0;
+    });
+
+    domain.push(last.x1);
+
+    return d3ScalePoint()
+      .domain(domain)
+      .range([padding, width - offsetRight]);
+  }
+
+  getXScale(data, valueAccessor, width, padding, offsetRight, multiple) {
+    if (!multiple) {
+      if (valueAccessor === 'luminosity') {
+        return this.getLuminosityXScale(data, width, padding, offsetRight);
+      }
+
+      return this.getPointXScale(data, width, padding, offsetRight);
+    }
+
+    return data.map(set => {
+      if (valueAccessor === 'luminosity') {
+        return this.getLuminosityXScale(set, width, padding, offsetRight);
+      }
+
+      return this.getPointXScale(set, width, padding, offsetRight);
+    });
+  }
+
+  getLinearYScale(data, height, padding, offsetTop) {
     return d3ScaleLinear()
       .domain([
         0,
@@ -159,6 +200,16 @@ class Histogram extends React.PureComponent {
         }) * 1.1,
       ])
       .range([height - padding, offsetTop]);
+  }
+
+  getYScale(data, height, padding, offsetTop, multiple) {
+    if (!multiple) {
+      return this.getLinearYScale(data, height, padding, offsetTop);
+    }
+
+    return data.map(set => {
+      return this.getLinearYScale(set, height, padding, offsetTop);
+    });
   }
 
   getLabel(type) {
@@ -248,30 +299,43 @@ class Histogram extends React.PureComponent {
   }
 
   updateBars() {
-    const { loading, data } = this.state;
-    // const { data } = this.props;
+    const { loading, data, groupNames } = this.state;
+    const { multiple } = this.props;
     const $histogram = d3Select(this.svgEl.current);
 
-    $histogram
-      .selectAll('.data-bar-data')
-      .data(data)
-      .transition()
-      .end()
-      .then(() => {
-        if (loading) {
-          this.setState(prevState => ({
-            ...prevState,
-            loading: false,
-          }));
-        }
+    if (!multiple) {
+      $histogram
+        .selectAll('.data-bar-data')
+        .data(data)
+        .transition()
+        .end()
+        .then(() => {
+          if (loading) {
+            this.setState(prevState => ({
+              ...prevState,
+              loading: false,
+            }));
+          }
+        });
+    } else if (multiple && groupNames) {
+      groupNames.forEach((groupName, i) => {
+        $histogram.selectAll(`.data-bar-data.${groupName}`).data(data[i]);
       });
+
+      if (loading) {
+        this.setState(prevState => ({
+          ...prevState,
+          loading: false,
+        }));
+      }
+    }
   }
 
   updateHistogram() {
-    const { preSelected } = this.props;
+    const { preSelected, multiple } = this.props;
 
     this.updateBars();
-    if (!preSelected) this.addEventListeners();
+    if (!preSelected && !multiple) this.addEventListeners();
   }
 
   render() {
@@ -288,6 +352,7 @@ class Histogram extends React.PureComponent {
       tooltipAccessors,
       tooltipUnits,
       tooltipLabels,
+      multiple,
     } = this.props;
 
     const {
@@ -300,6 +365,7 @@ class Histogram extends React.PureComponent {
       tooltipPosX,
       xScale,
       yScale,
+      groupNames,
     } = this.state;
 
     const svgClasses = classnames('histogram svg-chart', {
@@ -334,7 +400,31 @@ class Histogram extends React.PureComponent {
           viewBox={`0 0 ${width} ${height}`}
           ref={this.svgEl}
         >
-          {xScale && yScale && (
+          {xScale && yScale && multiple && (
+            <>
+              {data.map((dataset, i) => {
+                const groupName = groupNames[i];
+                const key = groupName + i;
+
+                return (
+                  <Bars
+                    barClasses={groupName}
+                    colorClass={`color-set-${i + 1}`}
+                    key={key}
+                    data={dataset}
+                    selectedData={selectedData}
+                    hoveredData={hoveredData}
+                    offsetTop={offsetTop}
+                    xScale={xScale[i]}
+                    yScale={yScale[i]}
+                    graphHeight={height}
+                    padding={padding}
+                  />
+                );
+              })}
+            </>
+          )}
+          {xScale && yScale && !multiple && (
             <>
               <Bars
                 data={data}
@@ -360,7 +450,19 @@ class Histogram extends React.PureComponent {
               )} */}
             </>
           )}
-          {xScale && (
+          {xScale && multiple && (
+            <XAxis
+              label={xAxisLabel || this.getLabel(valueAccessor)}
+              height={height}
+              width={width}
+              padding={padding}
+              offsetTop={offsetTop}
+              offsetRight={offsetRight}
+              scale={xScale[0]}
+              valueAccessor={valueAccessor}
+            />
+          )}
+          {xScale && !multiple && (
             <XAxis
               label={xAxisLabel || this.getLabel(valueAccessor)}
               height={height}
@@ -372,7 +474,16 @@ class Histogram extends React.PureComponent {
               valueAccessor={valueAccessor}
             />
           )}
-          {yScale && (
+          {yScale && multiple && (
+            <YAxis
+              label={yAxisLabel}
+              height={height}
+              padding={padding}
+              offsetTop={offsetTop}
+              scale={yScale[0]}
+            />
+          )}
+          {yScale && !multiple && (
             <YAxis
               label={yAxisLabel}
               height={height}
@@ -416,7 +527,7 @@ Histogram.propTypes = {
   tooltipAccessors: PropTypes.array,
   tooltipLabels: PropTypes.array,
   tooltipUnits: PropTypes.array,
-  // multiple: PropTypes.bool,
+  multiple: PropTypes.bool,
 };
 
 export default Histogram;

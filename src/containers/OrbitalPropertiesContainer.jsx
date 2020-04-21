@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { spread, all } from 'axios';
 import API from '../lib/API.js';
 import OrbitalProperties from '../components/charts/orbitalProperties/index.jsx';
 
@@ -14,22 +15,44 @@ class OrbitalPropertiesContainer extends React.PureComponent {
 
   componentDidMount() {
     const { widget } = this.props;
-    const { source } = widget || {};
+    const { source, sources } = widget || {};
 
-    API.get(source).then(response => {
-      const { data } = response;
+    if (sources) {
+      all(this.allGets(sources)).then(
+        spread((...responses) => {
+          const data = responses.map(reponse => {
+            const { data: rData } = reponse;
+            return rData;
+          });
 
-      this.setState(prevState => ({
-        ...prevState,
-        data: data.data,
-        group: data.group,
-      }));
+          this.setData(data);
+        })
+      );
+    } else if (source) {
+      API.get(source).then(response => {
+        const { data } = response;
+        this.setData(data);
+      });
+    }
+  }
+
+  setData(data) {
+    this.setState(prevState => ({
+      ...prevState,
+      data: data.data || data,
+      group: data.group || 'all',
+    }));
+  }
+
+  allGets(sources) {
+    return sources.map(source => {
+      return API.get(source);
     });
   }
 
   render() {
     const { data } = this.state;
-    const { options } = this.props;
+    const { options, widget, nested } = this.props;
     const {
       xAxisLabel,
       yAxisLabel,
@@ -39,10 +62,14 @@ class OrbitalPropertiesContainer extends React.PureComponent {
       tooltipLabels,
       preSelected,
       domain,
+      multiple,
+      title,
     } = options || {};
+    const { sources } = widget;
 
     return (
       <>
+        {!nested && title && <h2 className="space-bottom">{title}</h2>}
         <OrbitalProperties
           {...{
             data,
@@ -55,6 +82,7 @@ class OrbitalPropertiesContainer extends React.PureComponent {
             tooltipAccessors,
             tooltipUnits,
           }}
+          multiple={multiple || !!sources}
         />
       </>
     );
@@ -67,6 +95,7 @@ OrbitalPropertiesContainer.propTypes = {
   widget: PropTypes.object,
   answers: PropTypes.object,
   updateAnswer: PropTypes.func,
+  nested: PropTypes.bool,
 };
 
 export default OrbitalPropertiesContainer;

@@ -1,14 +1,16 @@
 import React, { useRef, useState } from 'react';
 // import PropTypes from 'prop-types';
-import { useFrame } from 'react-three-fiber';
+// import { useFrame } from 'react-three-fiber';
 
 function Box(props) {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
 
   // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
+  // const [hovered, setHover] = useState(false);
+  // const [active, setActive] = useState(false);
+  const [hovered] = useState(false);
+  const [active] = useState(false);
 
   // function spin() {
   //   const $mesh = mesh.current;
@@ -29,11 +31,7 @@ function Box(props) {
   // onPointerOver={e => setHover(true)}
   // onPointerOut={e => setHover(false)}
   return (
-    <mesh
-      {...props}
-      ref={mesh}
-      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
-    >
+    <mesh {...props} ref={mesh} scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}>
       <boxBufferGeometry attach="geometry" args={[40, 40, 40]} />
       <meshStandardMaterial
         attach="material"

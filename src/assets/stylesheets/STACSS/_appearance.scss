@@ -27,6 +27,17 @@
 // Utilities
 // --------------------------------------------------------
 
+$chartColorsLength: length($chartColors) - 1;
+
+@for $i from 0 through $chartColorsLength - 1 {
+  .color-set-#{$i} {
+    $chartColor: nth($chartColors, $i + 1);
+    background-color: transparentize($chartColor, 0.5);
+    fill: transparentize($chartColor, 0.5);
+    stroke: lighten($chartColor, 5%);
+  }
+}
+
 // Visually Hidden, for skip links and screen-reader only elements
 @mixin screenReaderText {
   position: absolute;

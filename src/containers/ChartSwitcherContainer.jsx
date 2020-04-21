@@ -98,6 +98,7 @@ class ChartSwitcherContainer extends React.PureComponent {
                       type={type}
                       widget={nestedWidget}
                       options={nestedOptions}
+                      nested
                     />
                   </div>
                 );
