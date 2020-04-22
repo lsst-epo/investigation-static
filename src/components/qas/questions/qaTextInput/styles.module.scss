@@ -4,13 +4,26 @@
 :global {
   .md-text-field-container {
     &:not(.answerable) {
-      label, .md-floating-label, .md-floating-label p {
+      label,
+      .md-floating-label,
+      .md-floating-label p {
         color: $neutral20;
       }
 
       hr {
         background-color: $neutral20;
       }
+    }
+  }
+
+  .inline-input {
+    display: inline-block;
+    max-width: 180px;
+    .md-text-field--floating-margin {
+      margin-top: 0;
+    }
+    .md-divider--text-field {
+      margin-top: 0;
     }
   }
 }

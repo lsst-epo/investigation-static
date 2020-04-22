@@ -1,0 +1,15 @@
+.qa-wrapper {
+  :global .inline-select {
+    display: inline;
+  }
+
+  :global {
+    .label-pre {
+      color: $basePrimary;
+
+      &:not(.answerable) {
+        color: $neutral20;
+      }
+    }
+  }
+}
