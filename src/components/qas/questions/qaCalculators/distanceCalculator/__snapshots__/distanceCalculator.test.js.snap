@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Distance Calculator renders with question #66 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="md-paper md-paper--1 md-card md-background--card qa-card"
+      >
+        <section
+          class="md-card-text"
+        >
+          <div
+            class="inline-question"
+          >
+            <div
+              class="md-text-field-container md-full-width md-text-field-container--disabled md-text-field-container--input qa-text-input unanswered"
+            >
+              <label
+                class="md-floating-label md-floating-label--inactive md-floating-label--inactive-sized md-floating-label--icon-offset md-text--disabled"
+                for="text-input-66"
+              >
+                <div>
+                  <p>
+                    Enter the peak apparent magnitude (m) for supernova #4 to find its distance from Earth.
+                  </p>
+                </div>
+              </label>
+              <div
+                class="md-text-field-icon-container"
+              >
+                <div>
+                  m =
+                </div>
+                <div
+                  class="md-text-field-divider-container md-text-field-divider-container--grow"
+                >
+                  <input
+                    class="md-text-field md-text-field--floating-margin md-full-width md-text--disabled"
+                    disabled=""
+                    id="text-input-66"
+                    min="0"
+                    type="number"
+                    value=""
+                  />
+                  <hr
+                    class="md-divider md-divider--text-field md-divider--expand-from-center"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="md-dialog-footer--card md-dialog-footer--inline"
+          style="display: none;"
+        >
+          <button
+            class="md-btn md-btn--icon md-pointer--hover md-inline-block md-collapser md-collapser--card"
+            type="button"
+          >
+            <div
+              class="md-ink-container"
+            />
+            <i
+              class="md-icon material-icons md-text--inherit"
+            >
+              keyboard_arrow_down
+            </i>
+          </button>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="md-paper md-paper--1 md-card md-background--card qa-card"
+    >
+      <section
+        class="md-card-text"
+      >
+        <div
+          class="inline-question"
+        >
+          <div
+            class="md-text-field-container md-full-width md-text-field-container--disabled md-text-field-container--input qa-text-input unanswered"
+          >
+            <label
+              class="md-floating-label md-floating-label--inactive md-floating-label--inactive-sized md-floating-label--icon-offset md-text--disabled"
+              for="text-input-66"
+            >
+              <div>
+                <p>
+                  Enter the peak apparent magnitude (m) for supernova #4 to find its distance from Earth.
+                </p>
+              </div>
+            </label>
+            <div
+              class="md-text-field-icon-container"
+            >
+              <div>
+                m =
+              </div>
+              <div
+                class="md-text-field-divider-container md-text-field-divider-container--grow"
+              >
+                <input
+                  class="md-text-field md-text-field--floating-margin md-full-width md-text--disabled"
+                  disabled=""
+                  id="text-input-66"
+                  min="0"
+                  type="number"
+                  value=""
+                />
+                <hr
+                  class="md-divider md-divider--text-field md-divider--expand-from-center"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="md-dialog-footer--card md-dialog-footer--inline"
+        style="display: none;"
+      >
+        <button
+          class="md-btn md-btn--icon md-pointer--hover md-inline-block md-collapser md-collapser--card"
+          type="button"
+        >
+          <div
+            class="md-ink-container"
+          />
+          <i
+            class="md-icon material-icons md-text--inherit"
+          >
+            keyboard_arrow_down
+          </i>
+        </button>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
