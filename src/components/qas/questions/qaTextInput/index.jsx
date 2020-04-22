@@ -5,6 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
 import TextField from '../../../site/forms/textField';
 import Card from '../../../site/card';
+import ConditionalWrapper from '../../../ConditionalWrapper';
 import { renderDef } from '../../../../lib/utilities.js';
 import './styles.module.scss';
 
@@ -52,16 +53,24 @@ class TextInput extends React.PureComponent {
   };
 
   updateFocus(isFocus) {
-    const { question, answerHandler } = this.props;
+    const { question, focusCallback, answerHandler } = this.props;
     const { id } = question;
     const { value } = this.state;
 
     answerHandler(id, value || ' ', isFocus ? 'focus' : 'blur');
 
-    this.setState(prevState => ({
-      ...prevState,
-      hasFocus: isFocus,
-    }));
+    this.setState(
+      prevState => ({
+        ...prevState,
+        hasFocus: isFocus,
+      }),
+      () => {
+        if (focusCallback) {
+          const { hasFocus } = this.state;
+          focusCallback(hasFocus);
+        }
+      }
+    );
   }
 
   handleBlur = () => {
@@ -75,19 +84,45 @@ class TextInput extends React.PureComponent {
   render() {
     const { question, answer, activeId } = this.props;
     const { hasFocus, answerable } = this.state;
-    const { id, questionType, label, placeholder } = question;
+    const {
+      id,
+      questionType,
+      label,
+      placeholder,
+      labelPre,
+      labelPost,
+    } = question;
     const isTextArea = questionType === 'textArea';
+    const rows = isTextArea ? { rows: 1, maxRows: 8 } : {};
     const active = activeId === id;
     const answered = !isEmpty(answer);
     const cardClasses = classnames('qa-card', { active: hasFocus });
-    const fieldClasses = classnames('qa-text-input', {
+    const labelClasses = classnames('label-pre', {
       answered,
       unanswered: !answered,
       answerable: answerable || answered || active,
     });
+    const fieldClasses = classnames('qa-text-input', {
+      answered,
+      unanswered: !answered,
+      answerable: answerable || answered || active,
+      'inline-input': labelPre || labelPost,
+    });
 
     return (
-      <Card className={cardClasses}>
+      <ConditionalWrapper
+        condition={questionType !== 'compoundInput'}
+        wrapper={children => <Card className={cardClasses}>{children}</Card>}
+      >
+        {labelPre && (
+          <span
+            className={labelClasses}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+          >
+            {labelPre}&nbsp;
+          </span>
+        )}
         <TextField
           id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
           className={fieldClasses}
@@ -95,15 +130,17 @@ class TextInput extends React.PureComponent {
           label={<div dangerouslySetInnerHTML={renderDef(label)} />}
           lineDirection="center"
           placeholder={placeholder}
-          rows={1}
-          maxRows={isTextArea ? 8 : 1}
+          {...rows}
           defaultValue={answered ? answer.content : ''}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
           disabled={!(answerable || answered || active)}
         />
-      </Card>
+        {labelPost && (
+          <span className={labelClasses}>&nbsp;{labelPost}&nbsp;</span>
+        )}
+      </ConditionalWrapper>
     );
   }
 }
@@ -111,6 +148,7 @@ class TextInput extends React.PureComponent {
 TextInput.propTypes = {
   activeId: PropTypes.string,
   question: PropTypes.object,
+  focusCallback: PropTypes.func,
   answerHandler: PropTypes.func,
   answer: PropTypes.object,
 };

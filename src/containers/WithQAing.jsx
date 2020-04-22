@@ -15,6 +15,7 @@ export const WithQAing = ComposedComponent => {
       this.answerAccessorGets = {
         text: this.getTextContent,
         'compound-select': this.getSelectContent,
+        'compound-input': this.getCompoundInputContent,
         select: this.getSelectContent,
         'multi-select': this.getMultiSelectContent,
         count: this.getCountContent,
@@ -63,6 +64,10 @@ export const WithQAing = ComposedComponent => {
     // Methods related to updating answers
     getSelectContent(data) {
       return isObject(data) ? 'DEFAULT' : data;
+    }
+
+    getCompoundInputContent(data) {
+      return data;
     }
 
     getMultiSelectContent(data) {

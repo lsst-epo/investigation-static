@@ -1,0 +1,16 @@
+.qa-wrapper {
+  label,
+  .label-pre,
+  .label-post {
+    @include copySecondary;
+    line-height: $baseLineHeight;
+
+    &.answerable {
+      color: $basePrimary;
+    }
+
+    &:not(.answered) {
+      color: $neutral20;
+    }
+  }
+}
