@@ -1,0 +1,47 @@
+{
+  "id": "solarsystem210",
+  "investigation": "solar-system",
+  "order": "20",
+  "title": "Compound Fill-In The Blank(s)",
+  "slug": "cfitb/",
+  "previous": {
+    "title": "",
+    "link": "/"
+  },
+  "next": {
+    "title": "",
+    "link": "/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Even through the most powerful telescopes on Earth, asteroids and TNOs are too far away to look like anything bigger than dots in an image. However, we can still use images to learn a lot about these small objects. For example, we can use the brightness of an asteroid to estimate its size.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "370",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["370", "380"],
+          "labelPre": "The larger the asteroid, the ",
+          "labelPost": " it will appear, ",
+          "srLabel": "...",
+          "answerAccessor": "compound-input",
+          "placeholder": "Your Input",
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "380",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["370", "380"],
+          "labelPre": " because its surface will reflect ",
+          "labelPost": " light.",
+          "srLabel": "...",
+          "answerAccessor": "compound-input",
+          "placeholder": "Your Input",
+          "answerPre": "...",
+          "answerPost": "..."
+        }
+      ]
+    }
+  ]
+}

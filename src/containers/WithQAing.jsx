@@ -3,6 +3,7 @@ import React from 'reactn';
 import PropTypes from 'prop-types';
 import includes from 'lodash/includes';
 import isObject from 'lodash/isObject';
+import isArray from 'lodash/isArray';
 import filter from 'lodash/filter';
 import flattenDeep from 'lodash/flattenDeep';
 import { qById, getActiveQ } from '../components/qas/qasUtilities.js';
@@ -15,6 +16,7 @@ export const WithQAing = ComposedComponent => {
       this.answerAccessorGets = {
         text: this.getTextContent,
         'compound-select': this.getSelectContent,
+        'compound-input': this.getCompoundInputContent,
         select: this.getSelectContent,
         'multi-select': this.getMultiSelectContent,
         count: this.getCountContent,
@@ -62,6 +64,10 @@ export const WithQAing = ComposedComponent => {
     // Methods related to updating answers
     getSelectContent(data) {
       return isObject(data) ? 'DEFAULT' : data;
+    }
+
+    getCompoundInputContent(data) {
+      return isArray(data) ? data : [];
     }
 
     getMultiSelectContent(data) {

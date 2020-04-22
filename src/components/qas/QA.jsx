@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import QAExpansionList from './questions/qaExpansionList/index.jsx';
 import QATextInput from './questions/qaTextInput';
 import QASelect from './questions/qaSelect';
+import QACompound from './questions/qaCompound';
 import DistanceCalculator from './questions/qaCalculators/distanceCalculator';
 import SizeCalculator from './questions/qaCalculators/sizeCalculator';
 import Prompt from './questions/Prompt';
@@ -14,6 +15,7 @@ const questions = {
   text: QATextInput,
   textArea: QATextInput,
   select: QASelect,
+  compound: QACompound,
   compoundSelect: QASelect,
   'inline-select': QASelect,
   multiSelect: QAMultiSelect,

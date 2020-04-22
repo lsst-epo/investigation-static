@@ -1,0 +1,27 @@
+.qa-wrapper {
+  :global .inline-select {
+    display: inline;
+  }
+}
+
+.qa-text-input {
+  display: inline-block;
+  max-width: 100px;
+  margin-right: $minPadding / 4;
+}
+
+:global {
+  .md-text-field-container {
+    &:not(.answerable) {
+      label,
+      .md-floating-label,
+      .md-floating-label p {
+        color: $neutral20;
+      }
+
+      hr {
+        background-color: $neutral20;
+      }
+    }
+  }
+}

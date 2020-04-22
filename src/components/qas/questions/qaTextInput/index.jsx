@@ -5,6 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
 import TextField from '../../../site/forms/textField';
 import Card from '../../../site/card';
+import ConditionalWrapper from '../../../ConditionalWrapper';
 import { renderDef } from '../../../../lib/utilities.js';
 import './styles.module.scss';
 
@@ -75,7 +76,14 @@ class TextInput extends React.PureComponent {
   render() {
     const { question, answer, activeId } = this.props;
     const { hasFocus, answerable } = this.state;
-    const { id, questionType, label, placeholder } = question;
+    const {
+      id,
+      questionType,
+      label,
+      placeholder,
+      labelPre,
+      labelPost,
+    } = question;
     const isTextArea = questionType === 'textArea';
     const active = activeId === id;
     const answered = !isEmpty(answer);
@@ -84,10 +92,15 @@ class TextInput extends React.PureComponent {
       answered,
       unanswered: !answered,
       answerable: answerable || answered || active,
+      'inline-input': labelPre || labelPost,
     });
 
     return (
-      <Card className={cardClasses}>
+      <ConditionalWrapper
+        condition={questionType !== 'compoundInput'}
+        wrapper={children => <Card className={cardClasses}>{children}</Card>}
+      >
+        {labelPre && <span className="label-pre">{labelPre}&nbsp;</span>}
         <TextField
           id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
           className={fieldClasses}
@@ -103,7 +116,10 @@ class TextInput extends React.PureComponent {
           onChange={this.handleChange}
           disabled={!(answerable || answered || active)}
         />
-      </Card>
+        {labelPost && (
+          <span className="label-pre">&nbsp;{labelPost}&nbsp;</span>
+        )}
+      </ConditionalWrapper>
     );
   }
 }
