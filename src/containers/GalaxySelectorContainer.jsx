@@ -9,7 +9,7 @@ import Legend from '../components/charts/galaxySelector/legend/index.jsx';
 import Star from '../components/site/icons/Star';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
-import HubblePlot from '../components/charts/hubblePlot/HubblePlot2D.jsx';
+import HubblePlot from '../components/charts/hubblePlot/index.jsx';
 import {
   getSelectedData,
   getActiveImageIndex,

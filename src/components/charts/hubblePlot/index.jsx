@@ -21,7 +21,7 @@ import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
 import styles from './hubble-plot.module.scss';
 
-class HubblePlot2D extends React.Component {
+class HubblePlot extends React.Component {
   constructor(props) {
     super(props);
     const { options } = props;
@@ -352,120 +352,119 @@ class HubblePlot2D extends React.Component {
     const calcHeight = height - padding;
 
     return (
-      <>
-        <div
-          ref={this.svgContainer}
-          className={`svg-container ${styles.hubblePlotContainer}`}
-        >
-          {loading && (
-            <CircularProgress
-              id={`${name}-loader`}
-              className="chart-loader"
-              scale={3}
-            />
-          )}
-          <Tooltip
-            key="tooltip"
-            data={selectedData || hoveredData}
-            posX={tooltipPosX}
-            posY={tooltipPosY}
-            show={showTooltip}
-            accessors={tooltipAccessors}
-            labels={tooltipLabels}
+      <div
+        ref={this.svgContainer}
+        className={`svg-container ${styles.hubblePlotContainer}`}
+        data-testid="hubble-plot"
+      >
+        {loading && (
+          <CircularProgress
+            id={`${name}-loader`}
+            className="chart-loader"
+            scale={3}
           />
-          <svg
-            className={svgClasses}
-            preserveAspectRatio="xMidYMid meet"
-            viewBox={`0 0 ${width} ${height}`}
-            ref={this.svgEl}
-            style={{
-              opacity: 0,
-            }}
-          >
-            <defs>
-              <clipPath id="clip">
-                <rect
-                  x={padding}
-                  y={offsetTop}
-                  width={width - padding - offsetRight}
-                  height={calcHeight}
-                />
-              </clipPath>
-            </defs>
-            <XAxis
-              label={xAxisLabel}
-              height={height}
-              width={width}
-              padding={padding}
-              offsetTop={offsetTop}
-              offsetRight={offsetRight}
-              scale={xScale}
-            />
-            <YAxis
-              label={yAxisLabel}
-              height={height}
-              padding={padding}
-              offsetTop={offsetTop}
-              scale={yScale}
-            />
-            <g>
-              {data &&
-                multiple &&
-                data.map((set, i) => {
-                  const key = `galaxy-${i}`;
+        )}
+        <Tooltip
+          key="tooltip"
+          data={selectedData || hoveredData}
+          posX={tooltipPosX}
+          posY={tooltipPosY}
+          show={showTooltip}
+          accessors={tooltipAccessors}
+          labels={tooltipLabels}
+        />
+        <svg
+          className={svgClasses}
+          preserveAspectRatio="xMidYMid meet"
+          viewBox={`0 0 ${width} ${height}`}
+          ref={this.svgEl}
+          style={{
+            opacity: 0,
+          }}
+        >
+          <defs>
+            <clipPath id="clip">
+              <rect
+                x={padding}
+                y={offsetTop}
+                width={width - padding - offsetRight}
+                height={calcHeight}
+              />
+            </clipPath>
+          </defs>
+          <XAxis
+            label={xAxisLabel}
+            height={height}
+            width={width}
+            padding={padding}
+            offsetTop={offsetTop}
+            offsetRight={offsetRight}
+            scale={xScale}
+          />
+          <YAxis
+            label={yAxisLabel}
+            height={height}
+            padding={padding}
+            offsetTop={offsetTop}
+            scale={yScale}
+          />
+          <g>
+            {data &&
+              multiple &&
+              data.map((set, i) => {
+                const key = `galaxy-${i}`;
 
-                  return (
-                    <Points
-                      key={key}
-                      data={set}
-                      {...{
-                        xScale,
-                        yScale,
-                        xValueAccessor,
-                        yValueAccessor,
-                        selectedData,
-                        hoveredData,
-                        offsetTop,
-                      }}
-                      pointClasses={`set-${i} ${styles.galaxyPoint}`}
-                    />
-                  );
-                })}
-              {data && !multiple && (
-                <Points
-                  {...{
-                    data,
-                    xScale,
-                    yScale,
-                    xValueAccessor,
-                    yValueAccessor,
-                    selectedData,
-                    hoveredData,
-                    offsetTop,
-                  }}
-                  pointClasses={styles.galaxyPoint}
-                />
-              )}
-            </g>
-            {(userTrendline || hubbleConstant) && xScale && yScale && (
-              <Trendline
-                {...{ xScale, yScale, hubbleConstant }}
-                captureAreaX={padding}
-                captureAreaY={offsetTop}
-                captureAreaWidth={width}
-                captureAreaHeight={calcHeight}
-                clickHandler={this.onTrendlineClick}
-                isInteractable={trendlineInteractable}
+                return (
+                  <Points
+                    key={key}
+                    data={set}
+                    {...{
+                      xScale,
+                      yScale,
+                      xValueAccessor,
+                      yValueAccessor,
+                      selectedData,
+                      hoveredData,
+                      offsetTop,
+                    }}
+                    pointClasses={`set-${i} ${styles.galaxyPoint}`}
+                  />
+                );
+              })}
+            {data && !multiple && (
+              <Points
+                {...{
+                  data,
+                  xScale,
+                  yScale,
+                  xValueAccessor,
+                  yValueAccessor,
+                  selectedData,
+                  hoveredData,
+                  offsetTop,
+                }}
+                pointClasses={styles.galaxyPoint}
               />
             )}
-          </svg>
-        </div>
-      </>
+          </g>
+          {(userTrendline || hubbleConstant) && xScale && yScale && (
+            <Trendline
+              {...{ xScale, yScale, hubbleConstant }}
+              captureAreaX={padding}
+              captureAreaY={offsetTop}
+              captureAreaWidth={width}
+              captureAreaHeight={calcHeight}
+              clickHandler={this.onTrendlineClick}
+              isInteractable={trendlineInteractable}
+            />
+          )}
+        </svg>
+      </div>
     );
   }
 }
 
-HubblePlot2D.defaultProps = {
+HubblePlot.defaultProps = {
   width: 600,
   height: 600,
   padding: 70,
@@ -481,7 +480,7 @@ HubblePlot2D.defaultProps = {
   tooltipLabels: ['Galaxy', 'Distance', 'Velocity'],
 };
 
-HubblePlot2D.propTypes = {
+HubblePlot.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   padding: PropTypes.number,
@@ -507,4 +506,4 @@ HubblePlot2D.propTypes = {
   trendlineInteractable: PropTypes.bool,
 };
 
-export default HubblePlot2D;
+export default HubblePlot;

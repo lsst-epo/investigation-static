@@ -5,7 +5,6 @@ import isEmpty from 'lodash/isEmpty';
 import 'd3-transition';
 import { capitalize, extentFromSet, getValue } from '../../../lib/utilities.js';
 import Unit from './unit/index.jsx';
-// import StellarUnit from './Stellarunit';
 
 class Tooltip extends React.PureComponent {
   constructor(props) {
@@ -74,7 +73,6 @@ class Tooltip extends React.PureComponent {
   }
 
   renderValue(accessor, data, unit) {
-    // console.log(accessor, data, unit);
     return (
       <>
         <span>{getValue(accessor, data)}</span>
@@ -126,20 +124,15 @@ class Tooltip extends React.PureComponent {
     return (
       <>
         {data && (
-          <div ref={this.el} style={{ opacity: 0 }} className="tooltip">
-            {/* {data.length > 1 && (
-              <div className="value-row">{data.length} stars</div>
-            )} */}
+          <div
+            data-testid="tooltip"
+            ref={this.el}
+            style={{ opacity: 0 }}
+            className="tooltip"
+          >
             {accessors.map((accessor, i) => {
               const label = labels ? labels[i] : null;
               const unit = units ? units[i] : null;
-              // if (i === 0 && labels[0] && data.length > 1) {
-              //   return (
-              //     <div className="value-row">
-              //       {data.length} {labels[0] || 'stars'}
-              //     </div>
-              //   );
-              // }
 
               return this.renderAccessor(accessor, label, data, unit);
             })}

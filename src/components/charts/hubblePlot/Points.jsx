@@ -6,6 +6,13 @@ import Point from './Point.jsx';
 import { notActive, invisible } from './hubble-plot.module.scss';
 
 class Points extends React.PureComponent {
+  classify(name) {
+    name
+      .toLowerCase()
+      .split(' ')
+      .join('-');
+  }
+
   render() {
     const {
       data,
@@ -28,7 +35,8 @@ class Points extends React.PureComponent {
           const y = d[yValueAccessor];
           const selected = includes(selectedData, d);
           const hovered = includes(hoveredData, d);
-          const classes = classnames(`data-point-${name}`, 'data-point', {
+          const classes = classnames('data-point', {
+            [`data-point-${this.classify(name || ' ')}`]: !!name,
             [pointClasses]: pointClasses,
             selected,
             hovered,
