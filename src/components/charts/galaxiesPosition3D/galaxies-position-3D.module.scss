@@ -1,0 +1,10 @@
+.chart {
+  width: 100%;
+  height: auto;
+
+  &.loaded {
+    visibility: visible;
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 1 !important;
+  }
+}

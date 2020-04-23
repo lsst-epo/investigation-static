@@ -19,6 +19,7 @@ test('Blinker renders with required props', () => {
 test('Blinker calls callback when Start/Stop is clicked', () => {
   // Arrange
   const { getByText } = render(<Blinker handleStartStop={testHandler} {...testProps} />);
+  // Act
   fireEvent.click(getByText('Start/Stop'));
   // Assert
   expect(testHandler).toHaveBeenCalled();
@@ -27,6 +28,7 @@ test('Blinker calls callback when Start/Stop is clicked', () => {
 test('Blinker calls callback when Forward is clicked', () => {
   // Arrange
   const { getByText } = render(<Blinker handleNext={testHandler} {...testProps} />);
+  // Act
   fireEvent.click(getByText('Forward'));
   // Assert
   expect(testHandler).toHaveBeenCalled();
@@ -35,6 +37,7 @@ test('Blinker calls callback when Forward is clicked', () => {
 test('Blinker calls callback when Backward is clicked', () => {
   // Arrange
   const { getByText } = render(<Blinker handlePrevious={testHandler} {...testProps} />);
+  // Act
   fireEvent.click(getByText('Backward'));
   // Assert
   expect(testHandler).toHaveBeenCalled();

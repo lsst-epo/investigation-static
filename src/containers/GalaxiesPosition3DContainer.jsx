@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import HubblePlot3D from '../components/charts/hubblePlot/HubblePlot3D.jsx';
+import GalaxiesPosition3D from '../components/charts/galaxiesPosition3D/index.jsx';
 
-class HubblePlot3DContainer extends React.PureComponent {
+class GalaxiesPosition3DContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -25,12 +25,8 @@ class HubblePlot3DContainer extends React.PureComponent {
     });
   }
 
-  hubbleSelectionCallback = d => {
+  selectionCallback = d => {
     console.log(d); // eslint-disable-line no-console
-    // const { activeQuestionId } = this.props;
-    // if (activeQuestionId) {
-    //   updateAnswer(activeQuestionId, activeSupernova);
-    // }
   };
 
   render() {
@@ -38,19 +34,19 @@ class HubblePlot3DContainer extends React.PureComponent {
 
     return (
       <div>
-        <HubblePlot3D
+        <GalaxiesPosition3D
           className="hubble-plot"
           {...{
             data,
           }}
-          selectionCallback={this.hubbleSelectionCallback}
+          selectionCallback={this.selectionCallback}
         />
       </div>
     );
   }
 }
 
-HubblePlot3DContainer.propTypes = {
+GalaxiesPosition3DContainer.propTypes = {
   data: PropTypes.object,
   widget: PropTypes.object,
   options: PropTypes.object,
@@ -60,4 +56,4 @@ HubblePlot3DContainer.propTypes = {
   updateAnswer: PropTypes.func,
 };
 
-export default HubblePlot3DContainer;
+export default GalaxiesPosition3DContainer;

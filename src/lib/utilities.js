@@ -288,7 +288,7 @@ export const getUnit = function(accessor) {
 };
 
 export const getElDims = function($el) {
-  if ($el) {
+  if ($el && $el.getBBox) {
     const { width, height } = $el.getBBox();
     return { width, height };
   }

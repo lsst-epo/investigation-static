@@ -2,8 +2,8 @@ import SupernovaSelectorWithLightCurve from '../../containers/SupernovaSelectorW
 import GalaxyScrambler from '../../containers/GalaxyScramblerContainer.jsx';
 import GalaxySelector from '../../containers/GalaxySelectorContainer.jsx';
 import GalaxiesSelector from '../../containers/GalaxiesSelectorContainer.jsx';
-import HubblePlot from '../../containers/HubblePlot2DContainer.jsx';
-import HubblePlot3D from '../../containers/HubblePlot3DContainer.jsx';
+import HubblePlot from '../../containers/HubblePlotContainer.jsx';
+import GalaxiesPosition3D from '../../containers/GalaxiesPosition3DContainer.jsx';
 import LargeScaleStructure from '../../containers/LargeScaleStructureContainer.jsx';
 import GalacticProperties from '../../containers/GalacticPropertiesContainer.jsx';
 import GalacticPropertiesCombo from '../../containers/GalacticPropertiesComboContainer.jsx';
@@ -16,7 +16,7 @@ export const widgetTags = {
   GalaxySelector,
   GalaxiesSelector,
   HubblePlot,
-  HubblePlot3D,
+  GalaxiesPosition3D,
   GalacticProperties,
   GalacticPropertiesCombo,
   LargeScaleStructure,

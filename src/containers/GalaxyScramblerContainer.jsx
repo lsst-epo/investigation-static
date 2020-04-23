@@ -5,8 +5,8 @@ import find from 'lodash/find';
 import classnames from 'classnames';
 import API from '../lib/API.js';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
-import HubblePlot2D from '../components/charts/hubblePlot/HubblePlot2D.jsx';
-import HubblePlot3D from '../components/charts/hubblePlot/HubblePlot3D.jsx';
+import HubblePlot from '../components/charts/hubblePlot/index.jsx';
+import GalaxiesPosition3D from '../components/charts/galaxiesPosition3D/index.jsx';
 import Star from '../components/site/icons/Star';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
@@ -128,7 +128,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
         >
           <div className="container-flex spaced">
             <div className="col padded col-width-50">
-              <HubblePlot2D
+              <HubblePlot
                 className="hubble-plot"
                 {...{
                   data,
@@ -139,8 +139,8 @@ class GalaxyScramblerContainer extends React.PureComponent {
               />
             </div>
             <div className="col padded col-width-50">
-              <HubblePlot3D
-                className="hubble-plot"
+              <GalaxiesPosition3D
+                className="galaxies-position"
                 {...{
                   data,
                   options,

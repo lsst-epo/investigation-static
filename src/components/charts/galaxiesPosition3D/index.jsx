@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import 'echarts-gl';
 import ReactEcharts from 'echarts-for-react';
 import partition from 'lodash/partition';
-import { hubblePlot } from './hubble-plot.module.scss';
+import { chart } from './galaxies-position-3D.module.scss';
 
-class HubblePlot3D extends React.PureComponent {
+class GalaxiesPosition3D extends React.PureComponent {
   getAxisInfo(axisName) {
     return {
       name: axisName,
@@ -92,7 +92,7 @@ class HubblePlot3D extends React.PureComponent {
       <>
         {data && (
           <ReactEcharts
-            className={hubblePlot}
+            className={chart}
             style={{ width: '100%', height: '80%' }}
             option={this.getOption(data)}
           />
@@ -102,9 +102,9 @@ class HubblePlot3D extends React.PureComponent {
   }
 }
 
-HubblePlot3D.propTypes = {
+GalaxiesPosition3D.propTypes = {
   data: PropTypes.array,
   // options: PropTypes.object,
 };
 
-export default HubblePlot3D;
+export default GalaxiesPosition3D;

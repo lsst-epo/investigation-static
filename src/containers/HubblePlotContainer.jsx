@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import isArray from 'lodash/isArray';
 import API from '../lib/API.js';
-import HubblePlot2D from '../components/charts/hubblePlot/HubblePlot2D.jsx';
+import HubblePlot from '../components/charts/hubblePlot/index.jsx';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
-class HubblePlot2DContainer extends React.PureComponent {
+class HubblePlotContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -77,7 +77,7 @@ class HubblePlot2DContainer extends React.PureComponent {
     return (
       <>
         <h2 className="space-bottom">Hubble Plot</h2>
-        <HubblePlot2D
+        <HubblePlot
           className="hubble-plot"
           {...{
             data,
@@ -93,7 +93,7 @@ class HubblePlot2DContainer extends React.PureComponent {
   }
 }
 
-HubblePlot2DContainer.propTypes = {
+HubblePlotContainer.propTypes = {
   data: PropTypes.object,
   options: PropTypes.object,
   widget: PropTypes.object,
@@ -103,4 +103,4 @@ HubblePlot2DContainer.propTypes = {
   updateAnswer: PropTypes.func,
 };
 
-export default HubblePlot2DContainer;
+export default HubblePlotContainer;
