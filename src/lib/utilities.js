@@ -190,21 +190,6 @@ export const solveForMegaLightYears = lightYears => {
   return '?';
 };
 
-export const getParsecsFromDistance = data => {
-  const DM = solveForDistanceModulus(+data);
-  return solveForParsecs(+DM);
-};
-
-export const getMegaParsecsFromDistance = data => {
-  const parsecs = getParsecsFromDistance(data);
-  return solveForMegaParsecs(parsecs);
-};
-
-export const getLightYearsFromDistance = data => {
-  const parsecs = getParsecsFromDistance(data);
-  return solveForLightYears(+parsecs);
-};
-
 function round(precision, number) {
   return parseFloat(number.toPrecision(precision));
 }
@@ -241,12 +226,6 @@ export const toSigFigs = (number, precision) => {
   return String(roundedValue);
 };
 
-export const getMegaLightYearsFromDistance = data => {
-  const lightYears = getLightYearsFromDistance(+data);
-  const megaLightYears = solveForMegaLightYears(+lightYears);
-  return toSigFigs(megaLightYears, 3);
-};
-
 export const getValue = function(accessor, data) {
   return (
     {
@@ -261,10 +240,10 @@ export const getValue = function(accessor, data) {
       temperature: formatValue(data, 0),
       brightness: formatValue(data, 2),
       date: mjdToUTC(data, 'MDYT'),
-      parsecs: getParsecsFromDistance(data),
-      megaParsecs: getMegaParsecsFromDistance(data),
-      lightYears: getLightYearsFromDistance(data),
-      megaLightYears: getMegaLightYearsFromDistance(data),
+      parsecs: toSigFigs(data, 3),
+      megaParsecs: toSigFigs(data, 3),
+      lightYears: toSigFigs(data, 3),
+      megaLightYears: toSigFigs(data, 3),
       color: formatValue(data, 2),
       inclination: formatValue(data, 0),
       eccentricity: formatValue(data, 2),
