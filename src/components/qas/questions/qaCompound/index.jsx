@@ -16,7 +16,7 @@ class QACompound extends React.PureComponent {
     const { questionType } = questions[0];
     const CompoundComponent = this.compoundTypes[questionType];
 
-    return <CompoundComponent {...this.props} />;
+    return CompoundComponent ? <CompoundComponent {...this.props} /> : null;
   }
 }
 
