@@ -23,6 +23,7 @@ import YAxis from './YAxis.jsx';
 import Bars from './Bars.jsx';
 // import MeanBar from './MeanBar.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
+import LegendMultiple from './LegendMultiple.jsx';
 
 class Histogram extends React.PureComponent {
   constructor(props) {
@@ -374,69 +375,73 @@ class Histogram extends React.PureComponent {
     });
 
     return (
-      <div className="svg-container histogram-container">
-        {loading && (
-          <CircularProgress
-            id="graph-loading-progress"
-            className="chart-loader"
-            scale={3}
-          />
+      <>
+        {multiple && groupNames && (
+          <LegendMultiple label={xAxisLabel} data={groupNames} />
         )}
-        <Tooltip
-          key="tooltip"
-          graph="histogram"
-          data={selectedData || hoveredData}
-          posX={tooltipPosX}
-          posY={tooltipPosY}
-          show={showTooltip}
-          accessors={tooltipAccessors}
-          units={tooltipUnits}
-          labels={tooltipLabels}
-        />
-        <svg
-          key={valueAccessor}
-          className={svgClasses}
-          preserveAspectRatio="xMidYMid meet"
-          viewBox={`0 0 ${width} ${height}`}
-          ref={this.svgEl}
-        >
-          {xScale && yScale && multiple && (
-            <>
-              {data.map((dataset, i) => {
-                const groupName = groupNames[i];
-                const key = groupName + i;
-
-                return (
-                  <Bars
-                    barClasses={groupName}
-                    colorClass={`color-set-${i + 1}`}
-                    key={key}
-                    data={dataset}
-                    selectedData={selectedData}
-                    hoveredData={hoveredData}
-                    offsetTop={offsetTop}
-                    xScale={xScale[i]}
-                    yScale={yScale[i]}
-                    graphHeight={height}
-                    padding={padding}
-                  />
-                );
-              })}
-            </>
+        <div className="svg-container histogram-container">
+          {loading && (
+            <CircularProgress
+              id="graph-loading-progress"
+              className="chart-loader"
+              scale={3}
+            />
           )}
-          {xScale && yScale && !multiple && (
-            <>
-              <Bars
-                data={data}
-                selectedData={selectedData}
-                hoveredData={hoveredData}
-                offsetTop={offsetTop}
-                xScale={xScale}
-                yScale={yScale}
-                graphHeight={height}
-                padding={padding}
-              />
-              {/* {meanData && valueAccessor && (
+          <Tooltip
+            key="tooltip"
+            graph="histogram"
+            data={selectedData || hoveredData}
+            posX={tooltipPosX}
+            posY={tooltipPosY}
+            show={showTooltip}
+            accessors={tooltipAccessors}
+            units={tooltipUnits}
+            labels={tooltipLabels}
+          />
+          <svg
+            key={valueAccessor}
+            className={svgClasses}
+            preserveAspectRatio="xMidYMid meet"
+            viewBox={`0 0 ${width} ${height}`}
+            ref={this.svgEl}
+          >
+            {xScale && yScale && multiple && (
+              <>
+                {data.map((dataset, i) => {
+                  const groupName = groupNames[i];
+                  const key = groupName + i;
+
+                  return (
+                    <Bars
+                      barClasses={groupName}
+                      colorClass={`color-set-${i + 1}`}
+                      key={key}
+                      data={dataset}
+                      selectedData={selectedData}
+                      hoveredData={hoveredData}
+                      offsetTop={offsetTop}
+                      xScale={xScale[i]}
+                      yScale={yScale[i]}
+                      graphHeight={height}
+                      padding={padding}
+                    />
+                  );
+                })}
+              </>
+            )}
+            {xScale && yScale && !multiple && (
+              <>
+                <Bars
+                  data={data}
+                  selectedData={selectedData}
+                  hoveredData={hoveredData}
+                  offsetTop={offsetTop}
+                  xScale={xScale}
+                  yScale={yScale}
+                  graphHeight={height}
+                  padding={padding}
+                />
+                {/* {meanData && valueAccessor && (
                 <MeanBar
                   data={meanData}
                   bins={data}
@@ -448,52 +453,53 @@ class Histogram extends React.PureComponent {
                   padding={padding}
                 />
               )} */}
-            </>
-          )}
-          {xScale && multiple && (
-            <XAxis
-              label={xAxisLabel || this.getLabel(valueAccessor)}
-              height={height}
-              width={width}
-              padding={padding}
-              offsetTop={offsetTop}
-              offsetRight={offsetRight}
-              scale={xScale[0]}
-              valueAccessor={valueAccessor}
-            />
-          )}
-          {xScale && !multiple && (
-            <XAxis
-              label={xAxisLabel || this.getLabel(valueAccessor)}
-              height={height}
-              width={width}
-              padding={padding}
-              offsetTop={offsetTop}
-              offsetRight={offsetRight}
-              scale={xScale}
-              valueAccessor={valueAccessor}
-            />
-          )}
-          {yScale && multiple && (
-            <YAxis
-              label={yAxisLabel}
-              height={height}
-              padding={padding}
-              offsetTop={offsetTop}
-              scale={yScale[0]}
-            />
-          )}
-          {yScale && !multiple && (
-            <YAxis
-              label={yAxisLabel}
-              height={height}
-              padding={padding}
-              offsetTop={offsetTop}
-              scale={yScale}
-            />
-          )}
-        </svg>
-      </div>
+              </>
+            )}
+            {xScale && multiple && (
+              <XAxis
+                label={xAxisLabel || this.getLabel(valueAccessor)}
+                height={height}
+                width={width}
+                padding={padding}
+                offsetTop={offsetTop}
+                offsetRight={offsetRight}
+                scale={xScale[0]}
+                valueAccessor={valueAccessor}
+              />
+            )}
+            {xScale && !multiple && (
+              <XAxis
+                label={xAxisLabel || this.getLabel(valueAccessor)}
+                height={height}
+                width={width}
+                padding={padding}
+                offsetTop={offsetTop}
+                offsetRight={offsetRight}
+                scale={xScale}
+                valueAccessor={valueAccessor}
+              />
+            )}
+            {yScale && multiple && (
+              <YAxis
+                label={yAxisLabel}
+                height={height}
+                padding={padding}
+                offsetTop={offsetTop}
+                scale={yScale[0]}
+              />
+            )}
+            {yScale && !multiple && (
+              <YAxis
+                label={yAxisLabel}
+                height={height}
+                padding={padding}
+                offsetTop={offsetTop}
+                scale={yScale}
+              />
+            )}
+          </svg>
+        </div>
+      </>
     );
   }
 }
