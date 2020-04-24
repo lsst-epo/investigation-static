@@ -48,7 +48,7 @@ class InvestigationsLanding extends React.PureComponent {
                 flat
                 secondary
                 swapTheming
-                to={`/${envInvestigation.id}/`}
+                to="/introduction/"
                 component={Link}
               >
                 Start {envInvestigation.title} Investigation
@@ -82,7 +82,9 @@ class InvestigationsLanding extends React.PureComponent {
             const { id, title } = investigation;
             return (
               <div key={id}>
-                <Link to={`/${id}/`}>Go to {title} Investigation</Link>
+                <Link to={`/${id}/introduction/`}>
+                  Go to {title} Investigation
+                </Link>
               </div>
             );
           })
