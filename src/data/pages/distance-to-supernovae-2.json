@@ -21,11 +21,7 @@
         "col": "right",
         "row": "bottom"
       },
-      "colTitles": [
-        "Supernova",
-        "Apparent Magnitude (m)",
-        "Distance (Mly)"
-      ],
+      "colTitles": ["Supernova", "Apparent Magnitude (m)", "Distance (Mly)"],
       "rowTitles": [["#4"], ["#5"], ["#6"]],
       "rows": [
         [
@@ -53,7 +49,7 @@
           "label": "<p>Enter the peak apparent magnitude (m) for supernova #4 to find its distance from Earth.</p>",
           "placeholder": "Enter peak magnitude",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "magnitude"
         }
       ]
     },
@@ -65,7 +61,7 @@
           "title": "Question #1",
           "label": "<p>Enter the peak apparent magnitude (m) for supernova #5 to find its distance from Earth.</p>",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "magnitude"
         }
       ]
     },
@@ -77,7 +73,7 @@
           "title": "Question #1",
           "label": "<p>Enter the peak apparent magnitude (m) for supernova #6 to find its distance from Earth.</p>",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "magnitude"
         }
       ]
     },
@@ -93,8 +89,8 @@
           "answerAccessor": "compound-select",
           "placeholder": "Select a luminosity",
           "options": [
-            {"label": "bright", "value": "bright"},
-            {"label": "dim", "value": "dim"}
+            { "label": "bright", "value": "bright" },
+            { "label": "dim", "value": "dim" }
           ],
           "answerPre": "A supernova that is close to Earth will appear ",
           "answerPost": "."
@@ -109,8 +105,8 @@
           "answerAccessor": "compound-select",
           "placeholder": "Select a magnitude",
           "options": [
-            {"label": "large", "value": "large"},
-            {"label": "small", "value": "small"}
+            { "label": "large", "value": "large" },
+            { "label": "small", "value": "small" }
           ],
           "answerPre": "A supernova that is close to Earth has a ",
           "answerPost": " apparant magnitude."

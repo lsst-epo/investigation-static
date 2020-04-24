@@ -29,27 +29,49 @@ class DistanceCalculator extends React.PureComponent {
     super(props);
 
     this.state = {
-      value: undefined,
+      value: {
+        magnitude: null,
+        distanceModulus: null,
+        parsecs: null,
+        megaParsecs: null,
+        lightYears: null,
+        megaLightYears: null,
+      },
       cardActive: false,
       hasFocus: false,
       answerable: false,
-      peakMagnitude: null,
-      distanceModulus: null,
-      parsecs: null,
-      megaParsecs: null,
-      lightYears: null,
-      megaLightYears: null,
     };
   }
 
   componentDidMount() {
-    const { answerable, value } = this.state;
+    const { answerable } = this.state;
     const { question, activeId, answer } = this.props;
     const { id } = question;
-    const calculatableValue = isEmpty(answer) ? value : answer.content;
+    const { data } = answer || {};
+    const {
+      magnitude,
+      distanceModulus,
+      parsecs,
+      megaParsecs,
+      lightYears,
+      megaLightYears,
+    } = data || {};
+
+    console.log({ data });
 
     this.checkAnswerable(answerable, activeId === id);
-    this.updateCalculatedMeasurements(calculatableValue);
+
+    this.setState(prevState => ({
+      ...prevState,
+      value: {
+        magnitude,
+        distanceModulus,
+        parsecs,
+        megaParsecs,
+        lightYears,
+        megaLightYears,
+      },
+    }));
   }
 
   componentDidUpdate() {
@@ -69,69 +91,57 @@ class DistanceCalculator extends React.PureComponent {
     }
   }
 
-  updateCalculatedMeasurements(value) {
-    const peakMagnitude = +value !== 0 ? +value : 'm';
+  getCalculatedMeasurements(value) {
+    const magnitude = +value !== 0 ? +value : 'm';
     const distanceModulus =
-      +value !== 0 ? +solveForDistanceModulus(+peakMagnitude) : 'DM';
+      +value !== 0 ? +solveForDistanceModulus(+magnitude) : 'DM';
     const parsecs = +value !== 0 ? +solveForParsecs(+distanceModulus) : '?';
     const megaParsecs = +value !== 0 ? +solveForMegaParsecs(+parsecs) : '?';
     const lightYears = +value !== 0 ? solveForLightYears(+parsecs) : '?';
     const megaLightYears =
       +value !== 0 ? +solveForMegaLightYears(+lightYears) : '?';
 
-    this.setState(prevState => ({
-      ...prevState,
-      value,
-      peakMagnitude,
+    return {
+      magnitude,
       distanceModulus,
       parsecs,
       megaParsecs,
       lightYears,
       megaLightYears,
-    }));
+    };
   }
 
-  handleChange = value => {
-    const { question, answerHandler } = this.props;
-    const { id } = question;
-    const { value: oldValue } = this.state;
-    if (!oldValue) {
-      answerHandler(id, value, 'change');
-    }
-
-    this.updateCalculatedMeasurements(value);
+  handleFocus = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      hasFocus: true,
+    }));
   };
 
   handleBlur = () => {
-    // console.log(e.target);
-    // TODO: Toggle expander onExpanderClick() to close
-    const { question, answerHandler } = this.props;
-    const { id } = question;
-    const { value } = this.state;
-
-    answerHandler(id, value || ' ', 'blur');
-
     this.setState(prevState => ({
       ...prevState,
-      value,
       hasFocus: false,
     }));
   };
 
-  handleFocus = () => {
-    // TODO: Toggle expander onExpanderClick() to open
+  handleChange = value => {
     const { question, answerHandler } = this.props;
     const { id } = question;
-    const { value } = this.state;
 
-    answerHandler(id, value || ' ', 'focus');
-
-    this.setState(prevState => ({
-      ...prevState,
-      value,
-      hasFocus: true,
-      // cardActive: true,
-    }));
+    this.setState(
+      prevState => ({
+        ...prevState,
+        hasFocus: true,
+        value: {
+          ...this.getCalculatedMeasurements(value),
+        },
+      }),
+      () => {
+        const { value: updatedVal } = this.state;
+        answerHandler(id, updatedVal, 'change');
+      }
+    );
   };
 
   render() {
@@ -140,13 +150,16 @@ class DistanceCalculator extends React.PureComponent {
       // cardActive,
       hasFocus,
       answerable,
-      peakMagnitude,
+      value,
+    } = this.state;
+    const {
+      magnitude,
       distanceModulus,
       parsecs,
       megaParsecs,
       lightYears,
       megaLightYears,
-    } = this.state;
+    } = value || {};
 
     const { id, questionType, label, placeholder } = question;
     const isTextArea = questionType === 'textArea';
@@ -178,7 +191,7 @@ class DistanceCalculator extends React.PureComponent {
               label={<div dangerouslySetInnerHTML={renderDef(label)} />}
               lineDirection="center"
               placeholder={placeholder}
-              defaultValue={answered ? answer.content : null}
+              defaultValue={answered ? magnitude : null}
               onBlur={this.handleBlur}
               onFocus={this.handleFocus}
               onChange={this.handleChange}
@@ -191,7 +204,7 @@ class DistanceCalculator extends React.PureComponent {
           <Equation
             component="FindDistanceModulus"
             solution="DM"
-            variable={addTheCommas(peakMagnitude || '')}
+            variable={addTheCommas(magnitude || '')}
             equation=" + 19.4"
           />
           <Equation
