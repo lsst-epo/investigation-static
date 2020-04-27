@@ -1,0 +1,14 @@
+.loader-image {
+  opacity: 0;
+  transition: opacity $durationSuperSlow $timing;
+}
+
+.image-not-loaded {
+  width: 100%;
+  padding-top: 100%;
+  opacity: 0;
+}
+
+.image-loaded {
+  opacity: 1;
+}
