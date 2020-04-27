@@ -21,7 +21,7 @@ class OrbitalViewerContainer extends React.PureComponent {
 
       this.setState(prevState => ({
         ...prevState,
-        data: data.slice(0, 80),
+        data: data.slice(0, 50),
       }));
     });
   }

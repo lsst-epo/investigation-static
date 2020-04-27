@@ -13,13 +13,13 @@ import {
 
 function Orbital(props) {
   // This reference will give us direct access to the mesh
+  const { data, selectionCallback, active } = props;
   const mesh = useRef();
   const sunPos = new THREE.Vector3();
-  const { data } = props;
   const { a, e, i, H } = data || {};
   // Set up state for the hovered and active state
   // const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
+  // const [active] = useState(false);
   // const [interval, setInterval] = useState(FPS);
   const [rotation] = useState([0, getRotation(i), 0]);
   const [ObjRadius] = useState(getRadius(H));
@@ -100,7 +100,7 @@ function Orbital(props) {
   return (
     <group rotation={rotation}>
       {/* Orbital Path */}
-      <line {...props} ref={mesh} geometry={getLineGeometry(pathPoints)}>
+      <line ref={mesh} geometry={getLineGeometry(pathPoints)}>
         <lineBasicMaterial
           attach="material"
           color={active ? 'hotpink' : 'green'}
@@ -110,7 +110,7 @@ function Orbital(props) {
       <mesh
         rotation={point.rotation}
         position={point.position}
-        onClick={() => setActive(!active)}
+        onClick={() => selectionCallback(data)}
       >
         <sphereBufferGeometry attach="geometry" args={[ObjRadius, 7, 6]} />
         <meshBasicMaterial
@@ -142,6 +142,8 @@ function Orbital(props) {
 
 Orbital.propTypes = {
   data: PropTypes.object,
+  selectionCallback: PropTypes.func,
+  active: PropTypes.bool,
 };
 
 export default Orbital;
