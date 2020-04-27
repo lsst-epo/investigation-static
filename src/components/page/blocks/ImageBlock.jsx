@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ImageLoader from '../../site/ImageLoader';
 
 import { gridImage, gridImageTop, gridImageBottom } from '../page.module.scss';
 
@@ -18,7 +19,7 @@ class ImageBlock extends React.PureComponent {
 
     return (
       <figure className={`${gridImage} ${this.gridClasses[row]}`}>
-        <img src={image.mediaPath} alt={image.altText} />
+        <ImageLoader src={image.mediaPath} alt={image.altText} />
         <figcaption>{image.figText}</figcaption>
       </figure>
     );
