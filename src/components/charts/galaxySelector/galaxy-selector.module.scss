@@ -13,6 +13,11 @@
   }
 }
 
+.group-point {
+  stroke: none;
+  transition: stroke $timing $duration, opacity $timing $duration;
+}
+
 .single-image {
   position: absolute;
   top: 0;

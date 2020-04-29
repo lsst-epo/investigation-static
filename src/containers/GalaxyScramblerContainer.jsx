@@ -5,10 +5,11 @@ import find from 'lodash/find';
 import classnames from 'classnames';
 import API from '../lib/API.js';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
+import StarAvatar from '../components/charts/shared/navDrawer/StarAvatar.jsx';
 import HubblePlot from '../components/charts/hubblePlot/index.jsx';
 import GalaxiesPosition3D from '../components/charts/galaxiesPosition3D/index.jsx';
-import Star from '../components/site/icons/Star';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
+import { colorize } from '../lib/utilities.js';
 
 import {
   drawerContainer,
@@ -39,7 +40,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
       const activeGalaxy = this.getGalaxyFromName(data, name);
       this.setState(prevState => ({
         ...prevState,
-        data,
+        data: colorize(data),
         scrambles,
         activeScramble,
         activeGalaxy,
@@ -58,15 +59,11 @@ class GalaxyScramblerContainer extends React.PureComponent {
 
     this.setState(prevState => ({
       ...prevState,
-      data,
+      data: colorize(data),
       activeScramble,
       activeGalaxy: this.getGalaxyFromName(data, name),
       navItems: this.generateNavItems(scrambles, activeScramble),
     }));
-  };
-
-  hubbleSelectionCallback = d => {
-    console.log(d); // eslint-disable-line no-console
   };
 
   userHubblePlotCallback = (qId, data) => {
@@ -92,14 +89,12 @@ class GalaxyScramblerContainer extends React.PureComponent {
   }
 
   generateNavItems(scrambles, activeScramble) {
-    return scrambles.map(scramble => {
-      const { name, color } = scramble;
+    return scrambles.map((scramble, i) => {
+      const { name } = scramble;
+
       return {
         leftAvatar: (
-          <span>
-            <Star style={{ fill: color }} />
-            <span className="screen-reader-only">{name}</span>
-          </span>
+          <StarAvatar classes={`color-${i + 1}-fill`} content={name} />
         ),
         primaryText: name,
         className: classnames(scrambleItem, {
@@ -135,17 +130,13 @@ class GalaxyScramblerContainer extends React.PureComponent {
                   options,
                   hubbleConstant,
                 }}
-                selectionCallback={this.hubbleSelectionCallback}
               />
             </div>
             <div className="col padded col-width-50">
               <GalaxiesPosition3D
                 className="galaxies-position"
-                {...{
-                  data,
-                  options,
-                }}
-                selectionCallback={this.hubbleSelectionCallback}
+                data={data}
+                options={options}
               />
             </div>
           </div>

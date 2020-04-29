@@ -27,14 +27,31 @@
 // Utilities
 // --------------------------------------------------------
 
-$chartColorsLength: length($chartColors) - 1;
-
-@for $i from 0 through $chartColorsLength - 1 {
-  .color-set-#{$i} {
+@for $i from 0 through length($chartColors) - 1 {
+  .color-#{$i} {
     $chartColor: nth($chartColors, $i + 1);
-    background-color: transparentize($chartColor, 0.5);
-    fill: transparentize($chartColor, 0.5);
-    stroke: lighten($chartColor, 5%);
+
+    &-background {
+      background-color: $chartColor;
+    }
+
+    &-translucent-background {
+      background-color: transparentize($chartColor, 0.5);
+    }
+
+    &-fill {
+      /* stylelint-disable-next-line declaration-no-important */
+      fill: $chartColor !important;
+    }
+
+    &-translucent-fill {
+      /* stylelint-disable-next-line declaration-no-important */
+      fill: transparentize($chartColor, 0.5) !important;
+    }
+
+    &-stroke {
+      stroke: lighten($chartColor, 5%);
+    }
   }
 }
 
@@ -91,7 +108,6 @@ $chartColorsLength: length($chartColors) - 1;
   margin-bottom: $verticalSpace;
 }
 
-
 // Graphs/Svgs
 // --------------------------------------------------------
 
@@ -103,7 +119,6 @@ $chartColorsLength: length($chartColors) - 1;
     outline: none;
   }
 }
-
 
 // Images
 // --------------------------------------------------------

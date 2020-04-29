@@ -21,7 +21,7 @@ class LegendMultiple extends React.PureComponent {
               setId,
               styles.groupPoint,
               {
-                [styles[`colorSet${i}`]]: i > 0,
+                [`color-${i}-background`]: i > 0,
                 [styles.defaultPoint]: isDefaultSet && !useFluxColor,
               }
             );

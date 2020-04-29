@@ -376,7 +376,7 @@ class GalacticProperties extends React.Component {
                 data.map((set, i) => {
                   const setId = `set-${i}`;
                   const pointClasses = classnames(setId, styles.groupPoint, {
-                    [styles[`colorSet${i}`]]: i > 0,
+                    [`color-${i}-fill`]: i > 0,
                   });
 
                   return (
@@ -408,7 +408,9 @@ class GalacticProperties extends React.Component {
                     hoveredData,
                     offsetTop,
                   }}
-                  pointClasses={styles.groupPoint}
+                  pointClasses={classnames(styles.groupPoint, {
+                    'color-1-fill': yValueAccessor !== 'color',
+                  })}
                 />
               )}
             </g>

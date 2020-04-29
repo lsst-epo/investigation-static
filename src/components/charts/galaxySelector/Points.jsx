@@ -4,6 +4,8 @@ import find from 'lodash/find';
 import isNumber from 'lodash/isNumber';
 import Point from './Point.jsx';
 
+import chartColors from '../../../assets/stylesheets/_variables.scss';
+
 class Points extends React.PureComponent {
   render() {
     const {
@@ -25,6 +27,7 @@ class Points extends React.PureComponent {
           const modR = 0.6 * radius;
           const isSelected = !!find(selectedData, { id: d.id });
           const isActive = active ? active.id === d.id : false;
+
           return (
             <Point
               key={`point-${id}`}
@@ -33,7 +36,7 @@ class Points extends React.PureComponent {
               classes={pointClasses}
               x={xScale(xVal)}
               y={yScale(d[yValueAccessor])}
-              color={isNumber(color) ? '#c82960' : color}
+              color={isNumber(color) ? chartColors.chart7 : color}
               tabIndex="0"
             />
           );

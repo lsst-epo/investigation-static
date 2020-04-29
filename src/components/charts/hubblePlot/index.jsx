@@ -19,7 +19,11 @@ import Points from './Points';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
-import styles from './hubble-plot.module.scss';
+import {
+  hubblePlot,
+  hubblePlotContainer,
+  galaxyPoint,
+} from './hubble-plot.module.scss';
 
 class HubblePlot extends React.Component {
   constructor(props) {
@@ -345,7 +349,7 @@ class HubblePlot extends React.Component {
     } = this.state;
 
     const { userTrendline, multiple } = options || {};
-    const svgClasses = classnames('svg-chart', styles.hubblePlot, {
+    const svgClasses = classnames('svg-chart', hubblePlot, {
       loading,
       loaded: !loading,
     });
@@ -354,7 +358,7 @@ class HubblePlot extends React.Component {
     return (
       <div
         ref={this.svgContainer}
-        className={`svg-container ${styles.hubblePlotContainer}`}
+        className={`svg-container ${hubblePlotContainer}`}
         data-testid="hubble-plot"
       >
         {loading && (
@@ -394,19 +398,23 @@ class HubblePlot extends React.Component {
           </defs>
           <XAxis
             label={xAxisLabel}
-            height={height}
-            width={width}
-            padding={padding}
-            offsetTop={offsetTop}
-            offsetRight={offsetRight}
             scale={xScale}
+            {...{
+              height,
+              width,
+              padding,
+              offsetTop,
+              offsetRight,
+            }}
           />
           <YAxis
             label={yAxisLabel}
-            height={height}
-            padding={padding}
-            offsetTop={offsetTop}
             scale={yScale}
+            {...{
+              height,
+              padding,
+              offsetTop,
+            }}
           />
           <g>
             {data &&
@@ -427,7 +435,8 @@ class HubblePlot extends React.Component {
                       hoveredData,
                       offsetTop,
                     }}
-                    pointClasses={`set-${i} ${styles.galaxyPoint}`}
+                    colorize={i !== 0}
+                    pointClasses={`color-${i}-fill set-${i} ${galaxyPoint}`}
                   />
                 );
               })}
@@ -443,7 +452,8 @@ class HubblePlot extends React.Component {
                   hoveredData,
                   offsetTop,
                 }}
-                pointClasses={styles.galaxyPoint}
+                colorize
+                pointClasses={galaxyPoint}
               />
             )}
           </g>

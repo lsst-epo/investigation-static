@@ -12,6 +12,7 @@ import { getAlertFromImageId } from './galaxySelectorUtilities.js';
 import Blinker from './blinker/index.jsx';
 import Points from './Points';
 import Legend from '../shared/legend/index.jsx';
+
 import { galaxySelector, singleImage } from './galaxy-selector.module.scss';
 
 class GalaxySelector extends React.PureComponent {
@@ -358,13 +359,15 @@ class GalaxySelector extends React.PureComponent {
                 return (
                   <Points
                     key={key}
-                    pointClasses={set.className}
                     data={set.data}
-                    selectedData={selectedData}
-                    xScale={xScale}
-                    yScale={yScale}
-                    xValueAccessor={xValueAccessor}
-                    yValueAccessor={yValueAccessor}
+                    {...{
+                      selectedData,
+                      xScale,
+                      yScale,
+                      xValueAccessor,
+                      yValueAccessor,
+                    }}
+                    pointClasses={set.className}
                     active={activeGalaxy}
                   />
                 );
