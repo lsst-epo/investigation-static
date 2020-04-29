@@ -24,20 +24,21 @@ class Points extends React.PureComponent {
       yValueAccessor,
       pointClasses,
       offsetTop,
+      colorize,
     } = this.props;
 
     return (
       <g className="data-points">
         {data.map((d, i) => {
-          const { id, name, label, color } = d;
+          const { id, name, label } = d;
           const key = `point-${id}-${i}`;
           const x = d[xValueAccessor];
           const y = d[yValueAccessor];
           const selected = includes(selectedData, d);
           const hovered = includes(hoveredData, d);
-          const classes = classnames('data-point', {
+          const classes = classnames('data-point', pointClasses, {
             [`data-point-${this.classify(name || ' ')}`]: !!name,
-            [pointClasses]: pointClasses,
+            [`color-${i + 1}-fill`]: colorize,
             selected,
             hovered,
             [notActive]: (selectedData || hoveredData) && !selected && !hovered,
@@ -53,7 +54,6 @@ class Points extends React.PureComponent {
               x={xScale(x)}
               y={yScale(y) + offsetTop}
               label={label}
-              fill={color}
             />
           );
         })}
@@ -72,6 +72,7 @@ Points.propTypes = {
   yScale: PropTypes.func,
   pointClasses: PropTypes.string,
   offsetTop: PropTypes.number,
+  colorize: PropTypes.bool,
 };
 
 export default Points;

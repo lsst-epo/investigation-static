@@ -28,7 +28,7 @@ class LegendMultiple extends React.PureComponent {
             const pointClasses = classnames(
               styles.legendBar,
               styles.groupPoint,
-              styles[`colorSet${id}`]
+              `color-${id}-translucent-background`
             );
 
             return (

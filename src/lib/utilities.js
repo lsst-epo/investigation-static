@@ -2,6 +2,7 @@ import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
 import isNumber from 'lodash/isNumber';
 import { extent as d3Extent, mean as d3Mean } from 'd3-array';
+import chartColors from '../assets/stylesheets/_variables.scss';
 
 export const randomIntFromInterval = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -13,6 +14,16 @@ export const dashSepToCamelCase = function(input) {
     .replace(/-(.)/g, function dashCharToCap(match, group1) {
       return group1.toUpperCase();
     });
+};
+
+export const colorize = function(data) {
+  if (!data) return null;
+
+  return data.map((datum, i) => {
+    datum.color = chartColors[`chart${i + 1}`];
+
+    return datum;
+  });
 };
 
 export const getAnswerData = function(answers, id) {
