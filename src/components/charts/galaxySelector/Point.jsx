@@ -33,7 +33,7 @@ class Point extends React.PureComponent {
 
   getRadius(id, radius) {
     if (radius) {
-      return radius;
+      return Math.abs(radius);
     }
 
     return (

@@ -42,17 +42,24 @@ $md-switch-ball-fallback-color: $md-switch-fallback-color;
 $md-slider-warn-md: false; // only need to set this if using the dark theme.
 
 // Chart colors
-$chart00: $neutral30;
-$chart01: #1ab579;
-$chart02: #eb7c39;
-$chart03: #4c8cd2;
-$chart04: #fed828;
-$chart05: #8e3efe;
-$chart06: #a3bb0d;
-$chart07: #c82960;
+$chart0: $neutral30;
+$chart1: #1ab579;
+$chart2: #eb7c39;
+$chart3: #4c8cd2;
+$chart4: #fed828;
+$chart5: #8e3efe;
+$chart6: #a3bb0d;
+$chart7: #c82960;
 
-$chartColors: $chart00 $chart01 $chart02 $chart03 $chart04 $chart05 $chart06
-  $chart07;
+$chartColors: $chart0 $chart1 $chart2 $chart3 $chart4 $chart5 $chart6
+  $chart7;
+
+:export  {
+  @for $i from 0 through length($chartColors) - 1 {
+    $chartColor: nth($chartColors, $i + 1);
+    chart#{$i}: $chartColor;
+  }
+}
 
 // Responsive breakpoints
 // --------------------------------------------------------

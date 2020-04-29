@@ -19,23 +19,12 @@
 
 .group-point {
   stroke: none;
-  transition: stroke $timing $duration, opacity $timing $duration;
+  transition: fill $timing $duration, stroke $timing $duration, opacity $timing $duration;
 }
 
 .invisible {
   display: none;
 }
-
-// $chartColorsLength: length($chartColors) - 1;
-
-// @for $i from 0 through $chartColorsLength - 1 {
-//   .color-set-#{$i} {
-//     $chartColor: nth($chartColors, $i + 1);
-//     background-color: transparentize($chartColor, 0.15);
-//     fill: transparentize($chartColor, 0.15);
-//     stroke: lighten($chartColor, 5%);
-//   }
-// }
 
 // NavDrawer related styles
 .card {

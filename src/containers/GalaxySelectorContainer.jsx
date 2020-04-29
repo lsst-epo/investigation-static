@@ -6,9 +6,9 @@ import API from '../lib/API.js';
 import ScatterPlotSelectorContainer from './ScatterPlotSelectorContainer';
 import GalaxySelector from '../components/charts/galaxySelector';
 import Legend from '../components/charts/galaxySelector/legend/index.jsx';
-import Star from '../components/site/icons/Star';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
+import StarAvatar from '../components/charts/shared/navDrawer/StarAvatar.jsx';
 import HubblePlot from '../components/charts/hubblePlot/index.jsx';
 import {
   getSelectedData,
@@ -18,6 +18,7 @@ import {
 } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
+import chartColors from '../assets/stylesheets/_variables.scss';
 import styles from '../components/charts/galaxySelector/galaxy-selector.module.scss';
 
 class GalaxySelectorContainer extends React.PureComponent {
@@ -143,8 +144,8 @@ class GalaxySelectorContainer extends React.PureComponent {
     const answer = answers[qId];
     const answerData = !isEmpty(answer) ? answer.data : {};
 
-    return navItems.map(item => {
-      const { name, color } = item;
+    return navItems.map((item, i) => {
+      const { name } = item;
       const itemAnswerData = answerData[name];
 
       const active = name === activeGalaxy.name;
@@ -153,10 +154,7 @@ class GalaxySelectorContainer extends React.PureComponent {
 
       return {
         leftAvatar: (
-          <span>
-            <Star style={{ fill: color }} />
-            <span className="screen-reader-only">{name}</span>
-          </span>
+          <StarAvatar classes={`color-${i + 1}-fill`} content={name} />
         ),
         primaryText: name,
         className: classnames(styles.galaxyItem, {
@@ -170,6 +168,13 @@ class GalaxySelectorContainer extends React.PureComponent {
         onClick: e => this.chooseGalaxyAndClosePlot(e, item),
       };
     });
+  }
+
+  getToolbarStyles(activeGalaxy, data) {
+    const colorIndex = activeGalaxy ? data.indexOf(activeGalaxy) + 1 : null;
+    return colorIndex
+      ? { backgroundColor: chartColors[`chart${colorIndex}`] }
+      : null;
   }
 
   selectionCallback = d => {
@@ -247,9 +252,7 @@ class GalaxySelectorContainer extends React.PureComponent {
             contentClasses={styles.galaxyDrawerContent}
             drawerClasses={styles.galaxyDrawer}
             navItems={this.generateNavItems(data)}
-            toolbarStyles={
-              activeGalaxy ? { backgroundColor: activeGalaxy.color } : null
-            }
+            toolbarStyles={this.getToolbarStyles(activeGalaxy, data)}
             toolbarTitle={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
             toolbarActions={<Legend {...{ activeGalaxy, selectedData }} />}
             menuOpenCallback={this.closeScatterPlot}

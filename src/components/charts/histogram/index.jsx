@@ -410,11 +410,12 @@ class Histogram extends React.PureComponent {
                 {data.map((dataset, i) => {
                   const groupName = groupNames[i];
                   const key = groupName + i;
+                  const colorIndex = i + 1;
 
                   return (
                     <Bars
                       barClasses={groupName}
-                      colorClass={`color-set-${i + 1}`}
+                      colorClass={`color-${colorIndex}-translucent-fill`}
                       key={key}
                       data={dataset}
                       selectedData={selectedData}
