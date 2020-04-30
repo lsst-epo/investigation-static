@@ -63,7 +63,9 @@ class TableOfContents extends React.PureComponent {
       questions: totalQuestions,
     } = totalQAsByInvestigation;
     const pagesProgress = (visitedPages.length / totalPages) * 100;
+    // console.log(visitedPages, totalPages, pagesProgress);
     const questionsProgress = (totalAnswered / totalQuestions) * 100;
+    // console.log(totalAnswered, totalQuestions, questionsProgress);
 
     return (
       <Drawer

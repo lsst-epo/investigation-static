@@ -42,7 +42,7 @@ class GlobalStore {
     });
 
     // addReducer(
-    //   'updateGlobalFromIvestigation',
+    //   'updateGlobalFromInvestigation',
     //   (global, dispatch, investigationId) => {
     //     console.log(investigationId, ls(investigationId) || this.emptyState);
     //     return ls(investigationId) || this.emptyState;
