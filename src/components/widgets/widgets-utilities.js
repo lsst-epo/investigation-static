@@ -10,6 +10,7 @@ import GalacticPropertiesCombo from '../../containers/GalacticPropertiesComboCon
 import OrbitalViewer from '../../containers/OrbitalViewerContainer.jsx';
 import OrbitalProperties from '../../containers/OrbitalPropertiesContainer.jsx';
 import TimeDomainViewer from '../../containers/TimeDomainViewerContainer.jsx';
+import SizeDistancePlotter from '../../containers/SizeDistancePlotterContainer.jsx';
 
 export const widgetTags = {
   SupernovaSelectorWithLightCurve,
@@ -24,4 +25,5 @@ export const widgetTags = {
   OrbitalViewer,
   OrbitalProperties,
   TimeDomainViewer,
+  SizeDistancePlotter,
 };

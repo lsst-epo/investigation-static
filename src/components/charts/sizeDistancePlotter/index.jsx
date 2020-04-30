@@ -308,12 +308,7 @@ class SizeDistancePlotter extends React.Component {
 
     return (
       <>
-        {multiple && data && (
-          <LegendMultiple
-            yValueAccessor={yValueAccessor}
-            numOfSets={data.length}
-          />
-        )}
+        {multiple && data && <LegendMultiple {...{ data }} />}
         <div
           ref={this.svgContainer}
           className={`svg-container ${styles.galacticPropertiesContainer}`}
@@ -375,14 +370,16 @@ class SizeDistancePlotter extends React.Component {
                 multiple &&
                 data.map((set, i) => {
                   const setId = `set-${i}`;
-                  const pointClasses = classnames(setId, styles.groupPoint, {
-                    [`color-${i}-fill`]: i > 0,
-                  });
+                  const pointClasses = classnames(
+                    setId,
+                    styles.groupPoint,
+                    `color-${i + 1}-datapoints`
+                  );
 
                   return (
                     <Points
                       key={setId}
-                      data={set}
+                      data={set.data}
                       {...{
                         xScale,
                         yScale,

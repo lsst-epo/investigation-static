@@ -131,6 +131,8 @@ class Tooltip extends React.PureComponent {
   render() {
     const { data, accessors, units, labels } = this.props;
 
+    console.log({ data });
+
     return (
       <>
         {data && (

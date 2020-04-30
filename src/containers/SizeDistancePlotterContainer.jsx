@@ -25,13 +25,9 @@ class SizeDistancePlotterContainer extends React.PureComponent {
     API.get(source).then(response => {
       const { data } = response;
 
-      const responseData = data.map(target => {
-        return target;
-      });
-
       this.setState(prevState => ({
         ...prevState,
-        data: responseData,
+        data,
       }));
     });
   }
