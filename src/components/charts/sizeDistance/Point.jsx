@@ -14,6 +14,7 @@ class Point extends React.PureComponent {
   componentDidUpdate() {
     const { selected, hovered } = this.props;
     const $point = d3Select(this.svgEl.current);
+
     if (selected || hovered) {
       $point
         .transition()
@@ -29,8 +30,7 @@ class Point extends React.PureComponent {
   }
 
   render() {
-    const { x, y, classes, fill } = this.props;
-    const fillColor = fill || '#828287';
+    const { x, y, classes } = this.props;
 
     return (
       <circle
@@ -39,8 +39,6 @@ class Point extends React.PureComponent {
         cx={x}
         cy={y}
         r={this.baseRadius}
-        fill={fillColor}
-        stroke={fillColor}
         tabIndex="0"
       />
     );
@@ -53,7 +51,6 @@ Point.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   classes: PropTypes.string,
-  fill: PropTypes.string,
 };
 
 export default Point;

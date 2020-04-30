@@ -14,6 +14,31 @@
   },
   "layout": "TwoCol",
   "content": "<p>To estimate the size of an asteroid, we use its absolute magnitude, which can be thought of as the asteroid’s actual brightness (as opposed to how bright it appears to an observer on Earth). An asteroid’s absolute magnitude depends only on its size and its albedo. Albedo is a measure of the reflectivity of the surface of an object. An object that is pure white will reflect 100% of the light that hits it and will have an albedo of 1. An object that is pure black will reflect 0% of the light that hits it and will have an albedo of 0. The albedos for asteroids depend on the material on the surface, but they range from 0.05 (5%) to 0.25 (25%). Since we don’t know the albedos for all objects, we will assume an average value of 0.15 for this investigation.</p><p>The equation for calculating the size of an asteroid is given by:</p><p>equation</p><p>Where D is the diameter of the asteroid (in kilometers), H is the absolute magnitude of the asteroid, and p is the albedo of the asteroid. You can visit this website to calculate the diameter.</p><p>Examine this scatter plot of size on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis. Select all categories of objects.</p>",
+  "widgets": [
+    {
+      "type": "SizeDistance",
+      "source": "/data/galaxies/semimajor_vs_size_by_category.json",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "options": {
+        "preSelected": true,
+        "multiple": true,
+        "xAxisLabel": "Distance",
+        "yAxisLabel": "Size",
+        "xValueAccessor": "semimajor_axis",
+        "yValueAccessor": "size",
+        "tooltipAccessors": ["semimajor_axis", "size"],
+        "tooltipUnits": ["", ""],
+        "tooltipLabels": ["Distance", "Size"],
+        "domain": [
+          [0, 60],
+          [0, 1400]
+        ]
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -111,7 +136,7 @@
           "id": "45",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Based upon the scatter plot and your answers for the previous questions, are there far more small objects than large object throught the solar system?",
+          "label": "Based upon the scatter plot and your answers for the previous questions, are there far more small objects than large object throughout the solar system?",
           "options": [
             {
               "label": "yes",

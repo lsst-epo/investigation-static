@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import API from '../lib/API.js';
-import SizeDistancePlotter from '../components/charts/sizeDistancePlotter/index.jsx';
-// import { getSelectedGalaxies } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
+import SizeDistance from '../components/charts/sizeDistance/index.jsx';
 
-class SizeDistancePlotterContainer extends React.PureComponent {
+class SizeDistanceContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -25,13 +24,9 @@ class SizeDistancePlotterContainer extends React.PureComponent {
     API.get(source).then(response => {
       const { data } = response;
 
-      const responseData = data.map(target => {
-        return target;
-      });
-
       this.setState(prevState => ({
         ...prevState,
-        data: responseData,
+        data,
       }));
     });
   }
@@ -54,8 +49,7 @@ class SizeDistancePlotterContainer extends React.PureComponent {
     return (
       <>
         <h2 className="space-bottom">{title || ''}</h2>
-        <SizeDistancePlotter
-          className="size-distance-plotter"
+        <SizeDistance
           {...{
             data,
             options,
@@ -74,7 +68,7 @@ class SizeDistancePlotterContainer extends React.PureComponent {
   }
 }
 
-SizeDistancePlotterContainer.propTypes = {
+SizeDistanceContainer.propTypes = {
   data: PropTypes.object,
   options: PropTypes.object,
   widget: PropTypes.object,
@@ -82,4 +76,4 @@ SizeDistancePlotterContainer.propTypes = {
   updateAnswer: PropTypes.func,
 };
 
-export default SizeDistancePlotterContainer;
+export default SizeDistanceContainer;

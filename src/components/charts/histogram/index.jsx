@@ -411,7 +411,7 @@ class Histogram extends React.PureComponent {
           </div>
         ),
         primaryText: `${item} ${label}`,
-        className: classnames(styles.templateItem, {
+        className: classnames(styles.navItem, {
           [styles.linkActive]: activePlots[item],
         }),
         onClick: () => this.updateActivePlots(item),

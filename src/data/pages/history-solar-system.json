@@ -1,7 +1,7 @@
 {
-  "id": "solarsystem19",
+  "id": "solarsystem19a",
   "investigation": "solar-system",
-  "order": "19",
+  "order": "19a",
   "title": "The History of the Solar System",
   "slug": "history-solar-system/",
   "previous": {
@@ -10,7 +10,7 @@
   },
   "next": {
     "title": "The History of the Solar System",
-    "link": "/history-solar-system-2/"
+    "link": "/nebula-theory/"
   },
   "layout": "TwoCol",
   "content":"<p>According to the Solar Nebula Theory, a spinning cloud of dust and gas collapsed and the young Sun began to form at the center, while dusty and icy objects began to grow by repeated collisions with each other in a flattened disk surrounding the Sun.</p><p>There is significant evidence to support this theory. Observations of star-forming regions reveal similar disks around young stars in other parts of the galaxy. Another piece of evidence that supports the theory is the fact that rocky planets formed close to the Sun and icy planets formed at greater distances. This can be explained by the higher temperatures closer to the Sun, which prevented the inner planets from retaining most of their original atmospheres and ices.</p><p>We can also find evidence to support the Solar Nebula Theory by studying the motions of objects within the Solar System. To collect this evidence, let’s first view a histogram to show inclinations of all 4 groups of solar system objects and look for overall patterns in the way objects orbit the Sun. (Remember, any inclination greater than 90 degrees indicates an object that is orbiting backwards.)</p>",
