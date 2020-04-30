@@ -1,0 +1,48 @@
+.size-distance-container {
+  width: 100%;
+}
+
+.size-distance {
+  width: 100%;
+  height: auto;
+
+  &.loaded {
+    visibility: visible;
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 1 !important;
+  }
+}
+
+.x-axis-label {
+  text-anchor: middle;
+}
+
+.group-point {
+  stroke-width: 1px;
+  transition: stroke $timing $duration, opacity $timing $duration;
+}
+
+// Multiple datasets Legend
+.legend {
+  display: inline-block;
+  padding: $minPadding / 2;
+  margin-bottom: $minPadding;
+}
+
+.legend-row {
+  @include labelPrimary;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  + .legend-row {
+    margin-top: $minPadding / 2;
+  }
+}
+
+.legend-point {
+  width: 14px;
+  height: 14px;
+  margin-right: $minPadding;
+  border-radius: 50%;
+}

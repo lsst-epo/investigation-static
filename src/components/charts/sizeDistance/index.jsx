@@ -17,9 +17,9 @@ import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import LegendMultiple from './LegendMultiple.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
-import styles from './size-distance-plotter.module.scss';
+import styles from './size-distance.module.scss';
 
-class SizeDistancePlotter extends React.Component {
+class SizeDistance extends React.Component {
   constructor(props) {
     super(props);
 
@@ -177,7 +177,6 @@ class SizeDistancePlotter extends React.Component {
   // mouseover/focus handler for point
   onMouseOver = d => {
     const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
-
     // add hover style on point and show tooltip
     this.setState(prevState => ({
       ...prevState,
@@ -213,10 +212,10 @@ class SizeDistancePlotter extends React.Component {
   // add event listeners to Scatterplot and Points
   addEventListeners() {
     this.removeEventListeners();
-    const $galacticProperties = d3Select(this.svgEl.current);
+    const $sizeDistance = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
-    $galacticProperties.on('click', this.onClick);
+    $sizeDistance.on('click', this.onClick);
 
     // add event listeners to points
     $allPoints
@@ -226,9 +225,9 @@ class SizeDistancePlotter extends React.Component {
 
   // add event listeners to Scatterplot and Points
   removeEventListeners() {
-    const $galacticProperties = d3Select(this.svgEl.current);
+    const $sizeDistance = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
-    $galacticProperties.on('click', null);
+    $sizeDistance.on('click', null);
 
     $allPoints.on('mouseover', null).on('mouseout', null);
   }
@@ -242,7 +241,7 @@ class SizeDistancePlotter extends React.Component {
       return;
     }
 
-    const $galacticProperties = d3Select(this.svgEl.current);
+    const $sizeDistance = d3Select(this.svgEl.current);
 
     if (isEmpty(data) && preSelected && loading) {
       this.setState(prevState => ({
@@ -251,7 +250,7 @@ class SizeDistancePlotter extends React.Component {
       }));
     } else if (multiple) {
       data.forEach((set, i) => {
-        $galacticProperties.selectAll(`.data-point.set-${i}`).data(set);
+        $sizeDistance.selectAll(`.data-point.set-${i}`).data(set.data);
       });
 
       this.setState(prevState => ({
@@ -259,7 +258,7 @@ class SizeDistancePlotter extends React.Component {
         loading: false,
       }));
     } else {
-      $galacticProperties.selectAll('.data-point').data(data);
+      $sizeDistance.selectAll('.data-point').data(data);
 
       this.setState(prevState => ({
         ...prevState,
@@ -301,22 +300,17 @@ class SizeDistancePlotter extends React.Component {
     } = this.state;
 
     const { multiple } = options || {};
-    const svgClasses = classnames('svg-chart', styles.galacticProperties, {
+    const svgClasses = classnames('svg-chart', styles.sizeDistance, {
       loading,
       loaded: !loading,
     });
 
     return (
       <>
-        {multiple && data && (
-          <LegendMultiple
-            yValueAccessor={yValueAccessor}
-            numOfSets={data.length}
-          />
-        )}
+        {multiple && data && <LegendMultiple {...{ data }} />}
         <div
           ref={this.svgContainer}
-          className={`svg-container ${styles.galacticPropertiesContainer}`}
+          className={`svg-container ${styles.sizeDistanceContainer}`}
         >
           {loading && (
             <CircularProgress
@@ -375,14 +369,17 @@ class SizeDistancePlotter extends React.Component {
                 multiple &&
                 data.map((set, i) => {
                   const setId = `set-${i}`;
-                  const pointClasses = classnames(setId, styles.groupPoint, {
-                    [`color-${i}-fill`]: i > 0,
-                  });
+                  const pointClasses = classnames(
+                    setId,
+                    styles.groupPoint,
+                    `color-${i + 1}-stroke`,
+                    `color-${i + 1}-translucent-fill`
+                  );
 
                   return (
                     <Points
                       key={setId}
-                      data={set}
+                      data={set.data}
                       {...{
                         xScale,
                         yScale,
@@ -419,7 +416,7 @@ class SizeDistancePlotter extends React.Component {
   }
 }
 
-SizeDistancePlotter.defaultProps = {
+SizeDistance.defaultProps = {
   width: 600,
   height: 600,
   padding: 70,
@@ -436,7 +433,7 @@ SizeDistancePlotter.defaultProps = {
   tooltipLabels: ['Distance', 'Brightness'],
 };
 
-SizeDistancePlotter.propTypes = {
+SizeDistance.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   padding: PropTypes.number,
@@ -460,4 +457,4 @@ SizeDistancePlotter.propTypes = {
   selectionCallback: PropTypes.func,
 };
 
-export default SizeDistancePlotter;
+export default SizeDistance;

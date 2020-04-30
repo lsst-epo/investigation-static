@@ -10,7 +10,7 @@
   },
   "next": {
     "title": "The History of the Solar System",
-    "link": "/history-solar-system-2/"
+    "link": "/history-solar-system/"
   },
   "layout": "TwoCol",
   "content": "<p>Now let’s look at a histogram of the number of all small Solar System objects on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p>",

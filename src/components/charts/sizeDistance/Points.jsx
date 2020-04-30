@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import find from 'lodash/find';
 import classnames from 'classnames';
 import Point from './Point.jsx';
-import { getFluxRgba } from './sizeDistancePlotterUtilities.js';
-import { invisible } from './size-distance-plotter.module.scss';
 
 class Points extends React.PureComponent {
   render() {
@@ -23,16 +21,14 @@ class Points extends React.PureComponent {
     return (
       <g className="data-points">
         {data.map((d, i) => {
-          const { id, name, label, color, use_color: useColor } = d;
+          const { id, name, label } = d;
           const key = `point-${id}-${i}`;
-          const useFluxColor = yValueAccessor === 'color';
           const selected = !!find(selectedData, { id });
           const hovered = !!find(hoveredData, { id });
           const classes = classnames(`data-point-${name || id}`, 'data-point', {
             [pointClasses]: pointClasses,
             selected,
             hovered,
-            [invisible]: !useColor && useFluxColor,
           });
 
           return (
@@ -44,7 +40,6 @@ class Points extends React.PureComponent {
               x={xScale(d[xValueAccessor])}
               y={yScale(d[yValueAccessor]) + offsetTop}
               label={label}
-              fill={useFluxColor ? getFluxRgba(color) : null}
             />
           );
         })}
