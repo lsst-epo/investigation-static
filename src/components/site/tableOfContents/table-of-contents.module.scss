@@ -1,24 +1,8 @@
 :global {
   @include react-md-drawers;
   @include react-md-lists;
-  @include react-md-progress-linear;
 
   .md-drawer {
-    .md-progress--linear {
-      width: 87%;
-      height: 20px;
-    }
-
-    .md-progress {
-      margin-top: 0;
-      margin-left: 1em;
-    }
-
-    .headerTitle {
-      margin-top: 1em;
-      margin-left: 1em;
-    }
-
     .md-list.md-list--drawer {
       .md-subheader {
         padding-left: $minPadding;
@@ -86,8 +70,22 @@
 }
 
 .table-of-contents {
+  $pageNavHeight: 168px;
   z-index: 14;
-  height: calc(100% - 162px - #{$siteHeaderHeight});
   padding-top: calc(#{$siteHeaderHeight} + 10px);
-  // padding-bottom: 56px;
+
+  .heading {
+    @include copySecondary;
+    padding: 1em 1em calc(1em - 8px) 1em;
+    margin: 0;
+  }
+
+  :global {
+    .md-list {
+      height: 100%;
+      max-height: calc(100vh - #{$pageNavHeight});
+      padding-top: 0;
+      padding-bottom: $pageNavHeight;
+    }
+  }
 }

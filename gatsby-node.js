@@ -201,6 +201,23 @@ exports.createPages = async ({ graphql, actions }) => {
     context: { investigations, env: INVESTIGATION },
   });
 
+  if (isAll) {
+    investigations.forEach(investigation => {
+      const { id } = investigation;
+      createPage({
+        path: `/${id}/last-page/`,
+        component: path.resolve(`./src/containers/EndingContainer.jsx`),
+        context: { investigations, investigation: id, env: INVESTIGATION },
+      });
+    });
+  } else {
+    createPage({
+      path: '/last-page/',
+      component: path.resolve(`./src/containers/EndingContainer.jsx`),
+      context: { investigations, env: INVESTIGATION },
+    });
+  }
+
   pages.data.allPagesJson.nodes.forEach(page => {
     const { id, slug, investigation } = page;
 

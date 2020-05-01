@@ -1,0 +1,41 @@
+:global {
+  @include react-md-progress-linear;
+
+  .md-drawer {
+    .md-progress--linear {
+      height: 20px;
+    }
+
+    .md-progress {
+      width: auto;
+      margin: 0 1em 1em;
+    }
+  }
+}
+
+.header-title {
+  @include labelSecondary;
+  margin: $minPadding 1em 4px 1em;
+}
+
+.big {
+  + .big {
+    margin-top: $minPadding;
+  }
+
+  .header-title {
+    @include subheadingPrimary;
+    margin: 0 0 $minPadding / 2 0;
+  }
+
+  :global {
+    .md-progress--linear {
+      height: 30px;
+    }
+
+    .md-progress {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

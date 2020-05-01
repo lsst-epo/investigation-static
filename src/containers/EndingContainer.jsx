@@ -7,9 +7,10 @@ import find from 'lodash/find';
 import ls from 'local-storage';
 import SEO from '../components/seo';
 import Button from '../components/site/button/index.js';
+import Progress from '../components/site/progress/index.jsx';
 
 @reactn
-class InvestigationsLanding extends React.PureComponent {
+class LastPage extends React.PureComponent {
   constructor(props) {
     super(props);
     const { pageContext } = props;
@@ -37,13 +38,31 @@ class InvestigationsLanding extends React.PureComponent {
 
     return (
       <>
-        <SEO title="Home" />
-        {envInvestigation ? (
+        <SEO title="Last pageContext" />
+        {envInvestigation && (
           <>
-            <p className="copy-primary space-bottom">
-              Welcome to the {envInvestigation.title} Investigation.
+            <h1 className="space-bottom heading-primary">
+              Congratulations! You&apos;ve reached the end of the{' '}
+              {envInvestigation.title} investigation.
+            </h1>
+            <div style={{ maxWidth: '50%' }}>
+              <Progress type="big" />
+            </div>
+            <br />
+            <br />
+            <p className="subheading-primary space-bottom">
+              Thank you for your participation.
             </p>
-            <div className="space-bottom">
+            <p className="subheading-primary space-bottom">
+              We hope you had as much fun exploring the {envInvestigation.title}{' '}
+              investigation as we had building it.
+            </p>
+            <br />
+          </>
+        )}
+        {envInvestigation ? (
+          <div className="container-flex spaced">
+            <div className="col">
               <Button
                 flat
                 secondary
@@ -51,32 +70,23 @@ class InvestigationsLanding extends React.PureComponent {
                 to="/introduction/"
                 component={Link}
               >
-                Start {envInvestigation.title} Investigation
+                Start from the beginning
               </Button>
             </div>
             {isAnswers && (
-              <>
-                <br />
-                <br />
-                <br />
-                <div className="space-bottom">
-                  <p className="copy-primary space-bottom">
-                    It looks like you&apos;ve done this investigation before. If
-                    you&apos;d like to start over you can clear your answers.
-                  </p>
-                  <Button
-                    flat
-                    primary
-                    swapTheming
-                    onClick={this.dispatch.empty}
-                    style={{ backgroundColor: '#df0039' }}
-                  >
-                    Clear all saved answers
-                  </Button>
-                </div>
-              </>
+              <div className="col">
+                <Button
+                  flat
+                  primary
+                  swapTheming
+                  onClick={this.dispatch.empty}
+                  style={{ backgroundColor: '#df0039' }}
+                >
+                  Clear all saved answers
+                </Button>
+              </div>
             )}
-          </>
+          </div>
         ) : (
           investigations.map(investigation => {
             const { id, title } = investigation;
@@ -94,8 +104,8 @@ class InvestigationsLanding extends React.PureComponent {
   }
 }
 
-export default InvestigationsLanding;
+export default LastPage;
 
-InvestigationsLanding.propTypes = {
+LastPage.propTypes = {
   pageContext: PropTypes.object,
 };
