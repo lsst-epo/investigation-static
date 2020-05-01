@@ -10,12 +10,21 @@ import styles from './page-nav.module.scss';
 class PageNav extends React.PureComponent {
   renderNavItem(type, item, baseUrl) {
     const { link, title } = item;
+    const isLinkToFirstPage = link === '' && type === 'previous';
+    const isLinkToLastPage = link === '' && type === 'next';
+    let buttonLink = `${baseUrl}${link}`;
+
+    if (isLinkToFirstPage) {
+      buttonLink = `${baseUrl}`;
+    } else if (isLinkToLastPage) {
+      buttonLink = `${baseUrl}/last-page/`;
+    }
 
     return (
       <Button
         icon
         className="outlined"
-        to={link === '' ? `${baseUrl}` : `${baseUrl}${link}`}
+        to={buttonLink}
         component={Link}
         iconEl={
           type === 'previous' ? (

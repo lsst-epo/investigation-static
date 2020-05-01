@@ -4,10 +4,10 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import filter from 'lodash/filter';
 import classnames from 'classnames';
-import LinearProgress from 'react-md/lib/Progress/LinearProgress';
 import { Drawer } from 'react-md';
-import styles from './table-of-contents.module.scss';
 import Check from '../icons/Check';
+import Progress from '../progress/index.jsx';
+import { tableOfContents, heading } from './table-of-contents.module.scss';
 
 @reactn
 class TableOfContents extends React.PureComponent {
@@ -57,29 +57,18 @@ class TableOfContents extends React.PureComponent {
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
     const { visible, navLinks, investigation, isAll } = this.props;
-    const { visitedPages, totalPages, totalQAsByInvestigation } = this.global;
-    const {
-      answers: totalAnswered,
-      questions: totalQuestions,
-    } = totalQAsByInvestigation;
-    const pagesProgress = (visitedPages.length / totalPages) * 100;
-    // console.log(visitedPages, totalPages, pagesProgress);
-    const questionsProgress = (totalAnswered / totalQuestions) * 100;
-    // console.log(totalAnswered, totalQuestions, questionsProgress);
 
     return (
       <Drawer
         header={
-          <div>
-            <div className="headerTitle">Table of Contents</div>
-            <div className="headerTitle">Pages Visited:</div>
-            <LinearProgress id="PagesBar" value={pagesProgress} />
-            <div className="headerTitle">Questions Answered:</div>
-            <LinearProgress id="questionsBar" value={questionsProgress} />
-          </div>
+          <>
+            <Progress />
+            <hr className="md-divider" />
+            <h4 className={heading}>Table of Contents</h4>
+          </>
         }
         type={TEMPORARY}
-        className={styles.tableOfContents}
+        className={tableOfContents}
         visible={visible}
         onVisibilityChange={this.handleVisibility}
         navItems={this.getNavLinks(navLinks, investigation, isAll)}
