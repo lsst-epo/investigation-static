@@ -1,6 +1,18 @@
 .container {
+  position: relative;
   width: 600px;
   max-width: 100%;
   height: 600px;
   max-height: 100%;
+  background-color: $black;
+}
+
+.playback-speed {
+  @include labelSecondary;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: $minPadding;
+  color: $white;
 }
