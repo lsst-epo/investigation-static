@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useFrame } from 'react-three-fiber';
 import * as THREE from 'three';
@@ -11,9 +11,16 @@ import {
   getRadius,
 } from './orbitalUtilities.js';
 
-function Orbital(props) {
+const Orbital = ({
+  data,
+  selectionCallback,
+  active,
+  playing,
+  stepsPerFrame,
+  stepDirection,
+  frameOverride,
+}) => {
   // This reference will give us direct access to the mesh
-  const { data, selectionCallback, active } = props;
   const mesh = useRef();
   const sunPos = new THREE.Vector3();
   const { a, e, i, H } = data || {};
@@ -58,14 +65,15 @@ function Orbital(props) {
     };
   });
 
-  function updatePoint() {
+  function updatePoint(paused) {
     const {
       progress: oldProgress,
       position: oldPosition,
       velocity: oldVelocity,
       // rotation: oldRotation,
     } = point;
-    const delta = oldVelocity * STEPS_PER_FRAME;
+    const steps = paused ? 0 : stepsPerFrame || STEPS_PER_FRAME;
+    const delta = oldVelocity * steps * stepDirection;
     const progress = oldProgress + delta;
     const { x, y } = path.getPoint(oldProgress + delta);
     const position = new THREE.Vector3(x, y, oldPosition.z);
@@ -86,10 +94,18 @@ function Orbital(props) {
     });
   }
 
+  useEffect(() => {
+    if (frameOverride) updatePoint();
+  }, [frameOverride]);
+
   // Called every frame
   // (state, delta)
   useFrame(() => {
-    updatePoint();
+    if (!playing) {
+      updatePoint(true);
+    } else {
+      updatePoint();
+    }
     // if (delta > interval) {
     // setInterval(FPS);
     // } else {
@@ -138,12 +154,16 @@ function Orbital(props) {
       </mesh> */}
     </group>
   );
-}
+};
 
 Orbital.propTypes = {
   data: PropTypes.object,
   selectionCallback: PropTypes.func,
   active: PropTypes.bool,
+  playing: PropTypes.bool,
+  stepsPerFrame: PropTypes.number,
+  stepDirection: PropTypes.number,
+  frameOverride: PropTypes.number,
 };
 
 export default Orbital;
