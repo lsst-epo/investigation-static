@@ -1,26 +1,23 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Canvas } from 'react-three-fiber';
-// import Kepler from 'kepler.js/lib/kepler.js';
-import Box from '../shared/Box.jsx';
-// import Orbital from './Orbital.jsx';
-import Orbitals from './Orbitals.jsx';
 import Camera from './Camera.jsx';
-import Details from './OrbitalDetails.jsx';
 import CameraController from './CameraController.jsx';
+import Orbitals from './Orbitals.jsx';
 import Controls from './controls/index.jsx';
-// import { STEPS_PER_FRAME } from './orbitalUtilities.js';
+import PlaybackSpeed from './PlaybackSpeed.jsx';
+import Details from './OrbitalDetails.jsx';
 
-import { container, playbackSpeed } from './orbital-viewer.module.scss';
+import { container } from './orbital-viewer.module.scss';
 
 function OrbitalViewer({ neos }) {
-  const speeds = [2, 4, 8, 16];
+  const speeds = [0.25, 0.5, 1, 10, 30];
 
   const [activeNeo, setActiveNeo] = useState(null);
   const [playing, setPlaying] = useState(true);
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
-  const [stepsPerFrame, setStepsPerFrame] = useState(speeds[0]);
+  const [dayPerVizSec, setDayPerVizSec] = useState(speeds[0]);
 
   function updateActive(neo) {
     setActiveNeo(neo === activeNeo ? null : neo);
@@ -34,10 +31,10 @@ function OrbitalViewer({ neos }) {
 
   const handleStepSelect = () => {
     const lastIndex = speeds.length - 1;
-    const oldIndex = speeds.indexOf(stepsPerFrame);
+    const oldIndex = speeds.indexOf(dayPerVizSec);
     const newIndex = oldIndex >= lastIndex ? 0 : oldIndex + 1;
 
-    setStepsPerFrame(speeds[newIndex]);
+    setDayPerVizSec(speeds[newIndex]);
   };
 
   const handleNext = () => {
@@ -55,36 +52,47 @@ function OrbitalViewer({ neos }) {
   return (
     <div>
       <div className={container}>
-        <div className={playbackSpeed}>
-          1 second = {stepsPerFrame * 30} days
-        </div>
+        <PlaybackSpeed dayPerVizSec={dayPerVizSec} />
         <Canvas invalidateFrameloop>
           <CameraController />
-          <Camera far={200000} near={0.1} fov={75} position={[0, 0, 300]} />
-          <ambientLight />
-          <pointLight position={[100, 100, 100]} />
+          <Camera far={200000} near={0.1} fov={75} position={[0, 0, 500]} />
+          <ambientLight intensity={0.9} />
           <Orbitals
-            neos={neos}
-            activeNeo={activeNeo}
+            includeRefObjs
             selectionCallback={updateActive}
-            playing={playing}
-            stepDirection={stepDirection}
-            stepsPerFrame={stepsPerFrame}
-            frameOverride={frameOverride}
+            {...{
+              neos,
+              activeNeo,
+              playing,
+              stepDirection,
+              dayPerVizSec,
+              frameOverride,
+            }}
           />
-          <Box position={[0, 0, 0]} />
-          <mesh>
+          <pointLight
+            position={[0, 0, 0]}
+            intensity={2.5}
+            decay={2.0}
+            distance={100}
+            color="yellow"
+          >
+            <mesh position={[0, 0, 0]}>
+              <sphereBufferGeometry attach="geometry" args={[10, 16, 8]} />
+              <meshBasicMaterial attach="material" color="yellow" />
+            </mesh>
+          </pointLight>
+          {/* <mesh>
             <planeBufferGeometry
               attach="geometry"
               args={[1000, 1000, 1000, 1000]}
             />
             <meshStandardMaterial
               attach="material"
-              color="grey"
+              color="white"
               transparent
-              opacity={0.4}
+              opacity={0.1}
             />
-          </mesh>
+          </mesh> */}
         </Canvas>
         <Controls
           {...{
@@ -93,7 +101,7 @@ function OrbitalViewer({ neos }) {
             handleNext,
             handlePrevious,
             handleStepSelect,
-            stepsPerFrame,
+            dayPerVizSec,
           }}
         />
       </div>

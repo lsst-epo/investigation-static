@@ -1,35 +1,83 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Orbital from './Orbital.jsx';
+import { earth, jupiter, neptune } from './orbitalUtilities.js';
 
 function Orbitals({
   neos,
   activeNeo,
   selectionCallback,
   playing,
-  stepsPerFrame,
+  dayPerVizSec,
   stepDirection,
   frameOverride,
+  includeRefObjs,
 }) {
-  return neos.map(neo => {
-    const { Ref: ref, Principal_desig: pd } = neo;
+  function reducer(state) {
+    const { remainingInits } = state;
+    return { remainingInits: remainingInits - 1 };
+  }
 
-    return (
-      <Orbital
-        key={ref + pd}
-        data={neo}
-        position={[0, 0, 0]}
-        active={neo === activeNeo}
-        {...{
-          selectionCallback,
-          playing,
-          stepsPerFrame,
-          stepDirection,
-          frameOverride,
-        }}
-      />
-    );
+  const [state, dispatch] = useReducer(reducer, {
+    remainingInits: neos.length,
   });
+
+  function renderRefObjs() {
+    return [earth, jupiter, neptune].map(planet => {
+      const {
+        orbitColor,
+        objectColor,
+        objectRadius,
+        Ref: ref,
+        Principal_desig: pd,
+      } = planet;
+
+      return (
+        <Orbital
+          key={ref + pd}
+          data={planet}
+          position={[0, 0, 0]}
+          {...{
+            playing,
+            stepDirection,
+            dayPerVizSec,
+            frameOverride,
+            selectionCallback,
+            orbitColor,
+            objectColor,
+            objectRadius,
+          }}
+        />
+      );
+    });
+  }
+
+  return (
+    <>
+      {includeRefObjs && renderRefObjs()}
+      {neos.map(neo => {
+        const { Ref: ref, Principal_desig: pd } = neo;
+
+        return (
+          <Orbital
+            key={ref + pd}
+            data={neo}
+            position={[0, 0, 0]}
+            active={neo === activeNeo}
+            initialized={state.remainingInits <= 0}
+            {...{
+              playing,
+              stepDirection,
+              dayPerVizSec,
+              frameOverride,
+              selectionCallback,
+            }}
+            initCallback={dispatch}
+          />
+        );
+      })}
+    </>
+  );
 }
 
 Orbitals.propTypes = {
@@ -37,9 +85,10 @@ Orbitals.propTypes = {
   activeNeo: PropTypes.object,
   selectionCallback: PropTypes.func,
   playing: PropTypes.bool,
-  stepsPerFrame: PropTypes.number,
+  dayPerVizSec: PropTypes.number,
   stepDirection: PropTypes.number,
   frameOverride: PropTypes.number,
+  includeRefObjs: PropTypes.bool,
 };
 
 export default Orbitals;
