@@ -7,7 +7,7 @@ function Orbitals({
   activeNeo,
   selectionCallback,
   playing,
-  stepsPerFrame,
+  dayPerVizSec,
   stepDirection,
   frameOverride,
 }) {
@@ -21,11 +21,11 @@ function Orbitals({
         position={[0, 0, 0]}
         active={neo === activeNeo}
         {...{
-          selectionCallback,
           playing,
-          stepsPerFrame,
           stepDirection,
+          dayPerVizSec,
           frameOverride,
+          selectionCallback,
         }}
       />
     );
@@ -37,7 +37,7 @@ Orbitals.propTypes = {
   activeNeo: PropTypes.object,
   selectionCallback: PropTypes.func,
   playing: PropTypes.bool,
-  stepsPerFrame: PropTypes.number,
+  dayPerVizSec: PropTypes.number,
   stepDirection: PropTypes.number,
   frameOverride: PropTypes.number,
 };

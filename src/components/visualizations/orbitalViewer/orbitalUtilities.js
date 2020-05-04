@@ -1,17 +1,13 @@
-// import * as THREE from 'three';
+export const AU_PER_VIZ_UNIT = 100;
+export const DAY_PER_VIZ_SEC = 1;
 
-const G = 6.67384e-11;
-// const MIN_GHOST_DISTANCE = 100;
-// const MAX_TRAIL_VERTICES = 400;
-// const MAX_GHOST_OPACITY = 0.15;
-// const GHOST_DISTANCE_SCALE = 80;
+export const auToUnit = value => {
+  return value * AU_PER_VIZ_UNIT;
+};
 
-export const METERS_PER_UNIT = 100;
-// export const METERS_PER_UNIT = 1000000000;
-export const STEPS_PER_FRAME = 2;
-// export const STEPS_PER_FRAME = 5000;
-export const SEC_PER_STEP = 8;
-export const FPS = 1 / 30;
+export const unitToAU = value => {
+  return value / AU_PER_VIZ_UNIT;
+};
 
 export const getDistance = (v1, v2) => {
   const x = v1.x - v2.x;
@@ -20,16 +16,8 @@ export const getDistance = (v1, v2) => {
   return Math.sqrt(x ** 2 + y ** 2 + z ** 2);
 };
 
-export const getAcceleration = (distance, starMass) => {
-  return (G * starMass) / distance ** 2;
-};
-
 export const getMinorAxis = (a, e) => {
-  return a * Math.sqrt(1 - e ** 2) * METERS_PER_UNIT;
-};
-
-export const getMajorAxis = a => {
-  return a * METERS_PER_UNIT;
+  return auToUnit(a * Math.sqrt(1 - e ** 2));
 };
 
 export const getRotation = i => {
@@ -37,7 +25,7 @@ export const getRotation = i => {
 };
 
 export const getVelocity = (radius, maj) => {
-  const GM = 0.000296005155;
+  const GM = auToUnit(0.000296005155); // Converted from AU3/day2 to UNIT3/day2
   return Math.sqrt(GM * (2 / radius - 1 / maj));
 };
 
@@ -47,7 +35,7 @@ export const getDiameter = (magnitude, albedo) => {
 
 export const getRadius = magnitude => {
   const realRadius = getDiameter(magnitude, 0.15);
-  const adjustedRadius = 0.002 * realRadius * METERS_PER_UNIT;
+  const adjustedRadius = 0.002 * realRadius * AU_PER_VIZ_UNIT;
   const [minSize, maxSize] = [2, 7];
 
   if (adjustedRadius < minSize) {

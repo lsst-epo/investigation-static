@@ -21,7 +21,7 @@ class OrbitalViewerContainer extends React.PureComponent {
 
       this.setState(prevState => ({
         ...prevState,
-        data: data.slice(0, 50),
+        data: data.slice(0, 10),
       }));
     });
   }
@@ -30,7 +30,12 @@ class OrbitalViewerContainer extends React.PureComponent {
     const { data } = this.state;
     const { options } = this.props;
 
-    return data ? <OrbitalViewer neos={data} options={options} /> : null;
+    return (
+      <>
+        <h2 className="space-bottom">Orbit Viewer</h2>
+        {data && <OrbitalViewer neos={data} options={options} />}
+      </>
+    );
   }
 }
 

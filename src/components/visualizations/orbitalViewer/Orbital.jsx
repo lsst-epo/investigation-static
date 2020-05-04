@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useFrame } from 'react-three-fiber';
 import * as THREE from 'three';
 import {
-  STEPS_PER_FRAME,
+  DAY_PER_VIZ_SEC,
   getMinorAxis,
-  getMajorAxis,
+  auToUnit,
   getVelocity,
   getRotation,
   getRadius,
@@ -16,7 +16,7 @@ const Orbital = ({
   selectionCallback,
   active,
   playing,
-  stepsPerFrame,
+  dayPerVizSec,
   stepDirection,
   frameOverride,
 }) => {
@@ -25,12 +25,9 @@ const Orbital = ({
   const sunPos = new THREE.Vector3();
   const { a, e, i, H } = data || {};
   // Set up state for the hovered and active state
-  // const [hovered, setHover] = useState(false);
-  // const [active] = useState(false);
-  // const [interval, setInterval] = useState(FPS);
   const [rotation] = useState([0, getRotation(i), 0]);
   const [ObjRadius] = useState(getRadius(H));
-  const [majAxis] = useState(getMajorAxis(a));
+  const [majAxis] = useState(auToUnit(a));
   const [minAxis] = useState(getMinorAxis(a, e));
 
   function getLineGeometry(points) {
@@ -65,52 +62,35 @@ const Orbital = ({
     };
   });
 
-  function updatePoint(paused) {
+  function updatePoint(paused, delta) {
     const {
       progress: oldProgress,
       position: oldPosition,
       velocity: oldVelocity,
-      // rotation: oldRotation,
     } = point;
-    const steps = paused ? 0 : stepsPerFrame || STEPS_PER_FRAME;
-    const delta = oldVelocity * steps * stepDirection;
-    const progress = oldProgress + delta;
-    const { x, y } = path.getPoint(oldProgress + delta);
-    const position = new THREE.Vector3(x, y, oldPosition.z);
+    // const vizTime = dayPerVizSec || DAY_PER_VIZ_SEC;
+    const deltaDays = paused ? 0 : delta * (dayPerVizSec || DAY_PER_VIZ_SEC);
+    const newProgress = oldVelocity * deltaDays * stepDirection;
+    const progress = oldProgress + newProgress;
+    const { x, y } = path.getPoint(progress);
+    const position = new THREE.Vector3(x, y, 0);
     const velocity = getVelocity(oldPosition.distanceTo(sunPos), majAxis);
-    // const rotation = [0, 0, 0];
-
-    // if (active) {
-    //   rotation[1] = oldRotation[1] + 0.02;
-    //   rotation[10] = oldRotation[0] + 0.06;
-    // }
 
     setPoint({
       ...point,
       position,
-      // rotation,
       progress,
       velocity,
     });
   }
 
   useEffect(() => {
-    if (frameOverride) updatePoint();
+    if (frameOverride) updatePoint(false, 1 / 60);
   }, [frameOverride]);
 
   // Called every frame
-  // (state, delta)
-  useFrame(() => {
-    if (!playing) {
-      updatePoint(true);
-    } else {
-      updatePoint();
-    }
-    // if (delta > interval) {
-    // setInterval(FPS);
-    // } else {
-    //   setInterval(interval - delta);
-    // }
+  useFrame((state, delta) => {
+    updatePoint(!playing, delta);
   });
 
   return (
@@ -161,7 +141,7 @@ Orbital.propTypes = {
   selectionCallback: PropTypes.func,
   active: PropTypes.bool,
   playing: PropTypes.bool,
-  stepsPerFrame: PropTypes.number,
+  dayPerVizSec: PropTypes.number,
   stepDirection: PropTypes.number,
   frameOverride: PropTypes.number,
 };
