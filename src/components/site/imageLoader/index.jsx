@@ -14,6 +14,8 @@ class ImageLoader extends React.PureComponent {
     this.state = {
       loaded: false,
     };
+
+    setTimeout(this.handleLoading, 10000);
   }
 
   handleLoading = () => {
