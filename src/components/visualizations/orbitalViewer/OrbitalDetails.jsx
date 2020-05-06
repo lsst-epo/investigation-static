@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 // import Card from '../../site/card/index.js';
 import Unit from '../../charts/shared/unit/index.jsx';
 import Table from '../../site/forms/table/index.jsx';
+import { AU_PER_VIZ_UNIT } from './orbitalUtilities.js';
 import { getValue } from '../../../lib/utilities.js';
 // import { container } from './orbital-viewer.module.scss';
 
 function OrbitalDetails(props) {
-  const { data } = props;
+  const { data, velocity } = props;
   const { H, a, i, e, Principal_desig: ps } = data || {};
 
   return (
@@ -20,6 +21,7 @@ function OrbitalDetails(props) {
           'Eccentricity',
           'Inclination',
           'Absolute Magnitude',
+          'Current Velocity',
         ]}
         includeRowTitles
         rows={[
@@ -43,6 +45,7 @@ function OrbitalDetails(props) {
               ''
             ),
             H ? getValue('magnitude', H) : '',
+            velocity ? `${velocity} AU` : '',
           ],
         ]}
       />
@@ -52,6 +55,7 @@ function OrbitalDetails(props) {
 
 OrbitalDetails.propTypes = {
   data: PropTypes.object,
+  velocity: PropTypes.number,
 };
 
 export default OrbitalDetails;

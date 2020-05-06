@@ -1,10 +1,10 @@
-export const AU_PER_VIZ_UNIT = 100;
+export const AU_TO_VIZ_SCALER = 100;
 export const DAY_PER_VIZ_SEC = 1;
 
 export const earth = {
-  a: 1.0000001,
+  a: 1,
   e: 0.01671022,
-  i: 0.00005,
+  i: 0,
   H: -3.9,
   Ref: 'Earth',
   Principal_desig: 'Earth',
@@ -14,11 +14,11 @@ export const earth = {
 };
 
 export const jupiter = {
-  a: 5.20336301,
-  e: 0.04839266,
-  i: 1.3053,
+  a: 5.2028,
+  e: 0.048,
+  i: 1.31,
   H: -25.9,
-  Ref: 'Jupitar',
+  Ref: 'Jupiter',
   Principal_desig: 'Jupiter',
   orbitColor: '#f78988',
   objectColor: '#f78456',
@@ -38,24 +38,33 @@ export const neptune = {
 };
 
 export const auToUnit = value => {
-  return value * AU_PER_VIZ_UNIT;
+  return value * AU_TO_VIZ_SCALER;
 };
 
 export const unitToAU = value => {
-  return value / AU_PER_VIZ_UNIT;
+  return value / AU_TO_VIZ_SCALER;
 };
 
 export const getMinorAxis = (a, e) => {
   return auToUnit(a * Math.sqrt(1 - e ** 2));
 };
 
-export const getRotation = i => {
+export const radsToDegs = i => {
+  return i * (180 / Math.PI);
+};
+
+export const degsToRads = i => {
   return i * (Math.PI / 180);
 };
 
 export const getVelocity = (radius, maj) => {
-  const GM = auToUnit(0.000296005155); // Converted from AU3/day2 to UNIT3/day2
+  const GM = 0.000296005155 * 1000000; // Converted from AU3/day2 to UNIT3/day2
   return Math.sqrt(GM * (2 / radius - 1 / maj));
+};
+
+export const getFocus = (majAxis, minAxis, peri) => {
+  const focus = majAxis ** 2 - minAxis ** 2;
+  return peri > 90 && peri <= 270 ? focus * -1 : focus * 1;
 };
 
 export const getDiameter = (magnitude, albedo) => {
@@ -64,7 +73,7 @@ export const getDiameter = (magnitude, albedo) => {
 
 export const getRadius = magnitude => {
   const realRadius = getDiameter(magnitude, 0.15);
-  const adjustedRadius = 0.002 * realRadius * AU_PER_VIZ_UNIT;
+  const adjustedRadius = 0.002 * realRadius * AU_TO_VIZ_SCALER; // Wrong?!!?
   const [minSize, maxSize] = [2, 7];
 
   if (adjustedRadius < minSize) {

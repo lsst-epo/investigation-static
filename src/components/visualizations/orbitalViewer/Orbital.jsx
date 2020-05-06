@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { useFrame } from 'react-three-fiber';
 import * as THREE from 'three';
 import {
+  AU_TO_VIZ_SCALER,
   DAY_PER_VIZ_SEC,
   getMinorAxis,
   auToUnit,
   getVelocity,
-  getRotation,
+  degsToRads,
   getRadius,
+  getFocus,
 } from './orbitalUtilities.js';
 
 const Orbital = ({
@@ -27,22 +29,27 @@ const Orbital = ({
 }) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
-  const sunPos = new THREE.Vector3();
-  const { a, e, i, H, M } = data || {};
+  const { a, e, i, H, M, Peri } = data || {};
   // Set up state for the hovered and active state
-  const [rotation] = useState([0, getRotation(i), 0]);
-  const [vizRadius] = useState(getRadius(H));
-  const [majAxis] = useState(auToUnit(a));
-  const [minAxis] = useState(getMinorAxis(a, e));
+  const [rotation] = useState(() => [
+    0,
+    degsToRads(i),
+    Peri ? degsToRads(Peri) : 0,
+  ]);
+  const [vizRadius] = useState(() => getRadius(H));
+  const [majAxis] = useState(() => auToUnit(a));
+  const [minAxis] = useState(() => getMinorAxis(a, e));
+  const [focus] = useState(() => getFocus(majAxis, minAxis, Peri || 0));
   const [internalInitialized, setInitialized] = useState(false);
+  const sunPos = new THREE.Vector3(focus / AU_TO_VIZ_SCALER, 0, 0);
 
   function getLineGeometry(points) {
     return new THREE.BufferGeometry().setFromPoints(points);
   }
 
-  function getCurve(xRadius, yRadius) {
+  function getCurve(xRadius, yRadius, aX) {
     return new THREE.EllipseCurve(
-      0, // aX
+      aX, // aX
       0, // aY
       xRadius, // xRadius
       yRadius, // yRadius
@@ -53,7 +60,9 @@ const Orbital = ({
     );
   }
 
-  const [path] = useState(getCurve(majAxis, minAxis));
+  const [path] = useState(() =>
+    getCurve(majAxis, minAxis, focus / AU_TO_VIZ_SCALER)
+  );
 
   function getPosFromArcLength(arcLength) {
     const { x, y } = path.getPoint(arcLength);
@@ -67,13 +76,14 @@ const Orbital = ({
     rotation: [0, 0, 0],
     progress: 0,
     velocity: getVelocity(posZero.distanceTo(sunPos), majAxis),
+    period: 0,
   });
 
   function getAngleFromPos(pos) {
     // x=c; y=a; z=b
     const z = pos.distanceTo(sunPos);
     const { x, y } = pos;
-    const rads = Math.acos((z * z + x * x - y * y) / (2 * z * x));
+    const rads = Math.acos((z ** 2 + x ** 2 - y ** 2) / (2 * z * x));
     return (rads * 180) / Math.PI;
   }
 
@@ -109,6 +119,7 @@ const Orbital = ({
       rotation: [0, 0, 0],
       progress: arcLength,
       velocity: getVelocity(position.distanceTo(sunPos), majAxis),
+      period: 0,
     };
   }
 
@@ -117,20 +128,28 @@ const Orbital = ({
       progress: oldProgress,
       position: oldPosition,
       velocity: oldVelocity,
+      period: oldPeriod,
     } = point;
     // const vizTime = dayPerVizSec || DAY_PER_VIZ_SEC;
     const deltaDays = paused ? 0 : delta * (dayPerVizSec || DAY_PER_VIZ_SEC);
-    const newProgress = oldProgress + oldVelocity * deltaDays * stepDirection;
+    const deltaDist = oldVelocity * deltaDays * stepDirection;
+    const newProgress = oldProgress + deltaDist / path.getLength();
     const progress = newProgress > 1 ? 1 - newProgress : newProgress;
     const { x, y } = path.getPoint(progress);
     const position = new THREE.Vector3(x, y, 0);
     const velocity = getVelocity(oldPosition.distanceTo(sunPos), majAxis);
+    let period = deltaDays + oldPeriod;
+
+    if (newProgress > 1) {
+      period = 0;
+    }
 
     setPoint({
       ...point,
       position,
       progress,
       velocity,
+      period,
     });
   }
 
@@ -188,6 +207,15 @@ const Orbital = ({
         <meshBasicMaterial attach="material" color={'red'} />
       </mesh>
       <mesh position={[-majAxis, 0, 0]}>
+        <sphereBufferGeometry attach="geometry" args={[2, 10, 10]} />
+        <meshBasicMaterial attach="material" color={'red'} />
+      </mesh> */}
+      {/* Foci */}
+      {/* <mesh position={[focus / 100, 0, 0]}>
+        <sphereBufferGeometry attach="geometry" args={[2, 10, 10]} />
+        <meshBasicMaterial attach="material" color={'red'} />
+      </mesh>
+      <mesh position={[-focus / 100, 0, 0]}>
         <sphereBufferGeometry attach="geometry" args={[2, 10, 10]} />
         <meshBasicMaterial attach="material" color={'red'} />
       </mesh> */}

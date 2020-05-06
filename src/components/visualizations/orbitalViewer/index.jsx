@@ -11,15 +11,18 @@ import Details from './OrbitalDetails.jsx';
 import { container } from './orbital-viewer.module.scss';
 
 function OrbitalViewer({ neos }) {
-  const speeds = [0.25, 0.5, 1, 10, 30];
+  // days/secs
+  const speeds = [1, 30, 365];
 
   const [activeNeo, setActiveNeo] = useState(null);
+  const [activeNeoVelocity, setActiveNeoVelocity] = useState(null);
   const [playing, setPlaying] = useState(true);
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
   const [dayPerVizSec, setDayPerVizSec] = useState(speeds[0]);
 
-  function updateActive(neo) {
+  function updateActive(neo, velocity) {
+    setActiveNeoVelocity(velocity);
     setActiveNeo(neo === activeNeo ? null : neo);
   }
 
@@ -105,7 +108,7 @@ function OrbitalViewer({ neos }) {
           }}
         />
       </div>
-      <Details data={activeNeo} />
+      <Details data={activeNeo} velocity={activeNeoVelocity} />
     </div>
   );
 }
