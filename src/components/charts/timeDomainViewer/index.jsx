@@ -5,17 +5,14 @@ import find from 'lodash/find';
 import classnames from 'classnames';
 import { select as d3Select, event as d3Event } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
-import 'd3-transition';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
-import { getAlertFromImageId } from './galaxySelectorUtilities.js';
 import Blinker from '../shared/blinker/index.jsx';
-import Points from './Points';
-import Legend from '../shared/legend/index.jsx';
+import Point from './Point';
 
-import { galaxySelector, singleImage } from './galaxy-selector.module.scss';
+import { timeDomainViewer } from './time-domain-viewer.module.scss';
 
-class GalaxySelector extends React.PureComponent {
+class TimeDomainViewer extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -36,8 +33,8 @@ class GalaxySelector extends React.PureComponent {
   }
 
   componentDidMount() {
-    // console.log(JSON.stringify(this.props));
     const { autoplay, preSelected, selectedData, data } = this.props;
+
     if (data) {
       this.updatePoints();
 
@@ -54,55 +51,30 @@ class GalaxySelector extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const {
-      activeGalaxy,
-      data,
-      selectedData,
-      preSelected,
-      xDomain,
-      yDomain,
-    } = this.props;
+    const { data, selectedData, preSelected, autoplay } = this.props;
     const { playing } = this.state;
     const isNewData = prevProps.data !== data;
-    const isNewActiveGalaxy = prevProps.activeGalaxy !== activeGalaxy;
     const isNewSelectedData = prevProps.selectedData !== selectedData;
 
-    if (isNewData || isNewActiveGalaxy || isNewSelectedData) {
+    if (isNewData && autoplay) {
+      this.startBlink();
+    }
+
+    if (isNewData || isNewSelectedData) {
       this.updatePoints();
       this.setSelection(preSelected ? data : selectedData);
 
       if (!playing) {
         this.stopBlink();
-      } else if (playing) {
+      } else if (playing || autoplay) {
         this.restartBlink();
       }
-    }
-
-    if (xDomain !== prevProps.xDomain || yDomain !== prevProps.yDomain) {
-      this.updateScale();
     }
   }
 
   componentWillUnmount() {
     clearInterval(this.blinkerInterval);
     this.removeEventListeners();
-  }
-
-  updateScale() {
-    const { xDomain, yDomain, padding, width, height } = this.props;
-
-    this.setState(
-      prevState => ({
-        ...prevState,
-        xScale: d3ScaleLinear()
-          .domain(xDomain)
-          .range([padding, width]),
-        yScale: d3ScaleLinear()
-          .domain(yDomain)
-          .range([height - padding, 0]),
-      }),
-      this.updatePoints
-    );
   }
 
   clearSelection() {
@@ -144,7 +116,7 @@ class GalaxySelector extends React.PureComponent {
   }
 
   getBlink(images, direction = 0) {
-    const { activeImageIndex: currentIndex, alerts } = this.props;
+    const { activeImageIndex: currentIndex, data } = this.props;
     const index = currentIndex + direction;
     const lastIndex = images.length - 1;
     let activeImageIndex = index;
@@ -158,25 +130,14 @@ class GalaxySelector extends React.PureComponent {
     }
 
     const activeImageId = images[activeImageIndex].id;
-    const activeAlert = getAlertFromImageId(activeImageId, alerts);
+    const activeAlert = find(data, { id: activeImageId });
+
     return { activeImageId, activeImageIndex, activeAlert };
   }
 
   restartBlink() {
     clearInterval(this.blinkerInterval);
-    const { images } = this.props;
-
-    this.setState(
-      prevState => ({
-        ...prevState,
-        playing: true,
-      }),
-      () => {
-        this.blinkerInterval = setInterval(() => {
-          this.nextBlink(images);
-        }, 200);
-      }
-    );
+    this.startBlink();
   }
 
   startBlink() {
@@ -298,23 +259,19 @@ class GalaxySelector extends React.PureComponent {
       }
     }
 
-    this.addEventListeners();
+    if (!preSelected) this.addEventListeners();
   }
 
   render() {
     const {
-      data,
       width,
       height,
-      image,
       images,
-      multiple,
       xValueAccessor,
       yValueAccessor,
-      legend,
       name,
       activeImageId,
-      activeGalaxy,
+      activeAlert,
       selectedData: selectedDataProp,
     } = this.props;
 
@@ -327,7 +284,7 @@ class GalaxySelector extends React.PureComponent {
     } = this.state;
 
     const selectedData = selectedDataState || selectedDataProp;
-    const svgClasses = classnames('svg-chart', galaxySelector, {
+    const svgClasses = classnames('svg-chart', timeDomainViewer, {
       loading,
       loaded: !loading,
     });
@@ -342,7 +299,6 @@ class GalaxySelector extends React.PureComponent {
               scale={3}
             />
           )}
-          {legend && !loading && <Legend content={legend} />}
           <svg
             className={svgClasses}
             preserveAspectRatio="xMidYMid meet"
@@ -352,46 +308,18 @@ class GalaxySelector extends React.PureComponent {
               opacity: 0,
             }}
           >
-            {data &&
-              multiple &&
-              data.map((set, i) => {
-                const key = `points-${set.className}-${i}`;
-                return (
-                  <Points
-                    key={key}
-                    data={set.data}
-                    {...{
-                      selectedData,
-                      xScale,
-                      yScale,
-                      xValueAccessor,
-                      yValueAccessor,
-                    }}
-                    pointClasses={set.className}
-                    active={activeGalaxy}
-                  />
-                );
-              })}
-            {data && !multiple && (
-              <Points
-                data={data}
+            {selectedData && activeAlert && (
+              <Point
                 selectedData={selectedData}
+                active={activeAlert}
                 xScale={xScale}
                 yScale={yScale}
                 xValueAccessor={xValueAccessor}
                 yValueAccessor={yValueAccessor}
-                pointClasses={`galaxy galaxy-${data.name}`}
-                active={activeGalaxy}
               />
             )}
           </svg>
-          {image ? (
-            <img
-              className={singleImage}
-              src={image.mediaPath}
-              alt={image.altText}
-            />
-          ) : (
+          {!loading && images && (
             <Blinker
               images={images}
               activeId={activeImageId}
@@ -407,7 +335,7 @@ class GalaxySelector extends React.PureComponent {
   }
 }
 
-GalaxySelector.defaultProps = {
+TimeDomainViewer.defaultProps = {
   width: 600,
   height: 600,
   padding: 0,
@@ -417,17 +345,15 @@ GalaxySelector.defaultProps = {
   yValueAccessor: 'dec',
 };
 
-GalaxySelector.propTypes = {
+TimeDomainViewer.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   padding: PropTypes.number,
   data: PropTypes.array,
   selectedData: PropTypes.array,
-  activeGalaxy: PropTypes.object,
-  alerts: PropTypes.array,
-  image: PropTypes.object,
+  activeAlert: PropTypes.object,
   images: PropTypes.array,
-  activeImageId: PropTypes.number,
+  activeImageId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   activeImageIndex: PropTypes.number,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
@@ -435,11 +361,10 @@ GalaxySelector.propTypes = {
   yDomain: PropTypes.array,
   preSelected: PropTypes.bool,
   multiple: PropTypes.bool,
-  legend: PropTypes.node,
   name: PropTypes.string,
   autoplay: PropTypes.bool,
   selectionCallback: PropTypes.func,
   blinkCallback: PropTypes.func,
 };
 
-export default GalaxySelector;
+export default TimeDomainViewer;

@@ -1,0 +1,84 @@
+.time-domain-viewer {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.neo {
+  @include dataPoint;
+  transition: fill $timing $duration, stroke $timing $duration, opacity $timing $duration;
+
+  &.selected {
+    stroke-width: 2;
+  }
+}
+
+// .galaxy-nav-drawer {
+//   position: relative;
+//   outline: none;
+// }
+
+// .galaxy-drawer-content {
+//   position: relative;
+// }
+
+.container {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  min-width: $break40;
+  max-width: $tallestSquareWidget;
+  margin: 0;
+  box-shadow: none;
+}
+
+// // mini drawer
+// aside {
+//   .galaxy-item {
+//     margin-bottom: -1px;
+//     background-color: $neutral10;
+//     transition: background-color $timing $duration;
+
+//     &.link-is-complete {
+//       background-color: $baseSecondaryDark;
+//     }
+
+//     &.link-active {
+//       background-color: $basePrimary;
+//     }
+
+//     &:hover {
+//       background-color: $basePrimary;
+//     }
+//   }
+// }
+
+// // full size drawer
+// nav {
+//   .galaxy-item {
+//     &.link-active {
+//       background-color: $basePrimary;
+
+//       :global {
+//         .md-tile-text--primary.md-text--theme-primary,
+//         .md-text {
+//           /* stylelint-disable-next-line declaration-no-important */
+//           color: $white !important;
+//         }
+//       }
+//     }
+
+//     &.link-is-complete {
+//       background-color: $baseSecondaryDark;
+
+//       :global {
+//         .md-tile-text--primary,
+//         .md-text--theme-primary,
+//         .md-text {
+//           /* stylelint-disable-next-line declaration-no-important */
+//           color: $white !important;
+//         }
+//       }
+//     }
+//   }
+// }

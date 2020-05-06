@@ -26,7 +26,7 @@ const Blinker = ({
 
 Blinker.propTypes = {
   images: PropTypes.array.isRequired,
-  activeId: PropTypes.number,
+  activeId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   playing: PropTypes.bool,
   handleStartStop: PropTypes.func,
   handleNext: PropTypes.func,

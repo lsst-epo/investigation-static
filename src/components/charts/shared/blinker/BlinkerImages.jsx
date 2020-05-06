@@ -23,7 +23,7 @@ const BlinkerImages = ({ images, activeId }) => {
 
 BlinkerImages.propTypes = {
   images: PropTypes.array.isRequired,
-  activeId: PropTypes.number,
+  activeId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default BlinkerImages;

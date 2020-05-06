@@ -19,7 +19,7 @@ const BlinkerImage = ({ image, active, alertId }) => {
 
 BlinkerImage.propTypes = {
   image: PropTypes.string,
-  alertId: PropTypes.number,
+  alertId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   active: PropTypes.bool,
 };
 
