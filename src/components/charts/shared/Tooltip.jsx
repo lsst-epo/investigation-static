@@ -18,8 +18,8 @@ class Tooltip extends React.PureComponent {
     const { show: isVisible, data: prevData } = prevProps;
     const dataEmpty = isEmpty(data);
     const $tooltip = d3Select(this.el.current);
-
     if (show && !isVisible && !dataEmpty) {
+      console.log(posX, posY);
       this.show($tooltip, data, posX, posY, show);
     } else if (show && isVisible && data !== prevData && !dataEmpty) {
       this.move($tooltip, data, posX, posY, show);
@@ -29,19 +29,30 @@ class Tooltip extends React.PureComponent {
   }
 
   getXPos(x, el) {
-    return `${x + 16 - el.node().getBoundingClientRect().width / 2}px`;
+    const { graph } = this.props;
+    const { width } = el.node().getBoundingClientRect();
+
+    if (graph === 'scatter') {
+      return `${x + 16 - width / 2}px`;
+    }
+
+    if (graph === 'histogram') {
+      return `${x - width / 2 < 0 ? 0 : x - width / 2}px`;
+    }
+
+    return `${x < 0 ? 0 : x}px`;
   }
 
   getYPos(y, el) {
     const { graph } = this.props;
-    const bBox = el.node().getBoundingClientRect();
+    const { height } = el.node().getBoundingClientRect();
 
     if (graph === 'scatter') {
-      return `${y - 24 - bBox.height}px`;
+      return `${y - 24 - height}px`;
     }
 
     if (graph === 'histogram') {
-      return `${y - bBox.height}px`;
+      return `${y + height}px`;
     }
 
     return `${y}px`;
