@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
-import { select as d3Select, event as d3Event } from 'd3-selection';
+import {
+  select as d3Select,
+  event as d3Event,
+  clientPoint as d3ClientPoint,
+} from 'd3-selection';
 import {
   histogram as d3Histogram,
   thresholdScott as d3ThresholdScott,
@@ -43,6 +47,7 @@ class Histogram extends React.PureComponent {
     };
 
     this.svgEl = React.createRef();
+    this.svgContainer = React.createRef();
   }
 
   componentDidMount() {
@@ -230,13 +235,24 @@ class Histogram extends React.PureComponent {
     }));
   }
 
-  toggleSelection(d) {
+  getTooltipPos(data, pos) {
+    const { padding, offsetTop, offsetRight, height, width } = this.props;
+    const { xScale, yScale } = this.state;
+    console.log('x', xScale(data.x0), [padding, width - offsetRight]);
+    console.log('y', yScale(data.length), [height - padding, offsetTop]);
+
+    return {
+      tooltipPosX: pos[0],
+      tooltipPosY: 1,
+    };
+  }
+
+  toggleSelection(d, pos) {
     const { activeId, dataSelectionCallback } = this.props;
-    const { selectedData, xScale, yScale } = this.state;
+    const { selectedData } = this.state;
 
     const newState = {
-      tooltipPosX: xScale(d.x0),
-      tooltipPosY: yScale(d.length),
+      ...this.getTooltipPos(d, pos),
       showTooltip: true,
       selectedData: d,
     };
@@ -256,13 +272,12 @@ class Histogram extends React.PureComponent {
 
   // mouseover/focus handler for point
   onMouseOver = d => {
-    const { xScale, yScale } = this.state;
+    const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
     // add hover style on point and show tooltip
     this.setState(prevState => ({
       ...prevState,
       hoveredData: d,
-      tooltipPosX: xScale(d.x0),
-      tooltipPosY: yScale(d.length),
+      ...this.getTooltipPos(d, pointPos),
       showTooltip: true,
     }));
   };
@@ -279,21 +294,23 @@ class Histogram extends React.PureComponent {
     }));
   };
 
+  onClick = () => {
+    const barData = d3Select(d3Event.target).datum();
+    const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
+
+    if (barData) {
+      this.toggleSelection(barData, pointPos);
+    } else {
+      this.clearGraph();
+    }
+  };
+
   // add event listeners to Histogram and Bars
   addEventListeners() {
     const $histogram = d3Select(this.svgEl.current);
     const $bars = d3Select(this.svgEl.current).selectAll('.data-bar-data');
 
-    $histogram.on('click', () => {
-      // remove styles and selections when click on non-bar
-      const barData = d3Select(d3Event.target).datum();
-
-      if (barData) {
-        this.toggleSelection(barData);
-      } else {
-        this.clearGraph();
-      }
-    });
+    $histogram.on('click', this.onClick);
 
     // add event listeners to bars
     $bars.on('mouseover', this.onMouseOver).on('mouseout', this.onMouseOut);
@@ -379,7 +396,10 @@ class Histogram extends React.PureComponent {
         {multiple && groupNames && (
           <LegendMultiple label={xAxisLabel} data={groupNames} />
         )}
-        <div className="svg-container histogram-container">
+        <div
+          ref={this.svgContainer}
+          className="svg-container histogram-container"
+        >
           {loading && (
             <CircularProgress
               id="graph-loading-progress"
