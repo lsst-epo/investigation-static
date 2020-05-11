@@ -16,8 +16,9 @@ import {
   solveForLightYears,
   solveForMegaLightYears,
 } from './distanceCalculatorUtilities.js';
-import { inlineQuestion, qaCalc } from './distanceCalculator.module.scss';
+import { inlineQuestion } from './distanceCalculator.module.scss';
 import styles from '../../../styles.module.scss';
+import { qaCalc } from '../shared/calculator.module.scss';
 
 const LeftIcon = () => {
   return <div>m =</div>;

@@ -10,6 +10,7 @@ export const units = {
   velocity: ' Km/s',
   inclination: '°',
   semimajor_axis: ' AU',
+  kineticEnergy: ' J',
 };
 
 export const renderUnit = function(type) {

@@ -22,6 +22,7 @@ export const WithQAing = ComposedComponent => {
         'light-curve-template': this.getTemplateContent,
         'size-calc': this.getSizeCalcContent,
         magnitude: this.getMagnitudeContent,
+        kineticEnergy: this.getKineticEnergyContent,
         galaxy: this.getGalaxyContent,
         neo: this.getNeoContent,
         galaxies: this.getGalaxiesContent,
@@ -80,6 +81,10 @@ export const WithQAing = ComposedComponent => {
 
     getMagnitudeContent(data) {
       return data.magnitude || 'None Selected';
+    }
+
+    getKineticEnergyContent(data) {
+      return data.kineticEnergy || 'None Selected';
     }
 
     getSizeCalcContent(data) {

@@ -4,35 +4,31 @@ import { CardText } from 'react-md';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
+import { renderDef } from '../../../../../lib/utilities.js';
 import Equation from '../shared/equation';
 import TextField from '../../../../site/forms/textField';
 import Card from '../../../../site/card';
-import { renderDef, formatValue } from '../../../../../lib/utilities.js';
-import styles from './sizeCalculator.module.scss';
+import styles from './kineticEnergyCalculator.module.scss';
 import qaStyles from '../../../styles.module.scss';
-import {
-  qaCalc,
-  calcLabel,
-  answerable as answerableStyle,
-} from '../shared/calculator.module.scss';
+import { qaCalc } from '../shared/calculator.module.scss';
 
-const HIcon = () => {
-  return <span className={styles.icon}>H =</span>;
+const MassIcon = () => {
+  return <span className={styles.icon}>m =</span>;
 };
 
-const PIcon = () => {
-  return <span className={styles.icon}>p =</span>;
+const VelocityIcon = () => {
+  return <span className={styles.icon}>v =</span>;
 };
 
-class SizeCalculator extends React.PureComponent {
+class KineticEnergyCalculator extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
       value: {
-        magnitude: null,
-        albedo: null,
-        diameter: null,
+        mass: null,
+        velocity: null,
+        kineticEnergy: null,
       },
       cardActive: false,
       hasFocus: false,
@@ -45,16 +41,16 @@ class SizeCalculator extends React.PureComponent {
     const { question, activeId, answer } = this.props;
     const { id } = question;
     const { data } = answer || {};
-    const { magnitude, albedo, diameter } = data || {};
+    const { mass, velocity, kineticEnergy } = data || {};
 
     this.checkAnswerable(answerable, activeId === id);
 
     this.setState(prevState => ({
       ...prevState,
       value: {
-        magnitude,
-        albedo,
-        diameter,
+        mass,
+        velocity,
+        kineticEnergy,
       },
     }));
   }
@@ -76,13 +72,10 @@ class SizeCalculator extends React.PureComponent {
     }
   }
 
-  calculateDiameter({ magnitude, albedo }) {
-    if (!magnitude || !albedo) return null;
+  calculateKineticEnergy({ mass, velocity }) {
+    if (!mass || !velocity) return null;
 
-    return formatValue(
-      (1329 / Math.sqrt(albedo)) * 10 ** (-0.2 * magnitude),
-      3
-    );
+    return 0.5 * mass * velocity ** 2;
   }
 
   getNewVal(value, valType) {
@@ -97,7 +90,7 @@ class SizeCalculator extends React.PureComponent {
 
     return {
       ...newVal,
-      diameter: this.calculateDiameter(newVal),
+      kineticEnergy: this.calculateKineticEnergy(newVal),
     };
   }
 
@@ -139,7 +132,7 @@ class SizeCalculator extends React.PureComponent {
     const {
       hasFocus,
       answerable,
-      value: { magnitude, albedo, diameter },
+      value: { mass, velocity, kineticEnergy },
     } = this.state;
 
     const { id, label } = question;
@@ -148,13 +141,13 @@ class SizeCalculator extends React.PureComponent {
     const answeredClasses = {
       answered,
       unanswered: !answered,
-      [answerableStyle]: answerable || answered || active,
+      [styles.answerable]: answerable || answered || active,
     };
     const cardClasses = classnames(qaStyles.qaCard, qaCalc, {
       [qaStyles.active]: hasFocus,
     });
-    const fieldClasses = classnames('qa-calc-input', answeredClasses);
-    const labelClasses = classnames(calcLabel, answeredClasses);
+    const fieldClasses = classnames('qa-text-input', answeredClasses);
+    const labelClasses = classnames(styles.calcLabel, answeredClasses);
 
     return (
       <Card
@@ -167,44 +160,42 @@ class SizeCalculator extends React.PureComponent {
             className={labelClasses}
             dangerouslySetInnerHTML={renderDef(label)}
           />
-          <div className="container-flex">
-            <div className="col-width-50">
-              <TextField
-                id={`text-input-${id}`}
-                className={fieldClasses}
-                type="number"
-                min="0"
-                leftIcon={<HIcon />}
-                lineDirection="center"
-                placeholder="magnitude"
-                defaultValue={answered ? magnitude : null}
-                onBlur={this.handleBlur}
-                onFocus={this.handleFocus}
-                onChange={value => this.handleChange(value, 'magnitude')}
-                disabled={!(answerable || answered || active)}
-              />
-            </div>
-            <div className="col-width-50">
-              <TextField
-                id={`text-input-${id}`}
-                className={fieldClasses}
-                type="number"
-                min="0"
-                leftIcon={<PIcon />}
-                lineDirection="center"
-                placeholder="albedo"
-                defaultValue={answered ? albedo : null}
-                onBlur={this.handleBlur}
-                onFocus={this.handleFocus}
-                onChange={value => this.handleChange(value, 'albedo')}
-                disabled={!(answerable || answered || active)}
-              />
-            </div>
+          <div className={styles.col50}>
+            <TextField
+              id={`number-input-${id}`}
+              className={fieldClasses}
+              type="number"
+              min="0"
+              leftIcon={<MassIcon />}
+              lineDirection="center"
+              placeholder="Mass"
+              defaultValue={answered ? mass : null}
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              onChange={value => this.handleChange(value, 'mass')}
+              disabled={!(answerable || answered || active)}
+            />
           </div>
-          <div className={styles.equationWrapper}>
+          <div className={styles.col50}>
+            <TextField
+              id={`number-input-${id}`}
+              className={fieldClasses}
+              type="number"
+              min="0"
+              leftIcon={<VelocityIcon />}
+              lineDirection="center"
+              placeholder="Velocity"
+              defaultValue={answered ? velocity : null}
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              onChange={value => this.handleChange(value, 'velocity')}
+              disabled={!(answerable || answered || active)}
+            />
+          </div>
+          <div className={styles.marginTop}>
             <Equation
-              component="FindDiameter"
-              {...{ diameter, magnitude, albedo }}
+              component="FindKineticEnergy"
+              {...{ kineticEnergy, mass, velocity }}
             />
           </div>
         </CardText>
@@ -213,11 +204,11 @@ class SizeCalculator extends React.PureComponent {
   }
 }
 
-SizeCalculator.propTypes = {
+KineticEnergyCalculator.propTypes = {
   activeId: PropTypes.string,
   question: PropTypes.object,
   answerHandler: PropTypes.func,
   answer: PropTypes.object,
 };
 
-export default SizeCalculator;
+export default KineticEnergyCalculator;

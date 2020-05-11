@@ -18,7 +18,7 @@
       "id": "2",
       "layout": {
         "row": "top",
-        "col": "right"
+        "col": "left"
       },
       "colTitles": [
         "Asteroid",
@@ -35,7 +35,7 @@
     {
       "id": "5",
       "layout": {
-        "col": "left",
+        "col": "right",
         "row": "top"
       },
       "colTitles": [
@@ -46,42 +46,15 @@
       "rowTitles": [["#1"], ["#2"], ["#3"]],
       "rows": [
         [
-          { "accessor": "ke", "id": "35" },
+          { "accessor": "kineticEnergy", "id": "35" },
           { "accessor": "crater-diameter", "id": "38" }
         ],
         [
-          { "accessor": "ke", "id": "36" },
+          { "accessor": "kineticEnergy", "id": "36" },
           { "accessor": "crater-diameter", "id": "39" }
         ],
         [
-          { "accessor": "ke", "id": "37" },
-          { "accessor": "crater-diameter", "id": "40" }
-        ]
-      ]
-    },
-    {
-      "id": "6",
-      "layout": {
-        "col": "left",
-        "row": "bottom"
-      },
-      "colTitles": [
-        "Asteroid",
-        "Kinetic Energy",
-        "Approximate diameter of crater"
-      ],
-      "rowTitles": [["#1"], ["#2"], ["#3"]],
-      "rows": [
-        [
-          { "accessor": "ke", "id": "35" },
-          { "accessor": "crater-diameter", "id": "38" }
-        ],
-        [
-          { "accessor": "ke", "id": "36" },
-          { "accessor": "crater-diameter", "id": "39" }
-        ],
-        [
-          { "accessor": "ke", "id": "37" },
+          { "accessor": "kineticEnergy", "id": "37" },
           { "accessor": "crater-diameter", "id": "40" }
         ]
       ]
@@ -92,12 +65,11 @@
       "question": [
         {
           "id": "35",
-          "questionType": "SizeCalculator",
+          "questionType": "KineticEnergyCalculator",
           "title": "Question #1",
           "label": "Calculate the kinetic energy of asteroid #1",
-          "placeholder": "Enter peak magnitude and albedo",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "kineticEnergy"
         }
       ]
     },
@@ -105,12 +77,11 @@
       "question": [
         {
           "id": "36",
-          "questionType": "SizeCalculator",
+          "questionType": "KineticEnergyCalculator",
           "title": "Question #1",
           "label": "Calculate the kinetic energy of asteroid #2",
-          "placeholder": "Enter peak magnitude and albedo",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "kineticEnergy"
         }
       ]
     },
@@ -118,12 +89,11 @@
       "question": [
         {
           "id": "37",
-          "questionType": "SizeCalculator",
+          "questionType": "KineticEnergyCalculator",
           "title": "Question #1",
           "label": "Calculate the kinetic energy of asteroid #3",
-          "placeholder": "Enter peak magnitude and albedo",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "kineticEnergy"
         }
       ]
     }

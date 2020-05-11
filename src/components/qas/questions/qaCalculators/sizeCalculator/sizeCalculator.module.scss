@@ -1,31 +1,3 @@
-.qa-calc {
-  @include copySecondary;
-
-  :global {
-    .md-card-text {
-      padding: 0;
-    }
-
-    .md-text-field-container {
-      &:not(.answerable) {
-        label,
-        .md-floating-label,
-        .md-floating-label p {
-          color: $neutral20;
-        }
-
-        hr {
-          background-color: $neutral20;
-        }
-      }
-    }
-
-    .md-text-field {
-      padding-left: $minPadding / 2;
-    }
-  }
-}
-
 .icon {
   @include copySecondary;
   white-space: nowrap;
@@ -33,13 +5,4 @@
 
 .equation-wrapper {
   margin-top: $minPadding;
-}
-
-.calc-label {
-  @include copySecondary;
-  color: $basePrimary;
-
-  &:not(.answerable) {
-    color: $neutral20;
-  }
 }

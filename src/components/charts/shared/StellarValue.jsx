@@ -7,14 +7,15 @@ class StellarValue extends React.PureComponent {
   render() {
     const { type, value, isSvg } = this.props;
     const tempValue = getValue(type, value);
-    const formattedValue = addTheCommas(isNaN(tempValue) ? value : tempValue); // eslint-disable-line no-restricted-globals
+    const preformattedValue = isNaN(tempValue) ? value : tempValue; // eslint-disable-line no-restricted-globals
+    const formattedValue = addTheCommas(preformattedValue);
 
     return (
       <>
         {!isSvg && <span>{formattedValue}</span>}
         {isSvg && <tspan>{formattedValue}</tspan>}
         {/* eslint-disable no-restricted-globals */}
-        {!isNaN(formattedValue) && <Unit type={type} isSvg={isSvg} />}
+        {!isNaN(preformattedValue) && <Unit type={type} isSvg={isSvg} />}
         {/* eslint-enable no-restricted-globals */}
       </>
     );
