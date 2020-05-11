@@ -82,7 +82,7 @@ class PageContainer extends React.PureComponent {
         />
         <PageNav
           {...{ previous, next }}
-          baseUrl={!env || env === 'all' ? `/${investigation}` : '/'}
+          baseUrl={!env || env === 'all' ? `/${investigation}` : ''}
         />
       </div>
     );
