@@ -236,11 +236,6 @@ class Histogram extends React.PureComponent {
   }
 
   getTooltipPos(data, pos) {
-    const { padding, offsetTop, offsetRight, height, width } = this.props;
-    const { xScale, yScale } = this.state;
-    console.log('x', xScale(data.x0), [padding, width - offsetRight]);
-    console.log('y', yScale(data.length), [height - padding, offsetTop]);
-
     return {
       tooltipPosX: pos[0],
       tooltipPosY: 1,

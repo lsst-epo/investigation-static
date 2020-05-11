@@ -19,7 +19,6 @@ class Tooltip extends React.PureComponent {
     const dataEmpty = isEmpty(data);
     const $tooltip = d3Select(this.el.current);
     if (show && !isVisible && !dataEmpty) {
-      console.log(posX, posY);
       this.show($tooltip, data, posX, posY, show);
     } else if (show && isVisible && data !== prevData && !dataEmpty) {
       this.move($tooltip, data, posX, posY, show);

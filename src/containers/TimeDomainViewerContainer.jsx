@@ -48,7 +48,7 @@ class TimeDomainViewerContainer extends React.PureComponent {
   }
 
   selectionCallback = d => {
-    console.log(d);
+    console.log(d); // eslint-disable-line no-console
   };
 
   onBlinkChange = update => {

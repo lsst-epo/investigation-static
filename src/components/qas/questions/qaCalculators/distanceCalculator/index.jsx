@@ -57,8 +57,6 @@ class DistanceCalculator extends React.PureComponent {
       megaLightYears,
     } = data || {};
 
-    console.log({ data });
-
     this.checkAnswerable(answerable, activeId === id);
 
     this.setState(prevState => ({
