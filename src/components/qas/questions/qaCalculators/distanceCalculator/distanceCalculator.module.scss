@@ -1,28 +1,3 @@
-.qa-calc {
-  font-size: 15px;
-  font-weight: $medium;
-
-  :global {
-    .md-card-text {
-      padding: 16px 0;
-    }
-
-    .md-text-field-container {
-      &:not(.answerable) {
-        label,
-        .md-floating-label,
-        .md-floating-label p {
-          color: $neutral20;
-        }
-
-        hr {
-          background-color: $neutral20;
-        }
-      }
-    }
-  }
-}
-
 .calculation-block {
   p {
     font-size: 17px;

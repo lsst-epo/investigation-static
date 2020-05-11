@@ -32,7 +32,7 @@
           { "accessor": "size", "id": "48" },
           { "accessor": "volume", "id": "50" },
           { "accessor": "mass", "id": "51" },
-          { "accessor": "ke", "id": "52" }
+          { "accessor": "kineticEnergy", "id": "52" }
         ]
       ]
     }
@@ -68,12 +68,12 @@
       "question": [
         {
           "id": "52",
-          "questionType": "SizeCalculator",
+          "questionType": "KineticEnergyCalculator",
           "title": "Question #1",
           "label": "Now that you know the mass and velocity, calculate the kinetic energy of the asteroid at the time of impact. Include units in your answer. The calculated kinetic energy will be in joules if mass is in kg and velocity in m/s.",
           "placeholder": "Enter Mass and Velocity",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "kineticEnergy"
         }
       ]
     }

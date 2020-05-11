@@ -1,18 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  equation as equationStyle,
+  denominator as denominatorStyle,
+  color,
+  exponent,
+  fraction,
+} from './equation.module.scss';
 
 export default function FindParsecs(props) {
   const { solution, equation, variable, numerator, denominator } = props;
 
   return (
-    <p className="equation">
+    <p className={equationStyle}>
       {solution} = {equation}
-      <span className="exponent fraction">
+      <span className={`${exponent} ${fraction}`}>
         <span className="numerator">
-          (<span className="color">{variable}</span>
+          (<span className={color}>{variable}</span>
           {numerator})
         </span>
-        <span className="denominator">{denominator}</span>
+        <span className={denominatorStyle}>{denominator}</span>
       </span>
     </p>
   );
