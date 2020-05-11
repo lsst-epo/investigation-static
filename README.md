@@ -69,4 +69,4 @@ To only build/serve one investigation:
 
 Create `.env.development` file in the project root
 
-Add `env` variable to `.env.development`: `INVESTIGATION = 'investigaiton-name'` where `investigation-name` is one of any of the investigation ids found in `src/data/investigations/investigations.json`
+Add `env` variable to `.env.development`: `INVESTIGATION = 'investigation-name'` where `investigation-name` is one of any of the investigation ids found in `src/data/investigations/investigations.json`
