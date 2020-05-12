@@ -20,21 +20,25 @@ export const formatTooltipPoint = (color, string) => {
   );
 };
 
-export const getAxisInfo = title => {
+export const getAxisInfo = axisInfo => {
   return {
     nameTextStyle: {
       fontSize: 14,
       fontWeight: 'bold',
     },
-    name: title,
     nameLocation: 'middle',
-    nameGap: 25,
+    nameGap: 35,
     axisLine: {
+      onZero: false,
       lineStyle: {
-        color: 'black',
+        color: 'white',
         opacity: 1,
       },
     },
+    splitLine: {
+      show: false,
+    },
+    ...axisInfo,
   };
 };
 
@@ -43,11 +47,9 @@ export const getSeries = (name, options) => {
     name,
     symbolSize: 8,
     type: 'scatter',
-    encode: {
-      x: 'RA',
-      y: 'Dec',
-    },
     largeThreshold: 1000,
+    progressive: 1000,
+    animation: false,
     ...options,
   };
 };

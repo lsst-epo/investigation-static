@@ -1,60 +1,79 @@
-:global {
-  @include react-md-sliders;
-  @include react-md-selection-controls;
+.padded-drawer-inner-left {
+  $asideWidth: 100px;
+  padding-left: $asideWidth + $minPadding;
+  background: #000000;
+  outline: none;
+}
 
-  .md-slider-track {
-    margin-right: 12px;
-    margin-left: 12px;
+.nav-item-text {
+  font-size: 14px;
+  white-space: nowrap;
+}
 
-    .md-fake-btn {
-      top: -9px;
-      background: $md-primary-color;
+.wider-drawer-container {
+  position: relative;
+  box-shadow: none;
 
-      &::before {
-        position: absolute;
-        right: 0;
-        bottom: calc(50% - 2px);
-        left: -10px;
-        z-index: -1;
-        display: inline-block;
-        width: 34px;
-        height: 4px;
-        content: '';
-        background: rgba(8, 127, 128, 0.5);
-        border-radius: 2px;
-        transition: background $duration $timing;
+  :global .md-drawer--mini {
+    width: 100px;
+    height: 100%;
+    background-color: $neutral10;
+  }
+}
+
+// mini drawer
+aside {
+  .navItem {
+    margin-bottom: -1px;
+    background-color: $neutral10;
+    transition: background-color $timing $duration;
+
+    .nav-avatar {
+      @include labelPrimary;
+      font-weight: $medium;
+      color: $basePrimary;
+    }
+
+    :global {
+      .md-icon {
+        fill: $basePrimary;
       }
+    }
 
-      &.md-slider-thumb--disabled {
-        background: $neutral20;
-        border-color: $neutral20;
+    &:hover,
+    &.link-active {
+      color: $white;
+      background-color: $basePrimary;
 
-        &::before {
-          background: transparent;
-        }
+      .nav-avatar {
+        color: $white;
       }
-    }
-
-    .md-slider-thumb--mask-disabled {
-      background: transparent;
-    }
-
-    .md-slider-discrete-value {
-      top: calc(50% - 7px);
-    }
-
-    .md-slider-track-fill {
-      display: none;
     }
   }
+}
 
-  .md-switch-track {
-    .md-switch-thumb--on {
-      background: $md-primary-color;
+// full size drawer
+nav {
+  .navItem {
+    :global {
+      .md-text {
+        @include labelPrimary;
+        font-weight: $medium;
+      }
     }
 
-    .md-switch-thumb--off {
-      background: $neutral20;
+    &:hover,
+    &.link-active {
+      background-color: $basePrimary;
+
+      :global {
+        .md-tile-text--primary,
+        .md-tile-text--primary.md-text--theme-primary,
+        .md-text {
+          /* stylelint-disable-next-line declaration-no-important */
+          color: $white !important;
+        }
+      }
     }
   }
 }

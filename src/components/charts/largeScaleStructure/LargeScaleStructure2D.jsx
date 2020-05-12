@@ -3,7 +3,6 @@ import ReactEcharts from 'echarts-for-react';
 import PropTypes from 'prop-types';
 import {
   colorPrimary,
-  colorSecondary,
   formatTooltipPoint,
   getAxisInfo,
   getSeries,
@@ -14,7 +13,7 @@ class LargeScaleStructure2D extends React.PureComponent {
     const data = params.value;
 
     if (Array.isArray(data)) {
-      const [ra, dec] = data;
+      const [dec, ra] = data;
       return formatTooltipPoint(
         this.colorSecondary,
         `${ra.toFixed(2)}, ${dec.toFixed(2)}`
@@ -29,61 +28,40 @@ class LargeScaleStructure2D extends React.PureComponent {
   };
 
   getOption() {
-    const { data, selectedData } = this.props;
+    const { data, dec, ra } = this.props;
 
     return {
-      tooltip: {
-        borderColor: '#777',
-        borderWidth: 2,
-        formatter: this.getTooltipFormat,
-      },
-      xAxis: getAxisInfo('RA'),
-      yAxis: getAxisInfo('Dec'),
+      blendMode: 'lighter',
+      backgroundColor: '#000',
+      xAxis: getAxisInfo({
+        name: 'RA',
+        min: ra.min,
+        max: ra.max,
+      }),
+      yAxis: getAxisInfo({
+        name: 'Dec',
+        min: dec.min,
+        max: dec.max,
+      }),
       series: [
         getSeries('Data Point', {
           data,
           large: true,
           itemStyle: {
-            color: selectedData ? colorSecondary : colorPrimary,
-            opacity: selectedData ? 0.2 : 1,
-          },
-        }),
-        getSeries('Highlighted Data Point', {
-          data: selectedData,
-          large: true,
-          itemStyle: {
             color: colorPrimary,
+            opacity: 0.8,
           },
+          encode: {
+            x: 'RA',
+            y: 'Dec',
+          },
+          symbol: 'circle',
+          symbolSize: 2,
         }),
       ],
-      animation: false,
       textStyle: {
         fontFamily: 'Roboto',
       },
-      dataZoom: [
-        {
-          type: 'slider',
-          show: false,
-          xAxisIndex: [0],
-          minSpan: 60,
-        },
-        {
-          type: 'slider',
-          show: false,
-          yAxisIndex: [0],
-          minSpan: 60,
-        },
-        {
-          type: 'inside',
-          xAxisIndex: [0],
-          minSpan: 60,
-        },
-        {
-          type: 'inside',
-          yAxisIndex: [0],
-          minSpan: 60,
-        },
-      ],
     };
   }
 
@@ -93,7 +71,7 @@ class LargeScaleStructure2D extends React.PureComponent {
     return (
       <>
         {data && (
-          <ReactEcharts style={{ height: '600px' }} option={this.getOption()} />
+          <ReactEcharts style={{ height: '550px' }} option={this.getOption()} />
         )}
       </>
     );
@@ -102,7 +80,8 @@ class LargeScaleStructure2D extends React.PureComponent {
 
 LargeScaleStructure2D.propTypes = {
   data: PropTypes.array,
-  selectedData: PropTypes.array,
+  dec: PropTypes.object,
+  ra: PropTypes.object,
 };
 
 export default LargeScaleStructure2D;
