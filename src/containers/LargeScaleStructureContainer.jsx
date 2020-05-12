@@ -1,30 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import debounce from 'lodash/debounce';
-import Slider from 'react-md/lib/Sliders/Slider';
-import SelectionControl from 'react-md/lib/SelectionControls/SelectionControl';
+import classnames from 'classnames';
 import API from '../lib/API.js';
-import { extentFromSet, formatValue } from '../lib/utilities.js';
-import { arrayifyData } from '../components/charts/largeScaleStructure/largeScaleStructureUtilities.js';
-import LargeScaleStructure3D from '../components/charts/largeScaleStructure/LargeScaleStructure3D.jsx';
+import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import LargeScaleStructure2D from '../components/charts/largeScaleStructure/LargeScaleStructure2D.jsx';
-import '../components/charts/largeScaleStructure/large-scale-structure-plot.module.scss';
+import {
+  navItemText,
+  widerDrawerContainer,
+  paddedDrawerInnerLeft,
+  navItem,
+  linkActive,
+} from '../components/charts/largeScaleStructure/large-scale-structure-plot.module.scss';
 
 class LargeScaleStructureContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
+      intervals: null,
+      dec: null,
+      ra: null,
+      activeIntervalIndex: null,
+      navItems: [],
       data: null,
-      selectedData: null,
-      sliderVal: null,
-      min: null,
-      max: null,
-      rangeSliderEnabled: false,
     };
-
-    this.increment = 0.01;
-    this.sliderUnitAdjust = 1 / this.increment;
   }
 
   componentDidMount() {
@@ -34,133 +33,84 @@ class LargeScaleStructureContainer extends React.PureComponent {
 
     API.get(source).then(response => {
       const { data } = response;
-      const { galaxies } = data || {};
-      const [min, max] = extentFromSet(galaxies, 'redshift');
-      const formattedMin = formatValue(min, 2);
+      const { intervals, dec, ra, objects } = data || {};
 
       this.setState(prevState => ({
         ...prevState,
-        data: galaxies,
-        sliderVal: formattedMin,
-        min: formattedMin,
-        max: formatValue(max, 2),
-        formattedData: arrayifyData(galaxies),
+        data: objects,
+        activeIntervalIndex: 0,
+        intervals,
+        dec: {
+          min: dec[0],
+          max: dec[1],
+        },
+        ra: {
+          min: ra[0],
+          max: ra[1],
+        },
+        navItems: this.generateNavItems(intervals, 0),
       }));
     });
   }
 
-  handleRangeToggle = rangeSliderEnabled => {
-    const { sliderVal, formattedData } = this.state;
-    const selectedData = rangeSliderEnabled
-      ? this.getSelectedData(formattedData, sliderVal)
-      : null;
+  getIntervalVal = (intervals, activeIntervalIndex, index) => {
+    if (!intervals) return '';
+    return intervals[activeIntervalIndex][index];
+  };
+
+  setActiveInterval = activeIntervalIndex => {
+    const { intervals } = this.state;
 
     this.setState(prevState => ({
       ...prevState,
-      rangeSliderEnabled,
-      selectedData,
+      activeIntervalIndex,
+      intervals,
+      navItems: this.generateNavItems(intervals, activeIntervalIndex),
     }));
   };
 
-  getSelectedData = (newData, newValue) => {
-    const { formattedData, sliderVal } = this.state;
-    const data = newData || formattedData;
-    const value = newValue || sliderVal;
-
-    return data.filter(d => {
-      const redshift = d[2];
-      const greaterThanMin = redshift >= value;
-      const lessThanMax = redshift < value + this.increment;
-
-      return greaterThanMin && lessThanMax;
+  generateNavItems(intervals, activeIntervalIndex) {
+    return intervals.map((interval, i) => {
+      return {
+        leftAvatar: <span className={navItemText}>{interval.join(' - ')}</span>,
+        primaryText: `Redshift Range`,
+        className: classnames(navItem, {
+          [linkActive]: activeIntervalIndex === i,
+        }),
+        onClick: () => this.setActiveInterval(i),
+      };
     });
-  };
-
-  handleSliderChange = value => {
-    this.setState(
-      prevState => ({
-        ...prevState,
-        sliderVal: formatValue(value / 100, 2),
-      }),
-      debounce(() => {
-        const { sliderVal, formattedData } = this.state;
-        this.setState(prevState => ({
-          ...prevState,
-          selectedData: this.getSelectedData(formattedData, sliderVal),
-        }));
-      }, 400)
-    );
-  };
+  }
 
   render() {
     const {
-      formattedData,
-      selectedData,
-      max,
-      min,
-      sliderVal,
-      rangeSliderEnabled,
+      intervals,
+      activeIntervalIndex,
+      data,
+      navItems,
+      dec,
+      ra,
     } = this.state;
-    const { options } = this.props;
-    const { show2D, show3D } = options || {};
-    const selectedRange = sliderVal
-      ? `${sliderVal} - ${formatValue(sliderVal + this.increment, 2)}`
-      : '';
+    const toolbarTitle = `Redshift Range: ${
+      intervals ? intervals[activeIntervalIndex].join(' - ') : ''
+    }`;
 
     return (
       <>
-        {min && max && (
-          <div>
-            <SelectionControl
-              id="range-selector-toggle"
-              type="switch"
-              label="Toggle Redshift Range Selector"
-              name="lights"
-              onChange={this.handleRangeToggle}
+        <NavDrawer
+          cardClasses={widerDrawerContainer}
+          interactableToolbar
+          contentClasses={paddedDrawerInnerLeft}
+          navItems={navItems}
+          toolbarTitle={toolbarTitle}
+        >
+          {data && (
+            <LargeScaleStructure2D
+              data={data[activeIntervalIndex]}
+              {...{ dec, ra }}
             />
-            <div>
-              <div>Redshift Range: {selectedRange}</div>
-              <Slider
-                value={Math.round(
-                  formatValue(sliderVal * this.sliderUnitAdjust)
-                )}
-                min={Math.floor(min * this.sliderUnitAdjust)}
-                max={Math.ceil((max - this.increment) * this.sliderUnitAdjust)}
-                step={Math.floor(this.increment * this.sliderUnitAdjust)}
-                onChange={this.handleSliderChange}
-                disabled={!rangeSliderEnabled}
-              />
-            </div>
-          </div>
-        )}
-        <div className={show2D && show3D && 'container-flex spaced'}>
-          <div className={show2D && show3D && 'col padded col-width-50'}>
-            {show2D && (
-              <LargeScaleStructure2D
-                data={formattedData}
-                {...{
-                  min,
-                  max,
-                  sliderVal,
-                  selectedData,
-                }}
-              />
-            )}
-          </div>
-          <div className={show2D && show3D && 'col padded col-width-50'}>
-            {show3D && (
-              <LargeScaleStructure3D
-                data={formattedData}
-                {...{
-                  min,
-                  max,
-                  sliderVal,
-                  selectedData,
-                }}
-              />
-            )}
-          </div>
-        </div>
+          )}
+        </NavDrawer>
       </>
     );
   }

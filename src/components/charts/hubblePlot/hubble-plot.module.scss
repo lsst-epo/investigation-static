@@ -61,14 +61,7 @@ aside {
       }
     }
 
-    &:hover {
-      background-color: $basePrimary;
-
-      .nav-avatar {
-        color: $white;
-      }
-    }
-
+    &:hover,
     &.link-active {
       background-color: $basePrimary;
 
@@ -101,7 +94,9 @@ nav {
       background-color: $basePrimary;
 
       :global {
-        .md-tile-text--primary, .md-tile-text--primary.md-text--theme-primary, .md-text {
+        .md-tile-text--primary,
+        .md-tile-text--primary.md-text--theme-primary,
+        .md-text {
           /* stylelint-disable-next-line declaration-no-important */
           color: $white !important;
         }
@@ -109,4 +104,3 @@ nav {
     }
   }
 }
-
