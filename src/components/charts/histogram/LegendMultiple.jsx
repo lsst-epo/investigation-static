@@ -6,17 +6,6 @@ import Card from '../../site/card/index.js';
 import styles from './histogram.module.scss';
 
 class LegendMultiple extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.objectTypes = {
-      neo: 'NEO',
-      comets: 'Comet',
-      mba: 'MBA',
-      tno: 'TNO',
-    };
-  }
-
   render() {
     const { data, label } = this.props;
 
@@ -35,7 +24,7 @@ class LegendMultiple extends React.PureComponent {
               <div key={id} className={styles.legendRow}>
                 <span className={pointClasses}></span>
                 <span>
-                  {this.objectTypes[datum] || `Object`} {label}
+                  {datum || `Object`} {label}
                 </span>
               </div>
             );
