@@ -1,18 +1,3 @@
-// .histogram {
-
-//   .mean-bar {
-//     fill: $black;
-//   }
-
-//   .mean-text {
-//     font-size: 12px;
-
-//     .inner-text {
-//       transform: translateX(50%);
-//     }
-//   }
-// }
-
 .tick {
   @include labelPrimary;
 }
@@ -67,4 +52,101 @@
   height: 20px;
   margin-right: $minPadding;
   border: 1px solid $black;
+}
+
+.container {
+  position: relative;
+  box-shadow: none;
+}
+
+.padded-drawer-inner {
+  padding: $minPadding $minPadding $minPadding 72px;
+  outline: none;
+}
+
+// mini drawer
+aside {
+  .template-item {
+    margin-bottom: -1px;
+    background-color: $neutral10;
+    transition: background-color $timing $duration;
+
+    .avatarContainer {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .bar-avatar {
+      width: 12px;
+      height: 20px;
+      margin-right: $minPadding / 2;
+      border: 1px solid $black;
+    }
+
+    .nav-avatar {
+      @include labelPrimary;
+      font-weight: $medium;
+      color: $basePrimary;
+    }
+
+    :global {
+      .md-icon {
+        fill: $basePrimary;
+      }
+    }
+
+    &:hover {
+      background-color: $basePrimary;
+
+      .nav-avatar {
+        color: $white;
+      }
+    }
+
+    &.link-active {
+      background-color: $basePrimary;
+
+      .nav-avatar {
+        color: $white;
+      }
+    }
+
+    &.link-is-disabled {
+      background-color: rgba(200, 200, 200, 0.6);
+
+      .nav-avatar {
+        color: $neutral10;
+      }
+    }
+  }
+}
+
+// full size drawer
+nav {
+  .template-item {
+    :global {
+      .md-text {
+        @include labelPrimary;
+        font-weight: $medium;
+      }
+
+      .md-tile-addon--avatar {
+        display: none;
+      }
+    }
+
+    &.link-active {
+      background-color: $basePrimary;
+
+      :global {
+        .md-tile-text--primary, .md-tile-text--primary.md-text--theme-primary, .md-text {
+          /* stylelint-disable-next-line declaration-no-important */
+          color: $white !important;
+        }
+      }
+    }
+  }
 }

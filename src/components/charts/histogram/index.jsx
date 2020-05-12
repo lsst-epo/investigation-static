@@ -20,14 +20,17 @@ import {
 } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
-import { capitalize } from '../../../lib/utilities';
 import Unit from '../shared/unit/index.jsx';
+import NavDrawer from '../shared/navDrawer/index.jsx';
+import ConditionalWrapper from '../../ConditionalWrapper';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Bars from './Bars.jsx';
 // import MeanBar from './MeanBar.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
-import LegendMultiple from './LegendMultiple.jsx';
+import { capitalize } from '../../../lib/utilities';
+
+import styles from './histogram.module.scss';
 
 class Histogram extends React.PureComponent {
   constructor(props) {
@@ -44,10 +47,18 @@ class Histogram extends React.PureComponent {
       yScale: null,
       loading: true,
       groupNames: null,
+      activePlots: null,
     };
 
     this.svgEl = React.createRef();
     this.svgContainer = React.createRef();
+
+    this.objectTypes = {
+      neo: 'NEO',
+      comets: 'Comet',
+      mba: 'MBA',
+      tno: 'TNO',
+    };
   }
 
   componentDidMount() {
@@ -70,6 +81,15 @@ class Histogram extends React.PureComponent {
         domain,
         multiple
       );
+      const groupNames =
+        multiple && data.map(set => this.objectTypes[set.group.toLowerCase()]);
+      const activePlots = {};
+
+      if (groupNames) {
+        groupNames.forEach(name => {
+          activePlots[name] = true;
+        });
+      }
 
       this.setState(prevState => ({
         ...prevState,
@@ -82,7 +102,8 @@ class Histogram extends React.PureComponent {
           offsetRight,
           multiple
         ),
-        groupNames: multiple && data.map(set => set.group.toLowerCase()),
+        groupNames,
+        activePlots,
         yScale: this.getYScale(histData, height, padding, offsetTop, multiple),
       }));
     }
@@ -317,19 +338,14 @@ class Histogram extends React.PureComponent {
     const $histogram = d3Select(this.svgEl.current);
 
     if (!multiple) {
-      $histogram
-        .selectAll('.data-bar-data')
-        .data(data)
-        .transition()
-        .end()
-        .then(() => {
-          if (loading) {
-            this.setState(prevState => ({
-              ...prevState,
-              loading: false,
-            }));
-          }
-        });
+      $histogram.selectAll('.data-bar-data').data(data);
+
+      if (loading) {
+        this.setState(prevState => ({
+          ...prevState,
+          loading: false,
+        }));
+      }
     } else if (multiple && groupNames) {
       groupNames.forEach((groupName, i) => {
         $histogram.selectAll(`.data-bar-data.${groupName}`).data(data[i]);
@@ -345,10 +361,62 @@ class Histogram extends React.PureComponent {
   }
 
   updateHistogram() {
-    const { preSelected, multiple } = this.props;
+    const { multiple } = this.props;
 
     this.updateBars();
-    if (!preSelected && !multiple) this.addEventListeners();
+    if (!multiple) this.addEventListeners();
+  }
+
+  getActiveKeys(activePlots) {
+    const keys = Object.keys(activePlots);
+    const activeKeys = [];
+    keys.forEach(key => {
+      if (activePlots[key]) {
+        activeKeys.push(key);
+      }
+    });
+
+    return activeKeys;
+  }
+
+  updateActivePlots(id) {
+    const { activePlots: oldActivePlots } = this.state;
+    const activeKeys = this.getActiveKeys(oldActivePlots);
+    const isLast = activeKeys.length <= 1;
+    const isActive = oldActivePlots[id];
+
+    this.setState(prevState => ({
+      ...prevState,
+      activePlots: {
+        ...oldActivePlots,
+        [id]: isLast ? true : !isActive,
+      },
+    }));
+  }
+
+  generateNavItems(navItems) {
+    const { activePlots } = this.state;
+    const { xAxisLabel: label } = this.props;
+
+    return navItems.map((item, i) => {
+      const avatarClasses = classnames(
+        styles.barAvatar,
+        `color-${i + 1}-background`
+      );
+      return {
+        leftAvatar: (
+          <div className={styles.avatarContainer}>
+            <div className={avatarClasses}></div>
+            <div className={styles.navAvatar}>{item}</div>
+          </div>
+        ),
+        primaryText: `${item} ${label}`,
+        className: classnames(styles.templateItem, {
+          [styles.linkActive]: activePlots[item],
+        }),
+        onClick: () => this.updateActivePlots(item),
+      };
+    });
   }
 
   render() {
@@ -379,6 +447,7 @@ class Histogram extends React.PureComponent {
       xScale,
       yScale,
       groupNames,
+      activePlots,
     } = this.state;
 
     const svgClasses = classnames('histogram svg-chart', {
@@ -387,10 +456,19 @@ class Histogram extends React.PureComponent {
     });
 
     return (
-      <>
-        {multiple && groupNames && (
-          <LegendMultiple label={xAxisLabel} data={groupNames} />
+      <ConditionalWrapper
+        condition={multiple && groupNames}
+        wrapper={children => (
+          <NavDrawer
+            cardClasses={styles.container}
+            navItems={this.generateNavItems(groupNames)}
+            contentClasses={styles.mainContent}
+            toolbarStyles={{ display: 'none' }}
+          >
+            <div className={styles.paddedDrawerInner}>{children}</div>
+          </NavDrawer>
         )}
+      >
         <div
           ref={this.svgContainer}
           className="svg-container histogram-container"
@@ -428,19 +506,22 @@ class Histogram extends React.PureComponent {
                   const colorIndex = i + 1;
 
                   return (
-                    <Bars
-                      barClasses={groupName}
-                      colorClass={`color-${colorIndex}-translucent-fill`}
-                      key={key}
-                      data={dataset}
-                      selectedData={selectedData}
-                      hoveredData={hoveredData}
-                      offsetTop={offsetTop}
-                      xScale={xScale[i]}
-                      yScale={yScale[i]}
-                      graphHeight={height}
-                      padding={padding}
-                    />
+                    <g key={key}>
+                      {activePlots[groupName] && (
+                        <Bars
+                          barClasses={groupName}
+                          colorClass={`color-${colorIndex}-translucent-fill`}
+                          data={dataset}
+                          selectedData={selectedData}
+                          hoveredData={hoveredData}
+                          offsetTop={offsetTop}
+                          xScale={xScale[i]}
+                          yScale={yScale[i]}
+                          graphHeight={height}
+                          padding={padding}
+                        />
+                      )}
+                    </g>
                   );
                 })}
               </>
@@ -458,17 +539,17 @@ class Histogram extends React.PureComponent {
                   padding={padding}
                 />
                 {/* {meanData && valueAccessor && (
-                <MeanBar
-                  data={meanData}
-                  bins={data}
-                  valueAccessor={valueAccessor}
-                  yScale={yScale}
-                  graphWidth={width}
-                  offsetTop={offsetTop}
-                  offsetRight={offsetRight}
-                  padding={padding}
-                />
-              )} */}
+                  <MeanBar
+                    data={meanData}
+                    bins={data}
+                    valueAccessor={valueAccessor}
+                    yScale={yScale}
+                    graphWidth={width}
+                    offsetTop={offsetTop}
+                    offsetRight={offsetRight}
+                    padding={padding}
+                  />
+                )} */}
               </>
             )}
             {xScale && multiple && (
@@ -515,7 +596,7 @@ class Histogram extends React.PureComponent {
             )}
           </svg>
         </div>
-      </>
+      </ConditionalWrapper>
     );
   }
 }
@@ -545,7 +626,6 @@ Histogram.propTypes = {
   yAxisLabel: PropTypes.string,
   valueAccessor: PropTypes.string,
   domain: PropTypes.array,
-  preSelected: PropTypes.bool,
   tooltipAccessors: PropTypes.array,
   tooltipLabels: PropTypes.array,
   tooltipUnits: PropTypes.array,
