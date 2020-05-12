@@ -21,6 +21,15 @@
   opacity: 1;
 }
 
+.loading-container {
+  opacity: 1;
+  transition: opacity $timing $durationSlow;
+}
+
+.loading-images {
+  opacity: 0;
+}
+
 .controls {
   position: absolute;
   bottom: 10px;
