@@ -4,6 +4,7 @@ import HubblePlot from './index.jsx';
 import Point from './Point.jsx';
 
 const testId = 'hubble-plot';
+const svgTestId = 'hubble-plot-svg';
 const tooltipTestId = 'tooltip';
 const testPointLabel = 'test-label';
 const pointSelector = '.data-point';
@@ -11,7 +12,6 @@ const pointLabelSelector = '.point-label';
 const pointRadius = 6;
 const pointDiameter = pointRadius * 2;
 const testHandler = jest.fn();
-
 const testProps = {
   className: 'hubble-plot',
   data: [
@@ -129,7 +129,7 @@ test('HubblePlot Point shrinks when mouseOut', async () => {
   // Assert
   await waitFor(() => {
     expect(queryByTestId(tooltipTestId)).toBeNull();
-    expect(testPoint).toHaveAttribute('r', pointRadius + '');
+    expect(testPoint).toHaveAttribute('r', `${pointRadius}`);
     expect(testHandler).not.toHaveBeenCalled();
   });
 });
@@ -152,35 +152,41 @@ test('HubblePlot Point grows when clicked and selectionCallback is called', asyn
   });
 });
 
-// test('HubblePlot creates Point where clicked with createUserHubblePlot prop', async () => {
-//   // Arrange
-//   const testPropsWithUserCreate = {
-//     ...testProps,
-//     data: [
-//       {
-//         name: 'Galaxy #1',
-//         id: 'ZTF19abqmpsr',
-//         color: '#1ab579',
-//         distance: null,
-//         velocity: null,
-//       },
-//     ],
-//     options: {
-//       ...testProps.options,
-//       createUserHubblePlot: false,
-//     }
-//   };
-//   const { getByTestId } = render(<HubblePlot {...testPropsWithUserCreate} userHubbleCallback={testHandler} />);
-//   const hubblePlot = getByTestId(testId);
-//   // Act
-//   // fireEvent.click(hubblePlot);
-//   // Assert
-//   await waitFor(() => {
-//     const testPoint = hubblePlot.querySelector(pointSelector);
-//     const bob = getByTestId(testId+'f');
-//     // console.log()
-
-//     expect(testPoint).toHaveAttribute('r', pointRadius + '');
-//   });
-//   expect(testHandler).toHaveBeenCalled();
-// });
+test('HubblePlot creates Point where clicked with createUserHubblePlot prop', async () => {
+  // Arrange
+  const testGalaxy = {
+    name: 'Galaxy #1',
+    id: 'ZTF19abqmpsr',
+    color: '#1ab579',
+    distance: 75.20190832749851,
+    velocity: 2215.8304466391514,
+  };
+  const testPropsWithUserCreate = {
+    ...testProps,
+    activeGalaxy: testGalaxy,
+    data: [
+      {
+        ...testGalaxy,
+        distance: null,
+        velocity: null,
+      },
+    ],
+    options: {
+      ...testProps.options,
+      toggleDataPointsVisibility: '1',
+      createUserHubblePlot: '2',
+    },
+  };
+  const { getByTestId } = render(
+    <HubblePlot {...testPropsWithUserCreate} userHubbleCallback={testHandler} />
+  );
+  const hubblePlot = getByTestId(svgTestId);
+  // Act
+  fireEvent.click(hubblePlot);
+  // Assert
+  await waitFor(() => {
+    const testPoint = hubblePlot.querySelector(pointSelector);
+    expect(testPoint).toHaveAttribute('r', `${pointRadius}`);
+  });
+  expect(testHandler).toHaveBeenCalled();
+});

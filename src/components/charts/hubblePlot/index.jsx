@@ -382,6 +382,7 @@ class HubblePlot extends React.Component {
           preserveAspectRatio="xMidYMid meet"
           viewBox={`0 0 ${width} ${height}`}
           ref={this.svgEl}
+          data-testid="hubble-plot-svg"
           style={{
             opacity: 0,
           }}
