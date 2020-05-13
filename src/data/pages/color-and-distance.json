@@ -13,7 +13,7 @@
     "link": "/brightness-color-distance/"
   },
   "layout": "TwoCol",
-  "content": "<p>You will now explore the different galaxies in this image by using a plot of color vs distance. On this plot, <u>smaller</u> flux ratio numbers are <u>redder</u> colors.  Let’s think about how this happens.  Recall from the Hubble-Lemaitre Law that the Universe is expanding, and this expansion causes light waves to appear to be stretched to longer wavelengths. This is called <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/c/cosmological+redshift'>cosmological redshift</a>.</p>",
+  "content": "<p>You will now explore the different galaxies in the Rubin Observatory image by using a plot of color vs distance. On this plot, <u>smaller</u> flux ratio numbers are <u>redder</u> colors.  Let’s think about how this happens.  Recall from the Hubble-Lemaitre Law that the Universe is expanding, and this expansion causes light waves to appear to be stretched to longer wavelengths. This is called <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/c/cosmological+redshift'>cosmological redshift</a>.</p>",
   "widgets": [
     {
       "type": "GalacticProperties",

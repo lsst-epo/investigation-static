@@ -13,7 +13,28 @@
     "link": "/change-over-time-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>If you imagine the observable Universe as a sphere, you can use your data to determine a minimum size for the entire Universe. Look back at the graph of the full data set for brightness vs. distance from the Rubin Observatory, and find the distance to the galaxy that is farthest away. This farthest away galaxy defines the minimum current radius of your observable Universe.</p><p>Remember that according to the cosmological principle, the Universe is the same in all directions. Since your observable Universe has the shape of a sphere, the total width (diameter) of your observable Universe is double the radius defined by the distance to the farthest galaxy.  We can’t assume that the most distant galaxy in the Rubin Observatory data set is the farthest away a galaxy can be in the entire Universe. There may be many more galaxies that are beyond your observable Universe, but the light from those galaxies has not yet had time to reach us. But this calculation gives us an estimate for the minimum size that the entire Universe is today.</p>",
+  "content": "<p>If you imagine the observable Universe as a sphere, you can use your data to determine a minimum size for the entire Universe. Look at this graph of the full data set for brightness vs. distance from the Rubin Observatory, and find the distance to the galaxy that is farthest away. This farthest away galaxy defines the minimum current radius of your observable Universe.</p><p>Remember that according to the cosmological principle, the Universe is the same in all directions. Since your observable Universe has the shape of a sphere, the total width (diameter) of your observable Universe is double the radius defined by the distance to the farthest galaxy.</p><p>We can’t assume that the most distant galaxy in the Rubin Observatory data set is the farthest away a galaxy can be in the entire Universe. There may be many more galaxies that are beyond your observable Universe, but the light from those galaxies has not yet had time to reach us. But this calculation gives us an estimate for the minimum size that the entire Universe is today.</p>",
+  "widgets": [
+    {
+      "type": "GalacticProperties",
+      "source": "/data/galaxies/hsc/hsc.json",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "options": {
+        "title": "Brightness Vs Distance",
+        "xAxisLabel": "Distance (Billion Ly)",
+        "yAxisLabel": "Total Brightness",
+        "xValueAccessor": "distance",
+        "yValueAccessor": "brightness",
+        "tooltipAccessors": ["distance", "brightness"],
+        "tooltipUnits": ["Billion Ly"],
+        "tooltipLabels": ["Distance", "Brightness"],
+        "domain": [[0, 28], [0, 200]]
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

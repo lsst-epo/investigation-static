@@ -9,7 +9,7 @@
     "link": "/change-over-time-3/"
   },
   "next": {
-    "title": "Observing How the Universe Changed over Time",
+    "title": "Reflect and Discuss",
     "link": "/discuss-report/"
   },
   "layout": "SingleCol",
@@ -33,6 +33,17 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "Will the number of galaxies in the regions we call voids be increasing or decreasing with time?  Explain why this would be happening based on what you know about gravity and matter."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "29",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "The total amount of matter of the Universe does not change over time. Explain how this applies to the changes in the size of voids and concentrations of galaxies over time."
         }
       ]
     },

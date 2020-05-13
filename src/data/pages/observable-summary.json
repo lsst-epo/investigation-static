@@ -2,18 +2,18 @@
   "id": "observable16",
   "investigation": "observable-universe",
   "order": "16",
-  "title": "Summary",
+  "title": "Putting it all Together",
   "slug": "summary/",
   "previous": {
-    "title": "Discuss & Report",
+    "title": "Reflect and Discuss",
     "link": "/discuss-report/"
   },
   "next": {
-    "title": "Introduction",
-    "link": "/introduction/"
+    "title": "",
+    "link": ""
   },
   "layout": "TwoCol",
-  "content": "<p>If you look at the concentration maps for the most recent times, you will notice that there are some areas that have a very low concentration of galaxies. Areas of very low galaxy concentrations are referred to as voids.</p><p>The changes in the large-scale structure are important to our understanding of the Universe. By seeing how the Universe has changed over time, cosmologists get clues to what processes might have created the structures in the first place.</p><p>Making these observations will give astronomers powerful new ways to tackle complex questions about the fundamental nature and interactions of matter and energy. The observations can be used to improve cosmological models of the Universe, which attempt to explain the profound connections between energy, matter, time and space. Perhaps we will be forced to make a new model that better explains the nature of dark energy and dark matter, which collectively account for 95% of the Universe. Perhaps we will discover new forms of energy or matter, new forces of nature, or even how the Universe was born.</p>",
+  "content": "<p>The changes in the large-scale structure are important to our understanding of the Universe. By seeing how the Universe has changed over time, cosmologists get clues to what processes might have created the structures in the first place.</p><p>Making these observations will give astronomers powerful new ways to tackle complex questions about the fundamental nature and interactions of matter and energy. The observations can be used to improve cosmological models of the Universe, which attempt to explain the profound connections between energy, matter, time and space. Perhaps we will be forced to make a new model that better explains the nature of dark energy and dark matter, which collectively account for 95% of the Universe. Perhaps we will discover new forms of energy or matter, new forces of nature, or even how the Universe was born.</p>",
   "questionsByPage": [
     {
       "question": [
@@ -128,7 +128,7 @@
           "answerAccessor": "compound-select",
           "placeholder": "Select a type",
           "options": [
-            {"label": "relativeluy smooth", "value": "relativeluy smooth"},
+            {"label": "relatively smooth", "value": "relatively smooth"},
             {"label": "clumpy", "value": "clumpy"}
           ],
           "answerPre": "...",
