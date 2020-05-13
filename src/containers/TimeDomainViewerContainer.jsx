@@ -8,6 +8,7 @@ class TimeDomainViewerContainer extends React.PureComponent {
     super(props);
 
     this.state = {
+      data: null,
       alerts: null,
       images: null,
       activeAlert: null,
@@ -35,6 +36,7 @@ class TimeDomainViewerContainer extends React.PureComponent {
 
       this.setState(prevState => ({
         ...prevState,
+        data,
         alerts,
         images,
         activeAlert,
@@ -47,8 +49,17 @@ class TimeDomainViewerContainer extends React.PureComponent {
     });
   }
 
-  selectionCallback = d => {
-    console.log(d); // eslint-disable-line no-console
+  selectionCallback = () => {
+    const { data } = this.state;
+    const {
+      activeQuestionId,
+      updateAnswer,
+      options: { toggleDataPointsVisibility },
+    } = this.props;
+    const qId = toggleDataPointsVisibility || activeQuestionId;
+    const answerData = this.getSelectionAnswerData();
+
+    if (!answerData) updateAnswer(qId, data);
   };
 
   onBlinkChange = update => {
@@ -58,8 +69,23 @@ class TimeDomainViewerContainer extends React.PureComponent {
     }));
   };
 
+  getSelectionAnswerData() {
+    const { options, answers, activeQuestionId } = this.props;
+    const { toggleDataPointsVisibility } = options || {};
+    const qId = toggleDataPointsVisibility || activeQuestionId;
+    const answer = answers[qId];
+
+    return answer ? answer.data : null;
+  }
+
+  getSelectionAnswerDataAlerts() {
+    const answerData = this.getSelectionAnswerData();
+    return answerData ? answerData.alerts : null;
+  }
+
   render() {
     const { options } = this.props;
+    const { preSelected } = options || {};
     const {
       alerts,
       images,
@@ -89,8 +115,11 @@ class TimeDomainViewerContainer extends React.PureComponent {
             xValueAccessor="RA"
             yValueAccessor="Dec"
             data={alerts}
-            selectedData={alerts}
+            selectedData={
+              preSelected ? alerts : this.getSelectionAnswerDataAlerts()
+            }
             blinkCallback={this.onBlinkChange}
+            selectionCallback={this.selectionCallback}
           />
         )}
       </>
