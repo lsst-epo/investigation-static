@@ -2,14 +2,14 @@
   "id": "solarsystem30",
   "investigation": "solar-system",
   "order": "30",
-  "title": "Summary",
+  "title": "Putting it all Together",
   "slug": "solar-system-summary-2/",
   "previous": {
-    "title": "Summary",
+    "title": "Putting it all Together",
     "link": "/solar-system-summary-1/"
   },
   "next": {
-    "title": "Summary",
+    "title": "Putting it all Together",
     "link": "/solar-system-summary-3/"
   },
   "layout": "TwoCol",

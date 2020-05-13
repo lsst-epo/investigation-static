@@ -2,13 +2,13 @@
   "id": "17",
   "investigation": "exploding-stars",
   "order": "22",
-  "title": "Discuss & Report",
+  "title": "Reflect and Discuss",
   "slug": "discuss-report/",
   "previous": {
     "title": "Finding the distance to Supernovae",
     "link": "/distance-to-supernovae-3/"
   },
-  "next": { "title": "Summary", "link": "/summary/" },
+  "next": { "title": "Putting it all Together", "link": "/summary/" },
   "layout": "TwoCol",
   "content": "<p>Recall the relationship that exists between the relative size of a galaxy and its distance from Earth. The supernova marked by an arrow in the image is from a galaxy of a similar size as the galaxies that contained Supernovae 4, 5, and 6.</p><p>Refer to the chart collecting your distance and magnitude observations from the previous section to get an idea of the approximate distance of Supernovae #4, #5, and #6.</p>",
   "images": [{

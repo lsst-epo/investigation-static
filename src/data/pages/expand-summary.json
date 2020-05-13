@@ -2,13 +2,13 @@
   "id": "expand15",
   "investigation": "expanding-universe",
   "order": "15",
-  "title": "Summary",
+  "title": "Putting it all Together",
   "slug": "summary/",
   "previous": {
-    "title": "Discuss and Report",
+    "title": "Reflect and Discuss",
     "link": "/discuss-report/"
   },
-  "next": {"title": "", "link": ""},
+  "next": {"title": null, "link": null},
   "layout": "SingleCol",
   "questionsByPage": [
     {
