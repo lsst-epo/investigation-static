@@ -22,6 +22,7 @@ export const WithQAing = ComposedComponent => {
         'size-calc': this.getSizeCalcContent,
         magnitude: this.getMagnitudeContent,
         galaxy: this.getGalaxyContent,
+        neo: this.getNeoContent,
         galaxies: this.getGalaxiesContent,
         supernova: this.getSupernovaContent,
         hubblePlot: this.getHubblePlotContent,
@@ -150,6 +151,10 @@ export const WithQAing = ComposedComponent => {
       );
 
       return selectedObjects[0].supernova;
+    }
+
+    getNeoContent(data) {
+      return data.name;
     }
 
     getContent(answerAccessor, data) {

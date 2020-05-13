@@ -92,27 +92,27 @@ class TimeDomainViewer extends React.PureComponent {
   }
 
   toggleSelection(d) {
-    const { selectedData: oldData } = this.state;
-    const { selectionCallback, preSelected } = this.props;
+    // const { selectedData: oldData } = this.state;
+    const { selectionCallback } = this.props;
+    // if (!find(oldData, d) && !!d && !preSelected) {
+    //   const selectedData = !oldData ? [d] : [...oldData, d];
 
-    if (!find(oldData, d) && !!d && !preSelected) {
-      const selectedData = !oldData ? [d] : [...oldData, d];
-
-      this.setState(
-        prevState => ({
-          ...prevState,
-          selectedData,
-        }),
-        () => {
-          const { selectedData: newData } = this.state;
-          if (selectionCallback) {
-            selectionCallback(newData, d);
-          }
-        }
-      );
-    } else if (selectionCallback) {
-      selectionCallback(null, d);
-    }
+    //   this.setState(
+    //     prevState => ({
+    //       ...prevState,
+    //       selectedData,
+    //     }),
+    //     () => {
+    //       const { selectedData: newData } = this.state;
+    //       if (selectionCallback) {
+    //         selectionCallback(newData, d);
+    //       }
+    //     }
+    //   );
+    // } else if (selectionCallback) {
+    //   selectionCallback(null, d);
+    // }
+    if (d) selectionCallback();
   }
 
   getBlink(images, direction = 0) {
@@ -206,7 +206,6 @@ class TimeDomainViewer extends React.PureComponent {
   addEventListeners() {
     d3Select(this.svgEl.current).on('click', () => {
       const pointData = d3Select(d3Event.target).datum();
-
       this.toggleSelection(pointData || null);
     });
   }
@@ -217,7 +216,7 @@ class TimeDomainViewer extends React.PureComponent {
   }
 
   updatePoints() {
-    const { data, preSelected, multiple } = this.props;
+    const { data, preSelected } = this.props;
     const { loading } = this.state;
 
     if (!data) {
@@ -229,24 +228,6 @@ class TimeDomainViewer extends React.PureComponent {
         ...prevState,
         loading: false,
       }));
-    } else if (multiple) {
-      data.forEach((supernova, i) => {
-        if (i === data.length - 1) {
-          d3Select(this.svgEl.current)
-            .selectAll(`.data-point.${supernova.className}`)
-            .data(supernova.data);
-          if (loading) {
-            this.setState(prevState => ({
-              ...prevState,
-              loading: false,
-            }));
-          }
-        } else {
-          d3Select(this.svgEl.current)
-            .selectAll(`.data-point${supernova.className}`)
-            .data(supernova.data);
-        }
-      });
     } else {
       d3Select(this.svgEl.current)
         .selectAll('.data-point')
@@ -258,6 +239,25 @@ class TimeDomainViewer extends React.PureComponent {
         }));
       }
     }
+    // else if (multiple) {
+    //      data.forEach((supernova, i) => {
+    //        if (i === data.length - 1) {
+    //          d3Select(this.svgEl.current)
+    //            .selectAll(`.data-point.${supernova.className}`)
+    //            .data(supernova.data);
+    //          if (loading) {
+    //            this.setState(prevState => ({
+    //              ...prevState,
+    //              loading: false,
+    //            }));
+    //          }
+    //        } else {
+    //          d3Select(this.svgEl.current)
+    //            .selectAll(`.data-point${supernova.className}`)
+    //            .data(supernova.data);
+    //        }
+    //      });
+    //    }
 
     if (!preSelected) this.addEventListeners();
   }
@@ -308,16 +308,14 @@ class TimeDomainViewer extends React.PureComponent {
               opacity: 0,
             }}
           >
-            {selectedData && activeAlert && (
-              <Point
-                selectedData={selectedData}
-                active={activeAlert}
-                xScale={xScale}
-                yScale={yScale}
-                xValueAccessor={xValueAccessor}
-                yValueAccessor={yValueAccessor}
-              />
-            )}
+            <Point
+              selectedData={selectedData}
+              active={activeAlert}
+              xScale={xScale}
+              yScale={yScale}
+              xValueAccessor={xValueAccessor}
+              yValueAccessor={yValueAccessor}
+            />
           </svg>
           {!loading && images && (
             <Blinker
@@ -360,7 +358,7 @@ TimeDomainViewer.propTypes = {
   xDomain: PropTypes.array,
   yDomain: PropTypes.array,
   preSelected: PropTypes.bool,
-  multiple: PropTypes.bool,
+  // multiple: PropTypes.bool,
   name: PropTypes.string,
   autoplay: PropTypes.bool,
   selectionCallback: PropTypes.func,
