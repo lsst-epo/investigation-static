@@ -13,5 +13,5 @@
     "link": "/exploring-the-deep/"
   },
   "layout": "TwoCol",
-  "content": "<p>Over its ten-year survey, Rubin Observatory will detect about 20 billion galaxies, most of them very faint. To calculate the distance to these very faint galaxies, Rubin Observatory uses a technique called <i><u>photometric redshift</u></i>, in which the brightness of a galaxy is measured through different filters to determine its color. </p><p><i>Machine learning</i> and <i>template fitting</i> techniques will compare the galaxy’s color information to different galaxy models. These models take into account star formation histories and the amounts of mass, dark matter, and dust in different types of galaxies. From this information, a redshift value is produced which can then be converted into an estimated distance of how far away the galaxy is in space at the present time.</p>"
+  "content": "<p>Over its ten-year survey, Rubin Observatory will detect about 20 billion galaxies, most of them very faint because of their large distances away from Earth. To calculate the distance to these very faint galaxies, the Rubin Observatory LSST Camera measures their brightness through different filters. These values are then compared to models of galaxy brightness at various distances. The distance of the best matching model is used for the observed galaxy.</p>"
 }

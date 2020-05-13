@@ -13,7 +13,7 @@
     "link": "/defining-observable-universe/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let’s look at the plot of brightness vs. distance for all of the objects observed by the Rubin Observatory.  Notice that in the plot above there are galaxies at distances much greater than 13.8 billion light years away. But the Universe is only 13.8 billion years old. How can that happen?</p>",
+  "content": "<p>Now let’s look at the plot of brightness vs. distance for objects observed by Rubin Observatory.  Notice that in the plot there are galaxies at distances much greater than 13.8 billion light years away. But the Universe is only 13.8 billion years old. How can that happen?</p>",
   "widgets": [
     {
       "type": "GalacticProperties",

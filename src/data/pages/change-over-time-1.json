@@ -9,11 +9,11 @@
     "link": "/size-observable-universe/"
   },
   "next": {
-    "title": "Observing How the Universe Changed over Time",
+    "title": "The Large-Scale Structure of the Universe",
     "link": "/change-over-time-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>The distribution and concentration of matter in the Universe for sizes larger than a galaxy is called the <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/L/Large-scale+Structure'>large-scale structure</a> of the Universe. Astronomers can measure the distance to billions of galaxies using data from the Rubin Observatory. Using the distances and position of galaxies astronomers can create a map of the observable Universe that reveals this large-scale structure. This structure is possible to see by viewing a concentration map of a region of the Universe.</p><p>Here is a sample galaxy concentration map. Examine the color legend at the map bottom. White areas of the map are places that Rubin Observatory has not observed the sky.</p>",
+  "content": "<p>Rubin Observatory has discovered so many galaxies in the Universe that, if we were to display them all on a map of the sky, they could not be counted by eye. To work with very large numbers of galaxies, astronomers use <i>concentration maps</i>.</p><p>Concentration maps use colors to represent how many galaxies are in a particular area. They are like population density maps. Areas of high population density show many people living in a relatively small area. <a target='_blank' href='http://luminocity3d.org/WorldPopDen/#3/12.00/10.00'>Look at this example</a>.</p>",
   "widgets": [
     {
       "type": "LargeScaleStructurePlot",

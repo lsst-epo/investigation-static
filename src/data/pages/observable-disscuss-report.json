@@ -2,14 +2,14 @@
   "id": "observable15",
   "investigation": "observable-universe",
   "order": "15",
-  "title": "Discuss & Report",
+  "title": "Reflect and Discuss",
   "slug": "discuss-report/",
   "previous": {
     "title": "Observing How the Universe Changed over Time",
     "link": "/change-over-time-4/"
   },
   "next": {
-    "title": "Summary",
+    "title": "Putting it all Together",
     "link": "/summary/"
   },
   "layout": "SingleCol",
@@ -22,17 +22,6 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "If the Universe had started out with a higher initial amount of matter, would galaxies join together to form large structures faster or slower? Explain your reasoning using the concept of gravitational interactions of matter."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "29",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "The total amount of matter of the Universe does not change over time. Explain how this applies to the changes in the size of voids and concentrations of galaxies over time."
         }
       ]
     },
