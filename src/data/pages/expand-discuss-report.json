@@ -2,14 +2,14 @@
   "id": "expand14",
   "investigation": "expanding-universe",
   "order": "14",
-  "title": "Discuss and Report",
+  "title": "Reflect and Discuss",
   "slug": "discuss-report/",
   "previous": {
     "title": "The Rubin Observatory Hubble Plot",
     "link": "/lsst-hubble-plot-2/"
   },
   "next": {
-    "title": "Summary",
+    "title": "Putting it all Together",
     "link": "/summary/"
   },
   "layout": "SingleCol",

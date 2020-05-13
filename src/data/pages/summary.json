@@ -2,10 +2,10 @@
   "id": "18",
   "investigation": "exploding-stars",
   "order": "23",
-  "title": "Summary",
+  "title": "Putting it all Together",
   "slug": "summary/",
-  "previous": {"title": "Discuss & Report", "link": "/discuss-report/"},
-  "next": {"title": "", "link": ""},
+  "previous": {"title": "Reflect and Discuss", "link": "/discuss-report/"},
+  "next": {"title": null, "link": null},
   "layout": "TwoCol",
   "questionsByPage": [
     {

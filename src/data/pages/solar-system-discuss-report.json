@@ -2,14 +2,14 @@
   "id": "solarsystem27",
   "investigation": "solar-system",
   "order": "27",
-  "title": "Discuss and Report",
+  "title": "Reflect and Discuss",
   "slug": "solar-system-discuss-report/",
   "previous": {
     "title": "Determining the Composition of an Object",
     "link": "/object-composition-1/"
   },
   "next": {
-    "title": "Summary",
+    "title": "Putting it all Together",
     "link": "/solar-system-summary/"
   },
   "layout": "TwoCol",
