@@ -21,7 +21,10 @@ class Point extends React.PureComponent {
     const $point = d3Select(this.svgEl.current);
 
     if (selected || hovered) {
-      $point.raise().attr('r', this.baseSize * 5);
+      $point
+        .transition()
+        .duration(400)
+        .attr('r', this.baseSize * 5);
     } else {
       $point
         .transition()

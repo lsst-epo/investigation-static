@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import isEqual from 'lodash/isEqual';
 import includes from 'lodash/includes';
 import classnames from 'classnames';
 import {
@@ -80,14 +81,13 @@ class GalacticProperties extends React.Component {
       yDomain: prevYDomain,
     } = prevProps;
 
-    return (
-      height !== prevHeight ||
-      width !== prevWidth ||
-      padding !== prevPadding ||
-      domain !== prevDomain ||
-      xDomain !== prevXDomain ||
-      yDomain !== prevYDomain
-    );
+    const diffDims =
+      height !== prevHeight || width !== prevWidth || padding !== prevPadding;
+    const diffDomains =
+      !isEqual(domain, prevDomain) ||
+      !isEqual(xDomain, prevXDomain) ||
+      !isEqual(yDomain, prevYDomain);
+    return diffDims || diffDomains;
   }
 
   getXScale() {

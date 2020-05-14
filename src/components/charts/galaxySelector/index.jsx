@@ -36,7 +36,6 @@ class GalaxySelector extends React.PureComponent {
   }
 
   componentDidMount() {
-    // console.log(JSON.stringify(this.props));
     const { autoplay, preSelected, selectedData, data } = this.props;
     if (data) {
       this.updatePoints();
