@@ -84,7 +84,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
       .split('.')[0];
   }
 
-  updateActiveGalaxyState(activeGalaxy) {
+  updateActiveGalaxy(activeGalaxy) {
     const { activeGalaxy: prevActiveGalaxy } = this.state;
 
     if (prevActiveGalaxy !== activeGalaxy) {
@@ -103,11 +103,11 @@ class GalaxiesSelectorContainer extends React.PureComponent {
       updateAnswer(qId, allSelected);
     }
 
-    this.updateActiveGalaxyState(selection);
+    this.updateActiveGalaxy(selection);
   };
 
   userGalacticPropertiesCallback = d => {
-    this.updateActiveGalaxyState(d ? d[0] : null);
+    this.updateActiveGalaxy(d ? d[0] : null);
   };
 
   render() {
