@@ -70,9 +70,21 @@
       "question": [
         {
           "id": "22",
-          "questionType": "textArea",
-          "label": "Does the region on the plot where the data does not fit the trendline correspond to a time when the Universe was relatively young (early in the history of the Universe) or relatively old?",
-          "answerAccessor": "text"
+          "questionType": "select",
+          "labelPre": "The region on the plot where the data does not fit the trendline corresponds to a time when the Universe was ",
+          "labelPost": ".",
+          "options": [
+            {
+              "label": "relatively young (early in the history of the Universe)",
+              "value": "relatively young"
+            },
+            {
+              "label": "relatively old",
+              "value": "relatively old"
+            }
+          ],
+          "placeholder": "Select",
+          "answerAccessor": "data"
         }
       ]
     },
