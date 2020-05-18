@@ -1,0 +1,53 @@
+{
+  "id": "hazardous08",
+  "investigation": "hazardous-asteroids",
+  "order": "08",
+  "title": "Determining the Orbit of an Asteroid",
+  "slug": "determining-orbits/",
+  "previous": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-7/"
+  },
+  "next": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-1/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Astronomers are continuously in search of new asteroids that could possibly hit Earth. Asteroids are discovered by detecting an object that has changed position in two or more pictures taken of a particular location in space. After the first night that it is discovered, additional observations need to be done to measure its speed and direction of motion.</p><p>Let’s look at a typical newly-discovered asteroid. In the example below, asteroid WD5-A was discovered on 20 November 2007 and was observed again on 5 December and 19 December 2007. Each time, the position of the asteroid was measured</p><p>When Rubin Observatory first discovers an asteroid, its orbit around the Sun is not well defined. Astronomers can calculate possible different orbits of the asteroid by considering the set of orbits that can fit the measured positions.</p><p>The blue region contains the possible orbits of the asteroid based on the first two observations.</p>",
+  "widgets": [
+    {
+      "type": "TimeDomainViewer",
+      "source": "/data/neos/2003_QZ30.json",
+      "options": {
+        "autoplay": true,
+        "toggleDataPointsVisibility": "500"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "10",
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "<p>Click on a point on the Image to select the asteroid</p>",
+          "answerPre": "<span>Selected Asteroid: </span>",
+          "answerAccessor": "neo"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "11",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Look at the possible orbits for this asteroid from different angles. Do you think this asteroid could hit Earth (in other words, do any of the possible orbits for the asteroid cross Earth’s orbit)? Explain your reasoning."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "hazardous05",
+  "investigation": "hazardous-asteroids",
+  "order": "05",
+  "title": "Looking at Asteroids Close to Earth",
+  "slug": "close-to-earth-5/",
+  "previous": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-4/"
+  },
+  "next": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-6/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Use the controls in the upper right corner of the orbit tracker to watch the motion of asteroid Bennu and the planets as they orbit around the Sun. Make sure the time step interval is set to “1 day” (as shown above). Click on the “play forward” button (double right arrow). Press the stop button when Bennu is located on the blue orbit of Earth. (If you overshoot you can use the “step backward” button.)</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "6",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Will Bennu hit Earth when their orbits cross? Explain your reasoning."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "7",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Could Bennu hit Earth in the next ten years?"
+        }
+      ]
+    }
+  ]
+}

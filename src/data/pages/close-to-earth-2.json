@@ -1,0 +1,36 @@
+{
+  "id": "hazardous02",
+  "investigation": "hazardous-asteroids",
+  "order": "02",
+  "title": "Looking at Asteroids Close to Earth",
+  "slug": "close-to-earth-2/",
+  "previous": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-1/"
+  },
+  "next": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-3/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Now let’s look more closely at the asteroid Aten.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "3",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Do you think Aten could hit Earth based on the orbit shown in this top view representation?"
+        }
+      ]
+    }
+  ]
+}

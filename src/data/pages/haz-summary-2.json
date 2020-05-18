@@ -1,0 +1,76 @@
+{
+  "id": "hazardous25",
+  "investigation": "hazardous-asteroids",
+  "order": "25",
+  "title": "Putting it all Together",
+  "slug": "summary-2/",
+  "previous": {
+    "title": "Putting it all Together",
+    "link": "/summary-1/"
+  },
+  "next": {
+    "title": "",
+    "link": ""
+  },
+  "layout": "TwoCol",
+  "content": "<p>Let’s imagine that your asteroid did hit Earth. Use the impact tool to see the effects of your asteroid.</p>",
+  "tables": [
+    {
+      "id": "5",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "colTitles": [
+        "Diameter",
+        "Volume",
+        "Mass",
+        "Kinetic Energy"
+      ],
+      "rows": [
+        [
+          { "accessor": "size", "id": "48" },
+          { "accessor": "volume", "id": "50" },
+          { "accessor": "mass", "id": "51" },
+          { "accessor": "ke", "id": "52" }
+        ]
+      ]
+    },
+    {
+      "id": "6",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "colTitles": [
+        "Kinetic Energy",
+        "Crater Diameter",
+        "Area of Destruction",
+        "Minimum Safe Distance"
+      ],
+      "rows": [
+        [
+          { "accessor": "ke", "id": "52" },
+          { "accessor": "crater-diameter", "id": "53" },
+          { "accessor": "destruction", "id": "53" },
+          { "accessor": "minimum-safe", "id": "53" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "53",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Estimate the effect of this asteroid impacting earth",
+          "placeholder": "Enter Kinetic energy",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

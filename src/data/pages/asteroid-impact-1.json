@@ -1,0 +1,131 @@
+{
+  "id": "hazardous20",
+  "investigation": "hazardous-asteroids",
+  "order": "20",
+  "title": "Evaluating the Consequences of an Asteroid Impact",
+  "slug": "asteroid-impact-1/",
+  "previous": {
+    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "link": "/asteroid-impact/"
+  },
+  "next": {
+    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "link": "/asteroid-impact-2/"
+  },
+  "layout": "TwoCol",
+  "tables": [
+    {
+      "id": "2",
+      "layout": {
+        "row": "top",
+        "col": "right"
+      },
+      "colTitles": [
+        "Asteroid",
+        "Mass",
+        "Velocity"
+      ],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [{"content": "15,000"}, {"content": "10,000"}],
+        [{"content": "10,000"}, {"content": "30,000"}],
+        [{"content": "20,000"}, {"content": "20,000"}]
+      ]
+    },
+    {
+      "id": "5",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "colTitles": [
+        "Asteroid",
+        "Kinetic Energy",
+        "Approximate diameter of crater"
+      ],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [
+          { "accessor": "ke", "id": "35" },
+          { "accessor": "crater-diameter", "id": "38" }
+        ],
+        [
+          { "accessor": "ke", "id": "36" },
+          { "accessor": "crater-diameter", "id": "39" }
+        ],
+        [
+          { "accessor": "ke", "id": "37" },
+          { "accessor": "crater-diameter", "id": "40" }
+        ]
+      ]
+    },
+    {
+      "id": "6",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "colTitles": [
+        "Asteroid",
+        "Kinetic Energy",
+        "Approximate diameter of crater"
+      ],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [
+          { "accessor": "ke", "id": "35" },
+          { "accessor": "crater-diameter", "id": "38" }
+        ],
+        [
+          { "accessor": "ke", "id": "36" },
+          { "accessor": "crater-diameter", "id": "39" }
+        ],
+        [
+          { "accessor": "ke", "id": "37" },
+          { "accessor": "crater-diameter", "id": "40" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "35",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Calculate the kinetic energy of asteroid #1",
+          "placeholder": "Enter peak magnitude and albedo",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "36",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Calculate the kinetic energy of asteroid #2",
+          "placeholder": "Enter peak magnitude and albedo",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "37",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Calculate the kinetic energy of asteroid #3",
+          "placeholder": "Enter peak magnitude and albedo",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

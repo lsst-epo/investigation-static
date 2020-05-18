@@ -1,0 +1,81 @@
+{
+  "id": "hazardous24",
+  "investigation": "hazardous-asteroids",
+  "order": "24",
+  "title": "Putting it all Together",
+  "slug": "summary-1/",
+  "previous": {
+    "title": "Putting it all Together",
+    "link": "/summary/"
+  },
+  "next": {
+    "title": "Putting it all Together",
+    "link": "/summary-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>In order to calculate the kinetic energy that this asteroid could deliver to the surface of Earth, you must know its mass and velocity. Assume that astronomers have measured a velocity of 12900 m/s for this asteroid.</p><p>You can estimate the mass of the asteroid by making a few assumptions based on its density and volume:</p><ul><li>Since the composition of the asteroid is not known, assume this is a rocky asteroid (the most common type) with a density of 2500 kg/m3.</li><li>Since we can’t see the asteroid up close, assume it is spherical in shape.</li></ul>",
+  "tables": [
+    {
+      "id": "5",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "colTitles": [
+        "Diameter",
+        "Volume",
+        "Mass",
+        "Kinetic Energy"
+      ],
+      "rows": [
+        [
+          { "accessor": "size", "id": "48" },
+          { "accessor": "volume", "id": "50" },
+          { "accessor": "mass", "id": "51" },
+          { "accessor": "ke", "id": "52" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "50",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Calculate the volume of this asteroid by entering its radius.",
+          "placeholder": "Enter radius",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "51",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Calculate the mass of this asteroid using its density and volume",
+          "placeholder": "Enter radius",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "52",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Now that you know the mass and velocity, calculate the kinetic energy of the asteroid at the time of impact. Include units in your answer. The calculated kinetic energy will be in joules if mass is in kg and velocity in m/s.",
+          "placeholder": "Enter Mass and Velocity",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "hazardous01",
+  "investigation": "hazardous-asteroids",
+  "order": "01",
+  "title": "Looking at Asteroids Close to Earth",
+  "slug": "close-to-earth-1/",
+  "previous": { "title": "Introduction", "link": "/introduction/" },
+  "next": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-2/"
+  },
+  "layout": "SingleCol",
+  "content": "<p>Most asteroids orbit the Sun between the planets Mars and Jupiter, but some have orbits closer to Earth. The diagrams below show the orbits of three asteroids and the inner planets.</p>",
+  "images": [
+    {
+      "mediaPath": "/images/amor-apollo-atira.png",
+      "altText": "Orbital diagrams for Amor, Apollo, and Atira",
+      "figText": "The orbits of the asteroids (shown in white): Amor (left), Apollo (center), and Atira (right)"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "1",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Which of the three objects appears to cross Earth’s orbit?",
+          "options": [
+            {
+              "label": "Amor",
+              "value": "Amor"
+            },
+            {
+              "label": "Apollo",
+              "value": "Apollo"
+            },
+            {
+              "label": "Atira",
+              "value": "Atira"
+            }
+          ],
+          "placeholder": "Select an asteroid",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "2",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Which of these three asteroids could hit Earth based on the orbit shown in this top view representation?",
+          "options": [
+            {
+              "label": "Amor",
+              "value": "Amor"
+            },
+            {
+              "label": "Apollo",
+              "value": "Apollo"
+            },
+            {
+              "label": "Atira",
+              "value": "Atira"
+            }
+          ],
+          "placeholder": "Select an asteroid",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    }
+  ]
+}

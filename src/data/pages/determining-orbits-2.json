@@ -1,0 +1,55 @@
+{
+  "id": "hazardous09",
+  "investigation": "hazardous-asteroids",
+  "order": "09",
+  "title": "Determining the Orbit of an Asteroid",
+  "slug": "determining-orbits-2/",
+  "previous": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-1/"
+  },
+  "next": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-3/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Step through the third image for 19 December and click on the location of the asteroid.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "13",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "How did the third observation change the range of possible orbits for this asteroid?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "14",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "The spread of possible orbits is smallest:",
+          "options": [
+            {"label": "Midway between the three observations and the part of the orbit opposite the three observations", "value": "Midway between the three observations and the part of the orbit opposite the three observations"},
+            {"label": "At the part of the orbit opposite the three observations", "value": "At the part of the orbit opposite the three observations"},
+            {"label": "Everywhere along the orbit", "value": "Everywhere along the orbit"},
+            {"label": "At the part of the orbit nearest the three observations", "value": "At the part of the orbit nearest the three observations"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    }
+  ]
+}

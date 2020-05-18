@@ -33,8 +33,20 @@ class ObservationsTable extends React.PureComponent {
     return cell;
   }
 
+  createEmptyRows(length) {
+    const rows = [];
+
+    for (let i = 0; i < length; i += 1) {
+      rows.push([]);
+    }
+
+    return rows;
+  }
+
   getRows(answers, colTitles, rowTitles, cells) {
-    const rows = cloneDeep(rowTitles);
+    const rows = rowTitles
+      ? cloneDeep(rowTitles)
+      : this.createEmptyRows(cells.length);
     for (let j = 0; j < rows.length; j += 1) {
       cells[j].forEach(cell => {
         rows[j].push(this.getCell(answers, cell));

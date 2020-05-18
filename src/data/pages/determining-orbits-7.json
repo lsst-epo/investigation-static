@@ -1,0 +1,73 @@
+{
+  "id": "hazardous14",
+  "investigation": "hazardous-asteroids",
+  "order": "14",
+  "title": "Determining the Orbit of an Asteroid",
+  "slug": "determining-orbits-7/",
+  "previous": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-6/"
+  },
+  "next": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-8/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>After measuring the actual position of the asteroid on many different nights and different locations along its orbit, astronomers can rule out many of the possible orbits. The remaining possible orbits are shown here.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "25",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "How many possible orbits now intersect Earth’s orbit? What is now the probability that this asteroid could hit Earth? Explain how you arrived at your answer."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "26",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["26", "27"],
+          "labelPre": "The case of asteroid WD5-A that you just investigated is typical in terms of how its probable impact threat changes as its orbit becomes refined. As more observations and measurements are made, the probability of impact typically ",
+          "labelPost": " until such time when all of the possible impact orbits can be eliminated, at which time the probability becomes ",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select",
+          "options": [
+            { "label": "increases", "value": "increases" },
+            { "label": "decreases", "value": "decreases" },
+            { "label": "stays the same", "value": "stays the same" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "27",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["26", "27"],
+          "labelPre": "FUTURE COMPOUNDSELECTTEXT",
+          "labelPost": "",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "Select a type",
+          "options": [
+            { "label": "blank", "value": "blank" },
+            { "label": "blank", "value": "blank" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        }
+      ]
+    }
+  ]
+}
