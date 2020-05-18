@@ -1,0 +1,51 @@
+{
+  "id": "hazardous22",
+  "investigation": "hazardous-asteroids",
+  "order": "22",
+  "title": "Reflect and Discuss",
+  "slug": "reflect-discuss/",
+  "previous": {
+    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "link": "/asteroid-impact-2/"
+  },
+  "next": {
+    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "link": "/summary/"
+  },
+  "layout": "TwoCol",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "44",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What would you tell your friend to help them understand?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "45",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Do you think astronomers should alert the public as soon as a potentially hazardous asteroid is discovered or wait until they are more certain that an impact will actually occur? Explain your reasoning."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "46",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Do you think astronomers should continue to monitor this asteroid? Explain your reasoning."
+        }
+      ]
+    }
+  ]
+}

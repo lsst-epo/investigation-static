@@ -1,0 +1,36 @@
+{
+  "id": "hazardous03",
+  "investigation": "hazardous-asteroids",
+  "order": "03",
+  "title": "Looking at Asteroids Close to Earth",
+  "slug": "close-to-earth-3/",
+  "previous": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-2/"
+  },
+  "next": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-4/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Click and drag in the window so that you’re now seeing the orbits from the side view.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "4",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Do you think that Aten still could hit Earth based on this side view? Explain your reasoning."
+        }
+      ]
+    }
+  ]
+}

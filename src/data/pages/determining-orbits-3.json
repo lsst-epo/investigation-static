@@ -1,0 +1,36 @@
+{
+  "id": "hazardous10",
+  "investigation": "hazardous-asteroids",
+  "order": "10",
+  "title": "Determining the Orbit of an Asteroid",
+  "slug": "determining-orbits-3/",
+  "previous": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-2/"
+  },
+  "next": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-4/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>By making additional observations of the asteroid’s position, astronomers have ruled out 1000 of the possible 3000 orbits of the asteroid. Of the remaining 2000 possible orbits, 10 orbits show the asteroid hitting Earth.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "15",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Has the probability of impact for this asteroid increased, decreased, or stayed the same as the result of making an additional observation of the asteroid’s location?"
+        }
+      ]
+    }
+  ]
+}

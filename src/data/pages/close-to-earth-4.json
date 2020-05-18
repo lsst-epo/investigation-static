@@ -1,0 +1,36 @@
+{
+  "id": "hazardous04",
+  "investigation": "hazardous-asteroids",
+  "order": "04",
+  "title": "Looking at Asteroids Close to Earth",
+  "slug": "close-to-earth-4/",
+  "previous": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-3/"
+  },
+  "next": {
+    "title": "Looking at Asteroids Close to Earth",
+    "link": "/close-to-earth-5/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Next, look at the orbit of the asteroid “Bennu”.</p><p>Click and drag in the window to look at the orbits of Bennu and Earth from many different angles.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "5",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Do you think Bennu could hit Earth? Explain your reasoning."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "hazardous18",
+  "investigation": "hazardous-asteroids",
+  "order": "18",
+  "title": "Identifying Potentially Hazardous Asteroids",
+  "slug": "identifying-pha-2/",
+  "previous": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/identifying-pha-1/"
+  },
+  "next": {
+    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "link": "/asteroid-impact/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>To estimate the size of an asteroid, we must know its absolute magnitude and albedo. The absolute magnitude can be thought of as the asteroid’s actual brightness, as opposed to how bright it appears to an observer on Earth. The light we see from asteroids is reflected sunlight. Asteroids don’t emit any light of their own, since they are icy or rocky objects. The absolute magnitudes of the brightest asteroids are around 3. Most of the asteroids that come close to Earth are very dim, with absolute magnitude values ranging from 18-24.</p><p>An asteroid’s albedo is a measure of the reflectivity of its surface. An object that is pure white reflects 100% of the light that hits it and has an albedo of 1. An object that is pure black reflects 0% of the light that hits it and has an albedo of 0. The albedo for an asteroid depends on its surface material and roughness, but it ranges from 0.05 (5%), which is similar to the amount of light that reflects from charcoal or a black top road, to 0.25 (25%), which is similar to the amount of sunlight that reflects from grass.</p><p>The equation for calculating the size of an asteroid is given by: __________</p><p>Where D is the diameter of the asteroid (in kilometers), H is the absolute magnitude of the asteroid, and p is the albedo of the asteroid. You can visit this website to calculate the diameter of an asteroid.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "32",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Calculate the diameter of an asteroid that has an absolute magnitude of 22.75 and an albedo of 0.14",
+          "placeholder": "Enter peak magnitude and albedo",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "33",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "If we know the orbit of this asteroid is going to come within 0.05 AU of Earth’s orbit (within the next one hundred years), then, based on the size you have calculated, is this asteroid potentially hazardous?"
+        }
+      ]
+    }
+  ]
+}

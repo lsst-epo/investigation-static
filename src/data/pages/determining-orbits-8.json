@@ -1,0 +1,17 @@
+{
+  "id": "hazardous15",
+  "investigation": "hazardous-asteroids",
+  "order": "15",
+  "title": "Determining the Orbit of an Asteroid",
+  "slug": "determining-orbits-8/",
+  "previous": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-7/"
+  },
+  "next": {
+    "title": "Identifying Potentially Hazardous Asteroids",
+    "link": "/identifying-pha/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Most often, newly discovered asteroids turn out to not be a threat to hit Earth. But Earth’s geologic record reveals 128 impact craters that are 6 km in diameter or larger (and many more smaller ones), evidence that motivates us to continue to be on the lookout for possible impactors.</p>"
+}

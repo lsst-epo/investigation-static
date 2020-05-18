@@ -1,0 +1,50 @@
+{
+  "id": "hazardous19",
+  "investigation": "hazardous-asteroids",
+  "order": "19",
+  "title": "Evaluating the Consequences of an Asteroid Impact",
+  "slug": "asteroid-impact/",
+  "previous": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/identifying-pha-2/"
+  },
+  "next": {
+    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "link": "/asteroid-impact-1/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>When an asteroid hits Earth, the amount of damage it causes depends primarily on the asteroid’s kinetic energy, which is given by the equation: KE = ½ mv2</p><p>In this equation KE is the kinetic energy of the asteroid, m is the mass, and v is its velocity. Note that the velocity is squared in the equation.</p><p>The table below lists the masses and velocities of three asteroids:</p>",
+  "tables": [
+    {
+      "id": "2",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "colTitles": [
+        "Asteroid",
+        "Mass",
+        "Velocity"
+      ],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [{"content": "15,000"}, {"content": "10,000"}],
+        [{"content": "10,000"}, {"content": "30,000"}],
+        [{"content": "20,000"}, {"content": "20,000"}]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "34",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Which of the asteroids in the table above would cause damage over the largest area if it hit Earth? Which would damage the smallest area? Explain your reasoning."
+        }
+      ]
+    }
+  ]
+}

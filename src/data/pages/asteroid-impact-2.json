@@ -1,0 +1,164 @@
+{
+  "id": "hazardous21",
+  "investigation": "hazardous-asteroids",
+  "order": "21",
+  "title": "Evaluating the Consequences of an Asteroid Impact",
+  "slug": "asteroid-impact-2/",
+  "previous": {
+    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "link": "/asteroid-impact-1/"
+  },
+  "next": {
+    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "link": "/reflect-discuss/"
+  },
+  "layout": "TwoCol",
+  "tables": [
+    {
+      "id": "2",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "colTitles": [
+        "Asteroid",
+        "Mass",
+        "Velocity"
+      ],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [{"content": "15,000"}, {"content": "10,000"}],
+        [{"content": "10,000"}, {"content": "30,000"}],
+        [{"content": "20,000"}, {"content": "20,000"}]
+      ]
+    },
+    {
+      "id": "5",
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      },
+      "colTitles": [
+        "Asteroid",
+        "Kinetic Energy",
+        "Approximate diameter of crater"
+      ],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [
+          { "accessor": "ke", "id": "35" },
+          { "accessor": "crater-diameter", "id": "38" }
+        ],
+        [
+          { "accessor": "ke", "id": "36" },
+          { "accessor": "crater-diameter", "id": "39" }
+        ],
+        [
+          { "accessor": "ke", "id": "37" },
+          { "accessor": "crater-diameter", "id": "40" }
+        ]
+      ]
+    },
+    {
+      "id": "6",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "colTitles": [
+        "Asteroid",
+        "Kinetic Energy",
+        "Approximate diameter of crater"
+      ],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [
+          { "accessor": "ke", "id": "35" },
+          { "accessor": "crater-diameter", "id": "38" }
+        ],
+        [
+          { "accessor": "ke", "id": "36" },
+          { "accessor": "crater-diameter", "id": "39" }
+        ],
+        [
+          { "accessor": "ke", "id": "37" },
+          { "accessor": "crater-diameter", "id": "40" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "38",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Estimate the diameter of the crater asteroid #1 would leave if it impacted earth",
+          "placeholder": "Enter kinetic energy",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "39",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Estimate the diameter of the crater asteroid #2 would leave if it impacted earth",
+          "placeholder": "Enter kinetic energy",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "40",
+          "questionType": "SizeCalculator",
+          "title": "Question #1",
+          "label": "Estimate the effect of asteroid #3 impacting earth",
+          "placeholder": "Enter kinetic energy",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "41",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "In light of these new claculation, was your original prediction about which asteroid would cause damage over the larget area correct? If not, what is the correct answer, and why you might have made an incorrect prediction."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "42",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Which factor has a greater influence on the size of the impact crater (i.e., causes damage over the largest area): the mass or the velocity of an asteroid?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "43",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Earth orbits the Sun counter-clockwise (as seen from the northern hemisphere). Which asteroid do you think would cause more damage: one that also orbits counter-clockwise, or one that orbits clockwise? (Hint: think about what would cause more damage in a car accident, a head-on collision or a car being rear-ended.) Explain."
+        }
+      ]
+    }
+  ]
+}

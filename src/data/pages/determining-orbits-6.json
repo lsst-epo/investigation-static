@@ -1,0 +1,66 @@
+{
+  "id": "hazardous13",
+  "investigation": "hazardous-asteroids",
+  "order": "13",
+  "title": "Determining the Orbit of an Asteroid",
+  "slug": "determining-orbits-6/",
+  "previous": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-4/"
+  },
+  "next": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-7/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Astronomers have now ruled out 2000 of the possible 3000 orbits of the asteroid. Of the remaining 1000 possible orbits, 10 orbits show the asteroid hitting Earth.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/nea_extended.json"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "23",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "The probability of impact for this asteroid has ",
+          "labelPost": ".",
+          "options": [
+            {"label": "increased", "value": "increased"},
+            {"label": "decreased", "value": "decreased"},
+            {"label": "stayed the same", "value": "stayed the same"}
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "24",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "How did the addition of more observations affect the total number of possible orbits and the probability of an impact happening?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "24",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Can follow-up observations of a new object be scheduled randomly? Why or why not? What’s the best timing strategy for successful detection of an newly-discovered asteroid in a new location?"
+        }
+      ]
+    }
+  ]
+}
