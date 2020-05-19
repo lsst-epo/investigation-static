@@ -50,17 +50,15 @@
     }
 
     &-stroke {
+      stroke: $chartColor;
+    }
+
+    &-stroke-light {
       stroke: lighten($chartColor, 5%);
     }
 
     &-color {
       color: $chartColor;
-    }
-
-    &-datapoints {
-      stroke-width: 1px !important;
-      stroke: $chartColor !important;
-      fill: transparentize($chartColor, 0.4);
     }
   }
 }

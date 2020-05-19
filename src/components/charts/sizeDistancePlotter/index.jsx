@@ -373,7 +373,8 @@ class SizeDistancePlotter extends React.Component {
                   const pointClasses = classnames(
                     setId,
                     styles.groupPoint,
-                    `color-${i + 1}-datapoints`
+                    `color-${i + 1}-stroke`,
+                    `color-${i + 1}-translucent-fill`
                   );
 
                   return (

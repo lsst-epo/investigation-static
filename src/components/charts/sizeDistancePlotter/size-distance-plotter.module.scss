@@ -18,7 +18,7 @@
 }
 
 .group-point {
-  stroke: none;
+  stroke-width: 1px;
   transition: stroke $timing $duration, opacity $timing $duration;
 }
 
