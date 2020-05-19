@@ -12,3 +12,6 @@
 
 [context."solar-system-staging"]
   command = "cross-env INVESTIGATION='solar-system' yarn deploy"
+
+[context."hazardous-asteroids-staging"]
+  command = "cross-env INVESTIGATION='hazardous-asteroids' yarn deploy"
