@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './select.module.scss';
+import classnames from 'classnames';
+import styles from './select.module.scss';
 
 class Select extends React.PureComponent {
   render() {
@@ -17,12 +18,17 @@ class Select extends React.PureComponent {
       className,
       disabled,
       showLabel,
+      inline,
     } = this.props;
 
+    const classes = classnames(styles.select, className, {
+      [styles.inlineSelect]: inline,
+    });
+
     return (
-      <div className={`select ${className}`}>
+      <div className={classes}>
         {showLabel && <label htmlFor={`select-${id}`}>{label}</label>}
-        <div className="select-wrapper">
+        <div className={styles.selectWrapper}>
           <select
             data-testid="select"
             id={`select-${id}`}
@@ -81,6 +87,7 @@ Select.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   showLabel: PropTypes.bool,
+  inline: PropTypes.bool,
 };
 
 export default Select;

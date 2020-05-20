@@ -6,7 +6,8 @@ import { checkIds } from '../../../../lib/utilities.js';
 import ConditionalWrapper from '../../../ConditionalWrapper';
 import Card from '../../../site/card';
 import Select from '../../../site/forms/select';
-import './qaSelect.module.scss';
+import styles from './qaSelect.module.scss';
+import qaStyles from '../../styles.module.scss';
 
 class QASelect extends React.PureComponent {
   constructor(props) {
@@ -91,24 +92,26 @@ class QASelect extends React.PureComponent {
     const active = ids ? checkIds(ids, activeId) : activeId === id;
     const { hasFocus, answerable } = this.state;
     const answered = !isEmpty(answer);
-    const cardClasses = classnames('qa-card', { active: hasFocus });
-    const selectClasses = classnames('qa-select', {
-      answered,
-      unanswered: !answered,
-      answerable: answerable || answered || active,
-      'inline-select': labelPre || labelPost,
+    const cardClasses = classnames(qaStyles.qaCard, {
+      [qaStyles.active]: hasFocus,
     });
-
+    const wrapperClasses = classnames(styles.qaSelect, {
+      [styles.answered]: answered,
+      [styles.unanswered]: !answered,
+      [styles.answerable]: answerable || answered || active,
+      [styles.inlineQaSelect]: labelPre || labelPost,
+    });
     return (
       <ConditionalWrapper
         condition={questionType !== 'compoundSelect'}
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
-        <div className={selectClasses}>
-          {labelPre && <span className="label-pre">{labelPre}&nbsp;</span>}
+        <div className={wrapperClasses}>
+          {labelPre && (
+            <span className={styles.labelPre}>{labelPre}&nbsp;</span>
+          )}
           <Select
-            id={`qa-${id}`}
-            className="answer-select"
+            id={`qa-select-${id}`}
             options={options}
             label={label || srLabel}
             name={label || srLabel}
@@ -119,9 +122,10 @@ class QASelect extends React.PureComponent {
             placeholder={placeholder}
             disabled={!(answerable || answered || active)}
             showLabel={!!label}
+            inline={labelPre || labelPost}
           />
           {labelPost && (
-            <span className="label-pre">&nbsp;{labelPost}&nbsp;</span>
+            <span className={styles.labelPost}>&nbsp;{labelPost}&nbsp;</span>
           )}
         </div>
       </ConditionalWrapper>

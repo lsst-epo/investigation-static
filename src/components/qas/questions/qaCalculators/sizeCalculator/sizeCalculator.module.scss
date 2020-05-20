@@ -1,61 +1,28 @@
-:global {
-  .md-text-field-container {
-    &:not(.answerable) {
-      label,
-      .md-floating-label,
-      .md-floating-label p {
-        color: $neutral20;
-      }
+.qa-calc {
+  @include copySecondary;
 
-      hr {
-        background-color: $neutral20;
-      }
-    }
-  }
-
-  .qa-card {
-    @include copySecondary;
-
+  :global {
     .md-card-text {
       padding: 16px 0;
     }
-  }
 
-  .md-text-field {
-    padding-left: $minPadding / 2;
-  }
+    .md-text-field-container {
+      &:not(.answerable) {
+        label,
+        .md-floating-label,
+        .md-floating-label p {
+          color: $neutral20;
+        }
 
-  .col-50 {
-    width: 50%;
-    min-width: 200px;
-  }
-
-  .inline-question {
-    display: inline-flex;
-    flex-flow: row nowrap;
-    align-items: flex-end;
-    justify-content: flex-start;
-
-    .margin-right-text {
-      margin-right: 3px;
+        hr {
+          background-color: $neutral20;
+        }
+      }
     }
-  }
 
-  .results-list {
-    margin-top: $minPadding;
-  }
-
-  .calculated-measurement {
-    input {
-      padding-left: 20px;
+    .md-text-field {
+      padding-left: $minPadding / 2;
     }
-  }
-
-  .underline-highlight {
-    display: inline-block;
-    min-width: 40%;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #333;
   }
 }
 
@@ -64,10 +31,6 @@
   white-space: nowrap;
 }
 
-.margin-top {
+.equation-wrapper {
   margin-top: $minPadding;
-}
-
-.align-items-center {
-  align-items: center;
 }

@@ -1,4 +1,4 @@
-:global .qa-select {
+.qa-select {
   label,
   .label-pre,
   .label-post {
@@ -39,10 +39,11 @@
   }
 
   &.answerable {
-    label, .label-pre {
+    label,
+    .label-pre,
+    .label-post {
       color: $basePrimary;
     }
-
   }
 
   &.answered {
@@ -50,4 +51,8 @@
       color: $black;
     }
   }
+}
+
+.inline-qa-select {
+  display: inline;
 }

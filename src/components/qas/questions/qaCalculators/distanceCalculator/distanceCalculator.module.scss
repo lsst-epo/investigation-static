@@ -1,48 +1,32 @@
-:global {
-  .md-text-field-container {
-    &:not(.answerable) {
-      label,
-      .md-floating-label,
-      .md-floating-label p {
-        color: $neutral20;
-      }
+.qa-calc {
+  font-size: 15px;
+  font-weight: $medium;
 
-      hr {
-        background-color: $neutral20;
-      }
-    }
-  }
-
-  .qa-card {
-    font-size: 15px;
-    font-weight: $medium;
-
+  :global {
     .md-card-text {
       padding: 16px 0;
     }
-  }
 
-  .inline-question {
-    display: inline-flex;
-    flex-flow: row nowrap;
-    align-items: flex-end;
-    justify-content: flex-start;
+    .md-text-field-container {
+      &:not(.answerable) {
+        label,
+        .md-floating-label,
+        .md-floating-label p {
+          color: $neutral20;
+        }
 
-    .margin-right-text {
-      margin-right: 3px;
+        hr {
+          background-color: $neutral20;
+        }
+      }
     }
   }
+}
 
-  .calculated-measurement {
-    input {
-      padding-left: 20px;
-    }
-  }
-
-  .underline-hightlight {
-    display: inline-block;
-    min-width: 40%;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #333;
+.calculation-block {
+  p {
+    font-size: 17px;
+    font-weight: $medium;
+    line-height: 1.5;
   }
 }

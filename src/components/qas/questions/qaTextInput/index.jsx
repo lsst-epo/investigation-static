@@ -6,8 +6,9 @@ import classnames from 'classnames';
 import TextField from '../../../site/forms/textField';
 import Card from '../../../site/card';
 import ConditionalWrapper from '../../../ConditionalWrapper';
-import { renderDef } from '../../../../lib/utilities.js';
-import './styles.module.scss';
+import { renderDef, checkIds } from '../../../../lib/utilities.js';
+import styles from './styles.module.scss';
+import qaStyles from '../../styles.module.scss';
 
 class TextInput extends React.PureComponent {
   constructor(props) {
@@ -22,10 +23,11 @@ class TextInput extends React.PureComponent {
 
   componentDidUpdate() {
     const { answerable } = this.state;
-    const { question, activeId } = this.props;
+    const { question, activeId, ids } = this.props;
     const { id } = question;
+    const active = ids ? checkIds(ids, activeId) : activeId === id;
 
-    this.checkAnswerable(answerable, activeId === id);
+    this.checkAnswerable(answerable, active);
   }
 
   checkAnswerable(answerable, active) {
@@ -52,17 +54,17 @@ class TextInput extends React.PureComponent {
     }));
   };
 
-  updateFocus(isFocus) {
+  updateFocus(focusStatus) {
     const { question, focusCallback, answerHandler } = this.props;
     const { id } = question;
     const { value } = this.state;
 
-    answerHandler(id, value || ' ', isFocus ? 'focus' : 'blur');
+    answerHandler(id, value || ' ', focusStatus ? 'focus' : 'blur');
 
     this.setState(
       prevState => ({
         ...prevState,
-        hasFocus: isFocus,
+        hasFocus: focusStatus,
       }),
       () => {
         if (focusCallback) {
@@ -96,17 +98,20 @@ class TextInput extends React.PureComponent {
     const rows = isTextArea ? { rows: 1, maxRows: 8 } : {};
     const active = activeId === id;
     const answered = !isEmpty(answer);
-    const cardClasses = classnames('qa-card', { active: hasFocus });
-    const labelClasses = classnames('label-pre', {
-      answered,
-      unanswered: !answered,
-      answerable: answerable || answered || active,
+    const cardClasses = classnames(qaStyles.qaCard, {
+      [qaStyles.active]: hasFocus,
     });
-    const fieldClasses = classnames('qa-text-input', {
+    const labelClasses = classnames(styles.label, {
       answered,
       unanswered: !answered,
+      [styles.answerable]: answerable || answered || active,
+    });
+    const fieldClasses = classnames(styles.qaTextInput, {
+      answered,
+      unanswered: !answered,
+      [styles.answerable]: answerable || answered || active,
       answerable: answerable || answered || active,
-      'inline-input': labelPre || labelPost,
+      [styles.inlineInput]: labelPre || labelPost,
     });
 
     return (
@@ -114,21 +119,17 @@ class TextInput extends React.PureComponent {
         condition={questionType !== 'compoundInput'}
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
-        {labelPre && (
-          <span
-            className={labelClasses}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-          >
-            {labelPre}&nbsp;
-          </span>
-        )}
+        {labelPre && <span className={labelClasses}>{labelPre}&nbsp;</span>}
         <TextField
           id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
           className={fieldClasses}
           type="text"
-          label={<div dangerouslySetInnerHTML={renderDef(label)} />}
+          label={
+            !labelPre &&
+            !labelPost && <div dangerouslySetInnerHTML={renderDef(label)} />
+          }
           lineDirection="center"
+          fullWidth={!(labelPre || labelPost)}
           placeholder={placeholder}
           {...rows}
           defaultValue={answered ? answer.content : ''}
@@ -151,6 +152,7 @@ TextInput.propTypes = {
   focusCallback: PropTypes.func,
   answerHandler: PropTypes.func,
   answer: PropTypes.object,
+  ids: PropTypes.array,
 };
 
 export default TextInput;

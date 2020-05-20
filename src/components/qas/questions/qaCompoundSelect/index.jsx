@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Card from '../../../site/card';
 import QASelect from '../qaSelect';
-import styles from './styles.module.scss';
+import { qaCard, active } from '../../styles.module.scss';
 
 class QACompoundSelect extends React.PureComponent {
   constructor(props) {
@@ -24,11 +24,11 @@ class QACompoundSelect extends React.PureComponent {
   render() {
     const { questions, activeId, answers, handleAnswerSelect } = this.props;
     const { hasFocus } = this.state;
-    const cardClasses = classnames('qa-card', { active: hasFocus });
+    const cardClasses = classnames(qaCard, { [active]: hasFocus });
 
     return (
       <Card className={cardClasses}>
-        <div className={styles.qaWrapper}>
+        <div className="qa-wrapper">
           {questions.map(question => {
             const { id, questionType } = question;
 

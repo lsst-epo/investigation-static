@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { CardText } from 'react-md';
@@ -10,6 +9,7 @@ import TextField from '../../../../site/forms/textField';
 import Card from '../../../../site/card';
 import { renderDef, formatValue } from '../../../../../lib/utilities.js';
 import styles from './sizeCalculator.module.scss';
+import qaStyles from '../../../styles.module.scss';
 
 const HIcon = () => {
   return <span className={styles.icon}>H =</span>;
@@ -132,20 +132,18 @@ class SizeCalculator extends React.PureComponent {
   render() {
     const { question, answer, activeId } = this.props;
     const {
-      // cardActive,
       hasFocus,
       answerable,
       value: { magnitude, albedo, diameter },
     } = this.state;
 
-    const { id, questionType, label, placeholder } = question;
-    const isTextArea = questionType === 'textArea';
+    const { id, label, placeholder } = question;
     const active = activeId === id;
     const answered = !isEmpty(answer);
-    const cardClasses = classnames('qa-card', {
-      active: hasFocus /* || cardActive */,
+    const cardClasses = classnames(qaStyles.qaCard, styles.qaCalc, {
+      [qaStyles.active]: hasFocus,
     });
-    const fieldClasses = classnames('qa-text-input', {
+    const fieldClasses = classnames('qa-calc-input', {
       answered,
       unanswered: !answered,
       answerable: answerable || answered || active,
@@ -158,41 +156,43 @@ class SizeCalculator extends React.PureComponent {
         onExpanderClick={() => {}}
       >
         <CardText>
-          <div className="col-50">
-            <TextField
-              id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
-              className={fieldClasses}
-              type="number"
-              min="0"
-              leftIcon={<HIcon />}
-              label={<div dangerouslySetInnerHTML={renderDef(label)} />}
-              lineDirection="center"
-              placeholder={placeholder}
-              defaultValue={answered ? magnitude : null}
-              onBlur={this.handleBlur}
-              onFocus={this.handleFocus}
-              onChange={value => this.handleChange(value, 'magnitude')}
-              disabled={!(answerable || answered || active)}
-            />
+          <div className="container-flex">
+            <div className="col-width-50">
+              <TextField
+                id={`text-input-${id}`}
+                className={fieldClasses}
+                type="number"
+                min="0"
+                leftIcon={<HIcon />}
+                label={<div dangerouslySetInnerHTML={renderDef(label)} />}
+                lineDirection="center"
+                placeholder={placeholder}
+                defaultValue={answered ? magnitude : null}
+                onBlur={this.handleBlur}
+                onFocus={this.handleFocus}
+                onChange={value => this.handleChange(value, 'magnitude')}
+                disabled={!(answerable || answered || active)}
+              />
+            </div>
+            <div className="col-width-50">
+              <TextField
+                id={`text-input-${id}`}
+                className={fieldClasses}
+                type="number"
+                min="0"
+                leftIcon={<PIcon />}
+                label={<div dangerouslySetInnerHTML={renderDef(label)} />}
+                lineDirection="center"
+                placeholder={placeholder}
+                defaultValue={answered ? albedo : null}
+                onBlur={this.handleBlur}
+                onFocus={this.handleFocus}
+                onChange={value => this.handleChange(value, 'albedo')}
+                disabled={!(answerable || answered || active)}
+              />
+            </div>
           </div>
-          <div className="col-50">
-            <TextField
-              id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
-              className={fieldClasses}
-              type="number"
-              min="0"
-              leftIcon={<PIcon />}
-              label={<div dangerouslySetInnerHTML={renderDef(label)} />}
-              lineDirection="center"
-              placeholder={placeholder}
-              defaultValue={answered ? albedo : null}
-              onBlur={this.handleBlur}
-              onFocus={this.handleFocus}
-              onChange={value => this.handleChange(value, 'albedo')}
-              disabled={!(answerable || answered || active)}
-            />
-          </div>
-          <div className={styles.marginTop}>
+          <div className={styles.equationWrapper}>
             <Equation
               component="FindDiameter"
               {...{ diameter, magnitude, albedo }}

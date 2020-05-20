@@ -1,9 +1,9 @@
 // // Text Input QAs
 // // --------------------------------------------------------
 
-:global {
-  .md-text-field-container {
-    &:not(.answerable) {
+.qa-text-input {
+  &:not(.answerable) {
+    :global {
       label,
       .md-floating-label,
       .md-floating-label p {
@@ -16,14 +16,27 @@
     }
   }
 
-  .inline-input {
-    display: inline-block;
-    max-width: 180px;
-    .md-text-field--floating-margin {
+}
+
+.inline-input {
+  display: inline-block;
+  max-width: 180px;
+
+  :global {
+    .md-text-field {
       margin-top: 0;
     }
+
     .md-divider--text-field {
       margin-top: 0;
     }
+  }
+}
+
+.label {
+  color: $neutral20;
+
+  &.answerable {
+    color: $basePrimary;
   }
 }
