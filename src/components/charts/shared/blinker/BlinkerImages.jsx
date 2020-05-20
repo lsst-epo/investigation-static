@@ -18,6 +18,25 @@ class BlinkerImages extends React.PureComponent {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    const { images: prevImages } = prevProps;
+    const { images } = this.props;
+
+    if (prevImages !== images) {
+      this.resetLoading();
+    }
+  }
+
+  resetLoading() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        imagesLoaded: 0,
+        loading: true,
+      };
+    });
+  }
+
   loadCallback = () => {
     const { images } = this.props;
     this.setState(prevState => {
@@ -39,7 +58,7 @@ class BlinkerImages extends React.PureComponent {
     const loadingClass = classnames(loadingContainer, {
       [loadingImages]: loading,
     });
-
+    // console.log(loading, images);
     return (
       <>
         <div className={blinkContainer} data-testid="blinker-images">
