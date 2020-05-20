@@ -9,6 +9,7 @@ import DistanceCalculator from './questions/qaCalculators/distanceCalculator';
 import SizeCalculator from './questions/qaCalculators/sizeCalculator';
 import Prompt from './questions/Prompt';
 import QAMultiSelect from './questions/qaMultiSelect/index.jsx';
+import { qa } from './styles.module.scss';
 
 const questions = {
   accordion: QAExpansionList,
@@ -45,7 +46,7 @@ class QA extends React.PureComponent {
   render() {
     const { questionType } = this.props;
     return (
-      <div className={`qa qa-${questionType.toLowerCase()}`}>
+      <div className={`${qa} qa-${questionType.toLowerCase()}`}>
         {this.renderQA()}
       </div>
     );

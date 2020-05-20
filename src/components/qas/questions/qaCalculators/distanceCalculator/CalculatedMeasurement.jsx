@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './calculation/calculation.module.scss';
+import { calculationBlock } from './distanceCalculator.module.scss';
 import { addTheCommas, toSigFigs } from '../../../../../lib/utilities';
 
 function CalculatedMeasurement({ unit, value }) {
@@ -13,7 +13,7 @@ function CalculatedMeasurement({ unit, value }) {
   };
 
   return (
-    <div className={styles.calculationBlock}>
+    <div className={calculationBlock}>
       <p>{`${labels[unit] || unit} = ${
         value ? addTheCommas(toSigFigs(value, 3)) : '?'
       }`}</p>

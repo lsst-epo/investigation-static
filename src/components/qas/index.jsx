@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QA from './QA';
 import QACompound from './questions/qaCompound';
-import './styles.module.scss';
+import { qa } from './styles.module.scss';
 
 class QAs extends React.PureComponent {
   render() {
@@ -25,8 +25,9 @@ class QAs extends React.PureComponent {
 
           if (q.length > 1) {
             return (
-              <div className="qa" key={key}>
+              <div className={qa}>
                 <QACompound
+                  key={key}
                   activeId={activeQuestionId}
                   questions={q}
                   answers={answers}

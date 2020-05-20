@@ -28,6 +28,7 @@ class ImageLoader extends React.PureComponent {
 
   handleLoading = () => {
     this.setState(() => ({ loaded: true }));
+    clearTimeout(this.timeFallback);
   };
 
   render() {

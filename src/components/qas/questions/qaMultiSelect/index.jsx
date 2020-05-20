@@ -6,9 +6,10 @@ import { DropdownMenu, SelectionControl } from 'react-md';
 import { checkIds } from '../../../../lib/utilities.js';
 import ConditionalWrapper from '../../../ConditionalWrapper';
 import Card from '../../../site/card';
-import styles from './qaMultiSelect.module.scss';
 import CheckBox from '../../../site/icons/CheckBox';
 import CheckBoxOutlineBlank from '../../../site/icons/CheckBoxOutlineBlank';
+import styles from './qaMultiSelect.module.scss';
+import qaStyles from '../../styles.module.scss';
 
 class QAMultiSelect extends React.PureComponent {
   constructor(props) {
@@ -93,7 +94,7 @@ class QAMultiSelect extends React.PureComponent {
       return (
         <SelectionControl
           key={`${option.label}_${option.value}`}
-          id={`qa-multi-select--${option.value}`}
+          id={`qa-multi-select-${option.value}`}
           checkedCheckboxIcon={<CheckBox />}
           uncheckedCheckboxIcon={<CheckBoxOutlineBlank />}
           name="selectedOptions[]"
@@ -122,12 +123,11 @@ class QAMultiSelect extends React.PureComponent {
     const active = ids ? checkIds(ids, activeId) : activeId === id;
     const { hasFocus, answerable, selectedOptions } = this.state;
     const answered = !isEmpty(answer);
-    const cardClasses = classnames('qa-card', { active: hasFocus });
-    const selectClasses = classnames('qa-multi-select', {
+    const cardClasses = classnames(qaStyles.qaCard, { active: hasFocus });
+    const selectClasses = classnames(styles.qaMultiSelect, {
       answered,
       unanswered: !answered,
-      answerable: answerable || answered || active,
-      'inline-select': labelPre || labelPost,
+      [styles.answerable]: answerable || answered || active,
     });
 
     return (
@@ -136,13 +136,15 @@ class QAMultiSelect extends React.PureComponent {
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
         <div className={selectClasses}>
-          {labelPre && <span className="label-pre">{labelPre}&nbsp;</span>}
+          {labelPre && (
+            <span className={styles.labelPre}>{labelPre}&nbsp;</span>
+          )}
           <DropdownMenu
             id="multi-select"
             className={styles.multiSelectDropdown}
             listStyle={{ paddingRight: '10px' }}
             menuItems={this.getMultiSelectOptions(options)}
-            toggleQuery=".multi-select--options"
+            toggleQuery=".toggle"
             onVisibilityChange={this.handleChange}
             anchor={{
               x: DropdownMenu.HorizontalAnchors.INNER_LEFT,
@@ -154,7 +156,8 @@ class QAMultiSelect extends React.PureComponent {
             <span
               label={label}
               className={classnames(
-                'multi-select--options',
+                'toggle',
+                styles.multiSelectOptions,
                 styles.selectedOptions
               )}
             >
@@ -162,7 +165,7 @@ class QAMultiSelect extends React.PureComponent {
             </span>
           </DropdownMenu>
           {labelPost && (
-            <span className="label-pre">&nbsp;{labelPost}&nbsp;</span>
+            <span className={styles.labelPost}>&nbsp;{labelPost}&nbsp;</span>
           )}
         </div>
       </ConditionalWrapper>

@@ -1,29 +1,15 @@
-:global {
-  .qas {
-    // &.form {
-    //   margin-top: 1.5 * $minPadding;
-    // }
-
-    > .qa {
-      + .qa {
-        margin-top: $minPadding / 4;
-      }
-    }
-
-    + .stellar-properties, + .hrd-observations, + .observations-table {
-      margin-top: 2 * $minPadding;
-    }
+.qa {
+  + .qa {
+    margin-top: $minPadding / 4;
   }
 }
 
-:global {
-  .qa-card {
-    padding: $minPadding;
-    transition: background $timing $durationSlow, box-shadow $timing $durationSlow;
+.qa-card {
+  padding: $minPadding;
+  transition: background $timing $durationSlow, box-shadow $timing $durationSlow;
 
-    &:not(.active) {
-      background: transparent;
-      box-shadow: none;
-    }
+  &:not(.active) {
+    background: transparent;
+    box-shadow: none;
   }
 }

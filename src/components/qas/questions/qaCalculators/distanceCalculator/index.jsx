@@ -1,12 +1,10 @@
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { CardText, CardActions } from 'react-md';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
-// import Calculation from '../shared/calculation';
-import CalculatedMeasurement from '../shared/CalculatedMeasurement';
+import CalculatedMeasurement from './CalculatedMeasurement';
 import Equation from '../shared/equation';
 import TextField from '../../../../site/forms/textField';
 import Card from '../../../../site/card';
@@ -18,7 +16,8 @@ import {
   solveForLightYears,
   solveForMegaLightYears,
 } from './distanceCalculatorUtilities.js';
-import './distanceCalculator.module.scss';
+import { inlineQuestion, qaCalc } from './distanceCalculator.module.scss';
+import styles from '../../../styles.module.scss';
 
 const LeftIcon = () => {
   return <div>m =</div>;
@@ -144,12 +143,7 @@ class DistanceCalculator extends React.PureComponent {
 
   render() {
     const { question, answer, activeId } = this.props;
-    const {
-      // cardActive,
-      hasFocus,
-      answerable,
-      value,
-    } = this.state;
+    const { hasFocus, answerable, value } = this.state;
     const {
       magnitude,
       distanceModulus,
@@ -159,12 +153,11 @@ class DistanceCalculator extends React.PureComponent {
       megaLightYears,
     } = value || {};
 
-    const { id, questionType, label, placeholder } = question;
-    const isTextArea = questionType === 'textArea';
+    const { id, label, placeholder } = question;
     const active = activeId === id;
     const answered = !isEmpty(answer);
-    const cardClasses = classnames('qa-card', {
-      active: hasFocus /* || cardActive */,
+    const cardClasses = classnames(styles.qaCard, qaCalc, {
+      [styles.active]: hasFocus,
     });
     const fieldClasses = classnames('qa-text-input', {
       answered,
@@ -179,9 +172,9 @@ class DistanceCalculator extends React.PureComponent {
         onExpanderClick={() => {}}
       >
         <CardText>
-          <div className="inline-question">
+          <div className={inlineQuestion}>
             <TextField
-              id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
+              id={`text-input-${id}`}
               className={fieldClasses}
               type="number"
               min="0"

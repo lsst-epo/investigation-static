@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import FindDiameter from './FindDiameter';
 import FindDistanceModulus from './FindDistanceModulus';
 import FindParsecs from './FindParsecs';
-import './equation.module.scss';
+import { equationContainer } from './equation.module.scss';
 
 export function DefaultEquation(props) {
   const { solution, equation } = props;
@@ -31,7 +31,7 @@ export default function Equation(props) {
   const LoadedComponent = components[component];
 
   return (
-    <div className="equation--container">
+    <div className={equationContainer}>
       {<LoadedComponent {...props} /> || <DefaultEquation {...props} />}
     </div>
   );

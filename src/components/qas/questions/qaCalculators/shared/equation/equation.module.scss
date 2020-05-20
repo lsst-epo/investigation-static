@@ -1,35 +1,29 @@
-:global {
-  .equation--container {
-    margin-bottom: 20px;
+.equation-container {
+  margin-bottom: 20px;
+}
 
-    .equation {
-      font-size: 17px;
-      font-weight: $medium;
-    }
-  }
+.equation {
+  font-size: 17px;
+  font-weight: $medium;
+}
 
-  .color {
-    color: $basePrimary;
-  }
+.fraction {
+  @include fraction;
+}
 
-  .fraction {
-    @include fraction;
+.exponent {
+  @include exponent;
+  position: relative;
+  top: -7px;
+  left: -3px;
+}
 
-    &.exponent {
-      @include exponent;
-    }
-  }
+.color {
+  color: $basePrimary;
+}
 
-  .exponent {
-    @include exponent;
-    position: relative;
-    top: -7px;
-    left: -3px;
-  }
-
-  .square-root {
-    &::before {
-      content: '√';
-    }
+.square-root {
+  &::before {
+    content: '√';
   }
 }
