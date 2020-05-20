@@ -16,3 +16,59 @@
   padding: $minPadding;
   color: $white;
 }
+
+.padded-drawer-inner {
+  padding: 0 0 0 72px;
+  outline: none;
+}
+
+.nav-item {
+  :global {
+    .md-list-tile {
+      background-color: $neutral10;
+      transition: background-color $timing $duration;
+
+      .md-tile-addon {
+        color: $basePrimary;
+        transition: color $timing $duration;
+      }
+
+      // .md-text {
+      //   color: $basePrimary;
+      // }
+
+      &:hover {
+        background-color: $basePrimary;
+
+        .md-tile-addon {
+          color: $white;
+        }
+
+        .md-tile-text--primary,
+        .md-tile-text--primary.md-text--theme-primary,
+        .md-text {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &.active-item {
+    :global {
+      .md-list-tile {
+        background-color: $basePrimary;
+
+        .md-tile-addon {
+          color: $white;
+        }
+
+        .md-tile-text--primary,
+        .md-tile-text--primary.md-text--theme-primary,
+        .md-text {
+          /* stylelint-disable-next-line declaration-no-important */
+          color: $white !important;
+        }
+      }
+    }
+  }
+}

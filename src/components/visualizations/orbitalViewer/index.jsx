@@ -6,22 +6,16 @@ import CameraController from './CameraController.jsx';
 import Orbitals from './Orbitals.jsx';
 import Controls from './controls/index.jsx';
 import PlaybackSpeed from './PlaybackSpeed.jsx';
-import Details from './OrbitalDetails.jsx';
 
 import { container } from './orbital-viewer.module.scss';
 
-function OrbitalViewer({ neos }) {
+function OrbitalViewer({ neos, activeNeo, updateActiveNeo }) {
   const speeds = [0.25, 0.5, 1, 10, 30];
 
-  const [activeNeo, setActiveNeo] = useState(null);
   const [playing, setPlaying] = useState(true);
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
   const [dayPerVizSec, setDayPerVizSec] = useState(speeds[0]);
-
-  function updateActive(neo) {
-    setActiveNeo(neo === activeNeo ? null : neo);
-  }
 
   const handleStartStop = () => {
     setPlaying(!playing);
@@ -59,7 +53,7 @@ function OrbitalViewer({ neos }) {
           <ambientLight intensity={0.9} />
           <Orbitals
             includeRefObjs
-            selectionCallback={updateActive}
+            selectionCallback={updateActiveNeo}
             {...{
               neos,
               activeNeo,
@@ -105,13 +99,14 @@ function OrbitalViewer({ neos }) {
           }}
         />
       </div>
-      <Details data={activeNeo} />
     </div>
   );
 }
 
 OrbitalViewer.propTypes = {
   neos: PropTypes.array,
+  activeNeo: PropTypes.object,
+  updateActiveNeo: PropTypes.func,
 };
 
 export default OrbitalViewer;
