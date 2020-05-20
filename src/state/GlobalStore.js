@@ -25,8 +25,9 @@ class GlobalStore {
 
     // const existingState = this.emptyState;
     const existingState = ls(investigation) || this.emptyState;
-
     setGlobal(existingState);
+    this.addCallbacks();
+    this.addReducers();
   }
 
   addCallbacks() {
@@ -40,14 +41,6 @@ class GlobalStore {
     addReducer('empty', () => {
       return this.emptyState;
     });
-
-    // addReducer(
-    //   'updateGlobalFromInvestigation',
-    //   (global, dispatch, investigationId) => {
-    //     console.log(investigationId, ls(investigationId) || this.emptyState);
-    //     return ls(investigationId) || this.emptyState;
-    //   }
-    // );
 
     addReducer('updatePageId', (global, dispatch, pageId) => {
       const {

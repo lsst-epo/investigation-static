@@ -8,7 +8,6 @@ import GlobalStore from '../state/GlobalStore';
 import SEO from '../components/seo';
 import Header from '../components/site/header';
 import TableOfContents from '../components/site/tableOfContents';
-// import LandingPage from '../components/site/LandingPage.jsx';
 import logo from '../images/lsst-logo.svg';
 
 import styles from './layout.module.scss';
@@ -29,8 +28,6 @@ class Layout extends React.Component {
     };
 
     this.store = new GlobalStore(this.getInitialGlobals());
-    this.store.addCallbacks();
-    this.store.addReducers();
   }
 
   getTotalQAs() {
