@@ -25,9 +25,8 @@ class QAs extends React.PureComponent {
 
           if (q.length > 1) {
             return (
-              <div className={qa}>
+              <div className={qa} key={key}>
                 <QACompound
-                  key={key}
                   activeId={activeQuestionId}
                   questions={q}
                   answers={answers}

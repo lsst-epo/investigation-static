@@ -1,10 +1,3 @@
-.padded-drawer-inner-left {
-  $asideWidth: 100px;
-  padding-left: $asideWidth + $minPadding;
-  background: #000000;
-  outline: none;
-}
-
 .nav-item-text {
   font-size: 14px;
   white-space: nowrap;
@@ -13,11 +6,24 @@
 .wider-drawer-container {
   position: relative;
   box-shadow: none;
+  $miniWidth: 115px;
 
-  :global .md-drawer--mini {
-    width: 100px;
-    height: 100%;
-    background-color: $neutral10;
+  :global {
+    .md-drawer--mini {
+      width: $miniWidth;
+      height: 100%;
+      background-color: $neutral10;
+    }
+
+    .md-drawer .md-list .md-fake-btn {
+      padding: $minPadding + ($minPadding / 2) $minPadding;
+    }
+  }
+
+  .padded-drawer-inner-left {
+    padding-left: $miniWidth + $minPadding;
+    background: #000000;
+    outline: none;
   }
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
 import { axisLeft as d3AxisLeft } from 'd3-axis';
+import { axisLabel, axis } from './histogram.module.scss';
 
 class YAxis extends React.Component {
   constructor(props) {
@@ -25,13 +26,13 @@ class YAxis extends React.Component {
       <>
         <g
           key="y-axis"
-          className="y-axis axis"
+          className={`y-axis ${axis}`}
           transform={`translate(${padding}, ${offsetTop})`}
           ref={this.yAxisContainer}
         />
         <text
           key="y-axis-label"
-          className="y-axis-label"
+          className={`y-axis-label ${axisLabel}`}
           transform={`translate(${15},
            ${(height - padding + offsetTop) / 2}) rotate(-90)`}
           style={{ textAnchor: 'middle' }}
