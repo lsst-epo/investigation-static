@@ -101,6 +101,7 @@ class QASelect extends React.PureComponent {
       [styles.answerable]: answerable || answered || active,
       [styles.inlineQaSelect]: labelPre || labelPost,
     });
+
     return (
       <ConditionalWrapper
         condition={questionType !== 'compoundSelect'}
@@ -122,7 +123,7 @@ class QASelect extends React.PureComponent {
             placeholder={placeholder}
             disabled={!(answerable || answered || active)}
             showLabel={!!label}
-            inline={labelPre || labelPost}
+            inline={!!labelPre || !!labelPost}
           />
           {labelPost && (
             <span className={styles.labelPost}>&nbsp;{labelPost}&nbsp;</span>

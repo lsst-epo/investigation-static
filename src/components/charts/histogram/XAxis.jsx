@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
 import { axisBottom as d3AxisBottom } from 'd3-axis';
 import { format as d3Format } from 'd3-format';
+import { axisLabel, axis } from './histogram.module.scss';
 
 class XAxis extends React.Component {
   constructor(props) {
@@ -100,13 +101,13 @@ class XAxis extends React.Component {
       <>
         <g
           key="x-axis"
-          className="x-axis axis"
+          className={`x-axis ${axis}`}
           transform={`translate(0, ${height - padding + offsetTop})`}
           ref={this.xAxisContainer}
         />
         <text
           key="x-axis-label"
-          className="x-axis-label"
+          className={`x-axis-label ${axisLabel}`}
           transform={`translate(${(width + padding + offsetRight) / 2},
            ${height - padding * 0.15})`}
           style={{ textAnchor: 'middle' }}

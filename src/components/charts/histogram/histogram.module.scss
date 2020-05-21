@@ -1,5 +1,11 @@
-.tick {
-  @include labelPrimary;
+.axis-label {
+  @include copySecondary;
+}
+
+.axis {
+  :global .tick {
+    @include labelPrimary;
+  }
 }
 
 .data-bar {
@@ -57,12 +63,26 @@
 .container {
   position: relative;
   box-shadow: none;
+  $miniWidth: 100px;
+
+  :global {
+    .md-drawer--mini {
+      width: $miniWidth;
+      height: 100%;
+      background-color: $neutral10;
+    }
+
+    .md-drawer .md-list .md-fake-btn {
+      padding: $minPadding + ($minPadding / 2) $minPadding;
+    }
+  }
+
+  .padded-drawer-inner {
+    padding: $minPadding $minPadding $minPadding $miniWidth + $minPadding;
+    outline: none;
+  }
 }
 
-.padded-drawer-inner {
-  padding: $minPadding $minPadding $minPadding 72px;
-  outline: none;
-}
 
 // mini drawer
 aside {
@@ -75,12 +95,11 @@ aside {
       display: flex;
       flex-wrap: nowrap;
       align-items: center;
-      justify-content: space-between;
-      width: 100%;
     }
 
     .bar-avatar {
       width: 12px;
+      min-width: 12px;
       height: 20px;
       margin-right: $minPadding / 2;
       border: 1px solid $black;
@@ -95,6 +114,11 @@ aside {
     :global {
       .md-icon {
         fill: $basePrimary;
+      }
+
+      .md-tile-addon {
+        display: block;
+        width: 100%;
       }
     }
 
