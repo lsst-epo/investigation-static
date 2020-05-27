@@ -17,7 +17,7 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/nea_extended.json"
+      "source": "/data/neos/nea_extended_sample.json"
     }
   ],
   "tables": [
