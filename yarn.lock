@@ -888,10 +888,17 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.7.4", "@babel/runtime@^7.8.3", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.7.4", "@babel/runtime@^7.8.3":
   version "7.9.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
   integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.9.2":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.0.tgz#2cdcd6d7a391c24f7154235134c830cfb58ac0b1"
+  integrity sha512-tgYb3zVApHbLHYOPWtVwg25sBqHhfBXRKeKoTIyoheIxln1nA7oBl7SfHfiTG2GhDPI8EUBkOD/0wJCP/3HN4Q==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -1416,7 +1423,7 @@
   dependencies:
     core-js "^2.5.7"
 
-"@juggle/resize-observer@^3.1.2":
+"@juggle/resize-observer@^3.1.3":
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.1.3.tgz#d7373eb9a1afc371342b8cf1a07e34368f3d65d7"
   integrity sha512-y7qc6SzZBlSpx8hEDfV0S9Cx6goROX/vBhS2Ru1Q78Jp1FlCMbxp7UcAN90rLgB3X8DSMBgDFxcmoG/VfdAhFA==
@@ -12336,9 +12343,9 @@ react-motion@^0.5.0:
     raf "^3.1.0"
 
 react-promise-suspense@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/react-promise-suspense/-/react-promise-suspense-0.3.2.tgz#202555b449cfb918f985aa93596029d842c4dcb4"
-  integrity sha512-1HAhT6eCSaeAp/u1mDsWgWQQDX/IhNjYAl4novVXq4DhH+AQPYEdagZM8M5SXI5qgbmmbcTZOqioH7MpsBmr8Q==
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/react-promise-suspense/-/react-promise-suspense-0.3.3.tgz#b085c7e0ac22b85fd3d605b1c4f181cda4310bc9"
+  integrity sha512-OdehKsCEWYoV6pMcwxbvJH99UrbXylmXJ1QpEL9OfHaUBzcAihyfSJV8jFq325M/wW9iKc/BoiLROXxMul+MxA==
   dependencies:
     fast-deep-equal "^2.0.1"
 
@@ -12424,12 +12431,12 @@ react-test-renderer@^16.13.1:
     scheduler "^0.19.1"
 
 react-three-fiber@^4.0.25:
-  version "4.0.25"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-4.0.25.tgz#222af36e0df23b5d99a51bd5062db4f64214b4a2"
-  integrity sha512-0lviEXsNB6G+QczQ937Sac6g6+dnXTFcUBZMb5vtKK3nr27UgzIAKT3xglgKKybSlIMs+wJlZNlSHc02SxtjAQ==
+  version "4.2.7"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-4.2.7.tgz#1dcae4300f24ca07d76b72aef050984039908229"
+  integrity sha512-MMJL5M1IVFrdLoPwqZuCVpPhO4+AUmw6sabajabT6276fmn5NOYnmxAMI1YLJt7dMBftUv8lrj0wFhOVvpU9aQ==
   dependencies:
     "@babel/runtime" "^7.9.2"
-    "@juggle/resize-observer" "^3.1.2"
+    "@juggle/resize-observer" "^3.1.3"
     react-merge-refs "^1.0.0"
     react-promise-suspense "^0.3.2"
     react-reconciler "0.25.1"
