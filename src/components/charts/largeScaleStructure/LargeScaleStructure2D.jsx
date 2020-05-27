@@ -43,6 +43,22 @@ class LargeScaleStructure2D extends React.PureComponent {
         min: dec.min,
         max: dec.max,
       }),
+      dataZoom: [
+        {
+          type: 'inside',
+          // show: false,
+          xAxisIndex: [0],
+          minSpan: 20,
+          maxSpan: 100,
+        },
+        {
+          type: 'inside',
+          // show: false,
+          yAxisIndex: [0],
+          minSpan: 20,
+          maxSpan: 100,
+        },
+      ],
       series: [
         getSeries('Data Point', {
           data,
