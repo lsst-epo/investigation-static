@@ -135,8 +135,7 @@
           "id": "76",
           "questionType": "text",
           "label": "<p>Who has the most distant supernova in your group/class? What is its distance in light years?</p>",
-          "answerAccessor": "text",
-          "layout": "top"
+          "answerAccessor": "text"
         }
       ]
     }
