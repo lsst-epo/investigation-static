@@ -10,19 +10,14 @@
   },
   "next": {
     "title": "The Large-Scale Structure of the Universe",
-    "link": "/change-over-time-2/"
+    "link": "/change-over-time-4/"
   },
   "layout": "SingleCol",
-  "content": "<p>Rubin Observatory has discovered so many galaxies in the Universe that, if we were to display them all on a map of the sky, they could not be counted by eye. To work with very large numbers of galaxies, astronomers use <i>concentration maps</i>.</p><p>Concentration maps use colors to represent how many galaxies are in a particular area. They are like population density maps. Areas of high population density show many people living in a relatively small area. <a target='_blank' href='http://luminocity3d.org/WorldPopDen/#3/12.00/10.00'>Look at this example</a>.</p>",
+  "content": "<p>The distribution and concentration of matter in the Universe for sizes larger than a galaxy is called the <strong>large-scale structure</strong> of the Universe. Astronomers can measure the distance to billions of galaxies using data from Rubin Observatory. Using the distances and position of galaxies, astronomers can create a map of the observable Universe that reveals this large-scale structure.</p><p>Here is a series of maps that show the galaxies detected by Rubin Observatory at certain distances away from Earth. The distances are expressed as redshift numbers. Lower redshift numbers are closer to Earth, and higher redshift numbers represent farther distances. Each map can be thought of as a view back to a particular time in the history of the Universe—at greater distances we see the Universe as it was at earlier times.</p><p>Switch between the different redshift ranges to explore how the Universe has changed over time.</p>",
   "widgets": [
     {
       "type": "LargeScaleStructure",
-      "source": "/data/galaxies/eboss_ardis_dataset.json",
-      "options": {},
-      "layout": {
-        "col": "",
-        "row": "bottom"
-      }
+      "source": "/data/galaxies/eboss_ardis_dataset.json"
     }
   ],
   "questionsByPage": [
@@ -30,10 +25,44 @@
       "question": [
         {
           "id": "19",
+          "questionType": "select",
+          "answerAccessor": "data",
+          "title": "Question #1",
+          "label": "Look at the map of the farthest distance. Does this map represent a time long ago (early in the Universe) or a recent time (later in the history of the Universe)?",
+          "options": [
+            { "label": "long ago", "value": "long ago" },
+            { "label": "recent", "value": "recent" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "20",
+          "questionType": "select",
+          "answerAccessor": "data",
+          "title": "Question #2",
+          "label": "Look at the map of the closest distance. Does this map represent a time long ago (early in the Universe) or a recent time (later in the history of the Universe)?",
+          "options": [
+            { "label": "long Ago", "value": "long Ago" },
+            { "label": "recent", "value": "recent" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "21",
           "questionType": "text",
           "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Name a city in your country that has a high population density."
+          "title": "Question #3",
+          "label": "Describe how the <em>distribution</em> of galaxies in the Universe has changed over time. When were large numbers of galaxies clumped together (more concentrated) in some places? When were galaxies distributed more evenly?"
         }
       ]
     }
