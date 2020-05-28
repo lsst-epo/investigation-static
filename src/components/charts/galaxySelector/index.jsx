@@ -32,7 +32,7 @@ class GalaxySelector extends React.PureComponent {
     };
 
     this.svgEl = React.createRef();
-    this.blinkerInterval = null;
+    this.blinkerInterval = 0;
   }
 
   componentDidMount() {
@@ -62,18 +62,17 @@ class GalaxySelector extends React.PureComponent {
       yDomain,
     } = this.props;
     const { playing } = this.state;
-    const isNewData = prevProps.data !== data;
+    // const isNewData = prevProps.data !== data;
     const isNewActiveGalaxy = prevProps.activeGalaxy !== activeGalaxy;
     const isNewSelectedData = prevProps.selectedData !== selectedData;
 
-    if (isNewData || isNewActiveGalaxy || isNewSelectedData) {
+    if (isNewActiveGalaxy || isNewSelectedData) {
       this.updatePoints();
       this.setSelection(preSelected ? data : selectedData);
-
       if (!playing) {
         this.stopBlink();
       } else if (playing) {
-        this.restartBlink();
+        this.startBlink();
       }
     }
 
@@ -161,60 +160,33 @@ class GalaxySelector extends React.PureComponent {
     return { activeImageId, activeImageIndex, activeAlert };
   }
 
-  restartBlink() {
-    clearInterval(this.blinkerInterval);
-    const { images } = this.props;
-
-    this.setState(
-      prevState => ({
-        ...prevState,
-        playing: true,
-      }),
-      () => {
-        this.blinkerInterval = setInterval(() => {
-          this.nextBlink(images);
-        }, 200);
-      }
-    );
-  }
-
   startBlink() {
-    const { images } = this.props;
+    clearInterval(this.blinkerInterval);
+    this.blinkerInterval = setInterval(this.nextBlink, 200);
 
-    this.setState(
-      prevState => ({
-        ...prevState,
-        playing: true,
-      }),
-      () => {
-        this.blinkerInterval = setInterval(() => {
-          this.nextBlink(images);
-        }, 200);
-      }
-    );
+    this.setState(prevState => ({
+      ...prevState,
+      playing: true,
+    }));
   }
 
   stopBlink() {
-    this.setState(
-      prevState => ({
-        ...prevState,
-        playing: false,
-      }),
-      () => {
-        clearInterval(this.blinkerInterval);
-      }
-    );
+    clearInterval(this.blinkerInterval);
+    this.setState(prevState => ({
+      ...prevState,
+      playing: false,
+    }));
   }
 
-  nextBlink(images) {
-    const { blinkCallback } = this.props;
+  nextBlink = () => {
+    const { blinkCallback, images } = this.props;
     blinkCallback(this.getBlink(images, 1));
-  }
+  };
 
-  previousBlink(images) {
-    const { blinkCallback } = this.props;
+  previousBlink = () => {
+    const { blinkCallback, images } = this.props;
     blinkCallback(this.getBlink(images, -1));
-  }
+  };
 
   startStopBlink = () => {
     const { playing } = this.state;

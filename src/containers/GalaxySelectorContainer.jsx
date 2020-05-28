@@ -28,8 +28,10 @@ class GalaxySelectorContainer extends React.PureComponent {
     this.state = {
       data: null,
       plottedData: null,
+      selectedData: null,
       plotIsOpen: false,
       activeGalaxy: null,
+      activeGalaxyPointData: null,
       activeAlert: null,
       activeImageIndex: 0,
       activeImageId: null,
@@ -56,20 +58,65 @@ class GalaxySelectorContainer extends React.PureComponent {
         ...prevState,
         activeAlert: alerts[0],
         activeGalaxy: data[0],
+        activeGalaxyPointData: getGalaxyPointData(data[0]),
         data,
         plottedData: getHubblePlotData(data, options, answers),
       }));
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { options, answers } = this.props;
+    const {
+      createUserHubblePlot: hubbleQId,
+      toggleDataPointsVisibility: selectorQId,
+    } = options || {};
+    const answer = answers[hubbleQId];
+    const answerSelected = answers[selectorQId];
+    const { data, activeGalaxy } = this.state;
+    const { answers: prevAnswers } = prevProps;
+    const answerPrev = prevAnswers[hubbleQId];
+    const answerPrevSelected = prevAnswers[selectorQId];
+    const { data: prevData, activeGalaxy: prevActiveGalaxy } = prevState;
+
+    if (data !== prevData || answer !== answerPrev) {
+      this.updateHubblePlotData(data, options, answers);
+    }
+
+    if (
+      activeGalaxy !== prevActiveGalaxy ||
+      answerSelected !== answerPrevSelected
+    ) {
+      this.updateSelectedData(activeGalaxy, answers, selectorQId);
+    }
+  }
+
+  updateHubblePlotData(data, options, answers) {
+    this.setState(prevState => ({
+      ...prevState,
+      plottedData: getHubblePlotData(data, options, answers),
+    }));
+  }
+
+  updateSelectedData(activeGalaxy, answers, qId) {
+    this.setState(prevState => ({
+      ...prevState,
+      selectedData: getSelectedData(activeGalaxy, answers, qId),
+    }));
+  }
+
   chooseGalaxyAndClosePlot(event, activeGalaxy) {
     if (event) {
+      const { answers, options } = this.props;
+      const { toggleDataPointsVisibility: qId } = options || {};
       const { alerts } = activeGalaxy;
       const activeAlert = alerts[0];
 
       this.setState(prevState => ({
         ...prevState,
         activeGalaxy,
+        activeGalaxyPointData: getGalaxyPointData(activeGalaxy),
+        selectedData: getSelectedData(activeGalaxy, answers, qId),
         activeImageIndex: 0,
         activeImageId: activeAlert.image_id,
         activeAlert: alerts[0],
@@ -101,9 +148,14 @@ class GalaxySelectorContainer extends React.PureComponent {
   };
 
   goToGalaxy(direction) {
-    const { activeGalaxy: oldActiveGalaxy, data, plotIsOpen } = this.state;
+    const {
+      activeGalaxy: oldActiveGalaxy,
+      data,
+      plotIsOpen,
+      selectedData,
+    } = this.state;
     const { answers, options } = this.props;
-    const { toggleDataPointsVisibility } = options || {};
+    const { toggleDataPointsVisibility: qId } = options || {};
     const lastIndex = data.length - 1;
     const oldIndex = data.indexOf(oldActiveGalaxy);
     const index = oldIndex + direction;
@@ -117,9 +169,7 @@ class GalaxySelectorContainer extends React.PureComponent {
       activeGalaxy = data[index];
     }
 
-    const galSnSelected =
-      (getSelectedData(activeGalaxy, answers, toggleDataPointsVisibility) || [])
-        .length >= 2;
+    const galSnSelected = selectedData.length >= 2;
 
     if (plotIsOpen && !galSnSelected) this.handleSlideOutPlot();
 
@@ -129,6 +179,8 @@ class GalaxySelectorContainer extends React.PureComponent {
     this.setState(prevState => ({
       ...prevState,
       activeGalaxy,
+      activeGalaxyPointData: getGalaxyPointData(activeGalaxy),
+      selectedData: getSelectedData(activeGalaxy, answers, qId),
       activeImageIndex: 0,
       activeImageId: activeAlert.image_id,
       activeAlert,
@@ -228,17 +280,13 @@ class GalaxySelectorContainer extends React.PureComponent {
       data,
       plotIsOpen,
       activeGalaxy,
+      activeGalaxyPointData,
       plottedData,
+      selectedData,
     } = this.state;
 
-    const { answers, options } = this.props;
-    const { toggleDataPointsVisibility, image, autoplay } = options || {};
-
-    const selectedData = getSelectedData(
-      activeGalaxy,
-      answers,
-      toggleDataPointsVisibility
-    );
+    const { options } = this.props;
+    const { image, autoplay } = options || {};
 
     return (
       <>
@@ -261,7 +309,7 @@ class GalaxySelectorContainer extends React.PureComponent {
               <GalaxySelector
                 className={`galaxy-selector-${data.name}`}
                 {...{ selectedData, activeGalaxy, autoplay }}
-                data={getGalaxyPointData(activeGalaxy)}
+                data={activeGalaxyPointData}
                 alerts={activeGalaxy ? activeGalaxy.alerts : []}
                 image={image}
                 images={activeGalaxy ? activeGalaxy.images : []}
