@@ -137,17 +137,19 @@ class SizeCalculator extends React.PureComponent {
       value: { magnitude, albedo, diameter },
     } = this.state;
 
-    const { id, label, placeholder } = question;
+    const { id, label } = question;
     const active = activeId === id;
     const answered = !isEmpty(answer);
+    const answeredClasses = {
+      answered,
+      unanswered: !answered,
+      [styles.answerable]: answerable || answered || active,
+    };
     const cardClasses = classnames(qaStyles.qaCard, styles.qaCalc, {
       [qaStyles.active]: hasFocus,
     });
-    const fieldClasses = classnames('qa-calc-input', {
-      answered,
-      unanswered: !answered,
-      answerable: answerable || answered || active,
-    });
+    const fieldClasses = classnames('qa-calc-input', answeredClasses);
+    const labelClasses = classnames(styles.calcLabel, answeredClasses);
 
     return (
       <Card
@@ -156,6 +158,10 @@ class SizeCalculator extends React.PureComponent {
         onExpanderClick={() => {}}
       >
         <CardText>
+          <div
+            className={labelClasses}
+            dangerouslySetInnerHTML={renderDef(label)}
+          />
           <div className="container-flex">
             <div className="col-width-50">
               <TextField
@@ -164,9 +170,8 @@ class SizeCalculator extends React.PureComponent {
                 type="number"
                 min="0"
                 leftIcon={<HIcon />}
-                label={<div dangerouslySetInnerHTML={renderDef(label)} />}
                 lineDirection="center"
-                placeholder={placeholder}
+                placeholder="magnitude"
                 defaultValue={answered ? magnitude : null}
                 onBlur={this.handleBlur}
                 onFocus={this.handleFocus}
@@ -181,9 +186,8 @@ class SizeCalculator extends React.PureComponent {
                 type="number"
                 min="0"
                 leftIcon={<PIcon />}
-                label={<div dangerouslySetInnerHTML={renderDef(label)} />}
                 lineDirection="center"
-                placeholder={placeholder}
+                placeholder="albedo"
                 defaultValue={answered ? albedo : null}
                 onBlur={this.handleBlur}
                 onFocus={this.handleFocus}

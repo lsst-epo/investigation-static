@@ -6,6 +6,8 @@ import {
   exponent,
   color,
   squareRoot,
+  numerator,
+  denominator,
 } from './equation.module.scss';
 
 export default function FindDiameter(props) {
@@ -15,8 +17,8 @@ export default function FindDiameter(props) {
     <p className={equation}>
       <span>D = </span>
       <span className={fraction}>
-        <span className="numerator">1329</span>
-        <span className="denominator">
+        <span className={numerator}>1329</span>
+        <span className={denominator}>
           <span className={squareRoot}>
             <span className={color}>{albedo || 'p'}</span>
           </span>
@@ -29,7 +31,9 @@ export default function FindDiameter(props) {
         </span>
       </span>
       <span>= </span>
-      <span className={color}>{diameter || '?'}</span>
+      <span className={color}>
+        {diameter === 0 ? diameter : diameter || '?'}
+      </span>
     </p>
   );
 }

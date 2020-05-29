@@ -3,7 +3,7 @@
 
   :global {
     .md-card-text {
-      padding: 16px 0;
+      padding: 0;
     }
 
     .md-text-field-container {
@@ -33,4 +33,13 @@
 
 .equation-wrapper {
   margin-top: $minPadding;
+}
+
+.calc-label {
+  @include copySecondary;
+  color: $basePrimary;
+
+  &:not(.answerable) {
+    color: $neutral20;
+  }
 }
