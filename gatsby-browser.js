@@ -1,8 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import axe from 'react-axe';
 
-// You can delete this file if you're not using it
 import './src/assets/stylesheets/styles.scss';
+
+// export const onInitialClientRender = () => {
+//   if (process.env.NODE_ENV === 'development') {
+//     axe(React, ReactDOM, 1000);
+//   }
+// };

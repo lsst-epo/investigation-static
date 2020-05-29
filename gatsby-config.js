@@ -114,6 +114,7 @@ module.exports = {
     //     axeOptions: {
     //       // Your axe-core options.
     //     },
+    //     axeContext: undefined,
     //   },
     // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
