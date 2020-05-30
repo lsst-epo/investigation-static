@@ -18,14 +18,18 @@ const Progress = ({ type }) => {
 
   return (
     <div>
-      <div className={classes}>
-        <div className={headerTitle}>Pages Visited</div>
-        <LinearProgress id="pages-bar" value={pagesProgress} />
-      </div>
-      <div className={classes}>
-        <div className={headerTitle}>Questions Answered</div>
-        <LinearProgress id="questions-bar" value={questionsProgress} />
-      </div>
+      {type === 'big' && pagesProgress > 0 && (
+        <div className={classes}>
+          <div className={headerTitle}>Pages Visited</div>
+          <LinearProgress id="pages-bar" value={pagesProgress} />
+        </div>
+      )}
+      {type === 'big' && questionsProgress > 0 && (
+        <div className={classes}>
+          <div className={headerTitle}>Questions Answered</div>
+          <LinearProgress id="questions-bar" value={questionsProgress} />
+        </div>
+      )}
     </div>
   );
 };
