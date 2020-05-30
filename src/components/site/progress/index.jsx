@@ -18,13 +18,13 @@ const Progress = ({ type }) => {
 
   return (
     <div>
-      {type === 'big' && pagesProgress > 0 && (
+      {((type === 'big' && pagesProgress > 0) || type !== 'big') && (
         <div className={classes}>
           <div className={headerTitle}>Pages Visited</div>
           <LinearProgress id="pages-bar" value={pagesProgress} />
         </div>
       )}
-      {type === 'big' && questionsProgress > 0 && (
+      {((type === 'big' && questionsProgress > 0) || type !== 'big') && (
         <div className={classes}>
           <div className={headerTitle}>Questions Answered</div>
           <LinearProgress id="questions-bar" value={questionsProgress} />
