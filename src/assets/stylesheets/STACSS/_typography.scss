@@ -80,6 +80,11 @@
   @include copySecondary;
 }
 
+@mixin copyTertiary {
+  @include copyPrimary;
+  font-weight: $bold;
+}
+
 
 // Labels
 // --------------------------------------------------------

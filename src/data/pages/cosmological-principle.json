@@ -12,13 +12,16 @@
     "title": "Exploring Rubin Observatory Data: flux vs distance",
     "link": "/exploring-lsst-data-1/"
   },
-  "layout": "TwoCol",
-  "content": "<p>Astronomers who study the Universe (cosmologists) have made a basic assumption that for any particular time, the Universe appears to look very similar in every direction, no matter where you are located within it. This is known as the <I>cosmological principle</i>.</p><p>The cosmological principle doesn’t mean that the Universe is <u>exactly</u> the same in all directions.</p>",
+  "layout": "SingleCol",
+  "content": "<p>Astronomers who study the Universe (cosmologists) have made a basic assumption that for any particular time, the Universe appears to look very similar in every direction, no matter where you are located within it. This is known as the <strong>cosmological principle</strong>.</p><p>The cosmological principle doesn’t mean that the Universe is <em>exactly</em> the same in all directions. Imagine that you are in the middle of a desert.  As you look around you in every direction, you see sand, rocks, mountains and maybe some plants. Not every mountain peak looks identical, and some places may have some more plants than others, but it is generally the same landscape.</p>",
   "images": [
     {
-      "mediaPath": "/images/galaxies/hsc/hsc.jpg",
-      "altText": "A vast array of visible galaxies",
-      "figText": "A vast array of visible galaxies"
+      "mediaPath": "/images/Paisajes.jpeg",
+      "altText": "Feral donkey in the Atacama desert By Diego Delso",
+      "figText": "By Diego Delso, <a href='https://creativecommons.org/licenses/by-sa/4.0' title='Creative Commons Attribution-Share Alike 4.0' target='_blank'>CC BY-SA 4.0</a>, <a href='https://commons.wikimedia.org/w/index.php?curid=48561284' target='_blank'>Link</a>",
+      "layout": {
+        "row": "top"
+      }
     }
   ],
   "questionsByPage": [

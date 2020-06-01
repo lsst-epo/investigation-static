@@ -107,5 +107,5 @@ a:not([type='button']) {
 
 b,
 strong {
-  @include copySecondary;
+  @include copyTertiary;
 }
