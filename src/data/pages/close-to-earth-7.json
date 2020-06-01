@@ -13,5 +13,11 @@
     "link": "/determining-orbits/"
   },
   "layout": "TwoCol",
-  "content": "<p>Even though Bennu isn’t going to hit Earth in the next ten years, that doesn’t mean Bennu couldn’t hit Earth in the future. Every time there is a close encounter between an asteroid and a massive object like a planet, the gravitational attraction between the planet and asteroid can alter the orbit of the asteroid, making an impact possible in the future. For this reason, it’s important that we keep monitoring asteroids.</p>"
+  "content": "<p>Even though Bennu isn’t going to hit Earth in the next ten years, that doesn’t mean Bennu couldn’t hit Earth in the future. Every time there is a close encounter between an asteroid and a massive object like a planet, the gravitational attraction between the planet and asteroid can alter the orbit of the asteroid, making an impact possible in the future. For this reason, it’s important that we keep monitoring asteroids.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/bennu.json"
+    }
+  ]
 }
