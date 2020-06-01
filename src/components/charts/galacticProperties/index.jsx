@@ -432,7 +432,7 @@ GalacticProperties.defaultProps = {
   xValueAccessor: 'distance',
   yValueAccessor: 'brightness',
   xAxisLabel: 'Distance (Billion LY)',
-  yAxisLabel: 'Total Brightness',
+  yAxisLabel: 'Observed Brightness',
   tooltipAccessors: ['distance', 'brightness'],
   tooltipUnits: ['Billion Ly'],
   tooltipLabels: ['Distance', 'Brightness'],
