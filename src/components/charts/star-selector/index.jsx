@@ -197,7 +197,6 @@ class StarSelector extends React.Component {
           ref={this.svgEl}
           style={{
             backgroundImage: `url(${backgroundImage})`,
-            opacity: 0,
           }}
         >
           {data &&

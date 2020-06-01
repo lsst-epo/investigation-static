@@ -268,25 +268,25 @@ class HubblePlot extends React.Component {
           this.clearSelection();
         }
       });
+
+      $hubblePlot.on('mousemove', () => {
+        const [mousePosX, mousePosY] = d3mouse(this.svgEl.current);
+
+        this.setState(prevState => ({
+          ...prevState,
+          mousePosX,
+          mousePosY,
+        }));
+      });
+
+      $hubblePlot.on('mouseout', () => {
+        this.setState(prevState => ({
+          ...prevState,
+          mousePosX: null,
+          mousePosY: null,
+        }));
+      });
     }
-
-    $hubblePlot.on('mousemove', () => {
-      const [mousePosX, mousePosY] = d3mouse(this.svgEl.current);
-
-      this.setState(prevState => ({
-        ...prevState,
-        mousePosX,
-        mousePosY,
-      }));
-    });
-
-    $hubblePlot.on('mouseout', () => {
-      this.setState(prevState => ({
-        ...prevState,
-        mousePosX: null,
-        mousePosY: null,
-      }));
-    });
 
     // add event listeners to points
     $allPoints
@@ -366,6 +366,7 @@ class HubblePlot extends React.Component {
       hubbleConstant,
       options,
       trendlineInteractable,
+      isVisible,
     } = this.props;
 
     const {
@@ -383,7 +384,9 @@ class HubblePlot extends React.Component {
     } = this.state;
 
     const { userTrendline, multiple } = options || {};
+
     const svgClasses = classnames('svg-chart', hubblePlot, {
+      'hide-plot': !isVisible,
       loading,
       loaded: !loading,
     });
@@ -417,9 +420,6 @@ class HubblePlot extends React.Component {
           viewBox={`0 0 ${width} ${height}`}
           ref={this.svgEl}
           data-testid="hubble-plot-svg"
-          style={{
-            opacity: 0,
-          }}
         >
           <defs>
             <clipPath id="clip">
@@ -534,9 +534,11 @@ HubblePlot.defaultProps = {
   yAxisLabel: 'Velocity (Km/s)',
   tooltipAccessors: ['name', 'distance', 'velocity'],
   tooltipLabels: ['Galaxy', 'Distance', 'Velocity'],
+  isVisible: true,
 };
 
 HubblePlot.propTypes = {
+  isVisible: PropTypes.bool,
   width: PropTypes.number,
   height: PropTypes.number,
   padding: PropTypes.number,

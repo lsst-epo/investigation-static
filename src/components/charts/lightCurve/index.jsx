@@ -460,7 +460,6 @@ class LightCurve extends React.PureComponent {
               preserveAspectRatio="xMidYMid meet"
               viewBox={`0 0 ${width} ${height}`}
               ref={this.svgEl}
-              style={{ opacity: 0 }}
             >
               <defs>
                 <clipPath id="clip">
