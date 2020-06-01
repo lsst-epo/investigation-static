@@ -3,6 +3,7 @@ import React from 'react';
 import { CardText } from 'react-md';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import debounce from 'lodash/debounce';
 import classnames from 'classnames';
 import { renderDef } from '../../../../../lib/utilities.js';
 import Equation from '../shared/equation';
@@ -168,11 +169,14 @@ class KineticEnergyCalculator extends React.PureComponent {
               min="0"
               leftIcon={<MassIcon />}
               lineDirection="center"
-              placeholder="Mass"
+              placeholder="mass"
               defaultValue={answered ? mass : null}
               onBlur={this.handleBlur}
               onFocus={this.handleFocus}
-              onChange={value => this.handleChange(value, 'mass')}
+              onChange={debounce(
+                value => this.handleChange(value, 'mass'),
+                400
+              )}
               disabled={!(answerable || answered || active)}
             />
           </div>
@@ -184,11 +188,14 @@ class KineticEnergyCalculator extends React.PureComponent {
               min="0"
               leftIcon={<VelocityIcon />}
               lineDirection="center"
-              placeholder="Velocity"
+              placeholder="velocity"
               defaultValue={answered ? velocity : null}
               onBlur={this.handleBlur}
               onFocus={this.handleFocus}
-              onChange={value => this.handleChange(value, 'velocity')}
+              onChange={debounce(
+                value => this.handleChange(value, 'velocity'),
+                400
+              )}
               disabled={!(answerable || answered || active)}
             />
           </div>

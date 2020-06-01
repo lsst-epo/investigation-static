@@ -3,6 +3,7 @@ import React from 'react';
 import { CardText } from 'react-md';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import debounce from 'lodash/debounce';
 import classnames from 'classnames';
 import Equation from '../shared/equation';
 import TextField from '../../../../site/forms/textField';
@@ -180,7 +181,10 @@ class SizeCalculator extends React.PureComponent {
                 defaultValue={answered ? magnitude : null}
                 onBlur={this.handleBlur}
                 onFocus={this.handleFocus}
-                onChange={value => this.handleChange(value, 'magnitude')}
+                onChange={debounce(
+                  value => this.handleChange(value, 'magnitude'),
+                  400
+                )}
                 disabled={!(answerable || answered || active)}
               />
             </div>
@@ -196,7 +200,10 @@ class SizeCalculator extends React.PureComponent {
                 defaultValue={answered ? albedo : null}
                 onBlur={this.handleBlur}
                 onFocus={this.handleFocus}
-                onChange={value => this.handleChange(value, 'albedo')}
+                onChange={debounce(
+                  value => this.handleChange(value, 'albedo'),
+                  400
+                )}
                 disabled={!(answerable || answered || active)}
               />
             </div>
