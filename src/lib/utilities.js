@@ -300,3 +300,15 @@ export const getElDims = function($el) {
 
   return { width: 0, height: 0 };
 };
+
+export const isRequiredAnswered = function(reqQIds, answers) {
+  if (!reqQIds || reqQIds.length <= 0) return true;
+
+  const allAnswered = [];
+
+  reqQIds.forEach(qId => {
+    if (answers[qId]) allAnswered.push(qId);
+  });
+
+  return allAnswered.length === reqQIds.length;
+};

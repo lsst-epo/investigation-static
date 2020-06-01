@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import isArray from 'lodash/isArray';
 import API from '../lib/API.js';
+import { isRequiredAnswered } from '../lib/utilities.js';
 import HubblePlot from '../components/charts/hubblePlot/index.jsx';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
@@ -66,12 +67,8 @@ class HubblePlotContainer extends React.PureComponent {
 
   render() {
     const { data } = this.state;
-    const {
-      activeQuestionId,
-      options,
-      options: { userTrendline, hubbleConstant },
-    } = this.props;
-
+    const { activeQuestionId, options, answers } = this.props;
+    const { userTrendline, hubbleConstant, required: reqQIds } = options || {};
     const trendlineInteractable = userTrendline === activeQuestionId;
 
     return (
@@ -87,6 +84,7 @@ class HubblePlotContainer extends React.PureComponent {
           hubbleConstant={this.getHubbleConstant(userTrendline, hubbleConstant)}
           userHubblePlotCallback={this.userHubblePlotCallback}
           userTrendlineCallback={this.userTrendlineCallback}
+          isVisible={isRequiredAnswered(reqQIds, answers)}
         />
       </>
     );
