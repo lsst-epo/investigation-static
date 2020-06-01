@@ -24,7 +24,7 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
         options: {
           title: 'Brightness Vs Distance',
           xAxisLabel: 'Distance (Billion Ly)',
-          yAxisLabel: 'Total Brightness',
+          yAxisLabel: 'Observed Brightness',
           xValueAccessor: 'distance',
           yValueAccessor: 'brightness',
           tooltipAccessors: ['distance', 'brightness'],
@@ -142,7 +142,6 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
       >
         <div className="container-flex spaced">
           <div className="col padded">
-            {/* <h2 className="space-bottom">{title}</h2> */}
             <GalacticProperties
               className="color-brightness-vs-distance-combo"
               options={activeProperty.options}
