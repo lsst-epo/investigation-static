@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ExpansionList from 'react-md/lib/ExpansionPanels/ExpansionList';
 import QAExpansionPanel from './QAExpansionPanel';
-import './styles.module.scss';
+// import './styles.module.scss';
 
 class QAExpansionList extends React.PureComponent {
   toggleHandler = () => {

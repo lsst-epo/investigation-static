@@ -6,6 +6,7 @@ import isEmpty from 'lodash/isEmpty';
 import Question from 'react-md/lib/ExpansionPanels/ExpansionPanel';
 import Answer from '../../answers/ExpansionPanel';
 import { renderDef } from '../../../../lib/utilities.js';
+import styles from './styles.module.scss';
 
 class QAExpansionPanel extends React.PureComponent {
   render() {
@@ -26,9 +27,9 @@ class QAExpansionPanel extends React.PureComponent {
     const isExpanded = active || answered;
     const showFooter = !answered || (!active && answered) ? null : undefined;
 
-    const questionClasses = classnames(`qa qa-${qId} no-pointer`, {
-      active,
-      answered,
+    const questionClasses = classnames(`${styles.qa} qa-${qId} no-pointer`, {
+      [styles.active]: active,
+      [styles.answered]: answered,
       unstyled: !active,
     });
 
@@ -38,7 +39,7 @@ class QAExpansionPanel extends React.PureComponent {
         focused={focused}
         label={<div dangerouslySetInnerHTML={renderDef(label)} />}
         className={questionClasses}
-        contentClassName="answer"
+        contentClassName={styles.answer}
         expanded={isExpanded}
         onExpandToggle={() => toggleHandler(qId)}
         cancelLabel="Clear"
