@@ -1,6 +1,8 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImageLoader from '../../site/imageLoader/index.jsx';
+import { renderDef } from '../../../lib/utilities.js';
 
 import { gridImage, gridImageTop, gridImageBottom } from '../page.module.scss';
 
@@ -21,7 +23,9 @@ class ImageBlock extends React.PureComponent {
     return (
       <figure className={`${gridImage} ${this.gridClasses[row]}`}>
         <ImageLoader src={mediaPath} alt={altText || ''} />
-        {figText && <figcaption>{figText}</figcaption>}
+        {figText && (
+          <figcaption dangerouslySetInnerHTML={renderDef(figText)}></figcaption>
+        )}
       </figure>
     );
   }
