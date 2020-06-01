@@ -139,7 +139,14 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     const { answers, options } = this.props;
     const { toggleDataPointsVisibility, showUserPlot, preSelected } =
       options || {};
-    const { imagePath, data, name, imageDomain, chartDomain, activeGalaxy } = this.state;
+    const {
+      imagePath,
+      data,
+      name,
+      imageDomain,
+      chartDomain,
+      activeGalaxy,
+    } = this.state;
 
     const selectedData = getSelectedGalaxies(
       answers,

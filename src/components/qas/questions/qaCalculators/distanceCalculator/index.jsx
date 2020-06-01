@@ -3,6 +3,7 @@ import React from 'react';
 import { CardText, CardActions } from 'react-md';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import debounce from 'lodash/debounce';
 import classnames from 'classnames';
 import CalculatedMeasurement from './CalculatedMeasurement';
 import Equation from '../shared/equation';
@@ -186,7 +187,7 @@ class DistanceCalculator extends React.PureComponent {
               defaultValue={answered ? magnitude : null}
               onBlur={this.handleBlur}
               onFocus={this.handleFocus}
-              onChange={this.handleChange}
+              onChange={debounce(this.handleChange, 400)}
               disabled={!(answerable || answered || active)}
             />
           </div>
