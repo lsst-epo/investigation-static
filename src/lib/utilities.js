@@ -106,6 +106,17 @@ export const extentFromSet = function(data, accessor) {
   });
 };
 
+export const getDomain = function(data, accessor) {
+  const extent = extentFromSet(data, accessor);
+  const [min, max] = extent;
+  const buffer = (max - min) * 0.1;
+  return [Math.floor(extent[0]), Math.ceil(extent[1] + buffer)];
+};
+
+export const getDomains = function(data, xValueAccessor, yValueAccessor) {
+  return [getDomain(data, xValueAccessor), getDomain(data, yValueAccessor)];
+};
+
 export const getMean = function(data, accessor) {
   return d3Mean(data, d => d[accessor]);
 };

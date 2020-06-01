@@ -21,7 +21,9 @@
       },
       "options": {
         "preSelected": true,
-        "showUserPlot": "44"
+        "showUserPlot": "44",
+        "xValueAccessor": "distance",
+        "yValueAccessor": "brightness"
       }
     }
   ],
