@@ -1,5 +1,5 @@
 export const units = {
-  hubbleConstant: ' Km/s/Mpc',
+  hubbleConstant: ' km/s/Mpc',
   temperature: ' K',
   luminosity: ' L',
   mass: ' M',
@@ -7,9 +7,10 @@ export const units = {
   radius: ' R',
   count: ' stars',
   distance: ' MPc',
-  velocity: ' Km/s',
+  velocity: ' km/s',
   inclination: '°',
   semimajor_axis: ' AU',
+  size: ' km',
   kineticEnergy: ' J',
 };
 
