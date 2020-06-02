@@ -16,7 +16,9 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/three-neos.json",
       "options": {
-        "multiple": true
+        "multiple": true,
+        "autoplay": false,
+        "paused": true
       }
     }
   ],
