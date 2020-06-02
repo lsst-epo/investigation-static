@@ -9,10 +9,10 @@ import PlaybackSpeed from './PlaybackSpeed.jsx';
 
 import { container } from './orbital-viewer.module.scss';
 
-function OrbitalViewer({ neos, activeNeo, updateActiveNeo }) {
+function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused }) {
   const speeds = [0.25, 0.5, 1, 10, 30];
 
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(!paused);
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
   const [dayPerVizSec, setDayPerVizSec] = useState(speeds[0]);
@@ -88,16 +88,18 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo }) {
             />
           </mesh> */}
         </Canvas>
-        <Controls
-          {...{
-            playing,
-            handleStartStop,
-            handleNext,
-            handlePrevious,
-            handleStepSelect,
-            dayPerVizSec,
-          }}
-        />
+        {!paused && (
+          <Controls
+            {...{
+              playing,
+              handleStartStop,
+              handleNext,
+              handlePrevious,
+              handleStepSelect,
+              dayPerVizSec,
+            }}
+          />
+        )}
       </div>
     </div>
   );
@@ -107,6 +109,7 @@ OrbitalViewer.propTypes = {
   neos: PropTypes.array,
   activeNeo: PropTypes.object,
   updateActiveNeo: PropTypes.func,
+  paused: PropTypes.bool,
 };
 
 export default OrbitalViewer;

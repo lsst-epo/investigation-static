@@ -103,17 +103,9 @@ class OrbitalViewerContainer extends React.PureComponent {
             </NavDrawer>
           )}
         >
-          {data && !multiple && (
+          {data && (
             <OrbitalViewer
-              neos={data}
-              updateActiveNeo={this.updateActiveNeo}
-              activeNeo={activeNeo}
-              {...options}
-            />
-          )}
-          {data && multiple && (
-            <OrbitalViewer
-              neos={data[activeNavIndex].data}
+              neos={multiple ? data[activeNavIndex].data : data}
               updateActiveNeo={this.updateActiveNeo}
               activeNeo={activeNeo}
               {...options}
