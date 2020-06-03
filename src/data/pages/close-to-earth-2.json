@@ -19,7 +19,9 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/aten.json",
       "options": {
-        "paused": true
+        "title": "Aten",
+        "paused": true,
+        "pov": "top"
       }
     }
   ],

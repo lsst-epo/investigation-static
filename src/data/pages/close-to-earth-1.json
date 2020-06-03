@@ -17,8 +17,8 @@
       "source": "/data/neos/three-neos.json",
       "options": {
         "multiple": true,
-        "autoplay": false,
-        "paused": true
+        "paused": true,
+        "pov": "top"
       }
     }
   ],
