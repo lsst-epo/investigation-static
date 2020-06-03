@@ -57,7 +57,7 @@
   &.answered:not(.active) {
     :global {
       .md-panel-header {
-        padding: $minPadding;
+        padding: $minPadding $minPadding 0;
       }
 
       .md-fake-btn .md-text, .md-fake-btn .md-text p {
@@ -66,11 +66,11 @@
     }
 
     .answer {
-      padding: $minPadding * 0.5 0 0;
+      padding: $minPadding / 2 $minPadding $minPadding;
 
       p {
         max-width: calc(100% - 124px);
-        margin: 0;
+        margin: 0 0 0 $minPadding;
       }
     }
   }
