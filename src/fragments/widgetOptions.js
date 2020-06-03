@@ -40,5 +40,6 @@ export const widgetOptionsFragemnt = graphql`
     tooltipUnits
     tooltipLabels
     paused
+    pov
   }
 `;

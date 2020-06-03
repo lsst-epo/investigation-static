@@ -37,19 +37,28 @@ class OrbitalViewerContainer extends React.PureComponent {
 
     API.get(source).then(response => {
       const { data } = response;
+      const activeNavIndex = multiple ? 0 : null;
+      const neos = multiple ? data[activeNavIndex].data : data;
 
       this.setState(prevState => ({
         ...prevState,
         data,
-        activeNavIndex: multiple ? 0 : null,
+        activeNavIndex,
+        activeNeo: neos.length === 1 ? neos[0] : null,
       }));
     });
   }
 
   updateActiveNavItem(itemIndex) {
+    const { data } = this.state;
+    const { options } = this.props;
+    const { multiple } = options || {};
+    const neos = multiple ? data[itemIndex].data : data;
+
     this.setState(prevState => ({
       ...prevState,
       activeNavIndex: itemIndex,
+      activeNeo: neos.length === 1 ? neos[0] : null,
     }));
   }
 
@@ -84,11 +93,13 @@ class OrbitalViewerContainer extends React.PureComponent {
   render() {
     const { data, activeNavIndex, activeNeo } = this.state;
     const { options } = this.props;
-    const { multiple } = options || {};
+    const { multiple, title } = options || {};
 
     return (
       <>
-        {!multiple && <h2 className="space-bottom">Orbit Viewer</h2>}
+        {!multiple && (
+          <h2 className="space-bottom">{title || 'Orbit Viewer'}</h2>
+        )}
         <ConditionalWrapper
           condition={multiple}
           wrapper={children => (

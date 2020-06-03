@@ -13,13 +13,13 @@
     "link": "/close-to-earth-4/"
   },
   "layout": "TwoCol",
-  "content": "<p>Click and drag in the window so that you’re now seeing the orbits from the side view.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
       "source": "/data/neos/aten.json",
       "options": {
-        "paused": true
+        "paused": true,
+        "pov": "side"
       }
     }
   ],
