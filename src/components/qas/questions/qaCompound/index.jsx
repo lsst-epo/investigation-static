@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QACompoundSelect from '../qaCompoundSelect/index.jsx';
 import QACompoundTextInput from '../qaCompoundTextInput/index.jsx';
+import QACompoundInterface from '../qaCompoundInterface/index.jsx';
 
 class QACompound extends React.PureComponent {
   constructor(props) {
@@ -9,6 +10,7 @@ class QACompound extends React.PureComponent {
     this.compoundTypes = {
       compoundInput: QACompoundTextInput,
       compoundSelect: QACompoundSelect,
+      compound: QACompoundInterface,
     };
   }
 
