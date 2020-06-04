@@ -1,10 +1,12 @@
-export const AU_PER_VIZ_UNIT = 100;
+import * as THREE from 'three';
+
+export const AU_TO_VIZ_SCALER = 100;
 export const DAY_PER_VIZ_SEC = 1;
 
 export const earth = {
-  a: 1.0000001,
+  a: 1,
   e: 0.01671022,
-  i: 0.00005,
+  i: 0,
   H: -3.9,
   Ref: 'Earth',
   Principal_desig: 'Earth',
@@ -14,11 +16,11 @@ export const earth = {
 };
 
 export const jupiter = {
-  a: 5.20336301,
-  e: 0.04839266,
-  i: 1.3053,
+  a: 5.2028,
+  e: 0.048,
+  i: 1.31,
   H: -25.9,
-  Ref: 'Jupitar',
+  Ref: 'Jupiter',
   Principal_desig: 'Jupiter',
   orbitColor: '#f78988',
   objectColor: '#f78456',
@@ -37,25 +39,67 @@ export const neptune = {
   objectRadius: 25,
 };
 
+// args must be in VIZ_UNITS
+export const getCurve = (xRadius, yRadius, aX = 0, aY = 0) => {
+  return new THREE.EllipseCurve(
+    aX, // aX
+    aY, // aY
+    xRadius, // xRadius
+    yRadius, // yRadius
+    0, // aStartAngle
+    2 * Math.PI, // aEndAngle
+    false, // aClockwise
+    0 // aRotation
+  );
+};
+
+export const getLineGeometry = points => {
+  return new THREE.BufferGeometry().setFromPoints(points);
+};
+
+// pos and sunPos must be Vector3
+export const getAngleFromPos = (pos, sunPos) => {
+  // x=c; y=a; z=b
+  const z = pos.distanceTo(sunPos);
+  const { x, y } = pos;
+  const rads = Math.acos((z ** 2 + x ** 2 - y ** 2) / (2 * z * x));
+  return (rads * 180) / Math.PI;
+};
+
+// path must be EllipseCurve
+export const getPosFromArcLength = (arcLength, path) => {
+  const { x, y } = path.getPoint(arcLength);
+  return new THREE.Vector3(x, y, 0);
+};
+
+// args must be in AU
 export const auToUnit = value => {
-  return value * AU_PER_VIZ_UNIT;
+  return value * AU_TO_VIZ_SCALER;
 };
-
-export const unitToAU = value => {
-  return value / AU_PER_VIZ_UNIT;
+// args must be in VIZ_UNITS
+export const unitToAu = value => {
+  return value / AU_TO_VIZ_SCALER;
 };
-
+// a must be in AU
 export const getMinorAxis = (a, e) => {
   return auToUnit(a * Math.sqrt(1 - e ** 2));
 };
 
-export const getRotation = i => {
+export const degsToRads = i => {
   return i * (Math.PI / 180);
 };
 
+export const radsToDegs = i => {
+  return i * (180 / Math.PI);
+};
+// args must be in VIZ_UNITS
 export const getVelocity = (radius, maj) => {
-  const GM = auToUnit(0.000296005155); // Converted from AU3/day2 to UNIT3/day2
+  const GM = 0.000296005155 * AU_TO_VIZ_SCALER ** 3; // Converted from AU3/day2 to UNIT3/day2
   return Math.sqrt(GM * (2 / radius - 1 / maj));
+};
+// args must be in VIZ_UNITS
+export const getFocus = (majAxis, minAxis) => {
+  return Math.sqrt(majAxis ** 2 - minAxis ** 2);
 };
 
 export const getDiameter = (magnitude, albedo) => {
@@ -64,7 +108,7 @@ export const getDiameter = (magnitude, albedo) => {
 
 export const getRadius = magnitude => {
   const realRadius = getDiameter(magnitude, 0.15);
-  const adjustedRadius = 0.002 * realRadius * AU_PER_VIZ_UNIT;
+  const adjustedRadius = 0.002 * realRadius * AU_TO_VIZ_SCALER; // Wrong!!!!!!
   const [minSize, maxSize] = [2, 7];
 
   if (adjustedRadius < minSize) {

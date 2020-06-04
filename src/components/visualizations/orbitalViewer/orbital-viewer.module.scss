@@ -22,6 +22,7 @@
   outline: none;
 }
 
+//  Nav Drawer
 .nav-item {
   :global {
     .md-list-tile {
@@ -32,10 +33,6 @@
         color: $basePrimary;
         transition: color $timing $duration;
       }
-
-      // .md-text {
-      //   color: $basePrimary;
-      // }
 
       &:hover {
         background-color: $basePrimary;
@@ -72,3 +69,10 @@
     }
   }
 }
+
+.label {
+  padding-top: 4px;
+  color: $white;
+}
+
+

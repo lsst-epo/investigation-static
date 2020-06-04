@@ -72,21 +72,14 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
           >
             <mesh position={[0, 0, 0]}>
               <sphereBufferGeometry attach="geometry" args={[10, 16, 8]} />
-              <meshBasicMaterial attach="material" color="yellow" />
+              <meshBasicMaterial
+                transparent
+                opacity={0.2}
+                attach="material"
+                color="yellow"
+              />
             </mesh>
           </pointLight>
-          {/* <mesh>
-            <planeBufferGeometry
-              attach="geometry"
-              args={[1000, 1000, 1000, 1000]}
-            />
-            <meshStandardMaterial
-              attach="material"
-              color="white"
-              transparent
-              opacity={0.1}
-            />
-          </mesh> */}
         </Canvas>
         {!paused && (
           <Controls
