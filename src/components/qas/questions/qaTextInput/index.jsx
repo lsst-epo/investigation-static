@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import includes from 'lodash/includes';
 import classnames from 'classnames';
 import TextField from '../../../site/forms/textField';
 import Card from '../../../site/card';
@@ -116,7 +117,7 @@ class TextInput extends React.PureComponent {
 
     return (
       <ConditionalWrapper
-        condition={questionType !== 'compoundInput'}
+        condition={!includes(questionType, 'compoundInput')}
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
         {labelPre && <span className={labelClasses}>{labelPre}&nbsp;</span>}
