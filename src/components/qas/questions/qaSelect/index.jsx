@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
+import includes from 'lodash/includes';
 import { checkIds } from '../../../../lib/utilities.js';
 import ConditionalWrapper from '../../../ConditionalWrapper';
 import Card from '../../../site/card';
@@ -104,7 +105,7 @@ class QASelect extends React.PureComponent {
 
     return (
       <ConditionalWrapper
-        condition={questionType !== 'compoundSelect'}
+        condition={!includes(questionType, 'compoundSelect')}
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
         <div className={wrapperClasses}>
