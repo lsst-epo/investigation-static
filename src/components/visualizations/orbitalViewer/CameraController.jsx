@@ -6,7 +6,7 @@ import { useThree } from 'react-three-fiber';
 function CameraController({ pov }) {
   const { camera, gl } = useThree();
 
-  const setPov = controls => {
+  function setPov(controls) {
     if (pov) {
       const targetPov = {
         side: Math.PI / 1.06,
@@ -23,7 +23,7 @@ function CameraController({ pov }) {
     }
 
     return controls;
-  };
+  }
 
   useEffect(() => {
     const controls = new OrbitControls(camera, gl.domElement);

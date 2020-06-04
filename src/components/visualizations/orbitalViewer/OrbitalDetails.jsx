@@ -8,7 +8,7 @@ import { getValue } from '../../../lib/utilities.js';
 
 function OrbitalDetails(props) {
   const { data } = props;
-  const { H, a, i, e, Principal_desig: ps } = data || {};
+  const { H, a, i, e, Principal_desig: scientificName } = data || {};
 
   return (
     <div>
@@ -24,20 +24,20 @@ function OrbitalDetails(props) {
         includeRowTitles
         rows={[
           [
-            ps || '',
+            scientificName || '',
+            a ? (
+              <>
+                {getValue('semimajor_axis', a)}
+                <Unit type="semimajor_axis" />
+              </>
+            ) : (
+              ''
+            ),
             e ? getValue('eccentricity', e) : '',
             i ? (
               <>
                 {getValue('inclination', i)}
                 <Unit type="inclination" />
-              </>
-            ) : (
-              ''
-            ),
-            a ? (
-              <>
-                {getValue('semimajor_axis', a)}
-                <Unit type="semimajor_axis" />
               </>
             ) : (
               ''
