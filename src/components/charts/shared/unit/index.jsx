@@ -15,6 +15,7 @@ const Unit = props => {
       count: <StandardUnit {...props} />,
       luminosity: <StellarUnit {...props} />,
       mass: <StellarUnit {...props} />,
+      volume: <StandardUnit {...props} />,
       radius: <StellarUnit {...props} />,
       inclination: <StandardUnit {...props} />,
       semimajor_axis: <StandardUnit {...props} />,

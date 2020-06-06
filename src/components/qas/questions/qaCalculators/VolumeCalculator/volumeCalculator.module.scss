@@ -1,0 +1,19 @@
+.icon {
+  @include copySecondary;
+  white-space: nowrap;
+}
+
+.col-50 {
+  width: 50%;
+  min-width: 200px;
+}
+
+.margin {
+  &-top {
+    margin-top: $minPadding;
+  }
+
+  &-left {
+    margin-left: $minPadding;
+  }
+}
