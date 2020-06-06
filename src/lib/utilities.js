@@ -262,6 +262,7 @@ export const getValue = function(accessor, data) {
       size: formatValue(data, 2),
       count: formatValue(data ? data.length : 0, 0),
       kineticEnergy: formatValue(data, 0),
+      volume: toSigFigs(data, 4),
     }[accessor] || data
   );
 };

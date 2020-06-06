@@ -4,6 +4,7 @@ import FindDiameter from './FindDiameter';
 import FindDistanceModulus from './FindDistanceModulus';
 import FindParsecs from './FindParsecs';
 import FindKineticEnergy from './FindKineticEnergy';
+import FindVolume from './FindVolume';
 
 export function DefaultEquation(props) {
   const { solution, equation } = props;
@@ -26,6 +27,7 @@ export default function Equation(props) {
     FindDistanceModulus,
     FindParsecs,
     FindKineticEnergy,
+    FindVolume,
   };
 
   const LoadedComponent = components[component];

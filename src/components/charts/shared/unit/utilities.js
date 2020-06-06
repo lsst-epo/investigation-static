@@ -12,6 +12,7 @@ export const units = {
   semimajor_axis: ' AU',
   size: ' km',
   kineticEnergy: ' J',
+  volume: ' m^3',
 };
 
 export const renderUnit = function(type) {

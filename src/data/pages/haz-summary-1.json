@@ -42,7 +42,7 @@
       "question": [
         {
           "id": "50",
-          "questionType": "SizeCalculator",
+          "questionType": "VolumeCalculator",
           "title": "Question #1",
           "label": "Calculate the volume of this asteroid by entering its radius.",
           "placeholder": "Enter radius",
