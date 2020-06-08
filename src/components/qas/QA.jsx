@@ -9,6 +9,7 @@ import DistanceCalculator from './questions/qaCalculators/distanceCalculator';
 import SizeCalculator from './questions/qaCalculators/sizeCalculator';
 import KineticEnergyCalculator from './questions/qaCalculators/kineticEnergyCalculator';
 import VolumeCalculator from './questions/qaCalculators/VolumeCalculator';
+import MassCalculator from './questions/qaCalculators/massCalculator';
 import Prompt from './questions/Prompt';
 import QAMultiSelect from './questions/qaMultiSelect/index.jsx';
 import { qa } from './styles.module.scss';
@@ -26,6 +27,7 @@ const questions = {
   SizeCalculator,
   KineticEnergyCalculator,
   VolumeCalculator,
+  MassCalculator,
   prompt: Prompt,
 };
 

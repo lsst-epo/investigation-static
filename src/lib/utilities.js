@@ -246,6 +246,7 @@ export const getValue = function(accessor, data) {
       magnitude: formatValue(data, 2),
       luminosity: formatValue(data, 2),
       radius: formatValue(data, 2),
+      stellarMass: formatValue(data, 2),
       mass: formatValue(data, 2),
       lifetime: formatValue(data / 1000000000, 2),
       temperature: formatValue(data, 0),
