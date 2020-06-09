@@ -21,7 +21,7 @@
   fill: $chart0;
   stroke: none;
   transition: stroke $timing $duration, opacity $timing $duration;
-
+  outline: none !important;
   &.invisible {
     opacity: 0;
   }
