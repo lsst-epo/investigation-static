@@ -11,6 +11,7 @@ import OrbitalViewer from '../../containers/OrbitalViewerContainer.jsx';
 import OrbitalProperties from '../../containers/OrbitalPropertiesContainer.jsx';
 import TimeDomainViewer from '../../containers/TimeDomainViewerContainer.jsx';
 import SizeDistance from '../../containers/SizeDistanceContainer.jsx';
+import AsteroidClass from '../../containers/AsteroidClassContainer.jsx';
 
 export const widgetTags = {
   SupernovaSelectorWithLightCurve,
@@ -26,4 +27,5 @@ export const widgetTags = {
   OrbitalProperties,
   TimeDomainViewer,
   SizeDistance,
+  AsteroidClass,
 };

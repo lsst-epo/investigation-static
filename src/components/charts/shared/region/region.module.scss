@@ -1,0 +1,32 @@
+.hr-region {
+  opacity: 0.5;
+  fill: $basePrimary;
+  stroke: $basePrimary;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 40;
+  transition: opacity $timing $durationSuperSlow;
+
+  &.ms {
+    fill: $basePrimary;
+    stroke: $basePrimary;
+  }
+
+  &.wd {
+    fill: $baseSecondary;
+    stroke: $baseSecondary;
+  }
+
+  &.g {
+    fill: $boldRed;
+    stroke: $boldRed;
+  }
+}
+
+.region {
+  opacity: 0.3;
+  fill: $mediumBlue;
+  stroke: $mediumBlue;
+  stroke-width: 2;
+  transition: opacity $timing $durationSuperSlow;
+}

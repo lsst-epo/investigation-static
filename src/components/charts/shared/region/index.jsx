@@ -5,6 +5,8 @@ import {
   curveCardinalClosed as d3CurveCardinalClosed,
 } from 'd3-shape';
 
+import { region } from './region.module.scss';
+
 class Region extends React.PureComponent {
   getD() {
     const {
@@ -13,23 +15,29 @@ class Region extends React.PureComponent {
       yScale,
       xValueAccessor,
       yValueAccessor,
+      curved,
+      offsetRight,
+      offsetTop,
     } = this.props;
 
     const $line = d3Line()
       .x(d => {
-        return xScale(d[xValueAccessor]);
+        return xScale(d[xValueAccessor]) - offsetRight;
       })
       .y(d => {
-        return yScale(d[yValueAccessor]);
-      })
-      .curve(d3CurveCardinalClosed);
+        return yScale(d[yValueAccessor]) + offsetTop;
+      });
+
+    if (curved) {
+      $line.curve(d3CurveCardinalClosed);
+    }
 
     return $line(points);
   }
 
   render() {
     const { type } = this.props;
-    const classNames = 'region ' + type;
+    const classNames = `${region} ${type}`;
     return <path d={this.getD()} className={classNames} />;
   }
 }
@@ -41,6 +49,9 @@ Region.propTypes = {
   yScale: PropTypes.func,
   xValueAccessor: PropTypes.string,
   yValueAccessor: PropTypes.string,
+  curved: PropTypes.bool,
+  offsetTop: PropTypes.number,
+  offsetRight: PropTypes.number,
 };
 
 export default Region;
