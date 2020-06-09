@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
 import find from 'lodash/find';
+import findIndex from 'lodash/findIndex';
 import classnames from 'classnames';
 import {
   select as d3Select,
@@ -16,6 +17,7 @@ import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
 import Trendline from './Trendline.jsx';
 import Points from './Points';
+import CursorPoint from './CursorPoint.jsx';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
@@ -23,6 +25,8 @@ import {
   hubblePlot,
   hubblePlotContainer,
   galaxyPoint,
+  cursorPoint,
+  invisible,
 } from './hubble-plot.module.scss';
 
 class HubblePlot extends React.Component {
@@ -38,6 +42,8 @@ class HubblePlot extends React.Component {
       hoveredData: null,
       tooltipPosX: 0,
       tooltipPosY: 0,
+      mousePosX: null,
+      mousePosY: null,
       showTooltip: false,
       xScale: d3ScaleLinear()
         .domain(domain ? domain[0] : props.xDomain)
@@ -46,6 +52,7 @@ class HubblePlot extends React.Component {
         .domain(domain ? domain[1] : props.yDomain)
         .range([props.height - props.padding, 0]),
       hubbleConstant: null,
+      activeDataIndex: null,
     };
 
     this.svgEl = React.createRef();
@@ -79,13 +86,16 @@ class HubblePlot extends React.Component {
 
   updateSelectedData() {
     const { activeGalaxy, data } = this.props;
-    const activeData = find(data, d => {
+    const dataIndex = findIndex(data, d => {
       return activeGalaxy.name === d.name;
     });
+
+    const activeData = data[dataIndex];
 
     this.setState(prevState => ({
       ...prevState,
       selectedData: activeData ? arrayify(activeData) : prevState.selectedData,
+      activeDataIndex: dataIndex,
       tooltipPosX: 0,
       tooltipPosY: 0,
       showTooltip: false,
@@ -260,6 +270,24 @@ class HubblePlot extends React.Component {
       });
     }
 
+    $hubblePlot.on('mousemove', () => {
+      const [mousePosX, mousePosY] = d3mouse(this.svgEl.current);
+
+      this.setState(prevState => ({
+        ...prevState,
+        mousePosX,
+        mousePosY,
+      }));
+    });
+
+    $hubblePlot.on('mouseout', () => {
+      this.setState(prevState => ({
+        ...prevState,
+        mousePosX: null,
+        mousePosY: null,
+      }));
+    });
+
     // add event listeners to points
     $allPoints
       .on('mouseover', this.onMouseOver)
@@ -270,8 +298,11 @@ class HubblePlot extends React.Component {
   removeEventListeners() {
     const $hubblePlot = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
-    $hubblePlot.on('click', null);
 
+    $hubblePlot
+      .on('click', null)
+      .on('mousemove', null)
+      .on('mouseout', null);
     $allPoints.on('mouseover', null).on('mouseout', null);
   }
 
@@ -346,6 +377,9 @@ class HubblePlot extends React.Component {
       tooltipPosX,
       tooltipPosY,
       showTooltip,
+      mousePosX,
+      mousePosY,
+      activeDataIndex,
     } = this.state;
 
     const { userTrendline, multiple } = options || {};
@@ -417,12 +451,23 @@ class HubblePlot extends React.Component {
               offsetTop,
             }}
           />
+          <CursorPoint
+            x={mousePosX}
+            y={mousePosY}
+            offsetTop={offsetTop}
+            pointClasses={classnames(
+              `color-${activeDataIndex + 1}-fill`,
+              `${cursorPoint}`,
+              {
+                [invisible]: !mousePosX && !mousePosY,
+              }
+            )}
+          />
           <g>
             {data &&
               multiple &&
               data.map((set, i) => {
                 const key = `galaxy-${i}`;
-
                 return (
                   <Points
                     key={key}

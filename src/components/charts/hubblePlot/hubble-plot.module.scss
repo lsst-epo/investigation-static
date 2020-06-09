@@ -18,13 +18,22 @@
 }
 
 .galaxy-point {
+  /* stylelint-disable-next-line declaration-no-important */
+  outline: none !important;
   fill: $chart0;
   stroke: none;
   transition: stroke $timing $duration, opacity $timing $duration;
+}
 
-  &.invisible {
-    opacity: 0;
-  }
+.cursor-point {
+  /* stylelint-disable-next-line declaration-no-important */
+  outline: none !important;
+  opacity: 0.5;
+  transition: stroke $timing $duration, opacity $timing $duration;
+}
+
+.invisible {
+  opacity: 0;
 }
 
 .point-label {
