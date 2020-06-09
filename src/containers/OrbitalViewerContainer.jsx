@@ -33,23 +33,50 @@ class OrbitalViewerContainer extends React.PureComponent {
   componentDidMount() {
     const { widget, options } = this.props;
     const { source } = widget;
-    const { multiple } = options || {};
+    const { multiple, showUserPlot } = options || {};
 
-    API.get(source).then(response => {
-      const { data } = response;
+    if (source) {
+      API.get(source).then(response => {
+        const { data } = response;
+        const activeNavIndex = multiple ? 0 : null;
+        const neos = multiple ? data[activeNavIndex].data : data;
+
+        this.setState(prevState => ({
+          ...prevState,
+          data,
+          activeNavIndex,
+          activeNeo: neos.length === 1 ? neos[0] : null,
+        }));
+      });
+    } else if (showUserPlot) {
+      const data = this.getOrbitAnswerData();
 
       this.setState(prevState => ({
         ...prevState,
-        data,
-        activeNavIndex: multiple ? 0 : null,
+        data: [data],
+        activeNeo: data,
       }));
-    });
+    }
+  }
+
+  getOrbitAnswerData() {
+    const { options, answers } = this.props;
+    const { showUserPlot: qId } = options || {};
+    const answer = answers[qId];
+
+    return answer ? answer.data.orbit : null;
   }
 
   updateActiveNavItem(itemIndex) {
+    const { data } = this.state;
+    const { options } = this.props;
+    const { multiple } = options || {};
+    const neos = multiple ? data[itemIndex].data : data;
+
     this.setState(prevState => ({
       ...prevState,
       activeNavIndex: itemIndex,
+      activeNeo: neos.length === 1 ? neos[0] : null,
     }));
   }
 
@@ -84,11 +111,13 @@ class OrbitalViewerContainer extends React.PureComponent {
   render() {
     const { data, activeNavIndex, activeNeo } = this.state;
     const { options } = this.props;
-    const { multiple } = options || {};
+    const { multiple, title } = options || {};
 
     return (
       <>
-        {!multiple && <h2 className="space-bottom">Orbit Viewer</h2>}
+        {!multiple && (
+          <h2 className="space-bottom">{title || 'Orbit Viewer'}</h2>
+        )}
         <ConditionalWrapper
           condition={multiple}
           wrapper={children => (
@@ -103,17 +132,9 @@ class OrbitalViewerContainer extends React.PureComponent {
             </NavDrawer>
           )}
         >
-          {data && !multiple && (
+          {data && (
             <OrbitalViewer
-              neos={data}
-              updateActiveNeo={this.updateActiveNeo}
-              activeNeo={activeNeo}
-              {...options}
-            />
-          )}
-          {data && multiple && (
-            <OrbitalViewer
-              neos={data[activeNavIndex].data}
+              neos={multiple ? data[activeNavIndex].data : data}
               updateActiveNeo={this.updateActiveNeo}
               activeNeo={activeNeo}
               {...options}
@@ -129,6 +150,7 @@ class OrbitalViewerContainer extends React.PureComponent {
 OrbitalViewerContainer.propTypes = {
   widget: PropTypes.object,
   options: PropTypes.object,
+  answers: PropTypes.object,
 };
 
 export default OrbitalViewerContainer;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Canvas } from 'react-three-fiber';
+// import * as THREE from 'three';
 import Camera from './Camera.jsx';
 import CameraController from './CameraController.jsx';
 import Orbitals from './Orbitals.jsx';
@@ -9,14 +10,13 @@ import PlaybackSpeed from './PlaybackSpeed.jsx';
 
 import { container } from './orbital-viewer.module.scss';
 
-function OrbitalViewer({ neos, activeNeo, updateActiveNeo }) {
+function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
   const speeds = [0.25, 0.5, 1, 10, 30];
 
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(!paused);
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
   const [dayPerVizSec, setDayPerVizSec] = useState(speeds[0]);
-
   const handleStartStop = () => {
     setPlaying(!playing);
     setStepDirection(1);
@@ -48,8 +48,8 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo }) {
       <div className={container}>
         <PlaybackSpeed dayPerVizSec={dayPerVizSec} />
         <Canvas invalidateFrameloop>
-          <CameraController />
-          <Camera far={200000} near={0.1} fov={75} position={[0, 0, 500]} />
+          <CameraController pov={pov} />
+          <Camera far={200000} near={0.1} fov={100} position={[0, 0, 500]} />
           <ambientLight intensity={0.9} />
           <Orbitals
             includeRefObjs
@@ -88,16 +88,18 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo }) {
             />
           </mesh> */}
         </Canvas>
-        <Controls
-          {...{
-            playing,
-            handleStartStop,
-            handleNext,
-            handlePrevious,
-            handleStepSelect,
-            dayPerVizSec,
-          }}
-        />
+        {!paused && (
+          <Controls
+            {...{
+              playing,
+              handleStartStop,
+              handleNext,
+              handlePrevious,
+              handleStepSelect,
+              dayPerVizSec,
+            }}
+          />
+        )}
       </div>
     </div>
   );
@@ -107,6 +109,8 @@ OrbitalViewer.propTypes = {
   neos: PropTypes.array,
   activeNeo: PropTypes.object,
   updateActiveNeo: PropTypes.func,
+  paused: PropTypes.bool,
+  pov: PropTypes.string,
 };
 
 export default OrbitalViewer;

@@ -1,16 +1,19 @@
 export const units = {
-  hubbleConstant: ' Km/s/Mpc',
+  hubbleConstant: ' km/s/Mpc',
   temperature: ' K',
   luminosity: ' L',
-  mass: ' M',
+  stellarMass: ' M',
+  mass: ' kg',
   lifetime: ' Gyr',
   radius: ' R',
   count: ' stars',
   distance: ' MPc',
-  velocity: ' Km/s',
+  velocity: ' km/s',
   inclination: '°',
   semimajor_axis: ' AU',
+  size: ' km',
   kineticEnergy: ' J',
+  volume: ' m^3',
 };
 
 export const renderUnit = function(type) {

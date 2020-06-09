@@ -14,10 +14,13 @@ const Unit = props => {
       lifetime: <StandardUnit {...props} />,
       count: <StandardUnit {...props} />,
       luminosity: <StellarUnit {...props} />,
-      mass: <StellarUnit {...props} />,
+      volume: <StandardUnit {...props} />,
+      stellarMass: <StellarUnit {...props} />,
+      mass: <StandardUnit {...props} />,
       radius: <StellarUnit {...props} />,
       inclination: <StandardUnit {...props} />,
       semimajor_axis: <StandardUnit {...props} />,
+      size: <StandardUnit {...props} />,
       kineticEnergy: <StandardUnit {...props} />,
     }[props.type] || null
   );

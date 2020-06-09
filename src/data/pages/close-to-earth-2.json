@@ -17,7 +17,12 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/aten.json"
+      "source": "/data/neos/aten.json",
+      "options": {
+        "title": "Aten",
+        "paused": true,
+        "pov": "top"
+      }
     }
   ],
   "questionsByPage": [

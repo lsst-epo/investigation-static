@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import isArray from 'lodash/isArray';
 // import axios from 'axios';
 import API from '../lib/API.js';
-import { randomIntFromInterval } from '../lib/utilities.js';
+import { randomIntFromInterval, getDomains } from '../lib/utilities.js';
 import { getSelectedGalaxies } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
 import GalaxySelector from '../components/charts/galaxySelector/index.jsx';
 import GalacticProperties from '../components/charts/galacticProperties/index.jsx';
@@ -17,8 +17,19 @@ class GalaxiesSelectorContainer extends React.PureComponent {
       name: null,
       sourcePath: null,
       imagePath: null,
-      domain: [],
+      imageDomain: [],
       activeGalaxy: null,
+      chartDomain: [],
+    };
+
+    this.defaultOptions = {
+      xValueAccessor: 'distance',
+      yValueAccessor: 'brightness',
+      xAxisLabel: 'Distance (Billion LY)',
+      yAxisLabel: 'Observed Brightness',
+      tooltipAccessors: ['distance', 'brightness'],
+      tooltipUnits: ['Billion Ly'],
+      tooltipLabels: ['Distance', 'Brightness'],
     };
 
     this.aId = 'randomGalaxies';
@@ -59,21 +70,35 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     }
   }
 
-  getSetData(source) {
+  getSetData(source, callback) {
+    const { options } = this.props;
+    const { xValueAccessor, yValueAccessor } = {
+      ...this.defaultOptions,
+      ...(options || {}),
+    };
+
     API.get(source).then(response => {
       const {
         data: { objects, ra, dec },
       } = response;
       const name = this.getName(source);
+      const domains = getDomains(objects, xValueAccessor, yValueAccessor);
 
-      this.setState(prevState => ({
-        ...prevState,
-        data: objects,
-        sourcePath: source,
-        imagePath: `/images/galaxies/hsc/${name}.jpg`,
-        name,
-        domain: [ra.reverse(), dec],
-      }));
+      this.setState(
+        prevState => ({
+          ...prevState,
+          data: objects,
+          sourcePath: source,
+          imagePath: `/images/galaxies/hsc/${name}.jpg`,
+          name,
+          imageDomain: [ra.reverse(), dec],
+          chartDomain: [
+            [0, domains[0][1]],
+            [0, domains[1][1]],
+          ],
+        }),
+        callback
+      );
     });
   }
 
@@ -114,7 +139,14 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     const { answers, options } = this.props;
     const { toggleDataPointsVisibility, showUserPlot, preSelected } =
       options || {};
-    const { imagePath, data, name, domain, activeGalaxy } = this.state;
+    const {
+      imagePath,
+      data,
+      name,
+      imageDomain,
+      chartDomain,
+      activeGalaxy,
+    } = this.state;
 
     const selectedData = getSelectedGalaxies(
       answers,
@@ -131,8 +163,8 @@ class GalaxiesSelectorContainer extends React.PureComponent {
               data={preSelected ? selectedData : data}
               {...{ selectedData, preSelected, activeGalaxy }}
               image={{ mediaPath: imagePath, altText: name }}
-              xDomain={domain[0]}
-              yDomain={domain[1]}
+              xDomain={imageDomain[0]}
+              yDomain={imageDomain[1]}
               selectionCallback={this.selectionCallback}
             />
           </div>
@@ -142,8 +174,8 @@ class GalaxiesSelectorContainer extends React.PureComponent {
           <GalacticProperties
             className="brightness-vs-distance"
             data={selectedData || []}
-            xDomain={[0, 28]}
-            yDomain={[0, 200]}
+            xDomain={chartDomain[0]}
+            yDomain={chartDomain[1]}
             selectionCallback={this.userGalacticPropertiesCallback}
             {...{ activeGalaxy, name }}
           />

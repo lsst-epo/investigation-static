@@ -106,6 +106,17 @@ export const extentFromSet = function(data, accessor) {
   });
 };
 
+export const getDomain = function(data, accessor) {
+  const extent = extentFromSet(data, accessor);
+  const [min, max] = extent;
+  const buffer = (max - min) * 0.1;
+  return [Math.floor(extent[0]), Math.ceil(extent[1] + buffer)];
+};
+
+export const getDomains = function(data, xValueAccessor, yValueAccessor) {
+  return [getDomain(data, xValueAccessor), getDomain(data, yValueAccessor)];
+};
+
 export const getMean = function(data, accessor) {
   return d3Mean(data, d => d[accessor]);
 };
@@ -235,6 +246,7 @@ export const getValue = function(accessor, data) {
       magnitude: formatValue(data, 2),
       luminosity: formatValue(data, 2),
       radius: formatValue(data, 2),
+      stellarMass: formatValue(data, 2),
       mass: formatValue(data, 2),
       lifetime: formatValue(data / 1000000000, 2),
       temperature: formatValue(data, 0),
@@ -248,8 +260,10 @@ export const getValue = function(accessor, data) {
       inclination: formatValue(data, 0),
       eccentricity: formatValue(data, 2),
       semimajor_axis: formatValue(data, 2),
+      size: formatValue(data, 2),
       count: formatValue(data ? data.length : 0, 0),
       kineticEnergy: formatValue(data, 0),
+      volume: toSigFigs(data, 4),
     }[accessor] || data
   );
 };

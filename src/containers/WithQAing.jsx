@@ -23,6 +23,8 @@ export const WithQAing = ComposedComponent => {
         'size-calc': this.getSizeCalcContent,
         magnitude: this.getMagnitudeContent,
         kineticEnergy: this.getKineticEnergyContent,
+        volume: this.getVolumeContent,
+        mass: this.getMass,
         galaxy: this.getGalaxyContent,
         neo: this.getNeoContent,
         galaxies: this.getGalaxiesContent,
@@ -85,6 +87,14 @@ export const WithQAing = ComposedComponent => {
 
     getKineticEnergyContent(data) {
       return data.kineticEnergy || 'None Selected';
+    }
+
+    getVolumeContent(data) {
+      return data.volume || 'None Selected';
+    }
+
+    getMass(data) {
+      return data.mass || 'None Selected';
     }
 
     getSizeCalcContent(data) {

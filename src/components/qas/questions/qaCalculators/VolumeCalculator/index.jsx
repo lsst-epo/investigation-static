@@ -5,35 +5,26 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
+import { renderDef } from '../../../../../lib/utilities.js';
 import Equation from '../shared/equation';
 import TextField from '../../../../site/forms/textField';
 import Card from '../../../../site/card';
-import { renderDef, formatValue } from '../../../../../lib/utilities.js';
-import styles from './sizeCalculator.module.scss';
+import styles from './volumeCalculator.module.scss';
 import qaStyles from '../../../styles.module.scss';
-import {
-  qaCalc,
-  calcLabel,
-  answerable as answerableStyle,
-} from '../shared/calculator.module.scss';
+import { qaCalc } from '../shared/calculator.module.scss';
 
-const HIcon = () => {
-  return <span className={styles.icon}>H =</span>;
+const RadiusIcon = () => {
+  return <span className={styles.icon}>r =</span>;
 };
 
-const PIcon = () => {
-  return <span className={styles.icon}>p =</span>;
-};
-
-class SizeCalculator extends React.PureComponent {
+class VolumeCalculator extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
       value: {
-        magnitude: null,
-        albedo: null,
-        diameter: null,
+        volume: null,
+        radius: null,
       },
       cardActive: false,
       hasFocus: false,
@@ -46,16 +37,15 @@ class SizeCalculator extends React.PureComponent {
     const { question, activeId, answer } = this.props;
     const { id } = question;
     const { data } = answer || {};
-    const { magnitude, albedo, diameter } = data || {};
+    const { radius, volume } = data || {};
 
     this.checkAnswerable(answerable, activeId === id);
 
     this.setState(prevState => ({
       ...prevState,
       value: {
-        magnitude,
-        albedo,
-        diameter,
+        radius,
+        volume,
       },
     }));
   }
@@ -77,13 +67,10 @@ class SizeCalculator extends React.PureComponent {
     }
   }
 
-  calculateDiameter({ magnitude, albedo }) {
-    if (!magnitude || !albedo) return null;
+  calculateVolume({ radius }) {
+    if (!radius) return null;
 
-    return formatValue(
-      (1329 / Math.sqrt(albedo)) * 10 ** (-0.2 * magnitude),
-      3
-    );
+    return (4 / 3) * Math.PI * radius ** 3;
   }
 
   getNewVal(value, valType) {
@@ -98,7 +85,7 @@ class SizeCalculator extends React.PureComponent {
 
     return {
       ...newVal,
-      diameter: this.calculateDiameter(newVal),
+      volume: this.calculateVolume(newVal),
     };
   }
 
@@ -140,7 +127,7 @@ class SizeCalculator extends React.PureComponent {
     const {
       hasFocus,
       answerable,
-      value: { magnitude, albedo, diameter },
+      value: { radius, volume },
     } = this.state;
 
     const { id, label } = question;
@@ -149,13 +136,13 @@ class SizeCalculator extends React.PureComponent {
     const answeredClasses = {
       answered,
       unanswered: !answered,
-      [answerableStyle]: answerable || answered || active,
+      [styles.answerable]: answerable || answered || active,
     };
     const cardClasses = classnames(qaStyles.qaCard, qaCalc, {
       [qaStyles.active]: hasFocus,
     });
-    const fieldClasses = classnames('qa-calc-input', answeredClasses);
-    const labelClasses = classnames(calcLabel, answeredClasses);
+    const fieldClasses = classnames('qa-text-input', answeredClasses);
+    const labelClasses = classnames(styles.calcLabel, answeredClasses);
 
     return (
       <Card
@@ -168,51 +155,25 @@ class SizeCalculator extends React.PureComponent {
             className={labelClasses}
             dangerouslySetInnerHTML={renderDef(label)}
           />
-          <div className="container-flex">
-            <div className="col-width-50">
-              <TextField
-                id={`text-input-${id}`}
-                className={fieldClasses}
-                type="number"
-                min="0"
-                leftIcon={<HIcon />}
-                lineDirection="center"
-                placeholder="magnitude"
-                defaultValue={answered ? magnitude : null}
-                onBlur={this.handleBlur}
-                onFocus={this.handleFocus}
-                onChange={debounce(
-                  value => this.handleChange(value, 'magnitude'),
-                  400
-                )}
-                disabled={!(answerable || answered || active)}
-              />
-            </div>
-            <div className="col-width-50">
-              <TextField
-                id={`text-input-${id}`}
-                className={fieldClasses}
-                type="number"
-                min="0"
-                leftIcon={<PIcon />}
-                lineDirection="center"
-                placeholder="albedo"
-                defaultValue={answered ? albedo : null}
-                onBlur={this.handleBlur}
-                onFocus={this.handleFocus}
-                onChange={debounce(
-                  value => this.handleChange(value, 'albedo'),
-                  400
-                )}
-                disabled={!(answerable || answered || active)}
-              />
-            </div>
-          </div>
-          <div className={styles.equationWrapper}>
-            <Equation
-              component="FindDiameter"
-              {...{ diameter, magnitude, albedo }}
-            />
+          <TextField
+            id={`number-input-${id}`}
+            className={fieldClasses}
+            type="number"
+            min="0"
+            leftIcon={<RadiusIcon />}
+            lineDirection="center"
+            placeholder="radius"
+            defaultValue={answered ? radius : null}
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
+            onChange={debounce(
+              value => this.handleChange(value, 'radius'),
+              400
+            )}
+            disabled={!(answerable || answered || active)}
+          />
+          <div className={styles.marginTop}>
+            <Equation component="FindVolume" {...{ radius, volume }} />
           </div>
         </CardText>
       </Card>
@@ -220,11 +181,11 @@ class SizeCalculator extends React.PureComponent {
   }
 }
 
-SizeCalculator.propTypes = {
+VolumeCalculator.propTypes = {
   activeId: PropTypes.string,
   question: PropTypes.object,
   answerHandler: PropTypes.func,
   answer: PropTypes.object,
 };
 
-export default SizeCalculator;
+export default VolumeCalculator;

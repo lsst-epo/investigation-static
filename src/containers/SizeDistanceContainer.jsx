@@ -44,11 +44,12 @@ class SizeDistanceContainer extends React.PureComponent {
       tooltipAccessors,
       tooltipUnits,
       tooltipLabels,
+      multiple,
     } = options || {};
 
     return (
       <>
-        <h2 className="space-bottom">{title || ''}</h2>
+        {!multiple && <h2 className="space-bottom">{title || ''}</h2>}
         <SizeDistance
           {...{
             data,
