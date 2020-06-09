@@ -12,8 +12,21 @@
     "title": "Reflect and Discuss",
     "link": "/solar-system-discuss-report/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "content": "<p>To determine the surface composition, astronomers look at the differences in brightness of an asteroid from one filter to the next. The two plots below show C-class and S-class asteroids when measured through Rubin Observatory’s g, r, i, and z filters. For each plot, the horizontal (x) axis shows four filters. The vertical (y) axis is a measure of brightness compared to the g filter. For example, if the r filter shows a brightness value of 3, it means that the asteroid appeared three times brighter through the r filter than it was when measured through the g filter. In summary, don’t pay attention to the height of the plot, rather it’s the shape of the plot.  For C-Class asteroids the plot is relatively flat across the r, i, z filter range.  For S-Class asteroids the plot increases from r to i filters but then decreases from i to z filters.  </p>",
+  "widgets": [
+    {
+      "type": "AsteroidClass",
+      "sources": ["/data/neos/asteroid_photomtery_class_C.json", "/data/neos/asteroid_photomtery_class_S.json"],
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "options": {
+        "yAxisLabel": "Brightness relative to g filter"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

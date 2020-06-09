@@ -1,0 +1,133 @@
+.asteroid-class-container {
+  width: 100%;
+}
+
+.asteroid-class {
+  width: 100%;
+  height: auto;
+
+  &.loaded {
+    visibility: visible;
+    /* stylelint-disable-next-line declaration-no-important */
+    opacity: 1 !important;
+  }
+}
+
+.x-axis-label {
+  text-anchor: middle;
+}
+
+.point {
+  opacity: 0.2;
+  fill: $mediumBlue;
+  stroke: none;
+  transition: fill $timing $duration, stroke $timing $duration, opacity $timing $duration;
+}
+
+.invisible {
+  display: none;
+}
+
+// NavDrawer related styles
+.card {
+  position: relative;
+  box-shadow: none;
+}
+
+// NOt needed now but will be needed in next phase of development
+// // mini drawer
+// aside {
+//   .property-item {
+//     margin-bottom: -1px;
+//     background-color: $neutral10;
+//     transition: background-color $timing $duration;
+
+//     .nav-avatar {
+//       @include labelPrimary;
+//       font-weight: $medium;
+//       color: $basePrimary;
+//     }
+
+//     :global {
+//       .md-icon {
+//         fill: $basePrimary;
+//       }
+//     }
+
+//     &:hover {
+//       background-color: $basePrimary;
+
+//       .nav-avatar {
+//         color: $white;
+//       }
+//     }
+
+//     &.link-active {
+//       background-color: $basePrimary;
+
+//       .nav-avatar {
+//         color: $white;
+//       }
+//     }
+
+//     &.link-is-disabled {
+//       background-color: rgba(200, 200, 200, 0.6);
+
+//       .nav-avatar {
+//         color: $neutral10;
+//       }
+//     }
+//   }
+// }
+
+// // full size drawer
+// nav {
+//   .property-item {
+//     :global {
+//       .md-text {
+//         @include labelPrimary;
+//         font-weight: $medium;
+//       }
+//     }
+
+//     &.link-active {
+//       background-color: $basePrimary;
+
+//       :global {
+//         .md-tile-text--primary,
+//         .md-tile-text--primary.md-text--theme-primary,
+//         .md-text {
+//           /* stylelint-disable-next-line declaration-no-important */
+//           color: $white !important;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// // Multiple datasets Legend
+// .legend {
+//   display: inline-block;
+//   // width: auto;
+//   // max-width: 100%;
+//   padding: $minPadding / 2;
+//   margin-bottom: $minPadding;
+// }
+
+// .legend-row {
+//   @include labelPrimary;
+//   display: flex;
+//   flex-flow: row nowrap;
+//   align-items: center;
+
+//   + .legend-row {
+//     margin-top: $minPadding / 2;
+//   }
+// }
+
+// .legend-point {
+//   width: 14px;
+//   height: 14px;
+//   margin-right: $minPadding;
+//   border-radius: 50%;
+// }
