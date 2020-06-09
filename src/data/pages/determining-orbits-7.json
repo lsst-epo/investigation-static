@@ -53,17 +53,13 @@
         },
         {
           "id": "27",
-          "questionType": "compoundSelect",
+          "questionType": "compoundInput",
           "compoundQuestion": ["26", "27"],
-          "labelPre": "FUTURE COMPOUNDSELECTTEXT",
-          "labelPost": "",
+          "labelPre": "",
+          "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
-          "placeholder": "Select a type",
-          "options": [
-            { "label": "blank", "value": "blank" },
-            { "label": "blank", "value": "blank" }
-          ],
+          "answerAccessor": "compound-input",
+          "placeholder": "your answer",
           "answerPre": "...",
           "answerPost": "..."
         }

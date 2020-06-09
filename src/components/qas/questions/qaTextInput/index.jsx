@@ -117,7 +117,7 @@ class TextInput extends React.PureComponent {
 
     return (
       <ConditionalWrapper
-        condition={!includes(questionType, 'compound', 'compoundInput')}
+        condition={!includes(questionType, 'compoundInput')}
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
         {labelPre && <span className={labelClasses}>{labelPre}&nbsp;</span>}

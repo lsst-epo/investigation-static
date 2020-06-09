@@ -105,7 +105,7 @@ class QASelect extends React.PureComponent {
 
     return (
       <ConditionalWrapper
-        condition={!includes(questionType, 'compound', 'compoundSelect')}
+        condition={!includes(questionType, 'compoundSelect')}
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
         <div className={wrapperClasses}>
