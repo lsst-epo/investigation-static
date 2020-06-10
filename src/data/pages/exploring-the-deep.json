@@ -12,7 +12,7 @@
     "title": "Exploring the Deep",
     "link": "/exploring-the-deep-1/"
   },
-  "content": "<p>Here’s an image from the Rubin Observatory LSST Camera. Nearly all of the objects in this image are galaxies, but some appear so small they could easily be mistaken for stars. This image shows thousands of galaxies of different sizes, brightness, and colors.</p><p>Explore this image to get an idea of how far away the galaxies in this image are.  Clicking on a galaxy will add a data point to the plot. Be sure you select enough galaxies so that your data spans the entire range of distances along the x-axis on the plot (to accomplish this you will need to select some very small and faint galaxies). Select at least 40 galaxies.</p>",
+  "content": "<p>Here’s an image from the Rubin Observatory LSST Camera. Nearly all of the objects in this image are galaxies, but some appear so small they could easily be mistaken for stars. This image shows thousands of galaxies of different sizes, brightness, and colors.</p>",
   "widgets": [
     {
       "type": "GalaxiesSelector",
@@ -54,7 +54,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Click on a galaxy to add a data point to the plot. Be sure you select enough galaxies so that your data spans the entire range of distances along the x-axis on the plot (to accomplish this you will need to select some very small and faint galaxies). Select at least 40 galaxies.</p>",
+          "label": "<p>Click on a galaxy to add a data point to the plot. Be sure you select enough galaxies so that your data shows a trend between brightness and distance. To accomplish this you will need to select a range of galaxies that contain both bright and very small, faint galaxies. Select at least 40 galaxies that span the x- axis. At least one of the galaxies should be at a distance beyond 19 billion light years.</p>",
           "answerPre": "<span>Selected Galaxies: </span>",
           "answerAccessor": "galaxies"
         }
