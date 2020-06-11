@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import API from '../lib/API.js';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import LargeScaleStructure2D from '../components/charts/largeScaleStructure/LargeScaleStructure2D.jsx';
@@ -8,6 +9,7 @@ import {
   navItemText,
   widerDrawerContainer,
   paddedDrawerInnerLeft,
+  loadingChartState,
   navItem,
   linkActive,
 } from '../components/charts/largeScaleStructure/large-scale-structure-plot.module.scss';
@@ -17,6 +19,7 @@ class LargeScaleStructureContainer extends React.PureComponent {
     super(props);
 
     this.state = {
+      loading: true,
       intervals: null,
       dec: null,
       ra: null,
@@ -37,6 +40,7 @@ class LargeScaleStructureContainer extends React.PureComponent {
 
       this.setState(prevState => ({
         ...prevState,
+        loading: false,
         data: objects,
         activeIntervalIndex: 0,
         intervals,
@@ -84,6 +88,7 @@ class LargeScaleStructureContainer extends React.PureComponent {
 
   render() {
     const {
+      loading,
       intervals,
       activeIntervalIndex,
       data,
@@ -94,16 +99,26 @@ class LargeScaleStructureContainer extends React.PureComponent {
     const toolbarTitle = `Redshift Range: ${
       intervals ? intervals[activeIntervalIndex].join(' - ') : ''
     }`;
+    const navDrawerClasses = classnames(paddedDrawerInnerLeft, {
+      [loadingChartState]: loading,
+    });
 
     return (
       <>
         <NavDrawer
           cardClasses={widerDrawerContainer}
           interactableToolbar
-          contentClasses={paddedDrawerInnerLeft}
+          contentClasses={navDrawerClasses}
           navItems={navItems}
           toolbarTitle={toolbarTitle}
         >
+          {loading && (
+            <CircularProgress
+              id="large-scale-structure-loader"
+              className="chart-loader"
+              scale={3}
+            />
+          )}
           {data && (
             <LargeScaleStructure2D
               data={data[activeIntervalIndex]}
