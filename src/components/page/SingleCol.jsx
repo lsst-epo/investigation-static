@@ -69,6 +69,15 @@ class Page extends React.PureComponent {
             defaultLayout={{ col: 'left', row: 'top' }}
           />
         )}
+        {images && (
+          <Blocks
+            blocks={images}
+            type="image"
+            getRow="middle"
+            getCol="left"
+            defaultLayout={{ col: 'left', row: 'top' }}
+          />
+        )}
         {questions && (
           <div className={gridQas}>
             <QAs {...interactiveShared} />

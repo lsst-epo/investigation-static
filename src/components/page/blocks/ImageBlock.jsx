@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 import ImageLoader from '../../site/imageLoader/index.jsx';
 import { renderDef } from '../../../lib/utilities.js';
 
-import { gridImage, gridImageTop, gridImageBottom } from '../page.module.scss';
+import {
+  gridImage,
+  gridImageTop,
+  gridImageMiddle,
+  gridImageBottom,
+} from '../page.module.scss';
 
 class ImageBlock extends React.PureComponent {
   constructor(props) {
@@ -12,6 +17,7 @@ class ImageBlock extends React.PureComponent {
 
     this.gridClasses = {
       top: gridImageTop,
+      middle: gridImageMiddle,
       bottom: gridImageBottom,
     };
   }
