@@ -17,6 +17,7 @@
     'grid-copy' auto
     'grid-widget-top' auto
     'grid-table-top' auto
+    'grid-image-middle' auto
     'grid-table-middle' auto
     'grid-qas' auto
     'grid-image-bottom' auto
@@ -80,6 +81,7 @@
 }
 
 .grid-image-top,
+.grid-image-middle,
 .grid-image-bottom {
   display: block;
   width: 100%;
@@ -98,6 +100,11 @@
 .grid-image-top {
   grid-area: grid-image-top;
   margin-bottom: $minPadding;
+}
+
+.grid-image-middle {
+  grid-area: grid-image-middle;
+  margin-top: $minPadding;
 }
 
 .grid-image-bottom {

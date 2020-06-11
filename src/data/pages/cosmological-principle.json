@@ -13,14 +13,14 @@
     "link": "/exploring-lsst-data-1/"
   },
   "layout": "SingleCol",
-  "content": "<p>Astronomers who study the Universe (cosmologists) have made a basic assumption that for any particular time, the Universe appears to look very similar in every direction, no matter where you are located within it. This is known as the <strong>cosmological principle</strong>.</p><p>The cosmological principle doesn’t mean that the Universe is <em>exactly</em> the same in all directions. Imagine that you are in the middle of a desert.  As you look around you in every direction, you see sand, rocks, mountains and maybe some plants. Not every mountain peak looks identical, and some places may have some more plants than others, but it is generally the same landscape.</p>",
+  "content": "<p>Astronomers who study the Universe (cosmologists) have made a basic assumption that for any particular time, the Universe appears to look very similar in every direction, no matter where you are located within it. This is known as the <strong>cosmological principle</strong>.</p><p>The cosmological principle doesn’t mean that the Universe is <em>exactly</em> the same in all directions. Imagine that you are in the middle of a desert.  As you look around you in every direction, you see sand, rocks, mountains and maybe some plants. Not every mountain peak looks identical, and some places may have some more plants than others, but it is generally the same landscape.</p><p>Every person in your class has a Rubin Observatory image from a different, random area of the sky as viewed from Earth. Compare your image and plot to others from the class (or choose a few more fields from the list) to see if the patterns in your data agree with the patterns in their data sets and answer the following question:</p>",
   "images": [
     {
       "mediaPath": "/images/Paisajes.jpeg",
       "altText": "Feral donkey in the Atacama desert By Diego Delso",
       "figText": "By Diego Delso, <a href='https://creativecommons.org/licenses/by-sa/4.0' title='Creative Commons Attribution-Share Alike 4.0' target='_blank'>CC BY-SA 4.0</a>, <a href='https://commons.wikimedia.org/w/index.php?curid=48561284' target='_blank'>Link</a>",
       "layout": {
-        "row": "top"
+        "row": "middle"
       }
     }
   ],
@@ -32,7 +32,10 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Do plots from different directions show similar distributions of galaxy distances and colors? Explain."
+          "label": "Do plots from different directions show similar distributions of galaxy distances and colors? Explain.",
+          "layout": {
+            "row": "bottom"
+          }
         }
       ]
     }
