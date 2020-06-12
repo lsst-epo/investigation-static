@@ -113,8 +113,11 @@
         }
 
         &.md-text--disabled,
-        &:disabled {
+        &:disabled,
+        &:disabled:hover,
+        &:disabled:focus {
           color: $neutral30;
+          background: transparent;
           border: solid 1px;
           border-color: $neutral30;
         }
@@ -135,5 +138,4 @@
       }
     }
   }
-
 }

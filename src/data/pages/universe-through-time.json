@@ -29,7 +29,8 @@
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
+          "answerAccessor": "data",
+          "required": false
         }
       ]
     },
