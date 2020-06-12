@@ -26,6 +26,20 @@ class PageContainer extends React.PureComponent {
     this.dispatch.updatePageId(id);
   }
 
+  shouldDisable = questions => {
+    const { answers } = this.props;
+    if (!questions) return false;
+
+    for (let i = 0; i < questions.length; i += 1) {
+      const { id: qId, required } = questions[i].question[0];
+      const answer = answers[qId];
+
+      if (required && !answer) return true;
+    }
+
+    return false;
+  };
+
   render() {
     const {
       data,
@@ -83,6 +97,7 @@ class PageContainer extends React.PureComponent {
         <PageNav
           {...{ previous, next }}
           baseUrl={!env || env === 'all' ? `/${investigation}` : ''}
+          disableButton={this.shouldDisable(questions)}
         />
       </div>
     );
