@@ -20,7 +20,7 @@ export const WithQAing = ComposedComponent => {
         'multi-select': this.getMultiSelectContent,
         count: this.getCountContent,
         'light-curve-template': this.getTemplateContent,
-        'size-calc': this.getSizeCalcContent,
+        diameter: this.getSizeCalcContent,
         magnitude: this.getMagnitudeContent,
         kineticEnergy: this.getKineticEnergyContent,
         volume: this.getVolumeContent,
