@@ -39,6 +39,6 @@ export default function FindVolume(props) {
 }
 
 FindVolume.propTypes = {
-  volume: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  radius: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  volume: PropTypes.number,
+  radius: PropTypes.number,
 };

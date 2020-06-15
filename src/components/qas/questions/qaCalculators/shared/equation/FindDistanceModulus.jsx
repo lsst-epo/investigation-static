@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { equation as equationStyle, color } from './equation.module.scss';
+import { addTheCommas } from '../../../../../../lib/utilities';
 
 export default function FindDistanceModulus(props) {
-  const { solution, equation, variable } = props;
+  const { variable } = props;
 
   return (
     <p className={equationStyle}>
-      {solution} = <span className={color}>{variable}</span>
-      {equation}
+      <span>DM = </span>
+      <span className={color}>{variable ? addTheCommas(variable) : 'm'}</span>
+      <span> + 19.4</span>
     </p>
   );
 }
 
 FindDistanceModulus.propTypes = {
-  solution: PropTypes.string,
-  equation: PropTypes.string,
-  variable: PropTypes.string || PropTypes.number,
+  variable: PropTypes.number,
 };

@@ -9,7 +9,7 @@ import CalculatedMeasurement from './CalculatedMeasurement';
 import Equation from '../shared/equation';
 import TextField from '../../../../site/forms/textField';
 import Card from '../../../../site/card';
-import { addTheCommas, renderDef } from '../../../../../lib/utilities.js';
+import { renderDef } from '../../../../../lib/utilities.js';
 import {
   solveForDistanceModulus,
   solveForParsecs,
@@ -91,14 +91,12 @@ class DistanceCalculator extends React.PureComponent {
   }
 
   getCalculatedMeasurements(value) {
-    const magnitude = +value !== 0 ? +value : 'm';
-    const distanceModulus =
-      +value !== 0 ? +solveForDistanceModulus(+magnitude) : 'DM';
-    const parsecs = +value !== 0 ? +solveForParsecs(+distanceModulus) : '?';
-    const megaParsecs = +value !== 0 ? +solveForMegaParsecs(+parsecs) : '?';
-    const lightYears = +value !== 0 ? solveForLightYears(+parsecs) : '?';
-    const megaLightYears =
-      +value !== 0 ? +solveForMegaLightYears(+lightYears) : '?';
+    const magnitude = value || null;
+    const distanceModulus = solveForDistanceModulus(magnitude);
+    const parsecs = solveForParsecs(distanceModulus);
+    const megaParsecs = solveForMegaParsecs(parsecs);
+    const lightYears = solveForLightYears(parsecs);
+    const megaLightYears = solveForMegaLightYears(lightYears);
 
     return {
       magnitude,
@@ -133,7 +131,7 @@ class DistanceCalculator extends React.PureComponent {
         ...prevState,
         hasFocus: true,
         value: {
-          ...this.getCalculatedMeasurements(value),
+          ...this.getCalculatedMeasurements(+value),
         },
       }),
       () => {
@@ -194,17 +192,12 @@ class DistanceCalculator extends React.PureComponent {
         </CardText>
         <CardActions expander style={{ display: 'none' }} />
         <CardText expandable>
-          <Equation
-            component="FindDistanceModulus"
-            solution="DM"
-            variable={addTheCommas(magnitude || '')}
-            equation=" + 19.4"
-          />
+          <Equation component="FindDistanceModulus" variable={magnitude} />
           <Equation
             component="FindParsecs"
             solution="d"
             equation="10 "
-            variable={addTheCommas(distanceModulus || '')}
+            variable={distanceModulus}
             numerator="+ 5"
             denominator="5"
           />

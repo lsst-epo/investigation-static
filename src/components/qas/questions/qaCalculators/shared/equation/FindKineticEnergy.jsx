@@ -39,7 +39,7 @@ export default function FindKineticEnergy(props) {
 }
 
 FindKineticEnergy.propTypes = {
-  kineticEnergy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  mass: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  velocity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  kineticEnergy: PropTypes.number,
+  mass: PropTypes.number,
+  velocity: PropTypes.number,
 };

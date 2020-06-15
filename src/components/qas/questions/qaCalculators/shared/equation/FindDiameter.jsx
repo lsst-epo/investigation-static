@@ -39,7 +39,7 @@ export default function FindDiameter(props) {
 }
 
 FindDiameter.propTypes = {
-  diameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  magnitude: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  albedo: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  diameter: PropTypes.number,
+  magnitude: PropTypes.number,
+  albedo: PropTypes.number,
 };

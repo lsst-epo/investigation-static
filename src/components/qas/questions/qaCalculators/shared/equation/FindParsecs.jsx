@@ -7,6 +7,7 @@ import {
   exponent,
   fraction,
 } from './equation.module.scss';
+import { addTheCommas } from '../../../../../../lib/utilities';
 
 export default function FindParsecs(props) {
   const { solution, equation, variable, numerator, denominator } = props;
@@ -16,7 +17,10 @@ export default function FindParsecs(props) {
       {solution} = {equation}
       <span className={`${exponent} ${fraction}`}>
         <span className="numerator">
-          (<span className={color}>{variable}</span>
+          (
+          <span className={color}>
+            {variable ? addTheCommas(variable) : 'DM'}
+          </span>
           {numerator})
         </span>
         <span className={denominatorStyle}>{denominator}</span>
@@ -28,7 +32,7 @@ export default function FindParsecs(props) {
 FindParsecs.propTypes = {
   solution: PropTypes.string,
   equation: PropTypes.string,
-  variable: PropTypes.string || PropTypes.number,
-  numerator: PropTypes.string || PropTypes.number,
-  denominator: PropTypes.string || PropTypes.number,
+  variable: PropTypes.number,
+  numerator: PropTypes.string,
+  denominator: PropTypes.string,
 };
