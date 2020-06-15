@@ -21,7 +21,7 @@ export default function FindMass(props) {
 }
 
 FindMass.propTypes = {
-  density: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  mass: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  volume: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  density: PropTypes.number,
+  mass: PropTypes.number,
+  volume: PropTypes.number,
 };

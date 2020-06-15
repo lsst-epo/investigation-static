@@ -118,7 +118,7 @@ class KineticEnergyCalculator extends React.PureComponent {
         ...prevState,
         hasFocus: true,
         value: {
-          ...this.getNewVal(value, valType),
+          ...this.getNewVal(+value, valType),
         },
       }),
       () => {
