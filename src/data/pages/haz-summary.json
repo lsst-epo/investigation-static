@@ -33,7 +33,7 @@
           { "accessor": "diameter", "id": "48" },
           { "accessor": "volume", "id": "50" },
           { "accessor": "mass", "id": "51" },
-          { "accessor": "ke", "id": "52" }
+          { "accessor": "kineticEnergy", "id": "52" }
         ]
       ]
     }

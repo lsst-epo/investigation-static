@@ -20,11 +20,11 @@ export const WithQAing = ComposedComponent => {
         'multi-select': this.getMultiSelectContent,
         count: this.getCountContent,
         'light-curve-template': this.getTemplateContent,
-        diameter: this.getSizeCalcContent,
+        diameter: this.getDiameterCalcContent,
         magnitude: this.getMagnitudeContent,
         kineticEnergy: this.getKineticEnergyContent,
         volume: this.getVolumeContent,
-        mass: this.getMass,
+        mass: this.getMassContent,
         galaxy: this.getGalaxyContent,
         neo: this.getNeoContent,
         galaxies: this.getGalaxiesContent,
@@ -93,11 +93,11 @@ export const WithQAing = ComposedComponent => {
       return data.volume || 'None Selected';
     }
 
-    getMass(data) {
+    getMassContent(data) {
       return data.mass || 'None Selected';
     }
 
-    getSizeCalcContent(data) {
+    getDiameterCalcContent(data) {
       return data.diameter || 'None Selected';
     }
 

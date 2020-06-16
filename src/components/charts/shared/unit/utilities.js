@@ -11,7 +11,7 @@ export const units = {
   velocity: ' km/s',
   inclination: '°',
   semimajor_axis: ' AU',
-  size: ' km',
+  diameter: ' km',
   kineticEnergy: ' J',
   volume: ' m^3',
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addTheCommas, formatValue } from '../../../../../../lib/utilities';
-import { color, equation } from './equation.module.scss';
+import { addTheCommas, formatValue } from '../../../../../lib/utilities.js';
+import { color, equation } from '../qaCalculator.module.scss';
 
 export default function FindMass(props) {
   const { density, mass, volume } = props;
@@ -14,7 +14,7 @@ export default function FindMass(props) {
       <span className={color}>{volume ? addTheCommas(volume) : 'v'}</span>
       <span> = </span>
       <span className={color}>
-        {mass ? addTheCommas(formatValue(mass, 2)) : '?'}
+        {mass ? `${addTheCommas(formatValue(mass, 2))} kg` : '?'}
       </span>
     </p>
   );

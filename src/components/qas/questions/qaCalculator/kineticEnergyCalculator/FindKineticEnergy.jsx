@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addTheCommas, formatValue } from '../../../../../../lib/utilities';
+import { addTheCommas, formatValue } from '../../../../../lib/utilities.js';
 import {
   color,
   equation,
   fraction,
   denominator,
   exponent,
-} from './equation.module.scss';
+} from '../qaCalculator.module.scss';
 
 export default function FindKineticEnergy(props) {
   const { kineticEnergy, mass, velocity } = props;
@@ -32,7 +32,9 @@ export default function FindKineticEnergy(props) {
       </span>
       <span>= </span>
       <span className={color}>
-        {kineticEnergy ? addTheCommas(formatValue(kineticEnergy, 2)) : '?'}
+        {kineticEnergy
+          ? `${addTheCommas(formatValue(kineticEnergy, 2))} J`
+          : '?'}
       </span>
     </p>
   );

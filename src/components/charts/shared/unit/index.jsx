@@ -20,7 +20,7 @@ const Unit = props => {
       radius: <StellarUnit {...props} />,
       inclination: <StandardUnit {...props} />,
       semimajor_axis: <StandardUnit {...props} />,
-      size: <StandardUnit {...props} />,
+      diameter: <StandardUnit {...props} />,
       kineticEnergy: <StandardUnit {...props} />,
     }[props.type] || null
   );
