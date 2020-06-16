@@ -5,11 +5,7 @@ import QAExpansionList from './questions/qaExpansionList/index.jsx';
 import QATextInput from './questions/qaTextInput/index.jsx';
 import QASelect from './questions/qaSelect/index.jsx';
 import QACompound from './questions/qaCompound/index.jsx';
-import DistanceCalculator from './questions/qaCalculators/distanceCalculator/index.jsx';
-import SizeCalculator from './questions/qaCalculators/sizeCalculator/index.jsx';
-import KineticEnergyCalculator from './questions/qaCalculators/kineticEnergyCalculator/index.jsx';
-import VolumeCalculator from './questions/qaCalculators/volumeCalculator/index.jsx';
-import MassCalculator from './questions/qaCalculators/massCalculator/index.jsx';
+import QACalculator from './questions/qaCalculator/index.jsx';
 import Prompt from './questions/Prompt.jsx';
 import QAMultiSelect from './questions/qaMultiSelect/index.jsx';
 import { qa } from './styles.module.scss';
@@ -23,11 +19,11 @@ const questions = {
   multiSelect: QAMultiSelect,
   compoundSelect: QACompound,
   compoundInput: QACompound,
-  DistanceCalculator,
-  SizeCalculator,
-  KineticEnergyCalculator,
-  VolumeCalculator,
-  MassCalculator,
+  DistanceCalculator: QACalculator,
+  SizeCalculator: QACalculator,
+  KineticEnergyCalculator: QACalculator,
+  VolumeCalculator: QACalculator,
+  MassCalculator: QACalculator,
   prompt: Prompt,
 };
 

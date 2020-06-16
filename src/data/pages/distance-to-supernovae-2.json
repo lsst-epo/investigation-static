@@ -46,7 +46,7 @@
           "id": "66",
           "questionType": "DistanceCalculator",
           "title": "Question #1",
-          "label": "<p>Enter the peak apparent magnitude (m) for supernova #4 to find its distance from Earth.</p>",
+          "label": "Enter the peak apparent magnitude (m) for supernova #4 to find its distance from Earth.",
           "placeholder": "Enter peak magnitude",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "magnitude"
@@ -59,7 +59,7 @@
           "id": "67",
           "questionType": "DistanceCalculator",
           "title": "Question #1",
-          "label": "<p>Enter the peak apparent magnitude (m) for supernova #5 to find its distance from Earth.</p>",
+          "label": "Enter the peak apparent magnitude (m) for supernova #5 to find its distance from Earth.",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "magnitude"
         }
@@ -71,8 +71,8 @@
           "id": "68",
           "questionType": "DistanceCalculator",
           "title": "Question #1",
-          "label": "<p>Enter the peak apparent magnitude (m) for supernova #6 to find its distance from Earth.</p>",
-          "answerPre": "<p>Selected: </p>",
+          "label": "Enter the peak apparent magnitude (m) for supernova #6 to find its distance from Earth.",
+          "answerPre": "<p>Selected: </Enter>",
           "answerAccessor": "magnitude"
         }
       ]

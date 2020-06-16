@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import {
   equation,
   fraction,
@@ -8,7 +9,7 @@ import {
   squareRoot,
   numerator,
   denominator,
-} from './equation.module.scss';
+} from '../qaCalculator.module.scss';
 
 export default function FindDiameter(props) {
   const { diameter, magnitude, albedo } = props;
@@ -31,9 +32,7 @@ export default function FindDiameter(props) {
         </span>
       </span>
       <span>= </span>
-      <span className={color}>
-        {diameter === 0 ? diameter : diameter || '?'}
-      </span>
+      <span className={color}>{diameter ? `${diameter} km` : '?'}</span>
     </p>
   );
 }

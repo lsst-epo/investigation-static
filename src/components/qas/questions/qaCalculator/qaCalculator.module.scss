@@ -1,0 +1,108 @@
+.qa-calc {
+  :global {
+    .md-text-field-container {
+      &:not(.answerable) {
+        label,
+        .md-floating-label,
+        .md-floating-label p {
+          color: $neutral20;
+        }
+
+        hr {
+          background-color: $neutral20;
+        }
+      }
+    }
+
+    .md-text-field {
+      padding-left: $minPadding / 2;
+    }
+
+    .md-card-text {
+      padding: 0;
+
+      &:last-child {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.calc-label {
+  @include copySecondary;
+  color: $basePrimary;
+
+  &:not(.answerable) {
+    color: $neutral20;
+  }
+}
+
+.icon {
+  @include copySecondary;
+  white-space: nowrap;
+}
+
+.col-50 {
+  min-width: 200px;
+  max-width: 50%;
+}
+
+.col-50-margin-right {
+  min-width: 200px;
+  max-width: $minPadding;
+  margin-right: $minPadding * 1.5;
+}
+
+.margin {
+  &-top {
+    margin-top: $minPadding;
+  }
+
+  &-left {
+    margin-left: $minPadding;
+  }
+
+  &-right {
+    margin-right: $minPadding;
+  }
+}
+
+.equation {
+  font-size: 17px;
+  font-weight: $medium;
+
+  &:first-child {
+    margin-top: $minPadding;
+  }
+
+  + & {
+    margin-top: $minPadding / 2;
+  }
+}
+
+.fraction {
+  @include fraction;
+
+  .denominator {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid $neutral30;
+  }
+}
+
+.exponent {
+  @include exponent;
+  position: relative;
+  top: -7px;
+  left: -3px;
+}
+
+.color {
+  color: $basePrimary;
+}
+
+.square-root {
+  &::before {
+    content: '√';
+  }
+}
