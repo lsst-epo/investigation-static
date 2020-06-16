@@ -260,7 +260,7 @@ export const getValue = function(accessor, data) {
       inclination: formatValue(data, 0),
       eccentricity: formatValue(data, 2),
       semimajor_axis: formatValue(data, 2),
-      size: formatValue(data, 2),
+      diameter: formatValue(data, 3),
       count: formatValue(data ? data.length : 0, 0),
       kineticEnergy: formatValue(data, 0),
       volume: toSigFigs(data, 4),

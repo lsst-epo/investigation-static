@@ -5,17 +5,17 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
-import { renderDef } from '../../../../../lib/utilities.js';
-import Equation from '../shared/equation';
-import TextField from '../../../../site/forms/textField';
-import Card from '../../../../site/card';
-import styles from './volumeCalculator.module.scss';
-import qaStyles from '../../../styles.module.scss';
-import { qaCalc } from '../shared/calculator.module.scss';
-
-const RadiusIcon = () => {
-  return <span className={styles.icon}>r =</span>;
-};
+import { calculateVolume } from '../qaCalculatorUtilities';
+import FindVolume from './FindVolume';
+import QACalculatorLabel from '../qaCalculatorLabel';
+import QACalculatorInput from '../qaCalculatorInput';
+import { QACalculatorIcon, QACalculatorIconUnit } from '../qaCalculatorIcons';
+import {
+  calcLabel,
+  answerable as answerableStyle,
+  marginTop,
+  col50,
+} from '../qaCalculator.module.scss';
 
 class VolumeCalculator extends React.PureComponent {
   constructor(props) {
@@ -67,12 +67,6 @@ class VolumeCalculator extends React.PureComponent {
     }
   }
 
-  calculateVolume({ radius }) {
-    if (!radius) return null;
-
-    return (4 / 3) * Math.PI * radius ** 3;
-  }
-
   getNewVal(value, valType) {
     const { value: oldValue } = this.state;
 
@@ -85,23 +79,9 @@ class VolumeCalculator extends React.PureComponent {
 
     return {
       ...newVal,
-      volume: this.calculateVolume(newVal),
+      volume: calculateVolume(newVal),
     };
   }
-
-  handleFocus = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      hasFocus: true,
-    }));
-  };
-
-  handleBlur = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      hasFocus: false,
-    }));
-  };
 
   handleChange = (value, valType) => {
     const { question, answerHandler } = this.props;
@@ -122,10 +102,38 @@ class VolumeCalculator extends React.PureComponent {
     );
   };
 
+  updateFocus(focusStatus) {
+    const { question, focusCallback, answerHandler } = this.props;
+    const { id } = question;
+    const { value } = this.state;
+
+    answerHandler(id, value || ' ', focusStatus ? 'focus' : 'blur');
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        hasFocus: focusStatus,
+      }),
+      () => {
+        if (focusCallback) {
+          const { hasFocus } = this.state;
+          focusCallback(hasFocus);
+        }
+      }
+    );
+  }
+
+  handleBlur = () => {
+    this.updateFocus(false);
+  };
+
+  handleFocus = () => {
+    this.updateFocus(true);
+  };
+
   render() {
     const { question, answer, activeId } = this.props;
     const {
-      hasFocus,
       answerable,
       value: { radius, volume },
     } = this.state;
@@ -136,47 +144,31 @@ class VolumeCalculator extends React.PureComponent {
     const answeredClasses = {
       answered,
       unanswered: !answered,
-      [styles.answerable]: answerable || answered || active,
+      [answerableStyle]: answerable || answered || active,
     };
-    const cardClasses = classnames(qaStyles.qaCard, qaCalc, {
-      [qaStyles.active]: hasFocus,
-    });
     const fieldClasses = classnames('qa-text-input', answeredClasses);
-    const labelClasses = classnames(styles.calcLabel, answeredClasses);
+    const labelClasses = classnames(calcLabel, answeredClasses);
 
     return (
-      <Card
-        className={cardClasses}
-        expanded={hasFocus}
-        onExpanderClick={() => {}}
-      >
-        <CardText>
-          <div
-            className={labelClasses}
-            dangerouslySetInnerHTML={renderDef(label)}
-          />
-          <TextField
-            id={`number-input-${id}`}
-            className={fieldClasses}
-            type="number"
-            min="0"
-            leftIcon={<RadiusIcon />}
-            lineDirection="center"
-            placeholder="radius"
-            defaultValue={answered ? radius : null}
-            onBlur={this.handleBlur}
-            onFocus={this.handleFocus}
-            onChange={debounce(
-              value => this.handleChange(value, 'radius'),
-              400
-            )}
-            disabled={!(answerable || answered || active)}
-          />
-          <div className={styles.marginTop}>
-            <Equation component="FindVolume" {...{ radius, volume }} />
-          </div>
-        </CardText>
-      </Card>
+      <CardText>
+        <QACalculatorLabel {...{ label, labelClasses }} />
+        <QACalculatorInput
+          containerWidth={col50}
+          id={`number-input-${id}`}
+          className={fieldClasses}
+          leftIcon={<QACalculatorIcon content="r =" />}
+          rightIcon={<QACalculatorIconUnit unit=" km" />}
+          placeholder="radius"
+          defaultValue={answered ? radius : null}
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
+          onChange={debounce(value => this.handleChange(value, 'radius'), 400)}
+          disabled={!(answerable || answered || active)}
+        />
+        <div className={marginTop}>
+          <FindVolume {...{ radius, volume }} />
+        </div>
+      </CardText>
     );
   }
 }
@@ -185,6 +177,7 @@ VolumeCalculator.propTypes = {
   activeId: PropTypes.string,
   question: PropTypes.object,
   answerHandler: PropTypes.func,
+  focusCallback: PropTypes.func,
   answer: PropTypes.object,
 };
 

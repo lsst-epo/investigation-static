@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { equation as equationStyle, color } from './equation.module.scss';
-import { addTheCommas } from '../../../../../../lib/utilities';
+import { equation as equationStyle, color } from '../qaCalculator.module.scss';
+import { addTheCommas } from '../../../../../lib/utilities.js';
 
 export default function FindDistanceModulus(props) {
   const { variable } = props;

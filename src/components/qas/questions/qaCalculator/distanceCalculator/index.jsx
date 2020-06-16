@@ -5,25 +5,16 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import debounce from 'lodash/debounce';
 import classnames from 'classnames';
-import CalculatedMeasurement from './CalculatedMeasurement';
-import Equation from '../shared/equation';
-import TextField from '../../../../site/forms/textField';
 import Card from '../../../../site/card';
-import { renderDef } from '../../../../../lib/utilities.js';
-import {
-  solveForDistanceModulus,
-  solveForParsecs,
-  solveForMegaParsecs,
-  solveForLightYears,
-  solveForMegaLightYears,
-} from './distanceCalculatorUtilities.js';
-import { inlineQuestion } from './distanceCalculator.module.scss';
+import CalculatedMeasurement from './CalculatedMeasurement';
+import FindDistanceModulus from './FindDistanceModulus';
+import FindParsecs from './FindParsecs';
+import { QACalculatorIcon } from '../qaCalculatorIcons';
+import QACalculatorLabel from '../qaCalculatorLabel';
+import { getCalculatedMeasurementsForDistance } from '../qaCalculatorUtilities.js';
+import { calcLabel, col50, qaCalc } from '../qaCalculator.module.scss';
 import styles from '../../../styles.module.scss';
-import { qaCalc } from '../shared/calculator.module.scss';
-
-const LeftIcon = () => {
-  return <div>m =</div>;
-};
+import QACalculatorInput from '../qaCalculatorInput';
 
 class DistanceCalculator extends React.PureComponent {
   constructor(props) {
@@ -90,36 +81,33 @@ class DistanceCalculator extends React.PureComponent {
     }
   }
 
-  getCalculatedMeasurements(value) {
-    const magnitude = value || null;
-    const distanceModulus = solveForDistanceModulus(magnitude);
-    const parsecs = solveForParsecs(distanceModulus);
-    const megaParsecs = solveForMegaParsecs(parsecs);
-    const lightYears = solveForLightYears(parsecs);
-    const megaLightYears = solveForMegaLightYears(lightYears);
+  updateFocus(focusStatus) {
+    const { question, focusCallback, answerHandler } = this.props;
+    const { id } = question;
+    const { value } = this.state;
 
-    return {
-      magnitude,
-      distanceModulus,
-      parsecs,
-      megaParsecs,
-      lightYears,
-      megaLightYears,
-    };
+    answerHandler(id, value || ' ', focusStatus ? 'focus' : 'blur');
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        hasFocus: focusStatus,
+      }),
+      () => {
+        if (focusCallback) {
+          const { hasFocus } = this.state;
+          focusCallback(hasFocus);
+        }
+      }
+    );
   }
 
-  handleFocus = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      hasFocus: true,
-    }));
+  handleBlur = () => {
+    this.updateFocus(false);
   };
 
-  handleBlur = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      hasFocus: false,
-    }));
+  handleFocus = () => {
+    this.updateFocus(true);
   };
 
   handleChange = value => {
@@ -131,7 +119,7 @@ class DistanceCalculator extends React.PureComponent {
         ...prevState,
         hasFocus: true,
         value: {
-          ...this.getCalculatedMeasurements(+value),
+          ...getCalculatedMeasurementsForDistance(+value),
         },
       }),
       () => {
@@ -153,17 +141,19 @@ class DistanceCalculator extends React.PureComponent {
       megaLightYears,
     } = value || {};
 
-    const { id, label, placeholder } = question;
+    const { id, label } = question;
     const active = activeId === id;
     const answered = !isEmpty(answer);
-    const cardClasses = classnames(styles.qaCard, qaCalc, {
-      [styles.active]: hasFocus,
-    });
-    const fieldClasses = classnames('qa-text-input', {
+    const answeredClasses = {
       answered,
       unanswered: !answered,
       answerable: answerable || answered || active,
+    };
+    const cardClasses = classnames(styles.qaCard, qaCalc, {
+      [styles.active]: hasFocus,
     });
+    const fieldClasses = classnames('qa-text-input', answeredClasses);
+    const labelClasses = classnames(calcLabel, answeredClasses);
 
     return (
       <Card
@@ -172,35 +162,24 @@ class DistanceCalculator extends React.PureComponent {
         onExpanderClick={() => {}}
       >
         <CardText>
-          <div className={inlineQuestion}>
-            <TextField
-              id={`text-input-${id}`}
-              className={fieldClasses}
-              type="number"
-              min="0"
-              leftIcon={<LeftIcon />}
-              label={<div dangerouslySetInnerHTML={renderDef(label)} />}
-              lineDirection="center"
-              placeholder={placeholder}
-              defaultValue={answered ? magnitude : null}
-              onBlur={this.handleBlur}
-              onFocus={this.handleFocus}
-              onChange={debounce(this.handleChange, 400)}
-              disabled={!(answerable || answered || active)}
-            />
-          </div>
+          <QACalculatorLabel {...{ label, labelClasses }} />
+          <QACalculatorInput
+            containerWidth={col50}
+            id={`text-input-${id}`}
+            className={fieldClasses}
+            leftIcon={<QACalculatorIcon content="m =" />}
+            placeholder="magnitude"
+            defaultValue={answered ? magnitude : null}
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
+            onChange={debounce(this.handleChange, 400)}
+            disabled={!(answerable || answered || active)}
+          />
         </CardText>
         <CardActions expander style={{ display: 'none' }} />
         <CardText expandable>
-          <Equation component="FindDistanceModulus" variable={magnitude} />
-          <Equation
-            component="FindParsecs"
-            solution="d"
-            equation="10 "
-            variable={distanceModulus}
-            numerator="+ 5"
-            denominator="5"
-          />
+          <FindDistanceModulus variable={magnitude} />
+          <FindParsecs variable={distanceModulus} />
           <div className="results-list">
             <CalculatedMeasurement unit="pc" value={parsecs} />
             <CalculatedMeasurement unit="Mpc" value={megaParsecs} />
@@ -217,6 +196,7 @@ DistanceCalculator.propTypes = {
   activeId: PropTypes.string,
   question: PropTypes.object,
   answerHandler: PropTypes.func,
+  focusCallback: PropTypes.func,
   answer: PropTypes.object,
 };
 

@@ -21,18 +21,13 @@
         "col": "left",
         "row": "top"
       },
-      "colTitles": [
-        "Diameter",
-        "Volume",
-        "Mass",
-        "Kinetic Energy"
-      ],
+      "colTitles": ["Diameter", "Volume", "Mass", "Kinetic Energy"],
       "rows": [
         [
-          { "accessor": "size", "id": "48" },
+          { "accessor": "diameter", "id": "48" },
           { "accessor": "volume", "id": "50" },
           { "accessor": "mass", "id": "51" },
-          { "accessor": "ke", "id": "52" }
+          { "accessor": "kineticEnergy", "id": "52" }
         ]
       ]
     },
@@ -50,7 +45,7 @@
       ],
       "rows": [
         [
-          { "accessor": "ke", "id": "52" },
+          { "accessor": "kineticEnergy", "id": "52" },
           { "accessor": "crater-diameter", "id": "53" },
           { "accessor": "destruction", "id": "53" },
           { "accessor": "minimum-safe", "id": "53" }
