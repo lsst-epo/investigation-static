@@ -11,6 +11,7 @@ import { arrayify } from '../../../lib/utilities.js';
 import { getAlertFromImageId } from './galaxySelectorUtilities.js';
 import Blinker from '../shared/blinker/index.jsx';
 import Points from './Points';
+import Message from './Message';
 import Legend from '../shared/legend/index.jsx';
 
 import { galaxySelector, singleImage } from './galaxy-selector.module.scss';
@@ -29,6 +30,8 @@ class GalaxySelector extends React.PureComponent {
         .range([props.height - props.padding, 0]),
       selectedData: null,
       playing: false,
+      messageVisible: false,
+      messageResponse: '',
     };
 
     this.svgEl = React.createRef();
@@ -128,6 +131,8 @@ class GalaxySelector extends React.PureComponent {
         prevState => ({
           ...prevState,
           selectedData,
+          messageResponse: 'You found it!',
+          messageVisible: true,
         }),
         () => {
           const { selectedData: newData } = this.state;
@@ -136,8 +141,33 @@ class GalaxySelector extends React.PureComponent {
           }
         }
       );
-    } else if (selectionCallback) {
-      selectionCallback(null, d);
+    } else if (find(oldData, d) && !!d && !preSelected) {
+      this.setState(
+        prevState => ({
+          ...prevState,
+          messageResponse: 'Correct!',
+          messageVisible: false,
+        }),
+        () => {
+          const { selectedData: newData } = this.state;
+          if (selectionCallback) {
+            selectionCallback(newData, d);
+          }
+        }
+      );
+    } else if (!d && !preSelected) {
+      this.setState(
+        prevState => ({
+          ...prevState,
+          messageResponse: 'Try again.',
+          messageVisible: true,
+        }),
+        () => {
+          if (selectionCallback) {
+            selectionCallback(null, d);
+          }
+        }
+      );
     }
   }
 
@@ -272,6 +302,13 @@ class GalaxySelector extends React.PureComponent {
     this.addEventListeners();
   }
 
+  toggleMessageVisibility = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      messageVisible: false,
+    }));
+  };
+
   render() {
     const {
       data,
@@ -295,6 +332,8 @@ class GalaxySelector extends React.PureComponent {
       loading,
       selectedData: selectedDataState,
       playing,
+      messageResponse,
+      messageVisible,
     } = this.state;
 
     const selectedData = selectedDataState || selectedDataProp;
@@ -353,6 +392,11 @@ class GalaxySelector extends React.PureComponent {
               />
             )}
           </svg>
+          <Message
+            response={messageResponse}
+            visible={messageVisible}
+            toggler={this.toggleMessageVisibility}
+          />
           {image ? (
             <img
               className={singleImage}

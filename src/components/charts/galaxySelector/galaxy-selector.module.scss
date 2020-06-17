@@ -13,6 +13,31 @@
   }
 }
 
+.message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  background-color: $neutral10;
+  transition: max-height $timing $durationSlow;
+
+  &.open {
+    max-height: 67px;
+    border-style: none;
+  }
+
+  .message-text {
+    @include copyTertiary;
+    padding: $minPadding;
+    color: $basePrimary;
+    text-align: center;
+  }
+}
+
+
 .group-point {
   stroke: none;
   transition: stroke $timing $duration, opacity $timing $duration;
