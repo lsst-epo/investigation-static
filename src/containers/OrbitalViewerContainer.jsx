@@ -53,7 +53,7 @@ class OrbitalViewerContainer extends React.PureComponent {
 
       this.setState(prevState => ({
         ...prevState,
-        data: [data],
+        data: data ? [data] : null,
         activeNeo: data,
       }));
     }
@@ -141,7 +141,7 @@ class OrbitalViewerContainer extends React.PureComponent {
             />
           )}
         </ConditionalWrapper>
-        <OrbitalDetails data={activeNeo} />
+        {data && <OrbitalDetails data={activeNeo} />}
       </>
     );
   }
