@@ -1,0 +1,41 @@
+{
+  "id": "coloring13",
+  "investigation": "coloring-universe",
+  "order": "13",
+  "title": "Constructing an Astronomical Image",
+  "slug": "astronomical-color-images-1/",
+  "previous": {
+    "title": "Constructing an Astronomical Image",
+    "link": "/astronomical-color-images/"
+  },
+  "next": {
+    "title": "Constructing an Astronomical Image",
+    "link": "/astronomical-color-images-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Move the slider next to the g filter back to its original location (so that the image looked as it did before you moved it). Now move the slider next to the r filter all the way to the left.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "23",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What happens to the appearance of the image?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "24",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Explain why the appearance of the image changed in the way it did."
+        }
+      ]
+    }
+  ]
+}
