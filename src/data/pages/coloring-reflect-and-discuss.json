@@ -1,0 +1,79 @@
+{
+  "id": "coloring16",
+  "investigation": "coloring-universe",
+  "order": "16",
+  "title": "Reflect and Discuss",
+  "slug": "reflect-and-discuss/",
+  "previous": {
+    "title": "What Should My Image Look Like?",
+    "link": "/what-should-my-image-look-like/"
+  },
+  "next": {
+    "title": "Putting It All Together",
+    "link": "/putting-it-all-together/"
+  },
+  "layout": "TwoCol",
+  "content": "<p></p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "27",
+          "questionType": "select",
+          "answerAccessor": "data",
+          "title": "Question #1",
+          "label": "You are wearing a pair of sunglasses and notice that the lenses of your glasses make the color of the sun look yellow. What is the most likely explanation for this color change?",
+          "options": [
+            {
+              "label": "The lens of your sunglasses changes the white light of the sun into yellow light.",
+              "value": "The lens of your sunglasses changes the white light of the sun into yellow light."
+            },
+            {
+              "label": "The lens of your sunglasses reflects yellow light but transmits other colors.",
+              "value": "The lens of your sunglasses reflects yellow light but transmits other colors."
+            },
+            {
+              "label": "The lens of your sunglasses transmits yellow light but blocks other colors.",
+              "value": "The lens of your sunglasses transmits yellow light but blocks other colors."
+            }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "28",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "An object is imaged using the z, g, and u filters. What colors would you assign to each of these filters to produce a representative color image?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "29",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "An asteroid is imaged using u, g, and r filters. It is visible in all three images but looks brightest in the r filter image. Does the asteroid reflect any blue light? Explain your reasoning."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "30",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "A new type of object has been discovered in space. Its surface appears to emit more green light than any other color. You have a chance to use Rubin Observatory images to study this object. Which three filters would you select to construct a representative color image of the object, what colors would you assign to them, and what color would the asteroid be in your image? Explain your reasoning."
+        }
+      ]
+    }
+  ]
+}

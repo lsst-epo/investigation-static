@@ -1,0 +1,97 @@
+{
+  "id": "coloring11",
+  "investigation": "coloring-universe",
+  "order": "11",
+  "title": "Color in Astronomical Images",
+  "slug": "color-in-astronomical-images/",
+  "previous": {
+    "title": "Visible light filters: Exploring Spiral Galaxies",
+    "link": "/visible-light-filters/"
+  },
+  "next": {
+    "title": "Constructing an Astronomical Image",
+    "link": "/astronomical-color-images/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>There is a deliberate method for the way astronomers choose colors when building a color image. It is called chromatic ordering. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. Images constructed by using chromatic ordering are known as <strong>representative color images</strong>.</p><p>The <strong>chromatic ordering technique</strong> matches the filter that transmits light with the shortest wavelengths collected by the telescope to a color in the visible spectrum that also has a short wavelength. For instance, the g filter might be assigned the color blue. The filters that transmit longer wavelengths of light would then get assigned colors that correspond with longer wavelengths.</p><p>Since the Rubin Observatory u filter passes light with the shortest wavelengths, images obtained with that filter would be colorized violet because violet has the shortest wavelengths of visible light. The g filter transmits light with slightly longer wavelengths than the u filter, so the g filter image would be colorized blue, since blue is the next shortest wavelength color. Continuing on with this process, the images obtained with other Rubin Observatory filters would be colorized in this pattern:</p><p>Sometimes images from all six filters are not all available. In that case, a few colors are omitted, and the images can be colorized with any colors as long as they follow the chromatic order rule. For example, suppose you have a set of images taken using only these filters: g, r, i, and y. Any of the following filter sequences would be a correct application of chromatic ordering:</p>",
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "rows": [
+        [
+          { "content": "r filter = green" },
+          { "content": "i filter = yellow" },
+          { "content": "z filter = orange" },
+          { "content": "y filter = red" }
+        ]
+      ]
+    },
+    {
+      "id": "2",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "colTitles": ["g", "r", "i", "y"],
+      "rows": [
+        [
+          { "content": "violet" },
+          { "content": "green" },
+          { "content": "yellow" },
+          { "content": "red" }
+        ],
+        [
+          { "content": "blue" },
+          { "content": "yellow" },
+          { "content": "orange" },
+          { "content": "red" }
+        ],
+        [
+          { "content": "blue" },
+          { "content": "green" },
+          { "content": "yellow" },
+          { "content": "orange" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "18",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is another chromatic sequence of colors that you could use in addition to the three examples above? If you are not sure, refer back to Figure 6."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "19",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is an example of an incorrect chromatic order for the four filters above?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "20",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "As you have learned this section, chromatic ordering of colors is used to communicate information about the wavelengths of lighting the image. Give an example of how color(s) in your culture is used to communicate a message. What is the color, and what message does it communicate?"
+        }
+      ]
+    }
+  ]
+}

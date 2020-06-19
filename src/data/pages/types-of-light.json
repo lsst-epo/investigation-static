@@ -1,0 +1,24 @@
+{
+  "id": "coloring01",
+  "investigation": "coloring-universe",
+  "order": "01",
+  "title": "Types of Light",
+  "slug": "types-of-light/",
+  "previous": {
+    "title": "Introduction",
+    "link": "/introduction/"
+  },
+  "next": {
+    "title": "How Digital Cameras Construct A Color Image",
+    "link": "/construct-a-color-image/"
+  },
+  "images": [
+    {
+      "mediaPath": "/images/visible_spectrum.jpg",
+      "altText": "Visible Spectrum",
+      "figText": "Figure 2: Adapted from Daltonism: <a href='http://www.daltonism.org.uk/2018/01/rainbows/' target='_blank'>http://www.daltonism.org.uk/2018/01/rainbows/</a>"
+    }
+  ],
+  "layout": "TwoCol",
+  "content": "<p>There are many types of <strong>electromagnetic radiation</strong>: radio waves, infrared, visible, ultraviolet (UV), X-rays, etc. Astronomers refer to all of these types of radiation as light. Each type of light has a specific range of wavelengths and energies. The type of light we can see with our eyes is called “visible” light.</p><p>Visible light consists of all of the colors of the rainbow, as shown below. You may have learned the acronym “Roy G. Biv” to remember the seven colors of the rainbow. The different colors correspond to different wavelengths and energies. Within the range of light we can see, red light has the lowest energy and the longest wavelengths; violet has the highest energy and the shortest wavelengths.</p>"
+}

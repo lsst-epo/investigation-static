@@ -1,0 +1,41 @@
+{
+  "id": "coloring17",
+  "investigation": "coloring-universe",
+  "order": "17",
+  "title": "Putting It All Together",
+  "slug": "putting-it-all-together/",
+  "previous": {
+    "title": "Reflect and Discuss",
+    "link": "/reflect-and-discuss/"
+  },
+  "next": {
+    "title": "",
+    "link": ""
+  },
+  "layout": "TwoCol",
+  "content": "<p>Now it’s your turn to answer a scientific question by creating a representative color image and explaining what it reveals.</p><p>Think about these points before you begin:</p><ul><li>What would you like to investigate? What question do you want to answer?<ul>Here are some options:<li>Look through a dusty nebula to see what’s inside</li><li>Search for a faraway galaxy</li><li>Locate the hot young stars in a galaxy</li><li>Identify star-forming regions in a galaxy</li></ul></li><li>What filters will be most appropriate for conducting your investigation? Why? (Note: you must use at least two filters.)</li><li>Develop your chromatic ordering sequence.</li></ul><p>To get started:<ul><li>Use the Astronomical Color Mixing Tool to select an object from the list.</li><li>For each of the filters you wish to use, start by turning on each filter and selecting colors.</li><li>Adjust the sliders to enhance the image. Think about color-balancing the image so it clearly shows the areas or objects you wish to study.</li><li><strike>If needed, you can open up additional windows to compare different filters or different objects in the same filter by clicking on the “add a window” sign in the upper right.</strike></li><li><strike>You may wish to use the drawing tool to mark a place on the image where you have identified an object, or where you wish to direct a comment.</strike></li></ul></p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "31",
+          "questionType": "accordion",
+          "answerAccessor": "data",
+          "title": "Question #1",
+          "label": "When you are done, save your completed image(s)."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "32",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "<p>Along with your image, write a summary that includes:<ol><li>The type of object(s) you selected to explore</li><li>The question you wanted to answer</li><li>The filters and images you selected (and why)</li><li>The chromatic order of colors you assigned</li><li>What you did to create a color balanced image</li><li>The procedure you followed to analyze the image(s)</li><li>What you learned through this process (What was the answer to the question you posed?)</li><li>What improvements would you make in a future investigation (e.g., different filters, different balance, etc.) to make the image more effective in communicating your results?</li></ol></p>"
+        }
+      ]
+    }
+  ]
+}

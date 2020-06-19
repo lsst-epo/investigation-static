@@ -1,0 +1,74 @@
+{
+  "id": "coloring03",
+  "investigation": "coloring-universe",
+  "order": "03",
+  "title": "How Filters Work",
+  "slug": "how-filters-work/",
+  "previous": {
+    "title": "How Digital Cameras Construct A Color Image",
+    "link": "/construct-a-color-image/"
+  },
+  "next": {
+    "title": "Constructing an Image with Three Filters",
+    "link": "/constructing-with-three-filters/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>To better understand how filters work, try out the filter tool.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "1",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What happens to the white light when it passes through the prism?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "2a",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "<p>Choose the red filter.</p><p>What does the filter do to the red light?</p>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "2b",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What does it do to the other colors of light?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "3a",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "<p>Choose the blue filter.</p><p>What does the filter do to the blue light?</p>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "3b",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What does it do to the other colors of light?"
+        }
+      ]
+    }
+  ]
+}
