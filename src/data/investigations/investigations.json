@@ -18,5 +18,17 @@
   {
     "title": "Hazardous Asteroids",
     "id": "hazardous-asteroids"
+  },
+  {
+    "title": "Coloring the Universe",
+    "id": "coloring-universe"
+  },
+  {
+    "title": "A Window to the Stars",
+    "id": "window-stars"
+  },
+  {
+    "title": "Mapping the Milky Way",
+    "id": "milky-way"
   }
 ]

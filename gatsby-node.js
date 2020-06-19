@@ -71,6 +71,54 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `);
+  } else if (INVESTIGATION === 'window-stars') {
+    pages = await graphql(`
+      query {
+        allPagesJson(
+          filter: { investigation: { eq: "window-stars" } }
+          sort: { fields: [order, investigation], order: ASC }
+        ) {
+          nodes {
+            order
+            id
+            investigation
+            slug
+          }
+        }
+      }
+    `);
+  } else if (INVESTIGATION === 'milky-way') {
+    pages = await graphql(`
+      query {
+        allPagesJson(
+          filter: { investigation: { eq: "window-stars" } }
+          sort: { fields: [order, investigation], order: ASC }
+        ) {
+          nodes {
+            order
+            id
+            investigation
+            slug
+          }
+        }
+      }
+    `);
+  } else if (INVESTIGATION === 'coloring-universe') {
+    pages = await graphql(`
+      query {
+        allPagesJson(
+          filter: { investigation: { eq: "coloring-universe" } }
+          sort: { fields: [order, investigation], order: ASC }
+        ) {
+          nodes {
+            order
+            id
+            investigation
+            slug
+          }
+        }
+      }
+    `);
   } else if (INVESTIGATION === 'expanding-universe') {
     pages = await graphql(`
       query {
