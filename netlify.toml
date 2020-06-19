@@ -15,3 +15,12 @@
 
 [context."hazardous-asteroids-staging"]
   command = "cross-env INVESTIGATION='hazardous-asteroids' yarn deploy"
+
+[context."coloring-universe-staging"]
+  command = "cross-env INVESTIGATION='coloring-universe' yarn deploy"
+
+[context."window-stars-staging"]
+  command = "cross-env INVESTIGATION='window-stars' yarn deploy"
+
+[context."milky-way-staging"]
+  command = "cross-env INVESTIGATION='milky-way' yarn deploy"
