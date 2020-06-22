@@ -25,17 +25,22 @@ class Header extends React.PureComponent {
         <div className={styles.innerContainer}>
           {toggleToc && (
             <Button
-              className="md-btn--toolbar md-toolbar--action-left"
-              icon
+              className={`${styles.tocToggle} md-btn--toolbar md-toolbar--action-left`}
+              iconBefore
               iconEl={
                 tocVisability ? (
-                  <ButtonIcon srText="Close Table of Contents" Icon={Close} />
+                  <ButtonIcon Icon={Close} />
                 ) : (
-                  <ButtonIcon srText="Open Table of Contents" Icon={Menu} />
+                  <ButtonIcon Icon={Menu} />
                 )
               }
               onClick={toggleToc}
-            />
+            >
+              <span role="presentation">Table Of Contents</span>
+              <span className="screen-reader-only">{`${
+                tocVisability ? 'Close' : 'Open'
+              } Table of Contents`}</span>
+            </Button>
           )}
           <div className={styles.headerInner}>
             <Link to="/" className={logo && styles.logoWrapper}>
