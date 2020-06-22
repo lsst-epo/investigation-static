@@ -31,3 +31,10 @@
   left: 0;
 }
 
+.toc-toggle {
+  :global {
+    .md-icon-separator {
+      align-items: flex-start;
+    }
+  };
+}
