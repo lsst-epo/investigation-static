@@ -110,22 +110,25 @@ class MassCalculator extends React.PureComponent {
   };
 
   handleChange = (value, valType) => {
+    const { value: oldValue } = this.state;
     const { question, answerHandler } = this.props;
     const { id } = question;
 
-    this.setState(
-      prevState => ({
-        ...prevState,
-        hasFocus: true,
-        value: {
-          ...this.getNewVal(+value, valType),
-        },
-      }),
-      () => {
-        const { value: updatedVal } = this.state;
-        answerHandler(id, updatedVal, 'change');
-      }
-    );
+    if (+value !== oldValue[valType]) {
+      this.setState(
+        prevState => ({
+          ...prevState,
+          hasFocus: true,
+          value: {
+            ...this.getNewVal(+value, valType),
+          },
+        }),
+        () => {
+          const { value: updatedVal } = this.state;
+          answerHandler(id, updatedVal, 'change');
+        }
+      );
+    }
   };
 
   render() {

@@ -22,7 +22,7 @@ export default function FindVolume(props) {
       </span>
       {` * `}
       <span>
-        <span className={color}> π</span>
+        <span style={{ fontSize: '1.6rem', lineHeight: '1' }}> π</span>
         <span>)</span>
         {` * `}
         <span className={color}>
