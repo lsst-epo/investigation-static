@@ -12,6 +12,8 @@
     "title": "Colorizing the Images",
     "link": "/colorizing-the-images/"
   },
+  "layout": "TwoCol",
+  "content": "<p>Looking at a rainbow, you might think that we need to use seven filters to produce a color image. But we actually only need three. This is because our eyes contain sensors called “cones” that collect red, green, and blue light. Our brain has a method for transforming the relative amounts of red, green, and blue light measured by the cones into a color image. This is known as the “three-color process.” Remarkably, our eyes can see over a million different colors with this method. Now let’s explore how the three-color process works.</p><p>To the right is a series of images. The first three are images obtained using red, green, and blue filters. As we mentioned before, digital cameras cannot see color, so each of the three images of filtered light starts out as a black and white image. A color (red, green, or blue) is then selected to <strong>colorize</strong> each of the filtered images, and finally, the three images are combined to create the color image.</p><p>Start by looking at the brightness of the boys’ shirts in the black and white images taken through each filter. Think about what is similar and what is different in them.</p>",
   "images": [
     {
       "mediaPath": "/images/rgb_filter_example.png",
@@ -22,17 +24,89 @@
       }
     }
   ],
-  "layout": "TwoCol",
-  "content": "<p>Looking at a rainbow, you might think that we need to use seven filters to produce a color image. But we actually only need three. This is because our eyes contain sensors called “cones” that collect red, green, and blue light. Our brain has a method for transforming the relative amounts of red, green, and blue light measured by the cones into a color image. This is known as the “three-color process.” Remarkably, our eyes can see over a million different colors with this method. Now let’s explore how the three-color process works.</p><p>To the right is a series of images. The first three are images obtained using red, green, and blue filters. As we mentioned before, digital cameras cannot see color, so each of the three images of filtered light starts out as a black and white image. A color (red, green, or blue) is then selected to <strong>colorize</strong> each of the filtered images, and finally, the three images are combined to create the color image.</p><p>Start by looking at the brightness of the boys’ shirts in the black and white images taken through each filter. Think about what is similar and what is different in them.</p>",
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "bottom",
+        "col": "right"
+      },
+      "colTitles": [
+        "Dark or Bright?",
+        "Red Shirt",
+        "Green Shirt",
+        "Blue Shirt"
+      ],
+      "rowTitles": [["Red Filter"], ["Green Filter"], ["Blue Filter"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "4a" },
+          { "accessor": "data", "id": "4b" },
+          { "accessor": "data", "id": "4c" }
+        ],
+        [
+          { "accessor": "data", "id": "5a" },
+          { "accessor": "data", "id": "5b" },
+          { "accessor": "data", "id": "5c" }
+        ],
+        [
+          { "accessor": "data", "id": "6a" },
+          { "accessor": "data", "id": "6b" },
+          { "accessor": "data", "id": "6c" }
+        ]
+      ]
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "4",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "<p>In the table below, record whether a shirt of a particular color appears to be bright or dark in the corresponding filter.</br>(e.g., in the upper-left cell below select “bright” or “dark” for the red shirt as it appears through the red filter. In the lower-left cell select “bright” or “dark” for the red shirt as it appears in the blue filter)</p>"
+          "id": "4a",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["4a", "4b", "4c"],
+          "labelPre": "Compare the Red Filter image to the Composite image and complete the following sentence. In the Red Filter Image, the red shirt looks",
+          "labelPost": ",",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "(dark/bright)",
+          "options": [
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "4b",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["4a", "4b", "4c"],
+          "labelPre": "the green shirt looks",
+          "labelPost": ",",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "(dark/bright)",
+          "options": [
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "4c",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["4a", "4b", "4c"],
+          "labelPre": "the blue shirt looks",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "(dark/bright)",
+          "options": [
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
         }
       ]
     },
@@ -41,15 +115,15 @@
         {
           "id": "5a",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["5a", "5b"],
-          "labelPre": "Choose the right words to finish this sentence: The red shirt looks",
-          "labelPost": "in the image taken through the red filter",
+          "compoundQuestion": ["5a", "5b", "5c"],
+          "labelPre": "Compare the Green Filter image to the Composite image and complete the following sentence. In the Green Filter Image, the red shirt looks",
+          "labelPost": ",",
           "srLabel": "...",
           "answerAccessor": "compound-select",
-          "placeholder": "Select one",
+          "placeholder": "(dark/bright)",
           "options": [
-            { "label": "bright", "value": "bright" },
-            { "label": "dark", "value": "farther" }
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
           ],
           "answerPre": "...",
           "answerPost": "..."
@@ -57,15 +131,31 @@
         {
           "id": "5b",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["5a", "5b"],
-          "labelPre": "because the red filter",
-          "labelPost": "red light.",
+          "compoundQuestion": ["5a", "5b", "5c"],
+          "labelPre": "the green shirt looks",
+          "labelPost": ",",
           "srLabel": "...",
           "answerAccessor": "compound-select",
-          "placeholder": "Select a type",
+          "placeholder": "(dark/bright)",
           "options": [
-            { "label": "passes", "value": "passes" },
-            { "label": "blocks", "value": "blocks" }
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "5c",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["5a", "5b", "5c"],
+          "labelPre": "the blue shirt looks",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "(dark/bright)",
+          "options": [
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
           ],
           "answerPre": "...",
           "answerPost": "..."
@@ -77,31 +167,47 @@
         {
           "id": "6a",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["6a", "6b"],
-          "labelPre": "Choose the right words to finish this sentence: The green shirt looks",
-          "labelPost": "in the image taken through the red filter",
+          "compoundQuestion": ["6a", "6b", "6c"],
+          "labelPre": "Compare the Blue Filter image to the Composite image and complete the following sentence. In the Green Filter Image, the red shirt looks",
+          "labelPost": ",",
           "srLabel": "...",
           "answerAccessor": "compound-select",
-          "placeholder": "Select one",
+          "placeholder": "(dark/bright)",
           "options": [
-            { "label": "bright", "value": "bright" },
-            { "label": "dark", "value": "farther" }
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
           ],
           "answerPre": "...",
           "answerPost": "..."
         },
         {
-          "id": "6b",
+          "id": "6ab",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["6a", "6b"],
-          "labelPre": "because the red filter",
-          "labelPost": "red light.",
+          "compoundQuestion": ["6a", "6b", "6c"],
+          "labelPre": "the green shirt looks",
+          "labelPost": ",",
           "srLabel": "...",
           "answerAccessor": "compound-select",
-          "placeholder": "Select a type",
+          "placeholder": "(dark/bright)",
           "options": [
-            { "label": "passes", "value": "passes" },
-            { "label": "blocks", "value": "blocks" }
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "6c",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["6a", "6b", "6c"],
+          "labelPre": "the blue shirt looks",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "compound-select",
+          "placeholder": "(dark/bright)",
+          "options": [
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
           ],
           "answerPre": "...",
           "answerPost": "..."
