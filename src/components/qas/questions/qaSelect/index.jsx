@@ -102,6 +102,9 @@ class QASelect extends React.PureComponent {
       [styles.answerable]: answerable || answered || active,
       [styles.inlineQaSelect]: labelPre || labelPost,
     });
+    const selectClasses = classnames({
+      [styles.hideLabel]: labelPre || labelPost,
+    });
 
     return (
       <ConditionalWrapper
@@ -114,9 +117,10 @@ class QASelect extends React.PureComponent {
           )}
           <Select
             id={`qa-select-${id}`}
+            className={selectClasses}
             options={options}
-            label={label || srLabel}
-            name={label || srLabel}
+            label={label || srLabel || placeholder}
+            name={label || srLabel || placeholder}
             value={answered ? answer.content || answer.data : 'DEFAULT'}
             handleBlur={this.handler}
             handleChange={this.handler}
