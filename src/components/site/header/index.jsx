@@ -15,6 +15,7 @@ class Header extends React.PureComponent {
 
     return (
       <Toolbar
+        role="banner"
         data-testid="site-header"
         colored
         fixed

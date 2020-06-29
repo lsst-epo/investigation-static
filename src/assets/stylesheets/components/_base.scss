@@ -57,12 +57,13 @@ h2 {
 
 h3 {
   @extend %proto-heading;
-  @include subheadingPrimary;
+  @include headingSecondary;
   // font-size: $gamma;
 }
 
 h4 {
   @extend %proto-heading;
+  @include subheadingPrimary;
   // font-size: $delta;
 }
 

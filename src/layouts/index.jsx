@@ -124,7 +124,7 @@ class Layout extends React.Component {
           />
         )}
         <div>
-          <main className={styles.container}>{children}</main>
+          <div className={styles.container}>{children}</div>
         </div>
       </>
     );
