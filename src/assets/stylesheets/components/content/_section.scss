@@ -1,111 +1,105 @@
-section {
-  + .nav-secondary {
-    margin-top: 2 * $minPadding;
-  }
+// section {
+//   + .nav-secondary {
+//     margin-top: 2 * $minPadding;
+//   }
 
-  p {
-    @include copyPrimary;
+//   p {
+//     @include copyPrimary;
 
-    + h3 {
-      margin-top: 2 * $verticalSpace;
-    }
-  }
+//     + h3, + h2 {
+//       margin-top: 2 * $verticalSpace;
+//     }
+//   }
 
-  .list-title {
-    font-weight: $medium;
+//   // .list-title {
+//   //   font-weight: $medium;
 
-    + ul {
-      margin-top: $verticalSpace;
-    }
-  }
+//   //   + ul {
+//   //     margin-top: $verticalSpace;
+//   //   }
+//   // }
 
-  ul {
-    @include listUnstyled;
-    @include copySecondary;
+//   // ul {
+//   //   @include copySecondary;
 
-    li {
-      + li {
-        margin-top: 0.5 * $verticalSpace;
-      }
-    }
+//   //   li {
+//   //     + li {
+//   //       margin-top: 0.5 * $verticalSpace;
+//   //     }
+//   //   }
+//   // }
 
-    &.list-bulleted {
-      margin-left: 1.2em;
-      list-style-type: disc;
-    }
-  }
+//   // ol {
+//   //   @include copySecondary;
+//   //   padding-left: 15px;
+//   //   margin: 0.5 * $verticalSpace 0;
 
-  ol {
-    @include copySecondary;
-    padding-left: 15px;
-    margin: 0.5 * $verticalSpace 0;
+//   //   li {
+//   //     + li {
+//   //       margin-top: 0.5 * $verticalSpace;
+//   //     }
+//   //   }
+//   // }
 
-    li {
-      + li {
-        margin-top: 0.5 * $verticalSpace;
-      }
-    }
-  }
+//   // .sun-icon {
+//   //   position: relative;
+//   //   bottom: -6px;
+//   //   /* stylelint-disable-next-line declaration-no-important */
+//   //   visibility: visible !important;
+//   //   fill: $black;
+//   // }
 
-  .sun-icon {
-    position: relative;
-    bottom: -6px;
-    /* stylelint-disable-next-line declaration-no-important */
-    visibility: visible !important;
-    fill: $black;
-  }
+//   // .equation-flex {
+//   //   display: flex;
+//   //   justify-content: space-between;
+//   //   max-width: 400px;
+//   //   margin: 0 auto;
 
-  .equation-flex {
-    display: flex;
-    justify-content: space-between;
-    max-width: 400px;
-    margin: 0 auto;
+//   //   + p {
+//   //     margin-top: $verticalSpace;
+//   //   }
+//   // }
 
-    + p {
-      margin-top: $verticalSpace;
-    }
-  }
+//   // .equation-container {
+//   //   display: flex;
+//   //   flex-direction: column;
+//   //   align-items: center;
+//   //   justify-content: center;
+//   //   margin-top: 0.5 * $verticalSpace;
+//   //   margin-bottom: 0.5 * $verticalSpace;
 
-  .equation-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0.5 * $verticalSpace;
-    margin-bottom: 0.5 * $verticalSpace;
+//   //   &.padded {
+//   //     padding-right: 0.5 * $verticalSpace;
+//   //     padding-left: 0.5 * $verticalSpace;
+//   //   }
 
-    &.padded {
-      padding-right: 0.5 * $verticalSpace;
-      padding-left: 0.5 * $verticalSpace;
-    }
+//   //   .equation {
+//   //     display: block;
+//   //   }
 
-    .equation {
-      display: block;
-    }
+//   //   .parenthetical {
+//   //     display: inline-block;
+//   //     padding-right: 3px;
+//   //     padding-left: 3px;
+//   //     border-right: 1px solid $black;
+//   //     border-left: 1px solid $black;
+//   //     border-radius: 3px;
+//   //   }
 
-    .parenthetical {
-      display: inline-block;
-      padding-right: 3px;
-      padding-left: 3px;
-      border-right: 1px solid $black;
-      border-left: 1px solid $black;
-      border-radius: 3px;
-    }
+//   //   .fraction {
+//   //     display: flex;
+//   //     flex-direction: column;
+//   //     align-items: center;
+//   //     justify-content: center;
+//   //     text-align: center;
 
-    .fraction {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+//   //     .denominator {
+//   //       border-top: 1px solid $black;
+//   //     }
+//   //   }
+//   // }
 
-      .denominator {
-        border-top: 1px solid $black;
-      }
-    }
-  }
-
-  .divider-horizontal + .stellar-properties {
-    margin-top: 2 * $minPadding;
-  }
-}
+//   // .divider-horizontal + .stellar-properties {
+//   //   margin-top: 2 * $minPadding;
+//   // }
+// // }

@@ -1,4 +1,4 @@
-{
+\{
   "id": "observable3a",
   "investigation": "observable-universe",
   "order": "03a",
@@ -36,6 +36,7 @@
           "title": "Question #1",
           "labelPre": "Use the plot plus your image to answer this question: Most of the bright galaxies appear ",
           "labelPost": " on the image.",
+          "srLabel": "...",
           "options": [
             { "label": "large", "value": "large" },
             { "label": "small", "value": "small" }

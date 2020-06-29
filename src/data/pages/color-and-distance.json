@@ -45,6 +45,7 @@
           "title": "Question #1",
           "labelPre": "Based on the data in this plot, galaxies that are far away appear ",
           "labelPost": " , as compared to nearby galaxies.",
+          "srLabel": "...",
           "options": [
             { "label": "redder", "value": "redder" },
             { "label": "less red", "value": "less red" }
@@ -63,6 +64,7 @@
           "title": "Question #1",
           "labelPre": "As the Universe expands and a galaxy’s light is stretched to longer wavelengths, would the light you observe from this galaxy appear ",
           "labelPost": " .",
+          "srLabel": "...",
           "options": [
             { "label": "redder", "value": "redder" },
             { "label": "less red", "value": "less red" }
@@ -81,6 +83,7 @@
           "title": "Question #1",
           "labelPre": "Light that travels a large distance (and for a long time) while the Universe is expanding will be redshifted ",
           "labelPost": " than light that travels a short distance.",
+          "srLabel": "...",
           "options": [
             { "label": "more", "value": "more" },
             { "label": "less", "value": "less" }
@@ -99,6 +102,7 @@
           "title": "Question #1",
           "labelPre": "Galaxies that are very far away will appear ",
           "labelPost": " than galaxies that are near Earth.",
+          "srLabel": "...",
           "options": [
             { "label": "redder", "value": "redder" },
             { "label": "less red", "value": "less red" }

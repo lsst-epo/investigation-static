@@ -55,6 +55,46 @@
   + .grid-qas {
     margin-top: $minPadding;
   }
+
+  p {
+    @include copyPrimary;
+
+    + h3, + h2 {
+      margin-top: $verticalSpace;
+    }
+  }
+
+  h1 {
+    @include headingPrimary;
+  }
+
+  h2 {
+    @include headingSecondary;
+  }
+
+  ul {
+    @include copySecondary;
+    padding-left: 20px;
+    margin: 0.5 * $verticalSpace 0;
+
+    li {
+      + li {
+        margin-top: 0.5 * $verticalSpace;
+      }
+    }
+  }
+
+  ol {
+    @include copySecondary;
+    padding-left: 15px;
+    margin: 0.5 * $verticalSpace 0;
+
+    li {
+      + li {
+        margin-top: 0.5 * $verticalSpace;
+      }
+    }
+  }
 }
 
 .grid-qas {
