@@ -6,6 +6,12 @@
     line-height: $baseLineHeight;
   }
 
+  .hide-label {
+    label {
+      display: none;
+    }
+  }
+
   select {
     @include copyPrimary;
   }
