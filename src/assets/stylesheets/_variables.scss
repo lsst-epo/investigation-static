@@ -43,18 +43,16 @@ $md-slider-warn-md: false; // only need to set this if using the dark theme.
 
 // Chart colors
 $chart0: $neutral30;
-$chart1: #1ab579;
-$chart2: #eb7c39;
+$chart1: #169c69;
+$chart2: #e36516;
 $chart3: #4c8cd2;
-$chart4: #fed828;
-$chart5: #8e3efe;
-$chart6: #a3bb0d;
-$chart7: #c82960;
+$chart4: #8e3efe;
+$chart5: #8a9d0b;
+$chart6: #a42350;
 
-$chartColors: $chart0 $chart1 $chart2 $chart3 $chart4 $chart5 $chart6
-  $chart7;
+$chartColors: $chart0 $chart1 $chart2 $chart3 $chart4 $chart5 $chart6;
 
-:export  {
+:export {
   @for $i from 0 through length($chartColors) - 1 {
     $chartColor: nth($chartColors, $i + 1);
     chart#{$i}: $chartColor;
