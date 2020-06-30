@@ -17,7 +17,11 @@
   "widgets": [
     {
       "type": "AsteroidClass",
-      "sources": ["/data/neos/asteroid_photomtery_class_C.json", "/data/neos/asteroid_photomtery_class_S.json"],
+      "source": "/data/neos/test-neo-filters.json",
+      "sources": [
+        "/data/neos/asteroid_photomtery_class_C.json",
+        "/data/neos/asteroid_photomtery_class_S.json"
+      ],
       "layout": {
         "col": "left",
         "row": "top"
@@ -25,6 +29,37 @@
       "options": {
         "yAxisLabel": "Brightness relative to g filter"
       }
+    }
+  ],
+  "tables": [
+    {
+      "id": "2",
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      },
+      "colTitles": ["", "Name", "Absolute Magnitude", "Type", "Data/Evidence"],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "46" },
+          { "accessor": "data", "id": "460" },
+          { "accessor": "data", "id": "47" },
+          { "accessor": "data", "id": "48" }
+        ],
+        [
+          { "accessor": "data", "id": "49" },
+          { "accessor": "data", "id": "490" },
+          { "accessor": "data", "id": "50" },
+          { "accessor": "data", "id": "51" }
+        ],
+        [
+          { "accessor": "data", "id": "66" },
+          { "accessor": "data", "id": "660" },
+          { "accessor": "data", "id": "67" },
+          { "accessor": "data", "id": "68" }
+        ]
+      ]
     }
   ],
   "questionsByPage": [

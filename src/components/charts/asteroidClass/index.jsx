@@ -11,9 +11,10 @@ import {
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { extentFromSet, getMean } from '../../../lib/utilities.js';
 import Points from './Points';
-import Point from './Point';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
+import FilterValuesLine from './FilterValuesLine.jsx';
+import Summary from './Summary.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
 import Region from '../shared/region/index.jsx';
 
@@ -148,6 +149,7 @@ class AsteroidClass extends React.Component {
   render() {
     const {
       data,
+      overlayData,
       width,
       height,
       padding,
@@ -242,7 +244,7 @@ class AsteroidClass extends React.Component {
             />
             {maxs && mins && (
               <Region
-                type="summary"
+                type={styles.filtersRegion}
                 points={this.getRegionPoints()}
                 xValueAccessor="x"
                 yValueAccessor="y"
@@ -262,46 +264,24 @@ class AsteroidClass extends React.Component {
                 pointClasses={classnames(styles.point)}
               />
             )}
-            {mins &&
-              maxs &&
-              means &&
-              this.filters.map(filter => {
-                return (
-                  <g key={`${filter}-summary-points`}>
-                    <Point
-                      x={xScale(filter)}
-                      y={yScale(mins[filter]) + offsetTop}
-                      fill="#074a9c"
-                    />
-                    <Point
-                      x={xScale(filter)}
-                      y={yScale(means[filter]) + offsetTop}
-                      fill="#074a9c"
-                    />
-                    <Point
-                      x={xScale(filter)}
-                      y={yScale(maxs[filter]) + offsetTop}
-                      fill="#074a9c"
-                    />
-                  </g>
-                );
-              })}
-            {means &&
-              this.filters.map((filter, i) => {
-                const nextFilter = this.filters[i + 1];
-                if (!nextFilter) return null;
-                return (
-                  <line
-                    key={`summary-line-${filter}-${nextFilter}`}
-                    x1={xScale(filter)}
-                    y1={yScale(means[filter]) + offsetTop}
-                    x2={xScale(nextFilter)}
-                    y2={yScale(means[nextFilter]) + offsetTop}
-                    strokeWidth={1}
-                    stroke="#074a9c"
-                  />
-                );
-              })}
+            {mins && maxs && means && (
+              <Summary
+                filters={this.filters}
+                means={means}
+                mins={mins}
+                maxs={maxs}
+                {...{ xScale, yScale, offsetTop }}
+              />
+            )}
+            {overlayData && (
+              <FilterValuesLine
+                lineClasses={styles.overlayLine}
+                pointClasses={styles.overlayPoint}
+                filters={this.filters}
+                filterValues={overlayData}
+                {...{ xScale, yScale, offsetTop }}
+              />
+            )}
           </svg>
         </div>
       </>
@@ -333,6 +313,7 @@ AsteroidClass.propTypes = {
   offsetTop: PropTypes.number,
   offsetRight: PropTypes.number,
   data: PropTypes.array,
+  overlayData: PropTypes.object,
   activeGalaxy: PropTypes.object,
   options: PropTypes.object,
   xValueAccessor: PropTypes.string,

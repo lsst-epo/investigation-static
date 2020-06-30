@@ -4,6 +4,8 @@
 
 .inner-container {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: $containerMaxWidth;
   margin: 0 auto;
@@ -21,7 +23,7 @@
 
 .site-logo {
   width: 96px;
-  margin-left: 20px;
+  margin: 0 $minPadding;
 }
 
 .page-progress {
