@@ -18,7 +18,18 @@ class Line extends React.PureComponent {
       <g>
         {filters.map((filter, i) => {
           const nextFilter = filters[i + 1];
-          if (!nextFilter) return null;
+          if (!nextFilter) {
+            return (
+              <g key={`point-${filter}-${nextFilter}`}>
+                <Point
+                  classes={pointClasses}
+                  x={xScale(filter)}
+                  y={yScale(filterValues[filter]) + offsetTop}
+                />
+              </g>
+            );
+          }
+
           return (
             <g key={`line-${filter}-${nextFilter}`}>
               <line
