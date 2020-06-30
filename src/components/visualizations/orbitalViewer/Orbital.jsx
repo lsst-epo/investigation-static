@@ -32,6 +32,7 @@ const Orbital = ({
   initialized,
   initCallback,
   devMode,
+  activeVelocityCallback,
 }) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
@@ -148,6 +149,13 @@ const Orbital = ({
   useEffect(() => {
     if (frameOverride) updatePoint(false, 1 / 60);
   }, [frameOverride]);
+
+  // Called whenever pointState changes
+  useEffect(() => {
+    if (active) {
+      activeVelocityCallback(point.velocity);
+    }
+  }, [point]);
 
   // Called every frame
   useFrame((state, delta) => {
@@ -273,6 +281,7 @@ Orbital.propTypes = {
   initCallback: PropTypes.func,
   initialized: PropTypes.bool,
   devMode: PropTypes.bool,
+  activeVelocityCallback: PropTypes.func,
 };
 
 export default Orbital;

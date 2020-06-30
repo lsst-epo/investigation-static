@@ -16,6 +16,7 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/three-neos.json",
       "options": {
+        "preSelected": true,
         "multiple": true,
         "paused": true,
         "pov": "top"

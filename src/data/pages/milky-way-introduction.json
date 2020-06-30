@@ -1,0 +1,17 @@
+{
+  "id": "milkyway1",
+  "investigation": "milky-way",
+  "order": "00",
+  "title": "Introduction",
+  "slug": "introduction/",
+  "previous": {
+    "title": "",
+    "link": ""
+  },
+  "next": {
+    "title": "",
+    "link": ""
+  },
+  "layout": "TwoCol",
+  "content": "<p>Milky Way intro page</p>"
+}

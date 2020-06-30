@@ -7,13 +7,15 @@ import CameraController from './CameraController.jsx';
 import Orbitals from './Orbitals.jsx';
 import Controls from './controls/index.jsx';
 import PlaybackSpeed from './PlaybackSpeed.jsx';
+import OrbitalDetails from './OrbitalDetails.jsx';
 
-import { container } from './orbital-viewer.module.scss';
+import { container, orbitalCanvas } from './orbital-viewer.module.scss';
 
 function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
   const speeds = [0.25, 0.5, 1, 10, 30];
 
   const [playing, setPlaying] = useState(!paused);
+  const [activeVelocity, setActiveVelocity] = useState(null);
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
   const [dayPerVizSec, setDayPerVizSec] = useState(speeds[0]);
@@ -44,16 +46,18 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
   };
 
   return (
-    <div>
+    <>
       <div className={container}>
+        <OrbitalDetails velocity={activeVelocity} data={activeNeo} />
         <PlaybackSpeed dayPerVizSec={dayPerVizSec} />
-        <Canvas invalidateFrameloop>
+        <Canvas invalidateFrameloop className={orbitalCanvas}>
           <CameraController pov={pov} />
           <Camera far={200000} near={0.1} fov={100} position={[0, 0, 500]} />
           <ambientLight intensity={0.9} />
           <Orbitals
             includeRefObjs
             selectionCallback={updateActiveNeo}
+            activeVelocityCallback={setActiveVelocity}
             {...{
               neos,
               activeNeo,
@@ -94,7 +98,7 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
           />
         )}
       </div>
-    </div>
+    </>
   );
 }
 

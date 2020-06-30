@@ -26,6 +26,7 @@ class Header extends React.PureComponent {
           {toggleToc && (
             <Button
               className={`${styles.tocToggle} md-btn--toolbar md-toolbar--action-left`}
+              flat
               iconBefore
               iconEl={
                 tocVisability ? (
