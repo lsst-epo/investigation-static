@@ -5,7 +5,7 @@ import API from '../lib/API.js';
 import ConditionalWrapper from '../components/ConditionalWrapper';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import OrbitalViewer from '../components/visualizations/orbitalViewer/index.jsx';
-import OrbitalDetails from '../components/visualizations/orbitalViewer/OrbitalDetails.jsx';
+// import OrbitalDetails from '../components/visualizations/orbitalViewer/OrbitalDetails.jsx';
 
 import {
   avatarContainer,
@@ -102,10 +102,15 @@ class OrbitalViewerContainer extends React.PureComponent {
   }
 
   updateActiveNeo = activeNeo => {
-    this.setState(prevState => ({
-      ...prevState,
-      activeNeo,
-    }));
+    const { options } = this.props;
+    const { preSelected } = options || {};
+
+    if (!preSelected) {
+      this.setState(prevState => ({
+        ...prevState,
+        activeNeo,
+      }));
+    }
   };
 
   render() {
@@ -141,7 +146,6 @@ class OrbitalViewerContainer extends React.PureComponent {
             />
           )}
         </ConditionalWrapper>
-        {data && <OrbitalDetails data={activeNeo} />}
       </>
     );
   }

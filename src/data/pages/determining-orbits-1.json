@@ -18,6 +18,7 @@
     {
       "type": "OrbitalViewer",
       "options": {
+        "preSelected": true,
         "showUserPlot": "10"
       }
     }

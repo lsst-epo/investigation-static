@@ -7,6 +7,7 @@ function Orbitals({
   neos,
   activeNeo,
   selectionCallback,
+  activeVelocityCallback,
   playing,
   dayPerVizSec,
   stepDirection,
@@ -71,6 +72,7 @@ function Orbitals({
               dayPerVizSec,
               frameOverride,
               selectionCallback,
+              activeVelocityCallback,
             }}
             initCallback={dispatch}
           />
@@ -89,6 +91,7 @@ Orbitals.propTypes = {
   stepDirection: PropTypes.number,
   frameOverride: PropTypes.number,
   includeRefObjs: PropTypes.bool,
+  activeVelocityCallback: PropTypes.func,
 };
 
 export default Orbitals;

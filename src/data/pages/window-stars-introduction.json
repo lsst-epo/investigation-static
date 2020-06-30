@@ -1,0 +1,17 @@
+{
+  "id": "windowstars1",
+  "investigation": "window-stars",
+  "order": "00",
+  "title": "Introduction",
+  "slug": "introduction/",
+  "previous": {
+    "title": "",
+    "link": ""
+  },
+  "next": {
+    "title": "",
+    "link": ""
+  },
+  "layout": "TwoCol",
+  "content": "<p>A Window to the Stars intro page</p>"
+}

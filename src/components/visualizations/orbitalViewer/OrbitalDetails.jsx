@@ -1,57 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import Card from '../../site/card/index.js';
+import classnames from 'classnames';
 import Unit from '../../charts/shared/unit/index.jsx';
 import Table from '../../site/forms/table/index.jsx';
-import { getValue } from '../../../lib/utilities.js';
-// import { container } from './orbital-viewer.module.scss';
+import { getValue, toSigFigs } from '../../../lib/utilities.js';
+import {
+  details,
+  activeDetails,
+  detailsToggle,
+  detailsTable,
+} from './orbital-viewer.module.scss';
+import Button from '../../site/button/index.js';
 
-function OrbitalDetails(props) {
-  const { data } = props;
-  const { H, a, i, e, Principal_desig: scientificName } = data || {};
+function OrbitalDetails({ data, velocity }) {
+  const { H, a, i, e, Principal_desig: name } = data || {};
+  const [active, setActive] = useState(false);
+
+  function renderValueWithUnits(value, unitType, showUnit) {
+    if (!value) return '';
+    return (
+      <>
+        {getValue(unitType, value)}
+        {showUnit && <Unit type={unitType} />}
+      </>
+    );
+  }
 
   return (
-    <div>
-      <Table
-        className="details-table"
-        colTitles={[
-          'Name',
-          'Semi-major Axis',
-          'Eccentricity',
-          'Inclination',
-          'Absolute Magnitude',
-        ]}
-        includeRowTitles
-        rows={[
-          [
-            scientificName || '',
-            a ? (
-              <>
-                {getValue('semimajor_axis', a)}
-                <Unit type="semimajor_axis" />
-              </>
-            ) : (
-              ''
-            ),
-            e ? getValue('eccentricity', e) : '',
-            i ? (
-              <>
-                {getValue('inclination', i)}
-                <Unit type="inclination" />
-              </>
-            ) : (
-              ''
-            ),
-            H ? getValue('magnitude', H) : '',
-          ],
-        ]}
-      />
-    </div>
+    <>
+      <Button
+        className={detailsToggle}
+        flat
+        disabled={!data}
+        onClick={() => setActive(!active)}
+      >
+        {active ? 'Hide' : 'Object'} info
+      </Button>
+      <div
+        className={classnames(details, {
+          [activeDetails]: active,
+        })}
+      >
+        <Table
+          className={detailsTable}
+          includeRowTitles
+          rows={[
+            ['Scientific Name', name || ''],
+            [
+              'Semi-major Axis',
+              renderValueWithUnits(a, 'semimajor_axis', true),
+            ],
+            ['Eccentricity', renderValueWithUnits(e, 'eccentricity', false)],
+            ['Inclination', renderValueWithUnits(i, 'inclination', true)],
+            ['Absolute Magnitude', renderValueWithUnits(H, 'magnitude', false)],
+            [
+              'Speed',
+              renderValueWithUnits(toSigFigs(velocity, 3), 'velocity', true),
+            ],
+          ]}
+        />
+      </div>
+    </>
   );
 }
 
 OrbitalDetails.propTypes = {
   data: PropTypes.object,
+  velocity: PropTypes.number,
 };
 
 export default OrbitalDetails;
