@@ -17,7 +17,7 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/nea_extended_sample.json"
+      "source": "/data/neos/test-mba.json"
     }
   ],
   "tables": [
@@ -71,6 +71,7 @@
       "colTitles": [
         "",
         "Name",
+        "Absolute Magnitude",
         "Type",
         "Data/Evidence"
       ],
@@ -78,18 +79,21 @@
       "rows": [
         [
           { "accessor": "data", "id": "46" },
+          { "accessor": "data", "id": "460" },
           { "accessor": "data", "id": "47" },
           { "accessor": "data", "id": "48" }
         ],
         [
           { "accessor": "data", "id": "49" },
+          { "accessor": "data", "id": "490" },
           { "accessor": "data", "id": "50" },
           { "accessor": "data", "id": "51" }
         ],
         [
-          { "accessor": "data", "id": "52" },
-          { "accessor": "data", "id": "53" },
-          { "accessor": "data", "id": "54" }
+          { "accessor": "data", "id": "66" },
+          { "accessor": "data", "id": "660" },
+          { "accessor": "data", "id": "67" },
+          { "accessor": "data", "id": "68" }
         ]
       ]
     }
@@ -103,6 +107,17 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "What is this object's name?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "460",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is this object's absolute magnitude?"
         }
       ]
     },

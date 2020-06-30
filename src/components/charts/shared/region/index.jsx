@@ -5,7 +5,7 @@ import {
   curveCardinalClosed as d3CurveCardinalClosed,
 } from 'd3-shape';
 
-import { region } from './region.module.scss';
+import { region, defaultRegion } from './region.module.scss';
 
 class Region extends React.PureComponent {
   getD() {
@@ -37,7 +37,7 @@ class Region extends React.PureComponent {
 
   render() {
     const { type } = this.props;
-    const classNames = `${region} ${type}`;
+    const classNames = `${region} ${type || defaultRegion}`;
     return <path d={this.getD()} className={classNames} />;
   }
 }

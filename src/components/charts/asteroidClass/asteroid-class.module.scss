@@ -13,19 +13,46 @@
   }
 }
 
+.axis {
+  :global {
+    .tick {
+      @include labelPrimary;
+    }
+  };
+}
+
 .x-axis-label {
   text-anchor: middle;
 }
 
 .point {
   opacity: 0.2;
-  fill: $mediumBlue;
+  fill: $chart3;
   stroke: none;
   transition: fill $timing $duration, stroke $timing $duration, opacity $timing $duration;
 }
 
-.invisible {
-  display: none;
+.filters-region {
+  fill: $chart3;
+  stroke: $chart3;
+}
+
+.summary-line {
+  stroke: $darkBlue;
+}
+
+.summary-point {
+  fill: $darkBlue;
+  stroke: $darkBlue;
+}
+
+.overlay-line {
+  stroke: $chart2;
+}
+
+.overlay-point {
+  fill: $chart2;
+  stroke: $chart2;
 }
 
 // NavDrawer related styles

@@ -9,6 +9,7 @@ class AsteroidClassContainer extends React.PureComponent {
     super(props);
 
     this.state = {
+      overlayData: null,
       data: null,
       group: null,
       twoUp: false,
@@ -20,7 +21,7 @@ class AsteroidClassContainer extends React.PureComponent {
       widget: { source, sources },
     } = this.props;
 
-    if (sources) {
+    if (sources && !source) {
       axios.all(this.allGets(sources)).then(
         axios.spread((...responses) => {
           const data = responses.map(reponse => {
@@ -36,7 +37,7 @@ class AsteroidClassContainer extends React.PureComponent {
           }));
         })
       );
-    } else if (source) {
+    } else if (source && !sources) {
       API.get(source).then(response => {
         const { data } = response;
         const { data: neos, group } = data;
@@ -47,6 +48,24 @@ class AsteroidClassContainer extends React.PureComponent {
           twoUp: false,
         }));
       });
+    } else if (source && sources) {
+      axios.all(this.allGets([...sources, source])).then(
+        axios.spread((...responses) => {
+          const data = responses.map(reponse => {
+            const { data: rData } = reponse;
+            return rData;
+          });
+          const overlayData = data.pop();
+
+          this.setState(prevState => ({
+            ...prevState,
+            overlayData,
+            data: data.map(d => d.data),
+            group: data.map(d => d.group),
+            twoUp: true,
+          }));
+        })
+      );
     }
   }
 
@@ -57,7 +76,7 @@ class AsteroidClassContainer extends React.PureComponent {
   }
 
   render() {
-    const { data, group, twoUp } = this.state;
+    const { data, overlayData, group, twoUp } = this.state;
     const { options } = this.props;
     const {
       yAxisLabel,
@@ -87,6 +106,7 @@ class AsteroidClassContainer extends React.PureComponent {
                     data={d}
                     group={dGroup}
                     {...{
+                      overlayData,
                       options,
                       yAxisLabel,
                       tooltipAccessors,
@@ -112,6 +132,7 @@ class AsteroidClassContainer extends React.PureComponent {
                 group ? `${group.toUpperCase()} Class` : 'Asteroid Class'
               }
               {...{
+                overlayData,
                 data,
                 group,
                 options,
