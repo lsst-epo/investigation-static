@@ -1,8 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import classnames from 'classnames';
 import API from '../lib/API.js';
+import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
+import ConditionalWrapper from '../components/ConditionalWrapper';
 import AsteroidClass from '../components/charts/asteroidClass/index.jsx';
+
+import {
+  drawerContainer,
+  mainContent,
+  paddedDrawerInner,
+  navItem,
+  avatarContainer,
+  navAvatar,
+  linkActive,
+} from '../components/charts/asteroidClass/asteroid-class.module.scss';
 
 class AsteroidClassContainer extends React.PureComponent {
   constructor(props) {
@@ -13,13 +26,16 @@ class AsteroidClassContainer extends React.PureComponent {
       data: null,
       group: null,
       twoUp: false,
+      activeOverlay: null,
     };
   }
 
   componentDidMount() {
     const {
       widget: { source, sources },
+      options,
     } = this.props;
+    const { multiple } = options || {};
 
     if (sources && !source) {
       axios.all(this.allGets(sources)).then(
@@ -60,6 +76,7 @@ class AsteroidClassContainer extends React.PureComponent {
           this.setState(prevState => ({
             ...prevState,
             overlayData,
+            activeOverlay: multiple ? overlayData[0].filters : null,
             data: data.map(d => d.data),
             group: data.map(d => d.group),
             twoUp: true,
@@ -75,8 +92,34 @@ class AsteroidClassContainer extends React.PureComponent {
     });
   }
 
+  updateActiveOverlay(activeOverlay) {
+    this.setState(prevState => ({
+      ...prevState,
+      activeOverlay,
+    }));
+  }
+
+  generateNavItems(navItems) {
+    const { activeOverlay } = this.state;
+
+    return navItems.map((item, i) => {
+      return {
+        leftAvatar: (
+          <div className={avatarContainer}>
+            <div className={navAvatar}>{`#${i + 1}`}</div>
+          </div>
+        ),
+        primaryText: ' ',
+        className: classnames(navItem, {
+          [linkActive]: activeOverlay === item.filters,
+        }),
+        onClick: () => this.updateActiveOverlay(item.filters),
+      };
+    });
+  }
+
   render() {
-    const { data, overlayData, group, twoUp } = this.state;
+    const { data, overlayData, activeOverlay, group, twoUp } = this.state;
     const { options } = this.props;
     const {
       yAxisLabel,
@@ -84,10 +127,23 @@ class AsteroidClassContainer extends React.PureComponent {
       tooltipUnits,
       tooltipLabels,
       preSelected,
+      multiple,
     } = options || {};
 
     return (
-      <>
+      <ConditionalWrapper
+        condition={multiple && !!overlayData}
+        wrapper={children => (
+          <NavDrawer
+            cardClasses={drawerContainer}
+            navItems={this.generateNavItems(overlayData)}
+            contentClasses={mainContent}
+            toolbarStyles={{ display: 'none' }}
+          >
+            <div className={paddedDrawerInner}>{children}</div>
+          </NavDrawer>
+        )}
+      >
         {twoUp ? (
           <div className="container-flex">
             {data.map((d, i) => {
@@ -103,10 +159,10 @@ class AsteroidClassContainer extends React.PureComponent {
                   <AsteroidClass
                     className="brightness-vs-distance"
                     xAxisLabel={dGroup ? `${dGroup} Class` : 'Asteroid Class'}
-                    data={d}
                     group={dGroup}
+                    data={d}
+                    overlayData={activeOverlay}
                     {...{
-                      overlayData,
                       options,
                       yAxisLabel,
                       tooltipAccessors,
@@ -131,8 +187,8 @@ class AsteroidClassContainer extends React.PureComponent {
               xAxisLabel={
                 group ? `${group.toUpperCase()} Class` : 'Asteroid Class'
               }
+              overlayData={activeOverlay}
               {...{
-                overlayData,
                 data,
                 group,
                 options,
@@ -145,7 +201,7 @@ class AsteroidClassContainer extends React.PureComponent {
             />
           </div>
         )}
-      </>
+      </ConditionalWrapper>
     );
   }
 }
