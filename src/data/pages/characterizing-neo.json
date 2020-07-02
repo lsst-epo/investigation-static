@@ -21,6 +21,7 @@
         "row": "bottom",
         "col": "left"
       },
+      "fixed": true,
       "colTitles": [
         "Group",
         "Eccentricity",

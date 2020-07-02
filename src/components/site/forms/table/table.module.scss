@@ -1,29 +1,47 @@
-:global {
-  @include react-md-data-tables;
+.table-wrapper {
+  :global {
+    @include react-md-data-tables;
 
-  table.md-data-table {
-    border: 1px solid $neutral20;
+    table.md-data-table {
+      border: 1px solid $neutral20;
 
-    thead {
-      .md-table-row {
-        border-bottom: 1px solid $neutral20;
-      }
-    }
+      thead {
+        .md-table-row {
+          border-bottom: 1px solid $neutral20;
 
-    .md-table-row {
-      .md-table-column {
-        padding: 5px $minPadding;
-        white-space: nowrap;
-
-        &:not(:first-child) {
-          border-left: 1px solid $neutral20;
+          .md-table-column {
+            white-space: normal;
+          }
         }
+      }
 
-        &.md-text--secondary, &.row-title {
-          @include copySecondary;
-          color: $neutral40;
+      .md-table-row {
+        .md-table-column {
+          padding: 5px $minPadding / 2;
+
+          &:not(:first-child) {
+            border-left: 1px solid $neutral20;
+          }
+
+          &:first-child {
+            padding: 5px $minPadding / 2 5px $minPadding;
+          }
+
+          &:last-child {
+            padding: 5px $minPadding 5px $minPadding / 2;
+          }
+
+          &.md-text--secondary,
+          &.row-title {
+            @include copySecondary;
+            color: $neutral40;
+          }
         }
       }
     }
   }
+}
+
+.fixed {
+  table-layout: fixed;
 }
