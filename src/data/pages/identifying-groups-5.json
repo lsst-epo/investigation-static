@@ -57,11 +57,29 @@
     {
       "question": [
         {
-          "id": "31",
-          "questionType": "textArea",
+          "id": "31a",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["31a", "31b"],
+          "labelPre": "Two of the four main groups above make up most of the small Solar System objects. One group is centered at a distance of approximately ",
+          "labelPost": " AU from the Sun, ",
+          "srLabel": "...",
           "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Two of the four main groups above make up most of the small Solar System objects. One group is centered at a distance of approximately ___ AU from the Sun, and the second group is centered at a distance of ___ AU from the Sun."
+          "title": "Question #1"
+        },
+        {
+          "id": "31b",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["31a", "31b"],
+          "labelPre": "and the second group is centered at a distance of ",
+          "labelPost": " AU from the Sun.",
+          "srLabel": "...",
+          "answerAccessor": "compound-text",
+          "options": [
+            {"label": "the same place", "value": "the same place"},
+            {"label": "different places", "value": "different places"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
         }
       ]
     }

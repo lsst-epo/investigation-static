@@ -116,6 +116,47 @@
   margin-bottom: $verticalSpace;
 }
 
+
+.equation {
+  font-size: 17px;
+  font-weight: $medium;
+
+  &:first-child {
+    margin-top: $minPadding;
+  }
+
+  + & {
+    margin-top: $minPadding / 2;
+  }
+}
+
+.fraction {
+  @include fraction;
+
+  .denominator {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid $neutral30;
+  }
+}
+
+.exponent {
+  @include exponent;
+  position: relative;
+  top: -7px;
+  left: -3px;
+}
+
+.color {
+  color: $basePrimary;
+}
+
+.square-root {
+  &::before {
+    content: '√';
+  }
+}
+
 // Graphs/Svgs
 // --------------------------------------------------------
 
@@ -160,3 +201,5 @@
   @include link;
   text-decoration: underlined;
 }
+
+

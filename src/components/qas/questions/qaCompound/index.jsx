@@ -38,6 +38,7 @@ class QACompound extends React.PureComponent {
           {questions.map(question => {
             const { id, questionType, options } = question;
             const QACompoundComponent = this.qaTypes[questionType];
+            if (!QACompoundComponent) return null;
 
             return (
               <QACompoundComponent
