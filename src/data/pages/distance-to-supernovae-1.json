@@ -29,8 +29,8 @@
           "tool": "selection",
           "title": "Question #1",
           "label": "<p>Use the Type Ia template to fit the data.</p>",
-          "answerPre": "<p>The Type </p>",
-          "answerPost": "<p> template fits the data for Supernova #4</p>",
+          "answerPre": "<span>The Type </span>",
+          "answerPost": "<span> template fits the data for Supernova #4</span>",
           "answerAccessor": "light-curve-template"
         }
       ]
@@ -43,7 +43,7 @@
           "tool": "selection",
           "title": "Question #1",
           "label": "<p>A horizontal line will appear on the graph. Use it to mark the peak apparent magnitude (m) of the light curve on the template.</p>",
-          "answerPre": "<p>This supernova's magnitude is </p>",
+          "answerPre": "<span>This supernova's magnitude is </span>",
           "answerAccessor": "magnitude"
         }
       ]

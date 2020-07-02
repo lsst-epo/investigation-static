@@ -32,8 +32,8 @@
           "id": "251",
           "questionType": "accordion",
           "title": "Question #1",
-          "answerPre": "<span>Total Selected: </span>",
           "label": "<p>Select a Galaxy from the menu. Compare the images of the galaxy as you did before to find the location of the supernova. When you see the supernova, click on it. The information box above the images will provide you with the distance to the selected supernova in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because the supernova is in the galaxy, the distances to the supernova and the galaxy are the same.</p><p>Next, click on the center of the galaxy. The information box above the images will provide you with the recessional velocity of the selected galaxy in kilometers per second (km/s).</p>",
+          "answerPre": "<span>Total Selected: </span>",
           "answerAccessor": "galaxy"
         }
       ]
