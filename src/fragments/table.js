@@ -8,6 +8,7 @@ export const tableFragment = graphql`
       col
       row
     }
+    fixed
     colTitles
     rowTitles
     rows {

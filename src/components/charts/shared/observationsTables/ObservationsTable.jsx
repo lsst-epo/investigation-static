@@ -56,7 +56,7 @@ class ObservationsTable extends React.PureComponent {
   }
 
   render() {
-    const { title, answers, rows, colTitles, rowTitles } = this.props;
+    const { title, answers, rows, colTitles, rowTitles, fixed } = this.props;
 
     return (
       <>
@@ -66,6 +66,7 @@ class ObservationsTable extends React.PureComponent {
           colTitles={colTitles}
           includeRowTitles
           rows={this.getRows(answers, colTitles, rowTitles, rows)}
+          fixed={fixed}
         />
       </>
     );
@@ -78,6 +79,7 @@ ObservationsTable.propTypes = {
   rows: PropTypes.array,
   colTitles: PropTypes.array,
   rowTitles: PropTypes.array,
+  fixed: PropTypes.bool,
 };
 
 export default ObservationsTable;
