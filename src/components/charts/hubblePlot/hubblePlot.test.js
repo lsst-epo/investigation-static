@@ -112,7 +112,7 @@ test('HubblePlot Point grows when mouseOver', async () => {
   // Assert
   await waitFor(() => {
     expect(getByTestId(tooltipTestId)).toBeVisible();
-    expect(testPoint).toHaveAttribute('r', pointDiameter + '');
+    expect(testPoint).toHaveAttribute('r', `${pointDiameter}`);
     expect(testHandler).not.toHaveBeenCalled();
   });
 });
@@ -147,7 +147,7 @@ test('HubblePlot Point grows when clicked and selectionCallback is called', asyn
   // Assert
   await waitFor(() => {
     expect(getByTestId(tooltipTestId)).toBeVisible();
-    expect(testPoint).toHaveAttribute('r', pointDiameter + '');
+    expect(testPoint).toHaveAttribute('r', `${pointDiameter}`);
     expect(testHandler).toHaveBeenCalled();
   });
 });
