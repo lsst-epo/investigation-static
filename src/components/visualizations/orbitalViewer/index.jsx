@@ -52,7 +52,7 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
         <PlaybackSpeed dayPerVizSec={dayPerVizSec} />
         <Canvas invalidateFrameloop className={orbitalCanvas}>
           <CameraController pov={pov} />
-          <Camera far={200000} near={0.1} fov={100} position={[0, 0, 500]} />
+          <Camera far={200000} near={1} fov={100} position={[0, 0, 500]} />
           <ambientLight intensity={0.9} />
           <Orbitals
             includeRefObjs
@@ -67,23 +67,11 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
               frameOverride,
             }}
           />
-          <pointLight
-            position={[0, 0, 0]}
-            intensity={2.5}
-            decay={2.0}
-            distance={100}
-            color="yellow"
-          >
-            <mesh position={[0, 0, 0]}>
-              <sphereBufferGeometry attach="geometry" args={[10, 16, 8]} />
-              <meshBasicMaterial
-                transparent
-                opacity={0.2}
-                attach="material"
-                color="yellow"
-              />
-            </mesh>
-          </pointLight>
+          <mesh position={[0, 0, 0]}>
+            <sphereBufferGeometry attach="geometry" args={[10, 16, 8]} />
+            <meshBasicMaterial attach="material" color="yellow" />
+            {/* <axesHelper args={[1000, 1000, 1000]} /> */}
+          </mesh>
         </Canvas>
         {!paused && (
           <Controls

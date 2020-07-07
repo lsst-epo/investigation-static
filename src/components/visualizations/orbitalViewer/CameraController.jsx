@@ -9,7 +9,7 @@ function CameraController({ pov }) {
   function setPov(controls) {
     if (pov) {
       const targetPov = {
-        side: Math.PI / 1.06,
+        side: Math.PI / 1.0075,
         top: Math.PI / 2,
       }[pov];
       // panning
