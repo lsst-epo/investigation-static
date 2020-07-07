@@ -9,21 +9,9 @@
   }
 }
 
-.hide-data-points {
-  visibility: hidden;
-}
-
 .data-point {
   stroke: 'transparent';
   transition: stroke $timing $duration, opacity $timing $duration;
-
-  &.invisible-data-point {
-    opacity: 0;
-  }
-
-  &.visible-data-point {
-    opacity: 1;
-  }
 }
 
 .proxy-point {

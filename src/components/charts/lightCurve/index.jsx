@@ -153,22 +153,17 @@ class LightCurve extends React.PureComponent {
       hoverPointData: null,
       showTooltip: false,
       selectedData: null,
-      // showLasso: false,
-      // showEraser: false,
     }));
   }
 
   toggleSelection(d) {
     const { activeAlertId, dataSelectionCallback } = this.props;
     const { selectedData } = this.state;
-    // const selectedPointId = this.getSelectedId(selectedData);
     const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
 
     const newState = {
       tooltipPosX: pointPos[0],
       tooltipPosY: pointPos[1],
-      showLasso: false,
-      showEraser: false,
       showTooltip: true,
       selectedData: arrayify(d),
     };
@@ -397,10 +392,6 @@ class LightCurve extends React.PureComponent {
       loaded: !loading,
     });
 
-    const pointsClasses = classnames({
-      [styles.hideDataPoints]: !pointsAreVisible,
-    });
-
     return (
       <>
         {legend}
@@ -418,6 +409,7 @@ class LightCurve extends React.PureComponent {
             key="svg-container"
             ref={this.svgContainer}
             className="svg-container scatter-plot-container"
+            data-testid="light-curve"
           >
             {loading && (
               <CircularProgress
@@ -460,6 +452,7 @@ class LightCurve extends React.PureComponent {
               preserveAspectRatio="xMidYMid meet"
               viewBox={`0 0 ${width} ${height}`}
               ref={this.svgEl}
+              data-testid="light-curve-svg"
             >
               <defs>
                 <clipPath id="clip">
@@ -471,7 +464,10 @@ class LightCurve extends React.PureComponent {
                   />
                 </clipPath>
               </defs>
-              <g clipPath="url('#clip')" className={pointsClasses}>
+              <g
+                clipPath="url('#clip')"
+                style={{ visibility: pointsAreVisible ? 'visible' : 'hidden' }}
+              >
                 {data &&
                   xScale &&
                   yScale &&
@@ -551,10 +547,11 @@ LightCurve.defaultProps = {
   yAxisLabel: 'Apparent Magnitude (m)',
   tooltipAccessors: ['date', 'magnitude'],
   tooltipLabels: ['Time', 'Apparent Magnitude (m)'],
+  chooseLightCurveTemplate: false,
 };
 
 LightCurve.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.array.isRequired,
   templates: PropTypes.array,
   templatesData: PropTypes.object,
   chooseLightCurveTemplate: PropTypes.bool,
