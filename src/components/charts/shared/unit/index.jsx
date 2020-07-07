@@ -21,6 +21,7 @@ const Unit = props => {
       inclination: <StandardUnit {...props} />,
       semimajor_axis: <StandardUnit {...props} />,
       diameter: <StandardUnit {...props} />,
+      craterDiameter: <StandardUnit {...props} />,
       kineticEnergy: <StandardUnit {...props} />,
     }[props.type] || null
   );

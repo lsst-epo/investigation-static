@@ -21,6 +21,7 @@ export const WithQAing = ComposedComponent => {
         count: this.getCountContent,
         'light-curve-template': this.getTemplateContent,
         diameter: this.getDiameterCalcContent,
+        craterDiameter: this.getCraterDiameterCalcContent,
         magnitude: this.getMagnitudeContent,
         kineticEnergy: this.getKineticEnergyContent,
         volume: this.getVolumeContent,
@@ -99,6 +100,10 @@ export const WithQAing = ComposedComponent => {
 
     getDiameterCalcContent(data) {
       return data.diameter || 'None Selected';
+    }
+
+    getCraterDiameterCalcContent(data) {
+      return data.craterDiameter || 'None Selected';
     }
 
     getCountContent(data) {

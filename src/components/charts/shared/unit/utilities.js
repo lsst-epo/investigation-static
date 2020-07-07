@@ -12,6 +12,7 @@ export const units = {
   inclination: '°',
   semimajor_axis: ' AU',
   diameter: ' km',
+  craterDiameter: ' km',
   kineticEnergy: ' J',
   volume: ' m^3',
 };
