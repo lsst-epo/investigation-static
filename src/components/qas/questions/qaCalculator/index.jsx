@@ -9,6 +9,7 @@ import KineticEnergyCalculator from './kineticEnergyCalculator/index.jsx';
 import MassCalculator from './massCalculator/index.jsx';
 import SizeCalculator from './sizeCalculator/index.jsx';
 import VolumeCalculator from './volumeCalculator/index.jsx';
+import ImpactCalculator from './impactCalculator/index.jsx';
 import Card from '../../../site/card';
 import { active, qaCard } from '../../styles.module.scss';
 import { qaCalc, marginTop } from './qaCalculator.module.scss';
@@ -23,6 +24,7 @@ class QACalculator extends React.PureComponent {
       MassCalculator,
       SizeCalculator,
       VolumeCalculator,
+      ImpactCalculator,
     };
 
     this.state = {

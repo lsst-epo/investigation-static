@@ -41,6 +41,10 @@
   @include copySecondary;
   white-space: nowrap;
 }
+.small-icon {
+  font-weight: normal;
+  font-size: 0.8rem;
+}
 
 .col-50 {
   min-width: 200px;

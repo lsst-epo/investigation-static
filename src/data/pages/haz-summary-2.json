@@ -21,13 +21,12 @@
         "col": "left",
         "row": "top"
       },
-      "colTitles": ["Diameter", "Volume", "Mass", "Kinetic Energy"],
+      "colTitles": ["Diameter", "Volume", "Density"],
       "rows": [
         [
           { "accessor": "diameter", "id": "48" },
           { "accessor": "volume", "id": "50" },
-          { "accessor": "mass", "id": "51" },
-          { "accessor": "kineticEnergy", "id": "52" }
+          { "accessor": "density", "id": "51" }
         ]
       ]
     },
@@ -46,7 +45,7 @@
       "rows": [
         [
           { "accessor": "kineticEnergy", "id": "52" },
-          { "accessor": "crater-diameter", "id": "53" },
+          { "accessor": "craterDiameter", "id": "53" },
           { "accessor": "destruction", "id": "53" },
           { "accessor": "minimum-safe", "id": "53" }
         ]
@@ -58,10 +57,10 @@
       "question": [
         {
           "id": "53",
-          "questionType": "SizeCalculator",
+          "questionType": "ImpactCalculator",
           "title": "Question #1",
           "label": "Estimate the effect of this asteroid impacting earth",
-          "placeholder": "Enter Kinetic energy",
+          "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "text"
         }

@@ -24,6 +24,7 @@ const questions = {
   KineticEnergyCalculator: QACalculator,
   VolumeCalculator: QACalculator,
   MassCalculator: QACalculator,
+  ImpactCalculator: QACalculator,
   prompt: Prompt,
 };
 
