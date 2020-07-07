@@ -3,19 +3,10 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import find from 'lodash/find';
 import { neo, selected } from './time-domain-viewer.module.scss';
-import chartColors from '../../../assets/stylesheets/_variables.scss';
 
 class Point extends React.PureComponent {
   isSelected(data, id) {
     return !!find(data, { id });
-  }
-
-  getStroke(isSelected, color) {
-    if (isSelected) {
-      return color;
-    }
-
-    return 'transparent';
   }
 
   render() {
@@ -41,8 +32,8 @@ class Point extends React.PureComponent {
         cy={yScale(active[yValueAccessor])}
         r={15}
         fill="transparent"
-        stroke={this.getStroke(isSelected, chartColors.chart1)}
         strokeWidth={1}
+        stroke="transparent"
       />
     );
   }
