@@ -9,18 +9,10 @@
   transition: fill $timing $duration, stroke $timing $duration, opacity $timing $duration;
 
   &.selected {
+    stroke: $chart1;
     stroke-width: 2;
   }
 }
-
-// .galaxy-nav-drawer {
-//   position: relative;
-//   outline: none;
-// }
-
-// .galaxy-drawer-content {
-//   position: relative;
-// }
 
 .container {
   position: relative;
@@ -32,53 +24,39 @@
   box-shadow: none;
 }
 
-// // mini drawer
-// aside {
-//   .galaxy-item {
-//     margin-bottom: -1px;
-//     background-color: $neutral10;
-//     transition: background-color $timing $duration;
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: $tallestSquareWidget;
+  height: 64px;
+  padding: $minPadding / 2 $minPadding;
+  background-color: $chart1;
 
-//     &.link-is-complete {
-//       background-color: $baseSecondaryDark;
-//     }
+  .neo-name {
+    @include subheadingPrimary;
+    font-weight: $bold;
+  }
 
-//     &.link-active {
-//       background-color: $basePrimary;
-//     }
+  .details {
+    @include listUnstyled;
+    display: flex;
 
-//     &:hover {
-//       background-color: $basePrimary;
-//     }
-//   }
-// }
+    .detail {
+      display: flex;
+      flex-direction: column;
+      min-width: 65px;
+      margin-left: $minPadding;
 
-// // full size drawer
-// nav {
-//   .galaxy-item {
-//     &.link-active {
-//       background-color: $basePrimary;
+      .title {
+        @include labelTertiary;
+        width: 100%;
+        border-bottom: 1px solid $black;
+      }
 
-//       :global {
-//         .md-tile-text--primary.md-text--theme-primary,
-//         .md-text {
-//           /* stylelint-disable-next-line declaration-no-important */
-//           color: $white !important;
-//         }
-//       }
-//     }
-
-//     &.link-is-complete {
-//       background-color: $baseSecondaryDark;
-
-//       :global {
-//         .md-tile-text--primary,
-//         .md-text--theme-primary,
-//         .md-text {
-//           /* stylelint-disable-next-line declaration-no-important */
-//           color: $white !important;
-//         }
-//       }
-//     }
-//   }
-// }
+      .copy {
+        @include labelPrimary;
+      }
+    }
+  }
+}

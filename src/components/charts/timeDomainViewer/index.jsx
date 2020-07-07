@@ -8,6 +8,7 @@ import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
 import Blinker from '../shared/blinker/index.jsx';
+import Legend from './Legend';
 import Point from './Point';
 
 import { timeDomainViewer } from './time-domain-viewer.module.scss';
@@ -92,26 +93,7 @@ class TimeDomainViewer extends React.PureComponent {
   }
 
   toggleSelection(d) {
-    // const { selectedData: oldData } = this.state;
     const { selectionCallback } = this.props;
-    // if (!find(oldData, d) && !!d && !preSelected) {
-    //   const selectedData = !oldData ? [d] : [...oldData, d];
-
-    //   this.setState(
-    //     prevState => ({
-    //       ...prevState,
-    //       selectedData,
-    //     }),
-    //     () => {
-    //       const { selectedData: newData } = this.state;
-    //       if (selectionCallback) {
-    //         selectionCallback(newData, d);
-    //       }
-    //     }
-    //   );
-    // } else if (selectionCallback) {
-    //   selectionCallback(null, d);
-    // }
     if (d) selectionCallback();
   }
 
@@ -239,25 +221,6 @@ class TimeDomainViewer extends React.PureComponent {
         }));
       }
     }
-    // else if (multiple) {
-    //      data.forEach((supernova, i) => {
-    //        if (i === data.length - 1) {
-    //          d3Select(this.svgEl.current)
-    //            .selectAll(`.data-point.${supernova.className}`)
-    //            .data(supernova.data);
-    //          if (loading) {
-    //            this.setState(prevState => ({
-    //              ...prevState,
-    //              loading: false,
-    //            }));
-    //          }
-    //        } else {
-    //          d3Select(this.svgEl.current)
-    //            .selectAll(`.data-point${supernova.className}`)
-    //            .data(supernova.data);
-    //        }
-    //      });
-    //    }
 
     if (!preSelected) this.addEventListeners();
   }
@@ -291,6 +254,7 @@ class TimeDomainViewer extends React.PureComponent {
 
     return (
       <>
+        <Legend {...{ name, activeAlert, selectedData }} />
         <div className="svg-container supernova-selector-container">
           {loading && (
             <CircularProgress

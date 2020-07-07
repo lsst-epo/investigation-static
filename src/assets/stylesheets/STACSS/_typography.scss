@@ -81,8 +81,11 @@
 }
 
 @mixin copyTertiary {
-  @include copyPrimary;
+  font-family: 'Roboto';
+  font-size: 16px;
   font-weight: $bold;
+  line-height: $baseLineHeight;
+  color: $black;
 }
 
 
@@ -112,6 +115,14 @@
   @include labelSecondary;
 }
 
+@mixin labelTertiary {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: $bold;
+  line-height: 1.333;
+  color: $black;
+  text-transform: uppercase;
+}
 
 // Navigation
 // --------------------------------------------------------
