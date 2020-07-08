@@ -12,8 +12,6 @@ function CameraController({ pov }) {
         side: Math.PI / 1.0075,
         top: Math.PI / 2,
       }[pov];
-      // panning
-      controls.enablePan = false;
       // horizontal rotation
       controls.minAzimuthAngle = 0;
       controls.maxAzimuthAngle = 0;
