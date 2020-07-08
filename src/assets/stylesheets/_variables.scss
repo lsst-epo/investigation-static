@@ -59,6 +59,20 @@ $chartColors: $chart0 $chart1 $chart2 $chart3 $chart4 $chart5 $chart6;
   }
 }
 
+// Slider Track Fill colors
+$sliderTrackFillRed: red;
+$sliderTrackFillBlue: blue;
+$sliderTrackFillGreen: green;
+
+$sliderTrackFillColors: $sliderTrackFillRed $sliderTrackFillBlue
+  $sliderTrackFillGreen;
+
+:export {
+  @each $color in $sliderTrackFillColors {
+    sliderTrackFillColor#{$color}: $color;
+  }
+}
+
 // Responsive breakpoints
 // --------------------------------------------------------
 // $break130: ;

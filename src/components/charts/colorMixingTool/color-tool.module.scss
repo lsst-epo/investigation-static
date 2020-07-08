@@ -1,0 +1,96 @@
+.col50 {
+  width: 50%;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.rectangle {
+  width: 100px;
+  height: 50px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.menu-item-clicked {
+  background: #bbbb;
+}
+
+.item-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: $minPadding;
+}
+
+.button-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.button {
+  background: #d5d5d5;
+  margin: 15px;
+  line-height: 1;
+  transition: background $duration ease-in-out;
+
+  &:hover {
+    color: $white;
+    background: $basePrimary;
+  }
+}
+
+.resetBtn {
+  border-radius: 10px;
+}
+
+.slider-container {
+  flex: 1;
+  padding: 0 ($minPadding / 2);
+}
+
+.active {
+  color: $white;
+  background: $basePrimary;
+}
+
+.images-container {
+  position: relative;
+  height: 300px;
+  padding: $minPadding;
+  overflow: hidden;
+}
+
+.filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.filter-active {
+  visibility: visible;
+  opacity: 1;
+}
