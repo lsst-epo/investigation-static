@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import {
+  toSigFigs,
+  formatValue,
+  addTheCommas,
+} from '../../../lib/utilities.js';
 import { playbackSpeed } from './orbital-viewer.module.scss';
 
 function PlaybackSpeed({ dayPerVizSec }) {
-  function pluralize(value, unit) {
-    return `${unit}${value > 1 ? 's' : ''}`;
+  function getModifier(value) {
+    return formatValue(parseInt(toSigFigs(value * 86400, 3), 10), 3);
   }
 
-  function getUnit(value) {
-    return value < 1 ? 'hour' : 'day';
-  }
+  const [modifier, setModifier] = useState(1);
 
-  function daysToHours(days) {
-    return days * 24;
-  }
-
-  const timeIncrement =
-    dayPerVizSec < 1 ? daysToHours(dayPerVizSec) : dayPerVizSec;
+  useEffect(() => {
+    setModifier(getModifier(dayPerVizSec));
+  }, [dayPerVizSec]);
 
   return (
     <div className={playbackSpeed}>
-      1 second = {timeIncrement}{' '}
-      {pluralize(timeIncrement, getUnit(dayPerVizSec))}
+      Playback is{' '}
+      {modifier > 1 ? `${addTheCommas(modifier)} X ` : 'Actual Speed'}
     </div>
   );
 }

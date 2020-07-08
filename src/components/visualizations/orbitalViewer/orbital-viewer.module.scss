@@ -96,15 +96,32 @@
   overflow: hidden;
   transition: max-width $timing $durationSlow;
 
-  &.active-details {
-    width: 100%;
-    max-width: 350px;
-  }
-
   .details-table {
     margin-top: $minPadding * 2 + 36px;
     background-color: $white;
+
+    :global {
+      .md-text {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
   }
+
+  &.active-details {
+    width: 100%;
+    max-width: 350px;
+
+    .details-table {
+      :global {
+        .md-text {
+          overflow: auto;
+          white-space: normal;
+        }
+      }
+    }
+  }
+
 }
 
 .details-toggle {

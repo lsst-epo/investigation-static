@@ -12,13 +12,13 @@ import OrbitalDetails from './OrbitalDetails.jsx';
 import { container, orbitalCanvas } from './orbital-viewer.module.scss';
 
 function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
-  const speeds = [0.25, 0.5, 1, 10, 30];
+  const speeds = [0.00001157, 1.1574, 11.574, 30, 365.25]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
 
   const [playing, setPlaying] = useState(!paused);
   const [activeVelocity, setActiveVelocity] = useState(null);
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
-  const [dayPerVizSec, setDayPerVizSec] = useState(speeds[0]);
+  const [dayPerVizSec, setDayPerVizSec] = useState(speeds[1]);
   const handleStartStop = () => {
     setPlaying(!playing);
     setStepDirection(1);
