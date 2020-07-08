@@ -20,5 +20,15 @@
       "altText": "Filtered images colorized",
       "figText": "Filtered images colorized"
     }
-  ]
+  ],
+  "widgets": [{
+    "type": "ColorTool",
+    "layout": {
+        "col": "right",
+        "row": "bottom"
+      },
+    "options": {
+      "something":23
+    }
+  }]
 }

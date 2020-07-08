@@ -8,12 +8,13 @@
   $md-btn-include-flat: true;
   $md-btn-include-raised: false;
   $md-btn-include-icon: true;
-  $md-btn-include-floating: false;
+  $md-btn-include-floating: true;
 
   // Material Design Import
   @include react-md-buttons;
 
   // Material Design  Button Overrides
+
   .md-btn {
     @include uiPrimary;
     font-weight: $medium;
@@ -121,6 +122,16 @@
           border: solid 1px;
           border-color: $neutral30;
         }
+      }
+    }
+
+    &.md-btn--floating {
+      display: block;
+      margin: 15px;
+      padding-top: 12px;
+      &:hover {
+        color: $white;
+        background: $md-primary-color;
       }
     }
 

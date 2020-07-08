@@ -12,6 +12,7 @@ import OrbitalProperties from '../../containers/OrbitalPropertiesContainer.jsx';
 import TimeDomainViewer from '../../containers/TimeDomainViewerContainer.jsx';
 import SizeDistance from '../../containers/SizeDistanceContainer.jsx';
 import AsteroidClass from '../../containers/AsteroidClassContainer.jsx';
+import ColorTool from '../../containers/ColorToolContainer.jsx';
 
 export const widgetTags = {
   SupernovaSelectorWithLightCurve,
@@ -28,4 +29,5 @@ export const widgetTags = {
   TimeDomainViewer,
   SizeDistance,
   AsteroidClass,
+  ColorTool,
 };
