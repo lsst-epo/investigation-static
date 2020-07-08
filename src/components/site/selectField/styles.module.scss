@@ -1,0 +1,18 @@
+.md-select-container {
+  :global {
+    @include react-md-select-fields;
+    .md-menu--select-field {
+      position: relative;
+    }
+
+    .md-list {
+      position: absolute;
+      z-index: 6;
+      flex-flow: column nowrap;
+    }
+
+    .md-list--menu-restricted {
+      max-height: 400px;
+    }
+  }
+}

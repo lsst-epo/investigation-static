@@ -13,6 +13,7 @@ import TimeDomainViewer from '../../containers/TimeDomainViewerContainer.jsx';
 import TimeDomainDoubleViewer from '../../containers/TimeDomainDoubleViewerContainer.jsx';
 import SizeDistance from '../../containers/SizeDistanceContainer.jsx';
 import AsteroidClass from '../../containers/AsteroidClassContainer.jsx';
+import ColorTool from '../../containers/ColorToolContainer.jsx';
 
 export const widgetTags = {
   SupernovaSelectorWithLightCurve,
@@ -30,4 +31,5 @@ export const widgetTags = {
   TimeDomainDoubleViewer,
   SizeDistance,
   AsteroidClass,
+  ColorTool,
 };

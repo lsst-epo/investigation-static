@@ -1,0 +1,41 @@
+:global {
+  .md-slider-container {
+    @include react-md-sliders(
+      $primary-color: $basePrimary,
+      $include-discrete: true,
+      $include-indicators: true
+    );
+
+    .md-slider-thumb {
+      border-radius: 50%;
+
+      &.md-slider-thumb--continuous-off {
+        top: -9px !important;
+      }
+
+      &.md-slider-thumb--on,
+      &.md-slider-thumb--disabled {
+        top: -6px;
+      }
+    }
+
+    .md-slider-track,
+    .md-slider-track-fill {
+      height: 3px;
+    }
+
+    .md-slider-thumb,
+    .md-slider-track-fill {
+      transition: background $durationSlow ease-in-out;
+    }
+
+    @each $color in $sliderTrackFillColors {
+      &.fill-color-#{$color} {
+        .md-slider-thumb:not(.md-slider-thumb--disabled):not(.md-slider-thumb--mask-disabled),
+        .md-slider-track-fill {
+          background: $color;
+        }
+      }
+    }
+  }
+}
