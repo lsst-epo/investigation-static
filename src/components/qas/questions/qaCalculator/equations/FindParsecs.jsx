@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './distanceCalculator.module.scss';
+import styles from '../../../styles.module.scss';
 import { fraction, denominator, color } from '../qaCalculator.module.scss';
 import { addTheCommas } from '../../../../../lib/utilities.js';
 

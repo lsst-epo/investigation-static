@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { calculationBlock } from './distanceCalculator.module.scss';
-import { color } from '../qaCalculator.module.scss';
-import { addTheCommas, toSigFigs } from '../../../../../lib/utilities';
+import { color, calculationBlock } from './qaCalculator.module.scss';
+import { addTheCommas, toSigFigs } from '../../../../lib/utilities';
 
 function CalculatedMeasurement({ unit, value }) {
   const labels = {
