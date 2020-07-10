@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { renderDef } from '../../../../lib/utilities';
 import { icon, smallIcon } from './qaCalculator.module.scss';
+import Unit from '../../../charts/shared/unit';
 
 export const QACalculatorIcon = ({ content, className }) => {
   return (
@@ -21,10 +22,9 @@ QACalculatorIcon.propTypes = {
 
 export const QACalculatorIconUnit = ({ unit, tiny, className }) => {
   return (
-    <span
-      className={classnames(icon, className, { [smallIcon]: !!tiny })}
-      dangerouslySetInnerHTML={renderDef(unit)}
-    />
+    <span className={classnames(icon, className, { [smallIcon]: tiny })}>
+      <Unit type={unit} />
+    </span>
   );
 };
 

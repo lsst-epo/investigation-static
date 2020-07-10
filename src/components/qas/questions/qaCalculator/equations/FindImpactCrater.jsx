@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { addTheCommas, formatValue } from '../../../../../lib/utilities.js';
-import { QACalculatorIcon, QACalculatorIconUnit } from '../qaCalculatorIcons';
+import { QACalculatorIcon, QACalculatorIconUnit } from '../qQaCalculatorIcons';
 import {
   color,
   equation,
@@ -23,11 +23,7 @@ export default function FindKineticEnergy(props) {
         <span className={`numerator ${color}`}>
           {!density ? 'p' : addTheCommas(density)}
           {density && (
-            <QACalculatorIconUnit
-              className={color}
-              tiny
-              unit=" kg/m<sup>3</sup>"
-            />
+            <QACalculatorIconUnit className={color} tiny unit="density" />
           )}
         </span>
         <span className={denominator}>2500</span>
@@ -45,12 +41,14 @@ export default function FindKineticEnergy(props) {
         {!asteroidDiameter ? 'D' : addTheCommas(asteroidDiameter)}
       </span>
       {asteroidDiameter && (
-        <QACalculatorIconUnit className={color} tiny unit="m" />
+        <QACalculatorIconUnit className={color} tiny unit="diameter" />
       )}
       <sup>0.78</sup>
       <span>)(</span>
       <span className={color}>{!velocity ? 'v' : addTheCommas(velocity)}</span>
-      {velocity && <QACalculatorIconUnit className={color} tiny unit=" m/s" />}
+      {velocity && (
+        <QACalculatorIconUnit className={color} tiny unit="velocity" />
+      )}
       <sup>0.44</sup>
       <span>)(</span>
       <span>
@@ -72,7 +70,9 @@ export default function FindKineticEnergy(props) {
         <QACalculatorIcon content="D<sub>tc</sub> = " />
         <span>
           {craterDiameter ? addTheCommas(formatValue(craterDiameter, 3)) : '?'}
-          {craterDiameter && <QACalculatorIconUnit tiny unit=" km" />}
+          {craterDiameter && (
+            <QACalculatorIconUnit tiny unit="craterDiameter" />
+          )}
         </span>
       </span>
     </p>

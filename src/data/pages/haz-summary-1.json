@@ -36,32 +36,6 @@
     {
       "question": [
         {
-          "id": "50",
-          "questionType": "VolumeCalculator",
-          "title": "Question #1",
-          "label": "Calculate the volume of this asteroid by entering its radius.",
-          "placeholder": "Enter radius",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "51",
-          "questionType": "MassCalculator",
-          "title": "Question #1",
-          "label": "Calculate the mass of this asteroid using its density and volume",
-          "placeholder": "Enter radius",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
           "id": "52",
           "questionType": "KineticEnergyCalculator",
           "title": "Question #1",

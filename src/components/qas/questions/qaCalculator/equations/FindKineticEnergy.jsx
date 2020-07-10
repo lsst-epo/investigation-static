@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { addTheCommas, formatValue } from '../../../../../lib/utilities.js';
+import { QACalculatorIconUnit } from '../qQaCalculatorIcons.jsx';
 import {
   color,
   equation,
@@ -23,18 +24,23 @@ export default function FindKineticEnergy(props) {
       {` * `}
       <span>
         <span className={color}> {mass ? addTheCommas(mass) : 'm'}</span>
+        {mass && <QACalculatorIconUnit className={color} tiny unit="mass" />}
         <span>)</span>
         {` * `}
         <span className={color}>
-          {velocity ? addTheCommas(velocity) : 'v'}&nbsp;
+          {velocity ? addTheCommas(velocity) : 'v'}
+          {velocity && (
+            <QACalculatorIconUnit className={color} tiny unit="velocity" />
+          )}
         </span>
         <span className={exponent}>2</span>
       </span>
       <span>= </span>
       <span className={color}>
-        {kineticEnergy
-          ? `${addTheCommas(formatValue(kineticEnergy, 2))} J`
-          : '?'}
+        {kineticEnergy ? `${addTheCommas(formatValue(kineticEnergy, 2))}` : '?'}
+        {kineticEnergy && (
+          <QACalculatorIconUnit className={color} unit="kineticEnergy" />
+        )}
       </span>
     </p>
   );

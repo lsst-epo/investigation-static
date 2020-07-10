@@ -15,6 +15,7 @@ export const units = {
   craterDiameter: ' km',
   kineticEnergy: ' J',
   volume: ' m^3',
+  density: 'kg/m^3',
 };
 
 export const renderUnit = function(type) {

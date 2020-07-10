@@ -9,7 +9,7 @@ import Card from '../../../../site/card';
 import CalculatedMeasurement from './CalculatedMeasurement';
 import FindDistanceModulus from './FindDistanceModulus';
 import FindParsecs from './FindParsecs';
-import { QACalculatorIcon } from '../qaCalculatorIcons';
+import { QACalculatorIcon } from '../qQaCalculatorIcons';
 import QACalculatorLabel from '../qaCalculatorLabel';
 import { getCalculatedMeasurementsForDistance } from '../qaCalculatorUtilities.js';
 import { calcLabel, col50, qaCalc } from '../qaCalculator.module.scss';

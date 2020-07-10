@@ -23,6 +23,7 @@ const Unit = props => {
       diameter: <StandardUnit {...props} />,
       craterDiameter: <StandardUnit {...props} />,
       kineticEnergy: <StandardUnit {...props} />,
+      density: <StandardUnit {...props} />,
     }[props.type] || null
   );
 };

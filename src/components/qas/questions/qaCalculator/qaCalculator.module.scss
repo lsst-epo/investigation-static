@@ -37,6 +37,14 @@
   }
 }
 
+.calculation-block {
+  p {
+    font-size: 17px;
+    font-weight: $medium;
+    line-height: 1.5;
+  }
+}
+
 .icon {
   @include copySecondary;
   white-space: nowrap;

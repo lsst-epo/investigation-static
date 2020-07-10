@@ -72,8 +72,8 @@ export const calculateCraterDiameter = ({
   const Dtc =
     1.161 *
     (density / 2500) ** (1 / 3) *
-    asteroidDiameter ** 0.78 *
-    velocity ** 0.44 *
+    (asteroidDiameter * 1000) ** 0.78 *
+    (velocity * 1000) ** 0.44 *
     9.8 ** -0.22 *
     Math.sin(Math.PI / 4) ** (1 / 3);
 
