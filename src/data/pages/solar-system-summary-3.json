@@ -13,6 +13,22 @@
     "link": "/solar-system-summary-4/"
   },
   "layout": "TwoCol",
+  "content": "<p>Use the histogram to answer the following questions:</p>",
+  "widgets": [
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/FINAL_inclination.json",
+      "options": {
+        "title": "Inclinations",
+        "xAxisLabel": "Inclinations (degrees)",
+        "yAxisLabel": "Number of Objects",
+        "xValueAccessor": "inclination",
+        "domain": [[0, 180], []],
+        "tooltipAccessors": ["count", "inclination"],
+        "tooltipLabels": ["Objects", "Inclination (degrees)"]
+      }
+    }
+  ],
   "tables": [
     {
       "id": "1",
@@ -44,9 +60,9 @@
           { "accessor": "data", "id": "63" }
         ],
         [
-          { "accessor": "data", "id": "64" },
-          { "accessor": "data", "id": "65" },
-          { "accessor": "data", "id": "66" }
+          { "accessor": "diameter", "id": "64" },
+          { "accessor": "diameter", "id": "65" },
+          { "accessor": "diameter", "id": "66" }
         ]
       ]
     }
@@ -59,7 +75,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the smallest orbital inclination?"
+          "label": "What is the minimum orbit inclination?"
         }
       ]
     },
@@ -70,7 +86,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the greatest orbital inclination?"
+          "label": "What is the maximum orbit inclination?"
         }
       ]
     },
@@ -81,7 +97,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the average orbital inclination?"
+          "label": "What is the average orbit inclination?"
         }
       ]
     }

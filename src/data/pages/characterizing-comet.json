@@ -24,35 +24,35 @@
       "fixed": true,
       "colTitles": [
         "Group",
+        "Size of Orbit",
         "Eccentricity",
         "Inclination",
-        "Size of Orbit",
         "Direction of Orbit"
       ],
       "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
       "rows": [
         [
+          { "accessor": "data", "id": "6" },
           { "accessor": "data", "id": "4" },
           { "accessor": "data", "id": "5" },
-          { "accessor": "data", "id": "6" },
           { "accessor": "data", "id": "7" }
         ],
         [
+          { "accessor": "data", "id": "10" },
           { "accessor": "data", "id": "8" },
           { "accessor": "data", "id": "9" },
-          { "accessor": "data", "id": "10" },
           { "accessor": "data", "id": "11" }
         ],
         [
+          { "accessor": "data", "id": "14" },
           { "accessor": "data", "id": "12" },
           { "accessor": "data", "id": "13" },
-          { "accessor": "data", "id": "14" },
           { "accessor": "data", "id": "15" }
         ],
         [
+          { "accessor": "data", "id": "18" },
           { "accessor": "data", "id": "16" },
           { "accessor": "data", "id": "17" },
-          { "accessor": "data", "id": "18" },
           { "accessor": "data", "id": "19" }
         ]
       ]
@@ -64,15 +64,15 @@
       "widgets": [
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/comets_inclination.json",
+          "source": "/data/neos/comets_semimajor_axis.json",
           "options": {
-            "title": "Comet Inclinations",
-            "xAxisLabel": "Inclinations",
-            "xValueAccessor": "inclination",
+            "title": "Comet Orbit Sizes",
+            "xAxisLabel": "Orbit Sizes (au)",
+            "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of comets",
-            "domain": [[0, 180], []],
-            "tooltipAccessors": ["count", "inclination"],
-            "tooltipLabels": ["Comets", "Inclination"]
+            "domain": [[0, 60], []],
+            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipLabels": ["Comets", "Orbit Size (au)"]
           }
         },
         {
@@ -90,15 +90,15 @@
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/comets_semimajor_axis.json",
+          "source": "/data/neos/comets_inclination.json",
           "options": {
-            "title": "Comet Orbit Sizes",
-            "xAxisLabel": "Orbit Sizes",
-            "xValueAccessor": "semimajor_axis",
+            "title": "Comet Inclinations",
+            "xAxisLabel": "Inclinations (degrees)",
+            "xValueAccessor": "inclination",
             "yAxisLabel": "Number of comets",
-            "domain": [[0, 60], []],
-            "tooltipAccessors": ["count", "semimajor_axis"],
-            "tooltipLabels": ["Comets", "Orbit Size"]
+            "domain": [[0, 180], []],
+            "tooltipAccessors": ["count", "inclination"],
+            "tooltipLabels": ["Comets", "Inclination (degrees)"]
           }
         }
       ],
@@ -106,6 +106,33 @@
     }
   ],
   "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "18",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Size of the orbit: ",
+          "options": [
+            {
+              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 AU",
+              "value": "Within inner Solar System"
+            },
+            {
+              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 AU",
+              "value": "In the outer Solar System"
+            },
+            {
+              "label": "The orbits span both the inner and outer Solar System",
+              "value": "Span inner and outer Solar System"
+            }
+          ],
+          "placeholder": "Select best description of comets",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
     {
       "question": [
         {
@@ -163,37 +190,10 @@
     {
       "question": [
         {
-          "id": "18",
-          "questionType": "select",
-          "title": "Question #1",
-          "label": "Size of the orbit: ",
-          "options": [
-            {
-              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 AU",
-              "value": "Within inner Solar System"
-            },
-            {
-              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 AU",
-              "value": "In the outer Solar System"
-            },
-            {
-              "label": "The orbits span both the inner and outer Solar System",
-              "value": "Span inner and outer Solar System"
-            }
-          ],
-          "placeholder": "Select best description of comets",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
           "id": "19",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Direction of the orbit: ",
+          "label": "Direction of the orbit (remember, inclinations greater than 90° indicate that the object orbits the Sun opposite the direction of Earth’s orbit): ",
           "options": [
             {
               "label": "Most objects orbit the Sun in the same direction of Earth’s orbit.",

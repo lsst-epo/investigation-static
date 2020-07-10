@@ -12,7 +12,7 @@ export const earth = {
   Principal_desig: 'Earth',
   orbitColor: '#83e570',
   objectColor: '#777839',
-  objectRadius: 10,
+  objectRadius: 20,
 };
 
 export const jupiter = {
@@ -24,7 +24,7 @@ export const jupiter = {
   Principal_desig: 'Jupiter',
   orbitColor: '#f78988',
   objectColor: '#f78456',
-  objectRadius: 50,
+  objectRadius: 20,
 };
 
 export const neptune = {
@@ -36,7 +36,7 @@ export const neptune = {
   Principal_desig: 'Neptune',
   orbitColor: '#6789f7',
   objectColor: '#6569f7',
-  objectRadius: 25,
+  objectRadius: 20,
 };
 
 // args must be in VIZ_UNITS

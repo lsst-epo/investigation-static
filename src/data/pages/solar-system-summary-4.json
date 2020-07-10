@@ -13,7 +13,7 @@
     "link": "/solar-system-summary-5/"
   },
   "layout": "TwoCol",
-  "content": "<p>Enter an absolute magnitude and albedo to calculate the dimater of your objects. Use an albedo of 0.15.</p>",
+  "content": "<p>Enter an absolute magnitude and albedo to calculate the diameter of your objects. Use an albedo of 0.15.</p>",
   "tables": [
     {
       "id": "1",
@@ -45,9 +45,9 @@
           { "accessor": "data", "id": "63" }
         ],
         [
-          { "accessor": "data", "id": "64" },
-          { "accessor": "data", "id": "65" },
-          { "accessor": "data", "id": "66" }
+          { "accessor": "diameter", "id": "64" },
+          { "accessor": "diameter", "id": "65" },
+          { "accessor": "diameter", "id": "66" }
         ]
       ]
     }
@@ -57,10 +57,11 @@
       "question": [
         {
           "id": "64",
-          "questionType": "text",
-          "answerAccessor": "text",
+          "questionType": "SizeCalculator",
           "title": "Question #1",
-          "label": "What is the smallest size (diameter)?"
+          "label": "What is the minimum object size (diameter)? Calculate using an absolute magnitude from the histogram an albedo of 0.15.",
+          "placeholder": "Enter absolute magnitude and albedo",
+          "answerAccessor": "text"
         }
       ]
     },
@@ -68,10 +69,11 @@
       "question": [
         {
           "id": "65",
-          "questionType": "text",
-          "answerAccessor": "text",
+          "questionType": "SizeCalculator",
           "title": "Question #1",
-          "label": "What is the greatest size (diameter)?"
+          "label": "What is the maximum object size (diameter)? Calculate using an absolute magnitude from the histogram an albedo of 0.15.",
+          "placeholder": "Enter absolute magnitude and albedo",
+          "answerAccessor": "text"
         }
       ]
     },
@@ -79,10 +81,11 @@
       "question": [
         {
           "id": "66",
-          "questionType": "text",
-          "answerAccessor": "text",
+          "questionType": "SizeCalculator",
           "title": "Question #1",
-          "label": "What is the average size (diameter)?"
+          "label": "What is the average object size (diameter)? Calculate using an absolute magnitude from the histogram an albedo of 0.15.",
+          "placeholder": "Enter absolute magnitude and albedo",
+          "answerAccessor": "text"
         }
       ]
     }

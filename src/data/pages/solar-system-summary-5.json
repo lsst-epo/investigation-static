@@ -44,9 +44,9 @@
           { "accessor": "data", "id": "63" }
         ],
         [
-          { "accessor": "data", "id": "64" },
-          { "accessor": "data", "id": "65" },
-          { "accessor": "data", "id": "66" }
+          { "accessor": "diameter", "id": "64" },
+          { "accessor": "diameter", "id": "65" },
+          { "accessor": "diameter", "id": "66" }
         ]
       ]
     }

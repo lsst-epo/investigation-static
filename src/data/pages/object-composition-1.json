@@ -13,7 +13,7 @@
     "link": "/solar-system-discuss-report/"
   },
   "layout": "SingleCol",
-  "content": "<p>To determine the surface composition, astronomers look at the differences in brightness of an asteroid from one filter to the next. The two plots below show C-class and S-class asteroids when measured through Rubin Observatory’s g, r, i, and z filters. For each plot, the horizontal (x) axis shows four filters. The vertical (y) axis is a measure of brightness compared to the g filter. For example, if the r filter shows a brightness value of 3, it means that the asteroid appeared three times brighter through the r filter than it was when measured through the g filter. In summary, don’t pay attention to the height of the plot, rather it’s the shape of the plot.  For C-Class asteroids the plot is relatively flat across the r, i, z filter range.  For S-Class asteroids the plot increases from r to i filters but then decreases from i to z filters.  </p>",
+  "content": "<p>To determine the surface composition, astronomers look at the differences in brightness of an asteroid from one filter to the next. The two plots below show C-class and S-class asteroids when measured through Rubin Observatory’s g, r, i, and z filters. For each plot, the horizontal (x) axis shows four filters. The vertical (y) axis is a measure of brightness compared to the g filter. For example, if the r filter shows a brightness value of 3, it means that the asteroid appeared three times brighter through the r filter than it was when measured through the g filter. In summary, <em>don’t pay attention to the height of the plot, rather it’s the shape of the plot</em>.  For C-Class asteroids the plot is relatively flat across the r, i, z filter range.  For S-Class asteroids the plot increases from r to i filters but then decreases from i to z filters. The red curve on each plot shows the brightness data for your asteroid. </p>",
   "widgets": [
     {
       "type": "AsteroidClass",
@@ -30,37 +30,6 @@
         "multiple": true,
         "yAxisLabel": "Brightness relative to g filter"
       }
-    }
-  ],
-  "tables": [
-    {
-      "id": "2",
-      "layout": {
-        "row": "bottom",
-        "col": "left"
-      },
-      "colTitles": ["", "Name", "Absolute Magnitude", "Type", "Data/Evidence"],
-      "rowTitles": [["#1"], ["#2"], ["#3"]],
-      "rows": [
-        [
-          { "accessor": "data", "id": "46" },
-          { "accessor": "data", "id": "460" },
-          { "accessor": "data", "id": "47" },
-          { "accessor": "data", "id": "48" }
-        ],
-        [
-          { "accessor": "data", "id": "49" },
-          { "accessor": "data", "id": "490" },
-          { "accessor": "data", "id": "50" },
-          { "accessor": "data", "id": "51" }
-        ],
-        [
-          { "accessor": "data", "id": "661" },
-          { "accessor": "data", "id": "660" },
-          { "accessor": "data", "id": "67" },
-          { "accessor": "data", "id": "68" }
-        ]
-      ]
     }
   ],
   "questionsByPage": [

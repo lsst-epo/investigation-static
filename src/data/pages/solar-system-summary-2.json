@@ -13,6 +13,22 @@
     "link": "/solar-system-summary-3/"
   },
   "layout": "TwoCol",
+  "content": "<p>Use the histogram to answer the following questions:</p>",
+  "widgets": [
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/FINAL_eccentricity.json",
+      "options": {
+        "title": "Eccentricities",
+        "xAxisLabel": "Eccentricities",
+        "yAxisLabel": "Number of Objects",
+        "xValueAccessor": "eccentricity",
+        "domain": [[0, 1], null],
+        "tooltipAccessors": ["count", "eccentricity"],
+        "tooltipLabels": ["Objects", "Eccentricity"]
+      }
+    }
+  ],
   "tables": [
     {
       "id": "1",
@@ -44,9 +60,9 @@
           { "accessor": "data", "id": "63" }
         ],
         [
-          { "accessor": "data", "id": "64" },
-          { "accessor": "data", "id": "65" },
-          { "accessor": "data", "id": "66" }
+          { "accessor": "diameter", "id": "64" },
+          { "accessor": "diameter", "id": "65" },
+          { "accessor": "diameter", "id": "66" }
         ]
       ]
     }
@@ -59,7 +75,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the smallest orbital eccentricity?"
+          "label": "What is the minimum orbit eccentricity?"
         }
       ]
     },
@@ -70,7 +86,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the greatest orbital eccentricity?"
+          "label": "What is the maximum orbit eccentricity?"
         }
       ]
     },
@@ -81,7 +97,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the average orbital eccentricity?"
+          "label": "What is the average orbit eccentricity?"
         }
       ]
     }

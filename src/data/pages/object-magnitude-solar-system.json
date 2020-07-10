@@ -13,7 +13,7 @@
     "link": "/classifying-objects/"
   },
   "layout": "TwoCol",
-  "content": "<p>To estimate the size of an asteroid, we use its absolute magnitude, which can be thought of as the asteroid’s actual brightness (as opposed to how bright it appears to an observer on Earth). An asteroid’s absolute magnitude depends only on its size and its albedo. Albedo is a measure of the reflectivity of the surface of an object. An object that is pure white will reflect 100% of the light that hits it and will have an albedo of 1. An object that is pure black will reflect 0% of the light that hits it and will have an albedo of 0. The albedos for asteroids depend on the material on the surface, but they range from 0.05 (5%) to 0.25 (25%). Since we don’t know the albedos for all objects, we will assume an average value of 0.15 for this investigation.</p><p>The equation for calculating the size of an asteroid is given by:</p><p><span>D = </span><span class='fraction'><span class='numerator'>1329</span><span class='denominator'><span class='square-root'><span>p</span></span></span></span><span><span> 10 </span><span class='exponent'>-0.2 * <span>H</span></span></span></p><p>Where D is the diameter of the asteroid (in kilometers), H is the absolute magnitude of the asteroid, and p is the albedo of the asteroid.</p><p>Examine this scatter plot of size on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p>",
+  "content": "<p>To estimate the size of an asteroid, we use its <b>absolute magnitude</b>, which can be thought of as the asteroid’s actual brightness (as opposed to how bright it appears to an observer on Earth). An asteroid’s absolute magnitude depends only on its size and its <b>albedo</b>. Albedo is a measure of the reflectivity of the surface of an object. An object that is pure white will reflect 100% of the light that hits it and will have an albedo of 1. An object that is pure black will reflect 0% of the light that hits it and will have an albedo of 0. The albedos for asteroids depend on the material on the surface, but they range from 0.05 (5%) to 0.25 (25%). Since we don’t know the albedos for all objects, we will assume an average value of 0.15 for this investigation.</p><p>The equation for calculating the size of an asteroid is given by:</p><p><span>D = </span><span class='fraction'><span class='numerator'>1329</span><span class='denominator'><span class='square-root'><span>p</span></span></span></span><span><span> 10 </span><span class='exponent'>-0.2 * <span>H</span></span></span></p><p>Where D is the diameter of the asteroid (in kilometers), H is the absolute magnitude of the asteroid, and p is the albedo of the asteroid.</p><p>Examine this scatter plot of size on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p>",
   "widgets": [
     {
       "type": "SizeDistance",
@@ -25,13 +25,13 @@
       "options": {
         "preSelected": true,
         "multiple": true,
-        "xAxisLabel": "Distance",
-        "yAxisLabel": "Size",
+        "xAxisLabel": "Distance (au)",
+        "yAxisLabel": "Size (km)",
         "xValueAccessor": "semimajor_axis",
         "yValueAccessor": "size",
         "tooltipAccessors": ["semimajor_axis", "size"],
         "tooltipUnits": ["", ""],
-        "tooltipLabels": ["Distance", "Size"],
+        "tooltipLabels": ["Distance (au)", "Size (km)"],
         "domain": [
           [0, 60],
           [0, 1400]
