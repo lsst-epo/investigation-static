@@ -24,35 +24,35 @@
       "fixed": true,
       "colTitles": [
         "Group",
+        "Size of Orbit",
         "Eccentricity",
         "Inclination",
-        "Size of Orbit",
         "Direction of Orbit"
       ],
       "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
       "rows": [
         [
+          { "accessor": "data", "id": "6" },
           { "accessor": "data", "id": "4" },
           { "accessor": "data", "id": "5" },
-          { "accessor": "data", "id": "6" },
           { "accessor": "data", "id": "7" }
         ],
         [
+          { "accessor": "data", "id": "10" },
           { "accessor": "data", "id": "8" },
           { "accessor": "data", "id": "9" },
-          { "accessor": "data", "id": "10" },
           { "accessor": "data", "id": "11" }
         ],
         [
+          { "accessor": "data", "id": "14" },
           { "accessor": "data", "id": "12" },
           { "accessor": "data", "id": "13" },
-          { "accessor": "data", "id": "14" },
           { "accessor": "data", "id": "15" }
         ],
         [
+          { "accessor": "data", "id": "18" },
           { "accessor": "data", "id": "16" },
           { "accessor": "data", "id": "17" },
-          { "accessor": "data", "id": "18" },
           { "accessor": "data", "id": "19" }
         ]
       ]
@@ -64,15 +64,15 @@
       "widgets": [
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/MBA_inclination.json",
+          "source": "/data/neos/MBA_semimajor_axis.json",
           "options": {
-            "title": "MBA Inclinations",
-            "xAxisLabel": "Inclinations",
+            "title": "MBA Orbit Sizes",
+            "xAxisLabel": "Orbit Sizes (au)",
             "yAxisLabel": "Number of MBAs",
-            "xValueAccessor": "inclination",
-            "domain": [[0, 180], []],
-            "tooltipAccessors": ["count", "inclination"],
-            "tooltipLabels": ["MBAs", "Inclination"]
+            "xValueAccessor": "semimajor_axis",
+            "domain": [[0, 60], []],
+            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipLabels": ["MBAs", "Orbit Size (au)"]
           }
         },
         {
@@ -90,15 +90,15 @@
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/MBA_semimajor_axis.json",
+          "source": "/data/neos/MBA_inclination.json",
           "options": {
-            "title": "MBA Orbit Sizes",
-            "xAxisLabel": "Orbit Sizes",
+            "title": "MBA Inclinations",
+            "xAxisLabel": "Inclinations (degrees)",
             "yAxisLabel": "Number of MBAs",
-            "xValueAccessor": "semimajor_axis",
-            "domain": [[0, 60], []],
-            "tooltipAccessors": ["count", "semimajor_axis"],
-            "tooltipLabels": ["MBAs", "Orbit Size"]
+            "xValueAccessor": "inclination",
+            "domain": [[0, 180], []],
+            "tooltipAccessors": ["count", "inclination"],
+            "tooltipLabels": ["MBAs", "Inclination (degrees)"]
           }
         }
       ],
@@ -106,6 +106,33 @@
     }
   ],
   "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "10",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Size of the orbit: ",
+          "options": [
+            {
+              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 AU",
+              "value": "Within inner Solar System"
+            },
+            {
+              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 AU",
+              "value": "In the outer Solar System"
+            },
+            {
+              "label": "The orbits span both the inner and outer Solar System",
+              "value": "Span inner and outer Solar System"
+            }
+          ],
+          "placeholder": "Select best description of MBAs",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
     {
       "question": [
         {
@@ -163,37 +190,10 @@
     {
       "question": [
         {
-          "id": "10",
-          "questionType": "select",
-          "title": "Question #1",
-          "label": "Size of the orbit: ",
-          "options": [
-            {
-              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 AU",
-              "value": "Within inner Solar System"
-            },
-            {
-              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 AU",
-              "value": "In the outer Solar System"
-            },
-            {
-              "label": "The orbits span both the inner and outer Solar System",
-              "value": "Span inner and outer Solar System"
-            }
-          ],
-          "placeholder": "Select best description of MBAs",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
           "id": "11",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Direction of the orbit: ",
+          "label": "Direction of the orbit (remember, inclinations greater than 90° indicate that the object orbits the Sun opposite the direction of Earth’s orbit): ",
           "options": [
             {
               "label": "Most objects orbit the Sun in the same direction of Earth’s orbit.",

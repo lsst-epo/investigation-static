@@ -13,7 +13,7 @@
     "link": "/object-magnitude-solar-system/"
   },
   "layout": "TwoCol",
-  "content": "<p>Even through the most powerful telescopes on Earth, asteroids and TNOs are too far away to look like anything bigger than dots in an image. However, we can still use images to learn a lot about these small objects. For example, we can use the brightness of an asteroid to estimate its size.</p>",
+  "content": "<p>Sometimes it’s useful to know the size of an object. Consider the case for asteroid mining: a large asteroid would produce more raw materials, and therefore have a higher economic potential. Or what if a newly-discovered object seems to be on a collision course with Earth? Knowing its size would help us to predict the potential damage it could cause. The size is also a critical factor in determining what sort of strategy we would use to deflect the object.</p><p>Even through the most powerful telescopes on Earth, asteroids and TNOs are too far away to look like anything bigger than dots in an image. However, we can still use images to learn a lot about these small objects. However, we can use the brightness of the object in an image to estimate its size. Complete the statement, using your reasoning abilities:</p>",
   "questionsByPage": [
     {
       "question": [

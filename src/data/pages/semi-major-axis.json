@@ -13,7 +13,7 @@
     "link": "/eccentricity/"
   },
   "layout": "TwoCol",
-  "content": "<p>To estimate the orbit of a newly discovered Solar System object, astronomers map its position and record the time it takes to travel from one place to another. By making a series of careful measurements, they can determine a preliminary orbit for the object. The orbit is mathematically expressed through a set of orbital elements.</p><p>The <a href='https://en.wikipedia.org/wiki/Semi-major_and_semi-minor_axes' target='_blank'>semi-major axis</a> is half of the longest diameter of an ellipse. Simply put, this number indicates the size of the orbit. It is measured in <a href='https://cneos.jpl.nasa.gov/glossary/au.html' target='_blank'>astronomical units</a> (AU).</p>",
+  "content": "<p>To estimate the orbit of a newly discovered Solar System object, astronomers map its position and record the time it takes to travel from one place to another. By making a series of careful measurements, they can determine a preliminary orbit for the object. The orbit is mathematically expressed through a set of orbital elements.</p><p>The <b>semi-major axis</b> is half of the longest diameter of an ellipse. Simply put, this number indicates the size of the orbit. It is measured in <b>astronomical units</b> (au).</p>",
   "images": [
     {
       "mediaPath": "/images/semi-major-axis.png",

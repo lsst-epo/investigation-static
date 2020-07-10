@@ -25,12 +25,12 @@
       ],
       "options": {
         "title": "Small Object Orbit Sizes",
-        "xAxisLabel": "Orbit Sizes",
+        "xAxisLabel": "Orbit Sizes (au)",
         "xValueAccessor": "semimajor_axis",
         "yAxisLabel": "Number of Objects",
-        "domain": [[0, 60], []],
+        "domain": [[0, 60], null],
         "tooltipAccessors": ["count", "semimajor_axis"],
-        "tooltipLabels": ["objects", "Orbit Size"]
+        "tooltipLabels": ["objects", "Orbit Size (au)"]
       }
     }
   ],
@@ -61,7 +61,7 @@
           "questionType": "compoundInput",
           "compoundQuestion": ["31a", "31b"],
           "labelPre": "Two of the four main groups above make up most of the small Solar System objects. One group is centered at a distance of approximately ",
-          "labelPost": " AU from the Sun, ",
+          "labelPost": " au from the Sun, ",
           "srLabel": "...",
           "answerAccessor": "text",
           "title": "Question #1"
@@ -71,7 +71,7 @@
           "questionType": "compoundInput",
           "compoundQuestion": ["31a", "31b"],
           "labelPre": "and the second group is centered at a distance of ",
-          "labelPost": " AU from the Sun.",
+          "labelPost": " au from the Sun.",
           "srLabel": "...",
           "answerAccessor": "compound-text",
           "options": [

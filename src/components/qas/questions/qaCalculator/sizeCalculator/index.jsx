@@ -141,7 +141,7 @@ class SizeCalculator extends React.PureComponent {
       value: { magnitude, albedo, diameter },
     } = this.state;
 
-    const { id, label: labelText } = question;
+    const { id, label } = question;
     const active = activeId === id;
     const answered = !isEmpty(answer);
     const answeredClasses = {
@@ -156,7 +156,7 @@ class SizeCalculator extends React.PureComponent {
       <CardText>
         <QACalculatorLabel
           inputId={`text-input-${id}-magnitude`}
-          {...{ labelText, labelClasses }}
+          {...{ label, labelClasses }}
         />
         <div className="container-flex">
           <QACalculatorInput

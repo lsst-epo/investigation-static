@@ -13,7 +13,7 @@
     "link": "/object-size-solar-system/"
   },
   "layout": "TwoCol",
-  "content":"<p>Although the majority of small Solar System objects have orbital characteristics that support the Solar Nebula Theory, a small fraction of them have very eccentric or highly inclined orbits, and some even orbit the Sun in the opposite direction as the planets and some orbits of some small objects in the Solar System are still changing.</p><p>We can apply Newton’s Laws and gravity to help explain these observations: </p>",
+  "content":"<p>Although the majority of small Solar System objects have orbital characteristics that support the solar Nebula Theory, a small fraction of them have very eccentric or highly inclined orbits, and some even orbit the Sun in the opposite direction as the planets.</p><p>From the early days of the Solar System to the present time, there have been many such interactions between objects and as a result, the orbits of some small objects in the Solar System are still changing.</p><p>We can apply Newton’s Laws and gravity to help explain these observations: </p>",
   "questionsByPage": [
     {
       "question": [
@@ -40,7 +40,7 @@
           "questionType": "compoundInput",
           "compoundQuestion": ["350", "351"],
           "labelPre": "In addition to mass, the distance between the two objects is a factor in determining the gravitational force between the objects. Objects that are farther apart will have a ",
-          "labelPost": " gravitational force between them ",
+          "labelPost": " gravitational force between them",
           "srLabel": "...",
           "answerAccessor": "compound-input",
           "placeholder": " ",
@@ -51,7 +51,7 @@
           "id": "351",
           "questionType": "compoundInput",
           "compoundQuestion": ["350", "351"],
-          "labelPre": " and are ",
+          "labelPre": "and are ",
           "labelPost": " likely to experience a change in their orbits.",
           "srLabel": "...",
           "answerAccessor": "compound-input",
@@ -68,7 +68,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "If an object’s inclination, eccentricity and direction of motion were to change substantially due to the gravitational interaction during a close encounter, would it be the more massive or less massive of the two objects?"
+          "label": "If an object’s inclination, eccentricity and direction of motion were to change substantially due to the gravitational interaction during a close encounter, would it be the more massive or less massive of the two objects that changed?"
         }
       ]
     }

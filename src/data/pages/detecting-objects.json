@@ -10,7 +10,7 @@
     "link": "/semi-major-axis/"
   },
   "layout": "TwoCol",
-  "content": "<p>Each night, the Rubin Observatory telescope takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an alert is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves in relation to the star field. Each image is a 30-second exposure.</p>",
+  "content": "<p>Each night, the Rubin Observatory telescope takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an alert is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves in relation to the star field. Each image is a 20-second exposure and covers an identical area of the sky.</p>",
   "widgets": [
     {
       "type": "TimeDomainViewer",
@@ -61,7 +61,7 @@
           "id": "3",
           "questionType": "compoundSelect",
           "compoundQuestion": ["2", "3"],
-          "labelPre": " and will have a ",
+          "labelPre": "and will have a ",
           "labelPost": " orbital period.",
           "srLabel": "...",
           "answerAccessor": "compound-select",
