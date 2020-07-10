@@ -125,16 +125,6 @@
       }
     }
 
-    &.md-btn--floating {
-      display: block;
-      margin: 15px;
-      padding-top: 12px;
-      &:hover {
-        color: $white;
-        background: $md-primary-color;
-      }
-    }
-
     + .md-btn {
       margin-left: 20px;
     }
