@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import API from '../lib/API.js';
 import TimeDomainViewer from '../components/charts/timeDomainViewer/index.jsx';
 
@@ -22,30 +23,54 @@ class TimeDomainViewerContainer extends React.PureComponent {
 
   componentDidMount() {
     const {
-      widget: { source },
+      widget: { source, sources },
     } = this.props;
 
-    API.get(source).then(response => {
-      const { data } = response;
-      const { alerts, RA, Dec, name } = data;
-      const activeAlert = alerts[0];
-      const images = alerts.map(alert => {
-        const { id } = alert;
-        return { id, name: `/images/neos/${id}.jpg` };
-      });
+    if (sources && !source) {
+      axios.all(this.allGets(sources)).then(
+        axios.spread((...responses) => {
+          const data = responses.map(reponse => {
+            const { data: rData } = reponse;
+            return rData;
+          });
 
-      this.setState(prevState => ({
-        ...prevState,
-        data,
-        alerts,
-        images,
-        activeAlert,
-        activeImageIndex: 0,
-        activeImageId: activeAlert.id,
-        name,
-        xDomain: RA.reverse(),
-        yDomain: Dec,
-      }));
+          this.setState(prevState => ({
+            ...prevState,
+            data: data.map(d => d.data),
+            group: data.map(d => d.group),
+            twoUp: true,
+          }));
+        })
+      );
+    } else if (source && !sources) {
+      API.get(source).then(response => {
+        const { data } = response;
+        const { alerts, RA, Dec, name } = data;
+        const activeAlert = alerts[0];
+        const images = alerts.map(alert => {
+          const { id } = alert;
+          return { id, name: `/images/neos/${id}.jpg` };
+        });
+
+        this.setState(prevState => ({
+          ...prevState,
+          data,
+          alerts,
+          images,
+          activeAlert,
+          activeImageIndex: 0,
+          activeImageId: activeAlert.id,
+          name,
+          xDomain: RA.reverse(),
+          yDomain: Dec,
+        }));
+      });
+    }
+  }
+
+  allGets(sources) {
+    return sources.map(source => {
+      return API.get(source);
     });
   }
 

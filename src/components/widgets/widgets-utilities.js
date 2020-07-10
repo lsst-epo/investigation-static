@@ -10,6 +10,7 @@ import GalacticPropertiesCombo from '../../containers/GalacticPropertiesComboCon
 import OrbitalViewer from '../../containers/OrbitalViewerContainer.jsx';
 import OrbitalProperties from '../../containers/OrbitalPropertiesContainer.jsx';
 import TimeDomainViewer from '../../containers/TimeDomainViewerContainer.jsx';
+import TimeDomainDoubleViewer from '../../containers/TimeDomainDoubleViewerContainer.jsx';
 import SizeDistance from '../../containers/SizeDistanceContainer.jsx';
 import AsteroidClass from '../../containers/AsteroidClassContainer.jsx';
 
@@ -26,6 +27,7 @@ export const widgetTags = {
   OrbitalViewer,
   OrbitalProperties,
   TimeDomainViewer,
+  TimeDomainDoubleViewer,
   SizeDistance,
   AsteroidClass,
 };

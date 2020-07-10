@@ -9,12 +9,16 @@
     "title": "Semi-Major Axis",
     "link": "/semi-major-axis/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "content": "<p>Each night, the Rubin Observatory telescope takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an alert is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves in relation to the star field. Each image is a 20-second exposure and covers an identical area of the sky.</p>",
   "widgets": [
     {
-      "type": "TimeDomainViewer",
-      "source": "/data/neos/2003_QZ30.json",
+      "type": "TimeDomainDoubleViewer",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "sources": ["/data/neos/2003_QZ30.json", "/data/neos/tno120132.json"],
       "options": {
         "autoplay": true,
         "preSelected": true
