@@ -1,0 +1,19 @@
+{
+	"filters": [
+		{
+			"label": "R",
+			"color": "red",
+			"img": "../../../../static/images/red-filter.png"
+		},
+		{
+			"label": "B",
+			"color": "blue",
+			"img": "../../../../static/images/blue-filter.png"
+		},
+		{
+			"label": "G",
+			"color": "green",
+			"img": "../../../../static/images/green-filter.png"
+		}
+	]
+}

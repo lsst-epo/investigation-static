@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Button from '../../site/button/index.js';
-import { redBtn } from '../../site/button/styles.module.scss';
 import {
-  groupLayout,
   colorImage,
   button,
-  buttonClicked,
+  active,
+  col50,
+  imagesContainer,
+  buttonContainer,
 } from './color-tool.module.scss';
-import greenPic from '../../../../static/images/green-filter.png';
-import redPic from '../../../../static/images/red-filter.png';
-import bluePic from '../../../../static/images/blue-filter.png';
 
 class ColorTool extends React.Component {
   constructor(props) {
@@ -18,58 +17,59 @@ class ColorTool extends React.Component {
     this.state = {
       showImage: false,
       imgSrc: null,
-      greenIsClick: false,
-      redIsClick: false,
-      blueIsClick: false,
+      greenIsActive: false,
+      redIsActive: false,
+      blueIsActive: false,
     };
   }
 
-  handleImage(color, clickValue) {
-    const src =
-      color === 'red' ? redPic : color === 'blue' ? bluePic : greenPic;
+  handleImage(color, src) {
+    const stateName = color + 'IsActive';
     this.setState(prevState => ({
       ...prevState,
       showImage: true,
       imgSrc: src,
-      [clickValue]: !prevState[clickValue],
+      [stateName]: !prevState[stateName],
     }));
   }
 
   render() {
-    const { options } = this.props;
+    const { data } = this.props;
     const {
       showImage,
       imgSrc,
-      greenIsClick,
-      redIsClick,
-      blueIsClick,
+      greenIsActive,
+      redIsActive,
+      blueIsActive,
     } = this.state;
 
+    const activeFilters = {
+      green: greenIsActive,
+      red: redIsActive,
+      blue: blueIsActive,
+    };
+
     return (
-      <div>
-        {showImage && <img className={colorImage} alt="img" src={imgSrc} />}
-        <div>
-          <Button
-            floating
-            className={redIsClick ? buttonClicked : button}
-            onClick={() => this.handleImage('red', 'redIsClick')}
-          >
-            R
-          </Button>
-          <Button
-            floating
-            className={blueIsClick ? buttonClicked : button}
-            onClick={() => this.handleImage('blue', 'blueIsClick')}
-          >
-            B
-          </Button>
-          <Button
-            floating
-            className={greenIsClick ? buttonClicked : button}
-            onClick={() => this.handleImage('green', 'greenIsClick')}
-          >
-            G
-          </Button>
+      <div className="container-flex">
+        <div className={`${buttonContainer} ${col50}`}>
+          {data &&
+            data.map((btn, i) => {
+              const key = `button-${i}`;
+              const isActive = activeFilters[btn.color];
+              return (
+                <Button
+                  key={key}
+                  floating
+                  className={classnames(button, { [active]: isActive })}
+                  onClick={() => this.handleImage(btn.color, btn.img)}
+                >
+                  {btn.label}
+                </Button>
+              );
+            })}
+        </div>
+        <div className={`${imagesContainer} ${col50}`}>
+          {showImage && <img className={colorImage} alt="img" src={imgSrc} />}
         </div>
       </div>
     );
@@ -77,7 +77,7 @@ class ColorTool extends React.Component {
 }
 
 ColorTool.propTypes = {
-  options: PropTypes.object,
+  data: PropTypes.array,
 };
 
 export default ColorTool;

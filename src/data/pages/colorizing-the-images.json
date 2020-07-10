@@ -27,6 +27,7 @@
         "col": "right",
         "row": "bottom"
       },
+    "source":  "/data/filters/color-filter.json",
     "options": {
       "something":23
     }
