@@ -1,10 +1,17 @@
-.colorImage {
-  height: 300px;
-  width: 300px;
-}
-
 .col50 {
   width: 50%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .images-container {
@@ -22,7 +29,6 @@
   display: flex;
   justify-content: center;
   line-height: 1;
-  //background-image: url("../../../../static/images/blue-filter.png") !important;
   margin: 15px;
   &:hover {
     color: $white;
@@ -33,4 +39,41 @@
 .active {
   color: $white;
   background: $md-primary-color;
+}
+
+.red-filter {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  margin-left: 25%;
+  background-image: url('../../../../static/images/red-filter.png');
+  background-size: 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+  mix-blend-mode: screen;
+
+}
+
+.green-filter {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  margin-left: 25%;
+  background-image: url('../../../../static/images/green-filter.png');
+  background-size: 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+  mix-blend-mode: screen;
+}
+
+.blue-filter {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  margin-left: 25%;
+  background-image: url('../../../../static/images/blue-filter.png');
+  background-size: 100%;
+  background-position: center;
+  background-blend-mode: multiply;
+  mix-blend-mode: screen;
 }
