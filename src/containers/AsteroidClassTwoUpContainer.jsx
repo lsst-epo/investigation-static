@@ -17,17 +17,16 @@ import {
   linkActive,
 } from '../components/charts/asteroidClass/asteroid-class.module.scss';
 
-class AsteroidClassContainer extends React.PureComponent {
+class AsteroidClassTwoUpContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
       overlayData: null,
       data: null,
-      groups: null,
+      group: null,
       twoUp: false,
       activeOverlay: null,
-      activeGroupIndex: 0,
     };
   }
 
@@ -49,7 +48,7 @@ class AsteroidClassContainer extends React.PureComponent {
           this.setState(prevState => ({
             ...prevState,
             data: data.map(d => d.data),
-            groups: data.map(d => d.group),
+            group: data.map(d => d.group),
             twoUp: true,
           }));
         })
@@ -61,11 +60,11 @@ class AsteroidClassContainer extends React.PureComponent {
         this.setState(prevState => ({
           ...prevState,
           data: neos,
-          groups: [group],
+          group,
           twoUp: false,
         }));
       });
-    } else if (source && sources && multiple) {
+    } else if (source && sources) {
       axios.all(this.allGets([...sources, source])).then(
         axios.spread((...responses) => {
           const data = responses.map(reponse => {
@@ -81,27 +80,6 @@ class AsteroidClassContainer extends React.PureComponent {
             data: data.map(d => d.data),
             group: data.map(d => d.group),
             twoUp: true,
-          }));
-        })
-      );
-    } else if (sources && source && !multiple) {
-      axios.all(this.allGets([...sources, source])).then(
-        axios.spread((...responses) => {
-          const data = responses.map(reponse => {
-            const { data: rData } = reponse;
-            return rData;
-          });
-          const overlayData = data.pop();
-          const groups = data.map(d => d.group);
-
-          this.setState(prevState => ({
-            ...prevState,
-            overlayData,
-            activeOverlay: overlayData ? overlayData[0].filters : null,
-            activeGroup: groups[0],
-            data: data.map(d => d.data),
-            groups,
-            twoUp: false,
           }));
         })
       );
@@ -121,35 +99,7 @@ class AsteroidClassContainer extends React.PureComponent {
     }));
   }
 
-  updateActiveGroupIndex(activeGroupIndex) {
-    this.setState(prevState => ({
-      ...prevState,
-      activeGroupIndex,
-    }));
-  }
-
   generateNavItems(navItems) {
-    if (!navItems) return [];
-    const { activeGroupIndex, groups } = this.state;
-    const activeGroup = groups[activeGroupIndex];
-
-    return navItems.map((item, i) => {
-      return {
-        leftAvatar: (
-          <div className={avatarContainer}>
-            <div className={navAvatar}>{`${item} Class`}</div>
-          </div>
-        ),
-        primaryText: ' ',
-        className: classnames(navItem, {
-          [linkActive]: activeGroup === item,
-        }),
-        onClick: () => this.updateActiveGroupIndex(i),
-      };
-    });
-  }
-
-  generateNavItemsMulti(navItems) {
     const { activeOverlay } = this.state;
 
     return navItems.map((item, i) => {
@@ -169,16 +119,8 @@ class AsteroidClassContainer extends React.PureComponent {
   }
 
   render() {
-    const {
-      data,
-      overlayData,
-      activeOverlay,
-      activeGroupIndex,
-      groups,
-      twoUp,
-    } = this.state;
-    const { options, widget } = this.props;
-    const { sources } = widget || {};
+    const { data, overlayData, activeOverlay, group, twoUp } = this.state;
+    const { options } = this.props;
     const {
       yAxisLabel,
       tooltipAccessors,
@@ -187,8 +129,6 @@ class AsteroidClassContainer extends React.PureComponent {
       preSelected,
       multiple,
     } = options || {};
-    const activeGroup = groups ? groups[activeGroupIndex] : null;
-    const activeData = data ? data[activeGroupIndex] : null;
 
     return (
       <ConditionalWrapper
@@ -196,7 +136,7 @@ class AsteroidClassContainer extends React.PureComponent {
         wrapper={children => (
           <NavDrawer
             cardClasses={drawerContainer}
-            navItems={this.generateNavItemsMulti(overlayData)}
+            navItems={this.generateNavItems(overlayData)}
             contentClasses={mainContent}
             toolbarStyles={{ display: 'none' }}
           >
@@ -207,20 +147,22 @@ class AsteroidClassContainer extends React.PureComponent {
         {twoUp ? (
           <div className="container-flex">
             {data.map((d, i) => {
-              const group = groups[i] ? groups[i].toUpperCase() : null;
+              const dGroup = group[i] ? group[i].toUpperCase() : null;
 
               return (
-                <div key={`${group}`} className="col-width-50">
+                <div key={`${dGroup}`} className="col-width-50">
                   <h2 className="space-bottom">
-                    {group ? `${group} Type Classification` : 'Asteroid Class'}
+                    {dGroup
+                      ? `${dGroup} Type Classification`
+                      : 'Asteroid Class'}
                   </h2>
                   <AsteroidClass
                     className="brightness-vs-distance"
-                    xAxisLabel={group ? `${group} Class` : 'Asteroid Class'}
+                    xAxisLabel={dGroup ? `${dGroup} Class` : 'Asteroid Class'}
+                    group={dGroup}
                     data={d}
                     overlayData={activeOverlay}
                     {...{
-                      group,
                       options,
                       yAxisLabel,
                       tooltipAccessors,
@@ -234,35 +176,21 @@ class AsteroidClassContainer extends React.PureComponent {
             })}
           </div>
         ) : (
-          <ConditionalWrapper
-            condition={sources.length > 1}
-            wrapper={children => (
-              <NavDrawer
-                cardClasses={drawerContainer}
-                navItems={this.generateNavItems(groups)}
-                contentClasses={mainContent}
-                toolbarStyles={{ display: 'none' }}
-              >
-                <div className={paddedDrawerInner}>{children}</div>
-              </NavDrawer>
-            )}
-          >
+          <div>
             <h2 className="space-bottom">
-              {activeGroup
-                ? `${activeGroup.toUpperCase()} Type Classification `
+              {group
+                ? `${group.toUpperCase()} Type Classification `
                 : 'Asteroid Class'}
             </h2>
             <AsteroidClass
               className="brightness-vs-distance"
               xAxisLabel={
-                activeGroup
-                  ? `${activeGroup.toUpperCase()} Class`
-                  : 'Asteroid Class'
+                group ? `${group.toUpperCase()} Class` : 'Asteroid Class'
               }
               overlayData={activeOverlay}
-              group={activeGroup}
-              data={activeData}
               {...{
+                data,
+                group,
                 options,
                 yAxisLabel,
                 tooltipAccessors,
@@ -271,14 +199,14 @@ class AsteroidClassContainer extends React.PureComponent {
                 preSelected,
               }}
             />
-          </ConditionalWrapper>
+          </div>
         )}
       </ConditionalWrapper>
     );
   }
 }
 
-AsteroidClassContainer.propTypes = {
+AsteroidClassTwoUpContainer.propTypes = {
   data: PropTypes.object,
   options: PropTypes.object,
   widget: PropTypes.object,
@@ -286,4 +214,4 @@ AsteroidClassContainer.propTypes = {
   updateAnswer: PropTypes.func,
 };
 
-export default AsteroidClassContainer;
+export default AsteroidClassTwoUpContainer;
