@@ -102,9 +102,17 @@
   grid-area: grid-qas;
 
   + .grid-widget,
-  + .grid-widget,
   + .grid-image,
   + .grid-table {
+    margin-top: $minPadding;
+  }
+}
+
+.grid-widget {
+  + .grid-widget,
+  + .grid-image,
+  + .grid-table,
+  + .grid-qas {
     margin-top: $minPadding;
   }
 }
