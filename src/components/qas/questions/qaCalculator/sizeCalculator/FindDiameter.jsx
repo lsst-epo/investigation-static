@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { QACalculatorIconUnit } from '../qaCalculatorIcons';
+import Unit from '../../../../charts/shared/unit';
 
 import {
   equation,
@@ -32,7 +34,13 @@ export default function FindDiameter(props) {
         </span>
       </span>
       <span>= </span>
-      <span className={color}>{diameter ? `${diameter} km` : '?'}</span>
+      <span className={color}>
+        {diameter || '?'}
+        <QACalculatorIconUnit
+          className={color}
+          unit={<Unit type="diameter" />}
+        />
+      </span>
     </p>
   );
 }

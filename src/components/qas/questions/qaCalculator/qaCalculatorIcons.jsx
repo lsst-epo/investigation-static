@@ -21,10 +21,9 @@ QACalculatorIcon.propTypes = {
 
 export const QACalculatorIconUnit = ({ unit, tiny, className }) => {
   return (
-    <span
-      className={classnames(icon, className, { [smallIcon]: !!tiny })}
-      dangerouslySetInnerHTML={renderDef(unit)}
-    />
+    <span className={classnames(icon, className, { [smallIcon]: !!tiny })}>
+      {unit}
+    </span>
   );
 };
 
@@ -33,7 +32,7 @@ QACalculatorIconUnit.defaultProps = {
 };
 
 QACalculatorIconUnit.propTypes = {
-  unit: PropTypes.string,
+  unit: PropTypes.oneOfType(PropTypes.string, PropTypes.object),
   tiny: PropTypes.bool,
   className: PropTypes.string,
 };
