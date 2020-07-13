@@ -25,8 +25,8 @@ function CameraController({ pov }) {
 
   useEffect(() => {
     const controls = new OrbitControls(camera, gl.domElement);
-    controls.minDistance = 3;
-    controls.maxDistance = 200000;
+    controls.minDistance = 70;
+    controls.maxDistance = 5000;
 
     setPov(controls, pov).update();
 
