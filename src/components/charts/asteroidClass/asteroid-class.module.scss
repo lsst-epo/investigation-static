@@ -98,6 +98,7 @@ aside {
       @include labelPrimary;
       font-weight: $medium;
       color: $basePrimary;
+      white-space: nowrap;
     }
 
     :global {

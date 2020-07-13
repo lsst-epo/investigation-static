@@ -297,7 +297,7 @@ AsteroidClass.defaultProps = {
   xValueAccessor: 'distance',
   yValueAccessor: 'brightness',
   xAxisLabel: 'Distance (Billion LY)',
-  yAxisLabel: 'Observed Brightness',
+  yAxisLabel: 'Brightness relative to g filter',
   tooltipAccessors: ['distance', 'brightness'],
   tooltipUnits: ['Billion Ly'],
   tooltipLabels: ['Distance', 'Brightness'],
