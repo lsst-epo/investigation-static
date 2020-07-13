@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
+// import { MeshLine, MeshLineMaterial } from 'threejs-meshline';
 import { useFrame } from 'react-three-fiber';
 import { HTML } from 'drei';
 import {
@@ -8,7 +9,6 @@ import {
   getMinorAxis,
   auToUnit,
   getVelocity,
-  getRadius,
   degsToRads,
   getFocus,
   getCurve,
@@ -17,6 +17,8 @@ import {
   getPosFromArcLength,
 } from './orbitalUtilities.js';
 import { label } from './orbital-viewer.module.scss';
+
+// extend({ MeshLine, MeshLineMaterial });
 
 const Orbital = ({
   data,
@@ -40,7 +42,6 @@ const Orbital = ({
     a,
     e,
     i,
-    H,
     M,
     Node: ascendingNode,
     Peri: peri,
@@ -53,7 +54,6 @@ const Orbital = ({
     degsToRads(i),
     ascendingNode ? degsToRads(ascendingNode) : 0,
   ]);
-  const [vizRadius] = useState(() => getRadius(H));
   const [majAxis] = useState(() => auToUnit(a));
   const [minAxis] = useState(() => getMinorAxis(a, e));
   const [focus] = useState(() => getFocus(majAxis, minAxis));
@@ -65,7 +65,10 @@ const Orbital = ({
     getCurve(majAxis, minAxis, offsetCenter.x, offsetCenter.y)
   );
 
-  const [pathLine] = useState(() => getLineGeometry(path.getPoints(100)));
+  const [pathLine] = useState(() => getLineGeometry(path.getPoints(360)));
+  // const [pathLine] = useState(() =>
+  //   path.getPoints(360).map(p => new THREE.Vector3(p.x, p.y, 0))
+  // );
   const posZero = getPosFromArcLength(0, path);
   const [point, setPoint] = useState({
     position: posZero,
@@ -166,6 +169,14 @@ const Orbital = ({
     <group rotation={rotation}>
       {/* Orbital Path */}
       <group rotation={[0, 0, peri ? degsToRads(peri + 90) : 0]}>
+        {/* <mesh ref={mesh}>
+          <meshLine attach="geometry" vertices={pathLine} />
+          <meshLineMaterial
+            attach="material"
+            lineWidth={5}
+            color={active ? 'hotpink' : orbitColor || '#ffffff'}
+          />
+        </mesh> */}
         <line ref={mesh} geometry={pathLine}>
           <lineBasicMaterial
             attach="material"
@@ -179,7 +190,7 @@ const Orbital = ({
           </HTML>
           <sphereBufferGeometry
             attach="geometry"
-            args={[objectRadius || vizRadius, 10, 10]}
+            args={[objectRadius || 10, 10, 10]}
           />
           <meshBasicMaterial
             attach="material"

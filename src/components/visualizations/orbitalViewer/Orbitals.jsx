@@ -56,12 +56,12 @@ function Orbitals({
   return (
     <>
       {includeRefObjs && renderRefObjs()}
-      {neos.map(neo => {
+      {neos.map((neo, badId) => {
         const { Ref: ref, Principal_desig: pd } = neo;
 
         return (
           <Orbital
-            key={ref + pd}
+            key={ref && pd ? ref + pd : `orbit-${badId}`}
             data={neo}
             position={[0, 0, 0]}
             active={neo === activeNeo}

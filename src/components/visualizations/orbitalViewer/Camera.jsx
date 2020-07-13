@@ -11,7 +11,7 @@ function Camera(props) {
   }, []);
   // Update it every frame
   useFrame(() => ref.current.updateMatrixWorld());
-  return <orthographicCamera ref={ref} {...props} />;
+  return <perspectiveCamera ref={ref} {...props} />;
 }
 
 export default Camera;

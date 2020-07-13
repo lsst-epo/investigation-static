@@ -52,7 +52,7 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
         <PlaybackSpeed dayPerVizSec={dayPerVizSec} />
         <Canvas invalidateFrameloop className={orbitalCanvas}>
           <CameraController pov={pov} />
-          <Camera far={200000} near={1} fov={100} position={[0, 0, 500]} />
+          <Camera far={10000} near={50} fov={100} position={[0, 0, 500]} />
           <ambientLight intensity={0.9} />
           <Orbitals
             includeRefObjs

@@ -14,6 +14,21 @@
   },
   "layout": "TwoCol",
   "content": "<p>Enter an absolute magnitude and albedo to calculate the diameter of your objects. Use an albedo of 0.15.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/FINAL_absmag.json",
+      "options": {
+        "title": "Absolute Magnitudes",
+        "xAxisLabel": "Absolute Magnitudes",
+        "yAxisLabel": "Number of Objects",
+        "xValueAccessor": "abs_mag",
+        "domain": [[0, 18], []],
+        "tooltipAccessors": ["count", "abs_mag"],
+        "tooltipLabels": ["Objects", "Absolute Magnitude"]
+      }
+    }
+  ],
   "tables": [
     {
       "id": "1",

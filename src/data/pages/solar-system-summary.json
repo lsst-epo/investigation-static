@@ -13,5 +13,11 @@
     "link": "/solar-system-summary-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>You are on a Solar System expedition and your team flies by objects that do not seem to fall into any of the four major groups you have investigated so far. You will use histograms, the orbit visualizer, and the size calculator to analyze the data for these objects.</p>"
+  "content": "<p>You are on a Solar System expedition and your team flies by objects that do not seem to fall into any of the four major groups you have investigated so far. You will use histograms, the orbit visualizer, and the size calculator to analyze the data for these objects.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/FINAL_orbit_50sample.json"
+    }
+  ]
 }
