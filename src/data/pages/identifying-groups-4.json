@@ -12,13 +12,7 @@
     "title": "Identifying Types of Solar System Objects",
     "link": "/identifying-groups-5/"
   },
-  "layout": "TwoCol",
-  "widgets": [
-    {
-      "type": "OrbitalViewer",
-      "source": "/data/neos/nea_extended_sample.json"
-    }
-  ],
+  "layout": "SingleCol",
   "tables": [
     {
       "id": "1",

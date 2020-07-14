@@ -21,14 +21,15 @@
         "/data/neos/NEO_semimajor_axis.json",
         "/data/neos/MBA_semimajor_axis.json",
         "/data/neos/TNO_semimajor_axis.json",
-        "/data/neos/comets_semimajor_axis.json"
+        "/data/neos/comets_semimajor_axis_abridged.json"
       ],
       "options": {
         "title": "Small Object Orbit Sizes",
         "xAxisLabel": "Orbit Sizes (au)",
         "xValueAccessor": "semimajor_axis",
         "yAxisLabel": "Number of Objects",
-        "domain": [[0, 60], null],
+        "domain": [[0, 100], null],
+        "bins": 20,
         "tooltipAccessors": ["count", "semimajor_axis"],
         "tooltipLabels": ["objects", "Orbit Size (au)"]
       }

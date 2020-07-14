@@ -10,8 +10,8 @@ import {
 import {
   histogram as d3Histogram,
   thresholdScott as d3ThresholdScott,
+  thresholdSturges as d3ThresholdSturges,
   // threshholdFreedmanDiaconis as d3ThresholdFreedmanDiaconis,
-  // thresholdSturges as d3ThresholdSturges,
   max as d3Max,
 } from 'd3-array';
 import {
@@ -72,6 +72,7 @@ class Histogram extends React.PureComponent {
       valueAccessor,
       domain,
       multiple,
+      bins,
     } = this.props;
 
     if (!isEmpty(data)) {
@@ -79,7 +80,8 @@ class Histogram extends React.PureComponent {
         data,
         valueAccessor,
         domain,
-        multiple
+        multiple,
+        bins,
       );
       const groupNames =
         multiple && data.map(set => this.objectTypes[set.group.toLowerCase()]);
@@ -131,7 +133,7 @@ class Histogram extends React.PureComponent {
     }
   }
 
-  histogramData(data, valueAccessor, domain, multiple) {
+  histogramData(data, valueAccessor, domain, multiple, bins) {
     if (valueAccessor === 'luminosity') {
       return d3Histogram()
         .value(d => {
@@ -156,7 +158,7 @@ class Histogram extends React.PureComponent {
           .value(d => {
             return d[valueAccessor]; // eslint-disable-line dot-notation
           })
-          .thresholds(20)
+          .thresholds(bins || d3ThresholdSturges)
           .domain(domain)(dataset);
       });
     }
@@ -166,6 +168,7 @@ class Histogram extends React.PureComponent {
         .value(d => {
           return d[valueAccessor]; // eslint-disable-line dot-notation
         })
+        .thresholds(bins || d3ThresholdSturges)
         .domain(domain)(data);
     }
 
@@ -630,6 +633,7 @@ Histogram.propTypes = {
   tooltipLabels: PropTypes.array,
   tooltipUnits: PropTypes.array,
   multiple: PropTypes.bool,
+  bins: PropTypes.number,
 };
 
 export default Histogram;

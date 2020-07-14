@@ -24,6 +24,7 @@
         "yAxisLabel": "Number of Objects",
         "xValueAccessor": "eccentricity",
         "domain": [[0, 1], null],
+        "bins": 20,
         "tooltipAccessors": ["count", "eccentricity"],
         "tooltipLabels": ["Objects", "Eccentricity"]
       }
