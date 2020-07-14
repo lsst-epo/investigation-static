@@ -23,7 +23,8 @@
         "xAxisLabel": "Orbit Sizes (au)",
         "xValueAccessor": "semimajor_axis",
         "yAxisLabel": "Number of Objects",
-        "domain": [[0, 40], null],
+        "domain": [[0, 30], null],
+        "bins": 10,
         "tooltipAccessors": ["count", "semimajor_axis"],
         "tooltipLabels": ["Objects", "Orbit Size (au)"]
       }

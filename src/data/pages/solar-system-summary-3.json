@@ -24,6 +24,7 @@
         "yAxisLabel": "Number of Objects",
         "xValueAccessor": "inclination",
         "domain": [[0, 180], []],
+        "bins": 18,
         "tooltipAccessors": ["count", "inclination"],
         "tooltipLabels": ["Objects", "Inclination (degrees)"]
       }

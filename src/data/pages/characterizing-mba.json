@@ -70,7 +70,8 @@
             "xAxisLabel": "Orbit Sizes (au)",
             "yAxisLabel": "Number of MBAs",
             "xValueAccessor": "semimajor_axis",
-            "domain": [[0, 60], []],
+            "domain": [[0, 10], []],
+            "bins": 10,
             "tooltipAccessors": ["count", "semimajor_axis"],
             "tooltipLabels": ["MBAs", "Orbit Size (au)"]
           }
@@ -84,6 +85,7 @@
             "yAxisLabel": "Number of MBAs",
             "xValueAccessor": "eccentricity",
             "domain": [[0, 1], []],
+            "bins": 10,
             "tooltipAccessors": ["count", "eccentricity"],
             "tooltipLabels": ["MBAs", "Eccentricity"]
           }
@@ -97,6 +99,7 @@
             "yAxisLabel": "Number of MBAs",
             "xValueAccessor": "inclination",
             "domain": [[0, 180], []],
+            "bins": 9,
             "tooltipAccessors": ["count", "inclination"],
             "tooltipLabels": ["MBAs", "Inclination (degrees)"]
           }

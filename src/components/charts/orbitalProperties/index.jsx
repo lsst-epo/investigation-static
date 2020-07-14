@@ -19,6 +19,7 @@ class OrbitalProperties extends React.PureComponent {
       tooltipAccessors,
       tooltipUnits,
       multiple,
+      bins,
     } = this.props;
 
     return (
@@ -36,6 +37,7 @@ class OrbitalProperties extends React.PureComponent {
               tooltipAccessors,
               tooltipUnits,
               multiple,
+              bins,
             }}
             dataSelectionCallback={this.callback}
             domain={domain[0]}
@@ -62,6 +64,7 @@ OrbitalProperties.propTypes = {
   tooltipLabels: PropTypes.array,
   tooltipUnits: PropTypes.array,
   multiple: PropTypes.bool,
+  bins: PropTypes.number,
 };
 
 export default OrbitalProperties;

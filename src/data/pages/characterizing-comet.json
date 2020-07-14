@@ -64,13 +64,14 @@
       "widgets": [
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/comets_semimajor_axis.json",
+          "source": "/data/neos/comets_semimajor_axis_abridged.json",
           "options": {
             "title": "Comet Orbit Sizes",
             "xAxisLabel": "Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of comets",
-            "domain": [[0, 60], []],
+            "domain": [[0, 100], []],
+            "bins": 20,
             "tooltipAccessors": ["count", "semimajor_axis"],
             "tooltipLabels": ["Comets", "Orbit Size (au)"]
           }
@@ -84,6 +85,7 @@
             "xValueAccessor": "eccentricity",
             "yAxisLabel": "Number of comets",
             "domain": [[0, 1], []],
+            "bins": 10,
             "tooltipAccessors": ["count", "eccentricity"],
             "tooltipLabels": ["Comets", "Eccentricity"]
           }
@@ -97,6 +99,7 @@
             "xValueAccessor": "inclination",
             "yAxisLabel": "Number of comets",
             "domain": [[0, 180], []],
+            "bins": 9,
             "tooltipAccessors": ["count", "inclination"],
             "tooltipLabels": ["Comets", "Inclination (degrees)"]
           }

@@ -9,6 +9,7 @@ export const nestedWidgetOptionsFragemnt = graphql`
     xValueAccessor
     tooltipAccessors
     tooltipLabels
+    bins
   }
 `;
 
@@ -41,6 +42,7 @@ export const widgetOptionsFragemnt = graphql`
     tooltipLabels
     paused
     pov
+    bins
     required
   }
 `;

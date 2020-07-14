@@ -145,7 +145,7 @@ const Orbital = ({
 
   // Called once when the component first mounts
   useEffect(() => {
-    setPoint(getInitialPoint(M));
+    setPoint(getInitialPoint(M || Math.floor(Math.random() * Math.floor(180))));
   }, []);
 
   // Called whenever frameOverride changes

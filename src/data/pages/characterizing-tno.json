@@ -70,7 +70,7 @@
             "xAxisLabel": "Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of TNOs",
-            "domain": [[0, 60], []],
+            "domain": [[0, 65], []],
             "tooltipAccessors": ["count", "semimajor_axis"],
             "tooltipLabels": ["TNOs", "Orbit Size (au)"]
           }
@@ -84,6 +84,7 @@
             "xValueAccessor": "eccentricity",
             "yAxisLabel": "Number of TNOs",
             "domain": [[0, 1], []],
+            "bins": 10,
             "tooltipAccessors": ["count", "eccentricity"],
             "tooltipLabels": ["TNOs", "Eccentricity"]
           }
@@ -97,6 +98,7 @@
             "xValueAccessor": "inclination",
             "yAxisLabel": "Number of TNOs",
             "domain": [[0, 180], []],
+            "bins": 9,
             "tooltipAccessors": ["count", "inclination"],
             "tooltipLabels": ["TNOs", "Inclination (degrees)"]
           }

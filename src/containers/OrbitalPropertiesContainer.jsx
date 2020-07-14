@@ -64,6 +64,7 @@ class OrbitalPropertiesContainer extends React.PureComponent {
       domain,
       multiple,
       title,
+      bins,
     } = options || {};
     const { sources } = widget;
 
@@ -81,6 +82,7 @@ class OrbitalPropertiesContainer extends React.PureComponent {
             tooltipLabels,
             tooltipAccessors,
             tooltipUnits,
+            bins,
           }}
           multiple={multiple || !!sources}
         />
