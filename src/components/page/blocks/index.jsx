@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getLayout } from './blocksUtilities.js';
 import WidgetBlock from './WidgetBlock';
 import ImageBlock from './ImageBlock';
 import TableBlock from './TableBlock';
+import ContentBlock from './ContentBlock';
 
 class Blocks extends React.PureComponent {
   constructor(props) {
@@ -13,7 +13,19 @@ class Blocks extends React.PureComponent {
       widget: WidgetBlock,
       image: ImageBlock,
       table: TableBlock,
+      content: ContentBlock,
     };
+  }
+
+  getLayout(defaultLayout, layout) {
+    if (layout) {
+      const row = layout.row || defaultLayout.row;
+      const col = layout.col || defaultLayout.col;
+
+      return { row, col };
+    }
+
+    return defaultLayout;
   }
 
   render() {
@@ -28,7 +40,7 @@ class Blocks extends React.PureComponent {
 
     return blocks.map((block, i) => {
       const { layout } = block;
-      const { row, col } = getLayout(defaultLayout, layout);
+      const { row, col } = this.getLayout(defaultLayout, layout);
 
       if (getCol === col && getRow === row) {
         const BlockTag = this.blockTags[type];

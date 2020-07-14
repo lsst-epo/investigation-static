@@ -13,7 +13,22 @@
     "link": "/astronomical-color-images/"
   },
   "layout": "TwoCol",
-  "content": "<p>There is a deliberate method for the way astronomers choose colors when building a color image. It is called chromatic ordering. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. Images constructed by using chromatic ordering are known as <strong>representative color images</strong>.</p><p>The <strong>chromatic ordering technique</strong> matches the filter that transmits light with the shortest wavelengths collected by the telescope to a color in the visible spectrum that also has a short wavelength. For instance, the g filter might be assigned the color blue. The filters that transmit longer wavelengths of light would then get assigned colors that correspond with longer wavelengths.</p><p>Since the Rubin Observatory u filter passes light with the shortest wavelengths, images obtained with that filter would be colorized violet because violet has the shortest wavelengths of visible light. The g filter transmits light with slightly longer wavelengths than the u filter, so the g filter image would be colorized blue, since blue is the next shortest wavelength color. Continuing on with this process, the images obtained with other Rubin Observatory filters would be colorized in this pattern:</p><p>Sometimes images from all six filters are not all available. In that case, a few colors are omitted, and the images can be colorized with any colors as long as they follow the chromatic order rule. For example, suppose you have a set of images taken using only these filters: g, r, i, and y. Any of the following filter sequences would be a correct application of chromatic ordering:</p>",
+  "contents": [
+    {
+      "content": "<p>There is a deliberate method for the way astronomers choose colors when building a color image. It is called chromatic ordering. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. Images constructed by using chromatic ordering are known as <strong>representative color images</strong>.</p><p>The <strong>chromatic ordering technique</strong> matches the filter that transmits light with the shortest wavelengths collected by the telescope to a color in the visible spectrum that also has a short wavelength. For instance, the g filter might be assigned the color blue. The filters that transmit longer wavelengths of light would then get assigned colors that correspond with longer wavelengths.</p><p>Since the Rubin Observatory u filter passes light with the shortest wavelengths, images obtained with that filter would be colorized violet because violet has the shortest wavelengths of visible light. The g filter transmits light with slightly longer wavelengths than the u filter, so the g filter image would be colorized blue, since blue is the next shortest wavelength color. Continuing on with this process, the images obtained with other Rubin Observatory filters would be colorized in this pattern:</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "content": "<p>Sometimes images from all six filters are not all available. In that case, a few colors are omitted, and the images can be colorized with any colors as long as they follow the chromatic order rule. For example, suppose you have a set of images taken using only these filters: g, r, i, and y. Any of the following filter sequences would be a correct application of chromatic ordering:</p>",
+      "layout": {
+        "col": "left",
+        "row": "middle"
+      }
+    }
+  ],
   "tables": [
     {
       "id": "1",
@@ -34,7 +49,7 @@
       "id": "2",
       "layout": {
         "col": "left",
-        "row": "bottom"
+        "row": "middle"
       },
       "colTitles": ["g", "r", "i", "y"],
       "rows": [

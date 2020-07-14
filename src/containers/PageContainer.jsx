@@ -40,6 +40,12 @@ class PageContainer extends React.PureComponent {
     return false;
   };
 
+  getContents(content, contents) {
+    if (content && contents) return [{ content }, ...contents];
+    if (content) return [{ content, layout: { row: 'middle', col: 'left' } }];
+    return contents;
+  }
+
   render() {
     const {
       data,
@@ -60,6 +66,7 @@ class PageContainer extends React.PureComponent {
       previous,
       next,
       content,
+      contents,
       widgets,
       images,
       tables,
@@ -79,13 +86,13 @@ class PageContainer extends React.PureComponent {
     return (
       <div className="container-page">
         <Tag
+          contents={this.getContents(content, contents)}
           {...{
             id,
             layout,
             title,
             previous,
             next,
-            content,
             widgets,
             tables,
             images,
@@ -124,6 +131,9 @@ export const query = graphql`
     ) {
       nodes {
         ...PageMeta
+        contents {
+          ...Content
+        }
         images {
           ...Image
         }

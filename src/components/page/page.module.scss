@@ -9,35 +9,13 @@
 }
 
 .single-col-grid,
-.left-col-grid {
-  display: grid;
-  grid-template:
-    'grid-title' auto
-    'grid-image-top' auto
-    'grid-copy' auto
-    'grid-widget-top' auto
-    'grid-table-top' auto
-    'grid-image-middle' auto
-    'grid-table-middle' auto
-    'grid-qas' auto
-    'grid-image-bottom' auto
-    'grid-widget-bottom' auto
-    'grid-table-bottom' auto
-    / 100%;
-}
-
+.left-col-grid,
 .right-col-grid {
-  display: grid;
-  grid-template:
-    'grid-image-top' auto
-    'grid-widget-top' auto
-    'grid-table-top' auto
-    'grid-table-default' auto
-    'grid-image-bottom' auto
-    'grid-widget-bottom' auto
-    'grid-table-bottom' auto
-    'grid-placeholder' auto
-    / 100%;
+  @include copyPrimary;
+
+  p {
+    @include copyPrimary;
+  }
 }
 
 .grid-title {
@@ -52,7 +30,8 @@
   + .grid-widget,
   + .grid-image,
   + .grid-table,
-  + .grid-qas {
+  + .grid-qas,
+  + .grid-copy {
     margin-top: $minPadding;
   }
 
@@ -60,7 +39,9 @@
     @include copyPrimary;
     margin: 0;
 
-    + h3, + h2, + p {
+    + h3,
+    + h2,
+    + p {
       margin-top: $verticalSpace;
     }
   }
@@ -103,7 +84,8 @@
 
   + .grid-widget,
   + .grid-image,
-  + .grid-table {
+  + .grid-table,
+  + .grid-copy {
     margin-top: $minPadding;
   }
 }
@@ -112,7 +94,8 @@
   + .grid-widget,
   + .grid-image,
   + .grid-table,
-  + .grid-qas {
+  + .grid-qas,
+  + .grid-copy {
     margin-top: $minPadding;
   }
 }
@@ -146,6 +129,7 @@
   }
 }
 
+// Image======================
 .grid-image-top {
   grid-area: grid-image-top;
   margin-bottom: $minPadding;
@@ -153,14 +137,56 @@
 
 .grid-image-middle {
   grid-area: grid-image-middle;
-  margin-top: $minPadding;
 }
 
 .grid-image-bottom {
   grid-area: grid-image-bottom;
+}
+
+.grid-image-middle,
+.grid-image-bottom {
   margin-top: $minPadding;
 }
 
+// Copy ======================
+.grid-copy-top {
+  grid-area: grid-copy-top;
+  margin-bottom: $minPadding;
+}
+
+.grid-copy-middle {
+  grid-area: grid-copy-middle;
+}
+
+.grid-copy-bottom {
+  grid-area: grid-copy-bottom;
+}
+
+.grid-copy-middle,
+.grid-copy-bottom {
+  margin-top: $minPadding;
+}
+
+// Questions ==================
+.grid-qas-top {
+  grid-area: grid-qas-top;
+  margin-bottom: $minPadding;
+}
+
+.grid-qas-middle {
+  grid-area: grid-qas-middle;
+}
+
+.grid-qas-bottom {
+  grid-area: grid-qas-bottom;
+}
+
+.grid-qas-middle,
+.grid-qas-bottom {
+  margin-top: $minPadding;
+}
+
+// Table =====================
 .grid-table {
   + .grid-table {
     margin-top: $minPadding;
