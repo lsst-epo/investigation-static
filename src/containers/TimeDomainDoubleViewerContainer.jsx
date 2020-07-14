@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TimeDomainViewerContainer from './TimeDomainViewerContainer.jsx';
+import chartColors from '../assets/stylesheets/_variables.scss';
 
 class TimeDomainDoubleViewerContainer extends React.PureComponent {
   constructor(props) {
@@ -32,11 +33,12 @@ class TimeDomainDoubleViewerContainer extends React.PureComponent {
     return (
       <div className="container-flex spaced centered">
         {widgets &&
-          widgets.map(w => {
+          widgets.map((w, i) => {
             return (
               <div className="col-width-50 padded" key={w.source}>
                 <TimeDomainViewerContainer
                   widget={w}
+                  color={chartColors[`chart${i + 1}`]}
                   {...{ options, answers, activeQuestionId, updateAnswer }}
                 />
               </div>

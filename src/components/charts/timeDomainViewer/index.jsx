@@ -236,6 +236,7 @@ class TimeDomainViewer extends React.PureComponent {
       activeImageId,
       activeAlert,
       selectedData: selectedDataProp,
+      color,
     } = this.props;
 
     const {
@@ -254,7 +255,10 @@ class TimeDomainViewer extends React.PureComponent {
 
     return (
       <>
-        <Legend {...{ name, activeAlert, selectedData }} />
+        <Legend
+          backgroundColor={color}
+          {...{ name, activeAlert, selectedData }}
+        />
         <div className="svg-container supernova-selector-container">
           {loading && (
             <CircularProgress
@@ -270,6 +274,7 @@ class TimeDomainViewer extends React.PureComponent {
             ref={this.svgEl}
           >
             <Point
+              selectedColor={color}
               selectedData={selectedData}
               active={activeAlert}
               xScale={xScale}
@@ -302,6 +307,7 @@ TimeDomainViewer.defaultProps = {
   yDomain: [0, 1200],
   xValueAccessor: 'ra',
   yValueAccessor: 'dec',
+  color: '#169c69',
 };
 
 TimeDomainViewer.propTypes = {
@@ -324,6 +330,7 @@ TimeDomainViewer.propTypes = {
   autoplay: PropTypes.bool,
   selectionCallback: PropTypes.func,
   blinkCallback: PropTypes.func,
+  color: PropTypes.string,
 };
 
 export default TimeDomainViewer;

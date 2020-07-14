@@ -20,7 +20,7 @@
       },
       "sources": ["/data/neos/2003_QZ30.json", "/data/neos/tno120132.json"],
       "options": {
-        "autoplay": true,
+        "autoplay": false,
         "preSelected": true
       }
     }

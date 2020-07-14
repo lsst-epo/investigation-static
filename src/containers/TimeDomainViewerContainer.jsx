@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import API from '../lib/API.js';
 import TimeDomainViewer from '../components/charts/timeDomainViewer/index.jsx';
+import chartColors from '../assets/stylesheets/_variables.scss';
 
 class TimeDomainViewerContainer extends React.PureComponent {
   constructor(props) {
@@ -109,7 +110,7 @@ class TimeDomainViewerContainer extends React.PureComponent {
   }
 
   render() {
-    const { options } = this.props;
+    const { options, color } = this.props;
     const { preSelected } = options || {};
     const {
       alerts,
@@ -136,6 +137,7 @@ class TimeDomainViewerContainer extends React.PureComponent {
               activeImageIndex,
               activeImageId,
               images,
+              color,
             }}
             xValueAccessor="RA"
             yValueAccessor="Dec"
@@ -152,12 +154,17 @@ class TimeDomainViewerContainer extends React.PureComponent {
   }
 }
 
+TimeDomainViewerContainer.defaultProps = {
+  color: chartColors.chart1,
+};
+
 TimeDomainViewerContainer.propTypes = {
   widget: PropTypes.object,
   options: PropTypes.object,
   answers: PropTypes.object,
   activeQuestionId: PropTypes.string,
   updateAnswer: PropTypes.func,
+  color: PropTypes.string,
 };
 
 export default TimeDomainViewerContainer;

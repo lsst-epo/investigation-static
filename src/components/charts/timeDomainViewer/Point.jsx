@@ -17,6 +17,7 @@ class Point extends React.PureComponent {
       xValueAccessor,
       yValueAccessor,
       active,
+      selectedColor,
     } = this.props;
 
     const { id } = active;
@@ -33,7 +34,7 @@ class Point extends React.PureComponent {
         r={15}
         fill="transparent"
         strokeWidth={1}
-        stroke="transparent"
+        stroke={isSelected ? selectedColor : 'transparent'}
       />
     );
   }
@@ -46,6 +47,7 @@ Point.propTypes = {
   yValueAccessor: PropTypes.string,
   xScale: PropTypes.func,
   yScale: PropTypes.func,
+  selectedColor: PropTypes.string,
 };
 
 export default Point;

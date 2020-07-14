@@ -11,11 +11,11 @@ import {
 
 class Legend extends React.PureComponent {
   render() {
-    const { name, activeAlert, selectedData } = this.props;
+    const { name, activeAlert, selectedData, backgroundColor } = this.props;
     const { start, date } = activeAlert || {};
 
     return (
-      <div className={legend}>
+      <div className={legend} style={{ backgroundColor }}>
         {name && <div className={neoName}>{name}</div>}
         {activeAlert && selectedData && (
           <ul className={details}>
@@ -36,6 +36,7 @@ Legend.propTypes = {
   name: PropTypes.string,
   activeAlert: PropTypes.object,
   selectedData: PropTypes.array,
+  backgroundColor: PropTypes.string,
 };
 
 export default Legend;
