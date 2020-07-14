@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { SelectField } from 'react-md';
+import SelectField from '../../site/selectField/index.js';
 import Button from '../../site/button/index.js';
 import ArrowDown from '../../site/icons/ArrowDown';
 
@@ -54,9 +54,8 @@ class ColorTool extends React.PureComponent {
     }));
   }
 
-  handleColorChange = (value, { id }) => {
+  handleColorChange = (value, index, event, { id }) => {
     const { filters } = this.state;
-
     const newFilters = filters.map(newFilter => {
       if (newFilter.label === id) {
         newFilter.color = value;
@@ -72,7 +71,6 @@ class ColorTool extends React.PureComponent {
 
   render() {
     const { filters, colorOptions } = this.state;
-
     return (
       <div className={`container-flex ${container}`}>
         <div className={`${buttonContainer} ${col50}`}>
@@ -80,7 +78,6 @@ class ColorTool extends React.PureComponent {
             filters.map((btn, i) => {
               const key = `div-${i}`;
               const btnClassName = classnames(button, { [active]: btn.active });
-
               return (
                 <div key={key} className={selectContainer}>
                   <Button
@@ -107,6 +104,7 @@ class ColorTool extends React.PureComponent {
               const imageClassName = classnames(filter, {
                 [filterActive]: filterImage.active,
               });
+
               return (
                 <div
                   key={`filter-${filterImage.label}`}

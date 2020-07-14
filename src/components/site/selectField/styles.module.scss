@@ -1,0 +1,11 @@
+:global {
+  @include react-md-select-fields;
+
+  .md-menu-select-field {
+    position: relative;
+  }
+  .md-list {
+      position: absolute;
+      z-index: 1;
+  }
+}
