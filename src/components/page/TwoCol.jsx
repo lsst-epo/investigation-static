@@ -1,26 +1,32 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { renderDef } from '../../lib/utilities.js';
-import { isPosEmpty } from './blocks/blocksUtilities.js';
+import find from 'lodash/find';
 import QAs from '../qas';
-import Blocks from './blocks/index.jsx';
+import BlocksLayout from './blocks/BlocksLayout.jsx';
 import Placeholder from '../placeholder';
-
 import {
   leftColGrid,
   gridTitle,
-  gridCopy,
   gridQas,
   rightColGrid,
   gridPlaceholder,
 } from './page.module.scss';
 
 class TwoCol extends React.PureComponent {
+  isPosEmpty(layout = { col: 'right', row: 'bottom' }, targets) {
+    return !find(targets, target => {
+      const { col, row } = layout;
+      const { layout: targetLayout } = target || {};
+      const { col: targetCol, row: targetRow } = targetLayout || layout;
+      return targetCol === col || targetRow === row;
+    });
+  }
+
   render() {
     const {
       title,
-      content,
+      contents,
       questions,
       answers,
       tables,
@@ -29,11 +35,30 @@ class TwoCol extends React.PureComponent {
       shared,
     } = this.props;
 
-    const interactiveShared = {
+    const blockShared = {
       questions,
       answers,
       ...shared,
     };
+
+    const blocksGroups = [
+      {
+        type: 'image',
+        blocks: images,
+      },
+      {
+        type: 'content',
+        blocks: contents,
+      },
+      {
+        type: 'widget',
+        blocks: widgets,
+      },
+      {
+        type: 'table',
+        blocks: tables,
+      },
+    ];
 
     return (
       <div className="container-flex spaced">
@@ -42,124 +67,63 @@ class TwoCol extends React.PureComponent {
             <h1 className={`space-bottom section-title ${gridTitle}`}>
               {title}
             </h1>
-            {content && (
-              <div
-                className={gridCopy}
-                dangerouslySetInnerHTML={renderDef(content)}
-              />
-            )}
-            {images && (
-              <Blocks blocks={images} type="image" getRow="top" getCol="left" />
-            )}
-            {widgets && (
-              <Blocks
-                blocks={widgets}
-                type="widget"
-                blockShared={interactiveShared}
-                getRow="top"
-                getCol="left"
-              />
-            )}
-            {tables && (
-              <Blocks
-                blocks={tables}
-                type="table"
-                blockShared={answers}
-                getRow="top"
-                getCol="left"
-              />
-            )}
-            {tables && (
-              <Blocks
-                blocks={tables}
-                type="table"
-                blockShared={answers}
-                getRow="top"
-                getCol="middle"
-              />
-            )}
+            {/* Top Left */}
+            <BlocksLayout
+              layout={{
+                getRow: 'top',
+                getCol: 'left',
+              }}
+              {...{ blocksGroups, blockShared }}
+            />
+            {/* Middle Left */}
+            <BlocksLayout
+              layout={{
+                getRow: 'middle',
+                getCol: 'left',
+              }}
+              {...{ blocksGroups, blockShared }}
+            />
             {questions && (
               <div className={gridQas}>
-                <QAs {...interactiveShared} />
+                <QAs {...blockShared} />
               </div>
             )}
-            {images && (
-              <Blocks
-                blocks={images}
-                type="image"
-                getRow="bottom"
-                getCol="left"
-              />
-            )}
-            {widgets && (
-              <Blocks
-                blocks={widgets}
-                type="widget"
-                blockShared={interactiveShared}
-                getRow="bottom"
-                getCol="left"
-              />
-            )}
-            {tables && (
-              <Blocks
-                blocks={tables}
-                type="table"
-                blockShared={answers}
-                getRow="bottom"
-                getCol="left"
-              />
-            )}
+            {/* Bottom Left */}
+            <BlocksLayout
+              layout={{
+                getRow: 'bottom',
+                getCol: 'left',
+              }}
+              {...{ blocksGroups, blockShared }}
+            />
           </div>
         </div>
         <div className={`col padded col-width-50 col-fixed ${rightColGrid}`}>
-          {images && (
-            <Blocks blocks={images} type="image" getRow="top" getCol="right" />
-          )}
-          {widgets && (
-            <Blocks
-              blocks={widgets}
-              type="widget"
-              blockShared={interactiveShared}
-              getRow="top"
-              getCol="right"
-            />
-          )}
-          {tables && (
-            <Blocks
-              blocks={tables}
-              type="table"
-              blockShared={answers}
-              getRow="top"
-              getCol="right"
-            />
-          )}
-          {images && (
-            <Blocks
-              blocks={images}
-              type="image"
-              getRow="bottom"
-              getCol="right"
-            />
-          )}
-          {widgets && (
-            <Blocks
-              blocks={widgets}
-              type="widget"
-              blockShared={interactiveShared}
-              getRow="bottom"
-              getCol="right"
-            />
-          )}
-          {tables && (
-            <Blocks
-              blocks={tables}
-              type="table"
-              blockShared={answers}
-              getRow="bottom"
-              getCol="right"
-            />
-          )}
-          {isPosEmpty({ col: 'right' }, [
+          {/* Top Right */}
+          <BlocksLayout
+            layout={{
+              getRow: 'top',
+              getCol: 'right',
+            }}
+            {...{ blocksGroups, blockShared }}
+          />
+          {/* Middle Right */}
+          <BlocksLayout
+            layout={{
+              getRow: 'middle',
+              getCol: 'right',
+            }}
+            {...{ blocksGroups, blockShared }}
+          />
+          {/* Bottom Right */}
+          <BlocksLayout
+            layout={{
+              getRow: 'bottom',
+              getCol: 'right',
+            }}
+            {...{ blocksGroups, blockShared }}
+          />
+          {this.isPosEmpty({ col: 'right' }, [
             ...(tables || []),
             ...(images || []),
             ...(widgets || []),
@@ -176,7 +140,7 @@ class TwoCol extends React.PureComponent {
 
 TwoCol.propTypes = {
   title: PropTypes.string,
-  content: PropTypes.string,
+  contents: PropTypes.array,
   questions: PropTypes.array,
   answers: PropTypes.object,
   images: PropTypes.array,
