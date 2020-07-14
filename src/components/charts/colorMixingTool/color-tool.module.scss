@@ -5,18 +5,18 @@
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .select-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-}
+  padding-right: $minPadding;
 
-.images-container {
-  display: flex;
-  align-items: flex-end;
+  :global .md-menu-select-field {
+    @include react-md-select-fields;
+  }
 }
 
 .button-container {
@@ -41,39 +41,28 @@
   background: $md-primary-color;
 }
 
-.red-filter {
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  margin-left: 25%;
-  background-image: url('../../../../static/images/red-filter.png');
-  background-size: 100%;
-  background-position: center;
-  background-blend-mode: multiply;
-  mix-blend-mode: screen;
-
+.images-container {
+  // display: flex;
+  // align-items: flex-end;
+  position: relative;
+  height: 300px;
+  overflow: hidden;
 }
 
-.green-filter {
+.filter {
   position: absolute;
-  width: 60%;
+  opacity: 0;
+  visibility: hidden;
   height: 100%;
-  margin-left: 25%;
-  background-image: url('../../../../static/images/green-filter.png');
-  background-size: 100%;
+  width: 100%;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-blend-mode: multiply;
   mix-blend-mode: screen;
 }
 
-.blue-filter {
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  margin-left: 25%;
-  background-image: url('../../../../static/images/blue-filter.png');
-  background-size: 100%;
-  background-position: center;
-  background-blend-mode: multiply;
-  mix-blend-mode: screen;
+.filter-active {
+  opacity: 1;
+  visibility: visible;
 }

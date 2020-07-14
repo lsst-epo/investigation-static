@@ -1,19 +1,23 @@
 {
-	"filters": [
-		{
-			"label": "R",
-			"color": "red",
-			"img": "red-filter.png"
-		},
-		{
-			"label": "B",
-			"color": "blue",
-			"img": "blue-filter.png"
-		},
-		{
-			"label": "G",
-			"color": "green",
-			"img": "green-filter.png"
-		}
-	]
+  "colorOptions": ["Red", "Blue", "Green", "None"],
+  "filters": [
+    {
+      "label": "R",
+      "color": "",
+      "active": false,
+      "image": "red-filter.png"
+    },
+    {
+      "label": "B",
+      "color": "",
+      "active": false,
+      "image": "blue-filter.png"
+    },
+    {
+      "label": "G",
+      "color": "",
+      "active": false,
+      "image": "green-filter.png"
+    }
+  ]
 }

@@ -18,32 +18,22 @@ class ColorToolContainer extends React.PureComponent {
 
     API.get(source).then(response => {
       const { data } = response;
-
-      console.log(data.filters);
-
       this.setState(prevState => ({
         ...prevState,
-        data: data.filters || [],
+        data,
       }));
     });
   }
 
   render() {
-    const { options, widget } = this.props;
     const { data } = this.state;
-    console.log(options);
-    console.log(widget);
+    const { filters, colorOptions } = data || {};
 
-    return (
-      <>
-        <ColorTool data={data} />
-      </>
-    );
+    return data && <ColorTool {...{ filters, colorOptions }} />;
   }
 }
 
 ColorToolContainer.propTypes = {
-  options: PropTypes.object,
   widget: PropTypes.object,
 };
 

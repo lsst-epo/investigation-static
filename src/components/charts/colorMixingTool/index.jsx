@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { SVGIcon, SelectField } from 'react-md';
+import { SelectField } from 'react-md';
 import Button from '../../site/button/index.js';
-// import arrowDropDown from 'icons/arrow_drop_down.svg';
+import ArrowDown from '../../site/icons/ArrowDown';
 
 import {
-  greenFilter,
-  redFilter,
-  blueFilter,
+  filter,
+  filterActive,
   selectContainer,
   button,
   active,
@@ -18,115 +17,116 @@ import {
   container,
 } from './color-tool.module.scss';
 
-class ColorTool extends React.Component {
+class ColorTool extends React.PureComponent {
   constructor(props) {
     super(props);
+
     this.state = {
-      greenIsActive: false,
-      redIsActive: false,
-      blueIsActive: false,
-      greenSelector: false,
-      redSelector: false,
-      blueSelector: false,
+      filters: [],
+      colorOptions: [],
     };
+  }
+
+  componentDidMount() {
+    const { filters, colorOptions } = this.props;
+
+    this.setState(prevState => ({
+      ...prevState,
+      filters,
+      colorOptions,
+    }));
   }
 
   handleImage(btnObj) {
-    const { color } = btnObj;
-    const stateName = color + 'IsActive';
+    const { filters } = this.state;
+    const { active: oldActive } = btnObj;
+
+    const newFilters = filters.map(newFilter => {
+      if (newFilter.label === btnObj.label) {
+        newFilter.active = !oldActive;
+      }
+      return newFilter;
+    });
+
     this.setState(prevState => ({
       ...prevState,
-      [stateName]: !prevState[stateName],
+      filters: newFilters,
     }));
   }
 
-  handleColorChange = value => {
-    const stateName = value + 'Selector';
-    console.log(value);
+  handleColorChange = (value, { id }) => {
+    const { filters } = this.state;
+
+    const newFilters = filters.map(newFilter => {
+      if (newFilter.label === id) {
+        newFilter.color = value;
+      }
+      return newFilter;
+    });
 
     this.setState(prevState => ({
       ...prevState,
-      [stateName]: true,
+      filters: newFilters,
     }));
   };
 
-  getStyles(color) {
-    const { greenSelector, redSelector, blueSelector } = this.state;
-    const activeColors = {
-      green: greenSelector,
-      red: redSelector,
-      blue: blueSelector,
-    };
-
-    console.log(activeColors[color]);
-
-    if (activeColors[color]) {
-      return { backgroundColor: color };
-    }
-    return {};
-  }
-
   render() {
-    const { data } = this.props;
-    const { greenIsActive, redIsActive, blueIsActive } = this.state;
-
-    const activeFilters = {
-      green: greenIsActive,
-      red: redIsActive,
-      blue: blueIsActive,
-    };
-
-    const redStyle = this.getStyles('red');
-    const blueStyle = this.getStyles('blue');
-    const greenStyle = this.getStyles('green');
-    // const icon = <SVGIcon use={arrowDropDown.url} />;
+    const { filters, colorOptions } = this.state;
 
     return (
       <div className={`container-flex ${container}`}>
         <div className={`${buttonContainer} ${col50}`}>
-          {data &&
-            data.map((btn, i) => {
+          {filters &&
+            filters.map((btn, i) => {
               const key = `div-${i}`;
-              const btnKey = `button-${i}-${btn.color}`;
-              const selectKey = `select-${i}`;
-              const isActive = activeFilters[btn.color];
-              const btnClassname = classnames(button, { [active]: isActive });
-              const STRING_ITEMS = ['red', 'blue', 'green', 'none'];
+              const btnClassName = classnames(button, { [active]: btn.active });
 
               return (
                 <div key={key} className={selectContainer}>
                   <Button
-                    key={btnKey}
                     floating
-                    className={btnClassname}
+                    className={btnClassName}
                     onClick={() => this.handleImage(btn)}
                   >
                     {btn.label}
                   </Button>
                   <SelectField
-                    key={selectKey}
-                    id="select-field"
+                    dropdownIcon={<ArrowDown />}
+                    id={btn.label}
                     placeholder="None"
-                    menuItems={STRING_ITEMS}
+                    menuItems={colorOptions}
                     onChange={this.handleColorChange}
                   />
                 </div>
               );
             })}
         </div>
-        <div className={`${imagesContainer} ${col50}`}></div>
-        {redIsActive && <div style={redStyle} className={redFilter}></div>}
-        {blueIsActive && <div style={blueStyle} className={blueFilter}></div>}
-        {greenIsActive && (
-          <div style={greenStyle} className={greenFilter}></div>
-        )}
+        <div className={`${imagesContainer} ${col50}`}>
+          {filters &&
+            filters.map(filterImage => {
+              const imageClassName = classnames(filter, {
+                [filterActive]: filterImage.active,
+              });
+              return (
+                <div
+                  key={`filter-${filterImage.label}`}
+                  style={{
+                    backgroundImage: `url(/images/${filterImage.image}`,
+                    backgroundColor: filterImage.color,
+                  }}
+                  className={imageClassName}
+                ></div>
+              );
+            })}
+        </div>
       </div>
     );
   }
 }
 
 ColorTool.propTypes = {
-  data: PropTypes.array,
+  filters: PropTypes.array,
+  colorOptions: PropTypes.array,
 };
 
 export default ColorTool;
