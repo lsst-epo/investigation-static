@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, { useReducer, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useThree, useFrame } from 'react-three-fiber';
 import Orbital from './Orbital.jsx';
@@ -27,15 +27,10 @@ function Orbitals({
   });
 
   const [zoomLevel, setZoomLevel] = useState(1);
-  // const [zoomMod, setZoomMod] = useState(1);
 
   useFrame(() => {
     if (camera.zoom !== zoomLevel) setZoomLevel(camera.zoom);
   });
-
-  // useEffect(() => {
-  //   setZoomMod(zoomLevel > defaultZoom ? 1.0 : zoomLevel / defaultZoom);
-  // }, [zoomLevel]);
 
   function renderRefObjs() {
     return [earth, jupiter, neptune].map(planet => {
