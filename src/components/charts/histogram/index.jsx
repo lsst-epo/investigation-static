@@ -81,7 +81,7 @@ class Histogram extends React.PureComponent {
         valueAccessor,
         domain,
         multiple,
-        bins,
+        bins
       );
       const groupNames =
         multiple && data.map(set => this.objectTypes[set.group.toLowerCase()]);

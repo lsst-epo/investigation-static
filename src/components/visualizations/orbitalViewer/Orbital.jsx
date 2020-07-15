@@ -35,6 +35,9 @@ const Orbital = ({
   initCallback,
   devMode,
   activeVelocityCallback,
+  zoomMod,
+  defaultZoom,
+  type,
 }) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
@@ -143,6 +146,22 @@ const Orbital = ({
     });
   }
 
+  function getRadius() {
+    const minSize = 10;
+    const maxSize = 8 / defaultZoom;
+    const scaledRadius = minSize / zoomMod;
+
+    return scaledRadius <= maxSize ? scaledRadius : maxSize;
+  }
+
+  function getLabelSize() {
+    const minSize = 1;
+    const maxSize = 16;
+    const scaledLabelSize = maxSize * (zoomMod / defaultZoom);
+
+    return scaledLabelSize >= minSize ? scaledLabelSize : minSize;
+  }
+
   // Called once when the component first mounts
   useEffect(() => {
     setPoint(getInitialPoint(M || Math.floor(Math.random() * Math.floor(180))));
@@ -186,11 +205,18 @@ const Orbital = ({
         {/* Orbital Object */}
         <mesh position={point.position} onClick={() => selectionCallback(data)}>
           <HTML>
-            <div className={label}>{name || scientificName}</div>
+            <div
+              className={label}
+              style={{
+                fontSize: type !== 'planet' ? getLabelSize() : 16,
+              }}
+            >
+              {name || scientificName}
+            </div>
           </HTML>
           <sphereBufferGeometry
             attach="geometry"
-            args={[objectRadius || 10, 10, 10]}
+            args={[type !== 'planet' ? getRadius() : objectRadius, 10, 10]}
           />
           <meshBasicMaterial
             attach="material"
@@ -278,6 +304,10 @@ const Orbital = ({
   );
 };
 
+Orbital.defaultProps = {
+  type: 'object',
+};
+
 Orbital.propTypes = {
   data: PropTypes.object,
   selectionCallback: PropTypes.func,
@@ -293,6 +323,9 @@ Orbital.propTypes = {
   initialized: PropTypes.bool,
   devMode: PropTypes.bool,
   activeVelocityCallback: PropTypes.func,
+  zoomMod: PropTypes.number,
+  defaultZoom: PropTypes.number,
+  type: PropTypes.string,
 };
 
 export default Orbital;

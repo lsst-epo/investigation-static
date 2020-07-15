@@ -49,9 +49,10 @@
   @include copySecondary;
   white-space: nowrap;
 }
+
 .small-icon {
-  font-weight: normal;
   font-size: 0.8rem;
+  font-weight: $regular;
 }
 
 .col-50 {

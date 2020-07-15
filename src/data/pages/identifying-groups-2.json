@@ -17,7 +17,10 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/comets_orbit_50sample.json"
+      "source": "/data/neos/comets_orbit_50sample.json",
+      "options": {
+        "defaultZoom": 0.2
+      }
     }
   ],
   "tables": [

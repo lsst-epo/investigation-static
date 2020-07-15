@@ -11,7 +11,14 @@ import OrbitalDetails from './OrbitalDetails.jsx';
 
 import { container, orbitalCanvas } from './orbital-viewer.module.scss';
 
-function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
+function OrbitalViewer({
+  neos,
+  activeNeo,
+  updateActiveNeo,
+  paused,
+  pov,
+  defaultZoom,
+}) {
   const speeds = [0.00001157, 1.1574, 11.574, 30, 365.25]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
 
   const [playing, setPlaying] = useState(!paused);
@@ -52,13 +59,23 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
         <PlaybackSpeed dayPerVizSec={dayPerVizSec} />
         <Canvas invalidateFrameloop className={orbitalCanvas}>
           <CameraController pov={pov} />
-          <Camera far={10000} near={50} fov={100} position={[0, 0, 500]} />
+          <Camera
+            left={-15000}
+            right={15000}
+            top={15000}
+            bottom={-15000}
+            near={0.1}
+            far={30000}
+            position={[0, 0, 8000]}
+            defaultZoom={defaultZoom}
+          />
           <ambientLight intensity={0.9} />
           <Orbitals
             includeRefObjs
             selectionCallback={updateActiveNeo}
             activeVelocityCallback={setActiveVelocity}
             {...{
+              defaultZoom,
               neos,
               activeNeo,
               playing,
@@ -68,7 +85,7 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
             }}
           />
           <mesh position={[0, 0, 0]}>
-            <sphereBufferGeometry attach="geometry" args={[10, 16, 8]} />
+            <sphereBufferGeometry attach="geometry" args={[15, 16, 8]} />
             <meshBasicMaterial attach="material" color="yellow" />
             {/* <axesHelper args={[1000, 1000, 1000]} /> */}
           </mesh>
@@ -90,12 +107,17 @@ function OrbitalViewer({ neos, activeNeo, updateActiveNeo, paused, pov }) {
   );
 }
 
+OrbitalViewer.defaultProps = {
+  defaultZoom: 1,
+};
+
 OrbitalViewer.propTypes = {
   neos: PropTypes.array,
   activeNeo: PropTypes.object,
   updateActiveNeo: PropTypes.func,
   paused: PropTypes.bool,
   pov: PropTypes.string,
+  defaultZoom: PropTypes.number,
 };
 
 export default OrbitalViewer;

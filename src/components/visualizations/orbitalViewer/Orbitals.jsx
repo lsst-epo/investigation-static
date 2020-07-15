@@ -1,5 +1,6 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useThree, useFrame } from 'react-three-fiber';
 import Orbital from './Orbital.jsx';
 import { earth, jupiter, neptune } from './orbitalUtilities.js';
 
@@ -13,15 +14,28 @@ function Orbitals({
   stepDirection,
   frameOverride,
   includeRefObjs,
+  defaultZoom,
 }) {
   function reducer(state) {
     const { remainingInits } = state;
     return { remainingInits: remainingInits - 1 };
   }
 
+  const { camera } = useThree();
   const [state, dispatch] = useReducer(reducer, {
     remainingInits: neos.length,
   });
+
+  const [zoomLevel, setZoomLevel] = useState(1);
+  // const [zoomMod, setZoomMod] = useState(1);
+
+  useFrame(() => {
+    if (camera.zoom !== zoomLevel) setZoomLevel(camera.zoom);
+  });
+
+  // useEffect(() => {
+  //   setZoomMod(zoomLevel > defaultZoom ? 1.0 : zoomLevel / defaultZoom);
+  // }, [zoomLevel]);
 
   function renderRefObjs() {
     return [earth, jupiter, neptune].map(planet => {
@@ -35,10 +49,13 @@ function Orbitals({
 
       return (
         <Orbital
+          type="planet"
           key={ref + pd}
           data={planet}
           position={[0, 0, 0]}
+          zoomMod={zoomLevel}
           {...{
+            defaultZoom,
             playing,
             stepDirection,
             dayPerVizSec,
@@ -58,7 +75,6 @@ function Orbitals({
       {includeRefObjs && renderRefObjs()}
       {neos.map((neo, badId) => {
         const { Ref: ref, Principal_desig: pd } = neo;
-
         return (
           <Orbital
             key={ref && pd ? ref + pd : `orbit-${badId}`}
@@ -66,7 +82,9 @@ function Orbitals({
             position={[0, 0, 0]}
             active={neo === activeNeo}
             initialized={state.remainingInits <= 0}
+            zoomMod={zoomLevel}
             {...{
+              defaultZoom,
               playing,
               stepDirection,
               dayPerVizSec,
@@ -92,6 +110,7 @@ Orbitals.propTypes = {
   frameOverride: PropTypes.number,
   includeRefObjs: PropTypes.bool,
   activeVelocityCallback: PropTypes.func,
+  defaultZoom: PropTypes.number,
 };
 
 export default Orbitals;
