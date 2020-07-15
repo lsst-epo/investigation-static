@@ -17,7 +17,10 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/MBA_orbit_50sample.json"
+      "source": "/data/neos/MBA_orbit_50sample.json",
+      "options": {
+        "defaultZoom": 0.6
+      }
     }
   ],
   "tables": [

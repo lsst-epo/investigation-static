@@ -44,5 +44,6 @@ export const widgetOptionsFragemnt = graphql`
     pov
     bins
     required
+    defaultZoom
   }
 `;

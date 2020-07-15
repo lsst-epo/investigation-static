@@ -17,7 +17,10 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/test-neo.json"
+      "source": "/data/neos/test-tno.json",
+      "options": {
+        "defaultZoom": 0.06
+      }
     }
   ],
   "tables": [

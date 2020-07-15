@@ -16,7 +16,10 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/FINAL_orbit_50sample.json"
+      "source": "/data/neos/FINAL_orbit_50sample.json",
+      "options": {
+        "defaultZoom": 0.05
+      }
     }
   ],
   "tables": [
