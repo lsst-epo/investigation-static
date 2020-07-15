@@ -38,9 +38,7 @@ export default function FindKineticEnergy(props) {
       <span>= </span>
       <span className={color}>
         {kineticEnergy ? `${addTheCommas(formatValue(kineticEnergy, 2))}` : '?'}
-        {kineticEnergy && (
-          <QACalculatorIconUnit className={color} unit="kineticEnergy" />
-        )}
+        <QACalculatorIconUnit className={color} unit="kineticEnergy" />
       </span>
     </p>
   );

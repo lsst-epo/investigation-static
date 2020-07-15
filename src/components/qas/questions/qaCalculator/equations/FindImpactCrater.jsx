@@ -70,9 +70,7 @@ export default function FindKineticEnergy(props) {
         <QACalculatorIcon content="D<sub>tc</sub> = " />
         <span>
           {craterDiameter ? addTheCommas(formatValue(craterDiameter, 3)) : '?'}
-          {craterDiameter && (
-            <QACalculatorIconUnit tiny unit="craterDiameter" />
-          )}
+          <QACalculatorIconUnit tiny unit="craterDiameter" />
         </span>
       </span>
     </p>
