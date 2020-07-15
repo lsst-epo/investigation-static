@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Slider from '../../site/slider/index.js';
 import SelectField from '../../site/selectField/index.js';
 import Button from '../../site/button/index.js';
 import ArrowDown from '../../site/icons/ArrowDown';
@@ -69,6 +70,21 @@ class ColorTool extends React.PureComponent {
     }));
   };
 
+  handleBrightness(value, label) {
+    const { filters } = this.state;
+    const newFilters = filters.map(newFilter => {
+      if (newFilter.label === label) {
+        newFilter.brightness = 0.8 * (value / 100) + 0.7;
+      }
+      return newFilter;
+    });
+
+    this.setState(prevState => ({
+      ...prevState,
+      filters: newFilters,
+    }));
+  }
+
   render() {
     const { filters, colorOptions } = this.state;
     return (
@@ -94,6 +110,10 @@ class ColorTool extends React.PureComponent {
                     menuItems={colorOptions}
                     onChange={this.handleColorChange}
                   />
+                  <Slider
+                    id={btn.label}
+                    onChange={value => this.handleBrightness(value, btn.label)}
+                  />
                 </div>
               );
             })}
@@ -111,6 +131,7 @@ class ColorTool extends React.PureComponent {
                   style={{
                     backgroundImage: `url(/images/${filterImage.image}`,
                     backgroundColor: filterImage.color,
+                    filter: `brightness(${filterImage.brightness})`,
                   }}
                   className={imageClassName}
                 ></div>
