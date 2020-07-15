@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Unit from '../../charts/shared/unit/index.jsx';
@@ -25,6 +25,10 @@ function OrbitalDetails({ data, velocity }) {
       </>
     );
   }
+
+  useEffect(() => {
+    if (data) setActive(true);
+  }, [data]);
 
   return (
     <>
