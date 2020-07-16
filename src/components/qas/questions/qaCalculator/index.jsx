@@ -112,8 +112,6 @@ class QACalculator extends React.PureComponent {
     const { value: oldValue } = this.state;
     const { solutionVariable, formula } = this.calculator[questionType];
 
-    if (!value || !valType) return oldValue;
-
     if (!solutionVariable) return formula(value);
 
     const newVal = {
@@ -130,13 +128,14 @@ class QACalculator extends React.PureComponent {
   handleChange = (value, valType) => {
     const { question, answerHandler } = this.props;
     const { id } = question;
+    const preppedValue = value !== '' ? +value : null;
 
     this.setState(
       prevState => ({
         ...prevState,
         hasFocus: true,
         value: {
-          ...this.getNewVal(+value, valType),
+          ...this.getNewVal(preppedValue, valType),
         },
       }),
       () => {
@@ -205,7 +204,7 @@ class QACalculator extends React.PureComponent {
                       lineDirection="center"
                       type="number"
                       min="0"
-                      defaultValue={answered ? value[defaultValue] : null}
+                      defaultValue={value[defaultValue] || null}
                       onBlur={this.handleBlur}
                       onFocus={this.handleFocus}
                       onChange={debounce(

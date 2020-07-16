@@ -39,36 +39,23 @@ export const getCalculatedMeasurementsForDistance = value => {
 };
 
 export const calculateDiameter = ({ magnitude, albedo }) => {
-  if (!magnitude || !albedo) return null;
-
-  return formatValue((1329 / Math.sqrt(albedo)) * 10 ** (-0.2 * magnitude), 3);
+  if (albedo === null || magnitude === null) return null;
+  const answer = (1329 / Math.sqrt(albedo)) * 10 ** (-0.2 * magnitude);
+  return formatValue(answer, 3);
 };
 
-export const calculateVolume = ({ radius }) => {
-  if (!radius) return null;
+export const calculateVolume = ({ radius }) => (4 / 3) * Math.PI * radius ** 3;
 
-  return (4 / 3) * Math.PI * radius ** 3;
-};
+export const calculateKineticEnergy = ({ mass, velocity }) =>
+  0.5 * mass * velocity ** 2;
 
-export const calculateKineticEnergy = ({ mass, velocity }) => {
-  if (!mass || !velocity) return null;
-
-  return 0.5 * mass * velocity ** 2;
-};
-
-export const calculateMass = ({ density, volume }) => {
-  if (!density || !volume) return null;
-
-  return density * volume;
-};
+export const calculateMass = ({ density, volume }) => density * volume;
 
 export const calculateCraterDiameter = ({
   asteroidDiameter,
   density,
   velocity,
 }) => {
-  if (!asteroidDiameter || !density || !velocity) return null;
-
   const Dtc =
     1.161 *
     (density / 2500) ** (1 / 3) *
@@ -77,5 +64,5 @@ export const calculateCraterDiameter = ({
     9.8 ** -0.22 *
     Math.sin(Math.PI / 4) ** (1 / 3);
 
-  return Dtc * 0.001;
+  return Dtc ? Dtc * 0.001 : null;
 };
