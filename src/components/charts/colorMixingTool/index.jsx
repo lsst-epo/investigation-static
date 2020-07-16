@@ -15,6 +15,7 @@ import {
   col50,
   imagesContainer,
   buttonContainer,
+  sliderContainer,
   container,
 } from './color-tool.module.scss';
 
@@ -110,10 +111,15 @@ class ColorTool extends React.PureComponent {
                     menuItems={colorOptions}
                     onChange={this.handleColorChange}
                   />
-                  <Slider
-                    id={btn.label}
-                    onChange={value => this.handleBrightness(value, btn.label)}
-                  />
+                  <div className={sliderContainer}>
+                    <Slider
+                      id={btn.label}
+                      disabled={!btn.active}
+                      onChange={value =>
+                        this.handleBrightness(value, btn.label)
+                      }
+                    />
+                  </div>
                 </div>
               );
             })}

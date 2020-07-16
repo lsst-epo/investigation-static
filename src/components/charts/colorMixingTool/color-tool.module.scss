@@ -10,7 +10,7 @@
 
 .select-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   padding-right: $minPadding;
 }
@@ -30,6 +30,11 @@
     color: $white;
     background: $md-primary-color;
   }
+}
+
+.slider-container {
+  flex: 1;
+  padding: 0 ($minPadding / 2);
 }
 
 .active {
