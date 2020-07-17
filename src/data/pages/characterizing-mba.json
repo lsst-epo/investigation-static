@@ -64,7 +64,7 @@
       "widgets": [
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/MBA_semimajor_axis.json",
+          "source": "/data/neos/MBA_ALL_semimajor_axis.json",
           "options": {
             "title": "MBA Orbit Sizes",
             "xAxisLabel": "Orbit Sizes (au)",
@@ -78,7 +78,7 @@
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/MBA_eccentricity.json",
+          "source": "/data/neos/MBA_ALL_eccentricity.json",
           "options": {
             "title": "MBA Eccentricities",
             "xAxisLabel": "Eccentricities",
@@ -92,7 +92,7 @@
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/MBA_inclination.json",
+          "source": "/data/neos/MBA_ALL_inclination.json",
           "options": {
             "title": "MBA Inclinations",
             "xAxisLabel": "Inclinations (degrees)",
@@ -118,11 +118,11 @@
           "label": "Size of the orbit: ",
           "options": [
             {
-              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 AU",
+              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 au",
               "value": "Within inner Solar System"
             },
             {
-              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 AU",
+              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 au",
               "value": "In the outer Solar System"
             },
             {
@@ -177,7 +177,7 @@
             },
             {
               "label": "Most orbits are considerably tilted compared to Earth’s orbital plane (more than 20 degrees)",
-              "value": "Most tilted than Earth’s"
+              "value": "More tilted than Earth's"
             },
             {
               "label": "There is a wide range in the tilt of the orbits",
