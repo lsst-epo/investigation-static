@@ -19,7 +19,7 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/test-distant.json",
       "options": {
-        "defaultZoom": 0.15
+        "defaultZoom": 0.25
       }
     }
   ],

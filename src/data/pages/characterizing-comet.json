@@ -118,11 +118,11 @@
           "label": "Size of the orbit: ",
           "options": [
             {
-              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 AU",
+              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 au",
               "value": "Within inner Solar System"
             },
             {
-              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 AU",
+              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 au",
               "value": "In the outer Solar System"
             },
             {
@@ -177,7 +177,7 @@
             },
             {
               "label": "Most orbits are considerably tilted compared to Earth’s orbital plane (more than 20 degrees)",
-              "value": "Most tilted than Earth’s"
+              "value": "More tilted than Earth's"
             },
             {
               "label": "There is a wide range in the tilt of the orbits",
@@ -204,7 +204,7 @@
             },
             {
               "label": "A significant number of objects (more than 10%) orbit the Sun in the opposite direction of Earth’s orbit, i >90 ",
-              "value": "Opposite direction as Earth’s"
+              "value": "More than 10% are opposite direction as Earth’s"
             }
           ],
           "placeholder": "Select best description of comets",

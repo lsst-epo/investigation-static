@@ -204,21 +204,19 @@ class Histogram extends React.PureComponent {
   }
 
   getXScale(data, valueAccessor, width, padding, offsetRight, multiple) {
-    if (!multiple) {
+    if (multiple) {
       if (valueAccessor === 'luminosity') {
-        return this.getLuminosityXScale(data, width, padding, offsetRight);
+        return this.getLuminosityXScale(data[0], width, padding, offsetRight);
       }
 
-      return this.getPointXScale(data, width, padding, offsetRight);
+      return this.getPointXScale(data[0], width, padding, offsetRight);
     }
 
-    return data.map(set => {
-      if (valueAccessor === 'luminosity') {
-        return this.getLuminosityXScale(set, width, padding, offsetRight);
-      }
+    if (valueAccessor === 'luminosity') {
+      return this.getLuminosityXScale(data, width, padding, offsetRight);
+    }
 
-      return this.getPointXScale(set, width, padding, offsetRight);
-    });
+    return this.getPointXScale(data, width, padding, offsetRight);
   }
 
   getLinearYScale(data, height, padding, offsetTop) {
@@ -233,13 +231,11 @@ class Histogram extends React.PureComponent {
   }
 
   getYScale(data, height, padding, offsetTop, multiple) {
-    if (!multiple) {
-      return this.getLinearYScale(data, height, padding, offsetTop);
+    if (multiple) {
+      return this.getLinearYScale(data.flat(), height, padding, offsetTop);
     }
 
-    return data.map(set => {
-      return this.getLinearYScale(set, height, padding, offsetTop);
-    });
+    return this.getLinearYScale(data, height, padding, offsetTop);
   }
 
   getLabel(type) {
@@ -518,8 +514,8 @@ class Histogram extends React.PureComponent {
                           selectedData={selectedData}
                           hoveredData={hoveredData}
                           offsetTop={offsetTop}
-                          xScale={xScale[i]}
-                          yScale={yScale[i]}
+                          xScale={xScale}
+                          yScale={yScale}
                           graphHeight={height}
                           padding={padding}
                         />
@@ -563,7 +559,7 @@ class Histogram extends React.PureComponent {
                 padding={padding}
                 offsetTop={offsetTop}
                 offsetRight={offsetRight}
-                scale={xScale[0]}
+                scale={xScale}
                 valueAccessor={valueAccessor}
               />
             )}
@@ -585,7 +581,7 @@ class Histogram extends React.PureComponent {
                 height={height}
                 padding={padding}
                 offsetTop={offsetTop}
-                scale={yScale[0]}
+                scale={yScale}
               />
             )}
             {yScale && !multiple && (
