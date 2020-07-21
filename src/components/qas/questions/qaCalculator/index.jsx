@@ -173,6 +173,7 @@ class QACalculator extends React.PureComponent {
     return (
       <Card
         className={cardClasses}
+        data-testid="qa-calc-card"
         expanded={hasFocus}
         onExpanderClick={() => {}}
       >
@@ -180,7 +181,7 @@ class QACalculator extends React.PureComponent {
           <div className={labelClasses}>{label}</div>
           <div className="container">
             {inputs &&
-              inputs.map(input => {
+              inputs.map((input, i) => {
                 const {
                   containerWidth,
                   leftIcon,
@@ -196,6 +197,7 @@ class QACalculator extends React.PureComponent {
                   >
                     <TextField
                       id={`text-input-${id}-${defaultValue}`}
+                      data-testid={`qa-calc-input-${i}`}
                       className={fieldClasses}
                       leftIcon={leftIcon}
                       rightIcon={rightIcon}
@@ -248,7 +250,7 @@ class QACalculator extends React.PureComponent {
 
 QACalculator.propTypes = {
   activeId: PropTypes.string,
-  question: PropTypes.object,
+  question: PropTypes.object.isRequired,
   answerHandler: PropTypes.func,
   answer: PropTypes.object,
 };

@@ -16,7 +16,7 @@ export default function FindDiameter(props) {
   const { diameter, magnitude, albedo } = props;
 
   return (
-    <p className={equation}>
+    <p className={equation} data-testid="qa-calc-size">
       <span>D = </span>
       <span className={fraction}>
         <span className={numerator}>1329</span>

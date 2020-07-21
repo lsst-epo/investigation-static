@@ -7,7 +7,7 @@ export default function FindDistanceModulus(props) {
   const { variable } = props;
 
   return (
-    <p className={equationStyle}>
+    <p className={equationStyle} data-testid="qa-calc-distance-modulus">
       <span>DM = </span>
       <span className={color}>{variable ? addTheCommas(variable) : 'm'}</span>
       <span> + 19.4</span>
