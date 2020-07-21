@@ -8,7 +8,7 @@ export default function FindParsecs(props) {
   const { variable } = props;
 
   return (
-    <p className={styles.equation}>
+    <p className={styles.equation} data-testid="qa-calc-parsecs">
       <span>d = 10 </span>
       <sup className={fraction}>
         <span>

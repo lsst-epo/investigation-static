@@ -14,7 +14,7 @@ export default function FindKineticEnergy(props) {
   const { kineticEnergy, mass, velocity } = props;
 
   return (
-    <p className={equation}>
+    <p className={equation} data-testid="qa-calc-kinetic-energy">
       <span>KE = </span>
       <span>(</span>
       <span className={fraction}>

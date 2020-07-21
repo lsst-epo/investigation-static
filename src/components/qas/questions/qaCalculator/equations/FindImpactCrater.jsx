@@ -13,7 +13,7 @@ export default function FindKineticEnergy(props) {
   const { asteroidDiameter, density, velocity, craterDiameter } = props;
 
   return (
-    <p className={equation}>
+    <p className={equation} data-testid="qa-calc-impact">
       <span>
         <QACalculatorIcon content="D<sub>tc</sub> = " />
       </span>
