@@ -21,7 +21,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Evaluate your NEO’s economic potential for mining metals. First, consider what class of asteroid you have. Next, think about how hard it would be to travel to this asteroid from Earth. Traveling to an asteroid that is moving at a velocity similar to Earth’s would require less rocket fuel, so an NEO with an orbit most similar to Earth is optimal. Consider an asteroid’s orbital characteristics such as semi-major axis and eccentricity. Explain how you arrived at your answers."
+          "label": "Evaluate your NEO’s economic potential for mining metals. First, consider what class of asteroid you have. Next, think about how hard it would be to travel to this asteroid from Earth. Traveling to an asteroid that is moving at a velocity similar to Earth’s would require less rocket fuel, so an NEO with an orbit similar to Earth's is optimal. Consider an asteroid’s orbital characteristics such as semi-major axis and eccentricity. Explain how you arrived at your answers."
         }
       ]
     },

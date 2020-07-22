@@ -195,7 +195,7 @@
           "id": "15",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Direction of the orbit (remember, inclinations greater than 90° indicate that the object orbits the Sun opposite the direction of Earth’s orbit): ",
+          "label": "Direction of the orbit (remember, an inclination greater than 90° indicates that the object orbits the Sun opposite the direction of Earth’s orbit): ",
           "options": [
             {
               "label": "Most objects orbit the Sun in the same direction of Earth’s orbit.",

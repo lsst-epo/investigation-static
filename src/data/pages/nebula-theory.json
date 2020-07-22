@@ -13,7 +13,7 @@
     "link": "/object-size-solar-system/"
   },
   "layout": "TwoCol",
-  "content":"<p>Although the majority of small Solar System objects have orbital characteristics that support the solar Nebula Theory, a small fraction of them have very eccentric or highly inclined orbits, and some even orbit the Sun in the opposite direction as the planets.</p><p>From the early days of the Solar System to the present time, there have been many such interactions between objects and as a result, the orbits of some small objects in the Solar System are still changing.</p><p>We can apply Newton’s Laws and gravity to help explain these observations: </p>",
+  "content":"<p>Although the majority of small Solar System objects have orbital characteristics that support the solar nebula theory, a small fraction of them have very eccentric or highly inclined orbits, and some even orbit the Sun in the opposite direction as the planets.</p><p>From the early days of the Solar System to the present time, there have been many such interactions between objects and as a result, the orbits of some small objects in the Solar System are still changing.</p><p>We can apply Newton’s laws and gravity to help explain these observations: </p>",
   "questionsByPage": [
     {
       "question": [
@@ -21,7 +21,7 @@
           "id": "34",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Imagine a close encounter in space between two objects, one with a large mass, and one with a small mass. As the objects approach each other, the gravitational forces they exert on each other must be equal according to Newton’s Third Law. Which object would experience a greater acceleration (change in its direction and speed)? Hint: think about Newton’s Second Law (Force = mass X acceleration).",
+          "label": "Imagine a close encounter in space between two objects, one with a large mass, and one with a small mass. As the objects approach each other, the gravitational forces they exert on each other must be equal according to Newton’s Third Law. Which object would experience a greater acceleration (change in its direction and speed)? Hint: think about Newton’s Second Law (force = mass X acceleration).",
           "options": [
             { "label": "The more massive object would have its direction and speed affected more", "value": "The more massive object would have its direction and speed affected more" },
             { "label": "The less massive object would have its direction and speed affected more", "value": "The less massive object would have its direction and speed affected more" },
@@ -68,7 +68,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "If an object’s inclination, eccentricity and direction of motion were to change substantially due to the gravitational interaction during a close encounter, would it be the more massive or less massive of the two objects that changed?"
+          "label": "If an object’s inclination, eccentricity, and direction of motion were to change substantially due to the gravitational interaction during a close encounter, would it be the more massive or less massive of the two objects that changed?"
         }
       ]
     }

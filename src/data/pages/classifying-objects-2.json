@@ -150,8 +150,8 @@
               "value": "Comet"
             },
             {
-              "label": "None of the Above",
-              "value": "None of the Above"
+              "label": "None of the above",
+              "value": "None of the above"
             }
           ],
           "placeholder": "Select",

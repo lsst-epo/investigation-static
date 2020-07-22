@@ -13,7 +13,7 @@
     "link": "/classifying-objects-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Many small Solar System objects have been recently discovered by Rubin Observatory. You now have the chance to apply what you have learned to classify three such objects. Your choices for classifying each object are:<ul><li>MBA</li><li>TNO</li><li>NEO</li><li>Comet</li><li>None of the Above</li></ul></p><p>Consider factors such as the object’s absolute magnitude, and the size, shape, and tilt of its orbit. Use the table of group properties that you constructed earlier as a reference. Then, give an explanation and evidence for your classification.</p>",
+  "content": "<p>Many small Solar System objects have been recently discovered by Rubin Observatory. You now have the chance to apply what you have learned to classify three such objects. Your choices for classifying each object are:<ul><li>MBA</li><li>TNO</li><li>NEO</li><li>Comet</li><li>None of the above</li></ul></p><p>Consider factors such as the object’s absolute magnitude, and the size, shape, and tilt of its orbit. Use the table of group properties that you constructed earlier as a reference. Then, give an explanation and evidence for your classification.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -150,8 +150,8 @@
               "value": "Comet"
             },
             {
-              "label": "None of the Above",
-              "value": "None of the Above"
+              "label": "None of the above",
+              "value": "None of the above"
             }
           ],
           "placeholder": "Select",
