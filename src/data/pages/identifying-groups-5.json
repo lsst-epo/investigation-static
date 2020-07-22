@@ -13,7 +13,7 @@
     "link": "/history-solar-system/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let’s look at a histogram of the number of all small Solar System objects on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p><p>Note: the scale of the y axis changes for each of the histograms.</p>",
+  "content": "<p>Now let’s look at a histogram of the number of all small Solar System objects on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p><p>Note: the scale of the y-axis changes for each of the histograms.</p>",
   "widgets": [
     {
       "type": "ChartSwitcher",

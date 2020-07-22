@@ -76,7 +76,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "According to Kepler's Third Law and the information you recorded in your table, which of the four types of objects have orbital periods <i>shorter</i> than Jupiter?"
+          "label": "According to Kepler's Third Law and the information you recorded in your table, which of the four types of objects have orbital periods <i>shorter</i> than Jupiter's?"
         }
       ]
     },
@@ -87,7 +87,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "According to Kepler's Third Law and the information you recorded in your table, which of the four types of objects have orbital periods <i>longer</i> than Jupiter?"
+          "label": "According to Kepler's Third Law and the information you recorded in your table, which of the four types of objects have orbital periods <i>longer</i> than Jupiter's?"
         }
       ]
     },
