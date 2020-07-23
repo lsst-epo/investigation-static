@@ -1,0 +1,51 @@
+{
+    "colorOptions": ["Violet", "Blue", "Green", "Yellow", "Red", "Cyan", "None"],
+    "hexColors":["#EC1C24", "#F18922", "#FFDD15", "#6BD853", "#0019FF", "#861CFF"],
+    "galaxies":["M33", "M51", "M63", "M101", "NGC6946", "NGC3718", "B163", "CG4"],
+    "filters": [
+      {
+        "label": "U",
+        "color": "",
+        "active": false,
+        "selectedGalaxy": "",
+        "image":""
+
+      },
+      {
+        "label": "G",
+        "color": "",
+        "active": false,
+        "selectedGalaxy": "",
+        "image":""
+      },
+      {
+        "label": "R",
+        "color": "",
+        "active": false,
+        "selectedGalaxy": "",
+        "image":""
+      },
+      {
+        "label": "I",
+        "color": "",
+        "active": false,
+        "selectedGalaxy": "",
+        "image":""
+      },
+      {
+        "label": "Z",
+        "color": "",
+        "active": false,
+        "selectedGalaxy": "",
+        "image":""
+      },
+      {
+        "label": "Y",
+        "color": "",
+        "active": false,
+        "selectedGalaxy": "",
+        "image":""
+      }
+    ]
+  }
+  
