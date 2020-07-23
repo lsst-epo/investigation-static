@@ -38,5 +38,17 @@
     .md-icon-separator {
       align-items: flex-start;
     }
-  };
+  }
+}
+
+.investigation-title {
+  @include headingPrimary;
+  margin: 0 $minPadding;
+  color: $white;
+}
+
+.page-title {
+  @include headingSecondary;
+  margin-left: $minPadding / 2;
+  color: $white;
 }

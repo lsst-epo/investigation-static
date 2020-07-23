@@ -11,7 +11,7 @@ import styles from './header.module.scss';
 
 class Header extends React.PureComponent {
   render() {
-    const { siteTitle, toggleToc, tocVisability, logo } = this.props;
+    const { investigationTitle, toggleToc, tocVisability, logo } = this.props;
 
     return (
       <Toolbar
@@ -19,7 +19,6 @@ class Header extends React.PureComponent {
         data-testid="site-header"
         colored
         fixed
-        title={siteTitle}
         titleClassName="screen-reader-only"
         className="header-primary"
       >
@@ -44,6 +43,9 @@ class Header extends React.PureComponent {
               } Table of Contents`}</span>
             </Button>
           )}
+          <span className={styles.investigationTitle}>
+            {investigationTitle}
+          </span>
           <div className={styles.headerInner}>
             <Link to="/" className={logo && styles.logoWrapper}>
               <span className={`${logo && 'screen-reader-only'}`}>Home</span>
@@ -51,33 +53,23 @@ class Header extends React.PureComponent {
                 <img
                   aria-hidden
                   src={logo}
-                  alt={siteTitle}
+                  alt={investigationTitle}
                   className={styles.siteLogo}
                 />
               )}
             </Link>
           </div>
         </div>
-        {/* <LinearProgress className="{styles.pageProgress} value={pageProgress} /> */}
-        {/*        <SiteNav
-            menuOpen={menuOpen}
-            handleClose={this.closeMenu}
-            handleClick={this.clickHandler}
-          /> */}
       </Toolbar>
     );
   }
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  investigationTitle: PropTypes.string,
   tocVisability: PropTypes.bool,
   toggleToc: PropTypes.func,
   logo: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
 };
 
 export default Header;

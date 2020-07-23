@@ -3,12 +3,12 @@ import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
 import flattenDeep from 'lodash/flattenDeep';
+import find from 'lodash/find';
 import filter from 'lodash/filter';
 import GlobalStore from '../state/GlobalStore';
 import SEO from '../components/seo';
 import Header from '../components/site/header';
 import TableOfContents from '../components/site/tableOfContents';
-// import LandingPage from '../components/site/LandingPage.jsx';
 import logo from '../images/lsst-logo.svg';
 
 import styles from './layout.module.scss';
@@ -17,15 +17,18 @@ import styles from './layout.module.scss';
 class Layout extends React.Component {
   constructor(props) {
     super(props);
-    const { data: allInvestigationsPages, pageContext } = props;
-    const { investigation, env: envInvestigation } = pageContext;
+    const { data: allInvestigationsPages, investigations, pageContext } = props;
+    const {
+      investigation: investigationId,
+      env: envInvestigationId,
+    } = pageContext;
+    const id = investigationId || envInvestigationId;
+    const investigation = find(investigations, { id });
 
     this.state = {
       tocIsOpen: false,
-      pages: filter(allInvestigationsPages, [
-        'investigation',
-        investigation || envInvestigation,
-      ]),
+      investigationTitle: investigation ? investigation.title : '',
+      pages: filter(allInvestigationsPages, ['investigation', id]),
     };
 
     this.store = new GlobalStore(this.getInitialGlobals());
@@ -99,7 +102,7 @@ class Layout extends React.Component {
   };
 
   render() {
-    const { tocIsOpen, pages } = this.state;
+    const { tocIsOpen, pages, investigationTitle } = this.state;
     const { children, pageContext } = this.props;
     const { investigation: contextInvestigation, env: envInvestigation } =
       pageContext || {};
@@ -109,7 +112,7 @@ class Layout extends React.Component {
       <>
         <SEO title={investigation || 'Investigation'} />
         <Header
-          siteTitle="Investigation"
+          investigationTitle={investigationTitle}
           tocVisability={tocIsOpen}
           toggleToc={investigation && this.toggleToc}
           logo={logo}
@@ -149,9 +152,21 @@ export default props => (
             }
           }
         }
+        allInvestigationsJson {
+          nodes {
+            id
+            title
+          }
+        }
       }
     `}
-    render={data => <Layout {...props} data={data.allPagesJson.nodes} />}
+    render={data => (
+      <Layout
+        {...props}
+        data={data.allPagesJson.nodes}
+        investigations={data.allInvestigationsJson.nodes}
+      />
+    )}
   />
 );
 
@@ -159,4 +174,5 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   pageContext: PropTypes.object,
   data: PropTypes.array,
+  investigations: PropTypes.array,
 };
