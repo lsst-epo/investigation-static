@@ -1,6 +1,7 @@
 .md-select-container {
   :global {
     @include react-md-select-fields;
+
     .md-menu--select-field {
       position: relative;
     }

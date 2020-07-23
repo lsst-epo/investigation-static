@@ -10,6 +10,7 @@
       border-radius: 50%;
 
       &.md-slider-thumb--continuous-off {
+        /* stylelint-disable-next-line declaration-no-important */
         top: -9px !important;
       }
 

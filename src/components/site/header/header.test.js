@@ -12,9 +12,9 @@ test('Header renders without props', () => {
   expect(getByTestId('site-header')).toBeInTheDocument();
 });
 
-test('Header Logo alt text is Site Title', () => {
+test('Header Logo alt text is Investigation Title', () => {
   // Arrange
-  const { getByAltText, getByText } = render(<Header logo="fake/image/path" siteTitle={testTitle} />);
+  const { getByAltText, getByText } = render(<Header logo="fake/image/path" investigationTitle={testTitle} />);
   const logoLink = getByAltText(testTitle);
   // Assert
   expect(getByText(testTitle)).toBeInTheDocument();
