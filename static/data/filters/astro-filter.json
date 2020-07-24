@@ -1,6 +1,6 @@
 {
-    "colorOptions": ["Violet", "Blue", "Green", "Yellow", "Red", "Cyan", "None"],
-    "hexColors":["#EC1C24", "#F18922", "#FFDD15", "#6BD853", "#0019FF", "#861CFF"],
+    "colorOptions": ["Violet", "Blue", "Green", "Yellow", "Orange", "Red", "Cyan", "None"],
+    "hexColors":["#861CFF","#0019FF", "#6BD853","#FFDD15", "#F18922", "#EC1C24"],
     "galaxies":["M33", "M51", "M63", "M101", "NGC6946", "NGC3718", "B163", "CG4"],
     "filters": [
       {
