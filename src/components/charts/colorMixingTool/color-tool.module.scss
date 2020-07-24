@@ -64,6 +64,7 @@
   background-blend-mode: multiply;
   mix-blend-mode: screen;
   opacity: 0;
+  z-index: -1;
 }
 
 .filter-active {

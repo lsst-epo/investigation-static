@@ -7,7 +7,6 @@
         "label": "U",
         "color": "",
         "active": false,
-        "selectedGalaxy": "",
         "image":""
 
       },
@@ -15,35 +14,30 @@
         "label": "G",
         "color": "",
         "active": false,
-        "selectedGalaxy": "",
         "image":""
       },
       {
         "label": "R",
         "color": "",
         "active": false,
-        "selectedGalaxy": "",
         "image":""
       },
       {
         "label": "I",
         "color": "",
         "active": false,
-        "selectedGalaxy": "",
         "image":""
       },
       {
         "label": "Z",
         "color": "",
         "active": false,
-        "selectedGalaxy": "",
         "image":""
       },
       {
         "label": "Y",
         "color": "",
         "active": false,
-        "selectedGalaxy": "",
         "image":""
       }
     ]

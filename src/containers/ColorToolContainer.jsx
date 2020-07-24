@@ -29,14 +29,7 @@ class ColorToolContainer extends React.PureComponent {
     const { data } = this.state;
     const { filters, colorOptions, hexColors } = data || {};
 
-    return (
-      data && (
-        <ColorTool
-          useOverlay={false}
-          {...{ filters, colorOptions, hexColors }}
-        />
-      )
-    );
+    return data && <ColorTool {...{ filters, colorOptions, hexColors }} />;
   }
 }
 
