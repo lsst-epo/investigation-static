@@ -63,9 +63,13 @@ $chartColors: $chart0 $chart1 $chart2 $chart3 $chart4 $chart5 $chart6;
 $sliderTrackFillRed: red;
 $sliderTrackFillBlue: blue;
 $sliderTrackFillGreen: green;
+$sliderTrackFillPurple: violet;
+$sliderTrackFillCyan: cyan;
+$sliderTrackFillYellow: yellow;
+$sliderTrackFillOrange: orange;
 
 $sliderTrackFillColors: $sliderTrackFillRed $sliderTrackFillBlue
-  $sliderTrackFillGreen;
+  $sliderTrackFillGreen $sliderTrackFillPurple $sliderTrackFillCyan $sliderTrackFillYellow $sliderTrackFillOrange;
 
 :export {
   @each $color in $sliderTrackFillColors {

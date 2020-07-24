@@ -13,11 +13,11 @@ import {
   button,
   active,
   col50,
-  imagesContainer,
   buttonContainer,
   sliderContainer,
   container,
   resetBtn,
+  imagesContainer,
 } from './color-tool.module.scss';
 
 class ColorTool extends React.PureComponent {
@@ -30,7 +30,7 @@ class ColorTool extends React.PureComponent {
       hexColors: [],
       galaxies: null,
       resetBtnActive: false,
-      panelIsActive: true,
+      panelIsActive: false,
     };
   }
 
@@ -165,7 +165,7 @@ class ColorTool extends React.PureComponent {
     const panelClassName = classnames(button, {
       [active]: panelIsActive,
     });
-    console.log(panelIsActive);
+    const visibilityVal = panelIsActive ? 'visible' : 'hidden';
 
     return (
       <div className={`container-flex ${container}`}>
@@ -181,15 +181,7 @@ class ColorTool extends React.PureComponent {
               />
             </div>
           )}
-          <Button
-            floating
-            className={panelClassName}
-            onClick={this.handleControlPanel}
-          >
-            {panelIsActive ? 'Off' : 'On'}
-          </Button>
           {filters &&
-            panelIsActive &&
             filters.map((btn, i) => {
               const key = `div-${i}`;
               const btnClassName = classnames(button, {
@@ -199,6 +191,7 @@ class ColorTool extends React.PureComponent {
                 <div key={key} className={selectContainer}>
                   <Button
                     floating
+                    style={{ visibility: `${visibilityVal}` }}
                     className={btnClassName}
                     onClick={() => this.handleImage(btn)}
                   >
@@ -208,6 +201,7 @@ class ColorTool extends React.PureComponent {
                     dropdownIcon={<ArrowDown />}
                     id={btn.label}
                     placeholder="None"
+                    style={{ visibility: `${visibilityVal}` }}
                     value={btn.color}
                     menuItems={this.getColorBlocks()}
                     onChange={this.handleColorChange}
@@ -215,6 +209,7 @@ class ColorTool extends React.PureComponent {
                   <div className={sliderContainer}>
                     <SliderCustom
                       id={btn.label}
+                      style={{ visibility: `${visibilityVal}` }}
                       className={
                         btn.color !== ''
                           ? `fill-color-${btn.color.toLowerCase()}`
@@ -232,24 +227,35 @@ class ColorTool extends React.PureComponent {
                 </div>
               );
             })}
-          {panelIsActive && (
-            <Button
-              raised
-              primary
-              disabled={!resetBtnActive}
-              className={resetBtn}
-              onClick={this.handleReset}
-            >
-              Reset
-            </Button>
-          )}
+          <Button
+            raised
+            primary
+            style={{ visibility: `${visibilityVal}` }}
+            disabled={!resetBtnActive}
+            className={resetBtn}
+            onClick={this.handleReset}
+          >
+            Reset
+          </Button>
         </div>
+        <Button
+          floating
+          className={panelClassName}
+          onClick={this.handleControlPanel}
+        >
+          {panelIsActive ? 'Off' : 'On'}
+        </Button>
         {filters &&
           filters.map(filterImage => {
             const imageClassName = classnames(filter, {
               [filterActive]: filterImage.active,
             });
-            const opacityVal = panelIsActive ? 0.3 : 1;
+            let opacityVal = 0;
+            if (filterImage.active && !panelIsActive) {
+              opacityVal = 1;
+            } else if (filterImage.active && panelIsActive) {
+              opacityVal = 0.3;
+            }
 
             return (
               <div
