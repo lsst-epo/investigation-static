@@ -116,11 +116,7 @@
           "labelPre": "and the second group is centered at a distance of ",
           "labelPost": " au from the Sun.",
           "srLabel": "...",
-          "answerAccessor": "compound-text",
-          "options": [
-            { "label": "the same place", "value": "the same place" },
-            { "label": "different places", "value": "different places" }
-          ],
+          "answerAccessor": "text",
           "answerPre": "...",
           "answerPost": "..."
         }

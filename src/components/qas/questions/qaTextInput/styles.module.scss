@@ -30,6 +30,10 @@
     .md-divider--text-field {
       margin-top: 0;
     }
+
+    .md-floating-label {
+      @include screenReaderText;
+    }
   }
 }
 
@@ -37,6 +41,7 @@
   color: $neutral20;
 
   &.answerable {
+    font-weight: $medium;
     color: $basePrimary;
   }
 }

@@ -13,7 +13,6 @@ import { tableOfContents, heading } from './table-of-contents.module.scss';
 class TableOfContents extends React.PureComponent {
   getNavLinks(navLinks, investigation, useBaseUrl) {
     return [
-      ...[{ divider: true }],
       ...filter(navLinks, link => link.investigation === investigation).map(
         link => {
           if (link.divider || link.subheader) return link;
@@ -67,6 +66,7 @@ class TableOfContents extends React.PureComponent {
             <h4 className={heading}>Table of Contents</h4>
           </>
         }
+        aria-label="Table of Contents"
         type={TEMPORARY}
         className={tableOfContents}
         visible={visible}

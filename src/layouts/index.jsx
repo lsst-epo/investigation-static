@@ -126,9 +126,9 @@ class Layout extends React.Component {
             navLinks={pages}
           />
         )}
-        <div>
-          <div className={styles.container}>{children}</div>
-        </div>
+        <main title="Main Content" className={styles.container}>
+          {children}
+        </main>
       </>
     );
   }

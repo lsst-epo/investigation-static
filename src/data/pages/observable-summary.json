@@ -24,7 +24,7 @@
           "labelPre": "The color of a galaxy can be used to infer its distance, where ",
           "labelPost": " galaxies ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "redder", "value": "redder"},
@@ -40,7 +40,7 @@
           "labelPre": "tend to be ",
           "labelPost": " us. ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "farther away from", "value": "farther away from"},
@@ -56,7 +56,7 @@
           "labelPre": "Our observable Universe, based on the light we can detect, is limited by the ",
           "labelPost": " of the Universe. ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "age", "value": "age"},
@@ -72,7 +72,7 @@
           "labelPre": "Because the Universe is expanding, the distance to the farthest galaxies we can see is ",
           "labelPost": " the distance light could travel over the age of the Universe (13.8 billion light years). ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "more than", "value": "more than"},
@@ -88,7 +88,7 @@
           "labelPre": "When observing distant galaxies in the Universe we see them as they ",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "are now", "value": "are now"},
@@ -109,7 +109,7 @@
           "labelPre": "By studying the Universe at different times in its history, we see that the large-scale structure of the Universe has ",
           "labelPost": ", ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "changed", "value": "changed"},
@@ -125,7 +125,7 @@
           "labelPre": "with a ",
           "labelPost": " distribution of galaxies long ago, ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "relatively smooth", "value": "relatively smooth"},
@@ -141,7 +141,7 @@
           "labelPre": "to a distribution now with ",
           "labelPost": " concentrations of galaxies ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "large", "value": "large"},
@@ -157,7 +157,7 @@
           "labelPre": "and ",
           "labelPost": " voids.",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "large", "value": "large"},
@@ -173,7 +173,7 @@
           "labelPre": " Over time the force of gravity has caused galaxies to move ",
           "labelPost": ", creating the regions of low galaxy concentrations called voids. ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "closer together", "value": "closer together"},
@@ -189,7 +189,7 @@
           "labelPre": "The change in the large-scale structure of the Universe is ",
           "labelPost": " depending on which direction we observe, ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "the same", "value": "the same"},
@@ -205,7 +205,7 @@
           "labelPre": "which is consistent with ",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "the cosmological principle", "value": "the cosmological principle"},

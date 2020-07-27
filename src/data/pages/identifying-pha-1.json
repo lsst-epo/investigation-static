@@ -24,7 +24,7 @@
           "labelPre": "Larger asteroids have surfaces that reflect ",
           "labelPost": " sunlight, ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "more", "value": "more"},
@@ -40,7 +40,7 @@
           "labelPre": "so they are ",
           "labelPost": "han smaller asteroids.",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "dimmer", "value": "dimmer"},
