@@ -41,7 +41,7 @@
           "labelPre": "The case of asteroid WD5-A that you just investigated is typical in terms of how its probable impact threat changes as its orbit becomes refined. As more observations and measurements are made, the probability of impact typically ",
           "labelPost": " until such time when all of the possible impact orbits can be eliminated, at which time the probability becomes ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             { "label": "increases", "value": "increases" },
@@ -58,7 +58,7 @@
           "labelPre": "",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-input",
+          "answerAccessor": "text",
           "placeholder": "",
           "answerPre": "...",
           "answerPost": "..."

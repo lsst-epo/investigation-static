@@ -24,7 +24,7 @@
           "labelPre": "If Earth were more massive, its gravitational force would ",
           "labelPost": ", ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "become stronger", "value": "become stronger"},
@@ -41,7 +41,7 @@
           "labelPre": "so the minimum distance (0.05 AU) for the asteroid to become a potential threat would ",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "increase", "value": "increase"},

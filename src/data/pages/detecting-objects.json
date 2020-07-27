@@ -52,7 +52,7 @@
           "labelPre": "The object that takes a longer time to move across the field of view is ",
           "labelPost": " from the Sun, ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "closer", "value": "closer"},
@@ -68,7 +68,7 @@
           "labelPre": "and will have a ",
           "labelPost": " orbital period.",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "long", "value": "long"},

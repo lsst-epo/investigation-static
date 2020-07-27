@@ -126,9 +126,12 @@ class TextInput extends React.PureComponent {
           className={fieldClasses}
           type="text"
           label={
-            !labelPre &&
-            !labelPost &&
-            label && <div dangerouslySetInnerHTML={renderDef(label)} />
+            <div
+              dangerouslySetInnerHTML={renderDef(
+                label ||
+                  `Complete this statement by filling in the blank: ${labelPre}, blank, ${labelPost}`
+              )}
+            />
           }
           lineDirection="center"
           fullWidth={!(labelPre || labelPost)}

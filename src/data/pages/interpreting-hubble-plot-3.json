@@ -31,7 +31,7 @@
           "labelPre": "Based on its position and the scale of the axes on the plot, the data point for Galaxy 1 (click or hover over a point to see details about that galaxy) indicates that it is ",
           "labelPost": " ",
           "srLabel": "Based on its position and the scale of the axes on the plot, the data point for Galaxy 1 indicates that it is",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a distance",
           "options": [
             { "label": "close", "value": "close" },
@@ -47,7 +47,7 @@
           "labelPre": " from the Milky Way galaxy and is moving ",
           "labelPost": " .",
           "srLabel": "from the Milky Way galaxy and is moving",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a speed",
           "options": [
             { "label": "fast", "value": "fast" },
@@ -67,7 +67,7 @@
           "labelPre": "More distant galaxies are moving away from Earth ",
           "labelPost": " than nearby galaxies.",
           "srLabel": "More distant galaxies are moving away from Earth",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a speed",
           "options": [
             { "label": "slower", "value": "slower" },
@@ -83,7 +83,7 @@
           "labelPre": " This means the light from galaxies that are farther away is redshifted by a ",
           "labelPost": " amount than the light from nearby galaxies.",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a size",
           "options": [
             { "label": "greater", "value": "greater" },

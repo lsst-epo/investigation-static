@@ -67,7 +67,7 @@
           "labelPre": "Compare the Red Filter image to the Composite image and complete the following sentence. In the Red Filter Image, the red shirt looks",
           "labelPost": ",",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "(dark/bright)",
           "options": [
             { "label": "dark", "value": "dark" },
@@ -83,7 +83,7 @@
           "labelPre": "the green shirt looks",
           "labelPost": ",",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "(dark/bright)",
           "options": [
             { "label": "dark", "value": "dark" },
@@ -99,7 +99,7 @@
           "labelPre": "the blue shirt looks",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "(dark/bright)",
           "options": [
             { "label": "dark", "value": "dark" },
@@ -119,7 +119,7 @@
           "labelPre": "Compare the Green Filter image to the Composite image and complete the following sentence. In the Green Filter Image, the red shirt looks",
           "labelPost": ",",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "(dark/bright)",
           "options": [
             { "label": "dark", "value": "dark" },
@@ -135,7 +135,7 @@
           "labelPre": "the green shirt looks",
           "labelPost": ",",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "(dark/bright)",
           "options": [
             { "label": "dark", "value": "dark" },
@@ -151,7 +151,7 @@
           "labelPre": "the blue shirt looks",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "(dark/bright)",
           "options": [
             { "label": "dark", "value": "dark" },
@@ -171,7 +171,7 @@
           "labelPre": "Compare the Blue Filter image to the Composite image and complete the following sentence. In the Green Filter Image, the red shirt looks",
           "labelPost": ",",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "(dark/bright)",
           "options": [
             { "label": "dark", "value": "dark" },
@@ -187,7 +187,7 @@
           "labelPre": "the green shirt looks",
           "labelPost": ",",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "(dark/bright)",
           "options": [
             { "label": "dark", "value": "dark" },
@@ -203,7 +203,7 @@
           "labelPre": "the blue shirt looks",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "(dark/bright)",
           "options": [
             { "label": "dark", "value": "dark" },

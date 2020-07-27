@@ -20,7 +20,7 @@
           "labelPre": "We observe the light from distant galaxies to be ",
           "labelPost": ", ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "redshifted", "value": "redshifted"},
@@ -36,7 +36,7 @@
           "labelPre": " indicating that these galaxies are all moving ",
           "labelPost": " us.",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "toward", "value": "toward"},
@@ -133,7 +133,7 @@
           "labelPre": "The light we receive from distant objects tells us what the Universe was like ",
           "labelPost": " , ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "a long time ago", "value": "a long time ago"},
@@ -149,7 +149,7 @@
           "labelPre": " while the light we receive from nearby objects tells us what the Universe was like ",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "a long time ago", "value": "a long time ago"},
@@ -169,7 +169,7 @@
           "labelPre": "The slope of the line in this Hubble plot is ",
           "labelPost": "for data from very distant objects compared to nearby objects.",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "steeper", "value": "steeper"},
@@ -185,7 +185,7 @@
           "labelPre": "Since the expansion rate of the Universe determined by observing distant objects is ",
           "labelPost": "than the expansion rate determined by observing nearby objects, ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "faster", "value": "faster"},
@@ -201,7 +201,7 @@
           "labelPre": " the expansion rate of the Universe is",
           "labelPost": " as time goes on.",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "speeding up", "value": "speeding up"},

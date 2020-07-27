@@ -42,7 +42,7 @@
           "labelPre": "In addition to mass, the distance between the two objects is a factor in determining the gravitational force between the objects. Objects that are farther apart will have a ",
           "labelPost": " gravitational force between them",
           "srLabel": "...",
-          "answerAccessor": "compound-input",
+          "answerAccessor": "text",
           "placeholder": " ",
           "answerPre": "...",
           "answerPost": "..."
@@ -54,7 +54,7 @@
           "labelPre": "and are ",
           "labelPost": " likely to experience a change in their orbits.",
           "srLabel": "...",
-          "answerAccessor": "compound-input",
+          "answerAccessor": "text",
           "placeholder": " ",
           "answerPre": "...",
           "answerPost": "..."

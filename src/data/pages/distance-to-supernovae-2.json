@@ -86,7 +86,7 @@
           "labelPre": "A supernova that is close to Earth will appear ",
           "labelPost": " and ",
           "srLabel": "What best describes the luminosity of a supernova that is close to Earth appear?",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a luminosity",
           "options": [
             { "label": "bright", "value": "bright" },
@@ -102,7 +102,7 @@
           "labelPre": " have a peak apparent magnitude number that is ",
           "labelPost": " .",
           "srLabel": "What best describes the peak apparent magnitude of a supernova that is close to Earth?",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a magnitude",
           "options": [
             { "label": "large", "value": "large" },

@@ -17,7 +17,7 @@
           "labelPre": "Different types of stars can explode to form supernovae. A star that is at least 8 times the mass of the Sun forms a Type ",
           "labelPost": " supernova. ",
           "srLabel": "What type of supernova forms from a star that has a mass at least 8 times the mass of the Sun?",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "Ia", "value": "Ia"},
@@ -33,7 +33,7 @@
           "labelPre": " A Type ",
           "labelPost": " supernova ",
           "srLabel": "What type of supernova forms from a star in binary star system?",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "Ia", "value": "Ia"},
@@ -49,7 +49,7 @@
           "labelPre": "forms from a ",
           "labelPost": " star in a binary star system.",
           "srLabel": "What type of star in a binary star system...?",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "massive", "value": "massive"},
@@ -69,7 +69,7 @@
           "labelPre": "Type Ia supernovae achieve a maximum luminosity that is ",
           "labelPost": " than the maximum luminosity of Type IIp supernovae. ",
           "srLabel": "Is the maximum luminosity of a Type Ia supernova high or lower than the maximum luminosity of a Type IIp supernova?",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a value",
           "options": [
             {"label": "higher", "value": "higher"},
@@ -85,7 +85,7 @@
           "labelPre": "After reaching its peak brightness, the light output from a Type Ia supernova",
           "labelPost": " for a few months.",
           "srLabel": "Describe how the light output of Type Ia supernovae changes in the few months after it reaches its peak brightness?",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a change",
           "options": [
             {"label": "declines steadily", "value": "declines steadily"},
@@ -105,7 +105,7 @@
           "labelPre": "Type ",
           "labelPost": " supernovae can be used to determine distances ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "Ia", "value": "Ia"},
@@ -121,7 +121,7 @@
           "labelPre": "because they all reach the same ",
           "labelPost": " peak magnitude.",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a magnitude",
           "options": [
             {"label": "apparent", "value": "apparent"},
@@ -137,7 +137,7 @@
           "labelPre": "Type ",
           "labelPost": " supernovae can not be used for distance measurement ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a change",
           "options": [
             {"label": "Ia", "value": "Ia"},
@@ -153,7 +153,7 @@
           "labelPre": " because the stars that become the supernovae have a range of ",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a value",
           "options": [
             {"label": "ages", "value": "ages"},

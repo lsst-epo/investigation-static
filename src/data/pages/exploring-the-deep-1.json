@@ -56,7 +56,7 @@
           "labelPre": "Use the plot and your image to answer this question: Galaxies that are far away tend to have an apparent size that is ",
           "labelPost": ", ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             { "label": "big", "value": "big" },
@@ -72,7 +72,7 @@
           "labelPre": " and they appear ",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             { "label": "bright", "value": "bright" },

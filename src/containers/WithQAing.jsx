@@ -14,8 +14,6 @@ export const WithQAing = ComposedComponent => {
 
       this.answerAccessorGets = {
         text: this.getTextContent,
-        'compound-select': this.getSelectContent,
-        'compound-input': this.getCompoundInputContent,
         select: this.getSelectContent,
         'multi-select': this.getMultiSelectContent,
         count: this.getCountContent,

@@ -24,7 +24,7 @@
           "labelPre": "The larger the asteroid, the ",
           "labelPost": " it will appear, ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             { "label": "dimmer", "value": "dimmer" },
@@ -40,7 +40,7 @@
           "labelPre": " because its surface will reflect ",
           "labelPost": " light.",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             { "label": "more", "value": "more" },

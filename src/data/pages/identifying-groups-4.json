@@ -100,7 +100,7 @@
           "labelPre": "When an object is closest to the Sun in its orbit, the gravitational force it experiences is the ",
           "labelPost": ", ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             { "label": "greatest", "value": "greatest" },
@@ -116,7 +116,7 @@
           "labelPre": "and its orbital speed at that location is the ",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             { "label": "fastest", "value": "fastest" },

@@ -33,7 +33,7 @@
           "labelPre": "In order to hit Earth, the orbit of an asteroid must ",
           "labelPost": " Earth’s orbit, ",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
             {"label": "lie inside of", "value": "lie inside of"},
@@ -50,7 +50,7 @@
           "labelPre": "and the asteroid and Earth must be at ",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "compound-select",
+          "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
             {"label": "the same place", "value": "the same place"},
