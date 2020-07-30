@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import minBy from 'lodash/minBy';
+import maxBy from 'lodash/maxBy';
 import API from '../lib/API.js';
 import ConditionalWrapper from '../components/ConditionalWrapper';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import OrbitalViewer from '../components/visualizations/orbitalViewer/index.jsx';
-// import OrbitalDetails from '../components/visualizations/orbitalViewer/OrbitalDetails.jsx';
 
 import {
   avatarContainer,
@@ -57,6 +58,22 @@ class OrbitalViewerContainer extends React.PureComponent {
         activeNeo: data,
       }));
     }
+  }
+
+  getExtentIndices(data, accessor) {
+    return [minBy(data, accessor), maxBy(data, accessor)];
+  }
+
+  getOrbitExtents(data) {
+    return [
+      ...new Set(
+        ['a']
+          .map(accessor => {
+            return this.getExtentIndices(data, accessor);
+          })
+          .flat()
+      ),
+    ];
   }
 
   getOrbitAnswerData() {
@@ -116,7 +133,7 @@ class OrbitalViewerContainer extends React.PureComponent {
   render() {
     const { data, activeNavIndex, activeNeo } = this.state;
     const { options } = this.props;
-    const { multiple, title } = options || {};
+    const { multiple, title, potentialOrbits } = options || {};
 
     return (
       <>
@@ -139,6 +156,7 @@ class OrbitalViewerContainer extends React.PureComponent {
         >
           {data && (
             <OrbitalViewer
+              potentialOrbits={potentialOrbits}
               neos={multiple ? data[activeNavIndex].data : data}
               updateActiveNeo={this.updateActiveNeo}
               activeNeo={activeNeo}

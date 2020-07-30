@@ -47,5 +47,6 @@ export const widgetOptionsFragemnt = graphql`
     defaultZoom
     galaxyImg
     questionId
+    potentialOrbits
   }
 `;
