@@ -24,16 +24,27 @@ class Layout extends React.Component {
     } = pageContext;
     const id = investigationId || envInvestigationId;
     const investigation = find(investigations, { id });
+    const pages = filter(allInvestigationsPages, ['investigation', id]);
 
     this.state = {
       tocIsOpen: false,
       investigationTitle: investigation ? investigation.title : '',
-      pages: filter(allInvestigationsPages, ['investigation', id]),
+      pages: this.massagePageData(pages),
     };
 
     this.store = new GlobalStore(this.getInitialGlobals());
     this.store.addCallbacks();
     this.store.addReducers();
+  }
+
+  massagePageData(pages) {
+    return pages.map((page, index) => {
+      const pageUpdate = {
+        ...page,
+        pageNumber: index + 1,
+      };
+      return pageUpdate;
+    });
   }
 
   getTotalQAs() {
@@ -101,6 +112,12 @@ class Layout extends React.Component {
     }));
   };
 
+  getHeaderPages(pages) {
+    return pages.map(page => {
+      return { id: page.id, pageNumber: page.pageNumber };
+    });
+  }
+
   render() {
     const { tocIsOpen, pages, investigationTitle } = this.state;
     const { children, pageContext } = this.props;
@@ -116,6 +133,7 @@ class Layout extends React.Component {
           tocVisability={tocIsOpen}
           toggleToc={investigation && this.toggleToc}
           logo={logo}
+          pages={this.getHeaderPages(pages)}
         />
         {investigation && (
           <TableOfContents
