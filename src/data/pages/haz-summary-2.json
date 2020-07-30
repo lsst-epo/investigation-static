@@ -39,6 +39,7 @@
       "colTitles": [
         "Kinetic Energy",
         "Crater Diameter",
+        "Crater Depth",
         "Area of Destruction",
         "Minimum Safe Distance"
       ],
@@ -46,6 +47,7 @@
         [
           { "accessor": "kineticEnergy", "id": "52" },
           { "accessor": "craterDiameter", "id": "53" },
+          { "accessor": "craterDepth", "id": "53" },
           { "accessor": "destruction", "id": "53" },
           { "accessor": "minimum-safe", "id": "53" }
         ]

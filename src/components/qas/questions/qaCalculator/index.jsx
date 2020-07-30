@@ -22,6 +22,7 @@ import {
   col50,
   answerable as answerableStyle,
   marginTop,
+  qaCalcInput,
 } from './qaCalculator.module.scss';
 
 class QACalculator extends React.PureComponent {
@@ -119,6 +120,13 @@ class QACalculator extends React.PureComponent {
       [valType]: value,
     };
 
+    if (solutionVariable === 'all') {
+      return {
+        ...newVal,
+        ...formula(newVal),
+      };
+    }
+
     return {
       ...newVal,
       [solutionVariable]: formula(newVal),
@@ -163,7 +171,11 @@ class QACalculator extends React.PureComponent {
     const cardClasses = classnames(qaCard, qaCalc, marginTop, {
       [activeClass]: hasFocus,
     });
-    const fieldClasses = classnames('qa-text-input', answeredClasses);
+    const fieldClasses = classnames(
+      'qa-text-input',
+      qaCalcInput,
+      answeredClasses
+    );
     const labelClasses = classnames(calcLabel, answeredClasses);
 
     const { inputs, equation } = this.calculator[questionType];
@@ -185,8 +197,11 @@ class QACalculator extends React.PureComponent {
                   containerWidth,
                   leftIcon,
                   rightIcon,
+                  label: inputLabel,
                   placeholder,
                   defaultValue,
+                  max,
+                  min,
                 } = input;
 
                 return (
@@ -197,13 +212,17 @@ class QACalculator extends React.PureComponent {
                     <TextField
                       id={`text-input-${id}-${defaultValue}`}
                       data-testid={`qa-calc-input-${i}`}
-                      className={fieldClasses}
+                      className={classnames(fieldClasses, {
+                        'no-label': !inputLabel,
+                      })}
                       leftIcon={leftIcon}
                       rightIcon={rightIcon}
+                      label={inputLabel}
                       placeholder={placeholder}
                       lineDirection="center"
                       type="number"
-                      min="0"
+                      min={min}
+                      max={max}
                       defaultValue={value[defaultValue] || null}
                       onBlur={this.handleBlur}
                       onFocus={this.handleFocus}

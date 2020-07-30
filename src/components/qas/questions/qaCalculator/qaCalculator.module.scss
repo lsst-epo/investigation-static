@@ -119,3 +119,21 @@
     content: '√';
   }
 }
+
+.qa-calc-input:not(:global .no-label) {
+  margin-top: $minPadding * 1.2;
+
+  :global {
+    .md-floating-label {
+      font-weight: $regular;
+
+      &.md-floating-label--floating,
+      &.md-floating-label--inactive {
+        position: absolute;
+        white-space: nowrap;
+        transform: translate3d(-37px, -18px, 0);
+        transform-origin: center;
+      }
+    }
+  }
+}
