@@ -7,7 +7,7 @@ import {
   getCalculatedMeasurementsForDistance,
   calculateDiameter,
   calculateKineticEnergy,
-  calculateCraterDiameter,
+  calculateAsteroidImpact,
 } from './qaCalculatorUtilities';
 import { col50 } from './qaCalculator.module.scss';
 
@@ -86,18 +86,28 @@ export const SizeCalculator = {
 export const ImpactCalculator = {
   value: {
     craterDiameter: null,
+    craterDepth: null,
+    destruction: null,
+    minimumSafe: null,
+    richterMagnitude: null,
+    richterMagnitudeAtObserverDistance: null,
+    mercalliIntensity: null,
     density: null,
     velocity: null,
     asteroidDiameter: null,
+    airBlastOverPressure: null,
+    airBlastDamage: null,
+    observerDistance: null,
   },
-  solutionVariable: 'craterDiameter',
+  solutionVariable: 'all',
   equation: FindImpactCrater,
-  formula: calculateCraterDiameter,
+  formula: calculateAsteroidImpact,
   inputs: [
     {
       containerWidth: col50,
       leftIcon: <QACalculatorIcon content="D =" />,
       rightIcon: <QACalculatorIconUnit unit="diameter" />,
+      label: 'Asteroid Diameter',
       placeholder: 'asteroid diameter',
       defaultValue: 'asteroidDiameter',
     },
@@ -105,6 +115,7 @@ export const ImpactCalculator = {
       containerWidth: col50,
       leftIcon: <QACalculatorIcon content="p =" />,
       rightIcon: <QACalculatorIconUnit unit="density" />,
+      label: 'Asteroid Density',
       placeholder: 'density',
       defaultValue: 'density',
     },
@@ -112,8 +123,19 @@ export const ImpactCalculator = {
       containerWidth: col50,
       leftIcon: <QACalculatorIcon content="v =" />,
       rightIcon: <QACalculatorIconUnit unit="velocity" />,
+      label: 'Asteroid Velocity',
       placeholder: 'velocity',
       defaultValue: 'velocity',
+    },
+    {
+      containerWidth: col50,
+      leftIcon: <QACalculatorIcon content="r =" />,
+      rightIcon: <QACalculatorIconUnit unit="diameter" />,
+      label: "Observer's distance from impact",
+      min: 10,
+      max: 20000,
+      placeholder: 'observer distance',
+      defaultValue: 'observerDistance',
     },
   ],
 };

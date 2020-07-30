@@ -22,8 +22,11 @@ const Unit = props => {
       semimajor_axis: <StandardUnit {...props} />,
       diameter: <StandardUnit {...props} />,
       craterDiameter: <StandardUnit {...props} />,
+      craterDepth: <StandardUnit {...props} />,
       kineticEnergy: <StandardUnit {...props} />,
       density: <StandardUnit {...props} />,
+      destruction: <StandardUnit {...props} />,
+      overPressure: <StandardUnit {...props} />,
     }[props.type] || null
   );
 };

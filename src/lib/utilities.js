@@ -242,6 +242,7 @@ export const getValue = function(accessor, data) {
     {
       hubbleConstant: formatValue(data, 1),
       distance: formatValue(data, 0),
+      destruction: formatValue(data, 0),
       velocity: formatValue(data, 0),
       magnitude: formatValue(data, 2),
       luminosity: formatValue(data, 2),
@@ -262,9 +263,11 @@ export const getValue = function(accessor, data) {
       semimajor_axis: formatValue(data, 2),
       diameter: formatValue(data, 3),
       craterDiameter: formatValue(data, 3),
+      craterDepth: formatValue(data, 2),
       count: formatValue(data ? data.length : 0, 0),
       kineticEnergy: formatValue(data, 0),
       volume: toSigFigs(data, 4),
+      overPressure: formatValue(data, 1),
     }[accessor] || data
   );
 };

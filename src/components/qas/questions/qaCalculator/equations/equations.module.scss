@@ -1,0 +1,22 @@
+.find-impact-crater-equation {
+  .bold-text {
+    font-weight: $medium;
+  }
+
+  .crater-diameter-style,
+  .crater-depth-style {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+  .crater-diameter-answer-style {
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .seismic-damage-text {
+    margin-top: $minPadding * 0.5;
+    margin-left: $minPadding;
+  }
+}
