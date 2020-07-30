@@ -17,7 +17,11 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/nea_extended_sample.json"
+      "source": "/data/neos/test1_orb_1-20.json",
+      "options": {
+        "defaultZoom": 0.5,
+        "potentialOrbits": true
+      }
     }
   ],
   "questionsByPage": [

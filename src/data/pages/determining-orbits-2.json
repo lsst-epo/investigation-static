@@ -17,9 +17,10 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
+      "source": "/data/neos/test1_orb_1-20.json",
       "options": {
-        "preSelected": true,
-        "showUserPlot": "10"
+        "defaultZoom": 0.35,
+        "potentialOrbits": true
       }
     }
   ],

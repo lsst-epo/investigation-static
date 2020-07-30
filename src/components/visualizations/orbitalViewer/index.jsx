@@ -18,6 +18,7 @@ function OrbitalViewer({
   paused,
   pov,
   defaultZoom,
+  potentialOrbits,
 }) {
   const speeds = [0.00001157, 1.1574, 11.574, 30, 365.25]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
 
@@ -55,7 +56,9 @@ function OrbitalViewer({
   return (
     <>
       <div className={container}>
-        <OrbitalDetails velocity={activeVelocity} data={activeNeo} />
+        {!potentialOrbits && (
+          <OrbitalDetails velocity={activeVelocity} data={activeNeo} />
+        )}
         <PlaybackSpeed dayPerVizSec={dayPerVizSec} />
         <Canvas invalidateFrameloop className={orbitalCanvas}>
           <CameraController pov={pov} />
@@ -71,6 +74,7 @@ function OrbitalViewer({
           />
           <ambientLight intensity={0.9} />
           <Orbitals
+            potentialOrbits={potentialOrbits}
             includeRefObjs
             selectionCallback={updateActiveNeo}
             activeVelocityCallback={setActiveVelocity}
@@ -118,6 +122,7 @@ OrbitalViewer.propTypes = {
   paused: PropTypes.bool,
   pov: PropTypes.string,
   defaultZoom: PropTypes.number,
+  potentialOrbits: PropTypes.bool,
 };
 
 export default OrbitalViewer;

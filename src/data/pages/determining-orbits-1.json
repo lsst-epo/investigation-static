@@ -13,13 +13,14 @@
     "link": "/determining-orbits-1a/"
   },
   "layout": "TwoCol",
-  "content": "<p>When Rubin Observatory first discovers an asteroid, its orbit around the Sun is not well defined. Astronomers can calculate possible different orbits of the asteroid by considering the set of orbits that can fit the measured positions.</p><p>The blue region contains the possible orbits of the asteroid based on the first two observations.</p>",
+  "content": "<p>When Rubin Observatory first discovers an asteroid, its orbit around the Sun is not well defined. Astronomers can calculate possible different orbits of the asteroid by considering the set of orbits that can fit the measured positions.</p><p>The pink region contains the possible orbits of the asteroid based on the first two observations.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
+      "source": "/data/neos/test1_orb_1-10.json",
       "options": {
-        "preSelected": true,
-        "showUserPlot": "10"
+        "defaultZoom": 0.35,
+        "potentialOrbits": true
       }
     }
   ],
