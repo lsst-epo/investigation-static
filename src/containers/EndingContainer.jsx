@@ -21,6 +21,10 @@ class LastPage extends React.PureComponent {
     };
   }
 
+  componentDidMount() {
+    this.dispatch.updatePageId(null);
+  }
+
   handleAnswersReset = () => {
     const { envInvestigation } = this.state;
     const globalStateLs = this.global.answers;

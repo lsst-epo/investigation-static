@@ -24,27 +24,19 @@ class Layout extends React.Component {
     } = pageContext;
     const id = investigationId || envInvestigationId;
     const investigation = find(investigations, { id });
-    const pages = filter(allInvestigationsPages, ['investigation', id]);
 
     this.state = {
       tocIsOpen: false,
       investigationTitle: investigation ? investigation.title : '',
-      pages: this.massagePageData(pages),
+      pages: filter(allInvestigationsPages, [
+        'investigation',
+        id,
+      ]).map((page, i) => ({ ...page, pageNumber: i + 1 })),
     };
 
     this.store = new GlobalStore(this.getInitialGlobals());
     this.store.addCallbacks();
     this.store.addReducers();
-  }
-
-  massagePageData(pages) {
-    return pages.map((page, index) => {
-      const pageUpdate = {
-        ...page,
-        pageNumber: index + 1,
-      };
-      return pageUpdate;
-    });
   }
 
   getTotalQAs() {
@@ -112,10 +104,13 @@ class Layout extends React.Component {
     }));
   };
 
-  getHeaderPages(pages) {
-    return pages.map(page => {
-      return { id: page.id, pageNumber: page.pageNumber };
-    });
+  getCurrentPageNumber() {
+    const { pageId: id } = this.global;
+    const { pages } = this.state;
+    const currentPage = find(pages, { id });
+    const { pageNumber } = currentPage || {};
+
+    return pageNumber;
   }
 
   render() {
@@ -129,11 +124,10 @@ class Layout extends React.Component {
       <>
         <SEO title={investigation || 'Investigation'} />
         <Header
-          investigationTitle={investigationTitle}
+          {...{ investigationTitle, logo }}
+          pageNumber={this.getCurrentPageNumber()}
           tocVisability={tocIsOpen}
           toggleToc={investigation && this.toggleToc}
-          logo={logo}
-          pages={this.getHeaderPages(pages)}
         />
         {investigation && (
           <TableOfContents
