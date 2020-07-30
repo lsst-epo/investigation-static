@@ -16,7 +16,13 @@ class TableOfContents extends React.PureComponent {
       ...filter(navLinks, link => link.investigation === investigation).map(
         link => {
           if (link.divider || link.subheader) return link;
-          const { title, id, investigation: linkBaseUrl, slug } = link;
+          const {
+            title,
+            pageNumber,
+            id,
+            investigation: linkBaseUrl,
+            slug,
+          } = link;
           const baseUrl = linkBaseUrl && useBaseUrl ? `/${linkBaseUrl}/` : '/';
           const isActive = this.isActivePage(id);
 
@@ -24,7 +30,7 @@ class TableOfContents extends React.PureComponent {
             component: Link,
             label: title,
             to: baseUrl + slug,
-            primaryText: title,
+            primaryText: `${pageNumber}. ${title}`,
             leftIcon: <Check />,
             active: isActive,
             className: classnames('toc-link', `link--page-id--${id}`, {
