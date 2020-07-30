@@ -1,9 +1,6 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { globalHistory } from '@reach/router';
-import reactn from 'reactn';
-import find from 'lodash/find';
 import { Toolbar } from 'react-md';
 import Button from '../button/index';
 import ButtonIcon from '../button/ButtonIcon';
@@ -12,30 +9,15 @@ import Menu from '../icons/Menu';
 
 import styles from './header.module.scss';
 
-@reactn
 class Header extends React.PureComponent {
   render() {
-    const {
-      location: { pathname },
-    } = globalHistory;
-    const { pageId } = this.global;
     const {
       investigationTitle,
       toggleToc,
       tocVisability,
       logo,
-      pages,
+      pageNumber,
     } = this.props;
-
-    const pathnameArr = pathname.split('/');
-    const path = pathnameArr[pathnameArr.length - 2];
-
-    const currentPage = find(pages, { id: pageId });
-    const { pageNumber } = currentPage || {};
-    const currentPageNumber =
-      !pageNumber || path === '' || path === 'last-page'
-        ? null
-        : `: Page ${pageNumber}`;
 
     return (
       <Toolbar
@@ -69,7 +51,7 @@ class Header extends React.PureComponent {
           )}
           <span className={styles.investigationTitle}>
             {investigationTitle}
-            {currentPageNumber}
+            {pageNumber && `: Page ${pageNumber}`}
           </span>
           <div className={styles.headerInner}>
             <Link to="/" className={logo && styles.logoWrapper}>
@@ -95,7 +77,7 @@ Header.propTypes = {
   tocVisability: PropTypes.bool,
   toggleToc: PropTypes.func,
   logo: PropTypes.string,
-  pages: PropTypes.array,
+  pageNumber: PropTypes.number,
 };
 
 export default Header;

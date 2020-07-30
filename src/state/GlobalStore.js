@@ -56,6 +56,13 @@ class GlobalStore {
         visitedPages: prevVisitedPages,
       } = global;
 
+      if (!pageId) {
+        return {
+          ...global,
+          pageId,
+        };
+      }
+
       if (!prevPageId) {
         return {
           ...global,

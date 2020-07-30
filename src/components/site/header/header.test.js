@@ -14,11 +14,19 @@ test('Header renders without props', () => {
 
 test('Header Logo alt text is Investigation Title', () => {
   // Arrange
-  const { getByAltText, getByText } = render(<Header logo="fake/image/path" investigationTitle={testTitle} />);
+  const { getByAltText, getByText, queryByText } = render(<Header logo="fake/image/path" investigationTitle={testTitle} />);
   const logoLink = getByAltText(testTitle);
   // Assert
   expect(getByText(testTitle)).toBeInTheDocument();
+  expect(queryByText(`${testTitle}: Page`)).toBe(null);
   expect(logoLink).toBeInTheDocument();
+});
+
+test('Header renders page number if provided', () => {
+  // Arrange
+  const { getByText } = render(<Header logo="fake/image/path" investigationTitle={testTitle} pageNumber={22} />);
+  // Assert
+  expect(getByText(`${testTitle}: Page 22`)).toBeInTheDocument();
 });
 
 test('When TOC is visible Header TOC toggle reads "Close..."', () => {
