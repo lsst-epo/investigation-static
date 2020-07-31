@@ -59,7 +59,6 @@ $chartColors: $chart0 $chart1 $chart2 $chart3 $chart4 $chart5 $chart6;
   }
 }
 
-// Slider Track Fill colors
 $sliderTrackFillRed: red;
 $sliderTrackFillBlue: blue;
 $sliderTrackFillGreen: green;
@@ -69,7 +68,8 @@ $sliderTrackFillYellow: yellow;
 $sliderTrackFillOrange: orange;
 
 $sliderTrackFillColors: $sliderTrackFillRed $sliderTrackFillBlue
-  $sliderTrackFillGreen $sliderTrackFillPurple $sliderTrackFillCyan $sliderTrackFillYellow $sliderTrackFillOrange;
+  $sliderTrackFillGreen $sliderTrackFillPurple $sliderTrackFillCyan
+  $sliderTrackFillYellow $sliderTrackFillOrange;
 
 :export {
   @each $color in $sliderTrackFillColors {
