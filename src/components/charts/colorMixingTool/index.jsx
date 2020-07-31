@@ -28,6 +28,7 @@ class ColorTool extends React.PureComponent {
       filters: [],
       colorOptions: [],
       hexColors: [],
+      galaxyImgs: {},
       galaxies: null,
       resetBtnActive: false,
       panelIsActive: false,
@@ -35,7 +36,13 @@ class ColorTool extends React.PureComponent {
   }
 
   componentDidMount() {
-    const { filters, colorOptions, hexColors, galaxies } = this.props;
+    const {
+      filters,
+      colorOptions,
+      hexColors,
+      galaxies,
+      galaxyImgs,
+    } = this.props;
 
     this.setState(prevState => ({
       ...prevState,
@@ -43,6 +50,7 @@ class ColorTool extends React.PureComponent {
       colorOptions,
       hexColors,
       galaxies,
+      galaxyImgs,
       resetBtnActive: false,
     }));
   }
@@ -140,9 +148,12 @@ class ColorTool extends React.PureComponent {
   }
 
   handleGalaxySelection = value => {
-    const { filters } = this.state;
-
+    const { filters, galaxyImgs } = this.state;
+    const activeFilters = galaxyImgs[value];
     const newFilters = filters.map(newFilter => {
+      if (!activeFilters.includes(newFilter.label)) {
+        newFilter.isDisabled = true;
+      }
       newFilter.image = `${value.toLowerCase()}-${newFilter.label.toLowerCase()}.png`;
       return newFilter;
     });
@@ -161,14 +172,7 @@ class ColorTool extends React.PureComponent {
   };
 
   render() {
-    const {
-      filters,
-      resetBtnActive,
-      panelIsActive,
-      galaxies,
-      colorOptions,
-      hexColors,
-    } = this.state;
+    const { filters, resetBtnActive, panelIsActive, galaxies } = this.state;
     const panelClassName = classnames(panelButton, {
       [active]: panelIsActive,
     });
@@ -194,13 +198,12 @@ class ColorTool extends React.PureComponent {
               const btnClassName = classnames(button, {
                 [active]: btn.active,
               });
-              // const colorIndex = colorOptions.indexOf(btn.color);
-              // const hexColor = hexColors[colorIndex];
-              // console.log(hexColor);
+
               return (
                 <div key={key} className={selectContainer}>
                   <Button
                     floating
+                    disabled={btn.isDisabled}
                     style={{ visibility: `${visibilityVal}` }}
                     className={btnClassName}
                     onClick={() => this.handleImage(btn)}
@@ -209,6 +212,7 @@ class ColorTool extends React.PureComponent {
                   </Button>
                   <Select
                     dropdownIcon={<ArrowDown />}
+                    disabled={btn.isDisabled}
                     id={btn.label}
                     placeholder="None"
                     style={{ visibility: `${visibilityVal}` }}
@@ -290,6 +294,7 @@ ColorTool.propTypes = {
   colorOptions: PropTypes.array,
   hexColors: PropTypes.array,
   galaxies: PropTypes.array,
+  galaxyImgs: PropTypes.object,
 };
 
 export default ColorTool;
