@@ -13,7 +13,8 @@
     }
 
     .md-list--menu-restricted {
-      max-height: 400px;
+      max-height: 250px;
+      overflow:scroll;
     }
   }
 }

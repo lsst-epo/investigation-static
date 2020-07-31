@@ -17,7 +17,7 @@ import {
   sliderContainer,
   container,
   resetBtn,
-  imagesContainer,
+  panelButton,
 } from './color-tool.module.scss';
 
 class ColorTool extends React.PureComponent {
@@ -161,8 +161,15 @@ class ColorTool extends React.PureComponent {
   };
 
   render() {
-    const { filters, resetBtnActive, panelIsActive, galaxies } = this.state;
-    const panelClassName = classnames(button, {
+    const {
+      filters,
+      resetBtnActive,
+      panelIsActive,
+      galaxies,
+      colorOptions,
+      hexColors,
+    } = this.state;
+    const panelClassName = classnames(panelButton, {
       [active]: panelIsActive,
     });
     const visibilityVal = panelIsActive ? 'visible' : 'hidden';
@@ -187,6 +194,9 @@ class ColorTool extends React.PureComponent {
               const btnClassName = classnames(button, {
                 [active]: btn.active,
               });
+              // const colorIndex = colorOptions.indexOf(btn.color);
+              // const hexColor = hexColors[colorIndex];
+              // console.log(hexColor);
               return (
                 <div key={key} className={selectContainer}>
                   <Button
