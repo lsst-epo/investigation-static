@@ -27,10 +27,15 @@ class AstroToolContainer extends React.PureComponent {
 
   render() {
     const { data } = this.state;
-    const { filters, colorOptions, hexColors, galaxies } = data || {};
+    const { filters, colorOptions, hexColors, galaxies, galaxyImgs } =
+      data || {};
 
     return (
-      data && <ColorTool {...{ filters, colorOptions, hexColors, galaxies }} />
+      data && (
+        <ColorTool
+          {...{ filters, colorOptions, hexColors, galaxies, galaxyImgs }}
+        />
+      )
     );
   }
 }
