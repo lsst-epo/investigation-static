@@ -11,6 +11,7 @@ import styles from './styles.module.scss';
 class QAExpansionPanel extends React.PureComponent {
   render() {
     const {
+      questionNumber,
       question,
       answer,
       active,
@@ -33,11 +34,13 @@ class QAExpansionPanel extends React.PureComponent {
       unstyled: !active,
     });
 
+    const updatedLabel = `<span class=${styles.labelWithNumber}>${questionNumber}. ${label}</span>`;
+
     return (
       <Question
         columnWidths={columnWidths}
         focused={focused}
-        label={<div dangerouslySetInnerHTML={renderDef(label)} />}
+        label={<div dangerouslySetInnerHTML={renderDef(updatedLabel)} />}
         className={questionClasses}
         contentClassName={styles.answer}
         expanded={isExpanded}
@@ -67,6 +70,7 @@ class QAExpansionPanel extends React.PureComponent {
 
 QAExpansionPanel.propTypes = {
   answer: PropTypes.object,
+  questionNumber: PropTypes.number,
   question: PropTypes.object,
   active: PropTypes.bool,
   columnWidths: PropTypes.array,

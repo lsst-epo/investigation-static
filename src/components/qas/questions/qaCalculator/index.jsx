@@ -154,7 +154,7 @@ class QACalculator extends React.PureComponent {
   };
 
   render() {
-    const { question, answer, activeId } = this.props;
+    const { questionNumber, question, answer, activeId } = this.props;
     const { answerable, value, hasFocus } = this.state;
 
     const { questionType } = question;
@@ -181,6 +181,8 @@ class QACalculator extends React.PureComponent {
     const { inputs, equation } = this.calculator[questionType];
     const FindEquation = equation || null;
 
+    const updatedLabel = questionNumber ? `${questionNumber}. ${label}` : label;
+
     return (
       <Card
         className={cardClasses}
@@ -189,7 +191,7 @@ class QACalculator extends React.PureComponent {
         onExpanderClick={() => {}}
       >
         <CardText>
-          <div className={labelClasses}>{label}</div>
+          <div className={labelClasses}>{updatedLabel}</div>
           <div className="container">
             {inputs &&
               inputs.map((input, i) => {
@@ -269,6 +271,7 @@ class QACalculator extends React.PureComponent {
 QACalculator.propTypes = {
   activeId: PropTypes.string,
   question: PropTypes.object.isRequired,
+  questionNumber: PropTypes.number,
   answerHandler: PropTypes.func,
   answer: PropTypes.object,
 };

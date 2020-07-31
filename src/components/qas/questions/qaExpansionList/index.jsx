@@ -12,6 +12,7 @@ class QAExpansionList extends React.PureComponent {
 
   render() {
     const {
+      questionNumber,
       question,
       answer,
       answerHandler: cancelHandler,
@@ -26,6 +27,7 @@ class QAExpansionList extends React.PureComponent {
         <QAExpansionPanel
           {...this.props}
           key={`qa-${id}`}
+          questionNumber={questionNumber}
           question={question}
           answer={answer}
           active={activeId === id}
@@ -40,6 +42,7 @@ class QAExpansionList extends React.PureComponent {
 }
 
 QAExpansionList.propTypes = {
+  questionNumber: PropTypes.number,
   question: PropTypes.object,
   answer: PropTypes.object,
   activeId: PropTypes.string,

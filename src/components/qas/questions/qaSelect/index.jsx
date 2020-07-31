@@ -78,7 +78,14 @@ class QASelect extends React.PureComponent {
   };
 
   render() {
-    const { ids, question, activeId, answer } = this.props;
+    const {
+      ids,
+      firstQuestion,
+      question,
+      questionNumber,
+      activeId,
+      answer,
+    } = this.props;
     const {
       id,
       label,
@@ -105,6 +112,22 @@ class QASelect extends React.PureComponent {
     const selectClasses = classnames({
       [styles.hideLabel]: labelPre || labelPost,
     });
+    const labelPreClasses = classnames(
+      styles.labelPre,
+      qaStyles.labelWithNumber
+    );
+
+    const hasQANumber = questionNumber && firstQuestion;
+    const updatedLabel =
+      hasQANumber && label && !labelPre ? `${questionNumber}. ${label}` : label;
+    const updatedLabelPre =
+      hasQANumber && !label && labelPre
+        ? `${questionNumber}. ${labelPre}`
+        : labelPre;
+    const onlyQaNumber =
+      hasQANumber && !labelPre && !label && labelPost
+        ? `${questionNumber}. `
+        : null;
 
     return (
       <ConditionalWrapper
@@ -112,14 +135,19 @@ class QASelect extends React.PureComponent {
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
         <div className={wrapperClasses}>
-          {labelPre && (
-            <span className={styles.labelPre}>{labelPre}&nbsp;</span>
+          {updatedLabelPre && (
+            <span className={labelPreClasses}>
+              {updatedLabelPre || onlyQaNumber}&nbsp;
+            </span>
+          )}
+          {onlyQaNumber && !updatedLabelPre && (
+            <span className={labelPreClasses}>{onlyQaNumber}&nbsp;</span>
           )}
           <Select
             id={`qa-select-${id}`}
             className={selectClasses}
             options={options}
-            label={label || srLabel || placeholder}
+            label={updatedLabel || srLabel || placeholder}
             name={label || srLabel || placeholder}
             value={answered ? answer.content || answer.data : 'DEFAULT'}
             handleBlur={this.handler}
@@ -139,8 +167,14 @@ class QASelect extends React.PureComponent {
   }
 }
 
+QASelect.defaultProps = {
+  firstQuestion: true,
+};
+
 QASelect.propTypes = {
   handleAnswerSelect: PropTypes.func,
+  firstQuestion: PropTypes.bool,
+  questionNumber: PropTypes.number,
   question: PropTypes.object,
   answer: PropTypes.object,
   activeId: PropTypes.string,

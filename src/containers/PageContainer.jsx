@@ -17,11 +17,22 @@ class PageContainer extends React.PureComponent {
       TwoCol,
       SingleCol,
     };
+
+    this.state = {
+      questions: null,
+    };
   }
 
   componentDidMount() {
     const { data } = this.props;
-    const { id } = data.allPagesJson.nodes[0];
+    const { id, questionsByPage: questions } = data.allPagesJson.nodes[0];
+    const { questionNumbersByPage } = this.global || {};
+    const questionNumbers = questionNumbersByPage[id];
+
+    this.setState(prevState => ({
+      ...prevState,
+      questions: this.getQuestionsWithNumbers(questionNumbers, questions),
+    }));
 
     this.dispatch.updatePageId(id);
   }
@@ -46,6 +57,16 @@ class PageContainer extends React.PureComponent {
     return contents;
   }
 
+  getQuestionsWithNumbers = (questionNumbers, questions) => {
+    if (!questions || !questionNumbers) return [];
+
+    questions.forEach((question, index) => {
+      question.number = questionNumbers[index];
+    });
+
+    return questions;
+  };
+
   render() {
     const {
       data,
@@ -57,6 +78,8 @@ class PageContainer extends React.PureComponent {
       setActiveQuestion,
       pageContext,
     } = this.props;
+
+    const { questions } = this.state;
 
     const {
       id,
@@ -70,7 +93,6 @@ class PageContainer extends React.PureComponent {
       widgets,
       images,
       tables,
-      questionsByPage: questions,
     } = data.allPagesJson.nodes[0];
     const { env } = pageContext || {};
     const Tag = this.layouts[layout || 'default'];
@@ -96,9 +118,9 @@ class PageContainer extends React.PureComponent {
             widgets,
             tables,
             images,
-            questions,
             answers,
             shared,
+            questions,
           }}
         />
         <PageNav
