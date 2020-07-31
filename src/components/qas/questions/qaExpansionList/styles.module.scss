@@ -14,7 +14,8 @@
       padding: $minPadding;
     }
 
-    .md-fake-btn .md-text, .md-fake-btn .md-text p {
+    .md-fake-btn .md-text,
+    .md-fake-btn .md-text p {
       @include copySecondary;
       /* stylelint-disable-next-line declaration-no-important */
       min-width: 0 !important;
@@ -30,7 +31,6 @@
       }
     }
   }
-
 
   &.active {
     .answer {
@@ -48,7 +48,8 @@
         height: auto;
       }
 
-      .md-fake-btn .md-text, .md-fake-btn .md-text p {
+      .md-fake-btn .md-text,
+      .md-fake-btn .md-text p {
         color: $basePrimary;
       }
     }
@@ -60,7 +61,8 @@
         padding: $minPadding $minPadding 0;
       }
 
-      .md-fake-btn .md-text, .md-fake-btn .md-text p {
+      .md-fake-btn .md-text,
+      .md-fake-btn .md-text p {
         color: $basePrimary;
       }
     }
@@ -76,7 +78,8 @@
   }
 
   .answer {
-    .answer-pre, .answer-post {
+    .answer-pre,
+    .answer-post {
       p {
         display: inline;
       }
@@ -90,5 +93,11 @@
       padding: $minPadding;
       border: 0;
     }
+  }
+}
+
+.label-with-number {
+  p {
+    display: inline;
   }
 }

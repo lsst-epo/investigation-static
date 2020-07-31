@@ -13,3 +13,9 @@
     box-shadow: none;
   }
 }
+
+.label-with-number {
+  p:first-child() {
+    display: inline;
+  }
+}

@@ -109,7 +109,14 @@ class QAMultiSelect extends React.PureComponent {
   };
 
   render() {
-    const { ids, question, activeId, answer } = this.props;
+    const {
+      ids,
+      firstQuestion,
+      questionNumber,
+      question,
+      activeId,
+      answer,
+    } = this.props;
     const {
       id,
       label,
@@ -130,6 +137,12 @@ class QAMultiSelect extends React.PureComponent {
       [styles.answerable]: answerable || answered || active,
     });
 
+    const updatedLabel = questionNumber ? `${questionNumber}. ${label}` : label;
+    const updatedLabelPre =
+      questionNumber && firstQuestion
+        ? `${questionNumber}. ${labelPre}`
+        : labelPre;
+
     return (
       <ConditionalWrapper
         condition={questionType !== 'compoundSelect'}
@@ -137,7 +150,7 @@ class QAMultiSelect extends React.PureComponent {
       >
         <div className={selectClasses}>
           {labelPre && (
-            <span className={styles.labelPre}>{labelPre}&nbsp;</span>
+            <span className={styles.labelPre}>{updatedLabelPre}&nbsp;</span>
           )}
           <DropdownMenu
             id="multi-select"
@@ -154,7 +167,7 @@ class QAMultiSelect extends React.PureComponent {
             // visible={answerable}
           >
             <span
-              label={label}
+              label={updatedLabel}
               className={classnames(
                 'toggle',
                 styles.multiSelectOptions,
@@ -173,8 +186,14 @@ class QAMultiSelect extends React.PureComponent {
   }
 }
 
+QAMultiSelect.defaultProps = {
+  firstQuestion: true,
+};
+
 QAMultiSelect.propTypes = {
   handleAnswerSelect: PropTypes.func,
+  firstQuestion: PropTypes.bool,
+  questionNumber: PropTypes.number,
   question: PropTypes.object,
   answer: PropTypes.object,
   activeId: PropTypes.string,

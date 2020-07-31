@@ -7,7 +7,7 @@ class GlobalStore {
   constructor(initialGlobals) {
     this.emptyState = {
       investigation: null,
-      questions: null,
+      // questions: null,
       answers: {},
       pageId: null,
       activeQuestionId: null,
@@ -19,6 +19,7 @@ class GlobalStore {
       visitedPages: [],
       totalQAsByInvestigation: null,
       totalQAsByPage: null,
+      questionNumbersByPage: null,
       ...initialGlobals,
     };
     const { investigation } = this.emptyState;

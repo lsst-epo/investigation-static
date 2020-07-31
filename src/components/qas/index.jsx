@@ -18,7 +18,7 @@ class QAs extends React.PureComponent {
     return (
       <div className="qas">
         {questions.map(question => {
-          const q = question.question;
+          const { question: q, number } = question;
           const primeQ = q[0];
           const { id, questionType } = primeQ;
           const key = `qa-${id}`;
@@ -28,6 +28,7 @@ class QAs extends React.PureComponent {
               <div className={qa} key={key}>
                 <QACompound
                   activeId={activeQuestionId}
+                  questionNumber={+number}
                   questions={q}
                   answers={answers}
                   handleAnswerSelect={updateAnswer}
@@ -42,6 +43,7 @@ class QAs extends React.PureComponent {
             <QA
               key={key}
               questionType={questionType}
+              questionNumber={+number}
               question={primeQ}
               answer={answer}
               activeId={activeQuestionId}

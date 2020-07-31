@@ -66,6 +66,29 @@ class Layout extends React.Component {
     );
   }
 
+  getQuestionNumbersByPage() {
+    const { pages } = this.state;
+    const qsByPage = {};
+    let qNum = 0;
+
+    // eslint-disable-next-line consistent-return
+    pages.forEach(page => {
+      const { questionsByPage: questions, id } = page;
+
+      if (questions) {
+        qsByPage[id] = questions.map(() => {
+          qNum += 1;
+
+          return qNum;
+        });
+      } else {
+        qsByPage[id] = [];
+      }
+    });
+
+    return qsByPage;
+  }
+
   getTotalQAsByPage() {
     const { pages } = this.state;
     const total = {};
@@ -74,6 +97,7 @@ class Layout extends React.Component {
       const { questionsByPage, id } = page;
 
       const qIds = questionsByPage ? this.getQIds(questionsByPage) : [];
+
       total[id] = {
         questions: qIds,
         answers: [],
@@ -93,6 +117,7 @@ class Layout extends React.Component {
       totalPages: this.getTotalPages(),
       totalQAsByInvestigation: this.getTotalQAs(),
       totalQAsByPage: this.getTotalQAsByPage(),
+      questionNumbersByPage: this.getQuestionNumbersByPage(),
     };
   }
 

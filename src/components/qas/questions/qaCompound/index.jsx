@@ -28,14 +28,20 @@ class QACompound extends React.PureComponent {
   };
 
   render() {
-    const { questions, activeId, answers, handleAnswerSelect } = this.props;
+    const {
+      questionNumber,
+      questions,
+      activeId,
+      answers,
+      handleAnswerSelect,
+    } = this.props;
     const { hasFocus } = this.state;
     const cardClasses = classnames(qaCard, { [active]: hasFocus });
 
     return (
       <Card className={cardClasses}>
         <div className="qa-wrapper">
-          {questions.map(question => {
+          {questions.map((question, i) => {
             const { id, questionType, options } = question;
             const QACompoundComponent = this.qaTypes[questionType];
             if (!QACompoundComponent) return null;
@@ -48,9 +54,11 @@ class QACompound extends React.PureComponent {
                 focusCallback={this.updateActive}
                 answerHandler={handleAnswerSelect}
                 handleAnswerSelect={handleAnswerSelect}
+                firstQuestion={i === 0}
                 {...{
                   question,
                   activeId,
+                  questionNumber,
                   questionType,
                   options,
                 }}
@@ -65,6 +73,7 @@ class QACompound extends React.PureComponent {
 
 QACompound.propTypes = {
   handleAnswerSelect: PropTypes.func,
+  questionNumber: PropTypes.number,
   questions: PropTypes.array,
   answers: PropTypes.object,
   activeId: PropTypes.string,

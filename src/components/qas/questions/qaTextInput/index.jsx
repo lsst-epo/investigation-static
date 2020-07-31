@@ -85,7 +85,13 @@ class TextInput extends React.PureComponent {
   };
 
   render() {
-    const { question, answer, activeId } = this.props;
+    const {
+      firstQuestion,
+      question,
+      questionNumber,
+      answer,
+      activeId,
+    } = this.props;
     const { hasFocus, answerable } = this.state;
     const {
       id,
@@ -102,7 +108,7 @@ class TextInput extends React.PureComponent {
     const cardClasses = classnames(qaStyles.qaCard, {
       [qaStyles.active]: hasFocus,
     });
-    const labelClasses = classnames(styles.label, {
+    const labelClasses = classnames(styles.label, qaStyles.labelWithNumber, {
       answered,
       unanswered: !answered,
       [styles.answerable]: answerable || answered || active,
@@ -115,20 +121,38 @@ class TextInput extends React.PureComponent {
       [styles.inlineInput]: labelPre || labelPost,
     });
 
+    const hasQANumber = questionNumber && firstQuestion;
+    const updatedLabel =
+      hasQANumber && label && !labelPre ? `${questionNumber}. ${label}` : label;
+    const updatedLabelPre =
+      hasQANumber && !label && labelPre
+        ? `${questionNumber}. ${labelPre}`
+        : labelPre;
+    const onlyQaNumber =
+      hasQANumber && !labelPre && !label && labelPost
+        ? `${questionNumber}. `
+        : null;
+
     return (
       <ConditionalWrapper
         condition={!includes(questionType, 'compoundInput')}
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
-        {labelPre && <span className={labelClasses}>{labelPre}&nbsp;</span>}
+        {updatedLabelPre && (
+          <span className={labelClasses}>{updatedLabelPre}&nbsp;</span>
+        )}
+        {onlyQaNumber && !updatedLabelPre && (
+          <span className={styles.labelPre}>{onlyQaNumber}&nbsp;</span>
+        )}
         <TextField
           id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
           className={fieldClasses}
           type="text"
           label={
             <div
+              className={qaStyles.labelWithNumber}
               dangerouslySetInnerHTML={renderDef(
-                label ||
+                updatedLabel ||
                   `Complete this statement by filling in the blank: ${labelPre}, blank, ${labelPost}`
               )}
             />
@@ -151,8 +175,14 @@ class TextInput extends React.PureComponent {
   }
 }
 
+TextInput.defaultProps = {
+  firstQuestion: true,
+};
+
 TextInput.propTypes = {
   activeId: PropTypes.string,
+  firstQuestion: PropTypes.bool,
+  questionNumber: PropTypes.number,
   question: PropTypes.object,
   focusCallback: PropTypes.func,
   answerHandler: PropTypes.func,
