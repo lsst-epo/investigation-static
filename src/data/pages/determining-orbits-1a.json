@@ -1,0 +1,39 @@
+{
+  "id": "hazardous08b",
+  "investigation": "hazardous-asteroids",
+  "order": "08b",
+  "title": "Determining the Orbit of an Asteroid",
+  "slug": "determining-orbits-1a/",
+  "previous": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-1/"
+  },
+  "next": {
+    "title": "Determining the Orbit of an Asteroid",
+    "link": "/determining-orbits-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Astronomers are concerned if any of these possible orbits have a probability of the asteroid hitting Earth! To better define the actual orbit of the asteroid, astronomers need to do more observations of the asteroid and measure its position in space as it moves through its orbit. The addition of new data will rule out some of the possible orbits. Since Rubin Observatory will collect data from the entire sky every three to four nights, it will make it easier than ever for astronomers to track new asteroids and refine their orbits.</p><p>Astronomers calculate the probability of an impact by running computer simulations to see which of the possible orbits could lead to the asteroid colliding with Earth. The probability of impact is calculated by dividing the number of possible orbits that result in the asteroid hitting Earth by the total number of possible orbits.</p><p>After the first two observations of this asteroid were made, astronomers computed 3000 possible orbits of the asteroid. Of these, ten orbits show the asteroid hitting Earth.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "options": {
+        "preSelected": true,
+        "showUserPlot": "10"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "12",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the probability of impact for this asteroid after astronomers have made these first two observations?"
+        }
+      ]
+    }
+  ]
+}

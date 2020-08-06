@@ -6,7 +6,7 @@
   "slug": "determining-orbits-2/",
   "previous": {
     "title": "Determining the Orbit of an Asteroid",
-    "link": "/determining-orbits-1/"
+    "link": "/determining-orbits-1a/"
   },
   "next": {
     "title": "Determining the Orbit of an Asteroid",
@@ -17,7 +17,10 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/nea_extended_sample.json"
+      "options": {
+        "preSelected": true,
+        "showUserPlot": "10"
+      }
     }
   ],
   "questionsByPage": [

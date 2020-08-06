@@ -10,10 +10,10 @@
   },
   "next": {
     "title": "Determining the Orbit of an Asteroid",
-    "link": "/determining-orbits-2/"
+    "link": "/determining-orbits-1a/"
   },
   "layout": "TwoCol",
-  "content": "<p>Astronomers are concerned if any of these possible orbits have a probability of the asteroid hitting Earth! To better define the actual orbit of the asteroid, astronomers need to do more observations of the asteroid and measure its position in space as it moves through its orbit. The addition of new data will rule out some of the possible orbits. Since Rubin Observatory will collect data from the entire sky every three to four nights, it will make it easier than ever for astronomers to track new asteroids and refine their orbits.</p><p>Astronomers calculate the probability of an impact by running computer simulations to see which of the possible orbits could lead to the asteroid colliding with Earth. The probability of impact is calculated by dividing the number of possible orbits that result in the asteroid hitting Earth by the total number of possible orbits.</p><p>After the first two observations of this asteroid were made, astronomers computed 3000 possible orbits of the asteroid. Of these, ten orbits show the asteroid hitting Earth.</p>",
+  "content": "<p>When Rubin Observatory first discovers an asteroid, its orbit around the Sun is not well defined. Astronomers can calculate possible different orbits of the asteroid by considering the set of orbits that can fit the measured positions.</p><p>The blue region contains the possible orbits of the asteroid based on the first two observations.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -27,11 +27,11 @@
     {
       "question": [
         {
-          "id": "12",
-          "questionType": "text",
+          "id": "11",
+          "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the probability of impact for this asteroid after astronomers have made these first two observations?"
+          "label": "Look at the possible orbits for this asteroid from different angles. Do you think this asteroid could hit Earth (in other words, do any of the possible orbits for the asteroid cross Earth’s orbit)? Explain your reasoning."
         }
       ]
     }
