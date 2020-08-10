@@ -14,6 +14,13 @@
   },
   "layout": "TwoCol",
   "content": "<p>To better understand how filters work, try out the filter tool.</p>",
+  "widgets": [{
+    "type": "PrismWidget",
+    "layout": {
+        "col": "right",
+        "row": "top"
+      }
+  }],
   "questionsByPage": [
     {
       "question": [
