@@ -1,0 +1,214 @@
+.content-wrapper {
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.prism-shape {
+  position: relative;
+  left: -100px;
+  width: 150px;
+  height: 150px;
+  margin: 2rem auto 5rem;
+  border-bottom: 3px solid $protonWhite;
+}
+
+.prism-shape::before,
+.prism-shape::after {
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  width: 150px;
+  height: 3px;
+  content: '';
+  background: $protonWhite;
+}
+
+.prism-shape::before {
+  right: -72px;
+  -webkit-transform: rotate(60deg) translateX(-47%);
+  transform: rotate(60deg) translateX(-47%);
+}
+
+.prism-shape::after {
+  left: -72px;
+  -webkit-transform: rotate(-60deg) translateX(47%);
+  transform: rotate(-60deg) translateX(47%);
+}
+
+.prism-shape .white-streak {
+  position: absolute;
+  width: 300px;
+  height: 2px;
+  background: $protonWhite;
+  border-radius: 10px 0 0 10px;
+  -webkit-transform: rotate(-13deg) translateY(calc(100% + 110px));
+  transform: rotate(-13deg) translateY(calc(100% + 110px));
+}
+
+.streak {
+  top: 15px;
+  left: -286px;
+}
+
+.prism-small-clip-wrapper {
+  position: absolute;
+  top: 13px;
+  left: 5px;
+  z-index: -1;
+  display: flex;
+  width: 221px;
+  height: 96px;
+  overflow: hidden;
+  transform: rotate(9deg);
+
+}
+
+.prism-small-wrapper {
+  position: relative;
+  width: 161px;
+  height: 30px;
+  margin: 68px auto auto -27px;
+  transform: rotate(-24deg);
+  perspective: 9px;
+
+}
+
+.prism-small-items {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-17deg);
+}
+
+.prism-small-items .prism-small-colors {
+  flex-grow: 1;
+}
+
+.prism-shape .prism-wrapper {
+  position: relative;
+  width: 400px;
+  height: 100px;
+  margin: 80px auto auto -120px;
+  -webkit-transform: rotate(36deg);
+  transform: rotate(36deg);
+  -webkit-perspective: 150px;
+  perspective: 150px;
+}
+
+.prism-shape .prism-clip-wrapper {
+  position: absolute;
+  top: -202px;
+  left: 153px;
+  z-index: -1;
+  display: flex;
+  width: 700px;
+  height: 520px;
+  overflow: hidden;
+  -webkit-transform: rotate(-31deg);
+  transform: rotate(-31deg);
+}
+
+.white-light-label {
+  position: absolute;
+  top: 50px;
+  left: -100px;
+  float: left;
+  color: $protonWhite !important;
+  transform: rotate(-13deg);
+}
+
+.prism-label {
+  position: absolute;
+  top: 156px;
+  left: 53px;
+  color: $protonWhite !important;
+}
+
+.prism-radio {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+@-webkit-keyframes glow {
+  to {
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+@keyframes glow {
+  to {
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+.prism-items {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateY(-20deg);
+  transform: rotateY(-20deg);
+}
+
+.prism-items .prism-colors {
+  flex-grow: 1;
+}
+
+.lens {
+  position: absolute;
+  top: -37px;
+  right: 91px;
+  width: 10px;
+  height: 170px;
+  background-color: $protonWhite;
+  border-radius: 10px;
+}
+
+.camera-filter {
+  top: -58px;
+  right: 84px;
+  z-index: 1;
+  width: 7px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.1s linear;
+}
+
+.camera-filter:active {
+  top: -27px;
+}
+
+.white-cover {
+  top: -45px;
+  right: -116px;
+  display: none;
+  width: 200px;
+  height: 200px;
+  background-color: $basePrimary;
+}
+
+.white-small-cover {
+  position: absolute;
+  top: -2px;
+  left: 87px;
+  display: block;
+  width: 154px;
+  height: 39px;
+  background-color: $basePrimary;
+  transform: rotate(-2deg);
+}
+
+.background {
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 46%;
+  background-color: $basePrimary;
+}
+

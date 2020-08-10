@@ -15,6 +15,7 @@ import SizeDistance from '../../containers/SizeDistanceContainer.jsx';
 import AsteroidClass from '../../containers/AsteroidClassContainer.jsx';
 import ColorTool from '../../containers/ColorToolContainer.jsx';
 import AstroTool from '../../containers/AstroToolContainer.jsx';
+import PrismWidget from '../../containers/PrismWidgetContainer.jsx';
 
 export const widgetTags = {
   SupernovaSelectorWithLightCurve,
@@ -34,4 +35,5 @@ export const widgetTags = {
   AsteroidClass,
   ColorTool,
   AstroTool,
+  PrismWidget,
 };
