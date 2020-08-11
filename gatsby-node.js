@@ -183,6 +183,22 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `);
+  } else if (INVESTIGATION === 'pcw-2020') {
+    pages = await graphql(`
+      query {
+        allPagesJson(
+          filter: { investigation: { eq: "pcw-2020" } }
+          sort: { fields: [order, investigation], order: ASC }
+        ) {
+          nodes {
+            order
+            id
+            investigation
+            slug
+          }
+        }
+      }
+    `);
   } else {
     pages = await graphql(`
       query {

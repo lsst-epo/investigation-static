@@ -1,0 +1,43 @@
+{
+  "id": "pcw2020-5",
+  "investigation": "pcw-2020",
+  "order": "05",
+  "title": "Classifying Light Curves",
+  "slug": "searching-sn/",
+  "previous": {
+    "title": "Observing Supernovae & Plotting a Light Curve",
+    "link": "observing-sn/"
+  },
+  "next": {
+    "title": "Detecting Solar System Objects",
+    "link": "detecting-objects/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>What type of supernova is this? See which template (Ia or IIp) fits the light curve best. Once selected, each template can be scaled up or down (scroll) and repositioned (click and drag) to create the best fit.</p>",
+  "widgets": [{
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19abqmpsr.json",
+      "options": {
+        "showLightCurve": true,
+        "chooseLightCurveTemplate": true,
+        "lightCurveTemplates": ["Ia", "IIp"],
+        "preSelectedLightCurveTemplate": "5"
+      }
+    }],
+    "questionsByPage": [
+      {
+        "question": [
+          {
+            "id": "5",
+            "questionType": "accordion",
+            "tool": "selection",
+            "title": "Question #1",
+            "label": "<p>Find the light curve template that best fits your light curve.</p>",
+            "answerPre": "<span>The selected light curve template represents a Type </span>",
+            "answerPost": "<span> supernova.</span>",
+            "answerAccessor": "light-curve-template"
+          }
+        ]
+      }
+    ]
+}

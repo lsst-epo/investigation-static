@@ -1,0 +1,26 @@
+{
+  "id": "pcw2020-7",
+  "investigation": "pcw-2020",
+  "order": "07",
+  "title": "Observing One Solar System Object's Orbit",
+  "slug": "orbits-1/",
+  "previous": {
+    "title": "Detecting Solar System Objects",
+    "link": "detecting-objects/"
+  },
+  "next": {
+    "title": "Observing Many Solar System Objects' Orbits",
+    "link": "orbits-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Click the red button to dismiss/reveal info about the comet.  Left-click and drag to rotate; Right-click to pan; Scroll to zoom. Use the controls to play, pause, skip forward and back, and adjust the speed of the simulation.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/test-distant.json",
+      "options": {
+        "defaultZoom": 0.25
+      }
+    }
+  ]
+}

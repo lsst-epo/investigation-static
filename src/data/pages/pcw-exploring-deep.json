@@ -1,0 +1,24 @@
+{
+  "id": "pcw2020-10",
+  "investigation": "pcw-2020",
+  "order": "10",
+  "title": "Observing How the Universe Changed over Time",
+  "slug": "exploring-the-deep/",
+  "previous": {
+    "title": "Observing Many Solar System Objects' Orbits",
+    "link": "orbits-2/"
+  },
+  "next": {
+    "title": "",
+    "link": ""
+  },
+  "layout": "SingleCol",
+  "content": "<p>Click and drag to pan; Scroll to zoom. Use the menu to populate the visualization with groups of galaxies varying in distance from earth (i.e. groups of galaxies organized by ranges of redshift values.</p>",
+  "widgets": [
+    {
+      "type": "LargeScaleStructure",
+      "source": "/data/galaxies/eboss_ardis_dataset.json",
+      "options": {}
+    }
+  ]
+}
