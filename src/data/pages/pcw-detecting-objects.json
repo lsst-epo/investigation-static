@@ -1,0 +1,31 @@
+{
+  "id": "pcw2020-6",
+  "investigation": "pcw-2020",
+  "order": "06",
+  "title": "Detecting Solar System Objects",
+  "slug": "detecting-objects/",
+  "previous": {
+    "title": "Observing Supernovae & Plotting a Light Curve",
+    "link": "searching-sn/"
+  },
+  "next": {
+    "title": "Observing One Object's Orbit",
+    "link": "orbits-1/"
+  },
+  "layout": "SingleCol",
+  "content": "<p>Which object is farther from the Sun?  Ue the controls to play, pause, and skip forward and back.</p>",
+  "widgets": [
+    {
+      "type": "TimeDomainDoubleViewer",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "sources": ["/data/neos/2003_QZ30.json", "/data/neos/tno120132.json"],
+      "options": {
+        "autoplay": true,
+        "preSelected": true
+      }
+    }
+  ]
+}
