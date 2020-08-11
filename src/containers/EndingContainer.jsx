@@ -55,11 +55,33 @@ class LastPage extends React.PureComponent {
             <br />
             <br />
             <p className="subheading-primary space-bottom">
-              Thank you for your participation.
+              Thank you for your joining our PCW 2020 session.
             </p>
             <p className="subheading-primary space-bottom">
-              We hope you had as much fun exploring the {envInvestigation.title}{' '}
-              investigation as we had building it.
+              We hope you had fun exploring these tools. You can provide us
+              feedback during the session on{' '}
+              <a
+                href="https://rubin2020pcw.slack.com/archives/C016QSVHMP1"
+                target="_blank"
+              >
+                the slack channel (#day4-thu-slot3b-epo)
+              </a>{' '}
+              and through{' '}
+              <a href="https://forms.gle/CrsLpH95dtPxnHpc7" target="_blank">
+                this survey form
+              </a>
+              .
+            </p>
+            <p className="subheading-primary space-bottom">
+              Please note that you can find links to 5 full draft investigations
+              on{' '}
+              <a
+                href="https://project.lsst.org/meetings/rubin2020/agenda/session/education-and-public-outreach-interacting-data-browser"
+                target="_blank"
+              >
+                our PCW session webpage
+              </a>
+              .
             </p>
             <br />
           </>
