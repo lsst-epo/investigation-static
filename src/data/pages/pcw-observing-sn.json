@@ -1,0 +1,42 @@
+{
+  "id": "pcw2020-4",
+  "investigation": "pcw-2020",
+  "order": "04",
+  "title": "Observing Supernovae & Plotting a Light Curve",
+  "slug": "observing-sn/",
+  "previous": {
+    "title": "Hubble Plot: A Matter of Perspective",
+    "link": "hubble-plot-3/"
+  },
+  "next": {
+    "title": "Classifying Light Curves",
+    "link": "searching-sn/"
+  },
+  "layout": "SingleCol",
+  "content": "<p>Can you find the supernova in this time-lapse?  Click on the image where you think the supernova resides.  Use the controls to play, pause, and skip forward and back.</p><p>Once you've found the supernova, data associated with the observations will populate the Light Curve graph.  Click on a point on the Light Curve graph to learn more about that observation, and to skip to its associated image.</p>",
+  "widgets": [{
+    "type": "SupernovaSelectorWithLightCurve",
+    "source": "/data/galaxies/ZTF19abqmpsr.json",
+    "options": {
+      "showSelector": true,
+      "showLightCurve": true,
+      "toggleDataPointsVisibility": "4",
+      "autoplay": true
+    }
+  }],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "4",
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "<p>Click on a point on the Image to select the supernova</p>",
+          "answerPre": "<span>Selected: </span>",
+          "answerAccessor": "supernova"
+        }
+      ]
+    }
+  ]
+}

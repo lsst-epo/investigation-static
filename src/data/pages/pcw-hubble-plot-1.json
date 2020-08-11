@@ -1,0 +1,53 @@
+{
+  "id": "pcw2020-1",
+  "investigation": "pcw-2020",
+  "order": "01",
+  "title": "Creating a Hubble Plot",
+  "slug": "hubble-plot-1/",
+  "previous": {
+    "title": "Introduction",
+    "link": "introduction/"
+  },
+  "next": {
+    "title": "Defining Hubble's Constant",
+    "link": "hubble-plot-2/"
+  },
+  "layout": "TwoCol",
+  "widgets": [
+    {
+      "type": "GalaxySelector",
+      "source": "/data/galaxies/galaxy_selector.json",
+      "options": {
+        "autoplay": true,
+        "toggleDataPointsVisibility": "1",
+        "createUserHubblePlot": "2"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "1",
+          "questionType": "accordion",
+          "title": "Question #1",
+          "label": "<p>Select a Galaxy from the menu. Compare the images of the galaxy as you did before to find the location of the supernova. When you see the supernova, click on it. The information box above the images will provide you with the distance to the selected supernova in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because the supernova is in the galaxy, the distances to the supernova and the galaxy are the same.</p><p>Next, click on the center of the galaxy. The information box above the images will provide you with the recessional velocity of the selected galaxy in kilometers per second (km/s).</p>",
+          "answerPre": "<span>Total Selected: </span>",
+          "answerAccessor": "galaxy"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "2",
+          "questionType": "accordion",
+          "title": "Question #1",
+          "label": "<p>Once you have identified the supernova and galaxy the Hubble plot will slide out.  Use the graph axes to find where on the graph corresponds to the velocity and distance of the galaxy. Click on the plot to add a dot at the correct location for your data.</p>",
+          "answerPre": "<span>Selected: </span>",
+          "answerAccessor": "hubblePlot"
+        }
+      ]
+    }
+  ]
+}

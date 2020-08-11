@@ -24,3 +24,6 @@
 
 [context."milky-way-staging"]
   command = "cross-env INVESTIGATION='milky-way' yarn deploy"
+
+[context."pcw2020"]
+  command = "cross-env INVESTIGATION='pcw-2020' yarn deploy"

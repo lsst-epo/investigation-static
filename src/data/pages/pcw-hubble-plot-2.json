@@ -1,0 +1,39 @@
+{
+  "id": "pcw2020-2",
+  "investigation": "pcw-2020",
+  "order": "02",
+  "title": "Defining Hubble's Constant",
+  "slug": "hubble-plot-2/",
+  "previous": {
+    "title": "Creating a Hubble Plot",
+    "link": "hubble-plot-1/"
+  },
+  "next": {
+    "title": "Hubble Plot: A Matter of Perspective",
+    "link": "hubble-plot-3/"
+  },
+  "layout": "TwoCol",
+  "widgets": [{
+    "type": "HubblePlot",
+    "options": {
+      "showUserPlot": "2",
+      "userTrendline": "3"
+    }
+  }],
+  "content": "<p>Click on the plot and drag to fit a line to determine the Hubble Constant.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "3",
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #3",
+          "label": "<p>Click and drag anywhere on the Hubble plot to add a trendline</p>",
+          "answerPre": "<span>Hubble's Constant: </span>",
+          "answerAccessor": "hubbleConstant"
+        }
+      ]
+    }
+  ]
+}
