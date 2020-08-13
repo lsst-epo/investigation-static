@@ -158,7 +158,7 @@ export default function FindImpactCrater(props) {
           <ul>
             {airBlastDamage &&
               airBlastDamage.map((damage, index) => (
-                <li key={`damage-message-${index}`}>{damage.description}</li>
+                <li key={`damage-message-${index}`}>{damage}</li>
               ))}
           </ul>
         </div>

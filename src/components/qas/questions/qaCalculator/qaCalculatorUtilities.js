@@ -1,4 +1,5 @@
 import inRange from 'lodash/inRange';
+import find from 'lodash/find';
 import { formatValue } from '../../../../lib/utilities.js';
 
 export const solveForDistanceModulus = m => {
@@ -212,53 +213,55 @@ export const getAirBlastDamage = airBlastOverPressure => {
   const airBlastDamage = [
     {
       overPressure: 426000,
-      description:
+      vehicles:
         'Cars and trucks will be largely displaced and grossly distorted and will require rebuilding before use.',
     },
     {
       overPressure: 379000,
-      description: 'Highway girder bridges will collapse.',
+      bridges:
+        'Highway girder bridges and highway truss bridges will collapse.',
     },
     {
       overPressure: 297000,
-      description:
+      vehicles:
         'Cars and trucks will be overturned and displaced, requiring major repairs',
     },
     {
       overPressure: 273000,
-      description:
-        'Multistory steel-framed office-type buildings will suffer extreme frame distortion, incipient collapse',
+      buildings:
+        'Multistory steel-framed office-type buildings will suffer extreme frame distortion, incipient collapse. Multistory wall-bearing buildings and wood frame buildings will collapse.',
     },
     {
       overPressure: 121000,
-      description: 'Highway truss bridges will collapse.',
+      bridges: 'Highway truss bridges will collapse.',
     },
     {
       overPressure: 100000,
-      description:
+      bridges:
         'Highway truss bridges will suffer substantial distortion of bracing',
     },
     {
       overPressure: 42600,
-      description: 'Multistory wall-bearing buildings will collapse.',
+      buildings:
+        'Multistory wall-bearing buildings and wood frame buildings will collapse.',
     },
     {
       overPressure: 38500,
-      description:
-        'Multistory wall-bearing buildings will experience severe cracking and interior partitions will be blown down.',
+      buildings:
+        'Multistory wall-bearing buildings will experience severe cracking and interior partitions will be blown down. Wood frame buildings will collapse.',
     },
     {
       overPressure: 26800,
-      description: 'Wood frame buildings will almost completely collapse.',
+      buildings: 'Wood frame buildings will almost completely collapse.',
     },
     {
       overPressure: 22900,
-      description:
-        'Interior partitions of wood frame buildings will be blown down. Roof will be severely damaged.',
+      buildings:
+        'Interior partitions of wood frame buildings will be blown down. Roof will be severely damaged. Glass will windows shatter.',
     },
     {
       overPressure: 6900,
-      description: 'Glass windows shatter.',
+      buildings: 'Glass windows will shatter.',
     },
   ];
   const filteredAirBlastDamage = airBlastDamage.filter(damage => {
@@ -266,7 +269,16 @@ export const getAirBlastDamage = airBlastOverPressure => {
     return overPressure <= airBlastOverPressure;
   });
 
-  return filteredAirBlastDamage;
+  const vehicles = find(filteredAirBlastDamage, 'vehicles');
+  const bridges = find(filteredAirBlastDamage, 'bridges');
+  const buildings = find(filteredAirBlastDamage, 'buildings');
+
+  const damageDescription = [];
+  if (buildings) damageDescription.push(buildings.buildings);
+  if (bridges) damageDescription.push(bridges.bridges);
+  if (vehicles) damageDescription.push(vehicles.vehicles);
+
+  return damageDescription;
 };
 
 export const calculateAsteroidImpact = props => {
