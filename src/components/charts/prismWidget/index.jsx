@@ -24,6 +24,7 @@ import {
   whiteSmallCover,
   background,
   selectContainer,
+  mdIconText,
 } from './prism-widget.module.scss';
 
 class PrismWidget extends React.PureComponent {
@@ -141,6 +142,7 @@ class PrismWidget extends React.PureComponent {
             dropdownIcon={<ArrowDown />}
             id="color-select"
             placeholder="None"
+            className="set-white-color"
             value={selectedColor}
             menuItems={colors}
             onChange={this.handleSelect}
