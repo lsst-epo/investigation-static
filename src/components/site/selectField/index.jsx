@@ -13,6 +13,7 @@ class Select extends React.PureComponent {
       menuItems,
       onChange,
       style,
+      className,
     } = this.props;
     return (
       <div className={styles.mdSelectContainer}>
@@ -25,6 +26,7 @@ class Select extends React.PureComponent {
             menuItems,
             onChange,
             style,
+            className,
           }}
         />
       </div>
@@ -40,6 +42,7 @@ Select.propTypes = {
   menuItems: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
   onChange: PropTypes.func,
   style: PropTypes.object,
+  className: PropTypes.string,
 };
 
 export default Select;
