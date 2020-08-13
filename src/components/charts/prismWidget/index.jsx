@@ -23,6 +23,7 @@ import {
   prismSmallColors,
   whiteSmallCover,
   background,
+  selectContainer,
 } from './prism-widget.module.scss';
 
 class PrismWidget extends React.PureComponent {
@@ -43,14 +44,15 @@ class PrismWidget extends React.PureComponent {
 
   render() {
     const { selectedColor } = this.state;
+    console.log(selectedColor);
     const colors = [
-      'red',
-      'orange',
-      'yellow',
-      'green',
-      'blue',
-      'indigo',
-      'violet',
+      'Red',
+      'Orange',
+      'Yellow',
+      'Green',
+      'Blue',
+      'Indigo',
+      'Violet',
     ];
     return (
       <div>
@@ -134,13 +136,16 @@ class PrismWidget extends React.PureComponent {
             <p className={whiteLightLabel}>White Light → </p>
           </div>
         </div>
-        <Select
-          dropdownIcon={<ArrowDown />}
-          id="color-select"
-          placeholder="None"
-          menuItems={colors}
-          onChange={this.handleSelect}
-        />
+        <div className={selectContainer}>
+          <Select
+            dropdownIcon={<ArrowDown />}
+            id="color-select"
+            placeholder="None"
+            value={selectedColor}
+            menuItems={colors}
+            onChange={this.handleSelect}
+          />
+        </div>
       </div>
     );
   }
