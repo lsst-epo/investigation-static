@@ -2,7 +2,6 @@ import React from 'react';
 import { CardText, CardActions } from 'react-md';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
-import debounce from 'lodash/debounce';
 import classnames from 'classnames';
 import Card from '../../../site/card';
 import TextField from '../../../site/forms/textField';
@@ -133,10 +132,17 @@ class QACalculator extends React.PureComponent {
     };
   }
 
-  handleChange = (value, valType) => {
+  handleMinMax = (input, value) => {
+    const { min, max } = input;
+    if (min && +min > +value) return min;
+    if (max && +value > +max) return max;
+    return value;
+  };
+
+  handleChange = (value, valType, input) => {
     const { question, answerHandler } = this.props;
     const { id } = question;
-    const preppedValue = value !== '' ? +value : null;
+    const preppedValue = value !== '' ? +this.handleMinMax(input, value) : null;
 
     this.setState(
       prevState => ({
@@ -225,14 +231,12 @@ class QACalculator extends React.PureComponent {
                       type="number"
                       min={min}
                       max={max}
-                      defaultValue={value[defaultValue] || null}
+                      value={value[defaultValue] || ''}
                       onBlur={this.handleBlur}
                       onFocus={this.handleFocus}
-                      onChange={debounce(
-                        onChangeValue =>
-                          this.handleChange(onChangeValue, defaultValue),
-                        400
-                      )}
+                      onChange={onChangeValue =>
+                        this.handleChange(onChangeValue, defaultValue, input)
+                      }
                       disabled={!(answerable || answered || active)}
                     />
                   </div>

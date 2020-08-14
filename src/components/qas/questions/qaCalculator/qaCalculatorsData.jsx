@@ -132,7 +132,7 @@ export const ImpactCalculator = {
       leftIcon: <QACalculatorIcon content="r =" />,
       rightIcon: <QACalculatorIconUnit unit="diameter" />,
       label: "Observer's distance from impact",
-      min: 10,
+      min: 0,
       max: 20000,
       placeholder: 'observer distance',
       defaultValue: 'observerDistance',
