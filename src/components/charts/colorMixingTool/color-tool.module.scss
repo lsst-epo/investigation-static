@@ -20,6 +20,14 @@
   flex-flow: column nowrap;
 }
 
+.label-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-right: $minPadding;
+  padding-top: $minPadding;
+}
+
 .button {
   margin: 15px;
   line-height: 1;

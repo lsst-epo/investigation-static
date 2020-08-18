@@ -18,6 +18,7 @@ import {
   container,
   resetBtn,
   panelButton,
+  labelContainer,
 } from './color-tool.module.scss';
 
 class ColorTool extends React.PureComponent {
@@ -190,6 +191,18 @@ class ColorTool extends React.PureComponent {
                 menuItems={galaxies}
                 onChange={this.handleGalaxySelection}
               />
+            </div>
+          )}
+          {panelIsActive && (
+            <div className={labelContainer}>
+              <h6>
+                Filter <br></br> On/Off
+              </h6>
+              <h6>
+                Color <br></br> Selector
+              </h6>
+              <h6>0%</h6>
+              <h6>100%</h6>
             </div>
           )}
           {filters &&
