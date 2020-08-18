@@ -88,6 +88,7 @@ class QASelect extends React.PureComponent {
       options,
       placeholder,
       questionType,
+      qaReview,
     } = question;
 
     const active = ids ? checkIds(ids, activeId) : activeId === id;
@@ -126,7 +127,7 @@ class QASelect extends React.PureComponent {
             handleChange={this.handler}
             handleFocus={this.handler}
             placeholder={placeholder}
-            disabled={!(answerable || answered || active)}
+            disabled={qaReview || !(answerable || answered || active)}
             showLabel={!!label}
             inline={!!labelPre || !!labelPost}
           />

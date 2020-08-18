@@ -94,6 +94,7 @@ class TextInput extends React.PureComponent {
       placeholder,
       labelPre,
       labelPost,
+      qaReview,
     } = question;
     const isTextArea = questionType === 'textArea';
     const rows = isTextArea ? { rows: 1, maxRows: 8 } : {};
@@ -141,7 +142,7 @@ class TextInput extends React.PureComponent {
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
-          disabled={!(answerable || answered || active)}
+          disabled={qaReview || !(answerable || answered || active)}
         />
         {labelPost && (
           <span className={labelClasses}>&nbsp;{labelPost}&nbsp;</span>

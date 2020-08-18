@@ -157,7 +157,7 @@ class QACalculator extends React.PureComponent {
     const { question, answer, activeId } = this.props;
     const { answerable, value, hasFocus } = this.state;
 
-    const { questionType } = question;
+    const { qaReview, questionType } = question;
 
     const { id, label } = question;
     const active = activeId === id;
@@ -231,7 +231,7 @@ class QACalculator extends React.PureComponent {
                           this.handleChange(onChangeValue, defaultValue),
                         400
                       )}
-                      disabled={!(answerable || answered || active)}
+                      disabled={qaReview || !(answerable || answered || active)}
                     />
                   </div>
                 );

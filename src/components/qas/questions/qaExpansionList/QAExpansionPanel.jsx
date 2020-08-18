@@ -21,7 +21,14 @@ class QAExpansionPanel extends React.PureComponent {
       saveHandler,
       editHandler,
     } = this.props;
-    const { answerPre, answerPost, answerAccessor, id: qId, label } = question;
+    const {
+      answerPre,
+      answerPost,
+      answerAccessor,
+      id: qId,
+      qaReview,
+      label,
+    } = question;
 
     const answered = !isEmpty(answer);
     const isExpanded = active || answered;
@@ -48,6 +55,7 @@ class QAExpansionPanel extends React.PureComponent {
         closeOnCancel={false}
         saveSecondary
         footer={showFooter}
+        disabled={qaReview}
       >
         {answered && (
           <Answer

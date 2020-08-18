@@ -118,6 +118,7 @@ class QAMultiSelect extends React.PureComponent {
       options,
       placeholder,
       questionType,
+      qaReview,
     } = question;
 
     const active = ids ? checkIds(ids, activeId) : activeId === id;
@@ -146,6 +147,7 @@ class QAMultiSelect extends React.PureComponent {
             menuItems={this.getMultiSelectOptions(options)}
             toggleQuery=".toggle"
             onVisibilityChange={this.handleChange}
+            disabled={qaReview}
             anchor={{
               x: DropdownMenu.HorizontalAnchors.INNER_LEFT,
               y: DropdownMenu.VerticalAnchors.BOTTOM,
