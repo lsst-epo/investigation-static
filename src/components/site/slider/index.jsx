@@ -5,7 +5,7 @@ import './styles.module.scss';
 
 class SliderCustom extends React.PureComponent {
   render() {
-    const { id, className, disabled, thumbStyle, onChange, style, } = this.props;
+    const { id, className, disabled, thumbStyle, onChange, style } = this.props;
     return (
       <Slider
         {...{

@@ -24,7 +24,6 @@ import {
   whiteSmallCover,
   background,
   selectContainer,
-  mdIconText,
 } from './prism-widget.module.scss';
 
 class PrismWidget extends React.PureComponent {
@@ -45,7 +44,6 @@ class PrismWidget extends React.PureComponent {
 
   render() {
     const { selectedColor } = this.state;
-    console.log(selectedColor);
     const colors = [
       'Red',
       'Orange',

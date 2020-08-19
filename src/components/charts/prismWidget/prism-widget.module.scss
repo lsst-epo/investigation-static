@@ -26,13 +26,11 @@
 
 .prism-shape::before {
   right: -72px;
-  -webkit-transform: rotate(60deg) translateX(-47%);
   transform: rotate(60deg) translateX(-47%);
 }
 
 .prism-shape::after {
   left: -72px;
-  -webkit-transform: rotate(-60deg) translateX(47%);
   transform: rotate(-60deg) translateX(47%);
 }
 
@@ -42,7 +40,6 @@
   height: 2px;
   background: $protonWhite;
   border-radius: 10px 0 0 10px;
-  -webkit-transform: rotate(-13deg) translateY(calc(100% + 110px));
   transform: rotate(-13deg) translateY(calc(100% + 110px));
 }
 
@@ -61,7 +58,6 @@
   height: 96px;
   overflow: hidden;
   transform: rotate(9deg);
-
 }
 
 .prism-small-wrapper {
@@ -71,7 +67,6 @@
   margin: 68px auto auto -27px;
   transform: rotate(-24deg);
   perspective: 9px;
-
 }
 
 .prism-small-items {
@@ -80,7 +75,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  transform: rotateY(-17deg);
+  transform: rotateY(-14.5deg);
 }
 
 .prism-small-items .prism-small-colors {
@@ -92,9 +87,7 @@
   width: 400px;
   height: 100px;
   margin: 80px auto auto -120px;
-  -webkit-transform: rotate(36deg);
   transform: rotate(36deg);
-  -webkit-perspective: 150px;
   perspective: 150px;
 }
 
@@ -107,24 +100,25 @@
   width: 700px;
   height: 520px;
   overflow: hidden;
-  -webkit-transform: rotate(-31deg);
   transform: rotate(-31deg);
 }
 
-.white-light-label {
-  position: absolute;
-  top: 50px;
-  left: -100px;
-  float: left;
-  color: $protonWhite !important;
-  transform: rotate(-13deg);
-}
+.prism-shape {
+  .white-light-label {
+    position: absolute;
+    top: 50px;
+    left: -100px;
+    float: left;
+    color: $protonWhite;
+    transform: rotate(-13deg);
+  }
 
-.prism-label {
-  position: absolute;
-  top: 156px;
-  left: 53px;
-  color: $protonWhite !important;
+  .prism-label {
+    position: absolute;
+    top: 156px;
+    left: 53px;
+    color: $protonWhite;
+  }
 }
 
 .prism-radio {
@@ -152,7 +146,6 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  -webkit-transform: rotateY(-20deg);
   transform: rotateY(-20deg);
 }
 
@@ -215,18 +208,18 @@
 
 .select-container {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   width: 25%;
+  margin-right: auto;
+  margin-left: auto;
+
   :global {
     .md-icon-text,
     .md-icon {
       color: white;
     }
+
     hr {
       background-color: white;
     }
   }
 }
-
-
