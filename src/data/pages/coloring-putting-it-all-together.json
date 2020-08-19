@@ -14,6 +14,19 @@
   },
   "layout": "TwoCol",
   "content": "<p>Now it’s your turn to answer a scientific question by creating a representative color image and explaining what it reveals.</p><p>Think about these points before you begin:</p><ul><li>What would you like to investigate? What question do you want to answer?<ul>Here are some options:<li>Look through a dusty nebula to see what’s inside</li><li>Search for a faraway galaxy</li><li>Locate the hot young stars in a galaxy</li><li>Identify star-forming regions in a galaxy</li></ul></li><li>What filters will be most appropriate for conducting your investigation? Why? (Note: you must use at least two filters.)</li><li>Develop your chromatic ordering sequence.</li></ul><p>To get started:<ul><li>Use the Astronomical Color Mixing Tool to select an object from the list.</li><li>For each of the filters you wish to use, start by turning on each filter and selecting colors.</li><li>Adjust the sliders to enhance the image. Think about color-balancing the image so it clearly shows the areas or objects you wish to study.</li><li><strike>If needed, you can open up additional windows to compare different filters or different objects in the same filter by clicking on the “add a window” sign in the upper right.</strike></li><li><strike>You may wish to use the drawing tool to mark a place on the image where you have identified an object, or where you wish to direct a comment.</strike></li></ul></p>",
+  "widgets": [
+    {
+      "type": "AstroTool",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "source": "/data/filters/astro-filter.json",
+      "options": {
+        "questionId": "31"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

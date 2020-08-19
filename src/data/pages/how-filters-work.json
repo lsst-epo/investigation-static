@@ -14,13 +14,15 @@
   },
   "layout": "TwoCol",
   "content": "<p>To better understand how filters work, try out the filter tool.</p>",
-  "widgets": [{
-    "type": "PrismWidget",
-    "layout": {
+  "widgets": [
+    {
+      "type": "PrismWidget",
+      "layout": {
         "col": "right",
         "row": "top"
       }
-  }],
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -37,21 +39,21 @@
       "question": [
         {
           "id": "2a",
-          "questionType": "text",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["2a", "2b"],
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "<p>Choose the red filter.</p><p>What does the filter do to the red light?</p>"
-        }
-      ]
-    },
-    {
-      "question": [
+          "labelPre": "Choose the red filter. What does the filter do to the red light?",
+          "srLabel": "..."
+        },
         {
           "id": "2b",
-          "questionType": "text",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["2a", "2b"],
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What does it do to the other colors of light?"
+          "labelPre": "What does it do to the other colors of light?",
+          "srLabel": "..."
         }
       ]
     },
@@ -59,21 +61,21 @@
       "question": [
         {
           "id": "3a",
-          "questionType": "text",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["3a", "3b"],
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "<p>Choose the blue filter.</p><p>What does the filter do to the blue light?</p>"
-        }
-      ]
-    },
-    {
-      "question": [
+          "labelPre": "Choose the blue filter. What does the filter do to the blue light?",
+          "srLabel": "..."
+        },
         {
           "id": "3b",
-          "questionType": "text",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["3a", "3b"],
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What does it do to the other colors of light?"
+          "labelPre": "What does it do to the other colors of light?",
+          "srLabel": "..."
         }
       ]
     }

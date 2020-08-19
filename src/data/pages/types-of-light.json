@@ -14,6 +14,15 @@
   },
   "images": [
     {
+      "mediaPath": "/images/EM-spectrum-full.jpg",
+      "altText": "The Electromagnetic Spectrum",
+      "figText": "Figure 1: The Electromagnetic Spectrum",
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      }
+    },
+    {
       "mediaPath": "/images/visible_spectrum.jpg",
       "altText": "Visible Spectrum",
       "figText": "Figure 2: Adapted from Daltonism: <a href='http://www.daltonism.org.uk/2018/01/rainbows/' target='_blank'>http://www.daltonism.org.uk/2018/01/rainbows/</a>"
