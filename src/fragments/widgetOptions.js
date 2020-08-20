@@ -45,5 +45,7 @@ export const widgetOptionsFragemnt = graphql`
     bins
     required
     defaultZoom
+    galaxyImg
+    questionId
   }
 `;

@@ -14,14 +14,28 @@
   },
   "layout": "TwoCol",
   "content": "<p>At this point you may be thinking: But how do I know when an image looks “correct?” The good news is that there is <em>no one correct image</em>. There  are many ways to construct an image that combines a pleasing aesthetic with a science message. Here are three different images of M33. These three images are different from each other because they were made using different filters, chromatic ordering sequences, and color balances:</p>",
+  "widgets": [
+    {
+      "type": "AstroTool",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "source": "/data/filters/astro-filter.json",
+      "options": {
+        "galaxyImg": "NGC6946",
+        "questionId": "26"
+      }
+    }
+  ],
   "images": [
     {
       "mediaPath": "/images/figure-11-M33.png",
       "altText": "Three different filtered images of M33.",
       "figText": "Figure 11: Three different images of M33. From left to right, Fig.11a: <a href='http://www.galex.caltech.edu/media/glx2009-01f_img03.html' target='_blank'>Combined Spitzer/GALEX data</a>, NASA/JPL-Caltech; Fig. 11b: <a href='https://commons.wikimedia.org/wiki/File:Messier_33_(Image_Of_Team)_(18235295964).jpg' target='_blank'>Collective image obtained with the contributions of: Paolo Demaria</a>, Giuseppe Donatiello (composition and processing), Marco Favuzzi, Terenzio Fusco, Rolando Ligustri, Alessandro Elio Milani, Zlatko Orbanic, Andrea Pistocchini, and Tim Stone. Creative Commons CCO 1.0; Fig. 11c: <a href='https://commons.wikimedia.org/wiki/File:Messier_33.jpg' target='_blank'>Image by Francesco Antonucci</a>, Creative Commons 4.0 international.",
       "layout": {
-        "col": "right",
-        "row": "top"
+        "col": "left",
+        "row": "bottom"
       }
     }
   ],
@@ -31,7 +45,7 @@
         {
           "id": "26",
           "questionType": "accordion",
-          "answerAccessor": "data",
+          "answerAccessor": "colorTool",
           "title": "Question #1",
           "label": "Now use the color mixing tool to create a color balanced image of spiral galaxy NGC 6946, and save your image when you are done. You’ll know you’re done when your image is created using filters that are chromatically ordered, and has a good color balance."
         }

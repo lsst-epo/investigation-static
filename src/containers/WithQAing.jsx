@@ -18,6 +18,7 @@ export const WithQAing = ComposedComponent => {
         'multi-select': this.getMultiSelectContent,
         count: this.getCountContent,
         'light-curve-template': this.getTemplateContent,
+        colorTool: this.getColorToolContent,
         diameter: this.getDiameterCalcContent,
         craterDiameter: this.getCraterDiameterCalcContent,
         magnitude: this.getMagnitudeContent,
@@ -189,6 +190,18 @@ export const WithQAing = ComposedComponent => {
       );
 
       return selectedObjects[0].supernova;
+    }
+
+    getColorToolContent(data) {
+      let galaxy = null;
+      for (let i = 0; i < Object.keys(data).length; i += 1) {
+        const galaxyName = Object.keys(data)[i];
+        const filterInfo = data[galaxyName];
+        if (filterInfo.active) {
+          galaxy = galaxyName;
+        }
+      }
+      return `Your selected Galaxy: ${galaxy}`;
     }
 
     getNeoContent(data) {

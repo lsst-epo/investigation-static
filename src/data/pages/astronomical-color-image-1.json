@@ -14,7 +14,31 @@
   },
   "layout": "TwoCol",
   "content": "<p>Move the slider next to the g filter back to its original location (so that the image looked as it did before you moved it). Now move the slider next to the r filter all the way to the left.</p>",
+  "widgets": [
+    {
+      "type": "AstroTool",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "source": "/data/filters/astro-filter.json",
+      "options": {
+        "questionId": "21a"
+      }
+    }
+  ],
   "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "21a",
+          "questionType": "accordion",
+          "answerAccessor": "colorTool",
+          "title": "Question #1",
+          "label": "<p>Now let’s see what happens when you move the sliders.</p><br /><br /><p>Move the slider next to the g filter all the way to the right.</p>"
+        }
+      ]
+    },
     {
       "question": [
         {

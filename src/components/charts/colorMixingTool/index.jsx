@@ -17,7 +17,7 @@ import {
   sliderContainer,
   container,
   resetBtn,
-  panelButton,
+  imageContainer,
 } from './color-tool.module.scss';
 
 class ColorTool extends React.PureComponent {
@@ -25,117 +25,201 @@ class ColorTool extends React.PureComponent {
     super(props);
 
     this.state = {
-      filters: [],
+      data: null,
       colorOptions: [],
       hexColors: [],
-      galaxyImgs: {},
-      galaxies: null,
       resetBtnActive: false,
-      panelIsActive: false,
+      galaxyImg: null,
+      selectorVal: null,
     };
   }
 
   componentDidMount() {
     const {
-      filters,
+      data,
       colorOptions,
       hexColors,
-      galaxies,
-      galaxyImgs,
+      galaxyImg,
+      selectorVal,
     } = this.props;
+
+    let isActive = false;
+
+    Object.keys(data).forEach(index => {
+      if (data[index].active) {
+        isActive = data[index].filters.filter(filterObj => {
+          return filterObj.active;
+        });
+      }
+    });
 
     this.setState(prevState => ({
       ...prevState,
-      filters,
       colorOptions,
       hexColors,
-      galaxies,
-      galaxyImgs,
-      resetBtnActive: false,
+      resetBtnActive: isActive.length > 0,
+      galaxyImg,
+      selectorVal,
+      data,
     }));
+
+    if (galaxyImg !== null && selectorVal !== 'color') {
+      this.handleGalaxySelection(galaxyImg, data);
+      this.setState(prevState => ({
+        ...prevState,
+        selectorVal: galaxyImg,
+      }));
+    }
   }
 
   handleImage(btnObj) {
-    const { filters } = this.state;
+    const { data: oldData, selectorVal: oldSelectorVal } = this.state;
     const { active: oldActive } = btnObj;
-
-    const newFilters = filters.map(newFilter => {
+    const updatedFilters = oldData[oldSelectorVal].filters.map(newFilter => {
       if (newFilter.label === btnObj.label) {
         newFilter.active = !oldActive;
       }
       return newFilter;
     });
 
-    this.setState(prevState => ({
-      ...prevState,
-      filters: newFilters,
-      resetBtnActive: true,
-    }));
+    this.updateAnswers(updatedFilters);
   }
 
   handleColorChange = (value, index, event, { id }) => {
-    const { filters } = this.state;
-    const newFilters = filters.map(newFilter => {
+    const { data, selectorVal } = this.state;
+    const updatedFilters = data[selectorVal].filters.map(newFilter => {
       if (newFilter.label === id) {
-        newFilter.color = value;
+        newFilter.color = value === 'None' ? '' : value;
       }
       return newFilter;
     });
 
-    this.setState(prevState => ({
-      ...prevState,
-      filters: newFilters,
+    this.updateAnswers(updatedFilters, {
       resetBtnActive: true,
-    }));
+    });
   };
 
   handleReset = () => {
-    const { filters } = this.state;
-    const newFilters = filters.map(newFilter => {
+    const { data, selectorVal } = this.state;
+    const updatedFilters = data[selectorVal].filters.map(newFilter => {
       newFilter.color = '';
       newFilter.active = false;
       newFilter.brightness = 0.7;
+      newFilter.value = 0;
       return newFilter;
     });
 
-    this.setState(prevState => ({
-      ...prevState,
-      filters: newFilters,
+    this.updateAnswers(updatedFilters, {
       resetBtnActive: false,
-    }));
+    });
   };
 
   handleBrightness(value, label) {
-    const { filters } = this.state;
-    const newFilters = filters.map(newFilter => {
+    const { data: oldData, selectorVal: oldSelectorVal } = this.state;
+    const updatedFilters = oldData[oldSelectorVal].filters.map(newFilter => {
       if (newFilter.label === label) {
         newFilter.brightness = 0.8 * (value / 100) + 0.7;
+        newFilter.value = value;
       }
       return newFilter;
     });
 
-    this.setState(prevState => ({
-      ...prevState,
-      filters: newFilters,
-    }));
+    this.updateAnswers(updatedFilters);
   }
 
-  handleSelectChange(value) {
-    const id = value.charAt(0);
-    const { filters } = this.state;
-    const newFilters = filters.map(newFilter => {
-      if (newFilter.label === id) {
-        newFilter.color = value;
-      }
+  handleGalaxySelection = (value, optData) => {
+    const { data: oldData, selectorVal: oldSelectorVal } = this.state;
+    const { selectionCallback } = this.props;
+    const d = typeof optData === 'object' ? optData : oldData;
+    const newFilters = d[value].filters.map(newFilter => {
+      newFilter.image = `${value.toLowerCase()}-${newFilter.label.toLowerCase()}.png`;
       return newFilter;
     });
 
-    this.setState(prevState => ({
-      ...prevState,
-      filters: newFilters,
-      resetBtnActive: true,
-    }));
-  }
+    const isActive = d[value].filters.filter(filterObj => {
+      return filterObj.active;
+    });
+
+    let newData = {
+      selectorVal: value,
+      resetBtnActive: isActive.length > 0,
+      data: {
+        ...d,
+        [value]: {
+          ...d[value],
+          active: true,
+          filters: newFilters,
+        },
+      },
+    };
+
+    if (oldSelectorVal !== '') {
+      newData = {
+        ...newData,
+        data: {
+          ...newData.data,
+          [oldSelectorVal]: {
+            ...d[oldSelectorVal],
+            active: false,
+          },
+        },
+      };
+    }
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        ...newData,
+      }),
+      () => {
+        const { data, selectorVal } = this.state;
+        selectionCallback(data, selectorVal);
+      }
+    );
+  };
+
+  updateAnswers = (updatedFilters, props) => {
+    const { selectorVal: oldSelectorVal } = this.state;
+    const { selectionCallback } = this.props;
+    this.setState(
+      prevState => ({
+        ...prevState,
+        ...props,
+        data: {
+          ...prevState.data,
+          [oldSelectorVal]: {
+            ...prevState.data[oldSelectorVal],
+            filters: updatedFilters,
+          },
+        },
+      }),
+      () => {
+        const { data, selectorVal } = this.state;
+        if (selectionCallback) {
+          selectionCallback(data, selectorVal);
+        }
+      }
+    );
+  };
+
+  getMenuItems = () => {
+    const { data } = this.state;
+
+    if (!data) return [];
+
+    return Object.keys(data);
+  };
+
+  getFilters = () => {
+    const { data, selectorVal } = this.state;
+    if (data && selectorVal && selectorVal !== '') {
+      if (data[selectorVal]) {
+        return data[selectorVal].filters;
+      }
+      return [];
+    }
+    return [];
+  };
 
   getColorBlocks() {
     const { colorOptions } = this.state;
@@ -147,48 +231,23 @@ class ColorTool extends React.PureComponent {
     });
   }
 
-  handleGalaxySelection = value => {
-    const { filters, galaxyImgs } = this.state;
-    const activeFilters = galaxyImgs[value];
-    const newFilters = filters.map(newFilter => {
-      if (!activeFilters.includes(newFilter.label)) {
-        newFilter.isDisabled = true;
-      }
-      newFilter.image = `${value.toLowerCase()}-${newFilter.label.toLowerCase()}.png`;
-      return newFilter;
-    });
-
-    this.setState(prevState => ({
-      ...prevState,
-      filters: newFilters,
-    }));
-  };
-
-  handleControlPanel = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      panelIsActive: !prevState.panelIsActive,
-    }));
-  };
-
   render() {
-    const { filters, resetBtnActive, panelIsActive, galaxies } = this.state;
-    const panelClassName = classnames(panelButton, {
-      [active]: panelIsActive,
-    });
-    const visibilityVal = panelIsActive ? 'visible' : 'hidden';
+    const { data, resetBtnActive, galaxyImg, selectorVal } = this.state;
+    const menuItems = this.getMenuItems();
+    const filters = this.getFilters();
 
     return (
       <div className={`container-flex ${container}`}>
         <div className={`${buttonContainer} ${col50}`}>
-          {galaxies && filters && (
+          {data && selectorVal !== 'color' && typeof galaxyImg !== 'string' && (
             <div className={container}>
               <Select
                 dropdownIcon={<ArrowDown />}
                 id="galaxy-selector"
-                placeholder="Selected Galaxy:"
-                menuItems={galaxies}
+                placeholder="Select A Galaxy"
+                menuItems={menuItems}
                 onChange={this.handleGalaxySelection}
+                value={selectorVal}
               />
             </div>
           )}
@@ -204,7 +263,6 @@ class ColorTool extends React.PureComponent {
                   <Button
                     floating
                     disabled={btn.isDisabled}
-                    style={{ visibility: `${visibilityVal}` }}
                     className={btnClassName}
                     onClick={() => this.handleImage(btn)}
                   >
@@ -215,7 +273,6 @@ class ColorTool extends React.PureComponent {
                     disabled={btn.isDisabled}
                     id={btn.label}
                     placeholder="None"
-                    style={{ visibility: `${visibilityVal}` }}
                     value={btn.color}
                     menuItems={this.getColorBlocks()}
                     onChange={this.handleColorChange}
@@ -223,15 +280,14 @@ class ColorTool extends React.PureComponent {
                   <div className={sliderContainer}>
                     <SliderCustom
                       id={btn.label}
-                      style={{ visibility: `${visibilityVal}` }}
                       className={
                         btn.color !== ''
                           ? `fill-color-${btn.color.toLowerCase()}`
                           : ''
                       }
-                      min={0.7}
-                      max={1.5}
-                      value={btn.brightness || 0.7}
+                      min={1}
+                      max={100}
+                      value={btn.value || 0}
                       disabled={!btn.active}
                       onChange={value =>
                         this.handleBrightness(value, btn.label)
@@ -241,60 +297,50 @@ class ColorTool extends React.PureComponent {
                 </div>
               );
             })}
-          <Button
-            raised
-            primary
-            style={{ visibility: `${visibilityVal}` }}
-            disabled={!resetBtnActive}
-            className={resetBtn}
-            onClick={this.handleReset}
-          >
-            Reset
-          </Button>
+          {selectorVal && (
+            <Button
+              raised
+              primary
+              disabled={!resetBtnActive}
+              className={resetBtn}
+              onClick={this.handleReset}
+            >
+              Reset
+            </Button>
+          )}
         </div>
-        <Button
-          floating
-          className={panelClassName}
-          onClick={this.handleControlPanel}
-        >
-          {panelIsActive ? 'Off' : 'On'}
-        </Button>
-        {filters &&
-          filters.map(filterImage => {
-            const imageClassName = classnames(filter, {
-              [filterActive]: filterImage.active,
-            });
-            let opacityVal = 0;
-            if (filterImage.active && !panelIsActive) {
-              opacityVal = 1;
-            } else if (filterImage.active && panelIsActive) {
-              opacityVal = 0.3;
-            }
+        <div className={`${imageContainer} ${col50}`}>
+          {filters &&
+            filters.map(filterImage => {
+              const imageClassName = classnames(filter, {
+                [filterActive]: filterImage.active,
+              });
 
-            return (
-              <div
-                key={`filter-${filterImage.label}`}
-                style={{
-                  opacity: `${opacityVal}`,
-                  backgroundImage: `url(/images/${filterImage.image}`,
-                  backgroundColor: filterImage.color,
-                  filter: `brightness(${filterImage.brightness})`,
-                }}
-                className={imageClassName}
-              ></div>
-            );
-          })}
+              return (
+                <div
+                  key={`filter-${filterImage.label}`}
+                  style={{
+                    backgroundImage: `url(/images/${filterImage.image}`,
+                    backgroundColor: filterImage.color,
+                    filter: `brightness(${filterImage.brightness})`,
+                  }}
+                  className={imageClassName}
+                ></div>
+              );
+            })}
+        </div>
       </div>
     );
   }
 }
 
 ColorTool.propTypes = {
-  filters: PropTypes.array,
   colorOptions: PropTypes.array,
   hexColors: PropTypes.array,
-  galaxies: PropTypes.array,
-  galaxyImgs: PropTypes.object,
+  galaxyImg: PropTypes.string,
+  selectionCallback: PropTypes.func,
+  data: PropTypes.object,
+  selectorVal: PropTypes.string,
 };
 
 export default ColorTool;

@@ -13,5 +13,31 @@
     "link": "/what-should-my-image-look-like/"
   },
   "layout": "TwoCol",
-  "content": "<p>Move the slider next to the r filter back to its original location (so the image looks as it did before you moved it.)</p><p>By adjusting the amount of light from each filter using the sliders you can create a color balanced image. However, as you saw above, if the slider for a filter is moved too far to the left or the right, that color in the image can be too strong or too weak for the image to be color balanced.</p>"
+  "content": "<p>Move the slider next to the r filter back to its original location (so the image looks as it did before you moved it.)</p><p>By adjusting the amount of light from each filter using the sliders you can create a color balanced image. However, as you saw above, if the slider for a filter is moved too far to the left or the right, that color in the image can be too strong or too weak for the image to be color balanced.</p>",
+  "widgets": [
+    {
+      "type": "AstroTool",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "source": "/data/filters/astro-filter.json",
+      "options": {
+        "questionId": "21a"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "21a",
+          "questionType": "accordion",
+          "answerAccessor": "colorTool",
+          "title": "Question #1",
+          "label": "<p>Now let’s see what happens when you move the sliders.</p><br /><br /><p>Move the slider next to the g filter all the way to the right.</p>"
+        }
+      ]
+    }
+  ]
 }
