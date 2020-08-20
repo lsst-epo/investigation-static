@@ -15,6 +15,13 @@
   padding-right: $minPadding;
 }
 
+.image-container {
+  position: relative;
+  height: 300px;
+  padding: $minPadding;
+  overflow: hidden;
+}
+
 .button-container {
   display: flex;
   flex-flow: column nowrap;
@@ -34,20 +41,6 @@
 
 .resetBtn {
   border-radius: 10px;
-}
-
-.panelButton {
-  padding: 0;
-  margin: 15px;
-  line-height: 1;
-  text-align: center;
-  background: #d5d5d5;
-  transition: background $duration ease-in-out;
-
-  &:hover {
-    color: $white;
-    background: $basePrimary;
-  }
 }
 
 .slider-container {

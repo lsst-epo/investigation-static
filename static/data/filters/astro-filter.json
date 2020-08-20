@@ -1,62 +1,499 @@
 {
-    "colorOptions": ["Violet", "Blue", "Green", "Yellow", "Orange", "Red", "Cyan", "None"],
-    "hexColors":["#861CFF","#0019FF", "#6BD853","#FFDD15", "#F18922", "#EC1C24"],
-    "galaxies":["M33", "M51", "M63", "M101", "NGC6946", "NGC3718", "NGC6520", "B163", "CG4"],
-    "galaxyImgs": {
-      "M33": ["U", "G", "R", "I", "Z", "Y"], 
-      "M51": ["G", "R", "I", "Z", "Y"], 
-      "M63": ["U", "G", "R", "I", "Z", "Y"],
-      "M101": ["U","G", "R", "Z", "Y"], 
-      "NGC6946": ["U","G", "R", "Y"], 
-      "NGC3718": ["U","G", "R", "Z", "Y"], 
-      "NGC6520": ["U","G", "R", "Z", "Y"],
-      "B163": ["G", "R", "I", "Y"], 
-      "CG4": ["G", "R", "Y", "Z"]
+  "colorOptions": [
+    "Violet",
+    "Blue",
+    "Green",
+    "Yellow",
+    "Orange",
+    "Red",
+    "Cyan",
+    "None"
+  ],
+  "hexColors": [
+    "#861CFF",
+    "#0019FF",
+    "#6BD853",
+    "#FFDD15",
+    "#F18922",
+    "#EC1C24"
+  ],
+  "data": {
+    "M33": {
+      "active": false,
+      "filters": [
+        {
+          "label": "U",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "I",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Z",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Y",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        }
+      ]
     },
-    "filters": [
-      {
-        "label": "U",
-        "color": "",
-        "active": false,
-        "image":"",
-        "isDisabled": false
-
-      },
-      {
-        "label": "G",
-        "color": "",
-        "active": false,
-        "image":"",
-        "isDisabled": false
-      },
-      {
-        "label": "R",
-        "color": "",
-        "active": false,
-        "image":"",
-        "isDisabled": false
-      },
-      {
-        "label": "I",
-        "color": "",
-        "active": false,
-        "image":"",
-        "isDisabled": false
-      },
-      {
-        "label": "Z",
-        "color": "",
-        "active": false,
-        "image":"",
-        "isDisabled": false
-      },
-      {
-        "label": "Y",
-        "color": "",
-        "active": false,
-        "image":"",
-        "isDisabled": false
-      }
-    ]
+    "M51": {
+      "active": false,
+      "filters": [
+        {
+          "label": "U",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "I",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Z",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Y",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        }
+      ]
+    },
+    "M63": {
+      "active": false,
+      "filters": [
+        {
+          "label": "U",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "I",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Z",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Y",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        }
+      ]
+    },
+    "M101": {
+      "active": false,
+      "filters": [
+        {
+          "label": "U",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "I",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "Z",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Y",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        }
+      ]
+    },
+    "NGC6946": {
+      "active": false,
+      "filters": [
+        {
+          "label": "U",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "I",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "Z",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "Y",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        }
+      ]
+    },
+    "NGC3718": {
+      "active": false,
+      "filters": [
+        {
+          "label": "U",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "I",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "Z",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Y",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        }
+      ]
+    },
+    "NGC6520": {
+      "active": false,
+      "filters": [
+        {
+          "label": "U",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "I",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "Z",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Y",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        }
+      ]
+    },
+    "B163": {
+      "active": false,
+      "filters": [
+        {
+          "label": "U",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "I",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "Z",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "Y",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        }
+      ]
+    },
+    "CG4": {
+      "active": false,
+      "filters": [
+        {
+          "label": "U",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "I",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": true,
+          "value": 50
+        },
+        {
+          "label": "Z",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        },
+        {
+          "label": "Y",
+          "color": "",
+          "active": false,
+          "image": "",
+          "isDisabled": false,
+          "value": 50
+        }
+      ]
+    }
   }
-  
+}

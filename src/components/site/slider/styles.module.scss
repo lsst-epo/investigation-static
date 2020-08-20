@@ -33,7 +33,8 @@
     @each $color in $sliderTrackFillColors {
       &.fill-color-#{$color} {
         .md-slider-thumb:not(.md-slider-thumb--disabled):not(.md-slider-thumb--mask-disabled),
-        .md-slider-track-fill {
+        .md-slider-track-fill,
+        .md-slider-discrete-tick {
           background: $color;
         }
       }

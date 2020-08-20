@@ -1,27 +1,31 @@
 {
   "colorOptions": ["Red", "Blue", "Green", "None"],
   "hexColors": ["#EC1C24", "#0019FF","#6BD853","#ffff"],
-  "filters": [
-    {
-      "label": "R",
-      "color": "",
-      "active": false,
-      "image": "red-filter.png",
-      "isDisabled": false
-    },
-    {
-      "label": "B",
-      "color": "",
-      "active": false,
-      "image": "blue-filter.png",
-      "isDisabled": false
-    },
-    {
-      "label": "G",
-      "color": "",
-      "active": false,
-      "image": "green-filter.png",
-      "isDisabled": false
+  "data": {
+    "color": {
+      "filters": [
+        {
+          "label": "R",
+          "color": "",
+          "active": false,
+          "image": "red-filter.png",
+          "isDisabled": false
+        },
+        {
+          "label": "B",
+          "color": "",
+          "active": false,
+          "image": "blue-filter.png",
+          "isDisabled": false
+        },
+        {
+          "label": "G",
+          "color": "",
+          "active": false,
+          "image": "green-filter.png",
+          "isDisabled": false
+        }
+      ]
     }
-  ]
+  }
 }

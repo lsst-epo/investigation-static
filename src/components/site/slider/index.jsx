@@ -5,7 +5,17 @@ import './styles.module.scss';
 
 class SliderCustom extends React.PureComponent {
   render() {
-    const { id, className, disabled, thumbStyle, onChange, style } = this.props;
+    const {
+      id,
+      className,
+      disabled,
+      thumbStyle,
+      onChange,
+      style,
+      discrete,
+      value,
+      defaultValue,
+    } = this.props;
     return (
       <Slider
         {...{
@@ -15,11 +25,18 @@ class SliderCustom extends React.PureComponent {
           thumbStyle,
           onChange,
           style,
+          discrete,
+          value,
+          defaultValue,
         }}
       />
     );
   }
 }
+
+SliderCustom.defaultProps = {
+  discrete: false,
+};
 
 SliderCustom.propTypes = {
   id: PropTypes.string,
@@ -28,6 +45,9 @@ SliderCustom.propTypes = {
   thumbStyle: PropTypes.object,
   onChange: PropTypes.func,
   style: PropTypes.object,
+  discrete: PropTypes.bool,
+  value: PropTypes.number,
+  defaultValue: PropTypes.number,
 };
 
 export default SliderCustom;

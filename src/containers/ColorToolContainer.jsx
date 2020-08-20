@@ -8,7 +8,7 @@ class ColorToolContainer extends React.PureComponent {
     super(props);
 
     this.state = {
-      data: null,
+      jsonData: null,
     };
   }
 
@@ -20,16 +20,20 @@ class ColorToolContainer extends React.PureComponent {
       const { data } = response;
       this.setState(prevState => ({
         ...prevState,
-        data,
+        jsonData: data,
       }));
     });
   }
 
   render() {
-    const { data } = this.state;
-    const { filters, colorOptions, hexColors } = data || {};
-
-    return data && <ColorTool {...{ filters, colorOptions, hexColors }} />;
+    const { jsonData } = this.state;
+    const { data, colorOptions, hexColors } = jsonData || {};
+    const selectorVal = 'color';
+    return (
+      jsonData && (
+        <ColorTool {...{ data, colorOptions, hexColors, selectorVal }} />
+      )
+    );
   }
 }
 
