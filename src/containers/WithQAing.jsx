@@ -25,6 +25,7 @@ export const WithQAing = ComposedComponent => {
         volume: this.getVolumeContent,
         mass: this.getMassContent,
         galaxy: this.getGalaxyContent,
+        coloringGalaxy: this.getColoringGalaxyContent,
         neo: this.getNeoContent,
         galaxies: this.getGalaxiesContent,
         supernova: this.getSupernovaContent,
@@ -137,6 +138,20 @@ export const WithQAing = ComposedComponent => {
         numOfGalaxies > 1 ? 'galaxies' : 'galaxy'
       }${numOfSupernovae && ' & '}${numOfSupernovae} ${
         numOfSupernovae > 1 ? 'supernovae' : 'supernova'
+      }`;
+    }
+
+    getColoringGalaxyContent(data) {
+      const selectedObjects = flattenDeep(
+        Object.keys(data).map(galaxyKey => {
+          return data[galaxyKey].map(obj => {
+            return obj.id;
+          });
+        })
+      );
+
+      return `${selectedObjects.length} ${
+        selectedObjects.length > 1 ? 'galaxies' : 'galaxy'
       }`;
     }
 
