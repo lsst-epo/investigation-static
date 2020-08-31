@@ -12,22 +12,41 @@
     "title": "How Filters Work",
     "link": "/how-filters-work/"
   },
+  "layout": "TwoCol",
   "images": [
     {
       "mediaPath": "/images/orange_filter.jpeg",
       "altText": "Orange Filter",
-      "figText": "Figure 3a: Orange Filter. Credit: P. Marenfeld (NOAO/AURA/NSF)."
+      "figText": "Figure 3a: Orange Filter. Credit: P. Marenfeld (NOAO/AURA/NSF).",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
     },
     {
       "mediaPath": "/images/bayer_filter.png",
       "altText": "Image sensor with filter arrangement",
       "figText": "Figure 3b: Diagram of an image sensor with filter arrangement. Credit: <a href='https://en.wikipedia.org/wiki/Bayer_filter' target='_blank'>https://en.wikipedia.org/wiki/Bayer_filter</a>",
       "layout": {
-        "col": "left",
+        "col": "right",
         "row": "bottom"
       }
     }
   ],
-  "layout": "TwoCol",
-  "content": "<p>Digital cameras cannot see color. They can only measure the amount of light that illuminates the <strong>image sensor</strong>.To build a color image, we use <strong>filters</strong>. A filter is designed to allow only certain wavelengths (or colors) of light to pass through it. All other wavelengths (or colors) are blocked. Figure 3a shows an example of how an orange filter <strong>transmits</strong> some wavelengths of light while blocking others.</p><p>There are filters like this inside a digital camera (e.g., the one on a mobile phone). Tiny red, green, and blue filters are placed over the pixels of the image sensor (as shown below in Figure 3b). When you take a picture, your camera measures light simultaneously through all three filters.</p>"
+  "contents": [
+    {
+      "content": "<p>Digital cameras cannot see color. They can only measure the amount of light that illuminates the <strong>image sensor</strong>.To build a color image, we use <strong>filters</strong>. A filter is designed to allow only certain wavelengths (or colors) of light to pass through it. All other wavelengths (or colors) are blocked. Figure 3a shows an example of how an orange filter <strong>transmits</strong> some wavelengths of light while blocking others.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "content": "<p>There are filters like this inside a digital camera (e.g., the one on a mobile phone). Tiny red, green, and blue filters are placed over the pixels of the image sensor (as shown below in Figure 3b). When you take a picture, your camera measures light simultaneously through all three filters.</p>",
+      "layout": {
+        "col": "right",
+        "row": "bottom"
+      }
+    }
+  ]
 }
