@@ -12,6 +12,6 @@
     "title": "Rubin Observatory LSST Camera Filters",
     "link": "/rubin-lsst-camera-filters/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "content": "<p>People often wonder if astronomical images show an object “as it really looks,” that is, as it would appear to their eyes. Note that telescopes not only magnify distant objects, they also collect much more light than your eyes. Most astronomical objects would be too faint for you to see, even if you were much closer to them than you are on Earth.</p><p>Furthermore, telescope images are often made by using light with wavelengths that your eyes can’t see. This invisible light is collected by passing it through a filter that transmits a specific range of wavelengths. For instance, an ultraviolet filter (u filter) transmits light with wavelengths that are “above violet” and too high in energy for our eyes to see. Likewise, infrared filters transmit light with wavelengths that are “below red” and too low in energy for our eyes to see. Astronomers use these extra filters because each type of light reveals different information about the Universe, so observing light over all these wavelengths allows us to learn more about objects in space. In a sense, telescopes give us superhuman vision. Indeed, that’s the reason we build them!</p>"
 }
