@@ -13,7 +13,7 @@
     "link": "/putting-it-all-together-1/"
   },
   "layout": "SingleCol",
-  "content": "<p>Now it’s your turn to answer a scientific question by creating a representative color image and explaining what it reveals.</p><p>Think about these points before you begin:</p><ul><li>What would you like to investigate? What question do you want to answer?<ul>Here are some options:<li>Look through a dusty nebula to see what’s inside</li><li>Search for a faraway galaxy</li><li>Locate the hot young stars in a galaxy</li><li>Identify star-forming regions in a galaxy</li></ul></li></ul>",
+  "content": "<p>Now it’s your turn to answer a scientific question by creating a representative color image and explaining what it reveals.</p><p>Think about these points before you begin:</p><ul><li>What would you like to investigate?</li><li>What question do you want to answer?</li></ul><br /><p>Here are some options:</p><ul><li>Look through a dusty nebula to see what’s inside</li><li>Search for a faraway galaxy</li><li>Locate the hot young stars in a galaxy</li><li>Identify star-forming regions in a galaxy</li></ul></li></ul>",
   "questionsByPage": [
     {
       "question": [

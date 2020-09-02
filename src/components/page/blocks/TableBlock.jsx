@@ -21,7 +21,11 @@ class TableBlock extends React.PureComponent {
   }
 
   render() {
-    const { block: table, blockShared: answers, row } = this.props;
+    const {
+      block: table,
+      blockShared: { answers },
+      row,
+    } = this.props;
 
     return (
       <div className={`${gridTable} ${this.gridClasses[row]}`}>

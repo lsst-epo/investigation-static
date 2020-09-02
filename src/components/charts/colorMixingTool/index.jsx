@@ -88,7 +88,7 @@ class ColorTool extends React.PureComponent {
   handleColorChange = (value, index, event, { id }) => {
     const { data, selectorVal } = this.state;
     const updatedFilters = data[selectorVal].filters.map(newFilter => {
-      if (newFilter.label === id) {
+      if (`${newFilter.label}-filter` === id) {
         newFilter.color = value === 'None' ? '' : value;
       }
       return newFilter;
@@ -271,7 +271,7 @@ class ColorTool extends React.PureComponent {
                   <Select
                     dropdownIcon={<ArrowDown />}
                     disabled={btn.isDisabled}
-                    id={btn.label}
+                    id={`${btn.label}-filter`}
                     placeholder="None"
                     value={btn.color}
                     menuItems={this.getColorBlocks()}
