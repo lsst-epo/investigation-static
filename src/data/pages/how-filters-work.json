@@ -43,7 +43,7 @@
           "compoundQuestion": ["2a", "2b"],
           "answerAccessor": "text",
           "title": "Question #1",
-          "labelPre": "Choose the red filter. What does the filter do to the red light?",
+          "labelPre": "<span>Choose the red filter.</span><br /><br /><span style='margin-left: 20px'>a. What does the filter do to the red light?</span>",
           "srLabel": "..."
         },
         {
@@ -52,7 +52,7 @@
           "compoundQuestion": ["2a", "2b"],
           "answerAccessor": "text",
           "title": "Question #1",
-          "labelPre": "What does it do to the other colors of light?",
+          "labelPre": "<br /><br /><span style='margin-left: 20px'>b. What does it do to the other colors of light?</span></span>",
           "srLabel": "..."
         }
       ]
@@ -65,7 +65,7 @@
           "compoundQuestion": ["3a", "3b"],
           "answerAccessor": "text",
           "title": "Question #1",
-          "labelPre": "Choose the blue filter. What does the filter do to the blue light?",
+          "labelPre": "<span>Choose the blue filter.</span><br/><br/><span style='margin-left: 20px;'>a. What does the filter do to the blue light?</span>",
           "srLabel": "..."
         },
         {
@@ -74,7 +74,7 @@
           "compoundQuestion": ["3a", "3b"],
           "answerAccessor": "text",
           "title": "Question #1",
-          "labelPre": "What does it do to the other colors of light?",
+          "labelPre": "<br/><br/><span style='margin-left: 20px;'>b. What does it do to the other colors of light?</span>",
           "srLabel": "..."
         }
       ]
