@@ -129,7 +129,7 @@ export const calculateCraterDepth = craterDiameter => {
 
 export const getMercalliIntensity = richterMagnitude => {
   const mercalliIntensity = [
-    { id: '0', range: [0, 1], description: 'No damage felt.' },
+    { id: '0', range: [0, 1], description: 'No seismic damage felt.' },
     {
       id: 'I',
       range: [1, 2],
@@ -263,6 +263,7 @@ export const getAirBlastDamage = airBlastOverPressure => {
       overPressure: 6900,
       buildings: 'Glass windows will shatter.',
     },
+    { overPressure: 0, buildings: 'No air blast damage felt.' },
   ];
   const filteredAirBlastDamage = airBlastDamage.filter(damage => {
     const { overPressure } = damage;
@@ -314,7 +315,7 @@ export const calculateAsteroidImpact = props => {
     richterMagnitude,
     richterMagnitudeAtObserverDistance,
     mercalliIntensity,
-    airBlastOverPressure,
+    overPressure: airBlastOverPressure,
     airBlastDamage,
   };
 };

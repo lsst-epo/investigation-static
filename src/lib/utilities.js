@@ -1,6 +1,7 @@
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
 import isNumber from 'lodash/isNumber';
+import isArray from 'lodash/isArray';
 import { extent as d3Extent, mean as d3Mean } from 'd3-array';
 import chartColors from '../assets/stylesheets/_variables.scss';
 
@@ -237,6 +238,16 @@ export const toSigFigs = (number, precision) => {
   return String(roundedValue);
 };
 
+const formatSeismicDescriptions = function(data) {
+  if (!isArray(data)) return '';
+  return data.map(d => d.description).toString();
+};
+
+const formatAirBlastDescriptions = function(data) {
+  if (!isArray(data)) return '';
+  return data.toString();
+};
+
 export const getValue = function(accessor, data) {
   return (
     {
@@ -268,6 +279,8 @@ export const getValue = function(accessor, data) {
       kineticEnergy: formatValue(data, 0),
       volume: toSigFigs(data, 4),
       overPressure: formatValue(data, 1),
+      mercalliIntensity: formatSeismicDescriptions(data),
+      airBlastDamage: formatAirBlastDescriptions(data),
     }[accessor] || data
   );
 };

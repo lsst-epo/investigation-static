@@ -15,7 +15,7 @@ import {
 import {
   findImpactCraterEquation,
   boldText,
-  seismicDamageText,
+  // seismicDamageText,
   craterDiameterStyle,
   craterDiameterAnswerStyle,
   craterDepthStyle,
@@ -29,9 +29,9 @@ export default function FindImpactCrater(props) {
     craterDiameter,
     craterDepth,
     richterMagnitudeAtObserverDistance,
-    mercalliIntensity,
-    airBlastOverPressure,
-    airBlastDamage,
+    // mercalliIntensity,
+    overPressure,
+    // airBlastDamage,
     observerDistance,
   } = props;
 
@@ -129,7 +129,7 @@ export default function FindImpactCrater(props) {
             </span>
             <span>{richterMagnitudeAtObserverDistance}</span>
           </p>
-          <p>
+          {/* <p>
             <span className={boldText}>Seismic damage:</span>
           </p>
           {mercalliIntensity &&
@@ -140,7 +140,7 @@ export default function FindImpactCrater(props) {
               >
                 {mi.description}
               </p>
-            ))}
+            ))} */}
         </div>
       )}
       {!!observerDistance && (
@@ -151,16 +151,16 @@ export default function FindImpactCrater(props) {
               Air Blast Over Pressure at {addTheCommas(observerDistance)}{' '}
               {<QACalculatorIconUnit unit="diameter" />}:{' '}
             </span>
-            {addTheCommas(formatValue(airBlastOverPressure, 1))}
+            {addTheCommas(formatValue(overPressure, 1))}
             <QACalculatorIconUnit unit="overPressure" />
           </p>
-          <p className={boldText}>Air Blast Over Pressure damage:</p>
+          {/* <p className={boldText}>Air Blast Over Pressure damage:</p>
           <ul>
             {airBlastDamage &&
               airBlastDamage.map((damage, index) => (
                 <li key={`damage-message-${index}`}>{damage}</li>
               ))}
-          </ul>
+          </ul> */}
         </div>
       )}
     </div>
@@ -174,8 +174,8 @@ FindImpactCrater.propTypes = {
   craterDiameter: PropTypes.number,
   craterDepth: PropTypes.number,
   richterMagnitudeAtObserverDistance: PropTypes.number,
-  mercalliIntensity: PropTypes.array,
-  airBlastOverPressure: PropTypes.number,
-  airBlastDamage: PropTypes.array,
+  // mercalliIntensity: PropTypes.array,
+  overPressure: PropTypes.number,
+  // airBlastDamage: PropTypes.array,
   observerDistance: PropTypes.number,
 };

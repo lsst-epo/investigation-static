@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isNumber from 'lodash/isNumber';
 import { getValue, addTheCommas } from '../../../lib/utilities.js';
 import Unit from './unit/index.jsx';
 
 class StellarValue extends React.PureComponent {
   render() {
     const { type, value, isSvg } = this.props;
-    const tempValue = getValue(type, value);
-    const preformattedValue = isNaN(tempValue) ? value : tempValue; // eslint-disable-line no-restricted-globals
-    const formattedValue = addTheCommas(preformattedValue);
+    const preformatted = getValue(type, value);
+    const formatted = isNumber(preformatted)
+      ? addTheCommas(preformatted)
+      : preformatted;
 
     return (
       <>
-        {!isSvg && <span>{formattedValue}</span>}
-        {isSvg && <tspan>{formattedValue}</tspan>}
-        {/* eslint-disable no-restricted-globals */}
-        {!isNaN(preformattedValue) && <Unit type={type} isSvg={isSvg} />}
-        {/* eslint-enable no-restricted-globals */}
+        {!isSvg && <span>{formatted}</span>}
+        {isSvg && <tspan>{formatted}</tspan>}
+        {isNumber(preformatted) && <Unit type={type} isSvg={isSvg} />}
       </>
     );
   }
