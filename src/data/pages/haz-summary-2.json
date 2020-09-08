@@ -26,7 +26,7 @@
         [
           { "accessor": "diameter", "id": "48" },
           { "accessor": "volume", "id": "50" },
-          { "accessor": "density", "id": "51" }
+          { "content": "2500 kg/m^3" }
         ]
       ]
     },
@@ -36,20 +36,55 @@
         "col": "right",
         "row": "top"
       },
+      "title": "Impact Collision Properties",
       "colTitles": [
-        "Kinetic Energy",
         "Crater Diameter",
-        "Crater Depth",
-        "Area of Destruction",
-        "Minimum Safe Distance"
+        "Crater Depth"
       ],
       "rows": [
         [
-          { "accessor": "kineticEnergy", "id": "52" },
           { "accessor": "craterDiameter", "id": "53" },
-          { "accessor": "craterDepth", "id": "53" },
-          { "accessor": "destruction", "id": "53" },
-          { "accessor": "minimum-safe", "id": "53" }
+          { "accessor": "craterDepth", "id": "53" }
+        ]
+      ]
+    },
+    {
+      "id": "7",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "title": "Seismic Damage",
+      "colTitles": [
+        "Distance from Impact",
+        "Richter Magnitude",
+        "Description"
+      ],
+      "rows": [
+        [
+          { "accessor": "observerDistance", "id": "53" },
+          { "accessor": "richterMagnitudeAtObserverDistance", "id": "53" },
+          { "accessor": "mercalliIntensity", "id": "53" }
+        ]
+      ]
+    },
+    {
+      "id": "8",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "title": "Air Blast Damage",
+      "colTitles": [
+        "Distance from Impact",
+        "Overpressure",
+        "Description"
+      ],
+      "rows": [
+        [
+          { "accessor": "observerDistance", "id": "53" },
+          { "accessor": "overPressure", "id": "53" },
+          { "accessor": "airBlastDamage", "id": "53" }
         ]
       ]
     }
