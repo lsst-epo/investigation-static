@@ -31,6 +31,7 @@ export const WithQAing = ComposedComponent => {
         galaxies: this.getGalaxiesContent,
         supernova: this.getSupernovaContent,
         hubblePlot: this.getHubblePlotContent,
+        observation: this.getObservationContent,
       };
     }
 
@@ -206,6 +207,10 @@ export const WithQAing = ComposedComponent => {
 
     getNeoContent(data) {
       return data.name;
+    }
+
+    getObservationContent(data) {
+      return data.label;
     }
 
     getContent(answerAccessor, data) {

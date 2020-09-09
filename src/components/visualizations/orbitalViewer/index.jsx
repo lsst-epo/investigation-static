@@ -14,11 +14,13 @@ import { container, orbitalCanvas } from './orbital-viewer.module.scss';
 function OrbitalViewer({
   neos,
   activeNeo,
-  updateActiveNeo,
+  activeObs,
+  selectionCallback,
   paused,
   pov,
   defaultZoom,
   potentialOrbits,
+  observations,
 }) {
   const speeds = [0.00001157, 1.1574, 11.574, 30, 365.25]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
 
@@ -74,18 +76,20 @@ function OrbitalViewer({
           />
           <ambientLight intensity={0.9} />
           <Orbitals
-            potentialOrbits={potentialOrbits}
             includeRefObjs
-            selectionCallback={updateActiveNeo}
             activeVelocityCallback={setActiveVelocity}
             {...{
               defaultZoom,
               neos,
               activeNeo,
+              activeObs,
               playing,
               stepDirection,
               dayPerVizSec,
               frameOverride,
+              potentialOrbits,
+              observations,
+              selectionCallback,
             }}
           />
           <mesh position={[0, 0, 0]}>
@@ -118,11 +122,13 @@ OrbitalViewer.defaultProps = {
 OrbitalViewer.propTypes = {
   neos: PropTypes.array,
   activeNeo: PropTypes.object,
-  updateActiveNeo: PropTypes.func,
+  activeObs: PropTypes.object,
+  selectionCallback: PropTypes.func,
   paused: PropTypes.bool,
   pov: PropTypes.string,
   defaultZoom: PropTypes.number,
   potentialOrbits: PropTypes.bool,
+  observations: PropTypes.array,
 };
 
 export default OrbitalViewer;

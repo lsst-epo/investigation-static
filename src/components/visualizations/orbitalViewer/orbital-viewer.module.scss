@@ -86,6 +86,27 @@
   color: $white;
 }
 
+.obs-mesh {
+  cursor: pointer;
+}
+
+.obs-label {
+  padding-top: 8px;
+  font-size: 16px;
+  color: $white;
+  cursor: pointer;
+
+  &.obs-answer, &.obs-hover {
+    font-size: 18px;
+    color: 'blue';
+  }
+
+  &.obs-active {
+    font-size: 18px;
+    color: 'red';
+  }
+}
+
 .details {
   position: absolute;
   top: 0;

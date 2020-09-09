@@ -121,3 +121,17 @@ export const getRadius = magnitude => {
 
   return adjustedRadius;
 };
+
+export const convert2dTo3d = (vector2D, orbitData) => {
+  const { i, Peri: peri, Node: ascendingNode } = orbitData;
+  const yAxisOfRotation = new THREE.Vector3(0, 1, 0);
+  const zAxisOfRotation = new THREE.Vector3(0, 0, 1);
+
+  return new THREE.Vector3(vector2D.x, vector2D.y, 0)
+    .applyAxisAngle(zAxisOfRotation, peri ? degsToRads(peri + 90) : 0)
+    .applyAxisAngle(yAxisOfRotation, degsToRads(i))
+    .applyAxisAngle(
+      zAxisOfRotation,
+      ascendingNode ? degsToRads(ascendingNode) : 0
+    );
+};
