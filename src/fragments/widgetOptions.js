@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 
-export const nestedWidgetOptionsFragemnt = graphql`
+export const nestedWidgetOptionsFragment = graphql`
   fragment NestedWidgetOptions on PagesJsonWidgetsWidgetsOptions {
     title
     domain
@@ -13,7 +13,7 @@ export const nestedWidgetOptionsFragemnt = graphql`
   }
 `;
 
-export const widgetOptionsFragemnt = graphql`
+export const widgetOptionsFragment = graphql`
   fragment WidgetOptions on PagesJsonWidgetsOptions {
     title
     showSelector
@@ -48,5 +48,12 @@ export const widgetOptionsFragemnt = graphql`
     galaxyImg
     questionId
     potentialOrbits
+    observations {
+      id
+      label
+      interactable
+      isActive
+      position
+    }
   }
 `;

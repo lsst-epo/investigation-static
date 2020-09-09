@@ -10,7 +10,7 @@ export const nestedWidgetFragment = graphql`
   }
 `;
 
-export const widgetFragemnt = graphql`
+export const widgetFragment = graphql`
   fragment Widget on PagesJsonWidgets {
     type
     source

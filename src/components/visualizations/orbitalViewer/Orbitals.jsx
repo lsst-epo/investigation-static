@@ -8,6 +8,7 @@ import { earth, jupiter, neptune } from './orbitalUtilities.js';
 function Orbitals({
   neos,
   activeNeo,
+  activeObs,
   selectionCallback,
   activeVelocityCallback,
   playing,
@@ -17,6 +18,7 @@ function Orbitals({
   includeRefObjs,
   defaultZoom,
   potentialOrbits,
+  observations,
 }) {
   function reducer(state) {
     const { remainingInits } = state;
@@ -84,6 +86,8 @@ function Orbitals({
             frameOverride,
             selectionCallback,
             activeVelocityCallback,
+            observations,
+            activeObs,
           }}
           initCallback={dispatch}
         />
@@ -119,6 +123,7 @@ function Orbitals({
 Orbitals.propTypes = {
   neos: PropTypes.array,
   activeNeo: PropTypes.object,
+  activeObs: PropTypes.object,
   selectionCallback: PropTypes.func,
   playing: PropTypes.bool,
   dayPerVizSec: PropTypes.number,
@@ -128,6 +133,7 @@ Orbitals.propTypes = {
   activeVelocityCallback: PropTypes.func,
   defaultZoom: PropTypes.number,
   potentialOrbits: PropTypes.bool,
+  observations: PropTypes.array,
 };
 
 export default Orbitals;

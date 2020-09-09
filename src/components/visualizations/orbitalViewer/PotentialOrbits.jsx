@@ -1,29 +1,21 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
+import Observations from './Observations.jsx';
 import {
   getMinorAxis,
   auToUnit,
-  degsToRads,
   getFocus,
   getCurve,
+  convert2dTo3d,
 } from './orbitalUtilities.js';
 
-const PotentialOrbits = ({ data }) => {
-  function convert2dTo3d(vector2D, orbitData) {
-    const { i, Peri: peri, Node: ascendingNode } = orbitData;
-    const yAxisOfRotation = new THREE.Vector3(0, 1, 0);
-    const zAxisOfRotation = new THREE.Vector3(0, 0, 1);
-
-    return new THREE.Vector3(vector2D.x, vector2D.y, 0)
-      .applyAxisAngle(zAxisOfRotation, peri ? degsToRads(peri + 90) : 0)
-      .applyAxisAngle(yAxisOfRotation, degsToRads(i))
-      .applyAxisAngle(
-        zAxisOfRotation,
-        ascendingNode ? degsToRads(ascendingNode) : 0
-      );
-  }
-
+const PotentialOrbits = ({
+  data,
+  observations,
+  activeObs,
+  selectionCallback,
+}) => {
   function getCurveVectors(majAxis, minAxis, orbitData) {
     const focus = getFocus(majAxis, minAxis);
     const offsetCenter = new THREE.Vector3(focus, 0, 0);
@@ -79,14 +71,24 @@ const PotentialOrbits = ({ data }) => {
   });
 
   return (
-    <lineSegments position={[0, 0, 0]} geometry={potentialsGeometry}>
-      <lineBasicMaterial attach="material" color="pink" />
-    </lineSegments>
+    <>
+      <lineSegments position={[0, 0, 0]} geometry={potentialsGeometry}>
+        <lineBasicMaterial attach="material" color="pink" />
+      </lineSegments>
+      {observations && (
+        <Observations
+          {...{ data, observations, selectionCallback, activeObs }}
+        />
+      )}
+    </>
   );
 };
 
 PotentialOrbits.propTypes = {
   data: PropTypes.array,
+  observations: PropTypes.array,
+  selectionCallback: PropTypes.func,
+  activeObs: PropTypes.object,
 };
 
 export default PotentialOrbits;

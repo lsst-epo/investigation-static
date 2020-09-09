@@ -203,7 +203,10 @@ const Orbital = ({
           />
         </line>
         {/* Orbital Object */}
-        <mesh position={point.position} onClick={() => selectionCallback(data)}>
+        <mesh
+          position={point.position}
+          onClick={() => selectionCallback(data, 'neo')}
+        >
           <HTML>
             <div
               className={label}

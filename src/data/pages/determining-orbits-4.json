@@ -20,7 +20,13 @@
       "source": "/data/neos/test1_orb_1-20.json",
       "options": {
         "defaultZoom": 0.5,
-        "potentialOrbits": true
+        "potentialOrbits": true,
+        "questionId": "17",
+        "observations":[
+          {"id": "obs-1", "label": "A","interactable": true, "isActive": false, "position": 0.25},
+          {"id": "obs-2", "label": "B","interactable": true, "isActive": true, "position": 0.35},
+          {"id": "obs-3", "label": "C","interactable": true, "isActive": false, "position": 0.5}
+        ]
       }
     }
   ],
@@ -44,8 +50,8 @@
           "tool": "selection",
           "title": "Question #1",
           "label": "<p>Try clicking on locations (A, B, C, D) until you successfully observe the asteroid.</p>",
-          "answerPre": "<span>Selected Asteroid: </span>",
-          "answerAccessor": "orbit"
+          "answerPre": "<span>Selected Observation: </span>",
+          "answerAccessor": "observation"
         }
       ]
     },
