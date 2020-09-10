@@ -40,23 +40,15 @@
           "id": "7",
           "questionType": "select",
           "answerAccessor": "data",
-          "title": "Question #1",
-          "label": "Which filter transmits the longest wavelengths of light and what form of light is it?",
           "options": [
-            {
-              "label": "infrared",
-              "value": "infrared"
-            },
-            {
-              "label": "visible",
-              "value": "visible"
-            },
-            {
-              "label": "ultraviolet",
-              "value": "ultraviolet"
-            }
+            { "label": "infared", "value": "infared" },
+            { "label": "visible", "value": "visible" },
+            { "label": "ultraviolet", "value": "violet" }
           ],
-          "placeholder": "(infrared/visible/ultraviolet)"
+          "title": "Question #1",
+          "labelPre": "Which filter transmits the longest wavelengths of light and what form of light is it ",
+          "labelPost": "?",
+          "placeholder": "(infrared, visible or ultraviolet)"
         }
       ]
     },
@@ -66,23 +58,15 @@
           "id": "8",
           "questionType": "select",
           "answerAccessor": "data",
-          "title": "Question #1",
-          "label": "Which filter transmits the shortest wavelengths of light and what form of light is it?",
           "options": [
-            {
-              "label": "infrared",
-              "value": "infrared"
-            },
-            {
-              "label": "visible",
-              "value": "visible"
-            },
-            {
-              "label": "ultraviolet",
-              "value": "ultraviolet"
-            }
+            { "label": "infared", "value": "infared" },
+            { "label": "visible", "value": "visible" },
+            { "label": "ultraviolet", "value": "violet" }
           ],
-          "placeholder": "(infrared/visible/ultraviolet)"
+          "title": "Question #1",
+          "labelPre": "Which filter transmits the shortest wavelengths of light and what form of light is it ",
+          "labelPost": "?",
+          "placeholder": "(infrared, visible or ultraviolet)"
         }
       ]
     },

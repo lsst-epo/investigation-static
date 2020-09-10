@@ -24,6 +24,7 @@ class AstroToolContainer extends React.PureComponent {
     const galaxy = this.findActiveGalaxy(galaxies, answer);
     API.get(source).then(response => {
       const { data } = response;
+
       this.setState(prevState => ({
         ...prevState,
         jsonData: data,

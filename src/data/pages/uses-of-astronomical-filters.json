@@ -80,7 +80,7 @@
       "question": [
         {
           "id": "14",
-          "questionType": "text",
+          "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "If only infrared filters are used (like the i, z, and y filters), would you be able to determine which stars are the ones hidden by the cloud of gas and dust? Explain your reasoning."
