@@ -17,7 +17,7 @@ export const units = {
   craterDepth: ' km',
   kineticEnergy: ' J',
   volume: ' m^3',
-  density: 'kg/m^3',
+  density: ' kg/m^3',
   overPressure: ' Pa',
 };
 

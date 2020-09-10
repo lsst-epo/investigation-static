@@ -44,7 +44,7 @@ export default function FindImpactCrater(props) {
         <span> ( </span>
         <span className={fraction}>
           <span className={`numerator ${color}`}>
-            {!density ? 'p' : addTheCommas(density)}
+            {!density ? <span>&#x1D780;</span> : addTheCommas(density)}
             {density && (
               <QACalculatorIconUnit className={color} tiny unit="density" />
             )}
