@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addTheCommas, formatValue } from '../../../../../lib/utilities.js';
+import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
 import { QACalculatorIconUnit } from '../qQaCalculatorIcons.jsx';
 import {
   color,
@@ -37,7 +37,7 @@ export default function FindKineticEnergy(props) {
       </span>
       <span>= </span>
       <span className={color}>
-        {kineticEnergy ? `${addTheCommas(formatValue(kineticEnergy, 2))}` : '?'}
+        {kineticEnergy ? addTheCommas(toSigFigs(+kineticEnergy, 3)) : '?'}
         <QACalculatorIconUnit className={color} unit="kineticEnergy" />
       </span>
     </p>
@@ -45,7 +45,7 @@ export default function FindKineticEnergy(props) {
 }
 
 FindKineticEnergy.propTypes = {
-  kineticEnergy: PropTypes.number,
-  mass: PropTypes.number,
-  velocity: PropTypes.number,
+  kineticEnergy: PropTypes.string,
+  mass: PropTypes.string,
+  velocity: PropTypes.string,
 };

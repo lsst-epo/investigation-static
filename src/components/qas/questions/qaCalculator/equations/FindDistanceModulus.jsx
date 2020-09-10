@@ -16,5 +16,5 @@ export default function FindDistanceModulus(props) {
 }
 
 FindDistanceModulus.propTypes = {
-  variable: PropTypes.number,
+  variable: PropTypes.string,
 };

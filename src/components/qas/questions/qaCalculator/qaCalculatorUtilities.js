@@ -3,23 +3,23 @@ import find from 'lodash/find';
 import { formatValue } from '../../../../lib/utilities.js';
 
 export const solveForDistanceModulus = m => {
-  return m ? formatValue(m + 19.4, 2) : null;
+  return m ? +m + 19.4 : null;
 };
 
 export const solveForParsecs = dm => {
-  return dm ? formatValue(10 ** ((dm + 5) / 5), 2) : null;
+  return dm ? 10 ** ((+dm + 5) / 5) : null;
 };
 
 export const solveForMegaParsecs = parsecs => {
-  return parsecs ? formatValue(parsecs / 10 ** 6, 2) : null;
+  return parsecs ? +parsecs / 10 ** 6 : null;
 };
 
 export const solveForLightYears = parsecs => {
-  return parsecs ? formatValue(parsecs * 3.26156, 2) : null;
+  return parsecs ? +parsecs * 3.26156 : null;
 };
 
 export const solveForMegaLightYears = lightYears => {
-  return lightYears ? formatValue(lightYears / 999315.5373, 2) : null;
+  return lightYears ? +lightYears / 999315.5373 : null;
 };
 
 export const getCalculatedMeasurementsForDistance = value => {
@@ -41,41 +41,52 @@ export const getCalculatedMeasurementsForDistance = value => {
 };
 
 export const calculateDiameter = ({ magnitude, albedo }) => {
-  if (albedo === null || magnitude === null) return null;
-  const answer = (1329 / Math.sqrt(albedo)) * 10 ** (-0.2 * magnitude);
+  if (!albedo || !magnitude) return null;
+  const answer = (1329 / Math.sqrt(+albedo)) * 10 ** (-0.2 * +magnitude);
   return formatValue(answer, 3);
 };
 
-export const calculateVolume = ({ radius }) => (4 / 3) * Math.PI * radius ** 3;
+export const calculateVolume = ({ radius }) => {
+  if (!radius) return null;
+  return (4 / 3) * Math.PI * (+radius) ** 3;
+};
 
-export const calculateKineticEnergy = ({ mass, velocity }) =>
-  0.5 * mass * velocity ** 2;
+export const calculateKineticEnergy = ({ mass, velocity }) => {
+  if (!mass || !velocity) return null;
+  return (0.5 * +mass * (+velocity) ** 2).toString(10);
+};
 
-export const calculateMass = ({ density, volume }) => density * volume;
-
-export const calculateDestruction = () => {};
-
-export const calculateMinimumSafe = () => {};
+export const calculateMass = ({ density, volume }) => {
+  if (!density || !volume) return null;
+  return +density * +volume;
+};
 
 export const calculateSeismicDamage = (asteroidDiameter, density, velocity) => {
+  if (!asteroidDiameter || !density || !velocity) return null;
+
   return (
     (Math.PI *
-      density *
-      (asteroidDiameter * 1000) ** 3 *
-      (velocity * 1000) ** 2) /
+      +density *
+      (+asteroidDiameter * 1000) ** 3 *
+      (+velocity * 1000) ** 2) /
     12
   );
 };
 
 export const calculateRichterMagnitude = eImpact => {
-  if (eImpact === (null || 0)) return null;
-  const richterMagnitude = 0.67 * Math.log10(eImpact) - 5.87;
+  if (!eImpact) return null;
+  if (+eImpact <= 0) return null;
+
+  const richterMagnitude = 0.67 * Math.log10(+eImpact) - 5.87;
   return richterMagnitude;
 };
 
 export const calculateAirBlast = (observerDistance, eImpact) => {
-  const observerDistanceInMeters = observerDistance * 1000;
-  const eImpactInKilotons = (eImpact * 1) / (4.184 * 10 ** 12);
+  if (!observerDistance || !eImpact) return null;
+  if (+observerDistance <= 0 || +eImpact <= 0) return null;
+
+  const observerDistanceInMeters = +observerDistance * 1000;
+  const eImpactInKilotons = (+eImpact * 1) / (4.184 * 10 ** 12);
   const modifiedUserDistance =
     observerDistanceInMeters / eImpactInKilotons ** (1 / 3);
   const airBlastOverPressure =
@@ -89,16 +100,20 @@ export const getRichterMagnitudeAt = (
   richterMagnitude,
   { observerDistance }
 ) => {
+  if (!richterMagnitude || !observerDistance) return null;
   const re = 6371; // Earth's radius in km
   let rm = null;
 
-  if (observerDistance < 60) {
-    rm = formatValue(richterMagnitude - 0.0238 * observerDistance, 1);
+  if (+observerDistance < 60) {
+    rm = formatValue(+richterMagnitude - 0.0238 * +observerDistance, 1);
   } else if (observerDistance >= 60 && observerDistance < 700) {
-    rm = formatValue(richterMagnitude - 0.0048 * observerDistance - 1.1644, 1);
+    rm = formatValue(
+      +richterMagnitude - 0.0048 * +observerDistance - 1.1644,
+      1
+    );
   } else {
     rm = formatValue(
-      richterMagnitude - 1.66 * Math.log10(observerDistance / re) - 6.399,
+      +richterMagnitude - 1.66 * Math.log10(+observerDistance / re) - 6.399,
       1
     );
   }
@@ -111,11 +126,13 @@ export const calculateCraterDiameter = (
   density,
   velocity
 ) => {
+  if (!asteroidDiameter || !density || !velocity) return null;
+
   const Dtc =
     1.161 *
-    (density / 2500) ** (1 / 3) *
-    (asteroidDiameter * 1000) ** 0.78 *
-    (velocity * 1000) ** 0.44 *
+    (+density / 2500) ** (1 / 3) *
+    (+asteroidDiameter * 1000) ** 0.78 *
+    (+velocity * 1000) ** 0.44 *
     9.8 ** -0.22 *
     Math.sin(Math.PI / 4) ** (1 / 3);
 
@@ -124,10 +141,12 @@ export const calculateCraterDiameter = (
 
 export const calculateCraterDepth = craterDiameter => {
   if (!craterDiameter) return null;
-  return craterDiameter / (2 * Math.sqrt(2));
+  return +craterDiameter / (2 * Math.sqrt(2));
 };
 
 export const getMercalliIntensity = richterMagnitude => {
+  if (!richterMagnitude) return null;
+
   const mercalliIntensity = [
     { id: '0', range: [0, 1], description: 'No seismic damage felt.' },
     {
@@ -205,11 +224,13 @@ export const getMercalliIntensity = richterMagnitude => {
   ];
 
   return mercalliIntensity.filter(mi =>
-    inRange(richterMagnitude, mi.range[0], mi.range[1])
+    inRange(+richterMagnitude, mi.range[0], mi.range[1])
   );
 };
 
 export const getAirBlastDamage = airBlastOverPressure => {
+  if (!airBlastOverPressure) return null;
+
   const airBlastDamage = [
     {
       overPressure: 426000,
@@ -267,7 +288,7 @@ export const getAirBlastDamage = airBlastOverPressure => {
   ];
   const filteredAirBlastDamage = airBlastDamage.filter(damage => {
     const { overPressure } = damage;
-    return overPressure <= airBlastOverPressure;
+    return overPressure <= +airBlastOverPressure;
   });
 
   const vehicles = find(filteredAirBlastDamage, 'vehicles');
@@ -303,11 +324,8 @@ export const calculateAsteroidImpact = props => {
   const mercalliIntensity = getMercalliIntensity(
     richterMagnitudeAtObserverDistance
   );
-  const airBlastOverPressure = calculateAirBlast(
-    observerDistance,
-    seismicDamage
-  );
-  const airBlastDamage = getAirBlastDamage(airBlastOverPressure);
+  const overPressure = calculateAirBlast(observerDistance, seismicDamage);
+  const airBlastDamage = getAirBlastDamage(overPressure);
   return {
     ...props,
     craterDiameter,
@@ -315,7 +333,7 @@ export const calculateAsteroidImpact = props => {
     richterMagnitude,
     richterMagnitudeAtObserverDistance,
     mercalliIntensity,
-    overPressure: airBlastOverPressure,
+    overPressure,
     airBlastDamage,
   };
 };
