@@ -3,7 +3,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { addTheCommas, formatValue } from '../../../../../lib/utilities.js';
+import {
+  addTheCommas,
+  formatValue,
+  toSigFigs,
+} from '../../../../../lib/utilities.js';
 import { QACalculatorIcon, QACalculatorIconUnit } from '../qQaCalculatorIcons';
 import {
   color,
@@ -87,7 +91,7 @@ export default function FindImpactCrater(props) {
       <p className={craterDiameterAnswerStyle}>
         <QACalculatorIcon content="D<sub>tc</sub> = " />
         <span className={boldText}>
-          {craterDiameter ? addTheCommas(formatValue(craterDiameter, 3)) : '?'}
+          {craterDiameter ? addTheCommas(toSigFigs(craterDiameter, 3)) : '?'}
           <QACalculatorIconUnit unit="craterDiameter" />
         </span>
       </p>
@@ -99,7 +103,7 @@ export default function FindImpactCrater(props) {
             <span className={fraction}>
               <span className={`numerator ${color}`}>
                 {craterDiameter ? (
-                  addTheCommas(formatValue(craterDiameter, 3))
+                  addTheCommas(toSigFigs(craterDiameter, 3))
                 ) : (
                   <QACalculatorIcon content="D<sub>tc</sub> = " />
                 )}
@@ -113,7 +117,7 @@ export default function FindImpactCrater(props) {
             </span>
             <span> = </span>
             <span>
-              {craterDepth ? addTheCommas(formatValue(craterDepth, 3)) : '?'}
+              {craterDepth ? addTheCommas(toSigFigs(craterDepth, 3)) : '?'}
               <QACalculatorIconUnit tiny unit="craterDiameter" />
             </span>
           </p>
@@ -127,7 +131,9 @@ export default function FindImpactCrater(props) {
               Richter Magnitude at {addTheCommas(observerDistance)}{' '}
               {<QACalculatorIconUnit unit="diameter" />} from impact:{' '}
             </span>
-            <span>{richterMagnitudeAtObserverDistance}</span>
+            <span>
+              {addTheCommas(toSigFigs(richterMagnitudeAtObserverDistance))}
+            </span>
           </p>
           {/* <p>
             <span className={boldText}>Seismic damage:</span>
@@ -151,7 +157,7 @@ export default function FindImpactCrater(props) {
               Air Blast Over Pressure at {addTheCommas(observerDistance)}{' '}
               {<QACalculatorIconUnit unit="diameter" />}:{' '}
             </span>
-            {addTheCommas(formatValue(overPressure, 1))}
+            {addTheCommas(toSigFigs(overPressure, 3))}
             <QACalculatorIconUnit unit="overPressure" />
           </p>
           {/* <p className={boldText}>Air Blast Over Pressure damage:</p>

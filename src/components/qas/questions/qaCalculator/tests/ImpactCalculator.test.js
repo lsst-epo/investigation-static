@@ -54,14 +54,14 @@ test("ImpactCalculator diameter input = 1, density input = 3000, velocity input 
     expect(input2.value).toBe('3000');
     expect(input3.value).toBe('17');
     expect(input4.value).toBe('200');
-    expect(equationImpact).toHaveTextContent('10.577 km');
+    expect(equationImpact).toHaveTextContent('10.6 km');
     expect(equationImpact).toHaveTextContent('3.74 km');
     expect(equationImpact).toHaveTextContent(
       'Richter Magnitude at 200 km from impact: 5.6'
     );
     // expect(equationImpact).toHaveTextContent('Damage negligible');
     expect(equationImpact).toHaveTextContent(
-      'Air Blast Over Pressure at 200 km: 24,449.1 Pa'
+      'Air Blast Over Pressure at 200 km: 24,400 Pa'
     );
     // expect(equationImpact).toHaveTextContent(
     //   'Interior partitions of wood frame'
