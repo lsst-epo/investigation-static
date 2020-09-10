@@ -113,7 +113,7 @@ export const ImpactCalculator = {
     },
     {
       containerWidth: col50,
-      leftIcon: <QACalculatorIcon content="p =" />,
+      leftIcon: <QACalculatorIcon content="<span>&#x1D780;</span> =" />,
       rightIcon: <QACalculatorIconUnit unit="density" />,
       label: 'Asteroid Density',
       placeholder: 'density',
