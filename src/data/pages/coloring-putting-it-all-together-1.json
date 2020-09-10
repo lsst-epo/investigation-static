@@ -29,6 +29,36 @@
     {
       "question": [
         {
+          "id": "34",
+          "questionType": "select",
+          "answerAccessor": "data",
+          "title": "Question #1",
+          "label": "Which type of object(s) you selected to explore?",
+          "options": [
+            {
+              "label": "Look through a dusty nebula to see what's inside",
+              "value": "dusty nebula"
+            },
+            {
+              "label": "Search for a far away galaxy",
+              "value": "far away galaxy"
+            },
+            {
+              "label": "Locate the young stars in a galaxy",
+              "value": "young stars"
+            },
+            {
+              "label": "Identify star-forming regions in a galaxy",
+              "value": "star-forming regions"
+            }
+          ],
+          "placeholder": "Select one"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
           "id": "38",
           "questionType": "text",
           "answerAccessor": "text",

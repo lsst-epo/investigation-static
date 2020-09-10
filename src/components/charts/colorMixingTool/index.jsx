@@ -120,13 +120,15 @@ class ColorTool extends React.PureComponent {
 
   handleBrightness(value, label) {
     const { data: oldData, selectorVal: oldSelectorVal } = this.state;
-    const updatedFilters = oldData[oldSelectorVal].filters.map(newFilter => {
-      if (newFilter.label === label) {
-        newFilter.brightness = 0.8 * (value / 100) + 0.7;
-        newFilter.value = value;
+    const updatedFilters = oldData[oldSelectorVal].filters.map(
+      (newFilter, i) => {
+        if (newFilter.label === label) {
+          newFilter.brightness = this.convertToValue(value, i);
+          newFilter.value = value;
+        }
+        return newFilter;
       }
-      return newFilter;
-    });
+    );
 
     this.updateAnswers(updatedFilters);
   }
@@ -233,6 +235,22 @@ class ColorTool extends React.PureComponent {
         value: color,
       };
     });
+  }
+
+  convertToValue(value, index) {
+    const { data, selectorVal } = this.state;
+    const galaxy = data[selectorVal].filters[index];
+    const s = galaxy.max - galaxy.min;
+    const retVal = s * (value / 100) + galaxy.min;
+    return retVal;
+  }
+
+  convertToPercent(value, index) {
+    const { data, selectorVal } = this.state;
+    const galaxy = data[selectorVal].filters[index];
+    const s = galaxy.max - galaxy.min;
+    const retVal = ((value - galaxy.min) / s) * 100;
+    return retVal;
   }
 
   render() {

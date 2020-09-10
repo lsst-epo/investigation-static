@@ -28,7 +28,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 20
+          "value": 1.92,
+          "min": 1.5,
+          "max": 4
         },
         {
           "label": "G",
@@ -36,7 +38,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 100
+          "value": 1.08,
+          "min": 0.5,
+          "max": 2.5
         },
         {
           "label": "R",
@@ -44,7 +48,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 100
+          "value": 1.45,
+          "min": 1,
+          "max": 3
         },
         {
           "label": "I",
@@ -52,7 +58,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 0.52,
+          "min": 0.5,
+          "max": 1.5
         },
         {
           "label": "Z",
@@ -60,7 +68,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 10
+          "value": 0.375,
+          "min": 0.4,
+          "max": 1.6
         },
         {
           "label": "Y",
@@ -68,7 +78,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 40
+          "value": 1.25,
+          "min": 1,
+          "max": 3.5
         }
       ]
     },
@@ -81,7 +93,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 1.92,
+          "min": 1.5,
+          "max": 4
         },
         {
           "label": "G",
@@ -97,7 +111,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.45,
+          "min": 1,
+          "max": 3
         },
         {
           "label": "I",
@@ -105,7 +121,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 0.52,
+          "min": 0.5,
+          "max": 1.5
         },
         {
           "label": "Z",
@@ -113,7 +131,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 0.375,
+          "min": 0.4,
+          "max": 1.6
         },
         {
           "label": "Y",
@@ -121,7 +141,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.25,
+          "min": 1,
+          "max": 3.5
         }
       ]
     },
@@ -134,7 +156,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.92,
+          "min": 1.5,
+          "max": 4
         },
         {
           "label": "G",
@@ -142,7 +166,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.08,
+          "min": 0.5,
+          "max": 2.5
         },
         {
           "label": "R",
@@ -150,7 +176,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.45,
+          "min": 1,
+          "max": 3
         },
         {
           "label": "I",
@@ -158,7 +186,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 0.52,
+          "min": 0.5,
+          "max": 1.5
         },
         {
           "label": "Z",
@@ -166,7 +196,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 0.375,
+          "min": 0.4,
+          "max": 1.6
         },
         {
           "label": "Y",
@@ -174,7 +206,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.25,
+          "min": 1,
+          "max": 3.5
         }
       ]
     },
@@ -187,7 +221,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.92,
+          "min": 1.5,
+          "max": 4
         },
         {
           "label": "G",
@@ -203,7 +239,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.45,
+          "min": 1,
+          "max": 3
         },
         {
           "label": "I",
@@ -211,7 +249,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 0.52,
+          "min": 0.5,
+          "max": 1.5
         },
         {
           "label": "Z",
@@ -219,7 +259,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 0.375,
+          "min": 0.4,
+          "max": 1.6
         },
         {
           "label": "Y",
@@ -227,7 +269,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.25,
+          "min": 1,
+          "max": 3.5
         }
       ]
     },
@@ -240,7 +284,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.92,
+          "min": 1.5,
+          "max": 4
         },
         {
           "label": "G",
@@ -248,7 +294,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.08,
+          "min": 0.5,
+          "max": 2.5
         },
         {
           "label": "R",
@@ -256,7 +304,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.45,
+          "min": 1,
+          "max": 3
         },
         {
           "label": "I",
@@ -264,7 +314,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 0.52,
+          "min": 0.5,
+          "max": 1.5
         },
         {
           "label": "Z",
@@ -272,7 +324,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 0.375,
+          "min": 0.4,
+          "max": 1.6
         },
         {
           "label": "Y",
@@ -280,7 +334,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.25,
+          "min": 1,
+          "max": 3.5
         }
       ]
     },
@@ -293,7 +349,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.92,
+          "min": 1.5,
+          "max": 4
         },
         {
           "label": "G",
@@ -301,7 +359,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.08,
+          "min": 0.5,
+          "max": 2.5
         },
         {
           "label": "R",
@@ -309,7 +369,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.45,
+          "min": 1,
+          "max": 3
         },
         {
           "label": "I",
@@ -317,7 +379,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 0.52,
+          "min": 0.5,
+          "max": 1.5
         },
         {
           "label": "Z",
@@ -325,7 +389,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 0.375,
+          "min": 0.4,
+          "max": 1.6
         },
         {
           "label": "Y",
@@ -333,7 +399,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.25,
+          "min": 1,
+          "max": 3.5
         }
       ]
     },
@@ -346,7 +414,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.92,
+          "min": 1.5,
+          "max": 4
         },
         {
           "label": "G",
@@ -354,7 +424,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.08,
+          "min": 0.5,
+          "max": 2.5
         },
         {
           "label": "R",
@@ -362,7 +434,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.45,
+          "min": 1,
+          "max": 3
         },
         {
           "label": "I",
@@ -370,7 +444,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 0.52,
+          "min": 0.5,
+          "max": 1.5
         },
         {
           "label": "Z",
@@ -378,7 +454,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 0.375,
+          "min": 0.4,
+          "max": 1.6
         },
         {
           "label": "Y",
@@ -386,7 +464,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.25,
+          "min": 1,
+          "max": 3.5
         }
       ]
     },
@@ -399,7 +479,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 1.92,
+          "min": 1.5,
+          "max": 4
         },
         {
           "label": "G",
@@ -407,7 +489,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.08,
+          "min": 0.5,
+          "max": 2.5
         },
         {
           "label": "R",
@@ -415,7 +499,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.45,
+          "min": 1,
+          "max": 3
         },
         {
           "label": "I",
@@ -423,7 +509,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 0.52,
+          "min": 0.5,
+          "max": 1.5
         },
         {
           "label": "Z",
@@ -431,7 +519,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 0.375,
+          "min": 0.4,
+          "max": 1.6
         },
         {
           "label": "Y",
@@ -439,7 +529,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.25,
+          "min": 1,
+          "max": 3.5
         }
       ]
     },
@@ -452,7 +544,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 1.92,
+          "min": 1.5,
+          "max": 4
         },
         {
           "label": "G",
@@ -460,7 +554,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.08,
+          "min": 0.5,
+          "max": 2.5
         },
         {
           "label": "R",
@@ -468,7 +564,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.45,
+          "min": 1,
+          "max": 3
         },
         {
           "label": "I",
@@ -476,7 +574,9 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 1
+          "value": 0.52,
+          "min": 0.5,
+          "max": 1.5
         },
         {
           "label": "Z",
@@ -484,7 +584,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 0.375,
+          "min": 0.4,
+          "max": 1.6
         },
         {
           "label": "Y",
@@ -492,7 +594,9 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 1
+          "value": 1.25,
+          "min": 1,
+          "max": 3.5
         }
       ]
     }

@@ -35,8 +35,8 @@
       "altText": "Filtered images colorized",
       "figText": "Figure 5: Filtered images colorized",
       "layout": {
-        "col": "left",
-        "row": "middle"
+        "col": "right",
+        "row": "top"
       }
     }
   ],
