@@ -240,12 +240,12 @@ export const toSigFigs = (number, precision) => {
 
 const formatSeismicDescriptions = function(data) {
   if (!isArray(data)) return '';
-  return data.map(d => d.description).toString();
+  return data.map(d => d.description).join('  ');
 };
 
 const formatAirBlastDescriptions = function(data) {
   if (!isArray(data)) return '';
-  return data.toString();
+  return data.join('  ');
 };
 
 export const getValue = function(accessor, data) {
@@ -273,12 +273,12 @@ export const getValue = function(accessor, data) {
       eccentricity: formatValue(data, 2),
       semimajor_axis: formatValue(data, 2),
       diameter: formatValue(data, 3),
-      craterDiameter: formatValue(data, 3),
-      craterDepth: formatValue(data, 2),
+      craterDiameter: addTheCommas(toSigFigs(data, 3)),
+      craterDepth: addTheCommas(toSigFigs(data, 3)),
       count: formatValue(data ? data.length : 0, 0),
       kineticEnergy: formatValue(data, 0),
       volume: toSigFigs(data, 4),
-      overPressure: formatValue(data, 1),
+      overPressure: addTheCommas(toSigFigs(data, 3)),
       mercalliIntensity: formatSeismicDescriptions(data),
       airBlastDamage: formatAirBlastDescriptions(data),
     }[accessor] || data

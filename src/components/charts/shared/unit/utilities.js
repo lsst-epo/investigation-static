@@ -19,6 +19,7 @@ export const units = {
   volume: ' m^3',
   density: 'kg/m^3',
   overPressure: ' Pa',
+  observerDistance: ' km',
 };
 
 export const renderUnit = function(type) {

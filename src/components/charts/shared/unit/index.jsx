@@ -27,6 +27,7 @@ const Unit = props => {
       density: <StandardUnit {...props} />,
       destruction: <StandardUnit {...props} />,
       overPressure: <StandardUnit {...props} />,
+      observerDistance: <StandardUnit {...props} />,
     }[props.type] || null
   );
 };

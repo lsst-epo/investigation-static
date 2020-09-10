@@ -16,7 +16,7 @@ class StellarValue extends React.PureComponent {
       <>
         {!isSvg && <span>{formatted}</span>}
         {isSvg && <tspan>{formatted}</tspan>}
-        {isNumber(preformatted) && <Unit type={type} isSvg={isSvg} />}
+        {formatted && <Unit type={type} isSvg={isSvg} />}
       </>
     );
   }

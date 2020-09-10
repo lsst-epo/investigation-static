@@ -64,7 +64,7 @@ class ObservationsTable extends React.PureComponent {
         <Table
           className="observations-table"
           colTitles={colTitles}
-          includeRowTitles
+          includeRowTitles={!!rowTitles}
           rows={this.getRows(answers, colTitles, rowTitles, rows)}
           fixed={fixed}
         />
