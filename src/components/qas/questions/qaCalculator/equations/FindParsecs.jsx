@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../../../styles.module.scss';
 import { fraction, denominator, color } from '../qaCalculator.module.scss';
-import { addTheCommas } from '../../../../../lib/utilities.js';
+import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
 
 export default function FindParsecs(props) {
   const { variable } = props;
@@ -14,7 +14,7 @@ export default function FindParsecs(props) {
         <span>
           <span>(</span>
           <span className={color}>
-            {variable ? addTheCommas(variable) : 'DM'}
+            {variable ? addTheCommas(toSigFigs(variable)) : 'DM'}
           </span>
           <span>+ 5)</span>
         </span>
@@ -25,5 +25,5 @@ export default function FindParsecs(props) {
 }
 
 FindParsecs.propTypes = {
-  variable: PropTypes.number,
+  variable: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

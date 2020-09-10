@@ -7,6 +7,7 @@ import Unit from './unit/index.jsx';
 class StellarValue extends React.PureComponent {
   render() {
     const { type, value, isSvg } = this.props;
+    if (!value) return null;
     const preformatted = getValue(type, value);
     const formatted = isNumber(preformatted)
       ? addTheCommas(preformatted)

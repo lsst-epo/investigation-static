@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { QACalculatorIconUnit } from '../qQaCalculatorIcons';
+import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
 
 import {
   equation,
@@ -34,7 +35,9 @@ export default function FindDiameter(props) {
       </span>
       <span>= </span>
       <span className={color}>
-        {diameter || '?'}
+        {diameter && diameter < Infinity
+          ? addTheCommas(toSigFigs(diameter, 3))
+          : '?'}
         <QACalculatorIconUnit className={color} unit="diameter" />
       </span>
     </p>
@@ -42,7 +45,7 @@ export default function FindDiameter(props) {
 }
 
 FindDiameter.propTypes = {
-  diameter: PropTypes.number,
-  magnitude: PropTypes.number,
-  albedo: PropTypes.number,
+  diameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  magnitude: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  albedo: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

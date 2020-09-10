@@ -133,16 +133,17 @@ class QACalculator extends React.PureComponent {
   }
 
   handleMinMax = (input, value) => {
-    const { min, max } = input;
-    if (min && +min > +value) return min;
-    if (max && +value > +max) return max;
+    const { min = 0, max = Infinity } = input;
+    if (+value < +min) return +min;
+    if (+value > +max) return +max;
+
     return value;
   };
 
   handleChange = (value, valType, input) => {
     const { question, answerHandler } = this.props;
     const { id } = question;
-    const preppedValue = value !== '' ? +this.handleMinMax(input, value) : null;
+    const preppedValue = this.handleMinMax(input, value);
 
     this.setState(
       prevState => ({

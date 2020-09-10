@@ -3,11 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {
-  addTheCommas,
-  formatValue,
-  toSigFigs,
-} from '../../../../../lib/utilities.js';
+import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
 import { QACalculatorIcon, QACalculatorIconUnit } from '../qQaCalculatorIcons';
 import {
   color,
@@ -123,7 +119,7 @@ export default function FindImpactCrater(props) {
           </p>
         </div>
       )}
-      {!!observerDistance && (
+      {richterMagnitudeAtObserverDistance && (
         <div className={marginTop}>
           <hr />
           <p>
@@ -149,7 +145,7 @@ export default function FindImpactCrater(props) {
             ))} */}
         </div>
       )}
-      {!!observerDistance && (
+      {overPressure && (
         <div className={marginTop}>
           <hr />
           <p>
@@ -174,14 +170,17 @@ export default function FindImpactCrater(props) {
 }
 
 FindImpactCrater.propTypes = {
-  asteroidDiameter: PropTypes.number,
-  density: PropTypes.number,
-  velocity: PropTypes.number,
-  craterDiameter: PropTypes.number,
-  craterDepth: PropTypes.number,
-  richterMagnitudeAtObserverDistance: PropTypes.number,
+  asteroidDiameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  density: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  velocity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  craterDiameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  craterDepth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  richterMagnitudeAtObserverDistance: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   // mercalliIntensity: PropTypes.array,
-  overPressure: PropTypes.number,
+  overPressure: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   // airBlastDamage: PropTypes.array,
-  observerDistance: PropTypes.number,
+  observerDistance: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
