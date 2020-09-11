@@ -25,7 +25,6 @@ const Unit = props => {
       craterDepth: <StandardUnit {...props} />,
       kineticEnergy: <StandardUnit {...props} />,
       density: <StandardUnit {...props} />,
-      destruction: <StandardUnit {...props} />,
       overPressure: <StandardUnit {...props} />,
       observerDistance: <StandardUnit {...props} />,
     }[props.type] || null

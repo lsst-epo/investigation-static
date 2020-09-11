@@ -8,18 +8,17 @@ export const units = {
   radius: ' R',
   count: ' stars',
   distance: ' MPc',
-  destruction: ' km',
-  velocity: ' km/s',
+  velocity: ' m/s',
   inclination: '°',
   semimajor_axis: ' AU',
-  diameter: ' km',
-  craterDiameter: ' km',
-  craterDepth: ' km',
+  diameter: ' m',
+  craterDiameter: ' m',
+  craterDepth: ' m',
   kineticEnergy: ' J',
   volume: ' m^3',
   density: ' kg/m^3',
   overPressure: ' Pa',
-  observerDistance: ' km',
+  observerDistance: ' m',
 };
 
 export const renderUnit = function(type) {

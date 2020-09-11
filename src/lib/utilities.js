@@ -276,11 +276,12 @@ export const getValue = function(accessor, data) {
       craterDiameter: addTheCommas(toSigFigs(data, 3)),
       craterDepth: addTheCommas(toSigFigs(data, 3)),
       count: formatValue(data ? data.length : 0, 0),
-      kineticEnergy: toSigFigs(+data, 3),
+      kineticEnergy: formatValue(+data, 3),
       volume: toSigFigs(data, 4),
       overPressure: addTheCommas(toSigFigs(data, 3)),
       mercalliIntensity: formatSeismicDescriptions(data),
       airBlastDamage: formatAirBlastDescriptions(data),
+      richterMagnitudeAtObserverDistance: formatValue(data, 1),
     }[accessor] || data
   );
 };
