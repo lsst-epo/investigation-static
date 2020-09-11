@@ -44,23 +44,6 @@ test('SizeCalculator magnitude input = 5, albedo input = 0.2 and returns D = 297
   await waitFor(() => {
     expect(input1.value).toBe('5');
     expect(input2.value).toBe('0.2');
-    expect(equationKE).toHaveTextContent('297 km');
-  });
-});
-
-test('SizeCalculator  only accepts numbers as inputs', async () => {
-  // Arrange
-  const { getByTestId } = render(<QACalculator {...props} />);
-  const input1 = getByTestId(`${inputId}-0`);
-  const input2 = getByTestId(`${inputId}-1`);
-  const equationKE = getByTestId(calcNameId);
-  // Act
-  fireEvent.change(input1, { target: { value: 'string' } });
-  fireEvent.change(input2, { target: { value: 'string' } });
-  // Assert
-  await waitFor(() => {
-    expect(input1.value).toBe('');
-    expect(input2.value).toBe('');
-    expect(equationKE).toHaveTextContent('? km');
+    expect(equationKE).toHaveTextContent('297,173.434 m');
   });
 });

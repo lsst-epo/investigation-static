@@ -3,7 +3,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
+import {
+  addTheCommas,
+  toSigFigs,
+  formatValue,
+} from '../../../../../lib/utilities.js';
 import { QACalculatorIcon, QACalculatorIconUnit } from '../qQaCalculatorIcons';
 import {
   color,
@@ -74,7 +78,7 @@ export default function FindImpactCrater(props) {
         <span> </span>
         <span>
           9.8
-          <QACalculatorIconUnit tiny unit=" m/s" />
+          <QACalculatorIconUnit tiny unit="velocity" />
           <sup>-0.22</sup>
         </span>
         <span> </span>
@@ -119,7 +123,7 @@ export default function FindImpactCrater(props) {
           </p>
         </div>
       )}
-      {richterMagnitudeAtObserverDistance && (
+      {richterMagnitudeAtObserverDistance > 0 && (
         <div className={marginTop}>
           <hr />
           <p>
@@ -128,7 +132,7 @@ export default function FindImpactCrater(props) {
               {<QACalculatorIconUnit unit="diameter" />} from impact:{' '}
             </span>
             <span>
-              {addTheCommas(toSigFigs(richterMagnitudeAtObserverDistance))}
+              {addTheCommas(formatValue(richterMagnitudeAtObserverDistance, 1))}
             </span>
           </p>
           {/* <p>

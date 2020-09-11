@@ -87,8 +87,6 @@ export const ImpactCalculator = {
   value: {
     craterDiameter: null,
     craterDepth: null,
-    destruction: null,
-    minimumSafe: null,
     richterMagnitude: null,
     richterMagnitudeAtObserverDistance: null,
     mercalliIntensity: null,
@@ -133,7 +131,7 @@ export const ImpactCalculator = {
       rightIcon: <QACalculatorIconUnit unit="diameter" />,
       label: "Observer's distance from impact",
       min: 0,
-      max: 20000,
+      max: 20000000,
       placeholder: 'observer distance',
       defaultValue: 'observerDistance',
     },
