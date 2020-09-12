@@ -39,21 +39,21 @@
       "question": [
         {
           "id": "2a",
-          "questionType": "compoundInput",
-          "compoundQuestion": ["2a", "2b"],
+          "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "labelPre": "<span>Choose the red filter.</span><br /><br /><span style='margin-left: 20px'>a. What does the filter do to the red light?</span>",
-          "srLabel": "..."
-        },
+          "label": "Choose the red filter. What does the filter do to the red light?"
+        }
+      ]
+    },
+    {
+      "question": [
         {
           "id": "2b",
-          "questionType": "compoundInput",
-          "compoundQuestion": ["2a", "2b"],
+          "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "labelPre": "<br /><br /><span style='margin-left: 20px'>b. What does it do to the other colors of light?</span></span>",
-          "srLabel": "..."
+          "label": "With the red filter selected, what does it do to the other colors of light?"
         }
       ]
     },
@@ -61,21 +61,21 @@
       "question": [
         {
           "id": "3a",
-          "questionType": "compoundInput",
-          "compoundQuestion": ["3a", "3b"],
+          "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "labelPre": "<span>Choose the blue filter.</span><br/><br/><span style='margin-left: 20px;'>a. What does the filter do to the blue light?</span>",
-          "srLabel": "..."
-        },
+          "label": "Choose the blue filter. What does the filter do to the blue light?"
+        }
+      ]
+    },
+    {
+      "question": [
         {
           "id": "3b",
-          "questionType": "compoundInput",
-          "compoundQuestion": ["3a", "3b"],
+          "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "labelPre": "<br/><br/><span style='margin-left: 20px;'>b. What does it do to the other colors of light?</span>",
-          "srLabel": "..."
+          "label": "With the blue filter selected, what does it do to the other colors of light?"
         }
       ]
     }

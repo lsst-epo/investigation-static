@@ -9,8 +9,8 @@
     "link": "/how-filters-work/"
   },
   "next": {
-    "title": "Colorizing the Images",
-    "link": "/colorizing-the-images/"
+    "title": "Constructing an Image with Three Filters",
+    "link": "/constructing-with-three-filters-1/"
   },
   "layout": "TwoCol",
   "contents": [
@@ -28,8 +28,8 @@
       "altText": "Comparison of filters",
       "figText": "Figure 4: Comparison of the light passed by filters.",
       "layout": {
-        "col": "left",
-        "row": "middle"
+        "col": "right",
+        "row": "top"
       }
     }
   ],
@@ -190,7 +190,7 @@
           "answerPost": "..."
         },
         {
-          "id": "6ab",
+          "id": "6b",
           "questionType": "compoundSelect",
           "compoundQuestion": ["6a", "6b", "6c"],
           "labelPre": "the green shirt looks",

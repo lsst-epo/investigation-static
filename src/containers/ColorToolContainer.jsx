@@ -27,11 +27,11 @@ class ColorToolContainer extends React.PureComponent {
 
   render() {
     const { jsonData } = this.state;
-    const { data, colorOptions, hexColors } = jsonData || {};
+    const { title, data, colorOptions, hexColors } = jsonData || {};
     const selectorVal = 'color';
     return (
       jsonData && (
-        <ColorTool {...{ data, colorOptions, hexColors, selectorVal }} />
+        <ColorTool {...{ title, data, colorOptions, hexColors, selectorVal }} />
       )
     );
   }

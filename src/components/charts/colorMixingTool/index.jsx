@@ -18,6 +18,10 @@ import {
   container,
   resetBtn,
   imageContainer,
+  toolActionsHeader,
+  buttonToolContainer,
+  selectToolContainer,
+  sliderToolContainer,
 } from './color-tool.module.scss';
 
 class ColorTool extends React.PureComponent {
@@ -232,104 +236,121 @@ class ColorTool extends React.PureComponent {
   }
 
   render() {
+    const { title } = this.props;
     const { data, resetBtnActive, galaxyImg, selectorVal } = this.state;
     const menuItems = this.getMenuItems();
     const filters = this.getFilters();
 
     return (
-      <div className={`container-flex ${container}`}>
-        <div className={`${buttonContainer} ${col50}`}>
-          {data && selectorVal !== 'color' && typeof galaxyImg !== 'string' && (
-            <div className={container}>
-              <Select
-                dropdownIcon={<ArrowDown />}
-                id="galaxy-selector"
-                placeholder="Select A Galaxy"
-                menuItems={menuItems}
-                onChange={this.handleGalaxySelection}
-                value={selectorVal}
-              />
-            </div>
-          )}
-          {filters &&
-            filters.map((btn, i) => {
-              const key = `div-${i}`;
-              const btnClassName = classnames(button, {
-                [active]: btn.active,
-              });
+      <>
+        {title && <h2>{title}</h2>}
+        <div className={`container-flex ${container}`}>
+          <div className={`${buttonContainer} ${col50}`}>
+            {data && selectorVal !== 'color' && typeof galaxyImg !== 'string' && (
+              <div className={container}>
+                <Select
+                  dropdownIcon={<ArrowDown />}
+                  id="galaxy-selector"
+                  placeholder="Select A Galaxy"
+                  menuItems={menuItems}
+                  onChange={this.handleGalaxySelection}
+                  value={selectorVal}
+                  fullWidth
+                />
+              </div>
+            )}
+            {filters && (
+              <div className={toolActionsHeader}>
+                <div className={buttonToolContainer}>Filter</div>
+                <div className={selectToolContainer}>Color</div>
+                <div className={sliderToolContainer}>Color Intensity</div>
+              </div>
+            )}
+            {filters &&
+              filters.map((btn, i) => {
+                const key = `div-${i}`;
+                const btnClassName = classnames(button, {
+                  [active]: btn.active,
+                });
 
-              return (
-                <div key={key} className={selectContainer}>
-                  <Button
-                    floating
-                    disabled={btn.isDisabled}
-                    className={btnClassName}
-                    onClick={() => this.handleImage(btn)}
-                  >
-                    {btn.label}
-                  </Button>
-                  <Select
-                    dropdownIcon={<ArrowDown />}
-                    disabled={btn.isDisabled}
-                    id={`${btn.label}-filter`}
-                    placeholder="None"
-                    value={btn.color}
-                    menuItems={this.getColorBlocks()}
-                    onChange={this.handleColorChange}
-                  />
-                  <div className={sliderContainer}>
-                    <SliderCustom
-                      id={btn.label}
-                      className={
-                        btn.color !== ''
-                          ? `fill-color-${btn.color.toLowerCase()}`
-                          : ''
-                      }
-                      min={1}
-                      max={100}
-                      value={btn.value || 0}
-                      disabled={!btn.active}
-                      onChange={value =>
-                        this.handleBrightness(value, btn.label)
-                      }
-                    />
+                return (
+                  <div key={key} className={selectContainer}>
+                    <div className={buttonToolContainer}>
+                      <Button
+                        floating
+                        disabled={btn.isDisabled}
+                        className={btnClassName}
+                        onClick={() => this.handleImage(btn)}
+                      >
+                        {btn.label}
+                      </Button>
+                    </div>
+                    <div className={selectToolContainer}>
+                      <Select
+                        dropdownIcon={<ArrowDown />}
+                        disabled={btn.isDisabled}
+                        id={`${btn.label}-filter`}
+                        placeholder="None"
+                        value={btn.color}
+                        menuItems={this.getColorBlocks()}
+                        onChange={this.handleColorChange}
+                        fullWidth
+                      />
+                    </div>
+                    <div className={sliderContainer}>
+                      <SliderCustom
+                        id={btn.label}
+                        className={
+                          btn.color !== ''
+                            ? `fill-color-${btn.color.toLowerCase()}`
+                            : ''
+                        }
+                        min={1}
+                        max={100}
+                        value={btn.value || 1}
+                        disabled={!btn.active}
+                        onChange={value =>
+                          this.handleBrightness(value, btn.label)
+                        }
+                      />
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          {selectorVal && (
-            <Button
-              raised
-              primary
-              disabled={!resetBtnActive}
-              className={resetBtn}
-              onClick={this.handleReset}
-            >
-              Reset
-            </Button>
-          )}
-        </div>
-        <div className={`${imageContainer} ${col50}`}>
-          {filters &&
-            filters.map(filterImage => {
-              const imageClassName = classnames(filter, {
-                [filterActive]: filterImage.active,
-              });
+                );
+              })}
+            {selectorVal && (
+              <Button
+                raised
+                primary
+                disabled={!resetBtnActive}
+                className={resetBtn}
+                onClick={this.handleReset}
+              >
+                Reset
+              </Button>
+            )}
+          </div>
+          <div className={`${imageContainer} ${col50}`}>
+            {filters &&
+              filters.map(filterImage => {
+                const imageClassName = classnames(filter, {
+                  [filterActive]: filterImage.active,
+                });
 
-              return (
-                <div
-                  key={`filter-${filterImage.label}`}
-                  style={{
-                    backgroundImage: `url(/images/${filterImage.image}`,
-                    backgroundColor: filterImage.color,
-                    filter: `brightness(${filterImage.brightness})`,
-                  }}
-                  className={imageClassName}
-                ></div>
-              );
-            })}
+                return (
+                  <div
+                    key={`filter-${filterImage.label}`}
+                    style={{
+                      backgroundImage: `url(/images/${filterImage.image}`,
+                      backgroundColor: filterImage.color,
+                      filter: `brightness(${filterImage.brightness})`,
+                    }}
+                    className={imageClassName}
+                  ></div>
+                );
+              })}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
@@ -340,6 +361,7 @@ ColorTool.propTypes = {
   galaxyImg: PropTypes.string,
   selectionCallback: PropTypes.func,
   data: PropTypes.object,
+  title: PropTypes.string,
   selectorVal: PropTypes.string,
 };
 

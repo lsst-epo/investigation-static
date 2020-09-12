@@ -1,6 +1,7 @@
 {
+  "title": "Color Filter Tool",
   "colorOptions": ["Red", "Blue", "Green", "None"],
-  "hexColors": ["#EC1C24", "#0019FF","#6BD853","#ffff"],
+  "hexColors": ["#EC1C24", "#0019FF", "#6BD853", "#ffff"],
   "data": {
     "color": {
       "filters": [
@@ -12,17 +13,17 @@
           "isDisabled": false
         },
         {
-          "label": "B",
-          "color": "",
-          "active": false,
-          "image": "blue-filter.png",
-          "isDisabled": false
-        },
-        {
           "label": "G",
           "color": "",
           "active": false,
           "image": "green-filter.png",
+          "isDisabled": false
+        },
+        {
+          "label": "B",
+          "color": "",
+          "active": false,
+          "image": "blue-filter.png",
           "isDisabled": false
         }
       ]

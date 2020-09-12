@@ -1,0 +1,132 @@
+{
+  "id": "coloring05",
+  "investigation": "coloring-universe",
+  "order": "05",
+  "title": "Constructing an Image with Three Filters",
+  "slug": "constructing-with-three-filters-1/",
+  "previous": {
+    "title": "Constructing an Image with Three Filters",
+    "link": "/constructing-with-three-filters/"
+  },
+  "next": {
+    "title": "Colorizing the Images",
+    "link": "/colorizing-the-images/"
+  },
+  "layout": "TwoCol",
+  "contents": [
+    {
+      "content": "<p>Look for a pattern in the answers in the table to the right.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "bottom",
+        "col": "right"
+      },
+      "colTitles": [
+        "Dark or Bright?",
+        "Red Shirt",
+        "Green Shirt",
+        "Blue Shirt"
+      ],
+      "rowTitles": [["Red Filter"], ["Green Filter"], ["Blue Filter"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "4a" },
+          { "accessor": "data", "id": "4b" },
+          { "accessor": "data", "id": "4c" }
+        ],
+        [
+          { "accessor": "data", "id": "5a" },
+          { "accessor": "data", "id": "5b" },
+          { "accessor": "data", "id": "5c" }
+        ],
+        [
+          { "accessor": "data", "id": "6a" },
+          { "accessor": "data", "id": "6b" },
+          { "accessor": "data", "id": "6c" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "60a",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["60a", "60b"],
+          "labelPre": "Choose the right words to finish the sentence: \"The red shirt looks",
+          "labelPost": "",
+          "srLabel": "...",
+          "answerAccessor": "select",
+          "placeholder": "(dark/bright)",
+          "options": [
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "60b",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["60a", "60b"],
+          "labelPre": " in the image taken through the red filter because the red filter",
+          "labelPost": "red light.\"",
+          "srLabel": "...",
+          "answerAccessor": "select",
+          "placeholder": "(passes/blocks)",
+          "options": [
+            { "label": "passes", "value": "passes" },
+            { "label": "blocks", "value": "blocks" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "65a",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["65a", "65b"],
+          "labelPre": "Choose the right words to finish the sentence: \"The green shirt looks",
+          "labelPost": "",
+          "srLabel": "...",
+          "answerAccessor": "select",
+          "placeholder": "(dark/bright)",
+          "options": [
+            { "label": "dark", "value": "dark" },
+            { "label": "bright", "value": "bright" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "65b",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["65a", "65b"],
+          "labelPre": " in the image taken through the red filter because the red filter",
+          "labelPost": "green light.\"",
+          "srLabel": "...",
+          "answerAccessor": "select",
+          "placeholder": "(passes/blocks)",
+          "options": [
+            { "label": "passes", "value": "passes" },
+            { "label": "blocks", "value": "blocks" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        }
+      ]
+    }
+  ]
+}
