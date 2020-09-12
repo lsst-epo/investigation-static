@@ -1,7 +1,7 @@
 {
-  "id": "coloring07",
+  "id": "coloring08",
   "investigation": "coloring-universe",
-  "order": "07",
+  "order": "08",
   "title": "Rubin Observatory LSST Camera Filters",
   "slug": "rubin-lsst-camera-filters/",
   "previous": {
@@ -14,7 +14,7 @@
   },
   "images": [
     {
-      "mediaPath": "/images/wavelength_ranges_of_visible_light.png",
+      "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
       "altText": "Wavelength Ranges of Visible Light",
       "figText": "Figure 6: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {
@@ -38,10 +38,25 @@
       "question": [
         {
           "id": "7",
-          "questionType": "text",
-          "answerAccessor": "text",
+          "questionType": "select",
+          "answerAccessor": "data",
           "title": "Question #1",
-          "label": "Which filter transmits the longest wavelengths of light and what form of light is it (infrared, visible or ultraviolet)?"
+          "label": "Which filter transmits the longest wavelengths of light and what form of light is it?",
+          "options": [
+            {
+              "label": "infrared",
+              "value": "infrared"
+            },
+            {
+              "label": "visible",
+              "value": "visible"
+            },
+            {
+              "label": "ultraviolet",
+              "value": "ultraviolet"
+            }
+          ],
+          "placeholder": "(infrared/visible/ultraviolet)"
         }
       ]
     },
@@ -49,10 +64,25 @@
       "question": [
         {
           "id": "8",
-          "questionType": "text",
-          "answerAccessor": "text",
+          "questionType": "select",
+          "answerAccessor": "data",
           "title": "Question #1",
-          "label": "Which filter transmits the shortest wavelengths of light and what form of light is it (infrared, visible or ultraviolet)?"
+          "label": "Which filter transmits the shortest wavelengths of light and what form of light is it?",
+          "options": [
+            {
+              "label": "infrared",
+              "value": "infrared"
+            },
+            {
+              "label": "visible",
+              "value": "visible"
+            },
+            {
+              "label": "ultraviolet",
+              "value": "ultraviolet"
+            }
+          ],
+          "placeholder": "(infrared/visible/ultraviolet)"
         }
       ]
     },

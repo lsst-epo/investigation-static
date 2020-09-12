@@ -1,12 +1,12 @@
 {
-  "id": "coloring05",
+  "id": "coloring06",
   "investigation": "coloring-universe",
-  "order": "05",
+  "order": "06",
   "title": "Colorizing the Images",
   "slug": "colorizing-the-images/",
   "previous": {
     "title": "Constructing an Image with Three Filters",
-    "link": "/constructing-with-three-filters/"
+    "link": "/constructing-with-three-filters-1/"
   },
   "next": {
     "title": "Eyes vs. Telescopes - Different Ways of Seeing",
@@ -22,7 +22,7 @@
       }
     },
     {
-      "content": "<ul><li>Turn on filters one by one using the checkboxes at the left.</li><li>Since the filtered images are in black and white, you need to colorize them before combining them. Do this by selecting a color to the right of the sliders.</li><li>Now try to recreate the full-color image by adjusting the sliders to change the color intensity of the image. When the sliders are correctly placed, the image will be properly color balanced. If the colors in the image are not balanced, objects in the image (e.g., the shirts) will appear the wrong color. Color balance doesn’t mean having the same intensity or amount of light for each filter.</li></ul>",
+      "content": "<ul><li>Turn on filters one by one by clicking the RGB buttons.</li><li>Since the filtered images are in black and white, you need to colorize them before combining them. Do this by selecting a color to the left of the sliders.</li><li>Now try to recreate the full-color image by adjusting the sliders to change the color intensity of the image. When the sliders are correctly placed, the image will be properly color balanced. If the colors in the image are not balanced, objects in the image (e.g., the shirts) will appear the wrong color. Color balance doesn’t mean having the same intensity or amount of light for each filter.</li></ul>",
       "layout": {
         "col": "left",
         "row": "bottom"
@@ -33,7 +33,7 @@
     {
       "mediaPath": "/images/color-rgb-strip_example.jpg",
       "altText": "Filtered images colorized",
-      "figText": "Filtered images colorized",
+      "figText": "Figure 5: Filtered images colorized",
       "layout": {
         "col": "left",
         "row": "middle"

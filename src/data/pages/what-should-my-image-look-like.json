@@ -1,7 +1,7 @@
 {
-  "id": "coloring15",
+  "id": "coloring16",
   "investigation": "coloring-universe",
-  "order": "15",
+  "order": "16",
   "title": "What Should My Image Look Like?",
   "slug": "what-should-my-image-look-like/",
   "previous": {
@@ -13,7 +13,15 @@
     "link": "/reflect-and-discuss/"
   },
   "layout": "TwoCol",
-  "content": "<p>At this point you may be thinking: But how do I know when an image looks “correct?” The good news is that there is <em>no one correct image</em>. There  are many ways to construct an image that combines a pleasing aesthetic with a science message. Here are three different images of M33. These three images are different from each other because they were made using different filters, chromatic ordering sequences, and color balances:</p>",
+  "contents": [
+    {
+      "content": "<p>At this point you may be thinking: But how do I know when an image looks “correct?” The good news is that there is <em>no one correct image</em>. There  are many ways to construct an image that combines a pleasing aesthetic with a science message. Here are three different images of M33. These three images are different from each other because they were made using different filters, chromatic ordering sequences, and color balances:</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "AstroTool",
@@ -35,7 +43,7 @@
       "figText": "Figure 11: Three different images of M33. From left to right, Fig.11a: <a href='http://www.galex.caltech.edu/media/glx2009-01f_img03.html' target='_blank'>Combined Spitzer/GALEX data</a>, NASA/JPL-Caltech; Fig. 11b: <a href='https://commons.wikimedia.org/wiki/File:Messier_33_(Image_Of_Team)_(18235295964).jpg' target='_blank'>Collective image obtained with the contributions of: Paolo Demaria</a>, Giuseppe Donatiello (composition and processing), Marco Favuzzi, Terenzio Fusco, Rolando Ligustri, Alessandro Elio Milani, Zlatko Orbanic, Andrea Pistocchini, and Tim Stone. Creative Commons CCO 1.0; Fig. 11c: <a href='https://commons.wikimedia.org/wiki/File:Messier_33.jpg' target='_blank'>Image by Francesco Antonucci</a>, Creative Commons 4.0 international.",
       "layout": {
         "col": "left",
-        "row": "bottom"
+        "row": "middle"
       }
     }
   ],

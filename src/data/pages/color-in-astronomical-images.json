@@ -1,7 +1,7 @@
 {
-  "id": "coloring11",
+  "id": "coloring12",
   "investigation": "coloring-universe",
-  "order": "11",
+  "order": "12",
   "title": "Color in Astronomical Images",
   "slug": "color-in-astronomical-images/",
   "previous": {
@@ -12,7 +12,7 @@
     "title": "Constructing an Astronomical Image",
     "link": "/astronomical-color-images/"
   },
-  "layout": "SingleCol",
+  "layout": "TwoCol",
   "contents": [
     {
       "content": "<p>There is a deliberate method for the way astronomers choose colors when building a color image. It is called chromatic ordering. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. Images constructed by using chromatic ordering are known as <strong>representative color images</strong>.</p><p>The <strong>chromatic ordering technique</strong> matches the filter that transmits light with the shortest wavelengths collected by the telescope to a color in the visible spectrum that also has a short wavelength. For instance, the g filter might be assigned the color blue. The filters that transmit longer wavelengths of light would then get assigned colors that correspond with longer wavelengths.</p><p>Since the Rubin Observatory u filter passes light with the shortest wavelengths, images obtained with that filter would be colorized violet because violet has the shortest wavelengths of visible light. The g filter transmits light with slightly longer wavelengths than the u filter, so the g filter image would be colorized blue, since blue is the next shortest wavelength color. Continuing on with this process, the images obtained with other Rubin Observatory filters would be colorized in this pattern:</p>",
@@ -33,7 +33,7 @@
     {
       "id": "1",
       "layout": {
-        "col": "left",
+        "col": "right",
         "row": "top"
       },
       "rows": [
@@ -48,7 +48,7 @@
     {
       "id": "2",
       "layout": {
-        "col": "left",
+        "col": "right",
         "row": "middle"
       },
       "colTitles": ["g", "r", "i", "y"],
@@ -101,7 +101,7 @@
       "question": [
         {
           "id": "20",
-          "questionType": "text",
+          "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "As you have learned this section, chromatic ordering of colors is used to communicate information about the wavelengths of lighting the image. Give an example of how color(s) in your culture is used to communicate a message. What is the color, and what message does it communicate?"

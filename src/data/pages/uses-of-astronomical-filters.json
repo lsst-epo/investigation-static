@@ -1,7 +1,7 @@
 {
-  "id": "coloring08",
+  "id": "coloring09",
   "investigation": "coloring-universe",
-  "order": "08",
+  "order": "09",
   "title": "Uses of Astronomical Filters",
   "slug": "uses-of-astronomical-filters/",
   "previous": {
@@ -25,7 +25,7 @@
       "content": "<p>To make a full color image of the nebula, each of the filtered images had to be colorized, then combined. The u filter image was colorized blue, the g filter image was colorized green, and the y (infrared) filter image was colorized red. (There’s a particular reason that these colors are arranged in this order—more on this later.) Then the final full color image was color balanced.</p>",
       "layout": {
         "col": "right",
-        "row": "top"
+        "row": "bottom"
       }
     }
   ],
@@ -35,8 +35,8 @@
       "altText": "Ghost Nebula images",
       "figText": "Figure 7: Ghost Nebula images from the HST WFC3/UVIS/IR data from MAST and the Hubble Legacy Archive.",
       "layout": {
-        "col": "left",
-        "row": "middle"
+        "col": "right",
+        "row": "top"
       }
     },
     {
@@ -45,7 +45,7 @@
       "figText": "Figure 8: The u, g, y filters of the Ghost Nebula images have been assigned colors.",
       "layout": {
         "col": "right",
-        "row": "bottom"
+        "row": "middle"
       }
     }
   ],
@@ -54,7 +54,7 @@
       "question": [
         {
           "id": "12",
-          "questionType": "text",
+          "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "Compare the three black and white images in Figure 7 of the Ghost Nebula, taken through u, g and y filters. What differences in the brightness of the gas and dust, and stars, do you notice between the three images?",
@@ -69,7 +69,7 @@
       "question": [
         {
           "id": "13",
-          "questionType": "text",
+          "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "What color do the stars that were previously hidden by dust appear to be in the full color image?"

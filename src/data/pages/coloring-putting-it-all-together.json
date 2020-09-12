@@ -1,7 +1,7 @@
 {
-  "id": "coloring17",
+  "id": "coloring18",
   "investigation": "coloring-universe",
-  "order": "17",
+  "order": "18",
   "title": "Putting It All Together",
   "slug": "putting-it-all-together/",
   "previous": {
@@ -12,8 +12,19 @@
     "title": "Putting It All Together",
     "link": "/putting-it-all-together-1/"
   },
-  "layout": "SingleCol",
+  "layout": "TwoCol",
   "content": "<p>Now it’s your turn to answer a scientific question by creating a representative color image and explaining what it reveals.</p><p>Think about these points before you begin:</p><ul><li>What would you like to investigate?</li><li>What question do you want to answer?</li></ul><br /><p>Here are some options:</p><ul><li>Look through a dusty nebula to see what’s inside</li><li>Search for a faraway galaxy</li><li>Locate the hot young stars in a galaxy</li><li>Identify star-forming regions in a galaxy</li></ul></li></ul>",
+  "images": [
+    {
+      "mediaPath": "/images/Antennae_Galaxies_composite_of_ALMA_and_Hubble_observations.jpg",
+      "altText": "The Antennae Galaxies",
+      "figText": "The Antennae Galaxies (also known as NGC 4038 and 4039) are a pair of distorted colliding spiral galaxies about 70 million light-years away, in the constellation of Corvus (The Crow).<br/ >Source: <a href='https://commons.wikimedia.org/wiki/File:Antennae_Galaxies_composite_of_ALMA_and_Hubble_observations.jpg' target=''>Wikimedia Commons</a> Credit: ALMA (ESO/NAOJ/NRAO). Visible light image: the NASA/ESA Hubble Space Telescope",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -34,6 +45,69 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "Develop your chromatic ordering sequence. (What colors will you assign to each filter?)"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "34",
+          "questionType": "select",
+          "answerAccessor": "data",
+          "title": "Question #1",
+          "label": "Which type of object(s) you selected to explore?",
+          "options": [
+            {
+              "label": "Look through a dusty nebula to see what's inside",
+              "value": "dusty nebula"
+            },
+            {
+              "label": "Search for a far away galaxy",
+              "value": "far away galaxy"
+            },
+            {
+              "label": "Locate the young stars in a galaxy",
+              "value": "young stars"
+            },
+            {
+              "label": "Identify star-forming regions in a galaxy",
+              "value": "star-forming regions"
+            }
+          ],
+          "placeholder": "Select one"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "35",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Which question did you answer?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "36",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Which filters and images did you select?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "37",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Which chromatic order of colors you assigned?"
         }
       ]
     }

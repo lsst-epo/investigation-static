@@ -1,4 +1,5 @@
 {
+  "title": "Astro Tool",
   "colorOptions": [
     "Violet",
     "Blue",
@@ -27,7 +28,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 20
         },
         {
           "label": "G",
@@ -35,7 +36,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 100
         },
         {
           "label": "R",
@@ -43,7 +44,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 100
         },
         {
           "label": "I",
@@ -51,7 +52,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Z",
@@ -59,7 +60,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 10
         },
         {
           "label": "Y",
@@ -67,7 +68,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 40
         }
       ]
     },
@@ -80,7 +81,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "G",
@@ -88,7 +89,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "R",
@@ -96,7 +97,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "I",
@@ -104,7 +105,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Z",
@@ -112,7 +113,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Y",
@@ -120,7 +121,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         }
       ]
     },
@@ -133,7 +134,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "G",
@@ -141,7 +142,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "R",
@@ -149,7 +150,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "I",
@@ -157,7 +158,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Z",
@@ -165,7 +166,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Y",
@@ -173,7 +174,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         }
       ]
     },
@@ -186,7 +187,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "G",
@@ -194,7 +195,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "R",
@@ -202,7 +203,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "I",
@@ -210,7 +211,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Z",
@@ -218,7 +219,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Y",
@@ -226,7 +227,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         }
       ]
     },
@@ -239,7 +240,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "G",
@@ -247,7 +248,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "R",
@@ -255,7 +256,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "I",
@@ -263,7 +264,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Z",
@@ -271,7 +272,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Y",
@@ -279,7 +280,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         }
       ]
     },
@@ -292,7 +293,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "G",
@@ -300,7 +301,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "R",
@@ -308,7 +309,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "I",
@@ -316,7 +317,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Z",
@@ -324,7 +325,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Y",
@@ -332,7 +333,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         }
       ]
     },
@@ -345,7 +346,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "G",
@@ -353,7 +354,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "R",
@@ -361,7 +362,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "I",
@@ -369,7 +370,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Z",
@@ -377,7 +378,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Y",
@@ -385,7 +386,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         }
       ]
     },
@@ -398,7 +399,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "G",
@@ -406,7 +407,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "R",
@@ -414,7 +415,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "I",
@@ -422,7 +423,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Z",
@@ -430,7 +431,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Y",
@@ -438,7 +439,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         }
       ]
     },
@@ -451,7 +452,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "G",
@@ -459,7 +460,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "R",
@@ -467,7 +468,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "I",
@@ -475,7 +476,7 @@
           "active": false,
           "image": "",
           "isDisabled": true,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Z",
@@ -483,7 +484,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         },
         {
           "label": "Y",
@@ -491,7 +492,7 @@
           "active": false,
           "image": "",
           "isDisabled": false,
-          "value": 50
+          "value": 1
         }
       ]
     }

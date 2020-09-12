@@ -17,7 +17,7 @@
 
 .image-container {
   position: relative;
-  height: 300px;
+  height: 500px;
   padding: $minPadding;
   overflow: hidden;
 }
@@ -27,13 +27,36 @@
   flex-flow: column nowrap;
 }
 
+.tool-actions-header,
+.button-tool-container,
+.select-tool-container,
+.slider-tool-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.tool-actions-header {
+  font-weight: $medium;
+}
+
+.button-tool-container,
+.select-tool-container {
+  width: 25%;
+  min-width: 80px;
+}
+
 .button {
-  margin: 15px;
+  width: 50px;
+  height: 50px;
+  margin: 15px auto;
   line-height: 1;
   background: #d5d5d5;
   transition: background $duration ease-in-out;
 
-  &:hover {
+  &:not(:disabled):hover {
     color: $white;
     background: $basePrimary;
   }
@@ -45,7 +68,17 @@
 
 .slider-container {
   flex: 1;
+  min-width: 100px;
   padding: 0 ($minPadding / 2);
+
+  :global .md-slider-container {
+    .md-slider-thumb--on {
+      border: 2px solid $white;
+      box-shadow: 0 0 6px -2px rgba(0, 0, 0, 0.2), 0 0 2px rgba(0, 0, 0, 0.24);
+      transform: scale(1.5);
+      transform-origin: center;
+    }
+  }
 }
 
 .active {
@@ -63,9 +96,7 @@
   position: absolute;
   z-index: -1;
   width: 100%;
-  width: 100%;
   height: 100%;
-  padding-top: 100%;
   visibility: hidden;
   background-repeat: no-repeat;
   background-position: center;

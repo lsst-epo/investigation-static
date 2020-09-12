@@ -65,13 +65,14 @@ class AstroToolContainer extends React.PureComponent {
     const { widget } = this.props;
     const { options } = widget;
     const { jsonData, selectorVal, answerData } = this.state;
-    const { colorOptions, hexColors } = jsonData || {};
+    const { title, colorOptions, hexColors } = jsonData || {};
     const { galaxyImg } = options || {};
 
     return (
       jsonData && (
         <ColorTool
           {...{
+            title,
             colorOptions,
             hexColors,
             galaxyImg,

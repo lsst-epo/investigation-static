@@ -139,10 +139,13 @@ class TextInput extends React.PureComponent {
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
         {updatedLabelPre && (
-          <span
-            className={labelClasses}
-            dangerouslySetInnerHTML={renderDef(updatedLabelPre)}
-          ></span>
+          <>
+            <span
+              className={labelClasses}
+              dangerouslySetInnerHTML={renderDef(updatedLabelPre)}
+            ></span>
+            <span>&nbsp;</span>
+          </>
         )}
         {onlyQaNumber && !updatedLabelPre && (
           <span className={styles.labelPre}>{onlyQaNumber}&nbsp;</span>

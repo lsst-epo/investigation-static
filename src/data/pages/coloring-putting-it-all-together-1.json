@@ -1,7 +1,7 @@
 {
-  "id": "coloring18",
+  "id": "coloring19",
   "investigation": "coloring-universe",
-  "order": "18",
+  "order": "19",
   "title": "Putting It All Together",
   "slug": "putting-it-all-together-1/",
   "previous": {
@@ -22,75 +22,10 @@
         "row": "top"
       },
       "source": "/data/filters/astro-filter.json",
-      "options": {
-        "questionId": "33"
-      }
+      "options": {}
     }
   ],
   "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "34",
-          "questionType": "select",
-          "answerAccessor": "data",
-          "title": "Question #1",
-          "label": "Which type of object(s) you selected to explore?",
-          "options": [
-            {
-              "label": "Look through a dusty nebula to see what's inside",
-              "value": "dusty nebula"
-            },
-            {
-              "label": "Search for a far away galaxy",
-              "value": "far away galaxy"
-            },
-            {
-              "label": "Locate the young stars in a galaxy",
-              "value": "young stars"
-            },
-            {
-              "label": "Identify star-forming regions in a galaxy",
-              "value": "star-forming regions"
-            }
-          ],
-          "placeholder": "Select one"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "35",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Which question did you answer?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "36",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Which filters and images did you select?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "37",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Which chromatic order of colors you assigned?"
-        }
-      ]
-    },
     {
       "question": [
         {

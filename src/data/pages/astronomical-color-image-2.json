@@ -1,7 +1,7 @@
 {
-  "id": "coloring14",
+  "id": "coloring15",
   "investigation": "coloring-universe",
-  "order": "14",
+  "order": "15",
   "title": "Constructing an Astronomical Image",
   "slug": "astronomical-color-images-2/",
   "previous": {
@@ -23,21 +23,8 @@
       },
       "source": "/data/filters/astro-filter.json",
       "options": {
-        "questionId": "21a"
+        "galaxyImg": "M33"
       }
-    }
-  ],
-  "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "21a",
-          "questionType": "accordion",
-          "answerAccessor": "colorTool",
-          "title": "Question #1",
-          "label": "<p>Now let’s see what happens when you move the sliders.</p><br /><br /><p>Move the slider next to the g filter all the way to the right.</p>"
-        }
-      ]
     }
   ]
 }

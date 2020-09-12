@@ -13,5 +13,16 @@
     "link": "/types-of-light/"
   },
   "layout": "TwoCol",
+  "images": [
+    {
+      "mediaPath": "/images/m16_800.jpg",
+      "altText": "M16 Eagle Nebula",
+      "figText": "The Eagle Nebula is a very luminous open cluster of stars surrounded by dust and gas. The three pillars at the center of the image, made famous in an image by the Hubble Space Telescope, are being sculpted by the intense radiation from the hot stars in the cluster.<br />Source: <a href='http://aftar.uaa.alaska.edu/gallery/img-159.html' target='_blank'>Astrophysics & Astrophotography</a>",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ],
   "content": "<p>Have you ever wondered how astronomers learn about objects in the Universe if they can’t directly examine them? Nearly everything astronomers know about the stars and galaxies in the Universe comes from the light we receive from these objects. Fortunately, that light contains a wealth of information. In this investigation, you will learn how astronomers use light and filters to understand things such as distant galaxies, dusty nebulae, and types of stars.</p><h2>Essential Questions</h2><ul><li>How are filters used to create color images?</li><li>How are filters used to conduct astronomical research?</li><li>What can astronomers learn by using these filters?</li></ul>"
 }

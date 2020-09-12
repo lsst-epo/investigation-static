@@ -42,7 +42,7 @@
       }
     },
     {
-      "content": "<p>There are filters like this inside a digital camera (e.g., the one on a mobile phone). Tiny red, green, and blue filters are placed over the pixels of the image sensor (as shown below in Figure 3b). When you take a picture, your camera measures light simultaneously through all three filters.</p>",
+      "content": "<p>There are filters like this inside a digital camera (e.g., the one on a mobile phone). Tiny red, green, and blue filters are placed over the <strong>pixels</strong> of the image sensor (as shown below in Figure 3b). When you take a picture, your camera measures light simultaneously through all three filters.</p>",
       "layout": {
         "col": "right",
         "row": "bottom"

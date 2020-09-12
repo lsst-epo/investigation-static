@@ -1,7 +1,7 @@
 {
-  "id": "coloring16",
+  "id": "coloring17",
   "investigation": "coloring-universe",
-  "order": "16",
+  "order": "17",
   "title": "Reflect and Discuss",
   "slug": "reflect-and-discuss/",
   "previous": {
@@ -12,7 +12,18 @@
     "title": "Putting It All Together",
     "link": "/putting-it-all-together/"
   },
-  "layout": "SingleCol",
+  "layout": "TwoCol",
+  "images": [
+    {
+      "mediaPath": "/images/PIA15506.jpg",
+      "altText": "Vesta PIA15506",
+      "figText": "Vesta's Coat of Many Colors.<br/ >Source: <a href='https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA15506' target='_blank'>Jet Propulsion Laboratory at California Institute of Technology</a> Credit: NASA/JPL-Caltech/UCLA/MPS/DLR/IDA/PSI",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
