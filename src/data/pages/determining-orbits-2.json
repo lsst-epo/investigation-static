@@ -13,13 +13,13 @@
     "link": "/determining-orbits-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>Step through the third image for 19 December and click on the location of the asteroid.</p>",
+  "content": "<p>After a third observation is made.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/test1_orb_1-20.json",
+      "source": "/data/neos/K17C01P_orb_1-15.json",
       "options": {
-        "defaultZoom": 0.35,
+        "defaultZoom": 0.5,
         "potentialOrbits": true
       }
     }

@@ -22,7 +22,8 @@
         "preSelected": true,
         "title": "Aten",
         "paused": true,
-        "pov": "top"
+        "pov": "top",
+        "noDetails": true
       }
     }
   ],

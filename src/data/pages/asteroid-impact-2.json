@@ -9,8 +9,8 @@
     "link": "/asteroid-impact-1/"
   },
   "next": {
-    "title": "Evaluating the Consequences of an Asteroid Impact",
-    "link": "/reflect-discuss/"
+    "title": "Pulling it all Together",
+    "link": "/summary/"
   },
   "layout": "TwoCol",
   "tables": [
@@ -20,65 +20,39 @@
         "col": "right",
         "row": "top"
       },
-      "colTitles": ["Asteroid", "Mass", "Velocity"],
-      "rowTitles": [["#1"], ["#2"], ["#3"]],
-      "rows": [
-        [{ "content": "15,000" }, { "content": "10,000" }],
-        [{ "content": "10,000" }, { "content": "30,000" }],
-        [{ "content": "20,000" }, { "content": "20,000" }]
-      ]
-    },
-    {
-      "id": "5",
-      "layout": {
-        "row": "bottom",
-        "col": "left"
-      },
-      "colTitles": [
-        "Asteroid",
-        "Kinetic Energy",
-        "Approximate diameter of crater"
+      "rowTitles": [
+        ["Mass"],
+        ["Velocity"],
+        ["Kinetic Energy"],
+        ["Impact Crater Diameter"],
+        ["Impact Crater Depth"]
       ],
-      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "colTitles": ["", "Asteroid #1", "Asteroid #2", "Asteroid #3"],
       "rows": [
         [
-          { "accessor": "ke", "id": "35" },
-          { "accessor": "crater-diameter", "id": "38" }
+          { "content": "25,000 kg" },
+          { "content": "12,500 kg" },
+          { "content": "20,000 kg" }
         ],
         [
-          { "accessor": "ke", "id": "36" },
-          { "accessor": "crater-diameter", "id": "39" }
+          { "content": "12,500 m/s" },
+          { "content": "25,000 m/s" },
+          { "content": "20,000 m/s" }
         ],
         [
-          { "accessor": "ke", "id": "37" },
-          { "accessor": "crater-diameter", "id": "40" }
-        ]
-      ]
-    },
-    {
-      "id": "6",
-      "layout": {
-        "row": "top",
-        "col": "left"
-      },
-      "colTitles": [
-        "Asteroid",
-        "Kinetic Energy",
-        "Approximate diameter of crater"
-      ],
-      "rowTitles": [["#1"], ["#2"], ["#3"]],
-      "rows": [
-        [
-          { "accessor": "ke", "id": "35" },
-          { "accessor": "crater-diameter", "id": "38" }
+          { "accessor": "kineticEnergy", "id": "35" },
+          { "accessor": "kineticEnergy", "id": "36" },
+          { "accessor": "kineticEnergy", "id": "37" }
         ],
         [
-          { "accessor": "ke", "id": "36" },
-          { "accessor": "crater-diameter", "id": "39" }
+          { "accessor": "craterDiameter", "id": "38" },
+          { "accessor": "craterDiameter", "id": "39" },
+          { "accessor": "craterDiameter", "id": "40" }
         ],
         [
-          { "accessor": "ke", "id": "37" },
-          { "accessor": "crater-diameter", "id": "40" }
+          { "accessor": "craterDepth", "id": "38" },
+          { "accessor": "craterDepth", "id": "39" },
+          { "accessor": "craterDepth", "id": "40" }
         ]
       ]
     }
@@ -88,10 +62,10 @@
       "question": [
         {
           "id": "38",
-          "questionType": "SizeCalculator",
+          "questionType": "ImpactCalculator",
           "title": "Question #1",
-          "label": "Estimate the diameter of the crater asteroid #1 would leave if it impacted earth",
-          "placeholder": "Enter kinetic energy",
+          "label": "Calculate the approximate diameter and depth of the crater Asteroid #1 would leave if it impacted earth",
+          "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "text"
         }
@@ -101,10 +75,10 @@
       "question": [
         {
           "id": "39",
-          "questionType": "SizeCalculator",
+          "questionType": "ImpactCalculator",
           "title": "Question #1",
-          "label": "Estimate the diameter of the crater asteroid #2 would leave if it impacted earth",
-          "placeholder": "Enter kinetic energy",
+          "label": "Calculate the approximate diameter and depth of the crater Asteroid #2 would leave if it impacted earth",
+          "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "text"
         }
@@ -114,10 +88,10 @@
       "question": [
         {
           "id": "40",
-          "questionType": "SizeCalculator",
+          "questionType": "ImpactCalculator",
           "title": "Question #1",
-          "label": "Estimate the effect of asteroid #3 impacting earth",
-          "placeholder": "Enter kinetic energy",
+          "label": "Calculate the approximate diameter and depth of the crater Asteroid #3 would leave if it impacted earth",
+          "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "text"
         }
@@ -130,7 +104,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "In light of these new claculation, was your original prediction about which asteroid would cause damage over the larget area correct? If not, what is the correct answer, and why you might have made an incorrect prediction."
+          "label": "Rank, from largest to smallest, the size of the impact crater that would be caused by asteroids #1, #2, and #3.  Does this ranking agree with the prediction you made on the previous page?"
         }
       ]
     },

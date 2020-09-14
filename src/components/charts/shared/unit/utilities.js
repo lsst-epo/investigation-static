@@ -11,6 +11,7 @@ export const units = {
   velocity: ' m/s',
   inclination: '°',
   semimajor_axis: ' AU',
+  moid: ' AU',
   diameter: ' m',
   craterDiameter: ' m',
   craterDepth: ' m',

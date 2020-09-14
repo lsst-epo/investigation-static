@@ -20,6 +20,7 @@ const Unit = props => {
       radius: <StellarUnit {...props} />,
       inclination: <StandardUnit {...props} />,
       semimajor_axis: <StandardUnit {...props} />,
+      moid: <StandardUnit {...props} />,
       diameter: <StandardUnit {...props} />,
       craterDiameter: <StandardUnit {...props} />,
       craterDepth: <StandardUnit {...props} />,

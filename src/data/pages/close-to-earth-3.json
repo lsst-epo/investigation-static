@@ -20,7 +20,8 @@
       "options": {
         "preSelected": true,
         "paused": true,
-        "pov": "side"
+        "pov": "side",
+        "noDetails": true
       }
     }
   ],

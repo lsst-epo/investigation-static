@@ -30,15 +30,19 @@ export default function FindDiameter(props) {
       <span>
         <span> 10 </span>
         <span className={exponent}>
-          -0.2 * <span className={color}>{magnitude || 'H'}</span>
+          -0.2 &times; <span className={color}>{magnitude || 'H'}</span>
         </span>
       </span>
       <span>= </span>
       <span className={color}>
-        {diameter && diameter < Infinity
-          ? addTheCommas(formatValue(diameter, 3))
-          : '?'}
-        <QACalculatorIconUnit className={color} unit="diameter" />
+        {diameter && diameter < Infinity ? (
+          <span>
+            {addTheCommas(formatValue(diameter, 3))}
+            <QACalculatorIconUnit className={color} unit="diameter" />
+          </span>
+        ) : (
+          '?'
+        )}
       </span>
     </p>
   );

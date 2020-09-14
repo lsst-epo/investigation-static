@@ -9,8 +9,8 @@
     "link": "/summary-1/"
   },
   "next": {
-    "title": "",
-    "link": ""
+    "title": "Effects of an Asteroid Impact",
+    "link": "/summary-3/"
   },
   "layout": "TwoCol",
   "content": "<p>Let’s imagine that your asteroid did hit Earth. Use the impact tool to see the effects of your asteroid.</p>",
@@ -21,13 +21,20 @@
         "col": "left",
         "row": "top"
       },
-      "colTitles": ["Diameter", "Volume", "Density"],
+      "colTitles": ["Asteroid Name", "3200 Phaeton"],
+      "rowTitles": [
+        ["Asteroid Diameter"],
+        ["Asteroid Velocity"],
+        ["Asteroid Density"],
+        ["Asteroid Mass"],
+        ["Asteroid Kinetic Energy"]
+      ],
       "rows": [
-        [
-          { "accessor": "diameter", "id": "48" },
-          { "accessor": "volume", "id": "50" },
-          { "content": "2500 kg/m^3" }
-        ]
+        [{ "accessor": "diameter", "id": "48" }],
+        [{ "content": "12,900 m/s" }],
+        [{ "content": "2,500 kg/m^3" }],
+        [{ "accessor": "mass", "id": "52" }],
+        [{ "accessor": "kineticEnergy", "id": "52" }]
       ]
     },
     {
@@ -37,70 +44,11 @@
         "row": "top"
       },
       "title": "Impact Collision Properties",
-      "colTitles": [
-        "Crater Diameter",
-        "Crater Depth"
-      ],
+      "colTitles": ["", "3200 Phaeton Impact Crater"],
+      "rowTitles": [["Crater Diameter"], ["Crater Depth"]],
       "rows": [
-        [
-          { "accessor": "craterDiameter", "id": "53" },
-          { "accessor": "craterDepth", "id": "53" }
-        ]
-      ]
-    },
-    {
-      "id": "7",
-      "layout": {
-        "col": "right",
-        "row": "top"
-      },
-      "title": "Seismic Damage",
-      "colTitles": [
-        "Distance from Impact",
-        "Richter Magnitude",
-        "Description"
-      ],
-      "rows": [
-        [
-          { "accessor": "observerDistance", "id": "53" },
-          { "accessor": "richterMagnitudeAtObserverDistance", "id": "53" },
-          { "accessor": "mercalliIntensity", "id": "53" }
-        ]
-      ]
-    },
-    {
-      "id": "8",
-      "layout": {
-        "col": "right",
-        "row": "top"
-      },
-      "title": "Air Blast Damage",
-      "colTitles": [
-        "Distance from Impact",
-        "Overpressure",
-        "Description"
-      ],
-      "rows": [
-        [
-          { "accessor": "observerDistance", "id": "53" },
-          { "accessor": "overPressure", "id": "53" },
-          { "accessor": "airBlastDamage", "id": "53" }
-        ]
-      ]
-    }
-  ],
-  "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "53",
-          "questionType": "ImpactCalculator",
-          "title": "Question #1",
-          "label": "Estimate the effect of this asteroid impacting earth",
-          "placeholder": "Enter values",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
-        }
+        [{ "accessor": "craterDiameter", "id": "53" }],
+        [{ "accessor": "craterDepth", "id": "53" }]
       ]
     }
   ]

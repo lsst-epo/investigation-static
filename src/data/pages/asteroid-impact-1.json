@@ -17,45 +17,26 @@
     {
       "id": "2",
       "layout": {
-        "row": "top",
-        "col": "left"
-      },
-      "colTitles": [
-        "Asteroid",
-        "Mass",
-        "Velocity"
-      ],
-      "rowTitles": [["#1"], ["#2"], ["#3"]],
-      "rows": [
-        [{"content": "15,000"}, {"content": "10,000"}],
-        [{"content": "10,000"}, {"content": "30,000"}],
-        [{"content": "20,000"}, {"content": "20,000"}]
-      ]
-    },
-    {
-      "id": "5",
-      "layout": {
         "col": "right",
         "row": "top"
       },
-      "colTitles": [
-        "Asteroid",
-        "Kinetic Energy",
-        "Approximate diameter of crater"
-      ],
-      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rowTitles": [["Mass"], ["Velocity"], ["Kinetic Energy"]],
+      "colTitles": ["", "Asteroid #1", "Asteroid #2", "Asteroid #3"],
       "rows": [
         [
+          { "content": "25,000 kg" },
+          { "content": "12,500 kg" },
+          { "content": "20,000 kg" }
+        ],
+        [
+          { "content": "12,500 m/s" },
+          { "content": "25,000 m/s" },
+          { "content": "20,000 m/s" }
+        ],
+        [
           { "accessor": "kineticEnergy", "id": "35" },
-          { "accessor": "crater-diameter", "id": "38" }
-        ],
-        [
           { "accessor": "kineticEnergy", "id": "36" },
-          { "accessor": "crater-diameter", "id": "39" }
-        ],
-        [
-          { "accessor": "kineticEnergy", "id": "37" },
-          { "accessor": "crater-diameter", "id": "40" }
+          { "accessor": "kineticEnergy", "id": "37" }
         ]
       ]
     }

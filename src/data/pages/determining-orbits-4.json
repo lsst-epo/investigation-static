@@ -17,7 +17,7 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/test1_orb_1-20.json",
+      "source": "/data/neos/K17C01P_orb_1-15.json",
       "options": {
         "defaultZoom": 0.5,
         "potentialOrbits": true,
@@ -63,17 +63,6 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "Was the asteroid at the location you thought it would be?  If it was in a different location, discuss why you think your initial strategy was not successful, and how you changed your strategy to successfully observe the asteroid in one of the locations (A, B, C, D)."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "19",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What do you notice is different about the possible orbits based on four observations, compared to the possible orbits based on three observations?"
         }
       ]
     }

@@ -9,11 +9,11 @@
     "link": "/summary/"
   },
   "next": {
-    "title": "Putting it all Together",
-    "link": "/summary-2/"
+    "title": "Effects of an Asteroid Impact",
+    "link": "/summary-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>In order to calculate the kinetic energy that this asteroid could deliver to the surface of Earth, you must know its mass and velocity. Assume that astronomers have measured a velocity of 12900 m/s for this asteroid.</p><p>You can estimate the mass of the asteroid by making a few assumptions based on its density and volume:</p><ul><li>Since the composition of the asteroid is not known, assume this is a rocky asteroid (the most common type) with a density of 2500 kg/m3.</li><li>Since we can’t see the asteroid up close, assume it is spherical in shape.</li></ul>",
+  "content": "<p>The amount of damage an impact will cause is related to the object’s kinetic energy. Assume that astronomers have measured a velocity of 12900 m/s for your asteroid. The mass of the asteroid cannot be directly measured, but can be estimated by using its density and diameter. Since the composition of the asteroid is not known, we will assume this is a rocky asteroid (the most common type) with a density of 2500 kg/m3.  So if you have an asteroid’s velocity, density, and diameter you can determine its kinetic energy, and therefore the amount of damage it would cause if it hit Earth.  </p>",
   "tables": [
     {
       "id": "5",
@@ -21,14 +21,34 @@
         "col": "right",
         "row": "top"
       },
-      "colTitles": ["Diameter", "Volume", "Mass", "Kinetic Energy"],
+      "colTitles": ["Asteroid Name", "3200 Phaeton"],
+      "rowTitles": [
+        ["Asteroid Diameter"],
+        ["Asteroid Velocity"],
+        ["Asteroid Density"],
+        ["Asteroid Mass"],
+        ["Asteroid Kinetic Energy"]
+      ],
       "rows": [
-        [
-          { "accessor": "diameter", "id": "48" },
-          { "accessor": "volume", "id": "50" },
-          { "accessor": "mass", "id": "51" },
-          { "accessor": "kineticEnergy", "id": "52" }
-        ]
+        [{ "accessor": "diameter", "id": "48" }],
+        [{ "content": "12,900 m/s" }],
+        [{ "content": "2,500 kg/m^3" }],
+        [{ "accessor": "mass", "id": "52" }],
+        [{ "accessor": "kineticEnergy", "id": "52" }]
+      ]
+    },
+    {
+      "id": "6",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "title": "Impact Collision Properties",
+      "colTitles": ["", "3200 Phaeton Impact Crater"],
+      "rowTitles": [["Crater Diameter"], ["Crater Depth"]],
+      "rows": [
+        [{ "accessor": "craterDiameter", "id": "52" }],
+        [{ "accessor": "craterDepth", "id": "52" }]
       ]
     }
   ],
@@ -37,10 +57,10 @@
       "question": [
         {
           "id": "52",
-          "questionType": "KineticEnergyCalculator",
+          "questionType": "ImpactCalculator",
           "title": "Question #1",
-          "label": "Now that you know the mass and velocity, calculate the kinetic energy of the asteroid at the time of impact. Include units in your answer. The calculated kinetic energy will be in joules if mass is in kg and velocity in m/s.",
-          "placeholder": "Enter Mass and Velocity",
+          "label": "Input your values for velocity, density and diameter to estimate the impact energy (kinetic energy) of your asteroid, and the size of the crater it would leave, if it hit Earth.",
+          "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "kineticEnergy"
         }

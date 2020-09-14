@@ -103,7 +103,7 @@ export const ImpactCalculator = {
   inputs: [
     {
       containerWidth: col50,
-      leftIcon: <QACalculatorIcon content="D =" />,
+      leftIcon: <QACalculatorIcon content="D<sub>a</sub> =" />,
       rightIcon: <QACalculatorIconUnit unit="diameter" />,
       label: 'Asteroid Diameter',
       placeholder: 'asteroid diameter',

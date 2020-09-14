@@ -5,19 +5,19 @@
   "title": "Putting it all Together",
   "slug": "summary/",
   "previous": {
-    "title": "Reflect and Discuss",
-    "link": "/reflect-discuss/"
+    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "link": "/asteroid-impact-2/"
   },
   "next": {
     "title": "Putting it all Together",
     "link": "/summary-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now that you have become an expert in potentially hazardous asteroids, you will have a chance to evaluate an asteroid that was discovered by Rubin Observatory. Use all of the knowledge and tools from this investigation to create an “asteroid characteristics and risk assessment” report for this object.</p>",
+  "content": "<p>Now that you have become an expert in PHAs, you will have a chance to evaluate an asteroid that was discovered by Rubin Observatory. Use all of the knowledge and tools from this investigation to create an “asteroid characteristics and risk assessment” report for this object.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/nea_extended_sample.json"
+      "source": "/data/neos/3200phaeton.json"
     }
   ],
   "tables": [
@@ -25,16 +25,12 @@
       "id": "5",
       "layout": {
         "col": "left",
-        "row": "top"
+        "row": "bottom"
       },
-      "colTitles": ["Diameter", "Volume", "Mass", "Kinetic Energy"],
+      "colTitles": ["", "3200 Phaeton"],
+      "rowTitles": [["Asteroid Diameter"]],
       "rows": [
-        [
-          { "accessor": "diameter", "id": "48" },
-          { "accessor": "volume", "id": "50" },
-          { "accessor": "mass", "id": "51" },
-          { "accessor": "kineticEnergy", "id": "52" }
-        ]
+        [{ "accessor": "diameter", "id": "48" }]
       ]
     }
   ],
@@ -46,7 +42,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Could this asteroid be considered potentially hazardous? Explain your answer using characteristics that you observe about the asteroid's orbit."
+          "label": "Based on the orbital characteristics of this asteroid, could this asteroid be considered potentially hazardous? Explain your answer."
         }
       ]
     },

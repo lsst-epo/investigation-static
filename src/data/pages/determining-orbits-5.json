@@ -13,17 +13,35 @@
     "link": "/determining-orbits-6/"
   },
   "layout": "TwoCol",
+  "content": "<p>Now there have been four successful observations of the asteroid.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/test1_orb_1-20.json",
+      "source": "/data/neos/K17C01P_orb_1-20.json",
       "options": {
         "defaultZoom": 0.5,
-        "potentialOrbits": true
+        "potentialOrbits": true,
+        "questionId": "21",
+        "observations":[
+          {"id": "obs-1", "label": "A","interactable": true, "isActive": false, "position": 0.25},
+          {"id": "obs-2", "label": "B","interactable": true, "isActive": true, "position": 0.35},
+          {"id": "obs-3", "label": "C","interactable": true, "isActive": false, "position": 0.5}
+        ]
       }
     }
   ],
   "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "19",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What do you notice is different about the possible orbits based on four observations, compared to the possible orbits based on three observations?"
+        }
+      ]
+    },
     {
       "question": [
         {
@@ -44,7 +62,7 @@
           "title": "Question #1",
           "label": "<p>Try clicking on locations (A, B, C, D) until you successfully observe the asteroid.</p>",
           "answerPre": "<span>Selected Asteroid: </span>",
-          "answerAccessor": "supernova"
+          "answerAccessor": "observation"
         }
       ]
     },
