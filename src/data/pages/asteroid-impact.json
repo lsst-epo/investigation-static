@@ -13,24 +13,32 @@
     "link": "/asteroid-impact-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>When an asteroid hits Earth, the amount of damage it causes depends primarily on the asteroid’s kinetic energy, which is given by the equation: KE = ½ mv2</p><p>In this equation KE is the kinetic energy of the asteroid, m is the mass, and v is its velocity. Note that the velocity is squared in the equation.</p><p>The table below lists the masses and velocities of three asteroids:</p>",
+  "content": "<p>When an asteroid hits Earth, the amount of damage it causes depends primarily on the asteroid’s kinetic energy, which is given by the equation: </p><p>KE = ½ mv<span class='exponent'> 2</span></p><p>In this equation KE is the kinetic energy of the asteroid, m is the mass, and v is its velocity. Note that the velocity is squared in the equation.</p><p>The table lists the masses and velocities of three asteroids.</p>",
   "tables": [
     {
       "id": "2",
       "layout": {
-        "col": "left",
+        "col": "right",
         "row": "top"
       },
-      "colTitles": [
-        "Asteroid",
-        "Mass",
-        "Velocity"
-      ],
-      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rowTitles": [["Mass"], ["Velocity"], ["Kinetic Energy"]],
+      "colTitles": ["", "Asteroid #1", "Asteroid #2", "Asteroid #3"],
       "rows": [
-        [{"content": "15,000"}, {"content": "10,000"}],
-        [{"content": "10,000"}, {"content": "30,000"}],
-        [{"content": "20,000"}, {"content": "20,000"}]
+        [
+          { "content": "25,000 kg" },
+          { "content": "12,500 kg" },
+          { "content": "20,000 kg" }
+        ],
+        [
+          { "content": "12,500 m/s" },
+          { "content": "25,000 m/s" },
+          { "content": "20,000 m/s" }
+        ],
+        [
+          { "accessor": "kineticEnergy", "id": "35" },
+          { "accessor": "kineticEnergy", "id": "36" },
+          { "accessor": "kineticEnergy", "id": "37" }
+        ]
       ]
     }
   ],
@@ -42,7 +50,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Which of the asteroids in the table above would cause damage over the largest area if it hit Earth? Which would damage the smallest area? Explain your reasoning."
+          "label": "Predict which of the asteroids in the table above would cause damage over the largest area if it hit Earth? Which would damage the smallest area? Explain your reasoning."
         }
       ]
     }

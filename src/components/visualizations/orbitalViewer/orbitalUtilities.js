@@ -85,6 +85,10 @@ export const getMinorAxis = (a, e) => {
   return auToUnit(a * Math.sqrt(1 - e ** 2));
 };
 
+export const auToMeters = value => {
+  return 149600000000 * value;
+};
+
 export const degsToRads = i => {
   return i * (Math.PI / 180);
 };

@@ -21,6 +21,7 @@ function OrbitalViewer({
   defaultZoom,
   potentialOrbits,
   observations,
+  noDetails,
 }) {
   const speeds = [0.00001157, 1.1574, 11.574, 30, 365.25]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
 
@@ -28,7 +29,7 @@ function OrbitalViewer({
   const [activeVelocity, setActiveVelocity] = useState(null);
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
-  const [dayPerVizSec, setDayPerVizSec] = useState(speeds[1]);
+  const [dayPerVizSec, setDayPerVizSec] = useState(speeds[2]);
   const handleStartStop = () => {
     setPlaying(!playing);
     setStepDirection(1);
@@ -58,7 +59,7 @@ function OrbitalViewer({
   return (
     <>
       <div className={container}>
-        {!potentialOrbits && (
+        {!potentialOrbits && !noDetails && (
           <OrbitalDetails velocity={activeVelocity} data={activeNeo} />
         )}
         <PlaybackSpeed dayPerVizSec={dayPerVizSec} />
@@ -72,14 +73,14 @@ function OrbitalViewer({
             near={0.1}
             far={30000}
             position={[0, 0, 8000]}
-            defaultZoom={defaultZoom}
+            defaultZoom={defaultZoom || 1}
           />
           <ambientLight intensity={0.9} />
           <Orbitals
             includeRefObjs
             activeVelocityCallback={setActiveVelocity}
+            defaultZoom={defaultZoom || 1}
             {...{
-              defaultZoom,
               neos,
               activeNeo,
               activeObs,
@@ -115,10 +116,6 @@ function OrbitalViewer({
   );
 }
 
-OrbitalViewer.defaultProps = {
-  defaultZoom: 1,
-};
-
 OrbitalViewer.propTypes = {
   neos: PropTypes.array,
   activeNeo: PropTypes.object,
@@ -129,6 +126,7 @@ OrbitalViewer.propTypes = {
   defaultZoom: PropTypes.number,
   potentialOrbits: PropTypes.bool,
   observations: PropTypes.array,
+  noDetails: PropTypes.bool,
 };
 
 export default OrbitalViewer;

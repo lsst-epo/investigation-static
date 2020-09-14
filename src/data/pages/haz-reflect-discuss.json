@@ -1,34 +1,35 @@
 {
-  "id": "hazardous22",
+  "id": "hazardous28",
   "investigation": "hazardous-asteroids",
-  "order": "22",
+  "order": "28",
   "title": "Reflect and Discuss",
   "slug": "reflect-discuss/",
   "previous": {
-    "title": "Evaluating the Consequences of an Asteroid Impact",
-    "link": "/asteroid-impact-2/"
+    "title": "Learning More about Asteroid Detection",
+    "link": "/learn-more/"
   },
   "next": {
-    "title": "Evaluating the Consequences of an Asteroid Impact",
-    "link": "/summary/"
+    "title": "",
+    "link": ""
   },
   "layout": "TwoCol",
+  "content": "<p>A story in the news says that astronomers have found an asteroid that is going to hit Earth. A few months later a follow-up story says that astronomers now feel that the asteroid is no longer a threat.</p>",
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "44",
+          "id": "58",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What would you tell your friend to help them understand?"
+          "label": "Upon reading the news a friend of your says, “What’s wrong with these astronomers? First they think we’re going to get hit and then they say we aren’t. Why can’t they get it straight the first time?” What would you tell your friend to help them understand?"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "45",
+          "id": "59",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
@@ -39,11 +40,22 @@
     {
       "question": [
         {
-          "id": "46",
+          "id": "60",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "Do you think astronomers should continue to monitor this asteroid? Explain your reasoning."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "61",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "When an asteroid impacts Earth, not all of its energy is converted to seismic or airblast energy. What other form(s) of energy might result from the conversion of the asteroid’s  kinetic energy? (Hint: Think of other types of explosions.)"
         }
       ]
     }

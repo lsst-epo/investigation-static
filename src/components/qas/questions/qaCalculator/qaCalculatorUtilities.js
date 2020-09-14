@@ -1,6 +1,137 @@
 import inRange from 'lodash/inRange';
 import find from 'lodash/find';
 
+const seismicDamages = [
+  { id: '0', range: [0, 1], description: 'Not felt or noticed. No damage.' },
+  {
+    id: 'I',
+    range: [1, 2],
+    description: 'Usually not felt. No damage.',
+  },
+  {
+    id: 'II',
+    range: [2, 3],
+    description:
+      'Felt only by a few persons, especially on upper floors of buildings.',
+  },
+  {
+    id: 'III',
+    range: [3, 3.5],
+    description:
+      'Felt quite noticeably by persons indoors, especially on upper floors of buildings. Parked cars may rock slightly. Vibrations feel similar to the passing of a large truck.',
+  },
+  {
+    id: 'IV',
+    range: [3.5, 4.5],
+    description:
+      'Felt indoors by many, outdoors by few; Some are awakened if sleeping; Dishes, windows, doors disturbed; walls make cracking sounds. Feels like a heavy truck striking the building. Parked cars rock noticeably.',
+  },
+  {
+    id: 'V',
+    range: [4.5, 5],
+    description:
+      'Felt by nearly everyone.  Most are awakened if sleeping. Some dishes and  windows are broken. Unstable objects overturned.',
+  },
+  {
+    id: 'VI',
+    range: [5, 5.5],
+    description:
+      'Felt by all. Some heavy furniture moved; Some dishes and  windows are broken.  A few instances of fallen plaster. Parked cars rock noticeably.',
+  },
+  {
+    id: 'VII',
+    range: [5.5, 6.5],
+    description:
+      'Felt by all.  No damage in buildings of good design and construction; slight to moderate damage in well-built ordinary structures; considerable damage in poorly built or badly designed structures; some chimneys broken.',
+  },
+  {
+    id: 'VIII',
+    range: [6.5, 7.5],
+    description:
+      'Damage slight in specially designed structures; considerable damage or  partial collapse in ordinary buildings. Damage is great in poorly built structures. Chimneys, factory stacks, columns, monuments, and walls may fall. Heavy furniture overturned.',
+  },
+  {
+    id: 'IX',
+    range: [7.5, 8],
+    description:
+      'Damage considerable even in specially designed structures. Many buildings will partially collapse or be shifted off their foundations. Serious damage to dams. Underground pipes broken. Cracks open in the ground. In some areas, sand and mud may shoot into the air.',
+  },
+  {
+    id: 'X',
+    range: [8, 8.5],
+    description:
+      'Most buildings and bridges destroyed, with the exception of some well-built wooden structures and bridges. Serious damage to dams and embankments. Large landslides and mudflows. Some water is thrown out of canals, rivers, and lakes onto their banks. Train tracks are bent slightly.',
+  },
+  {
+    id: 'XI',
+    range: [8.5, 9],
+    description:
+      'Felt by almost everyone both indoors and outdoors. Most buildings and bridges are destroyed. Train tracks bent greatly. Underground pipelines are damaged so much they are unusable.',
+  },
+  {
+    id: 'XII',
+    range: [9, Infinity],
+    description:
+      'Damage nearly total. Felt by everyone both indoors and outdoors. Most buildings and bridges are destroyed. Large rocks and sections of land moved. Objects thrown into the air.',
+  },
+];
+
+const airBlastDamages = [
+  { range: [0, 6900], description: 'Not felt or noticed. No damage.' },
+  {
+    range: [6900, 22900],
+    description: 'Glass windows will shatter.',
+  },
+  {
+    range: [22900, 26800],
+    description:
+      'Interior walls of wood frame buildings will collapse. Roofs will be severely damaged. Glass windows will shatter.',
+  },
+  {
+    range: [26800, 38500],
+    description: 'Wood frame buildings will almost completely collapse.',
+  },
+  {
+    range: [38500, 42600],
+    description:
+      'Small multistory buildings will experience severe cracking and interior walls will collapse. Wood frame buildings will collapse.',
+  },
+  {
+    range: [42600, 100000],
+    description: 'Small multistory and wood frame buildings will collapse.',
+  },
+  {
+    range: [100000, 121000],
+    description:
+      'Ordinary highway bridges will have substantial damage. Small multistory and wood frame buildings will collapse.',
+  },
+  {
+    range: [121000, 273000],
+    description:
+      'Ordinary highway bridges will collapse. Small multistory and wood frame buildings will collapse.',
+  },
+  {
+    range: [273000, 297000],
+    description:
+      'Large multi-story steel frame buildings will have substantial damage and may collapse. All smaller buildings will collapse. Ordinary highway bridges will collapse.',
+  },
+  {
+    range: [297000, 379000],
+    description:
+      'Cars and trucks will be overturned and moved and will require major repairs. Ordinary highway bridges will collapse.  Large multi-story steel frame buildings will have substantial damage and may collapse. All smaller buildings will collapse.',
+  },
+  {
+    range: [379000, 426000],
+    description:
+      'Well-designed strong highway bridges will collapse. Cars and trucks will be overturned and moved and will require major repairs. Ordinary highway bridges will collapse.  Large multi-story steel frame buildings will have substantial damage and may collapse. All smaller buildings will collapse.',
+  },
+  {
+    range: [426000, Infinity],
+    description:
+      'Cars and trucks will be moved and significantly deformed and will be unusable. Well-designed strong highway bridges will collapse. Large multi-story steel frame buildings will have substantial damage and may collapse. All smaller buildings will collapse',
+  },
+];
+
 export const solveForDistanceModulus = m => {
   return m ? +m + 19.4 : null;
 };
@@ -133,163 +264,13 @@ export const calculateCraterDepth = craterDiameter => {
   return +craterDiameter / (2 * Math.sqrt(2));
 };
 
-export const getMercalliIntensity = richterMagnitude => {
-  if (richterMagnitude === null || richterMagnitude < 0) return null;
+export const getDamageDescription = (damageVal, damageDescriptions) => {
+  if (!damageVal) return null;
 
-  const mercalliIntensities = [
-    { id: '0', range: [0, 1], description: 'No seismic damage felt.' },
-    {
-      id: 'I',
-      range: [1, 2],
-      description:
-        'Not felt except by a very few under especially favorable conditions.',
-    },
-    {
-      id: 'II',
-      range: [2, 3],
-      description:
-        'Felt only by a few persons at rest, especially on upper floors of buildings.',
-    },
-    {
-      id: 'III',
-      range: [3, 3.5],
-      description:
-        'Felt quite noticeably by persons indoors, especially on upper floors of buildings. Many people do not recognize it as an earthquake. Standing motor cars may rock slightly. Vibrations similar to the passing of a truck.',
-    },
-    {
-      id: 'IV',
-      range: [3.5, 4.5],
-      description:
-        'Felt indoors by many, outdoors by few during the day. At night, some awakened. Dishes, windows, doors disturbed; walls make cracking sound. Sensation like heavy truck striking building. Standing motor cars rocked noticeably.',
-    },
-    {
-      id: 'V',
-      range: [4.5, 5],
-      description:
-        'Felt by nearly everyone; many awakened. Some dishes, windows broken. Unstable objects overturned. Pendulum clocks may stop.',
-    },
-    {
-      id: 'VI',
-      range: [5, 5.5],
-      description:
-        'Felt by all, many frightened. Some heavy furniture moved; a few instances of fallen plaster. Damage slight.',
-    },
-    {
-      id: 'VII',
-      range: [5.5, 6.5],
-      description:
-        'Damage negligible in buildings of good design and construction; slight to moderate in well-built ordinary structures; considerable damage in poorly built or badly designed structures; some chimneys broken.',
-    },
-    {
-      id: 'VIII',
-      range: [6.5, 7.5],
-      description:
-        'Damage slight in specially designed structures; considerable damage in ordinary substantial buildings with partial collapse. Damage great in poorly built structures. Fall of chimneys, factory stacks, columns, monuments, and walls. Heavy furniture overturned.',
-    },
-    {
-      id: 'IX',
-      range: [7.5, 8],
-      description:
-        'General panic. Damage considerable in specially designed structures; well-designed frame structures thrown out of plumb. Damage great in substantial buildings, with partial collapse. Buildings shifted off foundations. Serious damage to reservoirs. Underground pipes broken. Conspicuous cracks in ground. In alluviated areas sand and mud ejected, earthquake fountains, sand craters.',
-    },
-    {
-      id: 'X',
-      range: [8, 8.5],
-      description:
-        'Most masonry and frame structures destroyed with their foundations. Some well-built wooden structures and bridges destroyed. Serious damage to dams, dikes, and embankments. Large landslides. Water thrown on banks of canals, rivers, lakes, etc. Sand and mud shifted horizontally on beaches and flat land. Rails bent slightly.',
-    },
-    {
-      id: 'XI',
-      range: [8.5, 9],
-      description:
-        'Rails bent greatly. Underground pipelines completely out of service.',
-    },
-    {
-      id: 'XII',
-      range: [9, Infinity],
-      description:
-        'Damage nearly total. Large rock masses displaced. Lines of sight and level distorted. Objects thrown into the air.',
-    },
-  ];
-
-  return mercalliIntensities.filter(mi =>
-    inRange(+richterMagnitude, mi.range[0], mi.range[1])
-  );
-};
-
-export const getAirBlastDamage = airBlastOverPressure => {
-  if (!airBlastOverPressure) return null;
-
-  const airBlastDamage = [
-    {
-      overPressure: 426000,
-      vehicles:
-        'Cars and trucks will be largely displaced and grossly distorted and will require rebuilding before use.',
-    },
-    {
-      overPressure: 379000,
-      bridges:
-        'Highway girder bridges and highway truss bridges will collapse.',
-    },
-    {
-      overPressure: 297000,
-      vehicles:
-        'Cars and trucks will be overturned and displaced, requiring major repairs',
-    },
-    {
-      overPressure: 273000,
-      buildings:
-        'Multistory steel-framed office-type buildings will suffer extreme frame distortion, incipient collapse. Multistory wall-bearing buildings and wood frame buildings will collapse.',
-    },
-    {
-      overPressure: 121000,
-      bridges: 'Highway truss bridges will collapse.',
-    },
-    {
-      overPressure: 100000,
-      bridges:
-        'Highway truss bridges will suffer substantial distortion of bracing',
-    },
-    {
-      overPressure: 42600,
-      buildings:
-        'Multistory wall-bearing buildings and wood frame buildings will collapse.',
-    },
-    {
-      overPressure: 38500,
-      buildings:
-        'Multistory wall-bearing buildings will experience severe cracking and interior partitions will be blown down. Wood frame buildings will collapse.',
-    },
-    {
-      overPressure: 26800,
-      buildings: 'Wood frame buildings will almost completely collapse.',
-    },
-    {
-      overPressure: 22900,
-      buildings:
-        'Interior partitions of wood frame buildings will be blown down. Roof will be severely damaged. Glass will windows shatter.',
-    },
-    {
-      overPressure: 6900,
-      buildings: 'Glass windows will shatter.',
-    },
-    { overPressure: 0, buildings: 'No air blast damage felt.' },
-  ];
-  const filteredAirBlastDamage = airBlastDamage.filter(damage => {
-    const { overPressure } = damage;
-    return overPressure <= +airBlastOverPressure;
+  return find(damageDescriptions, description => {
+    const [min, max] = description.range;
+    return inRange(+damageVal, min, max);
   });
-
-  const vehicles = find(filteredAirBlastDamage, 'vehicles');
-  const bridges = find(filteredAirBlastDamage, 'bridges');
-  const buildings = find(filteredAirBlastDamage, 'buildings');
-
-  const damageDescription = [];
-  if (buildings) damageDescription.push(buildings.buildings);
-  if (bridges) damageDescription.push(bridges.bridges);
-  if (vehicles) damageDescription.push(vehicles.vehicles);
-
-  return damageDescription;
 };
 
 export const calculateAsteroidImpact = props => {
@@ -310,11 +291,12 @@ export const calculateAsteroidImpact = props => {
     richterMagnitude,
     observerDistance
   );
-  const mercalliIntensity = getMercalliIntensity(
-    richterMagnitudeAtObserverDistance
+  const mercalliIntensity = getDamageDescription(
+    richterMagnitudeAtObserverDistance,
+    seismicDamages
   );
   const overPressure = calculateAirBlast(observerDistance, seismicDamage);
-  const airBlastDamage = getAirBlastDamage(overPressure);
+  const airBlastDamage = getDamageDescription(overPressure, airBlastDamages);
 
   return {
     ...props,

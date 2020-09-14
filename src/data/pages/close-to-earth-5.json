@@ -13,13 +13,14 @@
     "link": "/close-to-earth-6/"
   },
   "layout": "TwoCol",
-  "content": "<p>Use the controls in the upper right corner of the orbit tracker to watch the motion of asteroid Bennu and the planets as they orbit around the Sun. Make sure the time step interval is set to “1 day” (as shown above). Click on the “play forward” button (double right arrow). Press the stop button when Bennu is located on the blue orbit of Earth. (If you overshoot you can use the “step backward” button.)</p>",
+  "content": "<p>Use the controls at the bottom of the OrbitViewer to watch the motion of asteroid Bennu and the planets as they orbit around the Sun. Adjust the Time Step by clicking the speedometer. Press the play/pause button when Bennu is located on the blue orbit of Earth. (If you overshoot you can use the “step backward” button.)</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
       "source": "/data/neos/bennu.json",
       "options": {
-        "preSelected": true
+        "preSelected": true,
+        "noDetails": true
       }
     }
   ],

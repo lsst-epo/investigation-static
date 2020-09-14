@@ -20,7 +20,8 @@
       "source": "/data/neos/bennu.json",
       "options": {
         "preSelected": true,
-        "paused": true
+        "paused": true,
+        "noDetails": true
       }
     }
   ],

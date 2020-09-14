@@ -32,7 +32,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Click on a point on the Image to select the asteroid</p>",
+          "label": "<p>Click on the location of the asteroid in the Animated Image</p>",
           "answerPre": "<span>Selected Asteroid: </span>",
           "answerAccessor": "neo"
         }

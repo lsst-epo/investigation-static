@@ -48,6 +48,7 @@ export const widgetOptionsFragment = graphql`
     objectName
     questionId
     potentialOrbits
+    noDetails
     observations {
       id
       label

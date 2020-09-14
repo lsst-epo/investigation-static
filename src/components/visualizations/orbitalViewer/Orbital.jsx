@@ -15,6 +15,8 @@ import {
   getLineGeometry,
   getAngleFromPos,
   getPosFromArcLength,
+  auToMeters,
+  unitToAu,
 } from './orbitalUtilities.js';
 import { label } from './orbital-viewer.module.scss';
 
@@ -175,7 +177,7 @@ const Orbital = ({
   // Called whenever pointState changes
   useEffect(() => {
     if (active) {
-      activeVelocityCallback(point.velocity);
+      activeVelocityCallback(auToMeters(unitToAu(point.velocity / 100000)));
     }
   }, [point]);
 

@@ -19,7 +19,8 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/bennu.json",
       "options": {
-        "preSelected": true
+        "preSelected": true,
+        "noDetails": true
       }
     }
   ]

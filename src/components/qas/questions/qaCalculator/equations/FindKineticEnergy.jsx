@@ -21,12 +21,12 @@ export default function FindKineticEnergy(props) {
         <span className="numerator">1</span>
         <span className={denominator}>2</span>
       </span>
-      {` * `}
+      <span> &times; </span>
       <span>
         <span className={color}> {mass ? addTheCommas(mass) : 'm'}</span>
         {mass && <QACalculatorIconUnit className={color} tiny unit="mass" />}
         <span>)</span>
-        {` * `}
+        <span> &times; </span>
         <span className={color}>
           {velocity ? addTheCommas(velocity) : 'v'}
           {velocity && (

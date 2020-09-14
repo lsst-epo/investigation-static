@@ -17,9 +17,9 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/test1_orb_1-10.json",
+      "source": "/data/neos/K17C01P_orb_1-12.json",
       "options": {
-        "defaultZoom": 0.35,
+        "defaultZoom": 0.5,
         "potentialOrbits": true
       }
     }

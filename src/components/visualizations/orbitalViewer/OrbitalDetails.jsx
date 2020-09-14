@@ -13,11 +13,12 @@ import {
 import Button from '../../site/button/index.js';
 
 function OrbitalDetails({ data, velocity }) {
-  const { H, a, i, e, Principal_desig: name } = data || {};
+  const { H, a, i, e, Principal_desig: name, Earth_moid: moid } = data || {};
   const [active, setActive] = useState(false);
 
   function renderValueWithUnits(value, unitType, showUnit) {
     if (!value) return '';
+
     return (
       <>
         {getValue(unitType, value)}
@@ -57,6 +58,7 @@ function OrbitalDetails({ data, velocity }) {
             ['Eccentricity', renderValueWithUnits(e, 'eccentricity', false)],
             ['Inclination', renderValueWithUnits(i, 'inclination', true)],
             ['Absolute Magnitude', renderValueWithUnits(H, 'magnitude', false)],
+            ['Earth MOID', renderValueWithUnits(moid, 'moid', true)],
             [
               'Speed',
               renderValueWithUnits(toSigFigs(velocity, 3), 'velocity', true),

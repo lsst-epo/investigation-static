@@ -1,7 +1,6 @@
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
 import isNumber from 'lodash/isNumber';
-import isArray from 'lodash/isArray';
 import { extent as d3Extent, mean as d3Mean } from 'd3-array';
 import chartColors from '../assets/stylesheets/_variables.scss';
 
@@ -238,14 +237,8 @@ export const toSigFigs = (number, precision) => {
   return String(roundedValue);
 };
 
-const formatSeismicDescriptions = function(data) {
-  if (!isArray(data)) return '';
-  return data.map(d => d.description).join('  ');
-};
-
-const formatAirBlastDescriptions = function(data) {
-  if (!isArray(data)) return '';
-  return data.join('  ');
+const getDamageDescription = function(data) {
+  return data.description;
 };
 
 export const getValue = function(accessor, data) {
@@ -272,6 +265,7 @@ export const getValue = function(accessor, data) {
       inclination: formatValue(data, 0),
       eccentricity: formatValue(data, 2),
       semimajor_axis: formatValue(data, 2),
+      moid: formatValue(data, 3),
       diameter: formatValue(data, 3),
       craterDiameter: addTheCommas(toSigFigs(data, 3)),
       craterDepth: addTheCommas(toSigFigs(data, 3)),
@@ -279,8 +273,8 @@ export const getValue = function(accessor, data) {
       kineticEnergy: formatValue(+data, 3),
       volume: toSigFigs(data, 4),
       overPressure: addTheCommas(toSigFigs(data, 3)),
-      mercalliIntensity: formatSeismicDescriptions(data),
-      airBlastDamage: formatAirBlastDescriptions(data),
+      mercalliIntensity: getDamageDescription(data),
+      airBlastDamage: getDamageDescription(data),
       richterMagnitudeAtObserverDistance: formatValue(data, 1),
     }[accessor] || data
   );

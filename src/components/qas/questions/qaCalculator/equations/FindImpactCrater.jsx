@@ -21,7 +21,6 @@ import {
   boldText,
   // seismicDamageText,
   craterDiameterStyle,
-  craterDiameterAnswerStyle,
   craterDepthStyle,
 } from './equations.module.scss';
 
@@ -43,31 +42,30 @@ export default function FindImpactCrater(props) {
     <div className={findImpactCraterEquation} data-testid="qa-calc-impact">
       <p className={boldText}>Crater Diameter:</p>
       <p className={classnames(equation, craterDiameterStyle)}>
-        <QACalculatorIcon content="D<sub>tc</sub> = " />
-        <span>1.161</span>
-        <span> ( </span>
-        <span className={fraction}>
-          <span className={`numerator ${color}`}>
-            {!density ? <span>&#x1D780;</span> : addTheCommas(density)}
-            {density && (
-              <QACalculatorIconUnit className={color} tiny unit="density" />
-            )}
-          </span>
-          <span className={denominator}>2500</span>
-        </span>
-        <span> )</span>
-        <span>
-          <sup>1/3</sup>
-        </span>
-        <span> </span>
+        <QACalculatorIcon content="D<sub>c</sub> = " />
+        <span>0.0461 &times; </span>
         <span className={color}>
-          {!asteroidDiameter ? 'D' : addTheCommas(asteroidDiameter)}
+          {!density ? <span>&#x1D780;</span> : addTheCommas(density)}
+          {density && (
+            <QACalculatorIconUnit className={color} tiny unit="density" />
+          )}
+        </span>
+        <sup>1/3</sup>
+        <span> &times; </span>
+        <span className={color}>
+          {!asteroidDiameter ? (
+            <span>
+              D<sub>a</sub>
+            </span>
+          ) : (
+            addTheCommas(asteroidDiameter)
+          )}
         </span>
         {asteroidDiameter && (
           <QACalculatorIconUnit className={color} tiny unit="diameter" />
         )}
         <sup>0.78</sup>
-        <span> </span>
+        <span> &times; </span>
         <span className={color}>
           {!velocity ? 'v' : addTheCommas(velocity)}
         </span>
@@ -75,54 +73,52 @@ export default function FindImpactCrater(props) {
           <QACalculatorIconUnit className={color} tiny unit="velocity" />
         )}
         <sup>0.44</sup>
-        <span> </span>
-        <span>
-          9.8
-          <QACalculatorIconUnit tiny unit="velocity" />
-          <sup>-0.22</sup>
-        </span>
-        <span> </span>
-        <span>
-          sin
-          <sup>1/3</sup>
-          <span> 45˚</span>
-        </span>
-      </p>
-      <p className={craterDiameterAnswerStyle}>
-        <QACalculatorIcon content="D<sub>tc</sub> = " />
+        <span> = </span>
         <span className={boldText}>
-          {craterDiameter ? addTheCommas(toSigFigs(craterDiameter, 3)) : '?'}
-          <QACalculatorIconUnit unit="craterDiameter" />
+          {craterDiameter ? (
+            <span>
+              {addTheCommas(toSigFigs(craterDiameter, 3))}
+              <QACalculatorIconUnit unit="craterDiameter" />
+            </span>
+          ) : (
+            <span className={color}>?</span>
+          )}
         </span>
       </p>
-      {craterDepth && (
-        <div>
-          <p className={boldText}>Crater Depth:</p>
-          <p className={craterDepthStyle}>
-            <QACalculatorIcon content="d<sub>tc</sub> = " />
-            <span className={fraction}>
-              <span className={`numerator ${color}`}>
-                {craterDiameter ? (
-                  addTheCommas(toSigFigs(craterDiameter, 3))
-                ) : (
-                  <QACalculatorIcon content="D<sub>tc</sub> = " />
-                )}
-                <QACalculatorIconUnit
-                  className={color}
-                  tiny
-                  unit="craterDiameter"
-                />
+      <div>
+        <p className={boldText}>Crater Depth:</p>
+        <p className={craterDepthStyle}>
+          <QACalculatorIcon content="d<sub>c</sub> = " />
+          <span className={fraction}>
+            <span className={`numerator ${color}`}>
+              {craterDiameter ? (
+                <span>
+                  {addTheCommas(toSigFigs(craterDiameter, 3))}
+                  <QACalculatorIconUnit
+                    className={color}
+                    tiny
+                    unit="craterDiameter"
+                  />
+                </span>
+              ) : (
+                <QACalculatorIcon className={color} content="D<sub>c</sub>" />
+              )}
+            </span>
+            <span className={denominator}>2 &radic; 2</span>
+          </span>
+          <span> = </span>
+          <span>
+            {craterDepth ? (
+              <span>
+                {addTheCommas(toSigFigs(craterDepth, 3))}
+                <QACalculatorIconUnit tiny unit="craterDiameter" />
               </span>
-              <span className={denominator}>2 &radic; 2</span>
-            </span>
-            <span> = </span>
-            <span>
-              {craterDepth ? addTheCommas(toSigFigs(craterDepth, 3)) : '?'}
-              <QACalculatorIconUnit tiny unit="craterDiameter" />
-            </span>
-          </p>
-        </div>
-      )}
+            ) : (
+              <span className={color}>?</span>
+            )}
+          </span>
+        </p>
+      </div>
       {richterMagnitudeAtObserverDistance > 0 && (
         <div className={marginTop}>
           <hr />

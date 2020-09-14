@@ -19,7 +19,8 @@
         "preSelected": true,
         "multiple": true,
         "paused": true,
-        "pov": "top"
+        "pov": "top",
+        "noDetails": true
       }
     }
   ],
