@@ -3,8 +3,10 @@ import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 import isEmpty from 'lodash/isEmpty';
 
-export const getBrightnessValue = value => {
-  return 0.8 * (value / 100) + 0.7;
+export const getBrightnessValue = (filter, value) => {
+  console.log({ filter });
+  const s = filter.max - filter.min;
+  return s * (value / 100) + filter.min;
 };
 
 export const getResetBtnState = data => {
@@ -27,7 +29,7 @@ export const getDataAndPrepare = (data, name) => {
               if (newFilter.active && newFilter.image === '') {
                 newFilter.image = `${name.toLowerCase()}-${newFilter.label.toLowerCase()}.png`;
               }
-              newFilter.brightness = getBrightnessValue(sliderValue);
+              newFilter.brightness = getBrightnessValue(newFilter, sliderValue);
               return newFilter;
             });
           });
@@ -35,9 +37,12 @@ export const getDataAndPrepare = (data, name) => {
     );
   }
   data.filters.map(newFilter => {
+    const { value, defaultValue } = newFilter;
+    const sliderValue = defaultValue || value;
     if (newFilter.active && newFilter.image === '') {
       newFilter.image = `${name.toLowerCase()}-${newFilter.label.toLowerCase()}.png`;
     }
+    newFilter.brightness = getBrightnessValue(newFilter, sliderValue);
     return newFilter;
   });
   return data;
