@@ -24,7 +24,11 @@ import {
   whiteSmallCover,
   background,
   selectContainer,
+  visibleRay,
+  hiddenRay,
+  stripe,
 } from './prism-widget.module.scss';
+import prismHexColors from '../../../assets/stylesheets/_variables.scss';
 
 class PrismWidget extends React.PureComponent {
   constructor(props) {
@@ -38,9 +42,13 @@ class PrismWidget extends React.PureComponent {
   handleSelect = value => {
     this.setState(prevState => ({
       ...prevState,
-      selectedColor: value,
+      selectedColor: value === 'None' ? '' : value,
     }));
   };
+
+  getPrismColors(index) {
+    return { backgroundColor: prismHexColors[`line${index}`] };
+  }
 
   render() {
     const { selectedColor } = this.state;
@@ -51,8 +59,9 @@ class PrismWidget extends React.PureComponent {
       'Green',
       'Blue',
       'Indigo',
-      'Violet',
+      'None',
     ];
+
     return (
       <div>
         <div className={contentWrapper}>
@@ -62,14 +71,13 @@ class PrismWidget extends React.PureComponent {
             <div className={prismSmallClipWrapper}>
               <div className={prismSmallWrapper}>
                 <div className={prismSmallItems}>
-                  {colors.map(color => {
-                    const styling = { backgroundColor: color };
+                  {colors.map((color, i) => {
                     return (
                       <div
                         key={`div-${color}-lens`}
                         className={prismSmallColors}
                         name={color}
-                        style={styling}
+                        style={this.getPrismColors(i)}
                       ></div>
                     );
                   })}
@@ -80,45 +88,33 @@ class PrismWidget extends React.PureComponent {
             <div className={prismClipWrapper}>
               <div className={prismWrapper}>
                 <div className={prismItems}>
-                  {colors.map(color => {
-                    let styling = { backgroundColor: color };
+                  {colors.map((color, i) => {
+                    let rays = ``;
                     if (color === selectedColor) {
-                      styling = {
-                        backgroundColor: color,
-                        zIndex: 3,
-                      };
+                      rays += `${visibleRay}`;
                     } else if (color !== '') {
-                      styling = {
-                        backgroundColor: color,
-                        zIndex: 0,
-                      };
+                      rays += `${hiddenRay}`;
                     }
+
                     return (
                       <div
                         key={`div-${color}-lens`}
-                        className={prismColors}
+                        className={`${prismColors} ${rays}`}
                         name={color}
-                        style={styling}
+                        style={this.getPrismColors(i)}
                       ></div>
                     );
                   })}
-                  {colors.map(color => {
-                    let styling = {};
-                    if (color === selectedColor) {
-                      styling = {
-                        visibility: 'visible',
-                        opacity: 1,
-                        top: '-36px',
-                        transition: 'all 1.2s ease 0s',
-                        zIndex: 1,
-                        backgroundColor: `${color}`,
-                      };
-                    }
+                  {colors.map((color, i) => {
                     return (
                       <div
                         key={`div-${color}-lens`}
-                        className={`${lens} ${cameraFilter}`}
-                        style={styling}
+                        className={`${lens} ${
+                          color === selectedColor ? stripe : cameraFilter
+                        }`}
+                        style={
+                          color === selectedColor ? this.getPrismColors(i) : {}
+                        }
                         id={color}
                       ></div>
                     );
@@ -144,6 +140,10 @@ class PrismWidget extends React.PureComponent {
             value={selectedColor}
             menuItems={colors}
             onChange={this.handleSelect}
+            position="below"
+            block
+            fullWidth
+            sameWidth
           />
         </div>
       </div>

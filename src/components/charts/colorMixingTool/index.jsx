@@ -161,7 +161,6 @@ class ColorTool extends React.PureComponent {
         newFilter.brightness = getBrightnessValue(newFilter, value);
         newFilter.value = value;
       }
-      console.log({ newFilter });
       return newFilter;
     });
 
