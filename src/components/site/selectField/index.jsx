@@ -19,7 +19,7 @@ class Select extends React.PureComponent {
       className,
     } = this.props;
     return (
-      <div className={styles.mdSelectContainer}>
+      <div className={`md-select-container ${styles.mdSelectContainer}`}>
         <SelectField
           {...{
             dropdownIcon,

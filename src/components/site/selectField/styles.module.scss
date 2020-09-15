@@ -1,4 +1,6 @@
 .md-select-container {
+  width: 100%;
+
   :global {
     @include react-md-select-fields;
 
@@ -12,11 +14,15 @@
       flex-flow: column nowrap;
     }
 
-
     .md-list--menu-restricted {
       max-height: 250px;
-      overflow:scroll;
+      overflow: scroll;
     }
 
+    .md-text--disabled {
+      .md-icon-text {
+        color: rgba(0, 0, 0, 0.38);
+      }
+    }
   }
 }

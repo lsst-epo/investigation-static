@@ -1,5 +1,5 @@
 {
-  "title": "Astro Tool",
+  "title": "Astro Filter Tool",
   "colorOptions": [
     "Violet",
     "Blue",
@@ -8,6 +8,7 @@
     "Orange",
     "Red",
     "Cyan",
+    "Magenta",
     "None"
   ],
   "hexColors": [
@@ -16,589 +17,509 @@
     "#6BD853",
     "#FFDD15",
     "#F18922",
-    "#EC1C24"
+    "#EC1C24",
+    "#00ffff",
+    "#ff00ff",
+    "none"
   ],
-  "data": {
-    "M33": {
-      "active": false,
-      "filters": [
+  "data": [
+    {
+      "type": "galaxies",
+      "objects": [
         {
-          "label": "U",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.92,
-          "min": 1.5,
-          "max": 4
+          "name": "M33",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 20,
+              "defaultValue": 20
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 100,
+              "defaultValue": 100
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 100,
+              "defaultValue": 100
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "defaultValue": 1
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 10,
+              "defaultValue": 10
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 40,
+              "defaultValue": 40
+            }
+          ]
         },
         {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.08,
-          "min": 0.5,
-          "max": 2.5
+          "name": "M51",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            }
+          ]
         },
         {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.45,
-          "min": 1,
-          "max": 3
+          "name": "M63",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            }
+          ]
         },
         {
-          "label": "I",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.52,
-          "min": 0.5,
-          "max": 1.5
-        },
-        {
-          "label": "Z",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.375,
-          "min": 0.4,
-          "max": 1.6
-        },
-        {
-          "label": "Y",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.25,
-          "min": 1,
-          "max": 3.5
+          "name": "M101",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            }
+          ]
         }
       ]
     },
-    "M51": {
-      "active": false,
-      "filters": [
+    {
+      "type": "supernovae",
+      "objects": [
         {
-          "label": "U",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 1.92,
-          "min": 1.5,
-          "max": 4
+          "name": "B163",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            }
+          ]
         },
         {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1
-        },
-        {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.45,
-          "min": 1,
-          "max": 3
-        },
-        {
-          "label": "I",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.52,
-          "min": 0.5,
-          "max": 1.5
-        },
-        {
-          "label": "Z",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.375,
-          "min": 0.4,
-          "max": 1.6
-        },
-        {
-          "label": "Y",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.25,
-          "min": 1,
-          "max": 3.5
+          "name": "CG4",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            }
+          ]
         }
       ]
     },
-    "M63": {
-      "active": false,
-      "filters": [
+    {
+      "type": "nebulae",
+      "objects": [
         {
-          "label": "U",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.92,
-          "min": 1.5,
-          "max": 4
+          "name": "NGC6946",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            }
+          ]
         },
         {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.08,
-          "min": 0.5,
-          "max": 2.5
+          "name": "NGC3718",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            }
+          ]
         },
         {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.45,
-          "min": 1,
-          "max": 3
-        },
-        {
-          "label": "I",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.52,
-          "min": 0.5,
-          "max": 1.5
-        },
-        {
-          "label": "Z",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.375,
-          "min": 0.4,
-          "max": 1.6
-        },
-        {
-          "label": "Y",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.25,
-          "min": 1,
-          "max": 3.5
-        }
-      ]
-    },
-    "M101": {
-      "active": false,
-      "filters": [
-        {
-          "label": "U",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.92,
-          "min": 1.5,
-          "max": 4
-        },
-        {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1
-        },
-        {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.45,
-          "min": 1,
-          "max": 3
-        },
-        {
-          "label": "I",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 0.52,
-          "min": 0.5,
-          "max": 1.5
-        },
-        {
-          "label": "Z",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.375,
-          "min": 0.4,
-          "max": 1.6
-        },
-        {
-          "label": "Y",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.25,
-          "min": 1,
-          "max": 3.5
-        }
-      ]
-    },
-    "NGC6946": {
-      "active": false,
-      "filters": [
-        {
-          "label": "U",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.92,
-          "min": 1.5,
-          "max": 4
-        },
-        {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.08,
-          "min": 0.5,
-          "max": 2.5
-        },
-        {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.45,
-          "min": 1,
-          "max": 3
-        },
-        {
-          "label": "I",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 0.52,
-          "min": 0.5,
-          "max": 1.5
-        },
-        {
-          "label": "Z",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 0.375,
-          "min": 0.4,
-          "max": 1.6
-        },
-        {
-          "label": "Y",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.25,
-          "min": 1,
-          "max": 3.5
-        }
-      ]
-    },
-    "NGC3718": {
-      "active": false,
-      "filters": [
-        {
-          "label": "U",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.92,
-          "min": 1.5,
-          "max": 4
-        },
-        {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.08,
-          "min": 0.5,
-          "max": 2.5
-        },
-        {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.45,
-          "min": 1,
-          "max": 3
-        },
-        {
-          "label": "I",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 0.52,
-          "min": 0.5,
-          "max": 1.5
-        },
-        {
-          "label": "Z",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.375,
-          "min": 0.4,
-          "max": 1.6
-        },
-        {
-          "label": "Y",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.25,
-          "min": 1,
-          "max": 3.5
-        }
-      ]
-    },
-    "NGC6520": {
-      "active": false,
-      "filters": [
-        {
-          "label": "U",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.92,
-          "min": 1.5,
-          "max": 4
-        },
-        {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.08,
-          "min": 0.5,
-          "max": 2.5
-        },
-        {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.45,
-          "min": 1,
-          "max": 3
-        },
-        {
-          "label": "I",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 0.52,
-          "min": 0.5,
-          "max": 1.5
-        },
-        {
-          "label": "Z",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.375,
-          "min": 0.4,
-          "max": 1.6
-        },
-        {
-          "label": "Y",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.25,
-          "min": 1,
-          "max": 3.5
-        }
-      ]
-    },
-    "B163": {
-      "active": false,
-      "filters": [
-        {
-          "label": "U",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 1.92,
-          "min": 1.5,
-          "max": 4
-        },
-        {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.08,
-          "min": 0.5,
-          "max": 2.5
-        },
-        {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.45,
-          "min": 1,
-          "max": 3
-        },
-        {
-          "label": "I",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 0.52,
-          "min": 0.5,
-          "max": 1.5
-        },
-        {
-          "label": "Z",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 0.375,
-          "min": 0.4,
-          "max": 1.6
-        },
-        {
-          "label": "Y",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.25,
-          "min": 1,
-          "max": 3.5
-        }
-      ]
-    },
-    "CG4": {
-      "active": false,
-      "filters": [
-        {
-          "label": "U",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 1.92,
-          "min": 1.5,
-          "max": 4
-        },
-        {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.08,
-          "min": 0.5,
-          "max": 2.5
-        },
-        {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.45,
-          "min": 1,
-          "max": 3
-        },
-        {
-          "label": "I",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": true,
-          "value": 0.52,
-          "min": 0.5,
-          "max": 1.5
-        },
-        {
-          "label": "Z",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 0.375,
-          "min": 0.4,
-          "max": 1.6
-        },
-        {
-          "label": "Y",
-          "color": "",
-          "active": false,
-          "image": "",
-          "isDisabled": false,
-          "value": 1.25,
-          "min": 1,
-          "max": 3.5
+          "name": "NGC6520",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1
+            }
+          ]
         }
       ]
     }
-  }
+  ]
 }

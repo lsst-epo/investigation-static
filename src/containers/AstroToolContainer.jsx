@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEmpty from 'lodash/isEmpty';
 import ColorTool from '../components/charts/colorMixingTool/index.jsx';
+import {
+  findObjectFromAnswer,
+  getAnswerData,
+  getObjectFromArrayGroup,
+  resetAllFilters,
+} from '../components/charts/colorMixingTool/color-tool.utilities.js';
 import API from '../lib/API.js';
 
 class AstroToolContainer extends React.PureComponent {
@@ -17,33 +24,67 @@ class AstroToolContainer extends React.PureComponent {
   componentDidMount() {
     const { widget } = this.props;
     const { source, options } = widget;
-    const { questionId } = options || {};
+    const { objectName, questionId } = options || {};
     const { answers } = this.props;
     const answer = answers[questionId];
-    const galaxies = answer ? Object.keys(answer.data) : [];
-    const galaxy = this.findActiveGalaxy(galaxies, answer);
+
     API.get(source).then(response => {
-      const { data } = response;
+      const { data: jsonData } = response;
+
+      const selectedData =
+        getAnswerData(answer) ||
+        getObjectFromArrayGroup(jsonData.data, objectName) ||
+        {};
+
+      const selectedObject = findObjectFromAnswer(answer) || selectedData;
+      const { name } = selectedObject || {};
 
       this.setState(prevState => ({
         ...prevState,
-        jsonData: data,
-        answerData: answer ? answer.data : data.data,
-        selectorVal: galaxy,
+        jsonData,
+        selectedData,
+        selectorVal: name || '',
       }));
     });
   }
 
-  findActiveGalaxy(galaxies, answer) {
-    for (let i = 0; i < galaxies.length; i += 1) {
-      const galaxyName = galaxies[i];
-      const filter = answer.data[galaxyName];
-      if (filter.active) {
-        return galaxyName;
-      }
-    }
-    return '';
+  componentDidUpdate() {
+    this.checkAnswer();
   }
+
+  checkAnswer = () => {
+    const { widget, answers, activeQuestionId } = this.props;
+    const { options } = widget;
+    const { objectName, questionId } = options || {};
+    const {
+      jsonData,
+      selectedData: oldSelectedData,
+      selectorVal: oldSelectorVal,
+    } = this.state;
+    const answer = answers[activeQuestionId || questionId];
+
+    if (jsonData && questionId && isEmpty(answer)) {
+      const selectorVal = objectName || oldSelectorVal;
+      const selectedData =
+        oldSelectedData || getObjectFromArrayGroup(jsonData.data, selectorVal);
+      const newSelectedData = {
+        name: selectorVal,
+        filters: resetAllFilters(selectedData),
+      };
+
+      this.setState(
+        prevState => ({
+          ...prevState,
+          selectedData: newSelectedData,
+          selectorVal,
+        }),
+        () => {
+          const { selectedData: newData, selectorVal: newVal } = this.state;
+          this.selectionCallback(newData, newVal);
+        }
+      );
+    }
+  };
 
   selectionCallback = (d, val) => {
     const { widget } = this.props;
@@ -63,11 +104,13 @@ class AstroToolContainer extends React.PureComponent {
   };
 
   render() {
-    const { widget } = this.props;
-    const { options } = widget;
-    const { jsonData, selectorVal, answerData } = this.state;
-    const { title, colorOptions, hexColors } = jsonData || {};
-    const { galaxyImg } = options || {};
+    const { widget, activeQuestionId } = this.props;
+    const {
+      options: { objectName, questionId },
+    } = widget || {};
+    const { jsonData, selectorVal, selectedData } = this.state;
+    const { title, colorOptions, hexColors, data: dataObjects } =
+      jsonData || {};
 
     return (
       jsonData && (
@@ -76,11 +119,14 @@ class AstroToolContainer extends React.PureComponent {
             title,
             colorOptions,
             hexColors,
-            galaxyImg,
+            selectedData,
             selectorVal,
+            objectName,
           }}
-          data={answerData}
+          hasQuestionId={questionId !== null}
+          data={dataObjects}
           selectionCallback={this.selectionCallback}
+          toolIsInteractable={activeQuestionId !== null}
         />
       )
     );

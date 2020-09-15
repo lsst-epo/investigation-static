@@ -1,3 +1,12 @@
+@include react-md-subheaders;
+
+:global {
+  .md-subheader {
+    padding: 5px 10px;
+    background-color: $neutral10;
+  }
+}
+
 .col50 {
   width: 50%;
 }
@@ -13,13 +22,6 @@
   align-items: center;
   justify-content: space-between;
   padding-right: $minPadding;
-}
-
-.image-container {
-  position: relative;
-  height: 500px;
-  padding: $minPadding;
-  overflow: hidden;
 }
 
 .button-container {
@@ -42,9 +44,13 @@
   font-weight: $medium;
 }
 
-.button-tool-container,
+.button-tool-container {
+  width: 15%;
+  min-width: 80px;
+}
+
 .select-tool-container {
-  width: 25%;
+  width: 35%;
   min-width: 80px;
 }
 
@@ -55,6 +61,10 @@
   line-height: 1;
   background: #d5d5d5;
   transition: background $duration ease-in-out;
+
+  &[disabled] {
+    background: $neutral10;
+  }
 
   &:not(:disabled):hover {
     color: $white;
@@ -84,15 +94,23 @@
 .active {
   color: $white;
   background: $basePrimary;
+
+  &[disabled] {
+    background: #d5d5d5;
+  }
 }
 
-.images-container {
+.image-container {
   position: relative;
-  padding: $minPadding;
+  height: 500px;
+  margin: 0 $minPadding;
   overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.24);
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
-.filter {
+.filter-image {
   position: absolute;
   z-index: -1;
   width: 100%;

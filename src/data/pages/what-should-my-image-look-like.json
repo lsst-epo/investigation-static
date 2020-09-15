@@ -31,7 +31,7 @@
       },
       "source": "/data/filters/astro-filter.json",
       "options": {
-        "galaxyImg": "NGC6946",
+        "objectName": "NGC6946",
         "questionId": "26"
       }
     }

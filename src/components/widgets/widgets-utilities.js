@@ -14,7 +14,6 @@ import TimeDomainViewer from '../../containers/TimeDomainViewerContainer.jsx';
 import TimeDomainDoubleViewer from '../../containers/TimeDomainDoubleViewerContainer.jsx';
 import SizeDistance from '../../containers/SizeDistanceContainer.jsx';
 import AsteroidClass from '../../containers/AsteroidClassContainer.jsx';
-import ColorTool from '../../containers/ColorToolContainer.jsx';
 import AstroTool from '../../containers/AstroToolContainer.jsx';
 import PrismWidget from '../../containers/PrismWidgetContainer.jsx';
 
@@ -35,7 +34,6 @@ export const widgetTags = {
   TimeDomainDoubleViewer,
   SizeDistance,
   AsteroidClass,
-  ColorTool,
   AstroTool,
   PrismWidget,
 };

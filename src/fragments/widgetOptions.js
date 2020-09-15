@@ -45,7 +45,7 @@ export const widgetOptionsFragment = graphql`
     bins
     required
     defaultZoom
-    galaxyImg
+    objectName
     questionId
     potentialOrbits
     observations {

@@ -23,7 +23,7 @@
       },
       "source": "/data/filters/astro-filter.json",
       "options": {
-        "galaxyImg": "M33"
+        "objectName": "M33"
       }
     }
   ],

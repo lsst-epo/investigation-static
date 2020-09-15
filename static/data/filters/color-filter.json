@@ -1,32 +1,41 @@
 {
   "title": "Color Filter Tool",
-  "colorOptions": ["Red", "Blue", "Green", "None"],
-  "hexColors": ["#EC1C24", "#0019FF", "#6BD853", "#ffff"],
-  "data": {
-    "color": {
-      "filters": [
+  "colorOptions": ["Red", "Green", "Blue", "None"],
+  "hexColors": ["#EC1C24", "#6BD853", "#0019FF", "none"],
+  "data": [
+    {
+      "type": "color",
+      "objects": [
         {
-          "label": "R",
-          "color": "",
-          "active": false,
-          "image": "red-filter.png",
-          "isDisabled": false
-        },
-        {
-          "label": "G",
-          "color": "",
-          "active": false,
-          "image": "green-filter.png",
-          "isDisabled": false
-        },
-        {
-          "label": "B",
-          "color": "",
-          "active": false,
-          "image": "blue-filter.png",
-          "isDisabled": false
+          "name": "RGB Filter",
+          "filters": [
+            {
+              "label": "R",
+              "color": "",
+              "value": 1,
+              "active": false,
+              "image": "red-filter.png",
+              "isDisabled": false
+            },
+            {
+              "label": "G",
+              "color": "",
+              "value": 1,
+              "active": false,
+              "image": "green-filter.png",
+              "isDisabled": false
+            },
+            {
+              "label": "B",
+              "color": "",
+              "value": 1,
+              "active": false,
+              "image": "blue-filter.png",
+              "isDisabled": false
+            }
+          ]
         }
       ]
     }
-  }
+  ]
 }
