@@ -4,7 +4,6 @@ import isObject from 'lodash/isObject';
 import isEmpty from 'lodash/isEmpty';
 
 export const getBrightnessValue = (filter, value) => {
-  console.log({ filter });
   const s = filter.max - filter.min;
   return s * (value / 100) + filter.min;
 };
