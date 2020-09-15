@@ -1,13 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import isArray from 'lodash/isArray';
+import { Subheader } from 'react-md';
 import SliderCustom from '../../site/slider/index.jsx';
 import Select from '../../site/selectField/index.jsx';
 import Button from '../../site/button/index.js';
 import ArrowDown from '../../site/icons/ArrowDown';
+import {
+  getResetBtnState,
+  getDataAndPrepare,
+  getDefaultFilterValues,
+  getBrightnessValue,
+  resetAllFilters,
+  setFilterActiveAndLoadImage,
+} from './color-tool.utilities.js';
 
 import {
-  filter,
+  filterImage,
   filterActive,
   selectContainer,
   button,
@@ -28,176 +38,169 @@ class ColorTool extends React.PureComponent {
   constructor(props) {
     super(props);
 
+    this.defaultFilterValues = null;
+
     this.state = {
       data: null,
-      colorOptions: [],
-      hexColors: [],
+      selectedData: null,
       resetBtnActive: false,
-      galaxyImg: null,
       selectorVal: null,
+      toolIsInteractable: false,
     };
   }
 
   componentDidMount() {
     const {
       data,
-      colorOptions,
-      hexColors,
-      galaxyImg,
+      selectedData,
       selectorVal,
+      objectName,
+      toolIsInteractable,
     } = this.props;
 
-    let isActive = false;
-
-    Object.keys(data).forEach(index => {
-      if (data[index].active) {
-        isActive = data[index].filters.filter(filterObj => {
-          return filterObj.active;
-        });
-      }
-    });
+    this.defaultFilterValues = getDefaultFilterValues(
+      selectedData || data,
+      objectName || selectorVal
+    );
 
     this.setState(prevState => ({
       ...prevState,
-      colorOptions,
-      hexColors,
-      resetBtnActive: isActive.length > 0,
-      galaxyImg,
+      resetBtnActive: getResetBtnState(selectedData),
       selectorVal,
-      data,
+      data: objectName ? selectedData : data,
+      selectedData,
+      toolIsInteractable,
     }));
+  }
 
-    if (galaxyImg !== null && selectorVal !== 'color') {
-      this.handleGalaxySelection(galaxyImg, data);
+  componentDidUpdate() {
+    this.setToolActiveState();
+    this.checkClearedAnswer();
+  }
+
+  checkClearedAnswer = () => {
+    const {
+      selectedData,
+      selectorVal,
+      objectName,
+      data,
+      hasQuestionId,
+    } = this.props;
+    if (hasQuestionId) {
       this.setState(prevState => ({
         ...prevState,
-        selectorVal: galaxyImg,
+        resetBtnActive: getResetBtnState(selectedData),
+        selectedData,
+        selectorVal,
+        data: objectName ? selectedData : data,
       }));
     }
-  }
+  };
 
-  handleImage(btnObj) {
-    const { data: oldData, selectorVal: oldSelectorVal } = this.state;
-    const { active: oldActive } = btnObj;
-    const updatedFilters = oldData[oldSelectorVal].filters.map(newFilter => {
-      if (newFilter.label === btnObj.label) {
-        newFilter.active = !oldActive;
-      }
-      return newFilter;
-    });
+  setToolActiveState = () => {
+    const { toolIsInteractable } = this.props;
 
-    this.updateAnswers(updatedFilters);
-  }
-
-  handleColorChange = (value, index, event, { id }) => {
-    const { data, selectorVal } = this.state;
-    const updatedFilters = data[selectorVal].filters.map(newFilter => {
-      if (`${newFilter.label}-filter` === id) {
-        newFilter.color = value === 'None' ? '' : value;
-      }
-      return newFilter;
-    });
-
-    this.updateAnswers(updatedFilters, {
-      resetBtnActive: true,
-    });
+    this.setState(prevState => ({
+      ...prevState,
+      toolIsInteractable,
+    }));
   };
 
   handleReset = () => {
-    const { data, selectorVal } = this.state;
-    const updatedFilters = data[selectorVal].filters.map(newFilter => {
-      newFilter.color = '';
-      newFilter.active = false;
-      newFilter.brightness = 0.7;
-      newFilter.value = 0;
-      return newFilter;
-    });
+    const { selectedData } = this.state;
 
-    this.updateAnswers(updatedFilters, {
+    this.updateAnswers({
+      selectedData: {
+        ...selectedData,
+        filters: resetAllFilters(selectedData),
+      },
       resetBtnActive: false,
     });
   };
 
-  handleBrightness(value, label) {
-    const { data: oldData, selectorVal: oldSelectorVal } = this.state;
-    const updatedFilters = oldData[oldSelectorVal].filters.map(
-      (newFilter, i) => {
-        if (newFilter.label === label) {
-          newFilter.brightness = this.convertToValue(value, i);
-          newFilter.value = value;
-        }
-        return newFilter;
-      }
-    );
+  handleImage(btnObj) {
+    const { selectedData, selectorVal } = this.state;
+    const { label, active: btnActive } = btnObj;
 
-    this.updateAnswers(updatedFilters);
+    this.updateAnswers({
+      selectedData: {
+        ...selectedData,
+        filters: setFilterActiveAndLoadImage(
+          selectedData,
+          selectorVal,
+          label,
+          btnActive
+        ),
+      },
+      resetBtnActive: true,
+    });
   }
 
-  handleGalaxySelection = (value, optData) => {
-    const { data: oldData, selectorVal: oldSelectorVal } = this.state;
-    const { selectionCallback } = this.props;
-    const d = typeof optData === 'object' ? optData : oldData;
-    const newFilters = d[value].filters.map(newFilter => {
-      newFilter.image = `${value.toLowerCase()}-${newFilter.label.toLowerCase()}.png`;
+  handleColorChange = (value, index, event, { id }) => {
+    const { selectedData } = this.state;
+    const updatedFilters = selectedData.filters.map(newFilter => {
+      if (`${newFilter.label}-filter` === id) {
+        newFilter.color = value;
+      }
       return newFilter;
     });
 
-    const isActive = d[value].filters.filter(filterObj => {
-      return filterObj.active;
+    this.updateAnswers({
+      selectedData: {
+        ...selectedData,
+        filters: updatedFilters,
+      },
+      resetBtnActive: true,
+    });
+  };
+
+  handleBrightness(value, label) {
+    const { selectedData } = this.state;
+    const updatedFilters = selectedData.filters.map(newFilter => {
+      if (newFilter.label === label) {
+        newFilter.brightness = getBrightnessValue(value);
+        newFilter.value = value;
+      }
+      return newFilter;
     });
 
-    let newData = {
-      selectorVal: value,
-      resetBtnActive: isActive.length > 0,
-      data: {
-        ...d,
-        [value]: {
-          ...d[value],
-          active: true,
-          filters: newFilters,
-        },
+    this.updateAnswers({
+      selectedData: {
+        ...selectedData,
+        filters: updatedFilters,
       },
-    };
+    });
+  }
 
-    if (oldSelectorVal !== '') {
-      newData = {
-        ...newData,
-        data: {
-          ...newData.data,
-          [oldSelectorVal]: {
-            ...d[oldSelectorVal],
-            active: false,
-          },
-        },
-      };
-    }
+  handleGalaxySelection = value => {
+    const { data: oldData } = this.state;
+    const { selectionCallback } = this.props;
+
+    const newSelectedData = {
+      name: value,
+      filters: getDataAndPrepare(oldData, value),
+    };
 
     this.setState(
       prevState => ({
         ...prevState,
-        ...newData,
+        selectedData: newSelectedData,
+        selectorVal: value,
+        resetBtnActive: getResetBtnState(newSelectedData),
       }),
       () => {
-        const { data, selectorVal } = this.state;
-        selectionCallback(data, selectorVal);
+        const { selectedData, selectorVal } = this.state;
+        selectionCallback(selectedData, selectorVal);
       }
     );
   };
 
-  updateAnswers = (updatedFilters, props) => {
-    const { selectorVal: oldSelectorVal } = this.state;
+  updateAnswers = props => {
     const { selectionCallback } = this.props;
     this.setState(
       prevState => ({
         ...prevState,
         ...props,
-        data: {
-          ...prevState.data,
-          [oldSelectorVal]: {
-            ...prevState.data[oldSelectorVal],
-            filters: updatedFilters,
-          },
-        },
       }),
       () => {
         const { data, selectorVal } = this.state;
@@ -211,28 +214,31 @@ class ColorTool extends React.PureComponent {
   getMenuItems = () => {
     const { data } = this.state;
 
-    if (!data) return [];
+    if (!isArray(data)) return [];
 
-    return Object.keys(data);
-  };
+    const items = [];
 
-  getFilters = () => {
-    const { data, selectorVal } = this.state;
-    if (data && selectorVal && selectorVal !== '') {
-      if (data[selectorVal]) {
-        return data[selectorVal].filters;
-      }
-      return [];
-    }
-    return [];
+    data.forEach(category => {
+      items.push(
+        <Subheader
+          key={category.type}
+          primaryText={category.type.toUpperCase()}
+        />
+      );
+      category.objects.forEach(object => {
+        items.push(object.name);
+      });
+    });
+
+    return items;
   };
 
   getColorBlocks() {
-    const { colorOptions } = this.state;
-    return colorOptions.map(color => {
+    const { colorOptions, hexColors } = this.props;
+    return colorOptions.map((color, i) => {
       return {
         label: color,
-        value: color,
+        value: hexColors[i] || color,
       };
     });
   }
@@ -254,23 +260,32 @@ class ColorTool extends React.PureComponent {
   }
 
   render() {
-    const { title } = this.props;
-    const { data, resetBtnActive, galaxyImg, selectorVal } = this.state;
-    const menuItems = this.getMenuItems();
-    const filters = this.getFilters();
+    const { title, objectName } = this.props;
+    const {
+      data,
+      selectedData,
+      resetBtnActive,
+      galaxyImg,
+      selectorVal,
+      toolIsInteractable,
+    } = this.state;
+    const widgetTitle = objectName ? `${title}: ${objectName}` : title;
+    const filters = selectedData ? selectedData.filters : [];
+    const renderContent =
+      isArray(data) && selectorVal !== 'color' && typeof galaxyImg !== 'string';
 
     return (
       <>
-        {title && <h2>{title}</h2>}
+        {title && <h2>{widgetTitle}</h2>}
         <div className={`container-flex ${container}`}>
           <div className={`${buttonContainer} ${col50}`}>
-            {data && selectorVal !== 'color' && typeof galaxyImg !== 'string' && (
+            {renderContent && (
               <div className={container}>
                 <Select
                   dropdownIcon={<ArrowDown />}
                   id="galaxy-selector"
-                  placeholder="Select A Galaxy"
-                  menuItems={menuItems}
+                  placeholder="Select An Object"
+                  menuItems={this.getMenuItems()}
                   onChange={this.handleGalaxySelection}
                   value={selectorVal}
                   fullWidth
@@ -296,7 +311,7 @@ class ColorTool extends React.PureComponent {
                     <div className={buttonToolContainer}>
                       <Button
                         floating
-                        disabled={btn.isDisabled}
+                        disabled={!toolIsInteractable || btn.isDisabled}
                         className={btnClassName}
                         onClick={() => this.handleImage(btn)}
                       >
@@ -306,7 +321,7 @@ class ColorTool extends React.PureComponent {
                     <div className={selectToolContainer}>
                       <Select
                         dropdownIcon={<ArrowDown />}
-                        disabled={btn.isDisabled}
+                        disabled={!toolIsInteractable || btn.isDisabled}
                         id={`${btn.label}-filter`}
                         placeholder="None"
                         value={btn.color}
@@ -326,7 +341,7 @@ class ColorTool extends React.PureComponent {
                         min={1}
                         max={100}
                         value={btn.value || 1}
-                        disabled={!btn.active}
+                        disabled={!toolIsInteractable || !btn.active}
                         onChange={value =>
                           this.handleBrightness(value, btn.label)
                         }
@@ -339,7 +354,7 @@ class ColorTool extends React.PureComponent {
               <Button
                 raised
                 primary
-                disabled={!resetBtnActive}
+                disabled={!toolIsInteractable || !resetBtnActive}
                 className={resetBtn}
                 onClick={this.handleReset}
               >
@@ -349,20 +364,20 @@ class ColorTool extends React.PureComponent {
           </div>
           <div className={`${imageContainer} ${col50}`}>
             {filters &&
-              filters.map(filterImage => {
-                const imageClassName = classnames(filter, {
-                  [filterActive]: filterImage.active,
+              filters.map(filterImg => {
+                const imageClassName = classnames(filterImage, {
+                  [filterActive]: filterImg.active,
                 });
 
                 return (
                   <div
-                    key={`filter-${filterImage.label}`}
-                    style={{
-                      backgroundImage: `url(/images/${filterImage.image}`,
-                      backgroundColor: filterImage.color,
-                      filter: `brightness(${filterImage.brightness})`,
-                    }}
+                    key={`filter-${filterImg.label}`}
                     className={imageClassName}
+                    style={{
+                      backgroundImage: `url(/images/${filterImg.image}`,
+                      backgroundColor: filterImg.color,
+                      filter: `brightness(${filterImg.brightness})`,
+                    }}
                   ></div>
                 );
               })}
@@ -376,11 +391,14 @@ class ColorTool extends React.PureComponent {
 ColorTool.propTypes = {
   colorOptions: PropTypes.array,
   hexColors: PropTypes.array,
-  galaxyImg: PropTypes.string,
   selectionCallback: PropTypes.func,
-  data: PropTypes.object,
+  data: PropTypes.array,
+  selectedData: PropTypes.object,
   title: PropTypes.string,
   selectorVal: PropTypes.string,
+  objectName: PropTypes.string,
+  hasQuestionId: PropTypes.bool,
+  toolIsInteractable: PropTypes.bool,
 };
 
 export default ColorTool;

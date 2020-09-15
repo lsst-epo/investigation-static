@@ -35,17 +35,20 @@
       "altText": "Filtered images colorized",
       "figText": "Figure 5: Filtered images colorized",
       "layout": {
-        "col": "right",
-        "row": "top"
+        "col": "left",
+        "row": "middle"
       }
     }
   ],
   "widgets": [
     {
-      "type": "ColorTool",
+      "type": "AstroTool",
+      "options": {
+        "objectName": "RGB Filter"
+      },
       "layout": {
         "col": "right",
-        "row": "bottom"
+        "row": "top"
       },
       "source": "/data/filters/color-filter.json"
     }

@@ -194,15 +194,7 @@ export const WithQAing = ComposedComponent => {
     }
 
     getColorToolContent(data) {
-      let galaxy = null;
-      for (let i = 0; i < Object.keys(data).length; i += 1) {
-        const galaxyName = Object.keys(data)[i];
-        const filterInfo = data[galaxyName];
-        if (filterInfo.active) {
-          galaxy = galaxyName;
-        }
-      }
-      return `Your selected Galaxy: ${galaxy}`;
+      return `Your selected Galaxy: ${data.name}`;
     }
 
     getNeoContent(data) {
