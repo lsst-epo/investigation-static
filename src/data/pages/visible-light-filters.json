@@ -18,7 +18,7 @@
     {
       "mediaPath": "/images/NGC3982.jpg",
       "altText": "Dropout Galaxy Large example",
-      "figText": "Figure 10: NGC 3982 is a spiral galaxy showing areas of active star formation and hot, young stars. Image credit: <a href='https://www.spacetelescope.org/images/opo1036a/' target='_blank'>NASA, ESA, and the Hubble Heritage Team (STScI/AURA); Acknowledgment: A. Riess (STScI)</a>",
+      "figText": "NGC 3982 is a spiral galaxy showing areas of active star formation and hot, young stars. Image credit: <a href='https://www.spacetelescope.org/images/opo1036a/' target='_blank'>NASA, ESA, and the Hubble Heritage Team (STScI/AURA); Acknowledgment: A. Riess (STScI)</a>",
       "layout": {
         "col": "right",
         "row": "top"

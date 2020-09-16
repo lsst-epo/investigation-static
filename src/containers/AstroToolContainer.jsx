@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import isArray from 'lodash/isArray';
+import { Subheader } from 'react-md';
 import ColorTool from '../components/charts/colorMixingTool/index.jsx';
 import {
   findObjectFromAnswer,
@@ -39,31 +41,39 @@ class AstroToolContainer extends React.PureComponent {
       const selectedObject = findObjectFromAnswer(answer) || selectedData;
       const { name } = selectedObject || {};
 
+      const selectorVal = name || objectName || '';
+
       this.setState(prevState => ({
         ...prevState,
         jsonData,
         selectedData,
-        selectorVal: name || '',
+        selectorVal,
       }));
     });
   }
 
   componentDidUpdate() {
-    this.checkAnswer();
-  }
-
-  checkAnswer = () => {
     const { widget, answers, activeQuestionId } = this.props;
     const { options } = widget;
-    const { objectName, questionId } = options || {};
+    const { questionId } = options || {};
+    const answer = answers[activeQuestionId || questionId];
+
+    if (isEmpty(answer) && questionId) {
+      this.updateAnswer();
+    }
+  }
+
+  updateAnswer = () => {
+    const { widget } = this.props;
+    const { options } = widget;
+    const { objectName } = options || {};
     const {
       jsonData,
       selectedData: oldSelectedData,
       selectorVal: oldSelectorVal,
     } = this.state;
-    const answer = answers[activeQuestionId || questionId];
 
-    if (jsonData && questionId && isEmpty(answer)) {
+    if (jsonData) {
       const selectorVal = objectName || oldSelectorVal;
       const selectedData =
         oldSelectedData || getObjectFromArrayGroup(jsonData.data, selectorVal);
@@ -79,8 +89,11 @@ class AstroToolContainer extends React.PureComponent {
           selectorVal,
         }),
         () => {
-          const { selectedData: newData, selectorVal: newVal } = this.state;
-          this.selectionCallback(newData, newVal);
+          const { updateAnswer, widget: w } = this.props;
+          const { options: opt } = w || {};
+          const { questionId } = opt || {};
+          const { selectedData: newData } = this.state;
+          updateAnswer(questionId, newData);
         }
       );
     }
@@ -103,6 +116,38 @@ class AstroToolContainer extends React.PureComponent {
     }
   };
 
+  getMenuItems = () => {
+    const { jsonData } = this.state;
+    const { data } = jsonData || {};
+
+    if (!isArray(data)) return [];
+
+    const items = [];
+
+    data.forEach(category => {
+      items.push(<Subheader key={category.type} primaryText={category.type} />);
+      category.objects.forEach(object => {
+        items.push({
+          label: `${category.type}: ${object.name}`,
+          value: object.name,
+        });
+      });
+    });
+
+    return items;
+  };
+
+  getColorBlocks() {
+    const { jsonData } = this.state;
+    const { colorOptions, hexColors } = jsonData || {};
+    return colorOptions.map((color, i) => {
+      return {
+        label: color,
+        value: hexColors[i] || color,
+      };
+    });
+  }
+
   render() {
     const { widget, activeQuestionId } = this.props;
     const {
@@ -111,6 +156,10 @@ class AstroToolContainer extends React.PureComponent {
     const { jsonData, selectorVal, selectedData } = this.state;
     const { title, colorOptions, hexColors, data: dataObjects } =
       jsonData || {};
+
+    const toolIsInteractable = questionId
+      ? activeQuestionId !== null && questionId === activeQuestionId
+      : true;
 
     return (
       jsonData && (
@@ -122,11 +171,13 @@ class AstroToolContainer extends React.PureComponent {
             selectedData,
             selectorVal,
             objectName,
+            toolIsInteractable,
           }}
+          menuItems={this.getMenuItems()}
+          colorBlocks={this.getColorBlocks()}
           hasQuestionId={questionId !== null}
           data={dataObjects}
           selectionCallback={this.selectionCallback}
-          toolIsInteractable={activeQuestionId !== null}
         />
       )
     );

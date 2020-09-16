@@ -9,42 +9,15 @@
     "ra": 97.139708,
     "redshift": 0.029,
     "image": {
-      "mediaPath": "/images/dropout_galaxies/all_three_filters.png",
+      "mediaPath": "/images/dropout_galaxies/Dropout_galaxy_UVISTADR1_J100121.94.png",
       "altText": ""
-    },
-    "supernovaPoint": {
-      "ra": "585",
-      "dec": "710"
     },
     "objects": [
       {
-        "id": "01",
-        "ra": "585",
-        "dec": "710",
-        "color": "#fed828"
-      },
-      {
-        "id": "02",
-        "ra": "770",
-        "dec": "490",
-        "color": "#fed828"
-      },
-      {
-        "id": "03",
-        "ra": "698",
-        "dec": "205",
-        "color": "#fed828"
-      },
-      {
-        "id": "04",
-        "ra": "968",
-        "dec": "1010",
-        "color": "#fed828"
-      },
-      {
-        "id": "05",
-        "ra": "947",
-        "dec": "1070",
+        "object_id": "01",
+        "id": "galaxyFilter",
+        "ra": "590",
+        "dec": "630",
         "color": "#fed828"
       }
     ]

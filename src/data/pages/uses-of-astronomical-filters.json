@@ -31,9 +31,9 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/ghost_zoom_example.png",
+      "mediaPath": "/images/m20_grz_filters_3up.png",
       "altText": "Ghost Nebula images",
-      "figText": "Figure 7: Ghost Nebula images from the HST WFC3/UVIS/IR data from MAST and the Hubble Legacy Archive.",
+      "figText": "Figure 7: Image of portion of M20 taken by T.A. Rector (University of Alaska Anchorage) and CTIO/NOAO/NSF",
       "layout": {
         "col": "right",
         "row": "top"

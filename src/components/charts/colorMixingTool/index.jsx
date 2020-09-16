@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isArray from 'lodash/isArray';
-import { Subheader } from 'react-md';
 import SliderCustom from '../../site/slider/index.jsx';
 import Select from '../../site/selectField/index.jsx';
 import Button from '../../site/button/index.js';
@@ -119,18 +118,13 @@ class ColorTool extends React.PureComponent {
   };
 
   handleImage(btnObj) {
-    const { selectedData, selectorVal } = this.state;
+    const { selectedData } = this.state;
     const { label, active: btnActive } = btnObj;
 
     this.updateAnswers({
       selectedData: {
         ...selectedData,
-        filters: setFilterActiveAndLoadImage(
-          selectedData,
-          selectorVal,
-          label,
-          btnActive
-        ),
+        filters: setFilterActiveAndLoadImage(selectedData, label, btnActive),
       },
       resetBtnActive: true,
     });
@@ -211,56 +205,8 @@ class ColorTool extends React.PureComponent {
     );
   };
 
-  getMenuItems = () => {
-    const { data } = this.state;
-
-    if (!isArray(data)) return [];
-
-    const items = [];
-
-    data.forEach(category => {
-      items.push(
-        <Subheader
-          key={category.type}
-          primaryText={category.type.toUpperCase()}
-        />
-      );
-      category.objects.forEach(object => {
-        items.push(object.name);
-      });
-    });
-
-    return items;
-  };
-
-  getColorBlocks() {
-    const { colorOptions, hexColors } = this.props;
-    return colorOptions.map((color, i) => {
-      return {
-        label: color,
-        value: hexColors[i] || color,
-      };
-    });
-  }
-
-  convertToValue(value, index) {
-    const { data, selectorVal } = this.state;
-    const galaxy = data[selectorVal].filters[index];
-    const s = galaxy.max - galaxy.min;
-    const retVal = s * (value / 100) + galaxy.min;
-    return retVal;
-  }
-
-  convertToPercent(value, index) {
-    const { data, selectorVal } = this.state;
-    const galaxy = data[selectorVal].filters[index];
-    const s = galaxy.max - galaxy.min;
-    const retVal = ((value - galaxy.min) / s) * 100;
-    return retVal;
-  }
-
   render() {
-    const { title, objectName } = this.props;
+    const { title, objectName, menuItems, colorBlocks } = this.props;
     const {
       data,
       selectedData,
@@ -285,9 +231,11 @@ class ColorTool extends React.PureComponent {
                   dropdownIcon={<ArrowDown />}
                   id="galaxy-selector"
                   placeholder="Select An Object"
-                  menuItems={this.getMenuItems()}
+                  menuItems={menuItems}
                   onChange={this.handleGalaxySelection}
                   value={selectorVal}
+                  saveListScrollTop
+                  sameWidth
                   fullWidth
                 />
               </div>
@@ -325,7 +273,7 @@ class ColorTool extends React.PureComponent {
                         id={`${btn.label}-filter`}
                         placeholder="None"
                         value={btn.color}
-                        menuItems={this.getColorBlocks()}
+                        menuItems={colorBlocks}
                         onChange={this.handleColorChange}
                         fullWidth
                       />
@@ -365,18 +313,21 @@ class ColorTool extends React.PureComponent {
           <div className={`${imageContainer} ${col50}`}>
             {filters &&
               filters.map(filterImg => {
+                const { label, image, color, brightness } = filterImg;
                 const imageClassName = classnames(filterImage, {
                   [filterActive]: filterImg.active,
                 });
 
                 return (
                   <div
-                    key={`filter-${filterImg.label}`}
+                    key={`filter-${label}`}
                     className={imageClassName}
                     style={{
-                      backgroundImage: `url(/images/${filterImg.image}`,
-                      backgroundColor: filterImg.color,
-                      filter: `brightness(${filterImg.brightness})`,
+                      backgroundImage: image
+                        ? `url(/images/colorTool/${image}`
+                        : 'none',
+                      backgroundColor: color,
+                      filter: `brightness(${brightness})`,
                     }}
                   ></div>
                 );
@@ -389,12 +340,12 @@ class ColorTool extends React.PureComponent {
 }
 
 ColorTool.propTypes = {
-  colorOptions: PropTypes.array,
-  hexColors: PropTypes.array,
   selectionCallback: PropTypes.func,
   data: PropTypes.array,
   selectedData: PropTypes.object,
   title: PropTypes.string,
+  menuItems: PropTypes.array,
+  colorBlocks: PropTypes.array,
   selectorVal: PropTypes.string,
   objectName: PropTypes.string,
   hasQuestionId: PropTypes.bool,

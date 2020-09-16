@@ -21,7 +21,7 @@
         "col": "right",
         "row": "top"
       },
-      "source": "/data/filters/astro-filter.json",
+      "source": "/data/filters/m33-filter.json",
       "options": {
         "objectName": "M33"
       }

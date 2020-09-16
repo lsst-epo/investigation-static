@@ -20,85 +20,15 @@
     "#EC1C24",
     "#00ffff",
     "#ff00ff",
-    "none"
+    "transparent"
   ],
   "data": [
     {
-      "type": "galaxies",
+      "type": "Spiral Galaxies",
       "objects": [
         {
-          "name": "M33",
-          "filters": [
-            {
-              "label": "U",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 24,
-              "defaultValue": 24,
-              "min": 1.5,
-              "max": 4
-            },
-            {
-              "label": "G",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 40,
-              "defaultValue": 40,
-              "min": 0.5,
-              "max": 2.5
-            },
-            {
-              "label": "R",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 30,
-              "defaultValue": 30,
-              "min": 1,
-              "max": 3
-            },
-            {
-              "label": "I",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 16,
-              "defaultValue": 16,
-              "min": 0.5,
-              "max": 1.5
-            },
-            {
-              "label": "Z",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 11,
-              "defaultValue": 11,
-              "min": 0.4,
-              "max": 1.6
-            },
-            {
-              "label": "Y",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 31,
-              "defaultValue": 31,
-              "min": 1,
-              "max": 3.5
-            }
-          ]
-        },
-        {
           "name": "M51",
+          "caption": "Image credit:  T.A. Rector (University of Alaska Anchorage) and CTIO/NOAO/NSF and Subaru HSC Data Release 1",
           "filters": [
             {
               "label": "U",
@@ -116,7 +46,9 @@
               "active": false,
               "image": "",
               "isDisabled": false,
-              "value": 11
+              "value": 1,
+              "min": 1,
+              "max": 2
             },
             {
               "label": "R",
@@ -125,8 +57,8 @@
               "image": "",
               "isDisabled": false,
               "value": 1,
-              "min": 1,
-              "max": 3
+              "min": 0.8,
+              "max": 1.2
             },
             {
               "label": "I",
@@ -156,72 +88,7 @@
               "isDisabled": false,
               "value": 1,
               "min": 1,
-              "max": 3.5
-            }
-          ]
-        },
-        {
-          "name": "M63",
-          "filters": [
-            {
-              "label": "U",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1.5,
-              "max": 4
-            },
-            {
-              "label": "G",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 2.5
-            },
-            {
-              "label": "R",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 3
-            },
-            {
-              "label": "I",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
               "max": 1.5
-            },
-            {
-              "label": "Z",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.4,
-              "max": 1.6
-            },
-            {
-              "label": "Y",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 3.5
             }
           ]
         },
@@ -235,8 +102,8 @@
               "image": "",
               "isDisabled": false,
               "value": 1,
-              "min": 1.5,
-              "max": 4
+              "min": 1,
+              "max": 2
             },
             {
               "label": "G",
@@ -244,7 +111,9 @@
               "active": false,
               "image": "",
               "isDisabled": false,
-              "value": 11
+              "value": 1,
+              "min": 1,
+              "max": 2
             },
             {
               "label": "R",
@@ -254,7 +123,7 @@
               "isDisabled": false,
               "value": 1,
               "min": 1,
-              "max": 3
+              "max": 1.8
             },
             {
               "label": "I",
@@ -273,8 +142,8 @@
               "image": "",
               "isDisabled": false,
               "value": 1,
-              "min": 0.4,
-              "max": 1.6
+              "min": 1.1,
+              "max": 2
             },
             {
               "label": "Y",
@@ -284,150 +153,10 @@
               "isDisabled": false,
               "value": 1,
               "min": 1,
-              "max": 3.5
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "supernovae",
-      "objects": [
-        {
-          "name": "B163",
-          "filters": [
-            {
-              "label": "U",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 1.5,
-              "max": 4
-            },
-            {
-              "label": "G",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 2.5
-            },
-            {
-              "label": "R",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 3
-            },
-            {
-              "label": "I",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 0.5,
-              "max": 1.5
-            },
-            {
-              "label": "Z",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 0.4,
-              "max": 1.6
-            },
-            {
-              "label": "Y",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 3.5
+              "max": 1.7
             }
           ]
         },
-        {
-          "name": "CG4",
-          "filters": [
-            {
-              "label": "U",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 1.5,
-              "max": 4
-            },
-            {
-              "label": "G",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 2.5
-            },
-            {
-              "label": "R",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 3
-            },
-            {
-              "label": "I",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 0.5,
-              "max": 1.5
-            },
-            {
-              "label": "Z",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.4,
-              "max": 1.6
-            },
-            {
-              "label": "Y",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 3.5
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "nebulae",
-      "objects": [
         {
           "name": "NGC6946",
           "filters": [
@@ -439,7 +168,7 @@
               "isDisabled": false,
               "value": 1,
               "min": 1.5,
-              "max": 4
+              "max": 2
             },
             {
               "label": "G",
@@ -449,7 +178,7 @@
               "isDisabled": false,
               "value": 1,
               "min": 0.5,
-              "max": 2.5
+              "max": 1.8
             },
             {
               "label": "R",
@@ -459,7 +188,7 @@
               "isDisabled": false,
               "value": 1,
               "min": 1,
-              "max": 3
+              "max": 1.5
             },
             {
               "label": "I",
@@ -489,75 +218,15 @@
               "isDisabled": false,
               "value": 1,
               "min": 1,
-              "max": 3.5
-            }
-          ]
-        },
-        {
-          "name": "NGC3718",
-          "filters": [
-            {
-              "label": "U",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1.5,
-              "max": 4
-            },
-            {
-              "label": "G",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 2.5
-            },
-            {
-              "label": "R",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 3
-            },
-            {
-              "label": "I",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 0.5,
               "max": 1.5
-            },
-            {
-              "label": "Z",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.4,
-              "max": 1.6
-            },
-            {
-              "label": "Y",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 3.5
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "type": "Dusty Nebulae",
+      "objects": [
         {
           "name": "NGC6520",
           "filters": [
@@ -568,8 +237,8 @@
               "image": "",
               "isDisabled": false,
               "value": 1,
-              "min": 1.5,
-              "max": 4
+              "min": 1,
+              "max": 1.6
             },
             {
               "label": "G",
@@ -579,7 +248,7 @@
               "isDisabled": false,
               "value": 1,
               "min": 0.5,
-              "max": 2.5
+              "max": 1.5
             },
             {
               "label": "R",
@@ -589,7 +258,7 @@
               "isDisabled": false,
               "value": 1,
               "min": 1,
-              "max": 3
+              "max": 1.8
             },
             {
               "label": "I",
@@ -619,7 +288,272 @@
               "isDisabled": false,
               "value": 1,
               "min": 1,
+              "max": 1.5
+            }
+          ]
+        },
+        {
+          "name": "B68",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1.5,
+              "max": 4
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.5,
+              "max": 1.2
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1,
+              "min": 0.4,
+              "max": 1.6
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1,
+              "min": 1,
               "max": 3.5
+            }
+          ]
+        },
+        {
+          "name": "B93",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1.5,
+              "max": 4
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.5,
+              "max": 2.1
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1,
+              "max": 2
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.4,
+              "max": 1.6
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1,
+              "min": 1,
+              "max": 3.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Far Away Galaxies",
+      "objects": [
+        {
+          "name": "COSMOS 1569673",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 0,
+              "min": 0,
+              "max": 0
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1,
+              "max": 1.8
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 0,
+              "min": 0,
+              "max": 0
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1,
+              "max": 1.8
+            }
+          ]
+        },
+        {
+          "name": "COSMOS 1606422",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 0,
+              "min": 0,
+              "max": 0
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1,
+              "max": 2
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": true,
+              "value": 1,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1,
+              "max": 1.5
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.4,
+              "max": 1.2
             }
           ]
         }

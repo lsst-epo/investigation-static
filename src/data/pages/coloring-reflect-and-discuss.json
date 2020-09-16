@@ -1,12 +1,12 @@
 {
-  "id": "coloring17",
+  "id": "coloring18",
   "investigation": "coloring-universe",
-  "order": "17",
+  "order": "18",
   "title": "Reflect and Discuss",
   "slug": "reflect-and-discuss/",
   "previous": {
     "title": "What Should My Image Look Like?",
-    "link": "/what-should-my-image-look-like/"
+    "link": "/what-should-my-image-look-like-1/"
   },
   "next": {
     "title": "Putting It All Together",

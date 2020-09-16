@@ -1,7 +1,7 @@
 {
-  "id": "coloring19",
+  "id": "coloring20",
   "investigation": "coloring-universe",
-  "order": "19",
+  "order": "20",
   "title": "Putting It All Together",
   "slug": "putting-it-all-together-1/",
   "previous": {
@@ -21,7 +21,7 @@
         "col": "right",
         "row": "top"
       },
-      "source": "/data/filters/astro-filter.json",
+      "source": "/data/filters/new-data-astro-filter.json",
       "options": {}
     }
   ],

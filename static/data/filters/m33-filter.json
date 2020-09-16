@@ -1,0 +1,103 @@
+{
+  "title": "Astro Filter Tool",
+  "colorOptions": [
+    "Violet",
+    "Blue",
+    "Green",
+    "Yellow",
+    "Orange",
+    "Red",
+    "Cyan",
+    "Magenta",
+    "None"
+  ],
+  "hexColors": [
+    "#861CFF",
+    "#0019FF",
+    "#6BD853",
+    "#FFDD15",
+    "#F18922",
+    "#EC1C24",
+    "#00ffff",
+    "#ff00ff",
+    "transparent"
+  ],
+  "data": [
+    {
+      "type": "Spiral Galaxies",
+      "objects": [
+        {
+          "name": "M33",
+          "filters": [
+            {
+              "label": "U",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 24,
+              "defaultValue": 24,
+              "min": 1.5,
+              "max": 4
+            },
+            {
+              "label": "G",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 40,
+              "defaultValue": 40,
+              "min": 0.5,
+              "max": 2.5
+            },
+            {
+              "label": "R",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 30,
+              "defaultValue": 30,
+              "min": 1,
+              "max": 3
+            },
+            {
+              "label": "I",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 16,
+              "defaultValue": 16,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "Z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 11,
+              "defaultValue": 11,
+              "min": 0.4,
+              "max": 1.6
+            },
+            {
+              "label": "Y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 31,
+              "defaultValue": 31,
+              "min": 1,
+              "max": 3.5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
