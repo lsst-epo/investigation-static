@@ -16,9 +16,9 @@
   "content": "<p>Some galaxies are very distant—so distant that their light, because of <a href='http://astronomy.swin.edu.au/cosmos/C/Cosmological+Redshift' target='_blank'>cosmological redshift</a>, is detectable only at infrared wavelengths.</p><p>To quickly spot the most distant galaxies, a color composite image can be made using at least one infrared filter. The image obtained using the filter that transmits the light with the shortest wavelengths is colorized blue, and the one using the filter that transmits the light with the longest (infrared) wavelengths is colorized red. The color image in Figure 9 below was made by combining all three filtered images and shows the most distant galaxies in a very red color, because they are brightest at very long wavelengths.</p>",
   "images": [
     {
-      "mediaPath": "/images/dropout_galaxy_3up_example.png",
-      "altText": "Dropout Galaxy 3up example",
-      "figText": "Figure 9: Galaxy HSC J021838–052023, from the Subaru HSC Data Release 1 DAS Quarry. The filters were colorized as described above, then combined to make the color image on the right.",
+      "mediaPath": "/images/UVISTARDR1_3up.png",
+      "altText": "Dropout Galaxy UVISTADR1 J100121.94+021937.6",
+      "figText": "Figure 9: Galaxy UVISTADR1 J100121.94+021937.6 from the Subaru HSC Data Release 1. Images colorized by T.A. Rector (University of Alaska Anchorage) and CTIO/NOAO/NS.",
       "layout": {
         "col": "left",
         "row": "top"

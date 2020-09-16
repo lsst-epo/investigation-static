@@ -22,11 +22,13 @@ export const getDataAndPrepare = (data, name) => {
           .filter(datum => datum.name === name)
           .map(datum => {
             return datum.filters.map(newFilter => {
-              const { value, defaultValue } = newFilter;
+              const { value, defaultValue, label } = newFilter;
               const sliderValue = defaultValue || value;
 
               if (newFilter.active && newFilter.image === '') {
-                newFilter.image = `${name.toLowerCase()}-${newFilter.label.toLowerCase()}.png`;
+                const imageName = name.toLowerCase().replace(/\s/g, '_');
+                const imageLabel = label.toLowerCase();
+                newFilter.image = `${imageName}/${imageName}-${imageLabel}.png`;
               }
               newFilter.brightness = getBrightnessValue(newFilter, sliderValue);
               return newFilter;
@@ -36,10 +38,12 @@ export const getDataAndPrepare = (data, name) => {
     );
   }
   data.filters.map(newFilter => {
-    const { value, defaultValue } = newFilter;
+    const { value, defaultValue, label } = newFilter;
     const sliderValue = defaultValue || value;
     if (newFilter.active && newFilter.image === '') {
-      newFilter.image = `${name.toLowerCase()}-${newFilter.label.toLowerCase()}.png`;
+      const imageName = name.toLowerCase();
+      const imageLabel = label.toLowerCase();
+      newFilter.image = `${imageName}/${imageName}-${imageLabel}.png`;
     }
     newFilter.brightness = getBrightnessValue(newFilter, sliderValue);
     return newFilter;
@@ -47,11 +51,15 @@ export const getDataAndPrepare = (data, name) => {
   return data;
 };
 
-export const setFilterActiveAndLoadImage = (data, name, label, active) => {
-  return data.filters.map(curFilter => {
+export const setFilterActiveAndLoadImage = (data, label, active) => {
+  const { name, filters } = data || {};
+  return filters.map(curFilter => {
     if (curFilter.label === label) {
-      if (curFilter.image === '')
-        curFilter.image = `${name.toLowerCase()}-${curFilter.label.toLowerCase()}.png`;
+      if (curFilter.image === '') {
+        const imageName = name.toLowerCase().replace(/\s/g, '_');
+        const imageLabel = curFilter.label.toLowerCase();
+        curFilter.image = `${imageName}/${imageName}-${imageLabel}.png`;
+      }
       curFilter.active = !active;
     }
     return curFilter;

@@ -97,7 +97,10 @@
 }
 
 .label-with-number {
-  p {
+  p:first-child {
     display: inline;
+  }
+  ul {
+    margin-top: $minPadding;
   }
 }

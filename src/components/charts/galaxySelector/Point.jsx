@@ -40,6 +40,7 @@ class Point extends React.PureComponent {
       {
         supernova: 20,
         galaxy: 60,
+        galaxyFilter: 25,
       }[id] || 8
     );
   }

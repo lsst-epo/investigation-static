@@ -9,8 +9,8 @@
     "link": "/astronomical-color-images-2/"
   },
   "next": {
-    "title": "Reflect and Discuss",
-    "link": "/reflect-and-discuss/"
+    "title": "What Should My Image Look Like?",
+    "link": "/what-should-my-image-look-like-1/"
   },
   "layout": "TwoCol",
   "contents": [
@@ -29,10 +29,9 @@
         "col": "right",
         "row": "top"
       },
-      "source": "/data/filters/astro-filter.json",
+      "source": "/data/filters/m33-filter.json",
       "options": {
-        "objectName": "NGC6946",
-        "questionId": "26"
+        "objectName": "M33"
       }
     }
   ],
@@ -40,24 +39,11 @@
     {
       "mediaPath": "/images/figure-11-M33.png",
       "altText": "Three different filtered images of M33.",
-      "figText": "Figure 11: Three different images of M33. From left to right, Fig.11a: <a href='http://www.galex.caltech.edu/media/glx2009-01f_img03.html' target='_blank'>Combined Spitzer/GALEX data</a>, NASA/JPL-Caltech; Fig. 11b: <a href='https://commons.wikimedia.org/wiki/File:Messier_33_(Image_Of_Team)_(18235295964).jpg' target='_blank'>Collective image obtained with the contributions of: Paolo Demaria</a>, Giuseppe Donatiello (composition and processing), Marco Favuzzi, Terenzio Fusco, Rolando Ligustri, Alessandro Elio Milani, Zlatko Orbanic, Andrea Pistocchini, and Tim Stone. Creative Commons CCO 1.0; Fig. 11c: <a href='https://commons.wikimedia.org/wiki/File:Messier_33.jpg' target='_blank'>Image by Francesco Antonucci</a>, Creative Commons 4.0 international.",
+      "figText": "Figure 10: Three different images of M33. From left to right, Fig.10a: <a href='http://www.galex.caltech.edu/media/glx2009-01f_img03.html' target='_blank'>Combined Spitzer/GALEX data</a>, NASA/JPL-Caltech; Fig. 10b: <a href='https://commons.wikimedia.org/wiki/File:Messier_33_(Image_Of_Team)_(18235295964).jpg' target='_blank'>Collective image obtained with the contributions of: Paolo Demaria</a>, Giuseppe Donatiello (composition and processing), Marco Favuzzi, Terenzio Fusco, Rolando Ligustri, Alessandro Elio Milani, Zlatko Orbanic, Andrea Pistocchini, and Tim Stone. Creative Commons CCO 1.0; Fig. 10c: <a href='https://commons.wikimedia.org/wiki/File:Messier_33.jpg' target='_blank'>Image by Francesco Antonucci</a>, Creative Commons 4.0 international.",
       "layout": {
         "col": "left",
         "row": "middle"
       }
-    }
-  ],
-  "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "26",
-          "questionType": "accordion",
-          "answerAccessor": "colorTool",
-          "title": "Question #1",
-          "label": "Now use the color mixing tool to create a color balanced image of spiral galaxy NGC 6946, and save your image when you are done. You’ll know you’re done when your image is created using filters that are chromatically ordered, and has a good color balance."
-        }
-      ]
     }
   ]
 }
