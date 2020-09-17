@@ -15,14 +15,14 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>Here are the same images, now colorized with their corresponding colors, and the resulting image in full color.  The same image appears in the color-mixing tool.</p>",
+      "content": "",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<ul><li>Turn on filters one by one by clicking the RGB buttons.</li><li>Since the filtered images are in black and white, you need to colorize them before combining them. Do this by selecting a color to the left of the sliders.</li><li>Now try to recreate the full-color image by adjusting the sliders to change the color intensity of the image. When the sliders are correctly placed, the image will be properly color balanced. If the colors in the image are not balanced, objects in the image (e.g., the shirts) will appear the wrong color. Color balance doesn’t mean having the same intensity or amount of light for each filter.</li></ul>",
+      "content": "",
       "layout": {
         "col": "left",
         "row": "bottom"
@@ -36,21 +36,35 @@
       "figText": "Figure 6: Filtered images colorized",
       "layout": {
         "col": "left",
-        "row": "middle"
+        "row": "top"
       }
     }
   ],
   "widgets": [
     {
       "type": "AstroTool",
+      "source": "/data/filters/color-filter.json",
       "options": {
-        "objectName": "RGB Filter"
+        "objectName": "RGB Filter",
+        "questionId": "ColorTool01"
       },
       "layout": {
         "col": "left",
         "row": "bottom"
-      },
-      "source": "/data/filters/color-filter.json"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "ColorTool01",
+          "questionType": "prompt",
+          "answerAccessor": "colorTool",
+          "title": "Question #1",
+          "label": "<p>Here are the same images, now colorized with their corresponding colors, and the resulting image in full color.  The same image appears in the color-mixing tool.</p><ul><li>Turn on filters one by one by clicking the RGB buttons.</li><li>Since the filtered images are in black and white, you need to colorize them before combining them. Do this by selecting a color to the left of the sliders.</li><li>Now try to recreate the full-color image by adjusting the sliders to change the color intensity of the image. When the sliders are correctly placed, the image will be properly color balanced. If the colors in the image are not balanced, objects in the image (e.g., the shirts) will appear the wrong color. Color balance doesn’t mean having the same intensity or amount of light for each filter.</li></ul>"
+        }
+      ]
     }
   ]
 }

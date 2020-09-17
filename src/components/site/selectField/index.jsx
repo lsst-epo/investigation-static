@@ -13,6 +13,7 @@ class Select extends React.PureComponent {
       block,
       fullWidth,
       sameWidth,
+      simplifiedMenu,
       value,
       menuItems,
       onChange,
@@ -20,6 +21,10 @@ class Select extends React.PureComponent {
       style,
       className,
       position,
+      minBottom,
+      listStyle,
+      centered,
+      listZDepth,
     } = this.props;
 
     const positions = {
@@ -41,12 +46,17 @@ class Select extends React.PureComponent {
             block,
             fullWidth,
             sameWidth,
+            simplifiedMenu,
             value,
             menuItems,
             onChange,
             label,
             style,
             className,
+            minBottom,
+            listStyle,
+            centered,
+            listZDepth,
           }}
           position={positions[position]}
         />
@@ -63,6 +73,7 @@ Select.propTypes = {
   block: PropTypes.bool,
   fullWidth: PropTypes.bool,
   sameWidth: PropTypes.bool,
+  simplifiedMenu: PropTypes.bool,
   value: PropTypes.string,
   menuItems: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
   onChange: PropTypes.func,
@@ -70,6 +81,10 @@ Select.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   position: PropTypes.string,
+  minBottom: PropTypes.number,
+  listStyle: PropTypes.object,
+  centered: PropTypes.bool,
+  listZDepth: PropTypes.number,
 };
 
 export default Select;

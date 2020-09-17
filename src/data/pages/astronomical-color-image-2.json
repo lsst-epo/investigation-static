@@ -32,7 +32,7 @@
       "source": "/data/filters/m33-filter.json",
       "options": {
         "objectName": "M33",
-        "questionId": "M33"
+        "questionId": "M33_01"
       }
     }
   ],
@@ -40,11 +40,11 @@
     {
       "question": [
         {
-          "id": "M33",
-          "questionType": "accordion",
+          "id": "M33_01",
+          "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "<p>Now let's try something different.</p><ul><li>Click \"Change Answer\"</li><li>Move the slider next to the g filter back to its original location (slightly to the left of the middle).</li><li>Now move the slider next to the r filter all the way to the left and answer the two questions below.</li></ul>"
+          "label": "<p>Now let's try something different.</p><ul><li>Move the slider next to the g filter back to its original location (slightly to the left of the middle).</li><li>Now move the slider next to the r filter all the way to the left and answer the two questions below.</li></ul>"
         }
       ]
     },

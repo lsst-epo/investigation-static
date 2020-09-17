@@ -6,15 +6,14 @@ import SliderCustom from '../../site/slider/index.jsx';
 import Select from '../../site/selectField/index.jsx';
 import Button from '../../site/button/index.js';
 import ArrowDown from '../../site/icons/ArrowDown';
-import ColorSwatch from './ColorSwatch.jsx';
 import {
   getResetBtnState,
   getDataAndPrepare,
-  getDefaultFilterValues,
-  getBrightnessValue,
+  updateFiltersBrightness,
   resetAllFilters,
   setFilterActiveAndLoadImage,
   getColorNameFromHex,
+  updateFiltersColors,
 } from './color-tool.utilities.js';
 
 import {
@@ -22,11 +21,11 @@ import {
   filterActive,
   selectContainer,
   button,
-  shadow,
   active,
   col50,
   buttonContainer,
   sliderContainer,
+  colorToolSelect,
   container,
   resetBtn,
   imageContainer,
@@ -41,50 +40,34 @@ class ColorTool extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.defaultFilterValues = null;
-
     this.state = {
       data: null,
       selectedData: null,
       resetBtnActive: false,
-      selectorVal: null,
-      toolIsInteractable: false,
+      selectorValue: null,
     };
   }
 
   componentDidMount() {
-    const {
-      data,
-      selectedData,
-      selectorVal,
-      objectName,
-      toolIsInteractable,
-    } = this.props;
-
-    this.defaultFilterValues = getDefaultFilterValues(
-      selectedData || data,
-      objectName || selectorVal
-    );
+    const { data, selectedData, selectorValue, objectName } = this.props;
 
     this.setState(prevState => ({
       ...prevState,
       resetBtnActive: getResetBtnState(selectedData),
-      selectorVal,
+      selectorValue,
       data: objectName ? selectedData : data,
-      selectedData: getDataAndPrepare(selectedData),
-      toolIsInteractable,
+      selectedData: getDataAndPrepare(selectedData, null),
     }));
   }
 
   componentDidUpdate() {
-    this.setToolActiveState();
     this.checkClearedAnswer();
   }
 
   checkClearedAnswer = () => {
     const {
       selectedData,
-      selectorVal,
+      selectorValue,
       objectName,
       data,
       hasQuestionId,
@@ -94,28 +77,20 @@ class ColorTool extends React.PureComponent {
         ...prevState,
         resetBtnActive: getResetBtnState(selectedData),
         selectedData,
-        selectorVal,
+        selectorValue,
         data: objectName ? selectedData : data,
       }));
     }
   };
 
-  setToolActiveState = () => {
-    const { toolIsInteractable } = this.props;
-
-    this.setState(prevState => ({
-      ...prevState,
-      toolIsInteractable,
-    }));
-  };
-
   handleReset = () => {
     const { selectedData } = this.state;
+    const updatedFilters = resetAllFilters(selectedData);
 
     this.updateAnswers({
       selectedData: {
         ...selectedData,
-        filters: resetAllFilters(selectedData),
+        filters: updatedFilters,
       },
       resetBtnActive: false,
     });
@@ -124,11 +99,16 @@ class ColorTool extends React.PureComponent {
   handleImage(btnObj) {
     const { selectedData } = this.state;
     const { label, active: btnActive } = btnObj;
+    const updatedFilters = setFilterActiveAndLoadImage(
+      selectedData,
+      label,
+      btnActive
+    );
 
     this.updateAnswers({
       selectedData: {
         ...selectedData,
-        filters: setFilterActiveAndLoadImage(selectedData, label, btnActive),
+        filters: updatedFilters,
       },
       resetBtnActive: true,
     });
@@ -136,12 +116,7 @@ class ColorTool extends React.PureComponent {
 
   handleColorChange = (value, index, event, { id }) => {
     const { selectedData } = this.state;
-    const updatedFilters = selectedData.filters.map(newFilter => {
-      if (`${newFilter.label}-filter` === id) {
-        newFilter.color = value;
-      }
-      return newFilter;
-    });
+    const updatedFilters = updateFiltersColors(selectedData, id, value);
 
     this.updateAnswers({
       selectedData: {
@@ -154,13 +129,7 @@ class ColorTool extends React.PureComponent {
 
   handleBrightness(value, label) {
     const { selectedData } = this.state;
-    const updatedFilters = selectedData.filters.map(newFilter => {
-      if (newFilter.label === label) {
-        newFilter.brightness = getBrightnessValue(newFilter, value);
-        newFilter.value = value;
-      }
-      return newFilter;
-    });
+    const updatedFilters = updateFiltersBrightness(selectedData, label, value);
 
     this.updateAnswers({
       selectedData: {
@@ -171,39 +140,33 @@ class ColorTool extends React.PureComponent {
   }
 
   handleGalaxySelection = value => {
-    const { data: oldData } = this.state;
-    const { selectionCallback } = this.props;
+    const { data } = this.state;
 
     const newSelectedData = {
       name: value,
-      filters: getDataAndPrepare(oldData, value),
+      filters: getDataAndPrepare(data, value),
     };
 
-    this.setState(
-      prevState => ({
-        ...prevState,
-        selectedData: newSelectedData,
-        selectorVal: value,
-        resetBtnActive: getResetBtnState(newSelectedData),
-      }),
-      () => {
-        const { selectedData, selectorVal } = this.state;
-        selectionCallback(selectedData, selectorVal);
-      }
-    );
+    const newStateObject = {
+      selectedData: newSelectedData,
+      selectorValue: value,
+      resetBtnActive: getResetBtnState(newSelectedData),
+    };
+
+    this.updateAnswers(newStateObject);
   };
 
-  updateAnswers = props => {
+  updateAnswers = newState => {
     const { selectionCallback } = this.props;
     this.setState(
       prevState => ({
         ...prevState,
-        ...props,
+        ...newState,
       }),
       () => {
-        const { data, selectorVal } = this.state;
+        const { selectedData, selectorValue } = this.state;
         if (selectionCallback) {
-          selectionCallback(data, selectorVal);
+          selectionCallback(selectedData, selectorValue);
         }
       }
     );
@@ -217,38 +180,34 @@ class ColorTool extends React.PureComponent {
       colorBlocks,
       hexColors,
       colorOptions,
-    } = this.props;
-    const {
-      data,
-      selectedData,
-      resetBtnActive,
-      galaxyImg,
-      selectorVal,
       toolIsInteractable,
-    } = this.state;
-    const widgetTitle = objectName ? `${title}: ${objectName}` : title;
+    } = this.props;
+    const { data, selectedData, resetBtnActive, selectorValue } = this.state;
+    const widgetTitle =
+      objectName || selectorValue
+        ? `${title}: ${objectName || selectorValue}`
+        : title;
     const filters = selectedData ? selectedData.filters : [];
-    const renderContent =
-      isArray(data) && selectorVal !== 'color' && typeof galaxyImg !== 'string';
 
     return (
       <>
         {title && <h2>{widgetTitle}</h2>}
         <div className={`container-flex ${container}`}>
           <div className={`${buttonContainer} ${col50}`}>
-            {renderContent && (
+            {isArray(data) && (
               <div className={`${container} ${selectToolContainer}`}>
                 <Select
+                  className={colorToolSelect}
                   dropdownIcon={<ArrowDown />}
                   id="galaxy-selector"
                   placeholder="Select An Object"
                   menuItems={menuItems}
                   onChange={this.handleGalaxySelection}
-                  value={selectorVal}
+                  value={selectorValue}
                   saveListScrollTop
-                  sameWidth
                   fullWidth
-                  position="below"
+                  listStyle={{ width: '100%' }}
+                  // position="below"
                 />
               </div>
             )}
@@ -279,11 +238,9 @@ class ColorTool extends React.PureComponent {
                         {btn.label}
                       </Button>
                     </div>
-                    <div className={colorSwatchContainer}>
-                      <ColorSwatch color={btn.color} large classes={shadow} />
-                    </div>
                     <div className={selectToolContainer}>
                       <Select
+                        className={colorToolSelect}
                         dropdownIcon={<ArrowDown />}
                         disabled={!toolIsInteractable || btn.isDisabled}
                         id={`${btn.label}-filter`}
@@ -291,9 +248,16 @@ class ColorTool extends React.PureComponent {
                         value={btn.color}
                         menuItems={colorBlocks}
                         onChange={this.handleColorChange}
+                        position="top left"
                         fullWidth
-                        sameWidth
-                        position="below"
+                        simplifiedMenu={false}
+                        listStyle={{
+                          left: '50%',
+                          top: '-50%',
+                          width: '100%',
+                          minWidth: '150px',
+                          transform: 'translateY(-30%)',
+                        }}
                       />
                     </div>
                     <div className={sliderContainer}>
@@ -311,12 +275,13 @@ class ColorTool extends React.PureComponent {
                         onChange={value =>
                           this.handleBrightness(value, btn.label)
                         }
+                        discrete
                       />
                     </div>
                   </div>
                 );
               })}
-            {selectorVal && (
+            {selectorValue && (
               <Button
                 raised
                 primary
@@ -357,6 +322,10 @@ class ColorTool extends React.PureComponent {
   }
 }
 
+ColorTool.defaultProps = {
+  toolIsInteractable: true,
+};
+
 ColorTool.propTypes = {
   selectionCallback: PropTypes.func,
   data: PropTypes.array,
@@ -366,7 +335,7 @@ ColorTool.propTypes = {
   colorBlocks: PropTypes.array,
   hexColors: PropTypes.array,
   colorOptions: PropTypes.array,
-  selectorVal: PropTypes.string,
+  selectorValue: PropTypes.string,
   objectName: PropTypes.string,
   hasQuestionId: PropTypes.bool,
   toolIsInteractable: PropTypes.bool,

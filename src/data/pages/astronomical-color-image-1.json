@@ -24,7 +24,7 @@
       "source": "/data/filters/m33-filter.json",
       "options": {
         "objectName": "M33",
-        "questionId": "M33"
+        "questionId": "M33_01"
       }
     }
   ],
@@ -32,11 +32,11 @@
     {
       "question": [
         {
-          "id": "M33",
-          "questionType": "accordion",
+          "id": "M33_01",
+          "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "<p>Now let’s see what happens when you move the sliders.</p><ul><li>Click \"Change Answer\"</li><li>Move the slider next to the g filter all the way to the right.</li></ul>"
+          "label": "<p>Now let’s see what happens when you move the sliders.</p><ul><li>Move the slider next to the g filter all the way to the right.</li></ul>"
         }
       ]
     },

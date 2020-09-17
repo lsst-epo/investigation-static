@@ -8,51 +8,70 @@ export const getBrightnessValue = (filter, value) => {
   return s * (value / 100) + filter.min;
 };
 
+export const updateFiltersBrightness = (selectedData, label, value) => {
+  return selectedData.filters.map(newFilter => {
+    if (newFilter.label === label) {
+      newFilter.brightness = getBrightnessValue(newFilter, value);
+      newFilter.value = value;
+    }
+    return newFilter;
+  });
+};
+
+export const updateFiltersColors = (selectedData, id, value) => {
+  return selectedData.filters.map(newFilter => {
+    if (`${newFilter.label}-filter` === id) {
+      newFilter.color = value;
+    }
+    return newFilter;
+  });
+};
+
 export const getResetBtnState = data => {
   if (isEmpty(data)) return false;
 
   return data.filters.filter(dataFilter => dataFilter.active).length > 0;
 };
 
-export const getDataAndPrepare = (data, name) => {
-  if (isEmpty(data)) return data;
-
-  if (isArray(data)) {
-    return flattenDeep(
-      data.map(category => {
-        return category.objects
-          .filter(datum => datum.name === name)
-          .map(datum => {
-            return datum.filters.map(newFilter => {
-              const { value, defaultValue, label } = newFilter;
-              const sliderValue = defaultValue || value;
-
-              if (newFilter.active && newFilter.image === '') {
-                const imageName = name.toLowerCase().replace(/\s/g, '_');
-                const imageLabel = label.toLowerCase();
-                newFilter.image = `${imageName}/${imageName}-${imageLabel}.png`;
-              }
-              newFilter.brightness = getBrightnessValue(newFilter, sliderValue);
-              return newFilter;
-            });
-          });
-      })
-    );
-  }
-
-  data.filters.map(newFilter => {
+function updateFilters(datum) {
+  const filters = datum.filters.map(newFilter => {
     const { value, defaultValue, label } = newFilter;
-    const sliderValue = defaultValue || value;
-    if (newFilter.active && newFilter.image === '') {
-      const imageName = name.toLowerCase();
+    const sliderValue = value || defaultValue;
+
+    if (newFilter.image === '') {
+      const imageName = datum.name.toLowerCase().replace(/\s/g, '_');
       const imageLabel = label.toLowerCase();
       newFilter.image = `${imageName}/${imageName}-${imageLabel}.png`;
     }
     newFilter.brightness = getBrightnessValue(newFilter, sliderValue);
+
     return newFilter;
   });
+  return filters;
+}
 
-  return data;
+export const getDataAndPrepare = (data, name) => {
+  if (isEmpty(data)) return data;
+
+  if (isArray(data)) {
+    console.log({ data });
+    const preparedData = flattenDeep(
+      data.map(category => {
+        return category.objects
+          .filter(datum => datum.name === name)
+          .map(updateFilters);
+      })
+    );
+    console.log({ preparedData });
+    return preparedData;
+  }
+
+  const preparedData = {
+    ...data,
+    filters: updateFilters(data),
+  };
+
+  return preparedData;
 };
 
 export const setFilterActiveAndLoadImage = (data, label, active) => {
@@ -84,8 +103,8 @@ export const getObjectFromArrayGroup = (objects, objectName) => {
 };
 
 export const findObjectFromAnswer = answer => {
-  if (!answer) return '';
-  if (!answer.data) return '';
+  if (!answer) return null;
+  if (!answer.data) return null;
   return answer.data;
 };
 
@@ -97,8 +116,8 @@ export const getDefaultFilterValues = (data, name) => {
 };
 
 export const resetAllFilters = data => {
-  if (isEmpty(data)) return null;
-  if (isEmpty(data.filters)) return null;
+  if (isEmpty(data)) return [];
+  if (isEmpty(data.filters)) return [];
   return data.filters.map(filter => {
     const { defaultValue } = filter;
     const sliderValue = defaultValue || 1;

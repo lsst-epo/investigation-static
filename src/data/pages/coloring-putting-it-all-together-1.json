@@ -13,7 +13,7 @@
     "link": "/reflect-and-discuss/"
   },
   "layout": "SingleCol",
-  "content": "<p>To get started:<ul><li>Use the Astro Filter Tool to select an object from the list.</li><li>For each of the filters you wish to use, start by turning on each filter and selecting colors.</li><li>Adjust the sliders to enhance the image. Think about color-balancing the image so it clearly shows the areas or objects you wish to study.</li><li>Your completed image should be displayed on this page.</li></ul></>",
+  "content": "<p>To get started:</p><ul><li>Use the Astro Filter Tool to select an object from the list.</li><li>For each of the filters you wish to use, start by turning on each filter and selecting colors.</li><li>Adjust the sliders to enhance the image. Think about color-balancing the image so it clearly shows the areas or objects you wish to study.</li><li>Your completed image should be displayed on this page.</li></ul>",
   "widgets": [
     {
       "type": "AstroTool",
@@ -22,10 +22,23 @@
         "row": "middle"
       },
       "source": "/data/filters/new-data-astro-filter.json",
-      "options": {}
+      "options": {
+        "questionId": "50"
+      }
     }
   ],
   "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "50",
+          "questionType": "accordion",
+          "answerAccessor": "colorTool",
+          "title": "Question #1",
+          "label": "When you're finished make sure to save your answer."
+        }
+      ]
+    },
     {
       "question": [
         {

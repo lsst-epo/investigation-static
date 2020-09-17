@@ -36,7 +36,7 @@
       "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {
         "col": "right",
-        "row": "top"
+        "row": "bottom"
       }
     }
   ],

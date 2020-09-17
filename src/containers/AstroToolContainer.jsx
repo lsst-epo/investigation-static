@@ -7,7 +7,6 @@ import { Subheader } from 'react-md';
 import ColorTool from '../components/charts/colorMixingTool/index.jsx';
 import ColorSwatch from '../components/charts/colorMixingTool/ColorSwatch.jsx';
 import {
-  findObjectFromAnswer,
   getAnswerData,
   getObjectFromArrayGroup,
   resetAllFilters,
@@ -21,7 +20,7 @@ class AstroToolContainer extends React.PureComponent {
       jsonData: null,
       options: null,
       answerData: null,
-      selectorVal: '',
+      selectorValue: '',
     };
   }
 
@@ -39,17 +38,15 @@ class AstroToolContainer extends React.PureComponent {
         getAnswerData(answer) ||
         getObjectFromArrayGroup(jsonData.data, objectName) ||
         {};
+      const { name } = selectedData || {};
 
-      const selectedObject = findObjectFromAnswer(answer) || selectedData;
-      const { name } = selectedObject || {};
-
-      const selectorVal = name || objectName || '';
+      const selectorValue = name || objectName || '';
 
       this.setState(prevState => ({
         ...prevState,
         jsonData,
         selectedData,
-        selectorVal,
+        selectorValue,
       }));
     });
   }
@@ -72,15 +69,16 @@ class AstroToolContainer extends React.PureComponent {
     const {
       jsonData,
       selectedData: oldSelectedData,
-      selectorVal: oldSelectorVal,
+      selectorValue: oldSelectorVal,
     } = this.state;
 
     if (jsonData) {
-      const selectorVal = objectName || oldSelectorVal;
+      const selectorValue = objectName || oldSelectorVal;
       const selectedData =
-        oldSelectedData || getObjectFromArrayGroup(jsonData.data, selectorVal);
+        oldSelectedData ||
+        getObjectFromArrayGroup(jsonData.data, selectorValue);
       const newSelectedData = {
-        name: selectorVal,
+        name: selectorValue,
         filters: resetAllFilters(selectedData),
       };
 
@@ -88,7 +86,7 @@ class AstroToolContainer extends React.PureComponent {
         prevState => ({
           ...prevState,
           selectedData: newSelectedData,
-          selectorVal,
+          selectorValue,
         }),
         () => {
           const { updateAnswer, widget: w } = this.props;
@@ -113,7 +111,7 @@ class AstroToolContainer extends React.PureComponent {
       this.setState(prevState => ({
         ...prevState,
         selectedData: d,
-        selectorVal: val,
+        selectorValue: val,
       }));
     }
   };
@@ -152,11 +150,11 @@ class AstroToolContainer extends React.PureComponent {
   }
 
   render() {
-    const { widget, activeQuestionId, questionsByPage } = this.props;
+    const { widget, questionsByPage } = this.props;
     const {
-      options: { objectName, questionId },
+      options: { objectName, questionId, preSelected },
     } = widget || {};
-    const { jsonData, selectorVal, selectedData } = this.state;
+    const { jsonData, selectorValue, selectedData } = this.state;
     const { title, colorOptions, hexColors, data: dataObjects } =
       jsonData || {};
 
@@ -165,11 +163,8 @@ class AstroToolContainer extends React.PureComponent {
         question: [{ id: questionId }],
       })
     );
-    const questionActive = questionOnPage
-      ? questionId === activeQuestionId
-      : false;
 
-    const toolIsInteractable = questionId ? questionActive : true;
+    const toolIsInteractable = questionId ? questionOnPage : true;
 
     return (
       jsonData && (
@@ -179,9 +174,10 @@ class AstroToolContainer extends React.PureComponent {
             colorOptions,
             hexColors,
             selectedData,
-            selectorVal,
+            selectorValue,
             objectName,
             toolIsInteractable,
+            preSelected,
           }}
           menuItems={this.getMenuItems()}
           colorBlocks={this.getColorBlocks()}

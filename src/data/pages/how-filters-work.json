@@ -13,17 +13,31 @@
     "link": "/constructing-with-three-filters/"
   },
   "layout": "TwoCol",
-  "content": "<p>To better understand how filters work, try out the filter tool.</p>",
+  "content": "",
   "widgets": [
     {
       "type": "PrismWidget",
       "layout": {
         "col": "right",
         "row": "top"
+      },
+      "options": {
+        "questionId": "prismTool_01"
       }
     }
   ],
   "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "prismTool_01",
+          "questionType": "prompt",
+          "answerAccessor": "data",
+          "title": "Question #1",
+          "label": "<p>To better understand how filters work, try out the filter tool.</p>"
+        }
+      ]
+    },
     {
       "question": [
         {

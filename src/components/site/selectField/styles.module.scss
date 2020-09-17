@@ -1,41 +1,46 @@
 .md-select-container {
+  position: relative;
   width: 100%;
 
   :global {
+    $md-select-field-left-padding: $minPadding;
+    @include react-md-layovers($include-simplified: true);
     @include react-md-select-fields;
 
     .md-menu--select-field {
-      position: relative;
-    }
+      &.md-layover.md-menu-container {
+        position: relative;
+      }
 
-    .md-select-field--btn {
-      &.md-select-field--btn {
-        padding-left: 16px;
+      .md-select-field--btn {
+        &.md-select-field--btn {
+          padding-left: 16px;
 
-        .md-icon-text {
-          padding-right: 0;
+          .md-icon-text {
+            padding-right: 0;
+          }
         }
       }
-    }
 
-    .md-tile-content--left-icon {
-      padding-left: 16px;
-    }
+      .md-tile-content--left-icon {
+        padding-left: 16px;
+      }
 
-    .md-list {
-      position: absolute;
-      z-index: 6;
-      flex-flow: column nowrap;
-    }
+      .md-list {
+        position: absolute;
+        z-index: 6;
+        flex-flow: column nowrap;
+      }
 
-    .md-list--menu-restricted {
-      max-height: 250px;
-      overflow: scroll;
-    }
+      .md-list--menu-restricted {
+        max-height: 250px;
+        overflow: scroll;
+      }
 
-    .md-text--disabled {
-      .md-icon-text {
-        color: rgba(0, 0, 0, 0.38);
+      .md-text--disabled {
+        .md-icon-text {
+          color: rgba(0, 0, 0, 0.38);
+        }
       }
     }
   }
