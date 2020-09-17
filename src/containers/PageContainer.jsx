@@ -93,6 +93,7 @@ class PageContainer extends React.PureComponent {
       widgets,
       images,
       tables,
+      questionsByPage,
     } = data.allPagesJson.nodes[0];
     const { env } = pageContext || {};
     const Tag = this.layouts[layout || 'default'];
@@ -103,6 +104,7 @@ class PageContainer extends React.PureComponent {
       advanceActiveQuestion,
       setActiveQuestion,
       activeQuestionId,
+      questionsByPage,
     };
 
     return (

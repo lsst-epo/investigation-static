@@ -2,7 +2,7 @@
   "id": "coloring14",
   "investigation": "coloring-universe",
   "order": "14",
-  "title": "Constructing an Astronomical Image",
+  "title": "Color Balancing an Image",
   "slug": "astronomical-color-images-1/",
   "previous": {
     "title": "Constructing an Astronomical Image",
@@ -12,22 +12,34 @@
     "title": "Constructing an Astronomical Image",
     "link": "/astronomical-color-images-2/"
   },
-  "layout": "TwoCol",
-  "content": "<p>Now let’s see what happens when you move the sliders.</p><ul><li>Move the slider next to the g filter all the way to the right.</li><li>Move the slider next to the g filter back to its original location (so that the image looked as it did before you moved it).</li><li>Now move the slider next to the r filter all the way to the left.</li></ul>",
+  "layout": "SingleCol",
+  "content": "<p>Now let’s see what happens when you move the sliders.</p>",
   "widgets": [
     {
       "type": "AstroTool",
       "layout": {
-        "col": "right",
-        "row": "top"
+        "col": "left",
+        "row": "bottom"
       },
       "source": "/data/filters/m33-filter.json",
       "options": {
-        "objectName": "M33"
+        "objectName": "M33",
+        "questionId": "M33"
       }
     }
   ],
   "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "M33",
+          "questionType": "accordion",
+          "answerAccessor": "colorTool",
+          "title": "Question #1",
+          "label": "Move the slider next to the g filter all the way to the right."
+        }
+      ]
+    },
     {
       "question": [
         {

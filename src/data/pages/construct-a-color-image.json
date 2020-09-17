@@ -17,7 +17,7 @@
     {
       "mediaPath": "/images/orange_filter.jpeg",
       "altText": "Orange Filter",
-      "figText": "Figure 3a: Orange Filter. Credit: P. Marenfeld (NOAO/AURA/NSF).",
+      "figText": "Figure 4a shows an example of how an orange filter transmits some wavelengths of light while blocking others.",
       "layout": {
         "col": "left",
         "row": "bottom"
@@ -26,7 +26,7 @@
     {
       "mediaPath": "/images/bayer_filter.png",
       "altText": "Image sensor with filter arrangement",
-      "figText": "Figure 3b: Diagram of an image sensor with filter arrangement. Credit: <a href='https://en.wikipedia.org/wiki/Bayer_filter' target='_blank'>https://en.wikipedia.org/wiki/Bayer_filter</a>",
+      "figText": "Tiny red, green, and blue filters are placed over the pixels of the image sensor (as shown above in Figure 4b).",
       "layout": {
         "col": "right",
         "row": "bottom"

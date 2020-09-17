@@ -2,7 +2,7 @@
   "id": "coloring09",
   "investigation": "coloring-universe",
   "order": "09",
-  "title": "Uses of Astronomical Filters",
+  "title": "Seeing Through the Dust",
   "slug": "uses-of-astronomical-filters/",
   "previous": {
     "title": "Rubin Observatory LSST Camera Filters",
@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>As already mentioned, ultraviolet and infrared light are invisible to the human eye. However, astronomers can make color images from the light transmitted by ultraviolet or infrared filters by assigning a color to the image taken through these filters. Filters that transmit light over a range of wavelengths from ultraviolet to visible to infrared are used to investigate objects or areas of interest. Here are some examples:</p><h2>Seeing through dust</h2> <p>The LSST Camera uses near-infrared filters that make it possible to see through dust. Near-infrared wavelengths of light are not deflected by dust, unlike shorter and longer wavelengths. Filters that transmit light in near-infrared wavelengths are also excellent for detecting faint red stars.</p><p>Let’s see how this works: The Ghost Nebula is a dense cloud of gas and dust. If the Ghost Nebula was observed using visible light alone, many of the stars within it would be hidden from view.</p>",
+      "content": "<p>As already mentioned, ultraviolet and infrared light are invisible to the human eye. However, astronomers can make color images from the light transmitted by ultraviolet or infrared filters by assigning a color to the image taken through these filters. Filters that transmit light over a range of wavelengths from ultraviolet to visible to infrared are used to investigate objects or areas of interest. Here are some examples:</p><h2>Seeing through dust</h2> <p>Even though infrared wavelengths are invisible to the human eye, you can make color images from infrared light by assigning a color to the image taken through an infrared filter. The LSST Camera has three near-infrared filters: i, z, and y.</p><p>Near-infrared wavelengths of light are not as easily deflected by dust, unlike shorter visible wavelengths. Using these filters make it possible to see through some of the dust of a nebula, revealing hidden stars. These filters are also excellent for detecting very faint red stars, which give off more light in infrared wavelengths than in visible red light.</p><p>Let’s see how this works: The Trifid Nebula (M20) is a dense cloud of gas and dust. If the Trifid Nebula was observed using visible light alone, many of the stars within it would be hidden from view.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -25,7 +25,7 @@
       "content": "<p>To make a full color image of the nebula, each of the filtered images had to be colorized, then combined. The u filter image was colorized blue, the g filter image was colorized green, and the y (infrared) filter image was colorized red. (There’s a particular reason that these colors are arranged in this order—more on this later.) Then the final full color image was color balanced.</p>",
       "layout": {
         "col": "right",
-        "row": "bottom"
+        "row": "middle"
       }
     }
   ],
@@ -33,19 +33,19 @@
     {
       "mediaPath": "/images/m20_grz_filters_3up.png",
       "altText": "Ghost Nebula images",
-      "figText": "Figure 7: Image of portion of M20 taken by T.A. Rector (University of Alaska Anchorage) and CTIO/NOAO/NSF",
+      "figText": "Figure 9: Image of portion of M20 visible in the HSC field. Credits: Courtesy of the National Astronomical Observatory of Japan.",
       "layout": {
         "col": "right",
         "row": "top"
       }
     },
     {
-      "mediaPath": "/images/colorized_ghost_example.jpg",
-      "altText": "Ghost Nebula images",
-      "figText": "Figure 8: The u, g, y filters of the Ghost Nebula images have been assigned colors.",
+      "mediaPath": "/images/M20_4up_colorized_filters.png",
+      "altText": "Trifid Nebula M20 images",
+      "figText": "Figure 10: The g, r, z filter images of M20  have been assigned colors to produce a final color image on the right.",
       "layout": {
         "col": "right",
-        "row": "middle"
+        "row": "bottom"
       }
     }
   ],
@@ -57,7 +57,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Compare the three black and white images in Figure 7 of the Ghost Nebula, taken through u, g and y filters. What differences in the brightness of the gas and dust, and stars, do you notice between the three images?",
+          "label": "Compare the three black and white images in Figure 9 of the Trifid Nebula, taken through g, r, and z filters. What differences in the brightness of the gas and dust, and stars, do you notice between the three images?",
           "layout": {
             "col": "left",
             "row": "top"

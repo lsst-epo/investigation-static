@@ -15,6 +15,8 @@ export const getResetBtnState = data => {
 };
 
 export const getDataAndPrepare = (data, name) => {
+  if (isEmpty(data)) return data;
+
   if (isArray(data)) {
     return flattenDeep(
       data.map(category => {
@@ -37,6 +39,7 @@ export const getDataAndPrepare = (data, name) => {
       })
     );
   }
+
   data.filters.map(newFilter => {
     const { value, defaultValue, label } = newFilter;
     const sliderValue = defaultValue || value;
@@ -48,6 +51,7 @@ export const getDataAndPrepare = (data, name) => {
     newFilter.brightness = getBrightnessValue(newFilter, sliderValue);
     return newFilter;
   });
+
   return data;
 };
 
@@ -105,4 +109,13 @@ export const resetAllFilters = data => {
     filter.value = sliderValue;
     return filter;
   });
+};
+
+export const getColorNameFromHex = (hexValue, hexColors, colorOptions) => {
+  let foundColor = '';
+  hexColors.forEach((hex, index) => {
+    if (hex === hexValue) foundColor = colorOptions[index];
+    if (hexValue === 'transparent') foundColor = 'none';
+  });
+  return foundColor ? `fill-color-${foundColor.toLowerCase()}` : '';
 };

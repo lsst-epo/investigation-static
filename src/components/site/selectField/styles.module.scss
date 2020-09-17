@@ -8,6 +8,20 @@
       position: relative;
     }
 
+    .md-select-field--btn {
+      &.md-select-field--btn {
+        padding-left: 16px;
+
+        .md-icon-text {
+          padding-right: 0;
+        }
+      }
+    }
+
+    .md-tile-content--left-icon {
+      padding-left: 16px;
+    }
+
     .md-list {
       position: absolute;
       z-index: 6;

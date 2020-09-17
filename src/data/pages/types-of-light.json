@@ -17,7 +17,7 @@
     {
       "mediaPath": "/images/EM-spectrum-full.jpg",
       "altText": "The Electromagnetic Spectrum",
-      "figText": "Figure 1: <a href='https://imagine.gsfc.nasa.gov/science/toolbox/emspectrum1.html' target='_blank'>The Electromagnetic Spectrum</a>",
+      "figText": "Figure 2: <a href='https://imagine.gsfc.nasa.gov/science/toolbox/emspectrum1.html' target='_blank'>The Electromagnetic Spectrum</a>",
       "layout": {
         "row": "middle",
         "col": "left"
@@ -26,7 +26,7 @@
     {
       "mediaPath": "/images/visible_spectrum.jpg",
       "altText": "Visible Spectrum",
-      "figText": "Figure 2: Adapted from <a href='http://www.daltonism.org.uk/2018/01/rainbows/' target='_blank'>Daltonism</a>",
+      "figText": "Figure 3: Adapted from <a href='http://www.daltonism.org.uk/2018/01/rainbows/' target='_blank'>Daltonism</a>",
       "layout": {
         "row": "top",
         "col": "right"
@@ -42,7 +42,7 @@
       }
     },
     {
-      "content": "<p>Visible light consists of all of the colors of the rainbow, as shown below. You may have learned the acronym “Roy G. Biv” to remember the seven colors of the rainbow. The different colors correspond to different wavelengths and energies. Within the range of light we can see, red light has the lowest energy and the longest wavelengths; violet has the highest energy and the shortest wavelengths.</p>",
+      "content": "<p>Visible light consists of all of the colors of the rainbow, as shown above. You may have learned the acronym “Roy G. Biv” to remember the seven colors of the rainbow. The different colors correspond to different wavelengths and energies. Within the range of light we can see, red light has the lowest energy and the longest wavelengths; violet has the highest energy and the shortest wavelengths.</p>",
       "layout": {
         "row": "bottom",
         "col": "right"
