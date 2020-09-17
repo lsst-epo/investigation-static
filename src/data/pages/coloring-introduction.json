@@ -17,7 +17,7 @@
     {
       "mediaPath": "/images/m16_800.jpg",
       "altText": "M16 Eagle Nebula",
-      "figText": "The Eagle Nebula is a very luminous open cluster of stars surrounded by dust and gas. The three pillars at the center of the image, made famous in an image by the Hubble Space Telescope, are being sculpted by the intense radiation from the hot stars in the cluster.<br />Source: <a href='http://aftar.uaa.alaska.edu/gallery/img-159.html' target='_blank'>Astrophysics & Astrophotography</a>",
+      "figText": "Figure 1: The Eagle Nebula is a very luminous open cluster of stars surrounded by dust and gas. The three pillars at the center of the image, made famous in an image by the Hubble Space Telescope, are being sculpted by the intense radiation from the hot stars in the cluster.<br />Source: <a href='http://aftar.uaa.alaska.edu/gallery/img-159.html' target='_blank'>Astrophysics & Astrophotography</a>",
       "layout": {
         "col": "right",
         "row": "top"

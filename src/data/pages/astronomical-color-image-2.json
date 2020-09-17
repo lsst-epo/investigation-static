@@ -2,7 +2,7 @@
   "id": "coloring15",
   "investigation": "coloring-universe",
   "order": "15",
-  "title": "Constructing an Astronomical Image",
+  "title": "Color Balancing an Image",
   "slug": "astronomical-color-images-2/",
   "previous": {
     "title": "Constructing an Astronomical Image",
@@ -12,19 +12,63 @@
     "title": "What Should My Image Look Like?",
     "link": "/what-should-my-image-look-like/"
   },
-  "layout": "TwoCol",
-  "content": "<p>Move the slider next to the r filter back to its original location (so the image looks as it did before you moved it.)</p><p>By adjusting the amount of light from each filter using the sliders you can create a color balanced image. However, as you saw above, if the slider for a filter is moved too far to the left or the right, that color in the image can be too strong or too weak for the image to be color balanced.</p>",
+  "layout": "SingleCol",
+  "contents": [
+    {
+      "content": "<p>By adjusting the amount of light from each filter using the sliders you can create a color balanced image. However, as you just saw, if the slider for a filter is moved too far to the left or the right, that color in the image can be too strong or too weak for the image to be color balanced. To color balance an image, adjust the sliders so that the image communicates the information you want it to and looks pleasing to you. For instance, if you want to show the blue stars in a galaxy, you will need to balance the image so that it shows some blue stars. At the same time, using a contrasting color (such as red) can be helpful to show where the blue stars are not found.</p>",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "AstroTool",
       "layout": {
-        "col": "right",
-        "row": "top"
+        "col": "left",
+        "row": "bottom"
       },
       "source": "/data/filters/m33-filter.json",
       "options": {
-        "objectName": "M33"
+        "objectName": "M33",
+        "questionId": "M33"
       }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "M33",
+          "questionType": "accordion",
+          "answerAccessor": "colorTool",
+          "title": "Question #1",
+          "label": "<p>Move the slider next to the g filter back to its original location (slightly to the left of the middle).</p><ul><li>Now move the slider next to the r filter all the way to the left and answer the two questions below.</li></ul>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "25a",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What happens to the appearance of the image?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "26a",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Explain why the appearance of the image changed in the way it did."
+        }
+      ]
     }
   ]
 }

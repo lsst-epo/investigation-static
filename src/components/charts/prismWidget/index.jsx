@@ -135,7 +135,7 @@ class PrismWidget extends React.PureComponent {
           <Select
             dropdownIcon={<ArrowDown />}
             id="color-select"
-            placeholder="None"
+            placeholder="Select a filter"
             className="set-white-color"
             value={selectedColor}
             menuItems={colors}

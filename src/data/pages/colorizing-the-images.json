@@ -12,7 +12,7 @@
     "title": "Eyes vs. Telescopes - Different Ways of Seeing",
     "link": "/eyes-vs-telescopes/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "contents": [
     {
       "content": "<p>Here are the same images, now colorized with their corresponding colors, and the resulting image in full color.  The same image appears in the color-mixing tool.</p>",
@@ -33,7 +33,7 @@
     {
       "mediaPath": "/images/color-rgb-strip_example.jpg",
       "altText": "Filtered images colorized",
-      "figText": "Figure 5: Filtered images colorized",
+      "figText": "Figure 6: Filtered images colorized",
       "layout": {
         "col": "left",
         "row": "middle"
@@ -47,8 +47,8 @@
         "objectName": "RGB Filter"
       },
       "layout": {
-        "col": "right",
-        "row": "top"
+        "col": "left",
+        "row": "bottom"
       },
       "source": "/data/filters/color-filter.json"
     }

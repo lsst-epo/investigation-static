@@ -29,6 +29,17 @@
       }
     }
   ],
+  "images": [
+    {
+      "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
+      "altText": "Wavelength Ranges of Visible Light",
+      "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ],
   "tables": [
     {
       "id": "1",
@@ -82,7 +93,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is another chromatic sequence of colors that you could use in addition to the three examples above? If you are not sure, refer back to Figure 6."
+          "label": "What is another chromatic sequence of colors that you could use in addition to the three examples above? If you are not sure, refer to Figure 8."
         }
       ]
     },

@@ -1,53 +1,48 @@
 {
-  "id": "coloring19",
+  "id": "coloring18",
   "investigation": "coloring-universe",
-  "order": "19",
+  "order": "18",
   "title": "Putting It All Together",
   "slug": "putting-it-all-together/",
   "previous": {
-    "title": "Reflect and Discuss",
-    "link": "/reflect-and-discuss/"
+    "title": "What Should My Image Look Like?",
+    "link": "/what-should-my-image-look-like-1/"
   },
   "next": {
     "title": "Putting It All Together",
     "link": "/putting-it-all-together-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now it’s your turn to answer a scientific question by creating a representative color image and explaining what it reveals.</p><p>Think about these points before you begin:</p><ul><li>What would you like to investigate?</li><li>What question do you want to answer?</li></ul><br /><p>Here are some options:</p><ul><li>Look through a dusty nebula to see what’s inside</li><li>Search for a faraway galaxy</li><li>Locate the hot young stars in a galaxy</li><li>Identify star-forming regions in a galaxy</li></ul></li></ul>",
-  "images": [
+  "contents": [
     {
-      "mediaPath": "/images/Antennae_Galaxies_composite_of_ALMA_and_Hubble_observations.jpg",
-      "altText": "The Antennae Galaxies",
-      "figText": "The Antennae Galaxies (also known as NGC 4038 and 4039) are a pair of distorted colliding spiral galaxies about 70 million light-years away, in the constellation of Corvus (The Crow).<br/ >Source: <a href='https://commons.wikimedia.org/wiki/File:Antennae_Galaxies_composite_of_ALMA_and_Hubble_observations.jpg' target=''>Wikimedia Commons</a> Credit: ALMA (ESO/NAOJ/NRAO). Visible light image: the NASA/ESA Hubble Space Telescope",
+      "content": "<p>Now it’s your turn to answer a scientific question by creating a representative color image and explaining what it reveals.</p><ul><li>Look through a dusty nebula to see what’s inside</li><li>Search for a faraway galaxy</li><li>Locate the hot young stars in a galaxy</li><li>Identify star-forming regions in a galaxy</li></ul></li></ul><br /><p>Think about these points before you begin:</p><ul><li>What would you like to investigate?</li><li>What question do you want to answer?</li><li>What filters will be most appropriate for conducting your investigation? Why? (You need at least two filters, but you don’t have to use all six.)</li><li>What colors do you want to use for your chromatic ordering sequence and which color will you assign to each filter?</li></ul>",
       "layout": {
-        "col": "right",
+        "col": "left",
         "row": "top"
       }
     }
   ],
+  "images": [
+    {
+      "mediaPath": "/images/Antennae_Galaxies_composite_of_ALMA_and_Hubble_observations.jpg",
+      "altText": "The Antennae Galaxies",
+      "figText": "Figure 14: The Antennae Galaxies (also known as NGC 4038 and 4039) are a pair of distorted colliding spiral galaxies about 70 million light-years away, in the constellation of Corvus (The Crow).<br/ >Source: <a href='https://commons.wikimedia.org/wiki/File:Antennae_Galaxies_composite_of_ALMA_and_Hubble_observations.jpg' target=''>Wikimedia Commons</a> Credit: ALMA (ESO/NAOJ/NRAO). Visible light image: the NASA/ESA Hubble Space Telescope",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    },
+    {
+      "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
+      "altText": "Wavelength Ranges of Visible Light",
+      "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "layout": {
+        "col": "left",
+        "row": "middle"
+      }
+    }
+  ],
   "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "31",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What filters will be most appropriate for conducting your investigation? Why? (Note: you must use at least two filters.)"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "32",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Develop your chromatic ordering sequence. (What colors will you assign to each filter?)"
-        }
-      ]
-    },
     {
       "question": [
         {
@@ -81,33 +76,44 @@
     {
       "question": [
         {
-          "id": "35",
+          "id": "38",
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Which question did you answer?"
+          "label": "What image did you select?"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "36",
-          "questionType": "text",
+          "id": "39",
+          "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Which filters and images did you select?"
+          "label": "What question do you want to answer?"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "37",
-          "questionType": "text",
+          "id": "40",
+          "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Which chromatic order of colors you assigned?"
+          "label": "What filters will be most appropriate for conducting your investigation? Why? (Note: you must use at least two filters.)"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "41",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Develop your chromatic ordering sequence. (What colors will you assign to each filter?)"
         }
       ]
     }

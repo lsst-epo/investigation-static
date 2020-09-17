@@ -16,7 +16,7 @@
     {
       "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
       "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Figure 6: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {
         "col": "left",
         "row": "middle"

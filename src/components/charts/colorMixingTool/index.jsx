@@ -6,6 +6,7 @@ import SliderCustom from '../../site/slider/index.jsx';
 import Select from '../../site/selectField/index.jsx';
 import Button from '../../site/button/index.js';
 import ArrowDown from '../../site/icons/ArrowDown';
+import ColorSwatch from './ColorSwatch.jsx';
 import {
   getResetBtnState,
   getDataAndPrepare,
@@ -13,6 +14,7 @@ import {
   getBrightnessValue,
   resetAllFilters,
   setFilterActiveAndLoadImage,
+  getColorNameFromHex,
 } from './color-tool.utilities.js';
 
 import {
@@ -20,6 +22,7 @@ import {
   filterActive,
   selectContainer,
   button,
+  shadow,
   active,
   col50,
   buttonContainer,
@@ -31,6 +34,7 @@ import {
   buttonToolContainer,
   selectToolContainer,
   sliderToolContainer,
+  colorSwatchContainer,
 } from './color-tool.module.scss';
 
 class ColorTool extends React.PureComponent {
@@ -67,7 +71,7 @@ class ColorTool extends React.PureComponent {
       resetBtnActive: getResetBtnState(selectedData),
       selectorVal,
       data: objectName ? selectedData : data,
-      selectedData,
+      selectedData: getDataAndPrepare(selectedData),
       toolIsInteractable,
     }));
   }
@@ -206,7 +210,14 @@ class ColorTool extends React.PureComponent {
   };
 
   render() {
-    const { title, objectName, menuItems, colorBlocks } = this.props;
+    const {
+      title,
+      objectName,
+      menuItems,
+      colorBlocks,
+      hexColors,
+      colorOptions,
+    } = this.props;
     const {
       data,
       selectedData,
@@ -226,7 +237,7 @@ class ColorTool extends React.PureComponent {
         <div className={`container-flex ${container}`}>
           <div className={`${buttonContainer} ${col50}`}>
             {renderContent && (
-              <div className={container}>
+              <div className={`${container} ${selectToolContainer}`}>
                 <Select
                   dropdownIcon={<ArrowDown />}
                   id="galaxy-selector"
@@ -237,12 +248,14 @@ class ColorTool extends React.PureComponent {
                   saveListScrollTop
                   sameWidth
                   fullWidth
+                  position="below"
                 />
               </div>
             )}
             {filters && (
               <div className={toolActionsHeader}>
                 <div className={buttonToolContainer}>Filter</div>
+                <div className={colorSwatchContainer}></div>
                 <div className={selectToolContainer}>Color</div>
                 <div className={sliderToolContainer}>Color Intensity</div>
               </div>
@@ -266,26 +279,31 @@ class ColorTool extends React.PureComponent {
                         {btn.label}
                       </Button>
                     </div>
+                    <div className={colorSwatchContainer}>
+                      <ColorSwatch color={btn.color} large classes={shadow} />
+                    </div>
                     <div className={selectToolContainer}>
                       <Select
                         dropdownIcon={<ArrowDown />}
                         disabled={!toolIsInteractable || btn.isDisabled}
                         id={`${btn.label}-filter`}
-                        placeholder="None"
+                        placeholder="Select a filter"
                         value={btn.color}
                         menuItems={colorBlocks}
                         onChange={this.handleColorChange}
                         fullWidth
+                        sameWidth
+                        position="below"
                       />
                     </div>
                     <div className={sliderContainer}>
                       <SliderCustom
                         id={btn.label}
-                        className={
-                          btn.color !== ''
-                            ? `fill-color-${btn.color.toLowerCase()}`
-                            : ''
-                        }
+                        className={getColorNameFromHex(
+                          btn.color,
+                          hexColors,
+                          colorOptions
+                        )}
                         min={1}
                         max={100}
                         value={btn.value || 1}
@@ -346,6 +364,8 @@ ColorTool.propTypes = {
   title: PropTypes.string,
   menuItems: PropTypes.array,
   colorBlocks: PropTypes.array,
+  hexColors: PropTypes.array,
+  colorOptions: PropTypes.array,
   selectorVal: PropTypes.string,
   objectName: PropTypes.string,
   hasQuestionId: PropTypes.bool,

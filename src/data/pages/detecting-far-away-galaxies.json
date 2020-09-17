@@ -13,12 +13,27 @@
     "link": "/visible-light-filters/"
   },
   "layout": "TwoCol",
-  "content": "<p>Some galaxies are very distant—so distant that their light, because of <a href='http://astronomy.swin.edu.au/cosmos/C/Cosmological+Redshift' target='_blank'>cosmological redshift</a>, is detectable only at infrared wavelengths.</p><p>To quickly spot the most distant galaxies, a color composite image can be made using at least one infrared filter. The image obtained using the filter that transmits the light with the shortest wavelengths is colorized blue, and the one using the filter that transmits the light with the longest (infrared) wavelengths is colorized red. The color image in Figure 9 below was made by combining all three filtered images and shows the most distant galaxies in a very red color, because they are brightest at very long wavelengths.</p>",
+  "contents": [
+    {
+      "content": "<p>Some galaxies are very distant—so distant that their light, because of <a href='http://astronomy.swin.edu.au/cosmos/C/Cosmological+Redshift' target='_blank'>cosmological redshift</a>, is detectable only at infrared wavelengths.</p><p>To quickly spot the most distant galaxies, a color composite image can be made using at least one infrared filter. The image obtained from the filter that transmits the light with the shortest wavelengths is colorized blue, and the image from the filter that transmits the light with the longest (infrared) wavelengths is colorized red. The color image at the right was made by combining all three filtered images and shows the most distant galaxies in a red-orange color, because they are brightest at very long wavelengths.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "content": "Image colorized by T.A. Rector (University of Alaska Anchorage) and CTIO/NOAO/NSF.",
+      "layout": {
+        "col": "right",
+        "row": "bottom"
+      }
+    }
+  ],
   "images": [
     {
       "mediaPath": "/images/UVISTARDR1_3up.png",
       "altText": "Dropout Galaxy UVISTADR1 J100121.94+021937.6",
-      "figText": "Figure 9: Galaxy UVISTADR1 J100121.94+021937.6 from the Subaru HSC Data Release 1. Images colorized by T.A. Rector (University of Alaska Anchorage) and CTIO/NOAO/NS.",
+      "figText": "Figure 11: Galaxy UVISTADR1 J100121.94+021937.6 from the Subaru HSC Survey, courtesy of the National Astronomical Observatory of Japan (NAOJ).",
       "layout": {
         "col": "left",
         "row": "top"
@@ -29,6 +44,10 @@
     {
       "type": "GalaxiesFilterSelector",
       "source": "/data/galaxies/galaxy_selector_coloring.json",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
       "options": {
         "autoplay": false,
         "toggleDataPointsVisibility": "15"
@@ -44,7 +63,7 @@
           "answerAccessor": "coloringGalaxy",
           "answerPre": "<span>Found: </span>",
           "title": "Question #1",
-          "label": "Identify a distant galaxy in the three black and white images in Figure 9. It will get brighter as the filter wavelengths get longer. Then look for it in the color image. When you find it, click on it."
+          "label": "Identify a distant galaxy in the three black and white images in Figure 11.  Then look for it in the color image. When you find it, click on it."
         }
       ]
     }

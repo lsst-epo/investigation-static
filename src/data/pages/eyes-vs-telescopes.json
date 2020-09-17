@@ -18,7 +18,7 @@
     {
       "mediaPath": "/images/heic1118a.jpg",
       "altText": "The Electromagnetic Spectrum",
-      "figText": "This image of the Triangulum Galaxy was created by combining optical data with radio data from the Very Large Array (VLA) telescope in New Mexico and the Westerbork Synthesis Radio Telescope (WSRT) in the Netherlands.  Credit: <a href='http://aftar.uaa.alaska.edu/gallery/img-164.html' target='_blank'>NOAO/AURA/NSF. Copyright WIYN Consortium, Inc., all rights reserved.</a>",
+      "figText": "Figure 7: This image of the Triangulum Galaxy was created by combining optical data with radio data from the Very Large Array (VLA) telescope in New Mexico and the Westerbork Synthesis Radio Telescope (WSRT) in the Netherlands.  Credit: <a href='http://aftar.uaa.alaska.edu/gallery/img-164.html' target='_blank'>NOAO/AURA/NSF. Copyright WIYN Consortium, Inc., all rights reserved.</a>",
       "layout": {
         "row": "top",
         "col": "right"

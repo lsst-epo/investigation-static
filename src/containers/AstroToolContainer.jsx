@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
+import find from 'lodash/find';
 import isArray from 'lodash/isArray';
 import { Subheader } from 'react-md';
 import ColorTool from '../components/charts/colorMixingTool/index.jsx';
+import ColorSwatch from '../components/charts/colorMixingTool/ColorSwatch.jsx';
 import {
   findObjectFromAnswer,
   getAnswerData,
@@ -58,7 +60,7 @@ class AstroToolContainer extends React.PureComponent {
     const { questionId } = options || {};
     const answer = answers[activeQuestionId || questionId];
 
-    if (isEmpty(answer) && questionId) {
+    if (isEmpty(answer) && activeQuestionId === questionId) {
       this.updateAnswer();
     }
   }
@@ -144,12 +146,13 @@ class AstroToolContainer extends React.PureComponent {
       return {
         label: color,
         value: hexColors[i] || color,
+        leftIcon: <ColorSwatch color={hexColors[i]} />,
       };
     });
   }
 
   render() {
-    const { widget, activeQuestionId } = this.props;
+    const { widget, activeQuestionId, questionsByPage } = this.props;
     const {
       options: { objectName, questionId },
     } = widget || {};
@@ -157,9 +160,14 @@ class AstroToolContainer extends React.PureComponent {
     const { title, colorOptions, hexColors, data: dataObjects } =
       jsonData || {};
 
-    const toolIsInteractable = questionId
-      ? activeQuestionId !== null && questionId === activeQuestionId
-      : true;
+    const questionOnPage = !isEmpty(
+      find(questionsByPage, {
+        question: [{ id: questionId }],
+      })
+    );
+    const questionActive = questionId === activeQuestionId;
+
+    const toolIsInteractable = questionOnPage ? questionActive : true;
 
     return (
       jsonData && (
@@ -189,6 +197,7 @@ AstroToolContainer.propTypes = {
   answers: PropTypes.object,
   activeQuestionId: PropTypes.string,
   updateAnswer: PropTypes.func,
+  questionsByPage: PropTypes.array,
 };
 
 export default AstroToolContainer;

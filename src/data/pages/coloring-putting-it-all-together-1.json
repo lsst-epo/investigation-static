@@ -1,7 +1,7 @@
 {
-  "id": "coloring20",
+  "id": "coloring19",
   "investigation": "coloring-universe",
-  "order": "20",
+  "order": "19",
   "title": "Putting It All Together",
   "slug": "putting-it-all-together-1/",
   "previous": {
@@ -9,96 +9,20 @@
     "link": "/putting-it-all-together/"
   },
   "next": {
-    "title": "",
-    "link": ""
+    "title": "Reflect and Discuss",
+    "link": "/reflect-and-discuss/"
   },
-  "layout": "TwoCol",
-  "content": "<p>To get started:<ul><li>Use the Astronomical Color Mixing Tool to select an object from the list.</li><li>For each of the filters you wish to use, start by turning on each filter and selecting colors.</li><li>Adjust the sliders to enhance the image. Think about color-balancing the image so it clearly shows the areas or objects you wish to study.</li></ul></>",
+  "layout": "SingleCol",
+  "content": "<p>To get started:<ul><li>Use the Astro Filter Tool to select an object from the list.</li><li>For each of the filters you wish to use, start by turning on each filter and selecting colors.</li><li>Adjust the sliders to enhance the image. Think about color-balancing the image so it clearly shows the areas or objects you wish to study.</li><li>Your completed image should be displayed on this page.</li></ul></>",
   "widgets": [
     {
       "type": "AstroTool",
       "layout": {
-        "col": "right",
-        "row": "top"
+        "col": "left",
+        "row": "middle"
       },
       "source": "/data/filters/new-data-astro-filter.json",
       "options": {}
-    }
-  ],
-  "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "34",
-          "questionType": "select",
-          "answerAccessor": "data",
-          "title": "Question #1",
-          "label": "Which type of object(s) you selected to explore?",
-          "options": [
-            {
-              "label": "Look through a dusty nebula to see what's inside",
-              "value": "dusty nebula"
-            },
-            {
-              "label": "Search for a far away galaxy",
-              "value": "far away galaxy"
-            },
-            {
-              "label": "Locate the young stars in a galaxy",
-              "value": "young stars"
-            },
-            {
-              "label": "Identify star-forming regions in a galaxy",
-              "value": "star-forming regions"
-            }
-          ],
-          "placeholder": "Select one"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "38",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What did you do to create a color balanced image?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "39",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What was the procedure you followed to analyze the image(s)?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "40",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What did you learn through this process (What was the answer to the question you posed?)"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "41",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What improvements would you make in a future investigation (e.g., different filters, different balance, etc.) to make the image more effective in communicating your results?"
-        }
-      ]
     }
   ]
 }

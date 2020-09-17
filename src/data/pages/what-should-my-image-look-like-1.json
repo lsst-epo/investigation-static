@@ -9,10 +9,10 @@
     "link": "/what-should-my-image-look-like/"
   },
   "next": {
-    "title": "Reflect and Discuss",
-    "link": "/reflect-and-discuss/"
+    "title": "Putting It All Together",
+    "link": "/putting-it-all-together/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "contents": [
     {
       "content": "",
@@ -26,8 +26,8 @@
     {
       "type": "AstroTool",
       "layout": {
-        "col": "right",
-        "row": "top"
+        "col": "left",
+        "row": "bottom"
       },
       "source": "/data/filters/m63-filter.json",
       "options": {
