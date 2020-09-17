@@ -140,10 +140,17 @@ class PrismWidget extends React.PureComponent {
             value={selectedColor}
             menuItems={colors}
             onChange={this.handleSelect}
-            position="below"
             block
+            position="top left"
             fullWidth
-            sameWidth
+            simplifiedMenu={false}
+            listStyle={{
+              left: 0,
+              top: '100%',
+              width: '100%',
+              minWidth: '150px',
+              // transform: 'translateY(0)',
+            }}
           />
         </div>
       </div>

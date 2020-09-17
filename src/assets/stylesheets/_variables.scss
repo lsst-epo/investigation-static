@@ -75,31 +75,30 @@ $chartColors: $chart0 $chart1 $chart2 $chart3 $chart4 $chart5 $chart6;
     chart#{$i}: $chartColor;
   }
 }
-$Violet: #ee82ee;
-$Blue: #0019ff;
-$Green: #6bd853;
-$Yellow: #ffdd15;
-$Orange: #f18922;
-$Red: #ec1c24;
-$Cyan: #00ffff;
-$Magenta: #ff00ff;
 
-$sliderTrackFillRed: red;
-$sliderTrackFillBlue: blue;
-$sliderTrackFillGreen: green;
-$sliderTrackFillPurple: violet;
-$sliderTrackFillCyan: cyan;
-$sliderTrackFillYellow: yellow;
-$sliderTrackFillOrange: orange;
-$sliderTrackFillMagenta: magenta;
+$violet: #ee82ee;
+$blue: #0019ff;
+$green: #6bd853;
+$yellow: #ffdd15;
+$orange: #f18922;
+$red: #ec1c24;
+$cyan: #00ffff;
+$magenta: #ff00ff;
 
-$sliderTrackFillColors: $sliderTrackFillRed $sliderTrackFillBlue
-  $sliderTrackFillGreen $sliderTrackFillPurple $sliderTrackFillCyan
-  $sliderTrackFillYellow $sliderTrackFillOrange $sliderTrackFillMagenta;
+$sliderTrackFillColors: (
+  'violet': $violet,
+  'blue': $blue,
+  'green': $green,
+  'yellow': $yellow,
+  'orange': $orange,
+  'red': $red,
+  'cyan': $cyan,
+  'magenta': $magenta,
+);
 
 :export {
-  @each $color in $sliderTrackFillColors {
-    sliderTrackFillColor#{$color}: $color;
+  @each $name, $hexColor in $sliderTrackFillColors {
+    sliderTrackFillColor#{$name}: $hexColor;
   }
 }
 

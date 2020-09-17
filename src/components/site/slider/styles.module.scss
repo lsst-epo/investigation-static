@@ -6,36 +6,61 @@
       $include-indicators: true
     );
 
-    .md-slider-thumb {
-      border-radius: 50%;
+    .md-slider-track {
+      height: 3px;
 
-      &.md-slider-thumb--continuous-off {
-        /* stylelint-disable-next-line declaration-no-important */
-        top: -9px !important;
+      .md-slider-track-fill {
+        height: 3px;
       }
 
-      &.md-slider-thumb--on,
-      &.md-slider-thumb--disabled {
+      .md-slider-thumb:not(.md-slider-thumb--disabled):not(.md-slider-thumb--mask-disabled),
+      .md-slider-track-fill {
+        background: $basePrimary;
+        transition: background $durationSlow $timing;
+      }
+
+      .md-slider-thumb {
+        border-radius: 50%;
+
+        &.md-slider-thumb--continuous-off {
+          top: -9px;
+        }
+
+        &.md-slider-thumb--on,
+        &.md-slider-thumb--disabled {
+          top: -6px;
+        }
+      }
+
+      .md-slider-thumb--discrete {
+        box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.1),
+          0 1px 2px rgba(0, 0, 0, 0.14);
+
+        &.md-slider-thumb--discrete-active-off {
+          top: -6px;
+        }
+      }
+
+      .md-slider-discrete-value {
         top: -6px;
       }
     }
 
-    .md-slider-track,
-    .md-slider-track-fill {
-      height: 3px;
-    }
-
-    .md-slider-thumb,
-    .md-slider-track-fill {
-      transition: background $durationSlow ease-in-out;
-    }
-
-    @each $color in $sliderTrackFillColors {
-      &.fill-color-#{$color} {
+    @each $name, $hexColor in $sliderTrackFillColors {
+      &.fill-color-#{$name} {
         .md-slider-thumb:not(.md-slider-thumb--disabled):not(.md-slider-thumb--mask-disabled),
         .md-slider-track-fill,
         .md-slider-discrete-tick {
-          background: $color;
+          background: $hexColor;
+        }
+        @if $name == 'yellow' or $name == 'cyan' or $name == 'green' {
+          .md-slider-discrete-value {
+            color: $black;
+          }
+        }
+
+        .md-slider-thumb--discrete::after {
+          border-top-color: $hexColor;
         }
       }
     }
