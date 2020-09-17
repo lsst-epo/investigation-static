@@ -345,7 +345,7 @@ class ColorTool extends React.PureComponent {
                         ? `url(/images/colorTool/${image}`
                         : 'none',
                       backgroundColor: color,
-                      filter: `brightness(${brightness})`,
+                      filter: `brightness(${brightness}) contrast(1.3)`,
                     }}
                   ></div>
                 );

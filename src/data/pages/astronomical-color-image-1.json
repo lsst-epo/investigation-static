@@ -13,7 +13,7 @@
     "link": "/astronomical-color-images-2/"
   },
   "layout": "SingleCol",
-  "content": "<p>Now let’s see what happens when you move the sliders.</p>",
+  "content": "",
   "widgets": [
     {
       "type": "AstroTool",
@@ -36,7 +36,7 @@
           "questionType": "accordion",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "Move the slider next to the g filter all the way to the right."
+          "label": "<p>Now let’s see what happens when you move the sliders.</p><ul><li>Click \"Change Answer\"</li><li>Move the slider next to the g filter all the way to the right.</li></ul>"
         }
       ]
     },
