@@ -26,7 +26,7 @@
     {
       "mediaPath": "/images/bayer_filter.png",
       "altText": "Image sensor with filter arrangement",
-      "figText": "Tiny red, green, and blue filters are placed over the pixels of the image sensor (as shown above in Figure 4b).",
+      "figText": "Tiny red, green, and blue filters are placed over the <strong>pixels</strong> of the image sensor (as shown above in Figure 4b).",
       "layout": {
         "col": "right",
         "row": "bottom"

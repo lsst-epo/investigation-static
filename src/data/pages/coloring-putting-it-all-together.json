@@ -50,7 +50,7 @@
           "questionType": "select",
           "answerAccessor": "data",
           "title": "Question #1",
-          "label": "Which type of object(s) you selected to explore?",
+          "label": "Which type of object(s) did you select to explore?",
           "options": [
             {
               "label": "Look through a dusty nebula to see what's inside",

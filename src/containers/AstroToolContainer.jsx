@@ -165,9 +165,11 @@ class AstroToolContainer extends React.PureComponent {
         question: [{ id: questionId }],
       })
     );
-    const questionActive = questionId === activeQuestionId;
+    const questionActive = questionOnPage
+      ? questionId === activeQuestionId
+      : false;
 
-    const toolIsInteractable = questionOnPage ? questionActive : true;
+    const toolIsInteractable = questionId ? questionActive : true;
 
     return (
       jsonData && (
