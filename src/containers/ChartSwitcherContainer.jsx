@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import BarChart from '../components/site/icons/BarChart';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import { widgetTags } from '../components/widgets/widgets-utilities.js';
@@ -17,6 +18,7 @@ class ChartSwitcherContainer extends React.PureComponent {
     super(props);
 
     this.state = {
+      loading: true,
       navItems: null,
       activeIndex: 0,
     };
@@ -28,6 +30,7 @@ class ChartSwitcherContainer extends React.PureComponent {
     this.setState(prevState => ({
       ...prevState,
       navItems: this.generateNavItems(activeIndex),
+      // loading: false,
     }));
   }
 
@@ -65,7 +68,7 @@ class ChartSwitcherContainer extends React.PureComponent {
   }
 
   render() {
-    const { navItems, activeIndex } = this.state;
+    const { navItems, activeIndex, loading } = this.state;
     const { widget } = this.props;
     const { widgets: nestedWidgets } = widget;
     const activeWidget = nestedWidgets[activeIndex];
@@ -74,7 +77,14 @@ class ChartSwitcherContainer extends React.PureComponent {
 
     return (
       <>
-        {navItems && (
+        {loading && (
+          <CircularProgress
+            id="chartSwitcher-loader"
+            className="chart-loader"
+            scale={3}
+          />
+        )}
+        {navItems && !loading && (
           <NavDrawer
             interactableToolbar
             navItems={navItems}
