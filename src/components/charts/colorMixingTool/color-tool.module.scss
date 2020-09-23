@@ -95,6 +95,7 @@
   height: 50px;
   margin: 15px auto;
   line-height: 1;
+  text-transform: initial;
   background: #d5d5d5;
   transition: background $duration ease-in-out;
 
@@ -143,20 +144,22 @@
 
       .md-slider-thumb {
         &.md-slider-thumb--disabled {
-          transition: all 50ms $timing;
           border: 2px solid $white;
           box-shadow: 0 0 6px -2px rgba(0, 0, 0, 0.2),
             0 0 2px rgba(0, 0, 0, 0.24);
+          transition: all 50ms $timing;
           transform: scale(1.5);
           transform-origin: center;
+
           & + .md-slider-discrete-value {
-            transition: all 50ms $timing;
-            opacity: 0;
             visibility: hidden;
-          }
-          &::after {
+            opacity: 0;
             transition: all 50ms $timing;
+          }
+
+          &::after {
             border-top-color: transparent;
+            transition: all 50ms $timing;
           }
         }
       }
@@ -202,6 +205,11 @@
   }
 }
 
+.controls-container {
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+
 .image-container {
   position: relative;
   max-height: 800px;
@@ -213,6 +221,11 @@
   border-radius: 3px;
   box-shadow: -4px 7px 10px -2px rgba(0, 0, 0, 0.12),
     4px 7px 10px -2px rgba(0, 0, 0, 0.12), 0 2px 3px -1px rgba(0, 0, 0, 0.24);
+
+  &.col-full-width {
+    width: 100%;
+    padding-top: 100%;
+  }
 }
 
 .filter-image {

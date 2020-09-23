@@ -30,7 +30,7 @@
           "name": "M63",
           "filters": [
             {
-              "label": "U",
+              "label": "u",
               "color": "",
               "active": false,
               "image": "",
@@ -40,7 +40,7 @@
               "max": 4
             },
             {
-              "label": "G",
+              "label": "g",
               "color": "",
               "active": false,
               "image": "",
@@ -50,7 +50,7 @@
               "max": 2
             },
             {
-              "label": "R",
+              "label": "r",
               "color": "",
               "active": false,
               "image": "",
@@ -60,7 +60,7 @@
               "max": 1.5
             },
             {
-              "label": "I",
+              "label": "i",
               "color": "",
               "active": false,
               "image": "",
@@ -70,7 +70,7 @@
               "max": 1
             },
             {
-              "label": "Z",
+              "label": "z",
               "color": "",
               "active": false,
               "image": "",
@@ -80,7 +80,7 @@
               "max": 1
             },
             {
-              "label": "Y",
+              "label": "y",
               "color": "",
               "active": false,
               "image": "",
