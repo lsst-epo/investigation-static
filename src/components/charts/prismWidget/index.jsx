@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Select from '../../site/selectField/index.jsx';
 import ArrowDown from '../../site/icons/ArrowDown';
 
@@ -15,8 +17,10 @@ import {
   single,
   prismWrapper,
   contentWrapper,
+  filterLabel,
   prismLabel,
   whiteLightLabel,
+  hideLabel,
   prismSmallClipWrapper,
   prismSmallWrapper,
   prismSmallItems,
@@ -24,6 +28,7 @@ import {
   whiteSmallCover,
   background,
   selectContainer,
+  selectLabel,
   visibleRay,
   hiddenRay,
   stripe,
@@ -35,20 +40,43 @@ class PrismWidget extends React.PureComponent {
     super(props);
 
     this.state = {
-      selectedColor: '',
+      selectedColor: 'None',
     };
   }
 
-  handleSelect = value => {
+  componentDidMount() {
+    const { selectedColor } = this.props;
+
     this.setState(prevState => ({
       ...prevState,
-      selectedColor: value === 'None' ? '' : value,
+      selectedColor,
     }));
+  }
+
+  handleSelect = value => {
+    this.updateAnswers(value);
   };
 
   getPrismColors(index) {
+    if (index === 6) return { backgroundColor: 'transparent' };
     return { backgroundColor: prismHexColors[`line${index}`] };
   }
+
+  updateAnswers = value => {
+    this.setState(
+      prevState => ({
+        ...prevState,
+        selectedColor: value,
+      }),
+      () => {
+        const { selectionCallback } = this.props;
+        const { selectedColor } = this.state;
+        if (selectionCallback) {
+          selectionCallback(selectedColor);
+        }
+      }
+    );
+  };
 
   render() {
     const { selectedColor } = this.state;
@@ -93,7 +121,7 @@ class PrismWidget extends React.PureComponent {
                     let rays = ``;
                     if (color === selectedColor) {
                       rays += `${visibleRay}`;
-                    } else if (color !== '') {
+                    } else if (color !== 'None') {
                       rays += `${hiddenRay}`;
                     }
 
@@ -122,25 +150,32 @@ class PrismWidget extends React.PureComponent {
                   })}
                   <div
                     className={`${lens} ${whiteCover}`}
-                    style={selectedColor !== '' ? { display: 'block' } : {}}
+                    style={selectedColor !== 'None' ? { display: 'block' } : {}}
                   ></div>
                   <div className={`${prismColors} ${single}`}></div>
                 </div>
               </div>
             </div>
+            <p
+              className={classnames(filterLabel, {
+                [hideLabel]: selectedColor === 'None',
+              })}
+            >
+              Filter
+            </p>
             <p className={prismLabel}>Prism</p>
             <p className={whiteLightLabel}>White Light → </p>
           </div>
         </div>
         <div className={selectContainer}>
+          <p className={selectLabel}>Select a filter:</p>
           <Select
             dropdownIcon={<ArrowDown />}
             id="color-select"
-            placeholder="Select a filter"
             className="set-white-color"
-            value={selectedColor}
             menuItems={colors}
             onChange={this.handleSelect}
+            value={selectedColor}
             block
             position="top left"
             fullWidth
@@ -150,7 +185,6 @@ class PrismWidget extends React.PureComponent {
               top: '100%',
               width: '100%',
               minWidth: '150px',
-              // transform: 'translateY(0)',
             }}
           />
         </div>
@@ -158,5 +192,10 @@ class PrismWidget extends React.PureComponent {
     );
   }
 }
+
+PrismWidget.propTypes = {
+  selectionCallback: PropTypes.func,
+  selectedColor: PropTypes.string,
+};
 
 export default PrismWidget;
