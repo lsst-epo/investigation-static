@@ -6,7 +6,7 @@
   "slug": "determining-orbits-6/",
   "previous": {
     "title": "Determining the Orbit of an Asteroid",
-    "link": "/determining-orbits-4/"
+    "link": "/determining-orbits-5-1/"
   },
   "next": {
     "title": "Determining the Orbit of an Asteroid",
@@ -20,7 +20,44 @@
       "source": "/data/neos/K17C01P_orb_1-25.json",
       "options": {
         "defaultZoom": 0.5,
-        "potentialOrbits": true
+        "potentialOrbits": true,
+        "observations": [
+          {
+            "id": "obs-1",
+            "label": "#1",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.55
+          },
+          {
+            "id": "obs-2",
+            "label": "#2",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.6
+          },
+          {
+            "id": "obs-3",
+            "label": "#3",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.65
+          },
+          {
+            "id": "obs-4",
+            "label": "#4",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.7
+          },
+          {
+            "id": "obs-5",
+            "label": "#5",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.77
+          }
+        ]
       }
     }
   ],
@@ -34,9 +71,9 @@
           "labelPre": "The probability of impact for this asteroid has ",
           "labelPost": ".",
           "options": [
-            {"label": "increased", "value": "increased"},
-            {"label": "decreased", "value": "decreased"},
-            {"label": "stayed the same", "value": "stayed the same"}
+            { "label": "increased", "value": "increased" },
+            { "label": "decreased", "value": "decreased" },
+            { "label": "stayed the same", "value": "stayed the same" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",

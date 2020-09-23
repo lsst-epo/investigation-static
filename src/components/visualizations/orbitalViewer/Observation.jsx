@@ -36,8 +36,8 @@ function Observation({ data, activeObs, vector, selectionCallback }) {
       className={obsMesh}
       position={vector}
       onClick={interactable ? () => selectionCallback(data, 'obs') : null}
-      onPointerOver={() => setIsHover(true)}
-      onPointerOut={() => setIsHover(false)}
+      onPointerOver={interactable ? () => setIsHover(true) : null}
+      onPointerOut={interactable ? () => setIsHover(false) : null}
     >
       <HTML>
         <div
@@ -50,10 +50,7 @@ function Observation({ data, activeObs, vector, selectionCallback }) {
           {label}
         </div>
       </HTML>
-      <octahedronBufferGeometry
-        attach="geometry"
-        args={[isActiveAnswer || isHover ? 35 : 25]}
-      />
+      <octahedronBufferGeometry attach="geometry" args={[20]} />
       <meshBasicMaterial
         attach="material"
         color={getObsColor(isActiveAnswer, isActive)}
