@@ -64,6 +64,7 @@ class PrismWidget extends React.PureComponent {
 
     return (
       <div>
+        <h2>Filter Tool</h2>
         <div className={contentWrapper}>
           <div className={background}></div>
           <div className={prismShape}>
