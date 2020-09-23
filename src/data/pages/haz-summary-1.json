@@ -10,10 +10,10 @@
   },
   "next": {
     "title": "Effects of an Asteroid Impact",
-    "link": "/summary-3/"
+    "link": "/summary-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>The amount of damage an impact will cause is related to the object’s kinetic energy. Assume that astronomers have measured a velocity of 12900 m/s for your asteroid. The mass of the asteroid cannot be directly measured, but can be estimated by using its density and diameter. Since the composition of the asteroid is not known, we will assume this is a rocky asteroid (the most common type) with a density of 2500 kg/m3.  So if you have an asteroid’s velocity, density, and diameter you can determine its kinetic energy, and therefore the amount of damage it would cause if it hit Earth.  </p>",
+  "content": "<p>The kinetic energy of the asteroid will determine the size of the crater produced, and its potential damage. To calculate the kinetic energy of the asteroid, a mass and a velocity must be measured or estimated.</p><p>Based on where the asteroid is in its orbit around the Sun, scientists can roughly estimate the velocity of the asteroid when it enters Earth’s atmosphere, but the mass of an asteroid can only be estimated. We do this by using the asteroid’s diameter and creating an asteroid model based on some assumptions about its density and shape.</p><p>Because we cannot study most asteroids up close, we do not have a good idea of their shape or composition. So even though most asteroids are irregular in shape, we model them as being spherical. This allows us to determine an overall volume for an asteroid by using its diameter. Because the composition of the asteroid is not known, we assume it is a rocky asteroid (the most common type) with a density of ~2500 kg/m3. Using these assumptions, we can estimate the mass of the asteroid.</p>",
   "tables": [
     {
       "id": "5",
@@ -36,20 +36,6 @@
         [{ "accessor": "mass", "id": "52" }],
         [{ "accessor": "kineticEnergy", "id": "52" }]
       ]
-    },
-    {
-      "id": "6",
-      "layout": {
-        "col": "right",
-        "row": "top"
-      },
-      "title": "Impact Collision Properties",
-      "colTitles": ["", "3200 Phaeton Impact Crater"],
-      "rowTitles": [["Crater Diameter"], ["Crater Depth"]],
-      "rows": [
-        [{ "accessor": "craterDiameter", "id": "52" }],
-        [{ "accessor": "craterDepth", "id": "52" }]
-      ]
     }
   ],
   "questionsByPage": [
@@ -59,7 +45,7 @@
           "id": "52",
           "questionType": "ImpactCalculator",
           "title": "Question #1",
-          "label": "Input your values for velocity, density and diameter to estimate the impact energy (kinetic energy) of your asteroid, and the size of the crater it would leave, if it hit Earth.",
+          "label": "Input your asteroid’s size (diameter), density and velocity into the calculator below to determine its mass and kinetic energy:",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "kineticEnergy"

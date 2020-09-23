@@ -178,24 +178,15 @@ export const calculateDiameter = ({ magnitude, albedo }) => {
   return diameter * 1000;
 };
 
-export const calculateVolume = ({ radius }) => {
-  if (!radius) return null;
-  return (4 / 3) * Math.PI * (+radius) ** 3;
-};
+export const calculateKineticEnergy = ({ diameter, velocity, density }) => {
+  if (!diameter || !velocity || !density) return null;
 
-export const calculateKineticEnergy = ({ mass, velocity }) => {
-  if (!mass || !velocity) return null;
-  return (0.5 * +mass * (+velocity) ** 2).toString(10);
-};
-
-export const calculateMass = ({ density, volume }) => {
-  if (!density || !volume) return null;
-  return +density * +volume;
+  return (Math.PI * +density * (+diameter) ** 3 * (+velocity) ** 2) / 12;
 };
 
 export const calculateSeismicDamage = (asteroidDiameter, density, velocity) => {
   if (!asteroidDiameter || !density || !velocity) return null;
-
+  // rho, L, v -> KE, mass
   return (
     (Math.PI * +density * (+asteroidDiameter) ** 3 * (+velocity) ** 2) / 12
   );

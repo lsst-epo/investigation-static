@@ -13,30 +13,8 @@
     "link": "/summary-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>Let’s imagine that your asteroid did hit Earth. Use the impact tool to see the effects of your asteroid.</p>",
+  "content": "<p>The kinetic energy of the asteroid will determine the size of the crater produced, and its potential damage. Input your data to determine the size and depth of the crater that will be formed by this asteroid.</p>",
   "tables": [
-    {
-      "id": "5",
-      "layout": {
-        "col": "left",
-        "row": "top"
-      },
-      "colTitles": ["Asteroid Name", "3200 Phaeton"],
-      "rowTitles": [
-        ["Asteroid Diameter"],
-        ["Asteroid Velocity"],
-        ["Asteroid Density"],
-        ["Asteroid Mass"],
-        ["Asteroid Kinetic Energy"]
-      ],
-      "rows": [
-        [{ "accessor": "diameter", "id": "48" }],
-        [{ "content": "12,900 m/s" }],
-        [{ "content": "2,500 kg/m^3" }],
-        [{ "accessor": "mass", "id": "52" }],
-        [{ "accessor": "kineticEnergy", "id": "52" }]
-      ]
-    },
     {
       "id": "6",
       "layout": {
@@ -45,10 +23,26 @@
       },
       "title": "Impact Collision Properties",
       "colTitles": ["", "3200 Phaeton Impact Crater"],
-      "rowTitles": [["Crater Diameter"], ["Crater Depth"]],
+      "rowTitles": [["Asteroid Kinetic Energy"], ["Crater Diameter"], ["Crater Depth"]],
       "rows": [
+        [{ "accessor": "kineticEnergy", "id": "52" }],
         [{ "accessor": "craterDiameter", "id": "53" }],
         [{ "accessor": "craterDepth", "id": "53" }]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "53",
+          "questionType": "ImpactCalculator",
+          "title": "Question #1",
+          "label": "Input the kinetic energy of your asteroid to determine the size and depth of the crater that will be formed by this asteroid:",
+          "placeholder": "Enter values",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "kineticEnergy"
+        }
       ]
     }
   ]
