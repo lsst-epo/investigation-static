@@ -13,7 +13,7 @@
     "link": "/summary-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>The kinetic energy of the asteroid will determine the size of the crater produced, and its potential damage. To calculate the kinetic energy of the asteroid, a mass and a velocity must be measured or estimated.</p><p>Based on where the asteroid is in its orbit around the Sun, scientists can roughly estimate the velocity of the asteroid when it enters Earth’s atmosphere, but the mass of an asteroid can only be estimated. We do this by using the asteroid’s diameter and creating an asteroid model based on some assumptions about its density and shape.</p><p>Because we cannot study most asteroids up close, we do not have a good idea of their shape or composition. So even though most asteroids are irregular in shape, we model them as being spherical. This allows us to determine an overall volume for an asteroid by using its diameter. Because the composition of the asteroid is not known, we assume it is a rocky asteroid (the most common type) with a density of ~2500 kg/m3. Using these assumptions, we can estimate the mass of the asteroid.</p>",
+  "content": "<p>Based on where the asteroid is in its orbit around the Sun, scientists can roughly estimate the velocity of the asteroid when it enters Earth’s atmosphere, but the mass of an asteroid can only be estimated. We do this by using the asteroid’s diameter and creating an asteroid model based on some assumptions about its density and shape.</p><p>Because we cannot study most asteroids up close, we do not have a good idea of their shape or composition. So even though most asteroids are irregular in shape, we model them as being spherical. This allows us to determine an overall volume for an asteroid by using its diameter. Because the composition of the asteroid is not known, we assume it is a rocky asteroid (the most common type) with a density of ~2500 kg/m3. Using these assumptions, we can estimate the mass of the asteroid.</p>",
   "tables": [
     {
       "id": "5",
@@ -26,15 +26,13 @@
         ["Asteroid Diameter"],
         ["Asteroid Velocity"],
         ["Asteroid Density"],
-        ["Asteroid Mass"],
-        ["Asteroid Kinetic Energy"]
+        ["Asteroid Mass"]
       ],
       "rows": [
         [{ "accessor": "diameter", "id": "48" }],
         [{ "content": "12,900 m/s" }],
         [{ "content": "2,500 kg/m^3" }],
-        [{ "accessor": "mass", "id": "52" }],
-        [{ "accessor": "kineticEnergy", "id": "52" }]
+        [{ "accessor": "mass", "id": "52" }]
       ]
     }
   ],
@@ -43,12 +41,12 @@
       "question": [
         {
           "id": "52",
-          "questionType": "ImpactCalculator",
+          "questionType": "MassCalculator",
           "title": "Question #1",
-          "label": "Input your asteroid’s size (diameter), density and velocity into the calculator below to determine its mass and kinetic energy:",
+          "label": "Input your asteroid’s size (diameter) and density into the calculator to determine its mass:",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "kineticEnergy"
+          "answerAccessor": "mass"
         }
       ]
     }

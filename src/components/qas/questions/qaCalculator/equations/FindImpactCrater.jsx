@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -119,52 +117,6 @@ export default function FindImpactCrater(props) {
           </span>
         </p>
       </div>
-      {richterMagnitudeAtObserverDistance > 0 && (
-        <div className={marginTop}>
-          <hr />
-          <p>
-            <span className={boldText}>
-              Richter Magnitude at {addTheCommas(observerDistance)}{' '}
-              {<QACalculatorIconUnit unit="diameter" />} from impact:{' '}
-            </span>
-            <span>
-              {addTheCommas(formatValue(richterMagnitudeAtObserverDistance, 1))}
-            </span>
-          </p>
-          {/* <p>
-            <span className={boldText}>Seismic damage:</span>
-          </p>
-          {mercalliIntensity &&
-            mercalliIntensity.map((mi, index) => (
-              <p
-                key={`mercalli-intensity-${index}`}
-                className={seismicDamageText}
-              >
-                {mi.description}
-              </p>
-            ))} */}
-        </div>
-      )}
-      {overPressure && (
-        <div className={marginTop}>
-          <hr />
-          <p>
-            <span className={boldText}>
-              Air Blast Over Pressure at {addTheCommas(observerDistance)}{' '}
-              {<QACalculatorIconUnit unit="diameter" />}:{' '}
-            </span>
-            {addTheCommas(toSigFigs(overPressure, 3))}
-            <QACalculatorIconUnit unit="overPressure" />
-          </p>
-          {/* <p className={boldText}>Air Blast Over Pressure damage:</p>
-          <ul>
-            {airBlastDamage &&
-              airBlastDamage.map((damage, index) => (
-                <li key={`damage-message-${index}`}>{damage}</li>
-              ))}
-          </ul> */}
-        </div>
-      )}
     </div>
   );
 }
@@ -175,12 +127,4 @@ FindImpactCrater.propTypes = {
   velocity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   craterDiameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   craterDepth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  richterMagnitudeAtObserverDistance: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  // mercalliIntensity: PropTypes.array,
-  overPressure: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // airBlastDamage: PropTypes.array,
-  observerDistance: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

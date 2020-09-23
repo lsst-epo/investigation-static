@@ -66,6 +66,10 @@
   margin-right: $minPadding * 1.5;
 }
 
+.text-field-container {
+  margin-top: $minPadding;
+}
+
 .margin {
   &-top {
     margin-top: $minPadding;

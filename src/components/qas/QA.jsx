@@ -21,8 +21,11 @@ const questions = {
   compoundInput: QACompound,
   DistanceCalculator: QACalculator,
   SizeCalculator: QACalculator,
+  MassCalculator: QACalculator,
   KineticEnergyCalculator: QACalculator,
+  ImpactEnergyCalculator: QACalculator,
   ImpactCalculator: QACalculator,
+  ImpactDamageCalculator: QACalculator,
   prompt: Prompt,
 };
 

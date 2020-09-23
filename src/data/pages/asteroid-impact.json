@@ -13,7 +13,7 @@
     "link": "/asteroid-impact-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>When an asteroid hits Earth, the amount of damage it causes depends primarily on the asteroid’s kinetic energy, which is given by the equation: </p><p><span>KE = </span><span class=fraction><span className='numerator'><span>&pi; &times; </span><span>&#x1D780;</span><span> &times; </span><span>D</span><span class='exponent'>3</span><span> &times; </span><span>v</span><span class='exponent'>2</span></span><span class='denominator'>12</span></span></span></p><p>In this equation KE is the kinetic energy of the asteroid, &#x1D780; is the density of the asteroid, v is its velocity, and D is its diameter. Note that the velocity is squared in the equation.</p><p>The table lists the masses and velocities of three asteroids.</p>",
+  "content": "<p>When an asteroid hits Earth, the amount of damage it causes depends primarily on the asteroid’s kinetic energy, which is given by the equation: </p><p><p>KE = ½ mv<span class='exponent'> 2</span></p></p><p>In this equation KE is the kinetic energy of the asteroid, m is the mass of the asteroid, and v is its velocity. Note that the velocity is squared in the equation.</p><p>The table lists the masses and velocities of three asteroids.</p>",
   "tables": [
     {
       "id": "2",
@@ -21,7 +21,7 @@
         "col": "right",
         "row": "top"
       },
-      "rowTitles": [["Mass"], ["Velocity"], ["Kinetic Energy"]],
+      "rowTitles": [["Mass"], ["Density"], ["Velocity"]],
       "colTitles": ["", "Asteroid #1", "Asteroid #2", "Asteroid #3"],
       "rows": [
         [
@@ -30,14 +30,14 @@
           { "content": "20,000 kg" }
         ],
         [
+          { "content": "2,500 kg/m³" },
+          { "content": "2,500 kg/m³" },
+          { "content": "2,500 kg/m³" }
+        ],
+        [
           { "content": "12,500 m/s" },
           { "content": "25,000 m/s" },
           { "content": "20,000 m/s" }
-        ],
-        [
-          { "accessor": "kineticEnergy", "id": "35" },
-          { "accessor": "kineticEnergy", "id": "36" },
-          { "accessor": "kineticEnergy", "id": "37" }
         ]
       ]
     }

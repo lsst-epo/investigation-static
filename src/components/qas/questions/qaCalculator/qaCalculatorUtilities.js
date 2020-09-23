@@ -170,6 +170,17 @@ export const getCalculatedMeasurementsForDistance = value => {
   };
 };
 
+export const calculateVolume = radius => {
+  if (!radius) return null;
+
+  return (4 / 3) * Math.PI * radius ** 3;
+};
+
+export const calculateMass = ({ density, diameter }) => {
+  if (!density || !diameter) return null;
+  return density * calculateVolume(diameter / 2);
+};
+
 export const calculateDiameter = ({ magnitude, albedo }) => {
   if (!albedo || !magnitude) return null;
   const diameter = (1329 / Math.sqrt(+albedo)) * 10 ** (-0.2 * +magnitude);
@@ -178,18 +189,16 @@ export const calculateDiameter = ({ magnitude, albedo }) => {
   return diameter * 1000;
 };
 
-export const calculateKineticEnergy = ({ diameter, velocity, density }) => {
+export const calculateImpactEnergy = (diameter, velocity, density) => {
   if (!diameter || !velocity || !density) return null;
 
-  return (Math.PI * +density * (+diameter) ** 3 * (+velocity) ** 2) / 12;
+  return (Math.PI * +density * (+diameter / 2) ** 3 * (+velocity) ** 2) / 12;
 };
 
-export const calculateSeismicDamage = (asteroidDiameter, density, velocity) => {
-  if (!asteroidDiameter || !density || !velocity) return null;
-  // rho, L, v -> KE, mass
-  return (
-    (Math.PI * +density * (+asteroidDiameter) ** 3 * (+velocity) ** 2) / 12
-  );
+export const calculateKineticEnergy = ({ mass, velocity }) => {
+  if (!mass || !velocity) return null;
+
+  return 0.5 * +mass * (+velocity) ** 2;
 };
 
 export const calculateRichterMagnitude = eImpact => {
@@ -265,19 +274,49 @@ export const getDamageDescription = (damageVal, damageDescriptions) => {
 };
 
 export const calculateAsteroidImpact = props => {
-  const { asteroidDiameter, density, velocity, observerDistance } = props;
+  const { asteroidDiameter, density, velocity } = props;
+  if (!asteroidDiameter || !density || !velocity) {
+    return {
+      ...props,
+      kineticEnergy: null,
+      craterDiameter: null,
+      craterDepth: null,
+    };
+  }
+
+  const kineticEnergy = calculateImpactEnergy(
+    asteroidDiameter,
+    density,
+    velocity
+  );
   const craterDiameter = calculateCraterDiameter(
     asteroidDiameter,
     density,
     velocity
   );
   const craterDepth = calculateCraterDepth(craterDiameter);
-  const seismicDamage = calculateSeismicDamage(
-    asteroidDiameter,
-    density,
-    velocity
-  );
-  const richterMagnitude = calculateRichterMagnitude(seismicDamage);
+
+  return {
+    ...props,
+    kineticEnergy,
+    craterDiameter,
+    craterDepth,
+  };
+};
+
+export const calculateAsteroidImpactDamage = props => {
+  const { kineticEnergy, observerDistance } = props;
+  if (!kineticEnergy || !observerDistance) {
+    return {
+      ...props,
+      richterMagnitude: null,
+      richterMagnitudeAtObserverDistance: null,
+      mercalliIntensity: null,
+      overPressure: null,
+      airBlastDamage: null,
+    };
+  }
+  const richterMagnitude = calculateRichterMagnitude(+kineticEnergy);
   const richterMagnitudeAtObserverDistance = getRichterMagnitudeAt(
     richterMagnitude,
     observerDistance
@@ -286,14 +325,11 @@ export const calculateAsteroidImpact = props => {
     richterMagnitudeAtObserverDistance,
     seismicDamages
   );
-  const overPressure = calculateAirBlast(observerDistance, seismicDamage);
+  const overPressure = calculateAirBlast(observerDistance, +kineticEnergy);
   const airBlastDamage = getDamageDescription(overPressure, airBlastDamages);
 
   return {
     ...props,
-    observerDistance: observerDistance ? +observerDistance : null,
-    craterDiameter,
-    craterDepth,
     richterMagnitude,
     richterMagnitudeAtObserverDistance: airBlastDamage
       ? richterMagnitudeAtObserverDistance

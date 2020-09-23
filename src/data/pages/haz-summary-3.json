@@ -30,8 +30,23 @@
         ["Air Blast Damage"]
       ],
       "rows": [
-        [{ "accessor": "kineticEnergy", "id": "52" }],
+        [{ "accessor": "kineticEnergy", "id": "53" }],
         [{ "accessor": "observerDistance", "id": "55" }],
+        [{ "accessor": "mercalliIntensity", "id": "55" }],
+        [{ "accessor": "airBlastDamage", "id": "55" }]
+      ]
+    },
+    {
+      "id": "8",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "rowTitles": [
+        ["Seismic Damage"],
+        ["Air Blast Damage"]
+      ],
+      "rows": [
         [{ "accessor": "mercalliIntensity", "id": "55" }],
         [{ "accessor": "airBlastDamage", "id": "55" }]
       ]
@@ -42,12 +57,12 @@
       "question": [
         {
           "id": "55",
-          "questionType": "ImpactCalculator",
+          "questionType": "ImpactDamageCalculator",
           "title": "Question #1",
           "label": "Input the kinetic energy of your asteroid, and a distance from the impact to estimate the damage observed from that distance.",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "all"
         }
       ]
     }

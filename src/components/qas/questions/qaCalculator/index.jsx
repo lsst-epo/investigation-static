@@ -8,8 +8,11 @@ import TextField from '../../../site/forms/textField';
 import {
   DistanceCalculator,
   ImpactCalculator,
+  ImpactEnergyCalculator,
+  ImpactDamageCalculator,
   KineticEnergyCalculator,
   SizeCalculator,
+  MassCalculator,
 } from './qaCalculatorsData.jsx';
 import CalculatedMeasurement from './CalculatedMeasurement';
 import FindDistanceModulus from './equations/FindDistanceModulus';
@@ -18,9 +21,9 @@ import { active as activeClass, qaCard } from '../../styles.module.scss';
 import {
   qaCalc,
   calcLabel,
-  col50,
   answerable as answerableStyle,
   marginTop,
+  textFieldContainer,
   qaCalcInput,
 } from './qaCalculator.module.scss';
 
@@ -33,6 +36,9 @@ class QACalculator extends React.PureComponent {
       KineticEnergyCalculator,
       SizeCalculator,
       ImpactCalculator,
+      MassCalculator,
+      ImpactEnergyCalculator,
+      ImpactDamageCalculator,
     };
 
     this.state = {
@@ -212,10 +218,15 @@ class QACalculator extends React.PureComponent {
                   max,
                   min,
                 } = input;
-
+                const textFieldContainerClasses = classnames(
+                  textFieldContainer,
+                  {
+                    [containerWidth]: containerWidth,
+                  }
+                );
                 return (
                   <div
-                    className={containerWidth || col50}
+                    className={textFieldContainerClasses}
                     key={`text-input-${id}-${defaultValue}`}
                   >
                     <TextField
