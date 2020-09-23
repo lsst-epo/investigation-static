@@ -57,9 +57,9 @@
   :global .md-menu-container.md-full-width {
     .md-list--menu {
       flex-wrap: wrap;
-      overflow-y: auto;
-      padding-right: 10px;
       min-width: 350px;
+      padding-right: 10px;
+      overflow-y: auto;
     }
   }
 }
@@ -71,8 +71,8 @@
     position: absolute;
     z-index: 1;
     flex-flow: row wrap;
-    max-height: 200px;
     max-width: 400px;
+    max-height: 200px;
     overflow-y: auto;
 
     div:last-child {

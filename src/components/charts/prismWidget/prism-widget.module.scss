@@ -125,7 +125,8 @@
   }
 
   .white-light-label,
-  .prism-label {
+  .prism-label,
+  .filter-label {
     position: absolute;
     color: $protonWhite;
   }
@@ -140,6 +141,16 @@
   .prism-label {
     top: 156px;
     left: 53px;
+  }
+
+  .filter-label {
+    top: 0;
+    left: 280px;
+    z-index: 20;
+  }
+
+  .hide-label {
+    display: none;
   }
 }
 
@@ -234,6 +245,12 @@
   margin-right: auto;
   margin-left: auto;
 
+  .select-label {
+    min-width: 150px;
+    margin-bottom: 0;
+    color: $white;
+  }
+
   :global {
     .md-menu--select-field {
       .md-floating-label {
@@ -247,6 +264,10 @@
           padding: 20px 15px;
           background-color: white;
           border-radius: 5px;
+
+          &.md-text-field--margin {
+            margin-top: 0;
+          }
         }
 
         hr {
@@ -276,6 +297,12 @@
 
   .prism-items {
     width: 120%;
+  }
+
+  .prism-shape {
+    .filter-label {
+      left: 200px;
+    }
   }
 }
 
@@ -309,6 +336,12 @@
         top: 50px;
         left: -70px;
       }
+    }
+  }
+
+  .prism-shape {
+    .filter-label {
+      left: 140px;
     }
   }
 }

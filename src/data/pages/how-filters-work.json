@@ -34,7 +34,7 @@
           "questionType": "prompt",
           "answerAccessor": "data",
           "title": "Question #1",
-          "label": "<p>To better understand how filters work, try out the filter tool.</p>"
+          "label": "<p>To better understand how filters work, try out the filter tool.</p><p>Select a filter from the dropdown menu and observe the effect that filter has on the light coming out of the prism.</p>"
         }
       ]
     },
@@ -78,7 +78,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Choose the blue filter. What does the filter do to the blue light?"
+          "label": "Choose the green filter. What does the filter do to the green light?"
         }
       ]
     },
@@ -89,7 +89,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "With the blue filter selected, what does it do to the other colors of light?"
+          "label": "With the green filter selected, what does it do to the other colors of light?"
         }
       ]
     }
