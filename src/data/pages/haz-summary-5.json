@@ -30,10 +30,25 @@
         ["Air Blast Damage"]
       ],
       "rows": [
-        [{ "accessor": "kineticEnergy", "id": "52" }],
-        [{ "accessor": "observerDistance", "id": "56" }],
-        [{ "accessor": "mercalliIntensity", "id": "56" }],
-        [{ "accessor": "airBlastDamage", "id": "56" }]
+        [{ "accessor": "kineticEnergy", "id": "53" }],
+        [{ "accessor": "observerDistance", "id": "57" }],
+        [{ "accessor": "mercalliIntensity", "id": "57" }],
+        [{ "accessor": "airBlastDamage", "id": "57" }]
+      ]
+    },
+    {
+      "id": "8",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "rowTitles": [
+        ["Seismic Damage"],
+        ["Air Blast Damage"]
+      ],
+      "rows": [
+        [{ "accessor": "mercalliIntensity", "id": "57" }],
+        [{ "accessor": "airBlastDamage", "id": "57" }]
       ]
     }
   ],
@@ -42,7 +57,7 @@
       "question": [
         {
           "id": "57",
-          "questionType": "ImpactCalculator",
+          "questionType": "ImpactDamageCalculator",
           "title": "Question #1",
           "label": "Input the kinetic energy of your asteroid, and a distance from the impact to estimate the damage observed from that distance. How far away from the point of impact would you have to be to experience no major damage or harm (only glass windows will shatter, and the energy from the impact is felt by only a few persons on the upper floors of buildings)?",
           "placeholder": "Enter values",

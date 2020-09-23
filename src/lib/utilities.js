@@ -252,7 +252,7 @@ export const getValue = function(accessor, data) {
       luminosity: formatValue(data, 2),
       radius: formatValue(data, 2),
       stellarMass: formatValue(data, 2),
-      mass: formatValue(data, 2),
+      mass: addTheCommas(toSigFigs(data, 3)),
       lifetime: formatValue(data / 1000000000, 2),
       temperature: formatValue(data, 0),
       brightness: formatValue(data, 2),
@@ -270,12 +270,13 @@ export const getValue = function(accessor, data) {
       craterDiameter: addTheCommas(toSigFigs(data, 3)),
       craterDepth: addTheCommas(toSigFigs(data, 3)),
       count: formatValue(data ? data.length : 0, 0),
-      kineticEnergy: formatValue(+data, 3),
+      kineticEnergy: addTheCommas(toSigFigs(+data, 3)),
       volume: toSigFigs(data, 4),
       overPressure: addTheCommas(toSigFigs(data, 3)),
       mercalliIntensity: getDamageDescription(data),
       airBlastDamage: getDamageDescription(data),
       richterMagnitudeAtObserverDistance: formatValue(data, 1),
+      observerDistance: addTheCommas(data),
     }[accessor] || data
   );
 };

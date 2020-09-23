@@ -1,15 +1,20 @@
 import React from 'react';
 import { QACalculatorIcon, QACalculatorIconUnit } from './qQaCalculatorIcons';
 import FindImpactCrater from './equations/FindImpactCrater';
+import FindImpactEnergy from './equations/FindImpactEnergy';
 import FindDiameter from './equations/FindDiameter';
 import FindKineticEnergy from './equations/FindKineticEnergy';
+import FindMass from './equations/FindMass';
+import FindImpactDamage from './equations/FindImpactDamage';
 import {
   getCalculatedMeasurementsForDistance,
   calculateDiameter,
   calculateKineticEnergy,
+  calculateMass,
   calculateAsteroidImpact,
+  calculateImpactEnergy,
+  calculateAsteroidImpactDamage,
 } from './qaCalculatorUtilities';
-import { col50 } from './qaCalculator.module.scss';
 
 export const DistanceCalculator = {
   value: {
@@ -23,7 +28,6 @@ export const DistanceCalculator = {
   formula: getCalculatedMeasurementsForDistance,
   inputs: [
     {
-      containerWidth: col50,
       leftIcon: <QACalculatorIcon content="m =" />,
       placeholder: 'magnitude',
       defaultValue: 'magnitude',
@@ -31,7 +35,57 @@ export const DistanceCalculator = {
   ],
 };
 
+export const MassCalculator = {
+  value: {
+    mass: null,
+    density: null,
+    diameter: null,
+  },
+  solutionVariable: 'mass',
+  equation: FindMass,
+  formula: calculateMass,
+  inputs: [
+    {
+      leftIcon: <QACalculatorIcon content="&#x1D780; =" />,
+      rightIcon: <QACalculatorIconUnit unit="density" />,
+      placeholder: 'density',
+      defaultValue: 'density',
+    },
+    {
+      leftIcon: <QACalculatorIcon content="D<sub>a</sub>" />,
+      rightIcon: <QACalculatorIconUnit unit="diameter" />,
+      placeholder: 'diameter',
+      defaultValue: 'diameter',
+    },
+  ],
+};
+
 export const KineticEnergyCalculator = {
+  value: {
+    mass: null,
+    velocity: null,
+    kineticEnergy: null,
+  },
+  solutionVariable: 'kineticEnergy',
+  equation: FindKineticEnergy,
+  formula: calculateKineticEnergy,
+  inputs: [
+    {
+      leftIcon: <QACalculatorIcon content="m =" />,
+      rightIcon: <QACalculatorIconUnit unit="mass" />,
+      placeholder: 'mass',
+      defaultValue: 'mass',
+    },
+    {
+      leftIcon: <QACalculatorIcon content="v =" />,
+      rightIcon: <QACalculatorIconUnit unit="velocity" />,
+      placeholder: 'velocity',
+      defaultValue: 'velocity',
+    },
+  ],
+};
+
+export const ImpactEnergyCalculator = {
   value: {
     density: null,
     velocity: null,
@@ -39,8 +93,8 @@ export const KineticEnergyCalculator = {
     kineticEnergy: null,
   },
   solutionVariable: 'kineticEnergy',
-  equation: FindKineticEnergy,
-  formula: calculateKineticEnergy,
+  equation: FindImpactEnergy,
+  formula: calculateImpactEnergy,
   inputs: [
     {
       leftIcon: <QACalculatorIcon content="&#x1D780; =" />,
@@ -55,7 +109,7 @@ export const KineticEnergyCalculator = {
       defaultValue: 'velocity',
     },
     {
-      leftIcon: <QACalculatorIcon content="D =" />,
+      leftIcon: <QACalculatorIcon content="<span>D<sub>a</sub> =</span>" />,
       rightIcon: <QACalculatorIconUnit unit="diameter" />,
       placeholder: 'diameter',
       defaultValue: 'diameter',
@@ -74,13 +128,11 @@ export const SizeCalculator = {
   formula: calculateDiameter,
   inputs: [
     {
-      containerWidth: col50,
       leftIcon: <QACalculatorIcon content="H =" />,
       placeholder: 'magnitude',
       defaultValue: 'magnitude',
     },
     {
-      containerWidth: col50,
       leftIcon: <QACalculatorIcon content="p =" />,
       placeholder: 'albedo',
       defaultValue: 'albedo',
@@ -90,51 +142,66 @@ export const SizeCalculator = {
 
 export const ImpactCalculator = {
   value: {
+    kineticEnergy: null,
     craterDiameter: null,
     craterDepth: null,
-    richterMagnitude: null,
-    richterMagnitudeAtObserverDistance: null,
-    mercalliIntensity: null,
     density: null,
     velocity: null,
     asteroidDiameter: null,
-    airBlastOverPressure: null,
-    airBlastDamage: null,
-    observerDistance: null,
   },
   solutionVariable: 'all',
   equation: FindImpactCrater,
   formula: calculateAsteroidImpact,
   inputs: [
     {
-      containerWidth: col50,
       leftIcon: <QACalculatorIcon content="D<sub>a</sub> =" />,
       rightIcon: <QACalculatorIconUnit unit="diameter" />,
-      label: 'Asteroid Diameter',
+      // label: 'Asteroid Diameter',
       placeholder: 'asteroid diameter',
       defaultValue: 'asteroidDiameter',
     },
     {
-      containerWidth: col50,
       leftIcon: <QACalculatorIcon content="<span>&#x1D780;</span> =" />,
       rightIcon: <QACalculatorIconUnit unit="density" />,
-      label: 'Asteroid Density',
+      // label: 'Asteroid Density',
       placeholder: 'density',
       defaultValue: 'density',
     },
     {
-      containerWidth: col50,
       leftIcon: <QACalculatorIcon content="v =" />,
       rightIcon: <QACalculatorIconUnit unit="velocity" />,
-      label: 'Asteroid Velocity',
+      // label: 'Asteroid Velocity',
       placeholder: 'velocity',
       defaultValue: 'velocity',
     },
+  ],
+};
+
+export const ImpactDamageCalculator = {
+  value: {
+    kineticEnergy: null,
+    observerDistance: null,
+    richterMagnitude: null,
+    richterMagnitudeAtObserverDistance: null,
+    mercalliIntensity: null,
+    airBlastOverPressure: null,
+    airBlastDamage: null,
+  },
+  solutionVariable: 'all',
+  equation: FindImpactDamage,
+  formula: calculateAsteroidImpactDamage,
+  inputs: [
     {
-      containerWidth: col50,
+      leftIcon: <QACalculatorIcon content="KE =" />,
+      rightIcon: <QACalculatorIconUnit unit="kineticEnergy" />,
+      // label: 'Asteroid Kinetic Energy',
+      placeholder: 'asteroid KE',
+      defaultValue: 'kineticEnergy',
+    },
+    {
       leftIcon: <QACalculatorIcon content="r =" />,
       rightIcon: <QACalculatorIconUnit unit="diameter" />,
-      label: "Observer's distance from impact",
+      // label: "Observer's distance from impact",
       min: 0,
       max: 20000000,
       placeholder: 'observer distance',

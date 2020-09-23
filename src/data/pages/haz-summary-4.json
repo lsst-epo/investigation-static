@@ -30,8 +30,23 @@
         ["Air Blast Damage"]
       ],
       "rows": [
-        [{ "accessor": "kineticEnergy", "id": "52" }],
+        [{ "accessor": "kineticEnergy", "id": "53" }],
         [{ "accessor": "observerDistance", "id": "56" }],
+        [{ "accessor": "mercalliIntensity", "id": "56" }],
+        [{ "accessor": "airBlastDamage", "id": "56" }]
+      ]
+    },
+    {
+      "id": "8",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "rowTitles": [
+        ["Seismic Damage"],
+        ["Air Blast Damage"]
+      ],
+      "rows": [
         [{ "accessor": "mercalliIntensity", "id": "56" }],
         [{ "accessor": "airBlastDamage", "id": "56" }]
       ]
@@ -42,12 +57,12 @@
       "question": [
         {
           "id": "56",
-          "questionType": "ImpactCalculator",
+          "questionType": "ImpactDamageCalculator",
           "title": "Question #1",
           "label": "Input the kinetic energy of your asteroid, and a distance from the impact to estimate the damage observed from that distance. How far away from the point of impact would you have to be where damage is very severe: most buildings and bridges are destroyed, and even large multi-story steel frame buildings suffer substantial damage and may collapse?",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "all"
         }
       ]
     }

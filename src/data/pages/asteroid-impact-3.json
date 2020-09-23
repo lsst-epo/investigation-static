@@ -1,16 +1,16 @@
 {
-  "id": "hazardous21",
+  "id": "hazardous21a",
   "investigation": "hazardous-asteroids",
-  "order": "21",
+  "order": "21a",
   "title": "Evaluating the Consequences of an Asteroid Impact",
-  "slug": "asteroid-impact-2/",
+  "slug": "asteroid-impact-3/",
   "previous": {
     "title": "Evaluating the Consequences of an Asteroid Impact",
-    "link": "/asteroid-impact-1/"
+    "link": "/asteroid-impact-2/"
   },
   "next": {
     "title": "Pulling it all Together",
-    "link": "/asteroid-impact-3/"
+    "link": "/summary/"
   },
   "layout": "TwoCol",
   "tables": [
@@ -67,39 +67,33 @@
     {
       "question": [
         {
-          "id": "38",
-          "questionType": "ImpactCalculator",
+          "id": "41",
+          "questionType": "textArea",
+          "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Calculate the approximate diameter and depth of the crater Asteroid #1 would leave if it impacted earth",
-          "placeholder": "Enter values",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "label": "Rank, from largest to smallest, the size of the impact crater that would be caused by asteroids #1, #2, and #3.  Does this ranking agree with the prediction you made on the previous page?"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "39",
-          "questionType": "ImpactCalculator",
+          "id": "42",
+          "questionType": "textArea",
+          "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Calculate the approximate diameter and depth of the crater Asteroid #2 would leave if it impacted earth",
-          "placeholder": "Enter values",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "label": "Which factor has a greater influence on the size of the impact crater (i.e., causes damage over the largest area): the mass or the velocity of an asteroid?"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "40",
-          "questionType": "ImpactCalculator",
+          "id": "43",
+          "questionType": "textArea",
+          "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Calculate the approximate diameter and depth of the crater Asteroid #3 would leave if it impacted earth",
-          "placeholder": "Enter values",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "label": "Earth orbits the Sun counter-clockwise (as seen from the northern hemisphere). Which asteroid do you think would cause more damage: one that also orbits counter-clockwise, or one that orbits clockwise? (Hint: think about what would cause more damage in a car accident, a head-on collision or a car being rear-ended.) Explain."
         }
       ]
     }
