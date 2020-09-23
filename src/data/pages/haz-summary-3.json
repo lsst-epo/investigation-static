@@ -6,51 +6,15 @@
   "slug": "summary-3/",
   "previous": {
     "title": "Putting it all Together",
-    "link": "/summary-1/"
+    "link": "/summary-2/"
   },
   "next": {
-    "title": "Learning More about Asteroid Detection",
-    "link": "/learn-more/"
+    "title": "Putting it all Together",
+    "link": "/summary-4"
   },
   "layout": "TwoCol",
-  "content": "<p>Try placing yourself at different distances away from the point of impact to see what you would experience. Two different types of damage are predicted:</p><ul><li><strong>Seismic</strong> damage: Asteroid impacts produce earthquakes. This damage is due to the earthquake energy that travels along the surface of the Earth.</li><li>Airblast damage: Asteroid impacts produce a shock wave that moves through the air. This damage is due to the shock wave hitting structures or objects.</li></ul><p>You may select distances up to 20,000 km away, which is on the other side of Earth opposite the impact.</p>",
+  "content": "<p>Try placing yourself at different distances away from the point of impact to see what you would experience (r). Two different types of damage are predicted:</p><ul><li><strong>Seismic</strong> damage: Asteroid impacts produce earthquakes. This damage is due to the earthquake energy that travels along the surface of the Earth.</li><li>Airblast damage: Asteroid impacts produce a shock wave that moves through the air. This damage is due to the <strong>shock wave</strong> hitting structures or objects.</li></ul><p>You may select distances up to 20,000 km away, which is on the other side of Earth opposite the impact.</p>",
   "tables": [
-    {
-      "id": "5",
-      "layout": {
-        "col": "left",
-        "row": "top"
-      },
-      "colTitles": ["", "3200 Phaeton"],
-      "rowTitles": [
-        ["Asteroid Diameter"],
-        ["Asteroid Velocity"],
-        ["Asteroid Density"],
-        ["Asteroid Mass"],
-        ["Asteroid Kinetic Energy"]
-      ],
-      "rows": [
-        [{ "accessor": "diameter", "id": "48" }],
-        [{ "content": "25,000 m/s" }],
-        [{ "content": "~2,500 kg/m^3" }],
-        [{ "accessor": "mass", "id": "52" }],
-        [{ "accessor": "kineticEnergy", "id": "52" }]
-      ]
-    },
-    {
-      "id": "6",
-      "layout": {
-        "col": "right",
-        "row": "top"
-      },
-      "title": "Impact Collision Properties",
-      "colTitles": ["", "3200 Phaeton"],
-      "rowTitles": [["Crater Diameter"], ["Crater Depth"]],
-      "rows": [
-        [{ "accessor": "craterDiameter", "id": "53" }],
-        [{ "accessor": "craterDepth", "id": "53" }]
-      ]
-    },
     {
       "id": "7",
       "layout": {
@@ -60,11 +24,13 @@
       "title": "Damage",
       "colTitles": ["", "3200 Phaeton"],
       "rowTitles": [
+        ["Asteroid Kinetic Energy"],
         ["Distance from Impact"],
         ["Seismic Damage"],
         ["Air Blast Damage"]
       ],
       "rows": [
+        [{ "accessor": "kineticEnergy", "id": "52" }],
         [{ "accessor": "observerDistance", "id": "55" }],
         [{ "accessor": "mercalliIntensity", "id": "55" }],
         [{ "accessor": "airBlastDamage", "id": "55" }]
@@ -82,28 +48,6 @@
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "text"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "56",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Try inputing a variety of distances from the impact into the calculator.  How far away from the center of the crater would you have to be where damage is very severe: most buildings and bridges are destroyed, and even large multi-story steel frame buildings suffer substantial damage and may collapse?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "57",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Try inputing some more distances from the impact into the calculator.  How far away from the center of the crater would you have to be to experience no major damage or harm (only glass windows will shatter, and the energy from the impact is felt by only a few persons on the upper floors of buildings)?"
         }
       ]
     }

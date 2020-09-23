@@ -13,7 +13,7 @@
     "link": "/determining-orbits-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Astronomers are continuously in search of new asteroids that could possibly hit Earth. Asteroids are discovered by detecting an object that has changed position in two or more pictures taken of a particular location in space. After the first night that it is discovered, additional observations need to be done to measure its speed and direction of motion.</p><p>Let’s look at a typical newly-discovered asteroid. In the example below, asteroid WD5-A was discovered on 20 November 2007 and was observed again on 5 December and 19 December 2007. Each time, the position of the asteroid was measured</p>",
+  "content": "<p>Astronomers are continuously in search of new asteroids that could possibly hit Earth. Asteroids are discovered by detecting an object that has changed position in two or more pictures taken of a particular location in space. After the first night that it is discovered, additional observations need to be done to measure its speed and direction of motion.</p><p>Let’s look at a typical asteroid. In this example, asteroid 2003_QZ30 was observed at three different times during the same night. Each time, the position of the asteroid was measured.</p>",
   "widgets": [
     {
       "type": "TimeDomainViewer",

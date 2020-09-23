@@ -1,0 +1,55 @@
+{
+  "id": "hazardous26a",
+  "investigation": "hazardous-asteroids",
+  "order": "26a",
+  "title": "Effects of an Asteroid Impact",
+  "slug": "summary-4/",
+  "previous": {
+    "title": "Putting it all Together",
+    "link": "/summary-3/"
+  },
+  "next": {
+    "title": "Putting it all Together",
+    "link": "/summary-5"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Try placing yourself at different distances away from the point of impact to see what you would experience (r). You may select distances up to 20,000 km away, which is on the other side of Earth opposite the impact.</p>",
+  "tables": [
+    {
+      "id": "7",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "title": "Damage",
+      "colTitles": ["", "3200 Phaeton"],
+      "rowTitles": [
+        ["Asteroid Kinetic Energy"],
+        ["Distance from Impact"],
+        ["Seismic Damage"],
+        ["Air Blast Damage"]
+      ],
+      "rows": [
+        [{ "accessor": "kineticEnergy", "id": "52" }],
+        [{ "accessor": "observerDistance", "id": "56" }],
+        [{ "accessor": "mercalliIntensity", "id": "56" }],
+        [{ "accessor": "airBlastDamage", "id": "56" }]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "56",
+          "questionType": "ImpactCalculator",
+          "title": "Question #1",
+          "label": "Input the kinetic energy of your asteroid, and a distance from the impact to estimate the damage observed from that distance. How far away from the point of impact would you have to be where damage is very severe: most buildings and bridges are destroyed, and even large multi-story steel frame buildings suffer substantial damage and may collapse?",
+          "placeholder": "Enter values",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

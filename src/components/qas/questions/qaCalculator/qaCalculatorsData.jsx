@@ -33,8 +33,9 @@ export const DistanceCalculator = {
 
 export const KineticEnergyCalculator = {
   value: {
-    mass: null,
+    density: null,
     velocity: null,
+    diameter: null,
     kineticEnergy: null,
   },
   solutionVariable: 'kineticEnergy',
@@ -42,18 +43,22 @@ export const KineticEnergyCalculator = {
   formula: calculateKineticEnergy,
   inputs: [
     {
-      containerWidth: col50,
-      leftIcon: <QACalculatorIcon content="m =" />,
-      rightIcon: <QACalculatorIconUnit unit="mass" />,
-      placeholder: 'mass',
-      defaultValue: 'mass',
+      leftIcon: <QACalculatorIcon content="&#x1D780; =" />,
+      rightIcon: <QACalculatorIconUnit unit="density" />,
+      placeholder: 'density',
+      defaultValue: 'density',
     },
     {
-      containerWidth: col50,
       leftIcon: <QACalculatorIcon content="v =" />,
       rightIcon: <QACalculatorIconUnit unit="velocity" />,
       placeholder: 'velocity',
       defaultValue: 'velocity',
+    },
+    {
+      leftIcon: <QACalculatorIcon content="D =" />,
+      rightIcon: <QACalculatorIconUnit unit="diameter" />,
+      placeholder: 'diameter',
+      defaultValue: 'diameter',
     },
   ],
 };

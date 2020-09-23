@@ -74,7 +74,7 @@ export default function FindImpactCrater(props) {
         )}
         <sup>0.44</sup>
         <span> = </span>
-        <span className={boldText}>
+        <span className={color}>
           {craterDiameter ? (
             <span>
               {addTheCommas(toSigFigs(craterDiameter, 3))}
@@ -109,7 +109,7 @@ export default function FindImpactCrater(props) {
           <span> = </span>
           <span>
             {craterDepth ? (
-              <span>
+              <span className={color}>
                 {addTheCommas(toSigFigs(craterDepth, 3))}
                 <QACalculatorIconUnit tiny unit="craterDiameter" />
               </span>
