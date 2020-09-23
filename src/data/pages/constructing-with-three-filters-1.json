@@ -22,6 +22,17 @@
       }
     }
   ],
+  "images": [
+    {
+      "mediaPath": "/images/rgb_filter_example.png",
+      "altText": "Comparison of filters",
+      "figText": "Figure 5: Comparison of the light passed by filters.",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ],
   "tables": [
     {
       "id": "1",

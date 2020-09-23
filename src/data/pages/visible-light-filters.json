@@ -13,7 +13,15 @@
     "link": "/color-in-astronomical-images/"
   },
   "layout": "TwoCol",
-  "content": "<p>Active star-forming regions can be identified in spiral galaxies in locations where there are:<ul><li>red fuzzy patches of gas due to red light emitted by ionized hydrogen.</li><li>hot young blue stars that emit a large amount of blue and ultraviolet light.</li></ul></p><p>By combining three or more filters, images such as the galaxy at right can be produced, that highlight different astronomical objects and events.</p>",
+  "contents": [
+    {
+      "content": "<p>Active star-forming regions can be identified in spiral galaxies in locations where there are:<ul><li>red fuzzy patches of gas due to red light emitted by ionized hydrogen.</li><li>hot young blue stars that emit a large amount of blue and ultraviolet light.</li></ul></p><p>By combining three or more filters, images such as the galaxy at right can be produced, that highlight different astronomical objects and events.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
   "images": [
     {
       "mediaPath": "/images/NGC3982.jpg",
@@ -22,6 +30,15 @@
       "layout": {
         "col": "right",
         "row": "top"
+      }
+    },
+    {
+      "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
+      "altText": "Wavelength Ranges of Visible Light",
+      "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "layout": {
+        "col": "left",
+        "row": "middle"
       }
     }
   ],
