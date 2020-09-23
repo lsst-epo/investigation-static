@@ -22,6 +22,7 @@
       },
       "rowTitles": [
         ["Mass"],
+        ["Size"],
         ["Density"],
         ["Velocity"],
         ["Kinetic Energy"],
@@ -34,6 +35,11 @@
           { "content": "25,000 kg" },
           { "content": "12,500 kg" },
           { "content": "20,000 kg" }
+        ],
+        [
+          { "content": "1,000 m" },
+          { "content": "1,000 m" },
+          { "content": "1,000 m" }
         ],
         [
           { "content": "2,500 kg/m³" },
