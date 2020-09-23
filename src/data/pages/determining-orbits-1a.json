@@ -20,7 +20,11 @@
       "source": "/data/neos/K17C01P_orb_1-12.json",
       "options": {
         "defaultZoom": 0.5,
-        "potentialOrbits": true
+        "potentialOrbits": true,
+        "observations":[
+          {"id": "obs-1", "label": "#1","interactable": false, "isActive": false, "position": 0.55},
+          {"id": "obs-2", "label": "#2","interactable": false, "isActive": false, "position": 0.6}
+        ]
       }
     }
   ],

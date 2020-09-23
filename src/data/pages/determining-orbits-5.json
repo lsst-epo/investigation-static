@@ -10,7 +10,7 @@
   },
   "next": {
     "title": "Determining the Orbit of an Asteroid",
-    "link": "/determining-orbits-6/"
+    "link": "/determining-orbits-5-1/"
   },
   "layout": "TwoCol",
   "content": "<p>Now there have been four successful observations of the asteroid.</p>",
@@ -23,9 +23,10 @@
         "potentialOrbits": true,
         "questionId": "21",
         "observations":[
-          {"id": "obs-1", "label": "A","interactable": true, "isActive": false, "position": 0.25},
-          {"id": "obs-2", "label": "B","interactable": true, "isActive": true, "position": 0.35},
-          {"id": "obs-3", "label": "C","interactable": true, "isActive": false, "position": 0.5}
+          {"id": "obs-7", "label": "#1","interactable": false, "isActive": false, "position": 0.55},
+          {"id": "obs-6", "label": "#2","interactable": false, "isActive": false, "position": 0.6},
+          {"id": "obs-5", "label": "#3","interactable": false, "isActive": false, "position": 0.65},
+          {"id": "obs-1", "label": "#4","interactable": false, "isActive": false, "position": 0.7}
         ]
       }
     }
@@ -39,41 +40,6 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "What do you notice is different about the possible orbits based on four observations, compared to the possible orbits based on three observations?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "20",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Because you have been successful at making another observation of the asteroid, you are awarded another night of telescope time. What point do you want to try next? Explain your reasoning."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "21",
-          "questionType": "accordion",
-          "tool": "selection",
-          "title": "Question #1",
-          "label": "<p>Try clicking on locations (A, B, C, D) until you successfully observe the asteroid.</p>",
-          "answerPre": "<span>Selected Asteroid: </span>",
-          "answerAccessor": "observation"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "22",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Was the asteroid at the location you thought it would be?  If it was in a different location, discuss why you think your initial strategy was not successful, and how you changed your strategy to successfully observe the asteroid in one of the locations (A, B, C, D)."
         }
       ]
     }
