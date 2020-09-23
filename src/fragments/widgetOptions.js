@@ -28,6 +28,8 @@ export const widgetOptionsFragment = graphql`
     preSelectedLightCurveTemplate
     preSelectedLightCurveMagnitude
     toggleDataPointsVisibility
+    hideControls
+    hideImage
     randomSource
     autoplay
     preSelected

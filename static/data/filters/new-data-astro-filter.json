@@ -31,7 +31,7 @@
           "caption": "Image credit:  T.A. Rector (University of Alaska Anchorage) and CTIO/NOAO/NSF and Subaru HSC Data Release 1",
           "filters": [
             {
-              "label": "U",
+              "label": "u",
               "color": "",
               "active": false,
               "image": "",
@@ -41,7 +41,7 @@
               "max": 4
             },
             {
-              "label": "G",
+              "label": "g",
               "color": "",
               "active": false,
               "image": "",
@@ -51,7 +51,7 @@
               "max": 2
             },
             {
-              "label": "R",
+              "label": "r",
               "color": "",
               "active": false,
               "image": "",
@@ -61,7 +61,7 @@
               "max": 1.2
             },
             {
-              "label": "I",
+              "label": "i",
               "color": "",
               "active": false,
               "image": "",
@@ -71,7 +71,7 @@
               "max": 1.5
             },
             {
-              "label": "Z",
+              "label": "z",
               "color": "",
               "active": false,
               "image": "",
@@ -81,7 +81,7 @@
               "max": 1.6
             },
             {
-              "label": "Y",
+              "label": "y",
               "color": "",
               "active": false,
               "image": "",
@@ -96,7 +96,7 @@
           "name": "M101",
           "filters": [
             {
-              "label": "U",
+              "label": "u",
               "color": "",
               "active": false,
               "image": "",
@@ -106,7 +106,7 @@
               "max": 2
             },
             {
-              "label": "G",
+              "label": "g",
               "color": "",
               "active": false,
               "image": "",
@@ -116,7 +116,7 @@
               "max": 2
             },
             {
-              "label": "R",
+              "label": "r",
               "color": "",
               "active": false,
               "image": "",
@@ -126,7 +126,7 @@
               "max": 1.8
             },
             {
-              "label": "I",
+              "label": "i",
               "color": "",
               "active": false,
               "image": "",
@@ -136,7 +136,7 @@
               "max": 1.5
             },
             {
-              "label": "Z",
+              "label": "z",
               "color": "",
               "active": false,
               "image": "",
@@ -146,7 +146,7 @@
               "max": 2
             },
             {
-              "label": "Y",
+              "label": "y",
               "color": "",
               "active": false,
               "image": "",
@@ -161,7 +161,7 @@
           "name": "NGC6946",
           "filters": [
             {
-              "label": "U",
+              "label": "u",
               "color": "",
               "active": false,
               "image": "",
@@ -171,7 +171,7 @@
               "max": 2
             },
             {
-              "label": "G",
+              "label": "g",
               "color": "",
               "active": false,
               "image": "",
@@ -181,7 +181,7 @@
               "max": 1.8
             },
             {
-              "label": "R",
+              "label": "r",
               "color": "",
               "active": false,
               "image": "",
@@ -191,7 +191,7 @@
               "max": 1.5
             },
             {
-              "label": "I",
+              "label": "i",
               "color": "",
               "active": false,
               "image": "",
@@ -201,7 +201,7 @@
               "max": 1.5
             },
             {
-              "label": "Z",
+              "label": "z",
               "color": "",
               "active": false,
               "image": "",
@@ -211,7 +211,7 @@
               "max": 1.6
             },
             {
-              "label": "Y",
+              "label": "y",
               "color": "",
               "active": false,
               "image": "",
@@ -231,7 +231,7 @@
           "name": "NGC6520",
           "filters": [
             {
-              "label": "U",
+              "label": "u",
               "color": "",
               "active": false,
               "image": "",
@@ -241,7 +241,7 @@
               "max": 1.6
             },
             {
-              "label": "G",
+              "label": "g",
               "color": "",
               "active": false,
               "image": "",
@@ -251,7 +251,7 @@
               "max": 1.5
             },
             {
-              "label": "R",
+              "label": "r",
               "color": "",
               "active": false,
               "image": "",
@@ -261,7 +261,7 @@
               "max": 1.8
             },
             {
-              "label": "I",
+              "label": "i",
               "color": "",
               "active": false,
               "image": "",
@@ -271,7 +271,7 @@
               "max": 1.5
             },
             {
-              "label": "Z",
+              "label": "z",
               "color": "",
               "active": false,
               "image": "",
@@ -281,7 +281,7 @@
               "max": 1.6
             },
             {
-              "label": "Y",
+              "label": "y",
               "color": "",
               "active": false,
               "image": "",
@@ -296,7 +296,7 @@
           "name": "B68",
           "filters": [
             {
-              "label": "U",
+              "label": "u",
               "color": "",
               "active": false,
               "image": "",
@@ -306,7 +306,7 @@
               "max": 4
             },
             {
-              "label": "G",
+              "label": "g",
               "color": "",
               "active": false,
               "image": "",
@@ -316,7 +316,7 @@
               "max": 1.5
             },
             {
-              "label": "R",
+              "label": "r",
               "color": "",
               "active": false,
               "image": "",
@@ -326,7 +326,7 @@
               "max": 1.5
             },
             {
-              "label": "I",
+              "label": "i",
               "color": "",
               "active": false,
               "image": "",
@@ -336,7 +336,7 @@
               "max": 1.2
             },
             {
-              "label": "Z",
+              "label": "z",
               "color": "",
               "active": false,
               "image": "",
@@ -346,7 +346,7 @@
               "max": 1.6
             },
             {
-              "label": "Y",
+              "label": "y",
               "color": "",
               "active": false,
               "image": "",
@@ -361,7 +361,7 @@
           "name": "B93",
           "filters": [
             {
-              "label": "U",
+              "label": "u",
               "color": "",
               "active": false,
               "image": "",
@@ -371,7 +371,7 @@
               "max": 4
             },
             {
-              "label": "G",
+              "label": "g",
               "color": "",
               "active": false,
               "image": "",
@@ -381,7 +381,7 @@
               "max": 2.1
             },
             {
-              "label": "R",
+              "label": "r",
               "color": "",
               "active": false,
               "image": "",
@@ -391,7 +391,7 @@
               "max": 2
             },
             {
-              "label": "I",
+              "label": "i",
               "color": "",
               "active": false,
               "image": "",
@@ -401,7 +401,7 @@
               "max": 1.5
             },
             {
-              "label": "Z",
+              "label": "z",
               "color": "",
               "active": false,
               "image": "",
@@ -411,7 +411,7 @@
               "max": 1.6
             },
             {
-              "label": "Y",
+              "label": "y",
               "color": "",
               "active": false,
               "image": "",
@@ -431,7 +431,7 @@
           "name": "COSMOS 1569673",
           "filters": [
             {
-              "label": "U",
+              "label": "u",
               "color": "",
               "active": false,
               "image": "",
@@ -441,7 +441,7 @@
               "max": 0
             },
             {
-              "label": "G",
+              "label": "g",
               "color": "",
               "active": false,
               "image": "",
@@ -451,7 +451,7 @@
               "max": 1.5
             },
             {
-              "label": "R",
+              "label": "r",
               "color": "",
               "active": false,
               "image": "",
@@ -461,7 +461,7 @@
               "max": 1.8
             },
             {
-              "label": "I",
+              "label": "i",
               "color": "",
               "active": false,
               "image": "",
@@ -471,7 +471,7 @@
               "max": 1.5
             },
             {
-              "label": "Z",
+              "label": "z",
               "color": "",
               "active": false,
               "image": "",
@@ -481,7 +481,7 @@
               "max": 2
             },
             {
-              "label": "Y",
+              "label": "y",
               "color": "",
               "active": false,
               "image": "",
@@ -496,7 +496,7 @@
           "name": "COSMOS 1606422",
           "filters": [
             {
-              "label": "U",
+              "label": "u",
               "color": "",
               "active": false,
               "image": "",
@@ -506,7 +506,7 @@
               "max": 0
             },
             {
-              "label": "G",
+              "label": "g",
               "color": "",
               "active": false,
               "image": "",
@@ -516,7 +516,7 @@
               "max": 1.5
             },
             {
-              "label": "R",
+              "label": "r",
               "color": "",
               "active": false,
               "image": "",
@@ -526,7 +526,7 @@
               "max": 2
             },
             {
-              "label": "I",
+              "label": "i",
               "color": "",
               "active": false,
               "image": "",
@@ -536,7 +536,7 @@
               "max": 1.5
             },
             {
-              "label": "Z",
+              "label": "z",
               "color": "",
               "active": false,
               "image": "",
@@ -546,7 +546,7 @@
               "max": 1.5
             },
             {
-              "label": "Y",
+              "label": "y",
               "color": "",
               "active": false,
               "image": "",

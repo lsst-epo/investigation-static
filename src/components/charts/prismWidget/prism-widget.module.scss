@@ -237,9 +237,10 @@
   :global {
     .md-menu--select-field {
       .md-floating-label {
-        color: $white;
         font-size: 16px;
+        color: $white;
       }
+
       .md-select-field {
         .md-select-field--text-field {
           min-width: 150px;
@@ -247,6 +248,7 @@
           background-color: white;
           border-radius: 5px;
         }
+
         hr {
           display: none;
         }

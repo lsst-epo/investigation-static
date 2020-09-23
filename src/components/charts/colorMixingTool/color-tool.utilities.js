@@ -54,7 +54,6 @@ export const getDataAndPrepare = (data, name) => {
   if (isEmpty(data)) return data;
 
   if (isArray(data)) {
-    console.log({ data });
     const preparedData = flattenDeep(
       data.map(category => {
         return category.objects
@@ -62,7 +61,6 @@ export const getDataAndPrepare = (data, name) => {
           .map(updateFilters);
       })
     );
-    console.log({ preparedData });
     return preparedData;
   }
 

@@ -12,7 +12,7 @@
     "title": "What Should My Image Look Like?",
     "link": "/what-should-my-image-look-like-1/"
   },
-  "layout": "SingleCol",
+  "layout": "TwoCol",
   "contents": [
     {
       "content": "<p>At this point you may be thinking: But how do I know when an image looks “correct?” The good news is that there is <em>no one correct image</em>. There  are many ways to construct an image that combines a pleasing aesthetic with a science message. Here are three different images of M33. These three images are different from each other because they were made using different filters, chromatic ordering sequences, and color balances:</p>",
@@ -26,13 +26,15 @@
     {
       "type": "AstroTool",
       "layout": {
-        "col": "left",
+        "col": "right",
         "row": "bottom"
       },
       "source": "/data/filters/m33-filter.json",
       "options": {
         "objectName": "M33",
-        "questionId": "M33_01"
+        "questionId": "M33_01",
+        "hideControls": true,
+        "hideImage": false
       }
     }
   ],
