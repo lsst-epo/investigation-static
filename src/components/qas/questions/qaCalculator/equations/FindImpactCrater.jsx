@@ -1,23 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {
-  addTheCommas,
-  toSigFigs,
-  formatValue,
-} from '../../../../../lib/utilities.js';
+import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
 import { QACalculatorIcon, QACalculatorIconUnit } from '../qQaCalculatorIcons';
 import {
   color,
   equation,
   fraction,
   denominator,
-  marginTop,
 } from '../qaCalculator.module.scss';
 import {
   findImpactCraterEquation,
   boldText,
-  // seismicDamageText,
   craterDiameterStyle,
   craterDepthStyle,
 } from './equations.module.scss';
@@ -29,11 +23,6 @@ export default function FindImpactCrater(props) {
     velocity,
     craterDiameter,
     craterDepth,
-    richterMagnitudeAtObserverDistance,
-    // mercalliIntensity,
-    overPressure,
-    // airBlastDamage,
-    observerDistance,
   } = props;
 
   return (

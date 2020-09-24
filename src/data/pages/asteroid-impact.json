@@ -21,23 +21,13 @@
         "col": "right",
         "row": "top"
       },
-      "rowTitles": [["Mass"], ["Size"], ["Density"], ["Velocity"]],
+      "rowTitles": [["Mass"], ["Velocity"]],
       "colTitles": ["", "Asteroid #1", "Asteroid #2", "Asteroid #3"],
       "rows": [
         [
           { "content": "25,000 kg" },
           { "content": "12,500 kg" },
           { "content": "20,000 kg" }
-        ],
-        [
-          { "content": "1,000 m" },
-          { "content": "1,000 m" },
-          { "content": "1,000 m" }
-        ],
-        [
-          { "content": "2,500 kg/m³" },
-          { "content": "2,500 kg/m³" },
-          { "content": "2,500 kg/m³" }
         ],
         [
           { "content": "12,500 m/s" },

@@ -151,7 +151,7 @@
           transform: scale(1.5);
           transform-origin: center;
 
-          & + .md-slider-discrete-value {
+          + .md-slider-discrete-value {
             visibility: hidden;
             opacity: 0;
             transition: all 50ms $timing;
