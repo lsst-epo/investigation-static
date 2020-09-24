@@ -13,7 +13,7 @@
     "link": "/characterizing-tno/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let's analyze histograms for MBAs.</p><p>Take time to examine the four orbital characteristics of each group of objects individually. Decide which of the statements provided below best describes each group’s orbital characteristics.</p>",
+  "content": "<p>Now let's analyze histograms for MBAs.</p><p>MBAs are objects that orbit the Sun between the orbits of Mars (1.5 au) and Jupiter (5.2 au).</p><p>Take time to examine the four orbital characteristics of this group of objects. Decide which of the statements provided below best describes this group’s orbital characteristics.</p>",
   "tables": [
     {
       "id": "1",
