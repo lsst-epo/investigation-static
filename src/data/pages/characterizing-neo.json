@@ -13,7 +13,7 @@
     "link": "/characterizing-mba/"
   },
   "layout": "TwoCol",
-  "content": "<p>In order to examine these trends in more detail, it’s helpful to work with a large data set. Let’s start by analyzing some histograms for each group.</p><p>Take time to examine the four orbital characteristics of each group of objects individually. Decide which of the statements provided below best describes each group’s orbital characteristics.  Let's start with NEOs.</p>",
+  "content": "<p>In order to examine these trends in more detail, it’s helpful to work with a large data set. Let’s start by analyzing some histograms for each group.</p><p>Take time to examine the four orbital characteristics of each group of objects individually. Decide which of the statements provided below best describes each group’s orbital characteristics.  Let's start with NEOs. </p><p>NEOs are asteroids or comets whose orbit intersects or gets very close to the orbit of Earth.</p>",
   "tables": [
     {
       "id": "1",

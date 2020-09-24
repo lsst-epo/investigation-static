@@ -13,7 +13,7 @@
     "link": "/characterizing-comet/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let's analyze histograms for TNOs.</p><p>Take time to examine the four orbital characteristics of each group of objects individually. Decide which of the statements provided below best describes each group’s orbital characteristics.</p>",
+  "content": "<p>Now let's analyze histograms for TNOs.</p><p>TNOs are objects that orbit the Sun at or beyond the orbit of Neptune, at a distance of about 30 au and beyond. This area includes the Kuiper Belt and the entire region out to the inner Oort Cloud, which begins at approximately 2000 au from the Sun.</p><p>Take time to examine the four orbital characteristics of this group of objects. Decide which of the statements provided below best describes this group’s orbital characteristics.</p>",
   "tables": [
     {
       "id": "1",
