@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>There is a deliberate method for the way astronomers choose colors when building a color image. It is called chromatic ordering. Images made with <strong>chromatic</strong> ordering are not simply pretty pictures— each color in the image conveys astronomical information. Images constructed by using chromatic ordering are known as representative color images.</p>",
+      "content": "<p>There is a deliberate method for the way astronomers choose colors when building a color image. It is called <strong>chromatic ordering</strong>. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. Images constructed by using chromatic ordering are known as representative color images.</p>",
       "layout": {
         "col": "left",
         "row": "top"

@@ -22,9 +22,20 @@
       }
     },
     {
-      "content": "<p>Astronomers can use these different wavelengths of light to learn about cosmic objects. In the next section of the investigation, you will explore a few ways that light is used to explore the Universe:</p><ul><li>How infrared light is used to see into dusty nebulae and find dim red stars</li><li>How infrared light is used to locate very distant galaxies</li><li>How red light is used to locate the star-forming regions in a galaxy</li><li>How blue light is used to locate hot, young stars</li></ul>",
+      "content": "<p>Astronomers can use these different wavelengths of light to learn about cosmic objects. In the next section of the investigation, you will learn a few ways that light is used to explore the Universe:</p><ul><li>How infrared light is used to see into dusty nebulae and find dim red stars</li><li>How infrared light is used to locate very distant galaxies</li><li>How red light is used to locate the star-forming regions in a galaxy</li><li>How blue light is used to locate hot, young stars</li></ul>",
       "layout": {
         "col": "left",
+        "row": "top"
+      }
+    }
+  ],
+  "images": [
+    {
+      "mediaPath": "/images/A_Snapshot_of_the_Jewel_Box_cluster_with_the_ESO_VLT.jpg",
+      "altText": "The colorful Jewel Box cluster",
+      "figText": "<span>The Very Large Telescope at Paranal Observatory was used to take this close up view of the colorful Jewel Box cluster.</span><br/><br/><span>Credit: <a href='https://www.eso.org/public/images/' target='_blank'>ESO</a>/Y. Beletsky</span>",
+      "layout": {
+        "col": "right",
         "row": "top"
       }
     }

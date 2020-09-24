@@ -187,6 +187,7 @@ class ColorTool extends React.PureComponent {
       toolIsInteractable,
       hideControls,
       hideImage,
+      hideSubHeadTitle,
     } = this.props;
     const { data, selectedData, resetBtnActive, selectorValue } = this.state;
     const filters = selectedData ? selectedData.filters : [];
@@ -211,14 +212,19 @@ class ColorTool extends React.PureComponent {
                   <span className={subHeadTitle}>Object Type:</span>&nbsp;
                   {selectedCategoryName}
                 </span>
-                <br />
-                <span>
-                  <span className={subHeadTitle}>Selected Object:</span>&nbsp;
-                  {selectedObjectName}
-                </span>
+                {!hideSubHeadTitle && (
+                  <>
+                    <br />
+                    <span>
+                      <span className={subHeadTitle}>Selected Object:</span>
+                      &nbsp;
+                      {selectedObjectName}
+                    </span>
+                  </>
+                )}
               </>
             )}
-            {!isArray(data) && (
+            {!isArray(data) && !hideSubHeadTitle && (
               <span>
                 <span className={subHeadTitle}>Object:</span>&nbsp;
                 {selectedObjectName}
@@ -364,6 +370,7 @@ ColorTool.defaultProps = {
   toolIsInteractable: true,
   hideControls: false,
   hideImage: false,
+  hideSubHeadTitle: false,
 };
 
 ColorTool.propTypes = {
@@ -381,6 +388,7 @@ ColorTool.propTypes = {
   toolIsInteractable: PropTypes.bool,
   hideControls: PropTypes.bool,
   hideImage: PropTypes.bool,
+  hideSubHeadTitle: PropTypes.bool,
 };
 
 export default ColorTool;

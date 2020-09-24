@@ -39,7 +39,8 @@
       "source": "/data/filters/color-filter.json",
       "options": {
         "objectName": "RGB Filter",
-        "questionId": "ColorTool01"
+        "questionId": "ColorTool01",
+        "hideSubHeadTitle": true
       },
       "layout": {
         "col": "left",

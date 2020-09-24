@@ -152,8 +152,14 @@ class AstroToolContainer extends React.PureComponent {
   render() {
     const { widget, questionsByPage } = this.props;
     const { options } = widget || {};
-    const { objectName, questionId, preSelected, hideControls, hideImage } =
-      options || {};
+    const {
+      objectName,
+      questionId,
+      preSelected,
+      hideControls,
+      hideImage,
+      hideSubHeadTitle,
+    } = options || {};
     const { jsonData, selectorValue, selectedData } = this.state;
     const { title, colorOptions, hexColors, data: dataObjects } =
       jsonData || {};
@@ -180,6 +186,7 @@ class AstroToolContainer extends React.PureComponent {
             preSelected,
             hideControls,
             hideImage,
+            hideSubHeadTitle,
           }}
           menuItems={this.getMenuItems()}
           colorBlocks={this.getColorBlocks()}
