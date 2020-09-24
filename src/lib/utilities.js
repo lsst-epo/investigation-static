@@ -238,6 +238,7 @@ export const toSigFigs = (number, precision) => {
 };
 
 const getDamageDescription = function(data) {
+  if (!data) return null;
   return data.description;
 };
 
