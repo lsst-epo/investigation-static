@@ -27,3 +27,6 @@
 
 [context."pcw2020"]
   command = "cross-env INVESTIGATION='pcw-2020' yarn deploy"
+
+[context."epodemo"]
+  command = "cross-env INVESTIGATION='demo-mini' yarn deploy"
