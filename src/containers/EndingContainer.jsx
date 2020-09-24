@@ -55,33 +55,68 @@ class LastPage extends React.PureComponent {
             <br />
             <br />
             <p className="subheading-primary space-bottom">
-              Thank you for your joining our PCW 2020 session.
+              Below we include links and descriptions for the currently
+              available full drafts of the classroom investigations.
             </p>
-            <p className="subheading-primary space-bottom">
-              We hope you had fun exploring these tools. You can provide us
-              feedback during the session on{' '}
+            <p className="copy-primary">
               <a
-                href="https://rubin2020pcw.slack.com/archives/C016QSVHMP1"
+                href="https://explodingstars.netlify.app/"
+                rel="noopener noreferrer"
                 target="_blank"
               >
-                the slack channel (#day4-thu-slot3b-epo)
+                Exploding Stars
               </a>{' '}
-              and through{' '}
-              <a href="https://forms.gle/CrsLpH95dtPxnHpc7" target="_blank">
-                this survey form
-              </a>
-              .
+              - Learn how to associate images with light curves, classify the
+              light curves of Type Ia and Type IIp SNe, and use the Ia light
+              curve to make distance measurements.
             </p>
-            <p className="subheading-primary space-bottom">
-              Please note that you can find links to 5 full draft investigations
-              on{' '}
+            <p className="copy-primary">
               <a
-                href="https://project.lsst.org/meetings/rubin2020/agenda/session/education-and-public-outreach-interacting-data-browser"
+                href="https://observableuniverse.netlify.app/"
+                rel="noopener noreferrer"
                 target="_blank"
               >
-                our PCW session webpage
-              </a>
-              .
+                Exploring the Observable Universe
+              </a>{' '}
+              - Use light to measure distances to far away galaxies.
+            </p>
+            <p className="copy-primary">
+              <a
+                href="https://expandinguniverse.netlify.app/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                The Expanding Universe
+              </a>{' '}
+              - Learn how to populate a Hubble diagram from observed
+              astronomical images and how the diagram is used to determine the
+              expansion of the universe. You also explore the idea of isotropy
+              for the expanding universe.
+            </p>
+            <p className="copy-primary">
+              <a
+                href="https://surveyingthesolarsystem.netlify.app/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Surveying the Solar System
+              </a>{' '}
+              - Make observations of newly-discovered solar system objects using
+              an orbit visualizer to determine the object type.
+            </p>
+            <p className="copy-primary">
+              <a
+                href="https://windowtothestars.netlify.app/#/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                A Window to the Stars
+              </a>{' '}
+              - Examine what types of stars live in our Galaxy and discover
+              whether our Sun is a typical star. You also examine the HR
+              Diagrams (Temp-Lumo) of several star clusters to look at a range
+              of star properties: temperatures, sizes, masses, lifetimes, and
+              energy outputs.
             </p>
             <br />
           </>

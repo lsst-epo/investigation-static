@@ -1,16 +1,16 @@
 {
-  "id": "pcw2020-5",
-  "investigation": "pcw-2020",
+  "id": "demo-5",
+  "investigation": "demo-mini",
   "order": "05",
   "title": "Classifying Light Curves",
   "slug": "searching-sn/",
   "previous": {
     "title": "Observing Supernovae & Plotting a Light Curve",
-    "link": "observing-sn/"
+    "link": "/observing-sn/"
   },
   "next": {
     "title": "Detecting Solar System Objects",
-    "link": "detecting-objects/"
+    "link": "/detecting-objects/"
   },
   "layout": "TwoCol",
   "content": "<p>What type of supernova is this? See which template (Ia or IIp) fits the light curve best. Once selected, each template can be scaled up or down (scroll) and repositioned (click and drag) to create the best fit.</p>",

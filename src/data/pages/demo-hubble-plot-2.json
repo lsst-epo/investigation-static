@@ -1,16 +1,16 @@
 {
-  "id": "pcw2020-2",
-  "investigation": "pcw-2020",
+  "id": "demo-2",
+  "investigation": "demo-mini",
   "order": "02",
   "title": "Defining Hubble's Constant",
   "slug": "hubble-plot-2/",
   "previous": {
     "title": "Creating a Hubble Plot",
-    "link": "hubble-plot-1/"
+    "link": "/hubble-plot-1/"
   },
   "next": {
     "title": "Hubble Plot: A Matter of Perspective",
-    "link": "hubble-plot-3/"
+    "link": "/hubble-plot-3/"
   },
   "layout": "TwoCol",
   "widgets": [{

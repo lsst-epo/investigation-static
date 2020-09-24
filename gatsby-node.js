@@ -183,11 +183,11 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `);
-  } else if (INVESTIGATION === 'pcw-2020') {
+  } else if (INVESTIGATION === 'demo-mini') {
     pages = await graphql(`
       query {
         allPagesJson(
-          filter: { investigation: { eq: "pcw-2020" } }
+          filter: { investigation: { eq: "demo-mini" } }
           sort: { fields: [order, investigation], order: ASC }
         ) {
           nodes {
