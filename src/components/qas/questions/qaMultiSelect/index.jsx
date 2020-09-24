@@ -157,7 +157,7 @@ class QAMultiSelect extends React.PureComponent {
           <DropdownMenu
             id="multi-select"
             className={styles.multiSelectDropdown}
-            listStyle={{ left: 0, top: 0, transform: 'translateY(-50%)' }}
+            listStyle={{ left: 0, top: 0 }}
             menuItems={this.getMultiSelectOptions(options)}
             toggleQuery=".toggle"
             onVisibilityChange={this.handleChange}
@@ -168,7 +168,7 @@ class QAMultiSelect extends React.PureComponent {
             position={DropdownMenu.Positions.TOP_LEFT}
             simplifiedMenu={false}
             animationPosition="below"
-            sameWidth
+            sameWidth={!isEmpty(label)}
             listInline
             fullWidth={!isEmpty(label)}
           >

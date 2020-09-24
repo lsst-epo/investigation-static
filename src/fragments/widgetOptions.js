@@ -16,6 +16,7 @@ export const nestedWidgetOptionsFragment = graphql`
 export const widgetOptionsFragment = graphql`
   fragment WidgetOptions on PagesJsonWidgetsOptions {
     title
+    hideSubHeadTitle
     showSelector
     showLightCurve
     showUserPlot
