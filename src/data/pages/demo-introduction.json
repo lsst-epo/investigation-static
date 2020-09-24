@@ -1,0 +1,23 @@
+{
+  "id": "demo-0",
+  "investigation": "demo-mini",
+  "order": "00",
+  "title": "Education and Public Outreach: Interacting with Data in the Browser",
+  "slug": "introduction/",
+  "previous": {
+    "title": "",
+    "link": ""
+  },
+  "next": {
+    "title": "Creating a Hubble Plot",
+    "link": "/hubble-plot-1/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Over the past year, the Rubin EPO team has built many browser-based tools for directly interfacing with real astronomical data. Currently these tools have been applied specifically to formal classroom “investigations” for students in advanced middle school through college into levels.</p><p>In the following 10 pages, we invite you to explore samples of these interactive widgets. You can get a sense of the intuitive interactions we have built to enable someone to easily make conne.ctions between the data and the astronomy concept.</p><p>Please note that these widgets and interactions normally exist within a full classroom experience and with prerequisite concepts covered by the teacher. These investigations take 1-2 hours to fully complete, use Rubin’s LSST data to explore a range of commonly-taught principles in astronomy and physics, and offer all of the context necessary to use the tools featured on these pages. You can find links to the currently available full draft investigations are at the end of this sequence.</p><p>We hope you enjoy this exploration!</p>",
+  "images": [
+    {
+      "mediaPath": "/images/rubin-graphic.png",
+      "altText": "Rubin Graphic"
+    }
+  ]
+}

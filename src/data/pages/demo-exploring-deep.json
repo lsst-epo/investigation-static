@@ -1,12 +1,12 @@
 {
-  "id": "pcw2020-10",
-  "investigation": "pcw-2020",
+  "id": "demo-10",
+  "investigation": "demo-mini",
   "order": "10",
   "title": "Observing How the Universe Changed over Time",
   "slug": "exploring-the-deep/",
   "previous": {
     "title": "Observing Many Solar System Objects' Orbits",
-    "link": "orbits-2/"
+    "link": "/orbits-2/"
   },
   "next": {
     "title": "",

@@ -235,8 +235,8 @@ export const WithQAing = ComposedComponent => {
         const { data: pageData } = this.props;
         const { questionsByPage: questions } = pageData.allPagesJson.nodes[0];
         const { answerAccessor } = qById(questions, id) || {};
+        console.log(answerAccessor, data);
         const content = this.getContent(answerAccessor, data);
-
         this.dispatch.updateAnswer(id, content, data);
       } else {
         this.dispatch.clearAnswer(id);
