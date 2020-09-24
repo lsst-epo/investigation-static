@@ -1,12 +1,12 @@
 {
-  "id": "coloring10",
+  "id": "coloring09",
   "investigation": "coloring-universe",
-  "order": "10",
+  "order": "090",
   "title": "Detecting Far Away Galaxies",
   "slug": "detecting-far-away-galaxies/",
   "previous": {
     "title": "Uses of Astronomical Filters",
-    "link": "/uses-of-astronomical-filters/"
+    "link": "/uses-of-astronomical-filters-1/"
   },
   "next": {
     "title": "Visible light filters: Exploring Spiral Galaxies",
@@ -33,7 +33,7 @@
     {
       "mediaPath": "/images/UVISTARDR1_3up.png",
       "altText": "Dropout Galaxy UVISTADR1 J100121.94+021937.6",
-      "figText": "Figure 11: Galaxy UVISTADR1 J100121.94+021937.6 from the Subaru HSC Survey, courtesy of the National Astronomical Observatory of Japan (NAOJ).",
+      "figText": "Three different images reveal galaxies in the area of Galaxy UVISTADR1 J100121.94+021937.6, which is visible only in the z filter image. Credit: Subaru HSC Survey, courtesy of the National Astronomical Observatory of Japan (NAOJ).",
       "layout": {
         "col": "left",
         "row": "top"
@@ -63,7 +63,7 @@
           "answerAccessor": "coloringGalaxy",
           "answerPre": "<span>Found: </span>",
           "title": "Question #1",
-          "label": "Identify a distant galaxy in the three black and white images in Figure 11.  Then look for it in the color image. When you find it, click on it."
+          "label": "Identify a distant galaxy in the three black and white images. Then look for the same galaxy in the color image. When you find it, click on it."
         }
       ]
     }

@@ -130,18 +130,20 @@ class QAMultiSelect extends React.PureComponent {
     const active = ids ? checkIds(ids, activeId) : activeId === id;
     const { hasFocus, answerable, selectedOptions } = this.state;
     const answered = !isEmpty(answer);
-    const cardClasses = classnames(qaStyles.qaCard, { active: hasFocus });
+    const cardClasses = classnames(qaStyles.qaCard, {
+      [qaStyles.active]: hasFocus,
+    });
     const selectClasses = classnames(styles.qaMultiSelect, {
       answered,
       unanswered: !answered,
       [styles.answerable]: answerable || answered || active,
     });
 
-    const updatedLabel = questionNumber ? `${questionNumber}. ${label}` : label;
+    const labelToUse = !isEmpty(labelPre) ? labelPre : label;
     const updatedLabelPre =
       questionNumber && firstQuestion
-        ? `${questionNumber}. ${labelPre}`
-        : labelPre;
+        ? `${questionNumber}. ${labelToUse}`
+        : labelToUse;
 
     return (
       <ConditionalWrapper
@@ -149,29 +151,33 @@ class QAMultiSelect extends React.PureComponent {
         wrapper={children => <Card className={cardClasses}>{children}</Card>}
       >
         <div className={selectClasses}>
-          {labelPre && (
+          {labelToUse && (
             <span className={styles.labelPre}>{updatedLabelPre}&nbsp;</span>
           )}
           <DropdownMenu
             id="multi-select"
             className={styles.multiSelectDropdown}
-            listStyle={{ paddingRight: '10px' }}
+            listStyle={{ left: 0, top: 0, transform: 'translateY(-50%)' }}
             menuItems={this.getMultiSelectOptions(options)}
             toggleQuery=".toggle"
             onVisibilityChange={this.handleChange}
             anchor={{
-              x: DropdownMenu.HorizontalAnchors.INNER_LEFT,
-              y: DropdownMenu.VerticalAnchors.BOTTOM,
+              x: DropdownMenu.HorizontalAnchors.CENTER,
+              y: DropdownMenu.VerticalAnchors.OVERLAP,
             }}
-            position={DropdownMenu.Positions.BELOW}
-            // visible={answerable}
+            position={DropdownMenu.Positions.TOP_LEFT}
+            simplifiedMenu={false}
+            animationPosition="below"
+            sameWidth
+            listInline
+            fullWidth={!isEmpty(label)}
           >
             <span
-              label={updatedLabel}
               className={classnames(
                 'toggle',
                 styles.multiSelectOptions,
-                styles.selectedOptions
+                styles.selectedOptions,
+                { [styles.fullWidthSelect]: !isEmpty(label) }
               )}
             >
               {selectedOptions.join(', ') || placeholder}

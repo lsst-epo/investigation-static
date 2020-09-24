@@ -1,8 +1,13 @@
 .qa-prompt {
   color: $basePrimary;
 
-  p {
-    margin-bottom: 0;
-    color: $basePrimary;
+  .qa-label {
+    font-weight: $medium;
+
+    p {
+      margin-bottom: 0;
+      font-weight: $medium;
+      color: $basePrimary;
+    }
   }
 }

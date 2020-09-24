@@ -1,8 +1,8 @@
 {
-  "id": "coloring11",
+  "id": "coloring10",
   "investigation": "coloring-universe",
-  "order": "11",
-  "title": "Visible light filters: Exploring Spiral Galaxies",
+  "order": "100",
+  "title": "Exploring Spiral Galaxies",
   "slug": "visible-light-filters/",
   "previous": {
     "title": "Detecting Far Away Galaxies",
@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Active star-forming regions can be identified in spiral galaxies in locations where there are:<ul><li>red fuzzy patches of gas due to red light emitted by ionized hydrogen.</li><li>hot young blue stars that emit a large amount of blue and ultraviolet light.</li></ul></p><p>By combining three or more filters, images such as the galaxy at right can be produced, that highlight different astronomical objects and events.</p>",
+      "content": "<p>Active star-forming regions can be identified in spiral galaxies in locations where there are:<ul><li>red fuzzy patches of gas emitting red light.</li><li>hot young blue stars that emit a large amount of blue and ultraviolet light.</li></ul></p><p>By combining three or more filters, images such as the galaxy at right can be produced, that highlight different astronomical objects and events.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -24,18 +24,9 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/NGC3982.jpg",
-      "altText": "Dropout Galaxy Large example",
-      "figText": "Figure 12: NGC 3982 is a spiral galaxy showing areas of active star formation and hot, young stars. Image credit: <a href='https://www.spacetelescope.org/images/opo1036a/' target='_blank'>NASA, ESA, and the Hubble Heritage Team (STScI/AURA); Acknowledgment: A. Riess (STScI)</a>",
-      "layout": {
-        "col": "right",
-        "row": "top"
-      }
-    },
-    {
       "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
       "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {
         "col": "left",
         "row": "middle"
@@ -47,10 +38,21 @@
       "question": [
         {
           "id": "16",
-          "questionType": "textArea",
-          "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What two filters would you use to detect the light being emitted by ionized hydrogen? What is a filter you could add to contrast the brightness of these regions?"
+          "questionType": "multiSelect",
+          "answerAccessor": "multi-select",
+          "labelPre": "What two filters would you use to detect the red light being emitted from star-forming regions?",
+          "labelPost": "",
+          "options": [
+            { "label": "u", "value": "u" },
+            { "label": "g", "value": "g" },
+            { "label": "r", "value": "r" },
+            { "label": "i", "value": "i" },
+            { "label": "z", "value": "z" },
+            { "label": "y", "value": "y" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
         }
       ]
     },
@@ -58,10 +60,21 @@
       "question": [
         {
           "id": "17",
-          "questionType": "textArea",
-          "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What two filters would you use to detect hot, young stars? What is a filter you could add to contrast the brightness of these regions?"
+          "questionType": "multiSelect",
+          "answerAccessor": "multi-select",
+          "labelPre": "What two filters would you use to detect hot, young stars?",
+          "labelPost": "",
+          "options": [
+            { "label": "u", "value": "u" },
+            { "label": "g", "value": "g" },
+            { "label": "r", "value": "r" },
+            { "label": "i", "value": "i" },
+            { "label": "z", "value": "z" },
+            { "label": "y", "value": "y" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
         }
       ]
     }

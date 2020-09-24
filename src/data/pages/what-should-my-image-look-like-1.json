@@ -1,7 +1,7 @@
 {
-  "id": "coloring17",
+  "id": "coloring13_1",
   "investigation": "coloring-universe",
-  "order": "17",
+  "order": "131",
   "title": "What Should My Image Look Like?",
   "slug": "what-should-my-image-look-like-1/",
   "previous": {
@@ -41,10 +41,10 @@
       "question": [
         {
           "id": "M63",
-          "questionType": "accordion",
+          "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "Now use the color mixing tool to create a color balanced image of spiral galaxy M63, and save your image when you are done. You’ll know you’re done when your image is created using filters that are chromatically ordered, and has a good color balance."
+          "label": "Now use the Astronomical Image Color Filter Tool to create a color balanced image of spiral galaxy M63. You’ll know you’re done when your image is created using filters that are chromatically ordered, has a good color balance, and a dark background. (The background does not have to be totally black.)"
         }
       ]
     }

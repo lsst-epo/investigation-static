@@ -1,7 +1,7 @@
 {
-  "id": "coloring05",
+  "id": "coloring04_1",
   "investigation": "coloring-universe",
-  "order": "05",
+  "order": "041",
   "title": "Constructing an Image with Three Filters",
   "slug": "constructing-with-three-filters-1/",
   "previous": {
@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Look for a pattern in the answers in the table to the right.</p>",
+      "content": "<p>Look for a pattern in the answers in the table to the right.</p><p>Choose the right words to finish the following sentences.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -26,7 +26,7 @@
     {
       "mediaPath": "/images/rgb_filter_example.png",
       "altText": "Comparison of filters",
-      "figText": "Figure 5: Comparison of the light passed by filters.",
+      "figText": "Comparison of the light passed by filters.",
       "layout": {
         "col": "right",
         "row": "top"
@@ -73,7 +73,7 @@
           "id": "60a",
           "questionType": "compoundSelect",
           "compoundQuestion": ["60a", "60b"],
-          "labelPre": "Choose the right words to finish the sentence: \"The red shirt looks",
+          "labelPre": "\"The red shirt looks",
           "labelPost": "",
           "srLabel": "...",
           "answerAccessor": "select",
@@ -109,7 +109,7 @@
           "id": "65a",
           "questionType": "compoundSelect",
           "compoundQuestion": ["65a", "65b"],
-          "labelPre": "Choose the right words to finish the sentence: \"The green shirt looks",
+          "labelPre": "\"The green shirt looks",
           "labelPost": "",
           "srLabel": "...",
           "answerAccessor": "select",

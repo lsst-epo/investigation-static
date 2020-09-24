@@ -1,5 +1,5 @@
 {
-  "title": "Astro Filter Tool",
+  "title": "Astronomical Image Coloring Tool",
   "colorOptions": [
     "Violet",
     "Blue",
@@ -340,7 +340,7 @@
               "color": "",
               "active": false,
               "image": "",
-              "isDisabled": true,
+              "isDisabled": false,
               "value": 1,
               "min": 0.4,
               "max": 1.6

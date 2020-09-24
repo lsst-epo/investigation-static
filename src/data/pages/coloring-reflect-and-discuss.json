@@ -1,12 +1,12 @@
 {
-  "id": "coloring20",
+  "id": "coloring15",
   "investigation": "coloring-universe",
-  "order": "20",
+  "order": "150",
   "title": "Reflect and Discuss",
   "slug": "reflect-and-discuss/",
   "previous": {
     "title": "Putting It All Together",
-    "link": "/putting-it-all-together-1/"
+    "link": "/putting-it-all-together-2/"
   },
   "next": {
     "title": "",
@@ -17,7 +17,7 @@
     {
       "mediaPath": "/images/PIA15506.jpg",
       "altText": "Vesta PIA15506",
-      "figText": "Figure 15: Vesta's Coat of Many Colors.<br/ >Source: <a href='https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA15506' target='_blank'>Jet Propulsion Laboratory at California Institute of Technology</a> Credit: NASA/JPL-Caltech/UCLA/MPS/DLR/IDA/PSI",
+      "figText": "<p>Dwarf planet Vesta's surface shows many colors due to its surface mineral composition.</p><p>Source: <a href='https://www.jpl.nasa.gov/spaceimages/details.php?id=PIA15506' target='_blank'>Jet Propulsion Laboratory at California Institute of Technology</a> Credit: NASA/JPL-Caltech/UCLA/MPS/DLR/IDA/PSI</p>",
       "layout": {
         "col": "right",
         "row": "top"
@@ -26,7 +26,7 @@
     {
       "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
       "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {
         "col": "right",
         "row": "bottom"
@@ -65,10 +65,22 @@
       "question": [
         {
           "id": "28",
-          "questionType": "text",
-          "answerAccessor": "text",
           "title": "Question #1",
-          "label": "An object is imaged using the z, g, and u filters. What colors would you assign to each of these filters to produce a representative color image?"
+          "questionType": "multiSelect",
+          "answerAccessor": "multi-select",
+          "label": "An object is imaged using the z, g, and u filters. What colors would you assign to each of these filters to produce a representative color image?",
+          "labelPre": "",
+          "labelPost": "",
+          "options": [
+            { "label": "violet", "value": "violet" },
+            { "label": "blue", "value": "blue" },
+            { "label": "green", "value": "green" },
+            { "label": "yellow", "value": "yellow" },
+            { "label": "orange", "value": "orange" },
+            { "label": "red", "value": "red" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
         }
       ]
     },

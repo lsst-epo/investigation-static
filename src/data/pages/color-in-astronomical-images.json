@@ -1,7 +1,7 @@
 {
-  "id": "coloring12",
+  "id": "coloring11",
   "investigation": "coloring-universe",
-  "order": "12",
+  "order": "110",
   "title": "Color in Astronomical Images",
   "slug": "color-in-astronomical-images/",
   "previous": {
@@ -15,17 +15,38 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>There is a deliberate method for the way astronomers choose colors when building a color image. It is called chromatic ordering. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. Images constructed by using chromatic ordering are known as <strong>representative color images</strong>.</p><p>The <strong>chromatic ordering technique</strong> matches the filter that transmits light with the shortest wavelengths collected by the telescope to a color in the visible spectrum that also has a short wavelength. For instance, the g filter might be assigned the color blue. The filters that transmit longer wavelengths of light would then get assigned colors that correspond with longer wavelengths.</p><p>Since the Rubin Observatory u filter passes light with the shortest wavelengths, images obtained with that filter would be colorized violet because violet has the shortest wavelengths of visible light. The g filter transmits light with slightly longer wavelengths than the u filter, so the g filter image would be colorized blue, since blue is the next shortest wavelength color. Continuing on with this process, the images obtained with other Rubin Observatory filters would be colorized in this pattern:</p>",
+      "content": "<p>There is a deliberate method for the way astronomers choose colors when building a color image. It is called chromatic ordering. Images made with <strong>chromatic</strong> ordering are not simply pretty pictures— each color in the image conveys astronomical information. Images constructed by using chromatic ordering are known as representative color images.</p>",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<p>Sometimes images from all six filters are not all available. In that case, a few colors are omitted, and the images can be colorized with any colors as long as they follow the chromatic order rule. For example, suppose you have a set of images taken using only these filters: g, r, i, and y. Any of the following filter sequences would be a correct application of chromatic ordering:</p>",
+      "content": "<p>The chromatic ordering technique matches the filter that transmits light with the shortest wavelengths collected by the telescope to a color in the visible spectrum that also has a short wavelength. For instance, the g filter might be assigned the color blue. The filters that transmit longer wavelengths of light would then get assigned colors that correspond with longer wavelengths.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "content": "<p>Since the Rubin Observatory u filter passes light with the shortest wavelengths, images obtained with that filter would be colorized violet because violet has the shortest wavelengths of visible light. The g filter transmits light with slightly longer wavelengths than the u filter, so the g filter image would be colorized blue, since blue is the next shortest wavelength color. Continuing on with this process, the images obtained with other Rubin Observatory filters would be colorized in this pattern:</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "content": "<p>Sometimes images from all six filters are not all available. In that case, a few colors are omitted, and the images can be assigned any colors as long as they follow the chromatic order rule. For example, suppose you have a set of images taken using only these filters: g, r, i, and y. Any of the following Examples of Chromatic Ordering sequences at the right would be a correct application of chromatic ordering.</p>",
       "layout": {
         "col": "left",
         "row": "middle"
+      }
+    },
+    {
+      "content": "<p>Three examples of correct chromatic ordering for g, r, i and y filters.</p>",
+      "layout": {
+        "col": "right",
+        "row": "bottom"
       }
     }
   ],
@@ -33,10 +54,10 @@
     {
       "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
       "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {
         "col": "right",
-        "row": "bottom"
+        "row": "top"
       }
     }
   ],
@@ -44,7 +65,7 @@
     {
       "id": "1",
       "layout": {
-        "col": "right",
+        "col": "left",
         "row": "top"
       },
       "rows": [
@@ -62,6 +83,7 @@
         "col": "right",
         "row": "middle"
       },
+      "title": "Examples of Chromatic Ordering",
       "colTitles": ["g", "r", "i", "y"],
       "rows": [
         [
@@ -93,7 +115,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is another chromatic sequence of colors that you could use in addition to the three examples above? If you are not sure, refer to Figure 8."
+          "label": "What is another chromatic sequence of colors that you could use in addition to the three examples at the right? If you are not sure, refer to the filter graphic at the right."
         }
       ]
     },

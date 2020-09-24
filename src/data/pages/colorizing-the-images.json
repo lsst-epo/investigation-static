@@ -1,7 +1,7 @@
 {
-  "id": "coloring06",
+  "id": "coloring05",
   "investigation": "coloring-universe",
-  "order": "06",
+  "order": "050",
   "title": "Colorizing the Images",
   "slug": "colorizing-the-images/",
   "previous": {
@@ -15,7 +15,7 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>Here are the same images, now colorized with their corresponding colors, and the resulting image in full color.</p>",
+      "content": "<p>Here are the same images, now colorized with their assigned colors, and the resulting image in full color.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -25,8 +25,8 @@
   "images": [
     {
       "mediaPath": "/images/color-rgb-strip_example.jpg",
-      "altText": "Filtered images colorized",
-      "figText": "Figure 6: Filtered images colorized",
+      "altText": "RGB filtered images colorized",
+      "figText": "Filtered images have been colorized, then combined to make a full color image.",
       "layout": {
         "col": "left",
         "row": "middle"
@@ -55,7 +55,7 @@
           "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "<p>The same image appears in the color-mixing tool.</p><ul><li>Turn on filters one by one by clicking the RGB buttons.</li><li>Since the filtered images are in black and white, you need to colorize them before combining them. Do this by selecting a color to the left of the sliders.</li><li>Now try to recreate the full-color image by adjusting the sliders to change the color intensity of the image. When the sliders are correctly placed, the image will be properly color balanced. If the colors in the image are not balanced, objects in the image (e.g., the shirts) will appear the wrong color. Color balance doesn’t mean having the same intensity or amount of light for each filter.</li></ul>"
+          "label": "<p>Try to recreate this image using the color filter tool:</p><ul><li>Turn on filters one by one by clicking the RGB buttons.</li><li>Since the filtered images are in black and white, you need to colorize them before combining them. Do this by selecting a color to the left of the sliders.</li><li>Now adjust the sliders to change the color intensity of the image. When the sliders are correctly placed, the image will be properly color balanced. If the colors in the image are not balanced, objects in the image (e.g., the shirts) will appear the wrong color.</li></ul>"
         }
       ]
     }

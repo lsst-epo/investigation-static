@@ -1,7 +1,7 @@
 {
   "id": "coloring01",
   "investigation": "coloring-universe",
-  "order": "01",
+  "order": "010",
   "title": "Types of Light",
   "slug": "types-of-light/",
   "previous": {
@@ -17,7 +17,7 @@
     {
       "mediaPath": "/images/EM-spectrum-full.jpg",
       "altText": "The Electromagnetic Spectrum",
-      "figText": "Figure 2: <a href='https://imagine.gsfc.nasa.gov/science/toolbox/emspectrum1.html' target='_blank'>The Electromagnetic Spectrum</a>",
+      "figText": "The <a href='https://imagine.gsfc.nasa.gov/science/toolbox/emspectrum1.html' target='_blank'>electromagnetic spectrum</a> shows all forms of electromagnetic radiation arranged in order of wavelengths.",
       "layout": {
         "row": "middle",
         "col": "left"
@@ -26,7 +26,7 @@
     {
       "mediaPath": "/images/visible_spectrum.jpg",
       "altText": "Visible Spectrum",
-      "figText": "Figure 3: Adapted from <a href='http://www.daltonism.org.uk/2018/01/rainbows/' target='_blank'>Daltonism</a>",
+      "figText": "<a href='http://www.daltonism.org.uk/2018/01/rainbows/' target='_blank'>Visible light colors</a> arranged in order of wavelengths from the shortest (violet) to the longest (red).",
       "layout": {
         "row": "top",
         "col": "right"
@@ -42,7 +42,7 @@
       }
     },
     {
-      "content": "<p>Visible light consists of all of the colors of the rainbow, as shown above. You may have learned the acronym “Roy G. Biv” to remember the seven colors of the rainbow. The different colors correspond to different wavelengths and energies. Within the range of light we can see, red light has the lowest energy and the longest wavelengths; violet has the highest energy and the shortest wavelengths.</p>",
+      "content": "<p>You may have learned the acronym “Roy G. Biv” to remember the seven colors of the rainbow. The different colors correspond to different wavelengths and energies. Within the range of light we can see, red light has the lowest energy and the longest wavelengths; violet has the highest energy and the shortest wavelengths.</p>",
       "layout": {
         "row": "bottom",
         "col": "right"
