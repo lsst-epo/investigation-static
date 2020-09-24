@@ -1,0 +1,87 @@
+{
+  "id": "coloring14_2",
+  "investigation": "coloring-universe",
+  "order": "142",
+  "title": "Putting It All Together",
+  "slug": "putting-it-all-together-2/",
+  "previous": {
+    "title": "Putting It All Together",
+    "link": "/putting-it-all-together-1/"
+  },
+  "next": {
+    "title": "Reflect and Discuss",
+    "link": "/reflect-and-discuss/"
+  },
+  "layout": "TwoCol",
+  "widgets": [
+    {
+      "type": "AstroTool",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "source": "/data/filters/new-data-astro-filter.json",
+      "options": {
+        "questionId": "50",
+        "hideControls": true
+      }
+    }
+  ],
+  "images": [
+    {
+      "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
+      "altText": "Wavelength Ranges of Visible Light",
+      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "60",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What did you do to create a color balanced image?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "70",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What procedure did you follow to analyze the image? "
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "80",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What did you learn through this process? (What was the answer to the question you posed?)"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "90",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What improvements would you make in a future investigation (e.g., different filters, different balance, etc.) to make the image more effective in communicating your results?"
+        }
+      ]
+    }
+  ]
+}

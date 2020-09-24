@@ -1,7 +1,7 @@
 {
   "id": "coloring02",
   "investigation": "coloring-universe",
-  "order": "02",
+  "order": "020",
   "title": "How Digital Cameras Construct A Color Image",
   "slug": "construct-a-color-image/",
   "previous": {
@@ -17,7 +17,7 @@
     {
       "mediaPath": "/images/orange_filter.jpeg",
       "altText": "Orange Filter",
-      "figText": "Figure 4a shows an example of how an orange filter transmits some wavelengths of light while blocking others.",
+      "figText": "An orange filter transmits some wavelengths of light while blocking others. Credit: P. Marenfeld (NOAO/AURA/NSF).",
       "layout": {
         "col": "left",
         "row": "bottom"
@@ -26,7 +26,7 @@
     {
       "mediaPath": "/images/bayer_filter.png",
       "altText": "Image sensor with filter arrangement",
-      "figText": "Tiny red, green, and blue filters are placed over the <strong>pixels</strong> of the image sensor (as shown above in Figure 4b).",
+      "figText": "Tiny red, green, and blue filters are placed over the <strong>pixels</strong> of the image sensor in a digital camera. The camera receives light simultaneously through all three filters. Credit: <a href=\"https://en.wikipedia.org/wiki/Bayer_filter\" target=\"_blank\">https://en.wikipedia.org/wiki/Bayer_filter</a>",
       "layout": {
         "col": "right",
         "row": "bottom"
@@ -35,17 +35,10 @@
   ],
   "contents": [
     {
-      "content": "<p>Digital cameras cannot see color. They can only measure the amount of light that illuminates the <strong>image sensor</strong>.To build a color image, we use <strong>filters</strong>. A filter is designed to allow only certain wavelengths (or colors) of light to pass through it. All other wavelengths (or colors) are blocked. Figure 3a shows an example of how an orange filter <strong>transmits</strong> some wavelengths of light while blocking others.</p>",
+      "content": "<p>Digital cameras (like those in mobile phones) cannot see color. They can only measure the amount of light that illuminates the <strong>image sensor</strong>.To build a color image, we use <strong>filters</strong>. A filter is designed to allow only certain wavelengths (or colors) of light to pass through it. All other wavelengths (or colors) are blocked.</p>",
       "layout": {
         "col": "left",
         "row": "top"
-      }
-    },
-    {
-      "content": "<p>There are filters like this inside a digital camera (e.g., the one on a mobile phone). Tiny red, green, and blue filters are placed over the <strong>pixels</strong> of the image sensor (as shown below in Figure 3b). When you take a picture, your camera measures light simultaneously through all three filters.</p>",
-      "layout": {
-        "col": "right",
-        "row": "bottom"
       }
     }
   ]

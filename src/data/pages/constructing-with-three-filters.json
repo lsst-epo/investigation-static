@@ -1,7 +1,7 @@
 {
   "id": "coloring04",
   "investigation": "coloring-universe",
-  "order": "04",
+  "order": "040",
   "title": "Constructing an Image with Three Filters",
   "slug": "constructing-with-three-filters/",
   "previous": {
@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Looking at a rainbow, you might think that we need to use seven filters to produce a color image. But we actually only need three. This is because our eyes contain sensors called <strong>cones</strong> that collect red, green, and blue light. Our brain has a method for transforming the relative amounts of red, green, and blue light measured by the cones into a color image. This is known as the “three-color process.” Remarkably, our eyes can see over a million different colors with this method. Now let’s explore how the three-color process works.</p><p>Below is a series of images. The first three are images obtained using red, green, and blue filters. As we mentioned before, digital cameras cannot see color, so each of the three images of filtered light starts out as a black and white image. A color (red, green, or blue) is then selected to <strong>colorize</strong> each of the filtered images, and finally, the three images are combined to create the color image.</p><p>Start by looking at the brightness of the boys’ shirts in the black and white images taken through each filter. Think about what is similar and what is different in them.</p>",
+      "content": "<p>Looking at a rainbow, you might think that we need to use seven filters to produce a color image, but we only need three. This is because our eyes contain sensors called <strong>cones</strong> that collect red, green, and blue light. Our brain has a method for transforming the relative amounts of red, green, and blue light measured by the cones into a color image. This is known as the “three-color process.” Remarkably, our eyes can see over a million different colors with this method. Now let’s explore how the three-color process works.</p><p>Below is a series of images. The first three are images obtained using red, green, and blue filters. As we mentioned before, digital cameras cannot see color, so each of the three images of filtered light starts out as a black and white image. A color (red, green, or blue) is then selected to <strong>colorize</strong> each of the filtered images, and finally, the three images are combined to create the color image.</p><p>Start by looking at the brightness of the boys’ shirts in the black and white images taken through each filter. Think about what is similar and what is different in them.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -26,7 +26,7 @@
     {
       "mediaPath": "/images/rgb_filter_example.png",
       "altText": "Comparison of filters",
-      "figText": "Figure 5: Comparison of the light passed by filters.",
+      "figText": "Comparison of the light passed by filters.",
       "layout": {
         "col": "right",
         "row": "top"

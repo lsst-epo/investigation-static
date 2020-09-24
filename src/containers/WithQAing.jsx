@@ -194,7 +194,7 @@ export const WithQAing = ComposedComponent => {
     }
 
     getColorToolContent(data) {
-      return `Your selected Galaxy: ${data.name}`;
+      return `Your selected object: ${data.name}`;
     }
 
     getNeoContent(data) {

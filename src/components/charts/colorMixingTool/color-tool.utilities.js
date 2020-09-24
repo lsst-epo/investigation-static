@@ -1,4 +1,5 @@
 import flattenDeep from 'lodash/flattenDeep';
+import find from 'lodash/find';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 import isEmpty from 'lodash/isEmpty';
@@ -98,6 +99,12 @@ export const getObjectFromArrayGroup = (objects, objectName) => {
   );
   if (isEmpty(selectedObject)) return null;
   return selectedObject[0];
+};
+
+export const getCategoryName = (objects, objectName) => {
+  const selectedObject = find(objects, { objects: [{ name: objectName }] });
+  if (isEmpty(selectedObject)) return null;
+  return selectedObject.type;
 };
 
 export const findObjectFromAnswer = answer => {

@@ -1,7 +1,7 @@
 {
-  "id": "coloring15",
+  "id": "coloring12_2",
   "investigation": "coloring-universe",
-  "order": "15",
+  "order": "122",
   "title": "Color Balancing an Image",
   "slug": "astronomical-color-images-2/",
   "previous": {
@@ -15,7 +15,7 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>By adjusting the amount of light from each filter using the sliders you can create a color balanced image. However, as you just saw, if the slider for a filter is moved too far to the left or the right, that color in the image can be too strong or too weak for the image to be color balanced. To color balance an image, adjust the sliders so that the image communicates the information you want it to and looks pleasing to you. For instance, if you want to show the blue stars in a galaxy, you will need to balance the image so that it shows some blue stars. At the same time, using a contrasting color (such as red) can be helpful to show where the blue stars are not found.</p>",
+      "content": "<p>As you just saw, if the slider for a filter is moved too far to the left or the right, that color in the image may appear too strong or too weak. However, color balancing does not mean setting the same intensity for each filter. For instance, if you want to show the blue stars in a galaxy, you may want to increase the intensity of blue in the image. In summary, To color balance an image, adjust the sliders so that the image communicates the information you want it to and looks pleasing to you.</p><p>Now it’s your turn to color balance galaxy M33. Adjust all the sliders until you are satisfied with the appearance of your image.</p>",
       "layout": {
         "col": "left",
         "row": "bottom"
@@ -44,7 +44,7 @@
           "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "<p>Now let's try something different.</p><ul><li>Move the slider next to the g filter back to its original location (slightly to the left of the middle).</li><li>Now move the slider next to the r filter all the way to the left and answer the two questions below.</li></ul>"
+          "label": "<p>Now let's try something different.</p><ul><li>Move the slider next to the g filter back to its original location (40%).</li><li>Now move the slider next to the r filter all the way to the left and answer the two questions below.</li></ul>"
         }
       ]
     },

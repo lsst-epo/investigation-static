@@ -1,7 +1,7 @@
 {
-  "id": "coloring08",
+  "id": "coloring07",
   "investigation": "coloring-universe",
-  "order": "08",
+  "order": "070",
   "title": "Rubin Observatory LSST Camera Filters",
   "slug": "rubin-lsst-camera-filters/",
   "previous": {
@@ -16,7 +16,7 @@
     {
       "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
       "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {
         "col": "left",
         "row": "middle"
@@ -26,7 +26,7 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>The Rubin Observatory LSST Camera contains six filters (Figure 6), identified by the letters u, g, r, i, z and y. Four of these filters (u, g, r, and i) transmit some visible light our eyes can see. The u filter also transmits ultraviolet light. The z and y filters transmit only infrared light. As you can see, these filters transmit light over a broader range of wavelengths and are not limited to just one color of light. You can remember these filters in their correct order from short wavelengths to long wavelengths by using the mnemonic “U-Grizy”.</p>",
+      "content": "<p>The Rubin Observatory LSST Camera contains six filters, identified by the letters u, g, r, i, z and y. Four of these filters (u, g, r, and i) transmit some visible light our eyes can see. The u filter also transmits ultraviolet light. The z and y filters transmit only infrared light. As you can see, these filters transmit light over a broader range of wavelengths and are not limited to just one color of light. You can remember these filters in their correct order from short wavelengths to long wavelengths by using the mnemonic “U-Grizy”.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -37,17 +37,42 @@
     {
       "question": [
         {
-          "id": "7",
-          "questionType": "select",
-          "answerAccessor": "data",
+          "id": "7a",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["7a", "7b"],
+          "answerAccessor": "select",
           "options": [
-            { "label": "infared", "value": "infared" },
+            { "label": "u", "value": "u" },
+            { "label": "g", "value": "g" },
+            { "label": "r", "value": "r" },
+            { "label": "i", "value": "i" },
+            { "label": "z", "value": "z" },
+            { "label": "y", "value": "y" }
+          ],
+          "title": "Question #1",
+          "labelPre": "The ",
+          "labelPost": "filter transmits the longest wavelengths of light",
+          "srLabel": "...",
+          "answerPre": "...",
+          "answerPost": "...",
+          "placeholder": "(u,g,r,i,z,y)"
+        },
+        {
+          "id": "7b",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["7a", "7b"],
+          "answerAccessor": "select",
+          "options": [
+            { "label": "infrared", "value": "infrared" },
             { "label": "visible", "value": "visible" },
             { "label": "ultraviolet", "value": "violet" }
           ],
           "title": "Question #1",
-          "labelPre": "Which filter transmits the longest wavelengths of light and what form of light is it ",
-          "labelPost": "?",
+          "labelPre": "and what form of light is it?",
+          "labelPost": "",
+          "srLabel": "...",
+          "answerPre": "...",
+          "answerPost": "...",
           "placeholder": "(infrared, visible or ultraviolet)"
         }
       ]
@@ -55,17 +80,42 @@
     {
       "question": [
         {
-          "id": "8",
-          "questionType": "select",
-          "answerAccessor": "data",
+          "id": "8a",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["8a", "8b"],
+          "answerAccessor": "select",
           "options": [
-            { "label": "infared", "value": "infared" },
+            { "label": "u", "value": "u" },
+            { "label": "g", "value": "g" },
+            { "label": "r", "value": "r" },
+            { "label": "i", "value": "i" },
+            { "label": "z", "value": "z" },
+            { "label": "y", "value": "y" }
+          ],
+          "title": "Question #1",
+          "labelPre": "The ",
+          "labelPost": "filter transmits the shortest wavelengths of light",
+          "srLabel": "...",
+          "answerPre": "...",
+          "answerPost": "...",
+          "placeholder": "(u,g,r,i,z,y)"
+        },
+        {
+          "id": "8b",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["8a", "8b"],
+          "answerAccessor": "select",
+          "options": [
+            { "label": "infrared", "value": "infrared" },
             { "label": "visible", "value": "visible" },
             { "label": "ultraviolet", "value": "violet" }
           ],
           "title": "Question #1",
-          "labelPre": "Which filter transmits the shortest wavelengths of light and what form of light is it ",
-          "labelPost": "?",
+          "labelPre": "and what form of light is it?",
+          "labelPost": "",
+          "srLabel": "...",
+          "answerPre": "...",
+          "answerPost": "...",
           "placeholder": "(infrared, visible or ultraviolet)"
         }
       ]
@@ -74,10 +124,21 @@
       "question": [
         {
           "id": "9",
-          "questionType": "text",
-          "answerAccessor": "text",
+          "questionType": "multiSelect",
           "title": "Question #1",
-          "label": "What two filters transmit green light?"
+          "labelPre": "What two filters transmit green light?",
+          "labelPost": "",
+          "options": [
+            { "label": "u", "value": "u" },
+            { "label": "g", "value": "g" },
+            { "label": "r", "value": "r" },
+            { "label": "i", "value": "i" },
+            { "label": "z", "value": "z" },
+            { "label": "y", "value": "y" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "multi-select"
         }
       ]
     },
@@ -85,10 +146,21 @@
       "question": [
         {
           "id": "10",
-          "questionType": "text",
-          "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What four colors of light are transmitted by the r filter?"
+          "questionType": "multiSelect",
+          "answerAccessor": "multi-select",
+          "labelPre": "What four colors of light are transmitted by the r filter?",
+          "labelPost": "",
+          "options": [
+            { "label": "violet", "value": "violet" },
+            { "label": "blue", "value": "blue" },
+            { "label": "green", "value": "green" },
+            { "label": "yellow", "value": "yellow" },
+            { "label": "orange", "value": "orange" },
+            { "label": "red", "value": "red" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
         }
       ]
     },
@@ -96,10 +168,21 @@
       "question": [
         {
           "id": "11",
-          "questionType": "text",
-          "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What two filters transmit both visible and invisible light?"
+          "questionType": "multiSelect",
+          "answerAccessor": "multi-select",
+          "labelPre": "What two filters transmit both visible and invisible light?",
+          "labelPost": "",
+          "options": [
+            { "label": "u", "value": "u" },
+            { "label": "g", "value": "g" },
+            { "label": "r", "value": "r" },
+            { "label": "i", "value": "i" },
+            { "label": "z", "value": "z" },
+            { "label": "y", "value": "y" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
         }
       ]
     }

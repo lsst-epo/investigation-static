@@ -1,7 +1,7 @@
 {
-  "id": "coloring19",
+  "id": "coloring14_1",
   "investigation": "coloring-universe",
-  "order": "19",
+  "order": "141",
   "title": "Putting It All Together",
   "slug": "putting-it-all-together-1/",
   "previous": {
@@ -9,17 +9,43 @@
     "link": "/putting-it-all-together/"
   },
   "next": {
-    "title": "Reflect and Discuss",
-    "link": "/reflect-and-discuss/"
+    "title": "Putting It All Together",
+    "link": "/putting-it-all-together-2/"
   },
   "layout": "SingleCol",
-  "content": "<p>To get started:</p><ul><li>Use the Astro Filter Tool to select an object from the list.</li><li>For each of the filters you wish to use, start by turning on each filter and selecting colors.</li><li>Adjust the sliders to enhance the image. Think about color-balancing the image so it clearly shows the areas or objects you wish to study.</li><li>Your completed image should be displayed on this page.</li></ul>",
+  "contents": [
+    {
+      "content": "<p>Use the Astronomical Image Coloring Tool to look at different objects and their available filters. Once you have decided what image you want to work with and what question you want to answer using this image, answer the questions below.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "content": "<p>To make an image:</p><ul><li>For each of the filters you wish to use, start by turning on each filter and assigning colors.</li><li>Adjust the sliders to enhance the image. Think about color-balancing the image so it clearly shows the areas or objects you wish to study.</li></ul>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
+  "images": [
+    {
+      "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
+      "altText": "Wavelength Ranges of Visible Light",
+      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "layout": {
+        "col": "left",
+        "row": "middle"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "AstroTool",
       "layout": {
         "col": "left",
-        "row": "middle"
+        "row": "top"
       },
       "source": "/data/filters/new-data-astro-filter.json",
       "options": {
@@ -35,51 +61,77 @@
           "questionType": "accordion",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "When you're finished make sure to save your answer."
+          "label": "Create and save your completed color balanced image on this page, then answer the questions below."
         }
       ]
     },
     {
       "question": [
         {
-          "id": "60",
-          "questionType": "textArea",
-          "answerAccessor": "text",
+          "id": "34",
+          "questionType": "select",
+          "answerAccessor": "data",
           "title": "Question #1",
-          "label": "What did you do to create a color balanced image?"
+          "label": "Which type of object did you choose to explore?",
+          "options": [
+            {
+              "label": "dusty nebulae",
+              "value": "dusty nebulae"
+            },
+            {
+              "label": "far away galaxies",
+              "value": "far away galaxies"
+            },
+            {
+              "label": "spiral galaxies",
+              "value": "spiral galaxies"
+            }
+          ],
+          "placeholder": "Select one"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "70",
-          "questionType": "textArea",
+          "id": "38",
+          "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What procedure did you follow to analyze the image? "
+          "label": "Which image(s) have you selected?"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "80",
+          "id": "39",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What did you learn through this process? (What was the answer to the question you posed?)"
+          "label": "What question do you want to answer?"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "90",
+          "id": "40",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What improvements would you make in a future investigation (e.g., different filters, different balance, etc.) to make the image more effective in communicating your results?"
+          "label": "What filters will be most appropriate for conducting your investigation? Why?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "41",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Develop your chromatic ordering sequence. (What colors will you assign to each filter?)"
         }
       ]
     }

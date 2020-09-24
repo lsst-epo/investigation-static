@@ -1,7 +1,7 @@
 {
-  "id": "coloring18",
+  "id": "coloring14",
   "investigation": "coloring-universe",
-  "order": "18",
+  "order": "140",
   "title": "Putting It All Together",
   "slug": "putting-it-all-together/",
   "previous": {
@@ -15,7 +15,21 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Now it’s your turn to answer a scientific question by creating a representative color image and explaining what it reveals.</p><ul><li>Look through a dusty nebula to see what’s inside</li><li>Search for a faraway galaxy</li><li>Locate the hot young stars in a galaxy</li><li>Identify star-forming regions in a galaxy</li></ul></li></ul><br /><p>Think about these points before you begin:</p><ul><li>What would you like to investigate?</li><li>What question do you want to answer?</li><li>What filters will be most appropriate for conducting your investigation? Why? (You need at least two filters, but you don’t have to use all six.)</li><li>What colors do you want to use for your chromatic ordering sequence and which color will you assign to each filter?</li></ul>",
+      "content": "<p>Now it’s your turn to answer a scientific question by creating your own color image of the cosmos and exploring what it reveals. In this investigation you have learned how to:</p><ul><li><a href='/uses-of-astronomical-filters-1/' target='_blank'>Look through a dusty nebula to see what’s inside</a></li><li><a href='/detecting-far-away-galaxies/' target='_blank'>Search for a faraway galaxy</a></li><li><a href='/visible-light-filters/' target='_blank'>Locate the hot young stars in a galaxy</a></li><li><a href='/visible-light-filters/' target='_blank'>Identify star-forming regions in a galaxy</a></li></ul></li></ul>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "content": "<p>Think about these points before you begin:</p><ul><li>What question do you want to answer? (You can design your own question here or explore an option listed above.)</li><li>What types of objects would you look at to investigate your question?</li><li>What filters will be most appropriate for conducting your investigation? Why? (You don’t have to use all the filters.)</li><li>What colors do you want to use for your chromatic ordering sequence and which color will you assign to each filter?</li></ul>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "content": "<p>Record some of your ideas and then go to the next page to explore the available images and filters.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -26,7 +40,7 @@
     {
       "mediaPath": "/images/Antennae_Galaxies_composite_of_ALMA_and_Hubble_observations.jpg",
       "altText": "The Antennae Galaxies",
-      "figText": "Figure 14: The Antennae Galaxies (also known as NGC 4038 and 4039) are a pair of distorted colliding spiral galaxies about 70 million light-years away, in the constellation of Corvus (The Crow).<br/ >Source: <a href='https://commons.wikimedia.org/wiki/File:Antennae_Galaxies_composite_of_ALMA_and_Hubble_observations.jpg' target=''>Wikimedia Commons</a> Credit: ALMA (ESO/NAOJ/NRAO). Visible light image: the NASA/ESA Hubble Space Telescope",
+      "figText": "The Antennae Galaxies (also known as NGC 4038 and 4039) are a pair of distorted colliding spiral galaxies about 70 million light-years away, in the constellation of Corvus (The Crow).<br/ >Source: <a href='https://commons.wikimedia.org/wiki/File:Antennae_Galaxies_composite_of_ALMA_and_Hubble_observations.jpg' target='_blank'>Wikimedia Commons</a> Credit: ALMA (ESO/NAOJ/NRAO). Visible light image: the NASA/ESA Hubble Space Telescope",
       "layout": {
         "col": "right",
         "row": "top"
@@ -35,87 +49,11 @@
     {
       "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
       "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Figure 8: Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {
         "col": "left",
         "row": "middle"
       }
-    }
-  ],
-  "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "34",
-          "questionType": "select",
-          "answerAccessor": "data",
-          "title": "Question #1",
-          "label": "Which type of object(s) did you select to explore?",
-          "options": [
-            {
-              "label": "Look through a dusty nebula to see what's inside",
-              "value": "dusty nebula"
-            },
-            {
-              "label": "Search for a far away galaxy",
-              "value": "far away galaxy"
-            },
-            {
-              "label": "Locate the young stars in a galaxy",
-              "value": "young stars"
-            },
-            {
-              "label": "Identify star-forming regions in a galaxy",
-              "value": "star-forming regions"
-            }
-          ],
-          "placeholder": "Select one"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "38",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What image did you select?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "39",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What question do you want to answer?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "40",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What filters will be most appropriate for conducting your investigation? Why? (Note: you must use at least two filters.)"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "41",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Develop your chromatic ordering sequence. (What colors will you assign to each filter?)"
-        }
-      ]
     }
   ]
 }

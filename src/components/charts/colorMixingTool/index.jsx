@@ -13,6 +13,7 @@ import {
   resetAllFilters,
   setFilterActiveAndLoadImage,
   getColorNameFromHex,
+  getCategoryName,
   updateFiltersColors,
 } from './color-tool.utilities.js';
 
@@ -24,6 +25,8 @@ import {
   active,
   col50,
   colFullWidth,
+  subHead,
+  subHeadTitle,
   controlsContainer,
   sliderContainer,
   colorToolSelect,
@@ -186,10 +189,6 @@ class ColorTool extends React.PureComponent {
       hideImage,
     } = this.props;
     const { data, selectedData, resetBtnActive, selectorValue } = this.state;
-    const widgetTitle =
-      objectName || selectorValue
-        ? `${title}: ${objectName || selectorValue}`
-        : title;
     const filters = selectedData ? selectedData.filters : [];
     const controlsContainerClasses = classnames(container, controlsContainer, {
       [col50]: !hideControls && !hideImage,
@@ -198,10 +197,35 @@ class ColorTool extends React.PureComponent {
       [col50]: !hideControls && !hideImage,
       [colFullWidth]: hideControls && !hideImage,
     });
+    const selectedObjectName = objectName || selectorValue;
+    const selectedCategoryName = getCategoryName(data, selectedObjectName);
 
     return (
       <>
-        {title && <h2>{widgetTitle}</h2>}
+        {title && <h2>{title}</h2>}
+        {selectedObjectName && (hideControls || !isArray(data)) && (
+          <h4 className={subHead}>
+            {isArray(data) && (
+              <>
+                <span>
+                  <span className={subHeadTitle}>Object Type:</span>&nbsp;
+                  {selectedCategoryName}
+                </span>
+                <br />
+                <span>
+                  <span className={subHeadTitle}>Selected Object:</span>&nbsp;
+                  {selectedObjectName}
+                </span>
+              </>
+            )}
+            {!isArray(data) && (
+              <span>
+                <span className={subHeadTitle}>Object:</span>&nbsp;
+                {selectedObjectName}
+              </span>
+            )}
+          </h4>
+        )}
         <div className={`container-flex ${container}`}>
           {!hideControls && (
             <div className={controlsContainerClasses}>

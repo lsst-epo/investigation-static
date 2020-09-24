@@ -22,6 +22,19 @@
   }
 }
 
+.sub-head {
+  padding-bottom: 10px;
+  margin-top: -10px;
+  font-size: 18px;
+  font-weight: $regular;
+  // color: $neutral40;
+
+  .sub-head-title {
+    font-weight: $medium;
+    color: $neutral20;
+  }
+}
+
 .select-container {
   display: flex;
   align-items: center;
