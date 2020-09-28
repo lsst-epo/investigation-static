@@ -13,6 +13,39 @@
     "link": "/solar-system-summary/"
   },
   "layout": "TwoCol",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "source": "/data/neos/neo_1990_SB_Sclass.json",
+      "options": {
+        "defaultZoom": 0.8
+      }
+    }
+  ],
+  "tables": [
+    {
+      "id": "2",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "colTitles": ["Question", "Answer"],
+      "rowTitles": [
+        ["Your NEO's type and your reasoning"],
+        ["Diameter of your NEO (1990 SB)"],
+        ["Object on Earth closest to the size of your NEO"]
+      ],
+      "rows": [
+        [{ "accessor": "text", "id": "52" }],
+        [{ "accessor": "diameter", "id": "53" }],
+        [{ "accessor": "data", "id": "54" }]
+      ]
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

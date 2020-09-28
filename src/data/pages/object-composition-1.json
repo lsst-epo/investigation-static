@@ -1,4 +1,3 @@
-
 {
   "id": "solarsystem26",
   "investigation": "solar-system",
@@ -61,7 +60,7 @@
           "label": "Enter the absolute magnitude and albedo of your asteroid to determine its diameter. The average albedo for C-class asteroids is 0.06 and the average albedo for S-class asteroids is 0.20.",
           "placeholder": "Enter peak magnitude",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "text"
+          "answerAccessor": "diameter"
         }
       ]
     },
