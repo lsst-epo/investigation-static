@@ -133,7 +133,7 @@ class TimeDomainViewer extends React.PureComponent {
       () => {
         this.blinkerInterval = setInterval(() => {
           this.nextBlink(images);
-        }, 200);
+        }, 800);
       }
     );
   }
