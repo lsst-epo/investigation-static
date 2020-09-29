@@ -3,7 +3,7 @@ import * as THREE from 'three';
 export const AU_TO_VIZ_SCALER = 100;
 export const DAY_PER_VIZ_SEC = 1;
 
-export const earth = {
+const earth = {
   a: 1,
   e: 0.01671022,
   i: 0,
@@ -12,31 +12,41 @@ export const earth = {
   Principal_desig: 'Earth',
   orbitColor: '#83e570',
   objectColor: '#777839',
-  objectRadius: 20,
+  objectRadius: 15,
 };
 
-export const jupiter = {
+const jupiter = {
   a: 5.2028,
   e: 0.048,
   i: 1.31,
   H: -25.9,
   Ref: 'Jupiter',
   Principal_desig: 'Jupiter',
-  orbitColor: '#f78988',
-  objectColor: '#f78456',
-  objectRadius: 20,
+  orbitColor: '#FFB000',
+  objectColor: '#FE6100',
+  objectRadius: 15,
 };
 
-export const neptune = {
+const neptune = {
   a: 30.06896348,
   e: 0.00858587,
   i: 1.76917,
   H: -25.9,
   Ref: 'Neptune',
   Principal_desig: 'Neptune',
-  orbitColor: '#6789f7',
-  objectColor: '#6569f7',
-  objectRadius: 20,
+  orbitColor: '#648FFF',
+  objectColor: '#785EF0',
+  objectRadius: 15,
+};
+
+export const getRefObjProps = id => {
+  return (
+    {
+      neptune,
+      earth,
+      jupiter,
+    }[id] || null
+  );
 };
 
 // args must be in VIZ_UNITS

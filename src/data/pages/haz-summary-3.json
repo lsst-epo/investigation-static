@@ -13,7 +13,7 @@
     "link": "/summary-4"
   },
   "layout": "TwoCol",
-  "content": "<p>Try placing yourself at different distances away from the point of impact to see what you would experience (r). Two different types of damage are predicted:</p><ul><li><strong>Seismic</strong> damage: Asteroid impacts produce earthquakes. This damage is due to the earthquake energy that travels along the surface of the Earth.</li><li>Airblast damage: Asteroid impacts produce a shock wave that moves through the air. This damage is due to the <strong>shock wave</strong> hitting structures or objects.</li></ul><p>You may select distances up to 20,000 km away, which is on the other side of Earth opposite the impact.</p>",
+  "content": "<p>Try placing yourself at different distances (r) away from the point of impact to see what you would experience. Two different types of damage are predicted:</p><ul><li><strong>Seismic</strong> damage: Asteroid impacts produce earthquakes. This damage is due to the energy that travels along the surface of the Earth.</li><li><strong>Air blast</strong> damage: Asteroid impacts produce a shock wave that moves through the air. This damage is due to the <strong>shock wave</strong> hitting structures or objects.</li></ul><p>You may select distances up to 20,000,000 meters away, which is on the other side of Earth opposite the impact.</p>",
   "tables": [
     {
       "id": "7",
@@ -21,32 +21,22 @@
         "col": "right",
         "row": "top"
       },
-      "title": "Damage",
+      "title": "Asteroid Impact Damage",
+      "fixed": true,
       "colTitles": ["", "3200 Phaeton"],
       "rowTitles": [
         ["Asteroid Kinetic Energy"],
+        ["Crater Diameter"],
+        ["Crater Depth"],
         ["Distance from Impact"],
         ["Seismic Damage"],
         ["Air Blast Damage"]
       ],
       "rows": [
         [{ "accessor": "kineticEnergy", "id": "53" }],
+        [{ "accessor": "craterDiameter", "id": "53" }],
+        [{ "accessor": "craterDepth", "id": "53" }],
         [{ "accessor": "observerDistance", "id": "55" }],
-        [{ "accessor": "mercalliIntensity", "id": "55" }],
-        [{ "accessor": "airBlastDamage", "id": "55" }]
-      ]
-    },
-    {
-      "id": "8",
-      "layout": {
-        "col": "left",
-        "row": "bottom"
-      },
-      "rowTitles": [
-        ["Seismic Damage"],
-        ["Air Blast Damage"]
-      ],
-      "rows": [
         [{ "accessor": "mercalliIntensity", "id": "55" }],
         [{ "accessor": "airBlastDamage", "id": "55" }]
       ]

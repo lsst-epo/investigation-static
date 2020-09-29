@@ -38,7 +38,7 @@
           "questionType": "compoundSelect",
           "compoundQuestion": ["30", "31"],
           "labelPre": "so they are ",
-          "labelPost": "han smaller asteroids.",
+          "labelPost": "than smaller asteroids.",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select a type",

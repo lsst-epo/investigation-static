@@ -44,6 +44,6 @@ test('SizeCalculator magnitude input = 5, albedo input = 0.2 and returns D = 297
   await waitFor(() => {
     expect(input1.value).toBe('5');
     expect(input2.value).toBe('0.2');
-    expect(equationKE).toHaveTextContent('297,173.434 m');
+    expect(equationKE).toHaveTextContent('297,173 m');
   });
 });

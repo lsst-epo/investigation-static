@@ -157,11 +157,19 @@ const Orbital = ({
   }
 
   function getLabelSize() {
-    const minSize = 1;
-    const maxSize = 16;
+    const minSize = 4;
+    const maxSize = 18;
     const scaledLabelSize = maxSize * (zoomMod / defaultZoom);
 
-    return scaledLabelSize >= minSize ? scaledLabelSize : minSize;
+    if (scaledLabelSize <= minSize) {
+      return minSize;
+    }
+
+    if (scaledLabelSize >= maxSize) {
+      return maxSize;
+    }
+
+    return scaledLabelSize;
   }
 
   // Called once when the component first mounts
@@ -213,7 +221,7 @@ const Orbital = ({
             <div
               className={label}
               style={{
-                fontSize: type !== 'planet' ? getLabelSize() : 16,
+                fontSize: getLabelSize(),
               }}
             >
               {name || scientificName}

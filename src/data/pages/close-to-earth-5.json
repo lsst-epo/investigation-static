@@ -10,17 +10,19 @@
   },
   "next": {
     "title": "Looking at Asteroids Close to Earth",
-    "link": "/close-to-earth-6/"
+    "link": "/close-to-earth-7/"
   },
   "layout": "TwoCol",
-  "content": "<p>Use the controls at the bottom of the OrbitViewer to watch the motion of asteroid Bennu and the planets as they orbit around the Sun. Adjust the Time Step by clicking the speedometer. Press the play/pause button when Bennu is located on the blue orbit of Earth. (If you overshoot you can use the “step backward” button.)</p>",
+  "content": "<p>Use the controls at the bottom of the OrbitViewer to watch the motion of asteroid Bennu. Adjust the Time Step by clicking the speedometer. Press the play/pause button when Bennu is located on the blue orbit of Earth. (If you overshoot you can use the “step backward” button.)</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
       "source": "/data/neos/bennu.json",
       "options": {
         "preSelected": true,
-        "noDetails": true
+        "noDetails": true,
+        "refObjs": ["earth"],
+        "defaultZoom": 1.5
       }
     }
   ],
@@ -44,6 +46,43 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "Could Bennu hit Earth in the next ten years?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "8",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["8", "9"],
+          "labelPre": "In order to hit Earth, the orbit of an asteroid must ",
+          "labelPost": " Earth’s orbit, ",
+          "srLabel": "...",
+          "answerAccessor": "select",
+          "placeholder": "Select",
+          "options": [
+            {"label": "lie inside of", "value": "lie inside of"},
+            {"label": "intersect with", "value": "intersect with"},
+            {"label": "lie outside of", "value": "lie outside of"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "9",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["8", "9"],
+          "labelPre": "and the asteroid and Earth must be at ",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "select",
+          "placeholder": "Select a type",
+          "options": [
+            {"label": "the same place", "value": "the same place"},
+            {"label": "different places", "value": "different places"}
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
         }
       ]
     }

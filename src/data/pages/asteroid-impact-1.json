@@ -25,13 +25,13 @@
       "rows": [
         [
           { "content": "25,000 kg" },
-          { "content": "12,500 kg" },
-          { "content": "20,000 kg" }
+          { "content": "15,000 kg" },
+          { "content": "15,000 kg" }
         ],
         [
-          { "content": "12,500 m/s" },
+          { "content": "15,000 m/s" },
           { "content": "25,000 m/s" },
-          { "content": "20,000 m/s" }
+          { "content": "15,000 m/s" }
         ],
         [
           { "accessor": "kineticEnergy", "id": "35" },

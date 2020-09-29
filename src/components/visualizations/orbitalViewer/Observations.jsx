@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
 import Observation from './Observation.jsx';
-import { getMean } from '../../../lib/utilities.js';
 import {
   getMinorAxis,
   auToUnit,
@@ -13,26 +12,17 @@ import {
 
 const Observations = ({ data, observations, activeObs, selectionCallback }) => {
   const [observationsVectors] = useState(() => {
-    const a = getMean(data, 'a');
-    const e = getMean(data, 'e');
-    const i = getMean(data, 'i');
-    const Peri = getMean(data, 'Peri');
-    const Node = getMean(data, 'Node');
+    const { a, e } = data;
 
-    const meanMajAxis = auToUnit(a);
-    const meanMinAxis = getMinorAxis(a, e);
-    const focus = getFocus(meanMajAxis, meanMinAxis);
+    const majAxis = auToUnit(a);
+    const minAxis = getMinorAxis(a, e);
+    const focus = getFocus(majAxis, minAxis);
     const offsetCenter = new THREE.Vector3(focus, 0, 0);
-    const curve = getCurve(
-      meanMajAxis,
-      meanMinAxis,
-      offsetCenter.x,
-      offsetCenter.y
-    );
+    const curve = getCurve(majAxis, minAxis, offsetCenter.x, offsetCenter.y);
 
     return (observations || []).map(obs => {
       const { position } = obs;
-      return convert2dTo3d(curve.getPoint(position), { a, e, i, Peri, Node });
+      return convert2dTo3d(curve.getPoint(position), data);
     });
   });
 
@@ -60,7 +50,7 @@ const Observations = ({ data, observations, activeObs, selectionCallback }) => {
 };
 
 Observations.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.object,
   observations: PropTypes.array,
   selectionCallback: PropTypes.func,
   activeObs: PropTypes.object,

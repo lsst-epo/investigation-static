@@ -37,7 +37,7 @@ export default function FindDiameter(props) {
       <span className={color}>
         {diameter && diameter < Infinity ? (
           <span>
-            {addTheCommas(formatValue(diameter, 3))}
+            {addTheCommas(formatValue(diameter, 0))}
             <QACalculatorIconUnit className={color} unit="diameter" />
           </span>
         ) : (

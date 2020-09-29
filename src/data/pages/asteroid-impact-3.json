@@ -29,13 +29,13 @@
       "rows": [
         [
           { "content": "25,000 kg" },
-          { "content": "12,500 kg" },
-          { "content": "20,000 kg" }
+          { "content": "15,000 kg" },
+          { "content": "15,000 kg" }
         ],
         [
-          { "content": "12,500 m/s" },
+          { "content": "15,000 m/s" },
           { "content": "25,000 m/s" },
-          { "content": "20,000 m/s" }
+          { "content": "15,000 m/s" }
         ],
         [
           { "accessor": "kineticEnergy", "id": "35" },
@@ -53,7 +53,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Compare the kinetic energy values you calculated for each asteroid.  Rank, from largest to smallest, the size of the impact crater that would be caused by asteroids #1, #2, and #3.  Does this ranking agree with the prediction you made on the previous page?"
+          "label": "Compare the kinetic energy values you calculated for each asteroid.  Rank, from largest to smallest, the size of the impact crater that would be caused by asteroids #1, #2, and #3.  Does this ranking agree with the prediction you previously made?"
         }
       ]
     },
@@ -75,7 +75,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Earth orbits the Sun counter-clockwise (as seen from the northern hemisphere). Which asteroid do you think would cause more damage: one that also orbits counter-clockwise, or one that orbits clockwise? (Hint: think about what would cause more damage in a car accident, a head-on collision or a car being rear-ended.) Explain."
+          "label": "Earth orbits the Sun counterclockwise (as seen from the northern hemisphere). Which asteroid do you think would cause more damage: one that also orbits counterclockwise, or one that orbits clockwise? (Hint: think about what would cause more damage in a car accident, a head-on collision or a car being rear-ended.) Explain."
         }
       ]
     }

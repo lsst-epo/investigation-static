@@ -39,7 +39,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What do you notice is different about the possible orbits based on four observations, compared to the possible orbits based on three observations?"
+          "label": "What do you notice is different about the spread of possible orbit based on four observations, compared to the possible orbits based on three observations?"
         }
       ]
     }

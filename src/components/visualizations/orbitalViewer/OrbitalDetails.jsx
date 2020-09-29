@@ -60,7 +60,7 @@ function OrbitalDetails({ data, velocity }) {
             ['Absolute Magnitude', renderValueWithUnits(H, 'magnitude', false)],
             ['Earth MOID', renderValueWithUnits(moid, 'moid', true)],
             [
-              'Speed',
+              'Orbital Speed',
               renderValueWithUnits(toSigFigs(velocity, 3), 'velocity', true),
             ],
           ]}

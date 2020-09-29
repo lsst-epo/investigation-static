@@ -32,7 +32,7 @@
       "rows": [
         [{ "accessor": "diameter", "id": "48" }],
         [{ "content": "12,900 m/s" }],
-        [{ "content": "2,500 kg/m^3" }],
+        [{ "content": "2,500 kg/m³" }],
         [{ "accessor": "mass", "id": "52" }],
         [{ "accessor": "kineticEnergy", "id": "5222" }]
       ]

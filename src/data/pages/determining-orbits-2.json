@@ -13,7 +13,7 @@
     "link": "/determining-orbits-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>After a third observation is made.</p>",
+  "content": "<p>Here are the possible orbits of the asteroid after a third observation is made.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -37,7 +37,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "How did the third observation change the range of possible orbits for this asteroid?"
+          "label": "How did the third observation change the spread of possible orbits for this asteroid?"
         }
       ]
     },
@@ -49,7 +49,6 @@
           "title": "Question #1",
           "label": "The spread of possible orbits is smallest:",
           "options": [
-            {"label": "Midway between the three observations and the part of the orbit opposite the three observations", "value": "Midway between the three observations and the part of the orbit opposite the three observations"},
             {"label": "At the part of the orbit opposite the three observations", "value": "At the part of the orbit opposite the three observations"},
             {"label": "Everywhere along the orbit", "value": "Everywhere along the orbit"},
             {"label": "At the part of the orbit nearest the three observations", "value": "At the part of the orbit nearest the three observations"}
