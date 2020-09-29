@@ -52,7 +52,7 @@ class OrbitalPropertiesContainer extends React.PureComponent {
 
   render() {
     const { data } = this.state;
-    const { options, widget, nested } = this.props;
+    const { options, widget, nested, loadingCallback } = this.props;
     const {
       xAxisLabel,
       yAxisLabel,
@@ -67,6 +67,8 @@ class OrbitalPropertiesContainer extends React.PureComponent {
       bins,
     } = options || {};
     const { sources } = widget;
+
+    loadingCallback(data === null);
 
     return (
       <>
@@ -98,6 +100,7 @@ OrbitalPropertiesContainer.propTypes = {
   answers: PropTypes.object,
   updateAnswer: PropTypes.func,
   nested: PropTypes.bool,
+  loadingCallback: PropTypes.func,
 };
 
 export default OrbitalPropertiesContainer;

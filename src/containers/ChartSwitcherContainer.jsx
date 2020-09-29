@@ -12,13 +12,14 @@ import {
   navItem,
   activeItem,
 } from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
+import { nest } from 'd3';
 
 class ChartSwitcherContainer extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      loading: true,
+      loading: false,
       navItems: null,
       activeIndex: 0,
     };
@@ -30,7 +31,6 @@ class ChartSwitcherContainer extends React.PureComponent {
     this.setState(prevState => ({
       ...prevState,
       navItems: this.generateNavItems(activeIndex),
-      // loading: false,
     }));
   }
 
@@ -50,7 +50,7 @@ class ChartSwitcherContainer extends React.PureComponent {
       const { options } = nestedWidget;
       const { xAxisLabel, title } = options || {};
       const label = title || xAxisLabel;
-      // console.log('nested', xAxisLabel, title);
+
       return {
         leftAvatar: (
           <span>
@@ -66,6 +66,14 @@ class ChartSwitcherContainer extends React.PureComponent {
       };
     });
   }
+
+  isLoading = value => {
+    console.log(value);
+    this.setState(prevState => ({
+      ...prevState,
+      loading: value,
+    }));
+  };
 
   render() {
     const { navItems, activeIndex, loading } = this.state;
@@ -84,7 +92,7 @@ class ChartSwitcherContainer extends React.PureComponent {
             scale={3}
           />
         )}
-        {navItems && !loading && (
+        {navItems && (
           <NavDrawer
             interactableToolbar
             navItems={navItems}
@@ -95,9 +103,7 @@ class ChartSwitcherContainer extends React.PureComponent {
                 const { type, options: nestedOptions } = nestedWidget;
                 const key = type + i;
                 const WidgetTag = widgetTags[type];
-
                 if (!WidgetTag) return null;
-
                 const itemClasses = classnames(stackedItem, {
                   [visibilityActive]: activeIndex === i,
                 });
@@ -108,6 +114,7 @@ class ChartSwitcherContainer extends React.PureComponent {
                       type={type}
                       widget={nestedWidget}
                       options={nestedOptions}
+                      loadingCallback={this.isLoading}
                       nested
                     />
                   </div>
