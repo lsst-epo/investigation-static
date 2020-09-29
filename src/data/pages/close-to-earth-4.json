@@ -13,7 +13,7 @@
     "link": "/close-to-earth-5/"
   },
   "layout": "TwoCol",
-  "content": "<p>Next, look at the orbit of the asteroid “Bennu”.</p><p>Click and drag in the window to look at the orbits of Bennu and Earth from many different angles.</p>",
+  "content": "<p>Next, look at the orbit of the asteroid Bennu.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -21,7 +21,9 @@
       "options": {
         "preSelected": true,
         "paused": true,
-        "noDetails": true
+        "noDetails": true,
+        "refObjs": ["earth"],
+        "defaultZoom": 1.5
       }
     }
   ],
@@ -33,7 +35,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Do you think Bennu could hit Earth? Explain your reasoning."
+          "label": "Click and drag in the Orbit Viewer to look at the orbits of Bennu and Earth from many different angles. Right click to pan.  Scroll to zoom in and out.  Do you think Bennu could hit Earth? Explain your reasoning."
         }
       ]
     }

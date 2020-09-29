@@ -33,6 +33,17 @@
     {
       "question": [
         {
+          "id": "1588",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Calculate the new probability for this asteroid hitting Earth."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
           "id": "15",
           "questionType": "textArea",
           "answerAccessor": "text",

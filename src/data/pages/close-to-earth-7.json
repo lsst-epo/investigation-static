@@ -6,7 +6,7 @@
   "slug": "close-to-earth-7/",
   "previous": {
     "title": "Looking at Asteroids Close to Earth",
-    "link": "/close-to-earth-6/"
+    "link": "/close-to-earth-5/"
   },
   "next": {
     "title": "Determining the Orbit of an Asteroid",
@@ -20,7 +20,9 @@
       "source": "/data/neos/bennu.json",
       "options": {
         "preSelected": true,
-        "noDetails": true
+        "noDetails": true,
+        "refObjs": ["earth"],
+        "defaultZoom": 1.5
       }
     }
   ]

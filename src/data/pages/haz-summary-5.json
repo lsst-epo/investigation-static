@@ -13,7 +13,7 @@
     "link": "/learn-more/"
   },
   "layout": "TwoCol",
-  "content": "<p>Try placing yourself at different distances away from the point of impact to see what you would experience (r). You may select distances up to 20,000 km away, which is on the other side of Earth opposite the impact.</p>",
+  "content": "<p>Try placing yourself at different distances (r) away from the point of impact to see what you would experience. You may select distances up to 20,000 km away, which is on the other side of Earth opposite the impact.</p>",
   "tables": [
     {
       "id": "7",
@@ -21,32 +21,22 @@
         "col": "right",
         "row": "top"
       },
-      "title": "Damage",
+      "fixed": true,
+      "title": "Asteroid Impact Damage",
       "colTitles": ["", "3200 Phaeton"],
       "rowTitles": [
         ["Asteroid Kinetic Energy"],
+        ["Crater Diameter"],
+        ["Crater Depth"],
         ["Distance from Impact"],
         ["Seismic Damage"],
         ["Air Blast Damage"]
       ],
       "rows": [
         [{ "accessor": "kineticEnergy", "id": "53" }],
+        [{ "accessor": "craterDiameter", "id": "53" }],
+        [{ "accessor": "craterDepth", "id": "53" }],
         [{ "accessor": "observerDistance", "id": "57" }],
-        [{ "accessor": "mercalliIntensity", "id": "57" }],
-        [{ "accessor": "airBlastDamage", "id": "57" }]
-      ]
-    },
-    {
-      "id": "8",
-      "layout": {
-        "col": "left",
-        "row": "bottom"
-      },
-      "rowTitles": [
-        ["Seismic Damage"],
-        ["Air Blast Damage"]
-      ],
-      "rows": [
         [{ "accessor": "mercalliIntensity", "id": "57" }],
         [{ "accessor": "airBlastDamage", "id": "57" }]
       ]

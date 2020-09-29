@@ -19,27 +19,13 @@ export default function FindImpactDamage(props) {
     // mercalliIntensity,
     overPressure,
     // airBlastDamage,
-    observerDistance,
   } = props;
 
   return (
     <div className={findImpactCraterEquation} data-testid="qa-calc-impact">
       <div className={marginTop}>
         <p>
-          <span className={boldText}>
-            Richter Magnitude{' '}
-            <span className={color}>
-              {observerDistance ? (
-                <span>
-                  {addTheCommas(observerDistance)}
-                  <QACalculatorIconUnit unit="diameter" />
-                </span>
-              ) : (
-                <span>?</span>
-              )}
-            </span>{' '}
-            from point of impact:{' '}
-          </span>
+          <span className={boldText}>Richter Magnitude = </span>
           <span className={color}>
             {richterMagnitudeAtObserverDistance > 0 ? (
               <span>
@@ -67,20 +53,7 @@ export default function FindImpactDamage(props) {
       </div>
       <div className={marginTop}>
         <p>
-          <span className={boldText}>
-            Air Blast Over Pressure{' '}
-            <span className={color}>
-              {observerDistance ? (
-                <span>
-                  {addTheCommas(observerDistance)}
-                  <QACalculatorIconUnit unit="diameter" />
-                </span>
-              ) : (
-                <span>?</span>
-              )}
-            </span>{' '}
-            from point of impact:{' '}
-          </span>
+          <span className={boldText}>Air Blast Over Pressure = </span>
           <span className={color}>
             {overPressure ? (
               <span>
@@ -112,5 +85,4 @@ FindImpactDamage.propTypes = {
   // mercalliIntensity: PropTypes.array,
   overPressure: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   // airBlastDamage: PropTypes.array,
-  observerDistance: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

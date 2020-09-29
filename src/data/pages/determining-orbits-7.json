@@ -13,11 +13,11 @@
     "link": "/determining-orbits-8/"
   },
   "layout": "TwoCol",
-  "content": "<p>After measuring the actual position of the asteroid on many different nights and different locations along its orbit, astronomers can rule out many of the possible orbits. The remaining possible orbits are shown here.</p>",
+  "content": "<p>After measuring the actual position of the asteroid on many different nights and different locations along its orbit, astronomers can rule out many of the possible orbits. The remaining possible orbits are shown here. Of the 500 remaining orbits, only 2 cross Earth’s orbit.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/K17C01P_orb_1-25.json",
+      "source": "/data/neos/K17C01P_orb_1-50.json",
       "options": {
         "defaultZoom": 0.5,
         "potentialOrbits": true
@@ -32,7 +32,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "How many possible orbits now intersect Earth’s orbit? What is now the probability that this asteroid could hit Earth? Explain how you arrived at your answer."
+          "label": "Calculate the probability of this asteroid hitting Earth:"
         }
       ]
     },
@@ -43,7 +43,7 @@
           "questionType": "compoundSelect",
           "compoundQuestion": ["26", "27"],
           "labelPre": "The case of asteroid WD5-A that you just investigated is typical in terms of how its probable impact threat changes as its orbit becomes refined. As more observations and measurements are made, the probability of impact typically ",
-          "labelPost": " until such time when all of the possible impact orbits can be eliminated, at which time the probability becomes ",
+          "labelPost": " until such time when all of the possible impact orbits can be eliminated",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -57,13 +57,17 @@
         },
         {
           "id": "27",
-          "questionType": "compoundInput",
+          "questionType": "compoundSelect",
           "compoundQuestion": ["26", "27"],
-          "labelPre": "",
+          "labelPre": ", at which time the probability ",
           "labelPost": ".",
           "srLabel": "...",
-          "answerAccessor": "text",
-          "placeholder": "",
+          "answerAccessor": "select",
+          "placeholder": "Select",
+          "options": [
+            { "label": "becomes very low (less than 1% to zero percent)", "value": "becomes very low (less than 1% to zero percent)" },
+            { "label": "stays the same at between 5 -10%", "value": "stays the same at between 5 -10%" }
+          ],
           "answerPre": "...",
           "answerPost": "..."
         }

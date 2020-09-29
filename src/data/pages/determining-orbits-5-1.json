@@ -26,10 +26,10 @@
           {"id": "obs-2", "label": "#2","interactable": false, "isActive": false, "position": 0.6},
           {"id": "obs-3", "label": "#3","interactable": false, "isActive": false, "position": 0.65},
           {"id": "obs-4", "label": "#4","interactable": false, "isActive": false, "position": 0.7},
-          {"id": "obs-5", "label": "A","interactable": true, "isActive": true, "position": 0.77},
-          {"id": "obs-6", "label": "B","interactable": true, "isActive": false, "position": 0.84},
-          {"id": "obs-7", "label": "C","interactable": true, "isActive": false, "position": 0.91},
-          {"id": "obs-8", "label": "D","interactable": true, "isActive": false, "position": 0.98}
+          {"id": "obs-5", "label": "A","interactable": true, "isActive": true, "position": 0.75},
+          {"id": "obs-7", "label": "B","interactable": true, "isActive": false, "position": 0.9},
+          {"id": "obs-8", "label": "C","interactable": true, "isActive": false, "position": 0.08},
+          {"id": "obs-9", "label": "D","interactable": true, "isActive": false, "position": 0.25}
         ]
       }
     }
@@ -66,7 +66,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Was the asteroid at the location you thought it would be?  If it was in a different location, discuss why you think your initial strategy was not successful, and how you changed your strategy to successfully observe the asteroid in one of the locations (A, B, C, D)."
+          "label": "Was the asteroid at the location you thought it would be?  If it was in a different location, discuss why you think your initial strategy was not successful."
         }
       ]
     }

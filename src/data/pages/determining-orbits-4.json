@@ -13,7 +13,7 @@
     "link": "/determining-orbits-5/"
   },
   "layout": "TwoCol",
-  "content": "<p>To make another observation, astronomers need to calculate a possible location of where the asteroid will be at a time in the future. They will then point their telescope at this location and take a series of pictures. If the asteroid is there, it will be noticeable because the asteroid’s position will change from picture to picture. Astronomers will then measure the location of the asteroid in each picture, and will record the time when each picture was taken.</p><p>Suppose you are an asteroid specialist at another observatory doing follow-up observations of a new asteroid that Rubin Observatory has discovered. You are in charge of deciding where the next observation should be made.</p><p>The map below shows the actual location of the asteroid for the three previous observations, the possible orbits of the asteroid, and four possible observing locations (A, B, C and D) for the asteroid. </p>",
+  "content": "<p>To make another observation, astronomers need to calculate a possible location of where the asteroid will be at a time in the future. They will then point their telescope at this location and take a series of pictures. If the asteroid is there, it will be noticeable because the asteroid’s position will change from picture to picture. Astronomers will then measure the location of the asteroid in each picture, and will record the time when each picture was taken.</p><p>Suppose you are an asteroid specialist at another observatory doing follow-up observations of a new asteroid that Rubin Observatory has discovered. You are in charge of deciding where the next observation should be made.</p><p>The Orbit Viewer now shows the actual location of the asteroid for the three previous observations, the possible orbits of the asteroid, and four possible observing locations (A, B, C and D) for the asteroid. </p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -27,9 +27,9 @@
           {"id": "obs-6", "label": "#2","interactable": false, "isActive": false, "position": 0.6},
           {"id": "obs-5", "label": "#3","interactable": false, "isActive": false, "position": 0.65},
           {"id": "obs-1", "label": "A","interactable": true, "isActive": true, "position": 0.7},
-          {"id": "obs-2", "label": "B","interactable": true, "isActive": false, "position": 0.77},
-          {"id": "obs-3", "label": "C","interactable": true, "isActive": false, "position": 0.84},
-          {"id": "obs-4", "label": "D","interactable": true, "isActive": false, "position": 0.91}
+          {"id": "obs-3", "label": "B","interactable": true, "isActive": false, "position": 0.84},
+          {"id": "obs-2", "label": "C","interactable": true, "isActive": false, "position": 0},
+          {"id": "obs-4", "label": "D","interactable": true, "isActive": false, "position": 0.2}
         ]
       }
     }
@@ -42,7 +42,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Telescope time is limited and costs money, so your team has only one night of telescope time to observe asteroid WD5-A. At what location (A, B, C, or D) would you point your telescope to make an additional observation of the asteroid in order to better define its orbit? Explain your reasoning."
+          "label": "Telescope time is limited and costs money, so your team has only one night of telescope time to observe the asteroid. At what location (A, B, C, or D) would you point your telescope to make an additional observation of the asteroid in order to better define its orbit? Explain your reasoning."
         }
       ]
     },
@@ -66,7 +66,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Was the asteroid at the location you thought it would be?  If it was in a different location, discuss why you think your initial strategy was not successful, and how you changed your strategy to successfully observe the asteroid."
+          "label": "Was the asteroid at the location you thought it would be?  If it was in a different location, discuss why you think your initial strategy was not successful."
         }
       ]
     }

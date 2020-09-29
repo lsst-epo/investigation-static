@@ -59,5 +59,6 @@ export const widgetOptionsFragment = graphql`
       isActive
       position
     }
+    refObjs
   }
 `;

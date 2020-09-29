@@ -13,7 +13,7 @@
     "link": "/summary-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Based on where the asteroid is in its orbit around the Sun, scientists can roughly estimate the velocity of the asteroid when it enters Earth’s atmosphere, but the mass of an asteroid can only be estimated. We do this by using the asteroid’s diameter and creating an asteroid model based on some assumptions about its density and shape.</p><p>Because we cannot study most asteroids up close, we do not have a good idea of their shape or composition. So even though most asteroids are irregular in shape, we model them as being spherical. This allows us to determine an overall volume for an asteroid by using its diameter. Because the composition of the asteroid is not known, we assume it is a rocky asteroid (the most common type) with a density of ~2500 kg/m3. Using these assumptions, we can estimate the mass of the asteroid.</p>",
+  "content": "<p>Based on where the asteroid is in its orbit around the Sun, scientists can roughly estimate the incoming velocity of the asteroid. The velocity is a combination of the speed of the asteroid and the speed of the Earth at the time when the asteroid enters Earth’s atmosphere. The mass of an asteroid is estimated by using the asteroid’s diameter and creating an asteroid model based on some assumptions about its density and shape.</p><p>Because we cannot study most asteroids up close, we do not have a good idea of their shape or composition. So even though most asteroids are irregular in shape, we model them as being spherical. This allows us to determine an overall volume for an asteroid by using its diameter. Because the composition of the asteroid is not known, we assume it is a rocky asteroid (the most common type) with a density of ~2500 kg/m³. Using these assumptions, we can estimate the mass of the asteroid.</p>",
   "tables": [
     {
       "id": "5",
@@ -21,7 +21,8 @@
         "col": "right",
         "row": "top"
       },
-      "colTitles": ["Asteroid Name", "3200 Phaeton"],
+      "fixed": true,
+      "colTitles": ["", "3200 Phaeton"],
       "rowTitles": [
         ["Asteroid Diameter"],
         ["Asteroid Velocity"],
@@ -31,7 +32,7 @@
       "rows": [
         [{ "accessor": "diameter", "id": "48" }],
         [{ "content": "12,900 m/s" }],
-        [{ "content": "2,500 kg/m^3" }],
+        [{ "content": "2,500 kg/m³" }],
         [{ "accessor": "mass", "id": "52" }]
       ]
     }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useThree, useFrame } from 'react-three-fiber';
 import Orbital from './Orbital.jsx';
 import PotentialOrbits from './PotentialOrbits.jsx';
-import { earth, jupiter, neptune } from './orbitalUtilities.js';
+import { getRefObjProps } from './orbitalUtilities.js';
 
 function Orbitals({
   neos,
@@ -15,10 +15,10 @@ function Orbitals({
   dayPerVizSec,
   stepDirection,
   frameOverride,
-  includeRefObjs,
   defaultZoom,
   potentialOrbits,
   observations,
+  refObjs,
 }) {
   function reducer(state) {
     const { remainingInits } = state;
@@ -37,7 +37,12 @@ function Orbitals({
   });
 
   function renderRefObjs() {
-    return [earth, jupiter, neptune].map(planet => {
+    const refObjsProperties = (refObjs || ['earth', 'jupiter', 'neptune']).map(
+      refObjId => {
+        return getRefObjProps(refObjId);
+      }
+    );
+    return refObjsProperties.map(planet => {
       const {
         orbitColor,
         objectColor,
@@ -71,7 +76,7 @@ function Orbitals({
 
   return (
     <>
-      {includeRefObjs && renderRefObjs()}
+      {renderRefObjs()}
       {potentialOrbits ? (
         <PotentialOrbits
           data={neos}
@@ -129,11 +134,11 @@ Orbitals.propTypes = {
   dayPerVizSec: PropTypes.number,
   stepDirection: PropTypes.number,
   frameOverride: PropTypes.number,
-  includeRefObjs: PropTypes.bool,
   activeVelocityCallback: PropTypes.func,
   defaultZoom: PropTypes.number,
   potentialOrbits: PropTypes.bool,
   observations: PropTypes.array,
+  refObjs: PropTypes.array,
 };
 
 export default Orbitals;

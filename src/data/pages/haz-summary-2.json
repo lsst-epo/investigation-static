@@ -21,8 +21,8 @@
         "col": "right",
         "row": "top"
       },
-      "title": "Impact Collision Properties",
-      "colTitles": ["", "3200 Phaeton Impact Crater"],
+      "fixed": true,
+      "colTitles": ["", "3200 Phaeton"],
       "rowTitles": [
         ["Asteroid Diameter"],
         ["Asteroid Velocity"],
@@ -35,7 +35,7 @@
       "rows": [
         [{ "accessor": "diameter", "id": "48" }],
         [{ "content": "12,900 m/s" }],
-        [{ "content": "2,500 kg/m^3" }],
+        [{ "content": "2,500 kg/m³" }],
         [{ "accessor": "mass", "id": "52" }],
         [{ "accessor": "kineticEnergy", "id": "53" }],
         [{ "accessor": "craterDiameter", "id": "53" }],
@@ -50,7 +50,7 @@
           "id": "53",
           "questionType": "ImpactCalculator",
           "title": "Question #1",
-          "label": "Input the diameter, desnity, and velocity of your asteroid to determine its kinetic energy, and the size and depth of the crater that will be formed by this asteroid:",
+          "label": "Input the diameter, density, and velocity of your asteroid to determine its kinetic energy, and the size and depth of the crater that will be formed by this asteroid:",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "kineticEnergy"

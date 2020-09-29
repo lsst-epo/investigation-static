@@ -16,8 +16,8 @@ export const units = {
   craterDiameter: ' m',
   craterDepth: ' m',
   kineticEnergy: ' J',
-  volume: ' m^3',
-  density: ' kg/m^3',
+  volume: ' m³',
+  density: ' kg/m³',
   overPressure: ' Pa',
   observerDistance: ' m',
 };

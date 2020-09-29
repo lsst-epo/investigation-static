@@ -23,7 +23,9 @@
         "title": "Aten",
         "paused": true,
         "pov": "top",
-        "noDetails": true
+        "noDetails": true,
+        "refObjs": ["earth"],
+        "defaultZoom": 1.75
       }
     }
   ],

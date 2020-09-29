@@ -26,13 +26,13 @@
       "rows": [
         [
           { "content": "25,000 kg" },
-          { "content": "12,500 kg" },
-          { "content": "20,000 kg" }
+          { "content": "15,000 kg" },
+          { "content": "15,000 kg" }
         ],
         [
-          { "content": "12,500 m/s" },
+          { "content": "15,000 m/s" },
           { "content": "25,000 m/s" },
-          { "content": "20,000 m/s" }
+          { "content": "15,000 m/s" }
         ]
       ]
     }
@@ -45,7 +45,18 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Predict which of the asteroids in the table above would cause damage over the largest area if it hit Earth? Which would damage the smallest area? Explain your reasoning."
+          "label": "Predict which asteroid would make the largest impact crater (i.e., cause damage over the largest area) if it hit Earth. Explain your reasoning."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "3400",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Predict which asteroid would make the smallest impact crater (i.e., cause damage over the smallest area) if it hit Earth.  Explain your reasoning."
         }
       ]
     }

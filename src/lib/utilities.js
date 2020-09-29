@@ -267,7 +267,7 @@ export const getValue = function(accessor, data) {
       eccentricity: formatValue(data, 2),
       semimajor_axis: formatValue(data, 2),
       moid: formatValue(data, 3),
-      diameter: formatValue(data, 3),
+      diameter: formatValue(data, 0),
       craterDiameter: addTheCommas(toSigFigs(data, 3)),
       craterDepth: addTheCommas(toSigFigs(data, 3)),
       count: formatValue(data ? data.length : 0, 0),
