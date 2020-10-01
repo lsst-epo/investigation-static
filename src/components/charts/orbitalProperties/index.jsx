@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import Histogram from '../histogram/index.jsx';
+import { loadingWrapper } from './orbital-properties.module.scss';
 
 class OrbitalProperties extends React.PureComponent {
   callback = () => {
@@ -24,7 +26,7 @@ class OrbitalProperties extends React.PureComponent {
 
     return (
       <>
-        {data && (
+        {data ? (
           <Histogram
             {...{
               data,
@@ -42,6 +44,10 @@ class OrbitalProperties extends React.PureComponent {
             dataSelectionCallback={this.callback}
             domain={domain[0]}
           />
+        ) : (
+          <div className={loadingWrapper}>
+            <CircularProgress className="chart-loader" scale={3} />
+          </div>
         )}
       </>
     );
