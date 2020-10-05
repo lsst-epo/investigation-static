@@ -16,6 +16,11 @@
   text-anchor: middle;
 }
 
+.message {
+  @include headingSecondary;
+  color: $error;
+}
+
 .galaxy-point {
   /* stylelint-disable-next-line declaration-no-important */
   outline: none !important;

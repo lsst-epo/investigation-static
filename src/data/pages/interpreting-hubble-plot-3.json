@@ -18,7 +18,8 @@
     "type": "HubblePlot",
     "options": {
       "showUserPlot": "252",
-      "preSelected": true
+      "preSelected": true,
+      "required": ["252"]
     }
   }],
   "questionsByPage": [

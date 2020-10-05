@@ -321,7 +321,8 @@ export const isRequiredAnswered = function(reqQIds, answers) {
   const allAnswered = [];
 
   reqQIds.forEach(qId => {
-    if (answers[qId]) allAnswered.push(qId);
+    if (answers[qId] && Object.keys(answers[qId]).length !== 0)
+      allAnswered.push(qId);
   });
 
   return allAnswered.length === reqQIds.length;

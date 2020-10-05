@@ -27,6 +27,7 @@ import {
   galaxyPoint,
   cursorPoint,
   invisible,
+  message,
 } from './hubble-plot.module.scss';
 
 class HubblePlot extends React.Component {
@@ -390,6 +391,7 @@ class HubblePlot extends React.Component {
       loading,
       loaded: !loading,
     });
+
     const calcHeight = height - padding;
 
     return (
@@ -414,6 +416,12 @@ class HubblePlot extends React.Component {
           accessors={tooltipAccessors}
           labels={tooltipLabels}
         />
+        {!isVisible && (
+          <div className={message}>
+            Plot not available. Please complete all questions from previous
+            pages.
+          </div>
+        )}
         <svg
           className={svgClasses}
           preserveAspectRatio="xMidYMid meet"

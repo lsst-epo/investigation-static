@@ -18,7 +18,8 @@
     "type": "HubblePlot",
     "options": {
       "showUserPlot": "252",
-      "userTrendline": "7"
+      "userTrendline": "7",
+      "required": ["252", "7"]
     }
   }],
   "questionsByPage": [
