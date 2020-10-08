@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useThree, useFrame } from 'react-three-fiber';
 import Orbital from './Orbital.jsx';
@@ -19,6 +19,8 @@ function Orbitals({
   potentialOrbits,
   observations,
   refObjs,
+  elapsedTime,
+  setElapsedTime,
 }) {
   function reducer(state) {
     const { remainingInits } = state;
@@ -31,10 +33,6 @@ function Orbitals({
   });
 
   const [zoomLevel, setZoomLevel] = useState(1);
-
-  useFrame(() => {
-    if (camera.zoom !== zoomLevel) setZoomLevel(camera.zoom);
-  });
 
   function renderRefObjs() {
     const refObjsProperties = (refObjs || ['earth', 'jupiter', 'neptune']).map(
@@ -73,6 +71,20 @@ function Orbitals({
       );
     });
   }
+
+  useFrame((frameState, delta) => {
+    if (camera.zoom !== zoomLevel) setZoomLevel(camera.zoom);
+    if (playing) {
+      setElapsedTime(elapsedTime + stepDirection * delta * dayPerVizSec);
+    }
+  });
+
+  // Called whenever frameOverride changes
+  useEffect(() => {
+    if (frameOverride) {
+      setElapsedTime(elapsedTime + stepDirection * (1 / 60) * dayPerVizSec);
+    }
+  }, [frameOverride]);
 
   return (
     <>
@@ -139,6 +151,8 @@ Orbitals.propTypes = {
   potentialOrbits: PropTypes.bool,
   observations: PropTypes.array,
   refObjs: PropTypes.array,
+  elapsedTime: PropTypes.number,
+  setElapsedTime: PropTypes.func,
 };
 
 export default Orbitals;

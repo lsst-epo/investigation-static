@@ -31,6 +31,7 @@ function OrbitalViewer({
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
   const [dayPerVizSec, setDayPerVizSec] = useState(paused ? 0 : speeds[2]);
+  const [elapsedTime, setElapsedTime] = useState(0);
   const handleStartStop = () => {
     setPlaying(!playing);
     setStepDirection(1);
@@ -63,7 +64,7 @@ function OrbitalViewer({
         {!potentialOrbits && !noDetails && (
           <OrbitalDetails velocity={activeVelocity} data={activeNeo} />
         )}
-        {!paused && <PlaybackSpeed dayPerVizSec={dayPerVizSec} />}
+        {!paused && <PlaybackSpeed {...{ elapsedTime, dayPerVizSec }} />}
         <Canvas invalidateFrameloop className={orbitalCanvas}>
           <CameraController pov={pov} />
           <Camera
@@ -92,6 +93,8 @@ function OrbitalViewer({
               potentialOrbits,
               observations,
               selectionCallback,
+              elapsedTime,
+              setElapsedTime,
             }}
           />
           <mesh position={[0, 0, 0]}>
