@@ -48,7 +48,6 @@ class HubblePlotContainer extends React.PureComponent {
 
   userTrendlineCallback = (qId, data) => {
     const { updateAnswer, activeQuestionId } = this.props;
-
     updateAnswer(qId || activeQuestionId, data);
   };
 
@@ -69,7 +68,10 @@ class HubblePlotContainer extends React.PureComponent {
     const { data } = this.state;
     const { activeQuestionId, options, answers } = this.props;
     const { userTrendline, hubbleConstant, required: reqQIds } = options || {};
-    const trendlineInteractable = userTrendline === activeQuestionId;
+    const trendlineInteractable =
+      userTrendline === activeQuestionId &&
+      !!userTrendline &&
+      !!activeQuestionId;
 
     return (
       <>
