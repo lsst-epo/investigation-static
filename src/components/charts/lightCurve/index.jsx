@@ -21,6 +21,7 @@ import Templates from './Templates.jsx';
 import NavDrawer from '../shared/navDrawer/index.jsx';
 
 import styles from './light-curve.module.scss';
+import { paddedDrawerInner } from '../shared/navDrawer/nav-drawer.module.scss';
 
 class LightCurve extends React.PureComponent {
   constructor(props) {
@@ -403,7 +404,7 @@ class LightCurve extends React.PureComponent {
             `${lightCurveType} Template Selected` || 'No Template Selected'
           }
           showNavDrawer={chooseLightCurveTemplate}
-          contentClasses={styles.mainContent}
+          contentClasses={paddedDrawerInner}
         >
           <div
             key="svg-container"

@@ -10,7 +10,6 @@ import {
   avatarContainer,
   navAvatar,
   container,
-  mainContent,
 } from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 import {
   activeItem,
@@ -165,6 +164,7 @@ class OrbitalViewerContainer extends React.PureComponent {
         {!multiple && (
           <h2 className="space-bottom">{title || 'Orbit Viewer'}</h2>
         )}
+
         <ConditionalWrapper
           condition={multiple}
           wrapper={children => (
@@ -173,9 +173,9 @@ class OrbitalViewerContainer extends React.PureComponent {
               toolbarTitle={`${data ? data[activeNavIndex].name : ''}`}
               cardClasses={container}
               navItems={this.generateNavItems(data)}
-              contentClasses={mainContent}
+              contentClasses={paddedDrawerInner}
             >
-              <div className={paddedDrawerInner}>{children}</div>
+              {children}
             </NavDrawer>
           )}
         >
