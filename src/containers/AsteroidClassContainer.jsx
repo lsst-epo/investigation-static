@@ -9,7 +9,6 @@ import AsteroidClass from '../components/charts/asteroidClass/index.jsx';
 
 import {
   drawerContainer,
-  mainContent,
   paddedDrawerInner,
   navItem,
   avatarContainer,
@@ -197,10 +196,10 @@ class AsteroidClassContainer extends React.PureComponent {
           <NavDrawer
             cardClasses={drawerContainer}
             navItems={this.generateNavItemsMulti(overlayData)}
-            contentClasses={mainContent}
+            contentClasses={paddedDrawerInner}
             toolbarStyles={{ display: 'none' }}
           >
-            <div className={paddedDrawerInner}>{children}</div>
+            {children}
           </NavDrawer>
         )}
       >
@@ -240,10 +239,10 @@ class AsteroidClassContainer extends React.PureComponent {
               <NavDrawer
                 cardClasses={drawerContainer}
                 navItems={this.generateNavItems(groups)}
-                contentClasses={mainContent}
+                contentClasses={paddedDrawerInner}
                 toolbarStyles={{ display: 'none' }}
               >
-                <div className={paddedDrawerInner}>{children}</div>
+                {children}
               </NavDrawer>
             )}
           >
