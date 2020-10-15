@@ -79,31 +79,30 @@ class ChartSwitcherContainer extends React.PureComponent {
             interactableToolbar
             navItems={navItems}
             toolbarTitle={title}
+            contentClasses={paddedDrawerInner}
           >
-            <div className={paddedDrawerInner}>
-              {nestedWidgets.map((nestedWidget, i) => {
-                const { type, options: nestedOptions } = nestedWidget;
-                const key = type + i;
-                const WidgetTag = widgetTags[type];
+            {nestedWidgets.map((nestedWidget, i) => {
+              const { type, options: nestedOptions } = nestedWidget;
+              const key = type + i;
+              const WidgetTag = widgetTags[type];
 
-                if (!WidgetTag) return null;
+              if (!WidgetTag) return null;
 
-                const itemClasses = classnames(stackedItem, {
-                  [visibilityActive]: activeIndex === i,
-                });
+              const itemClasses = classnames(stackedItem, {
+                [visibilityActive]: activeIndex === i,
+              });
 
-                return (
-                  <div key={key} className={itemClasses}>
-                    <WidgetTag
-                      type={type}
-                      widget={nestedWidget}
-                      options={nestedOptions}
-                      nested
-                    />
-                  </div>
-                );
-              })}
-            </div>
+              return (
+                <div key={key} className={itemClasses}>
+                  <WidgetTag
+                    type={type}
+                    widget={nestedWidget}
+                    options={nestedOptions}
+                    nested
+                  />
+                </div>
+              );
+            })}
           </NavDrawer>
         )}
       </>
