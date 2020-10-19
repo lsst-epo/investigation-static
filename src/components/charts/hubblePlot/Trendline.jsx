@@ -39,6 +39,8 @@ class Trendline extends React.Component {
   }
 
   resetSlope() {
+    const { slopeCallback } = this.props;
+    slopeCallback(null);
     this.setState(prevState => ({
       ...prevState,
       slope: null,
@@ -48,11 +50,11 @@ class Trendline extends React.Component {
   }
 
   mouseMoveHandler = () => {
-    const { xScale, yScale } = this.props;
+    const { xScale, yScale, slopeCallback } = this.props;
     const $background = this.background.current;
     const terminus = d3mouse($background);
     const slope = yScale.invert(terminus[1]) / xScale.invert(terminus[0]);
-
+    slopeCallback(formatValue(slope, 1));
     this.setState(prevState => ({
       ...prevState,
       terminus,
@@ -224,6 +226,7 @@ Trendline.propTypes = {
   isInteractable: PropTypes.bool,
   hubbleConstant: PropTypes.number,
   clickHandler: PropTypes.func,
+  slopeCallback: PropTypes.func,
 };
 
 export default Trendline;

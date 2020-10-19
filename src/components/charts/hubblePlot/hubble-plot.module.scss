@@ -21,6 +21,24 @@
   color: $error;
 }
 
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $minPadding;
+  min-width: $break30;
+  max-width: $tallestSquareWidget;
+  height: 64px;
+  padding: $minPadding / 2 $minPadding;
+  background-color: $basePrimary;
+  .name {
+    @include subheadingPrimary;
+    font-weight: $bold;
+    color: $white;
+  }
+}
+
+
 .galaxy-point {
   /* stylelint-disable-next-line declaration-no-important */
   outline: none !important;

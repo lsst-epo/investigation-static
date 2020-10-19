@@ -21,6 +21,7 @@ import CursorPoint from './CursorPoint.jsx';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
+import Legend from './Legend';
 import {
   hubblePlot,
   hubblePlotContainer,
@@ -46,6 +47,7 @@ class HubblePlot extends React.Component {
       mousePosX: null,
       mousePosY: null,
       showTooltip: false,
+      slope: null,
       xScale: d3ScaleLinear()
         .domain(domain ? domain[0] : props.xDomain)
         .range([props.padding, props.width]),
@@ -349,6 +351,14 @@ class HubblePlot extends React.Component {
     this.addEventListeners();
   }
 
+  slopeCallback = value => {
+    console.log(value);
+    this.setState(prevState => ({
+      ...prevState,
+      slope: value,
+    }));
+  };
+
   render() {
     const {
       data,
@@ -382,6 +392,7 @@ class HubblePlot extends React.Component {
       mousePosX,
       mousePosY,
       activeDataIndex,
+      slope,
     } = this.state;
 
     const { userTrendline, multiple } = options || {};
@@ -395,134 +406,140 @@ class HubblePlot extends React.Component {
     const calcHeight = height - padding;
 
     return (
-      <div
-        ref={this.svgContainer}
-        className={`svg-container ${hubblePlotContainer}`}
-        data-testid="hubble-plot"
-      >
-        {loading && (
-          <CircularProgress
-            id={`${name}-loader`}
-            className="chart-loader"
-            scale={3}
-          />
+      <div>
+        {isVisible && userTrendline && (
+          <Legend slope={slope} hubbleConstant={hubbleConstant} />
         )}
-        <Tooltip
-          key="tooltip"
-          data={selectedData || hoveredData}
-          posX={tooltipPosX}
-          posY={tooltipPosY}
-          show={showTooltip}
-          accessors={tooltipAccessors}
-          labels={tooltipLabels}
-        />
-        {!isVisible && (
-          <div className={message}>
-            Plot not available. Please complete all questions from previous
-            pages.
-          </div>
-        )}
-        <svg
-          className={svgClasses}
-          preserveAspectRatio="xMidYMid meet"
-          viewBox={`0 0 ${width} ${height}`}
-          ref={this.svgEl}
-          data-testid="hubble-plot-svg"
+        <div
+          ref={this.svgContainer}
+          className={`svg-container ${hubblePlotContainer}`}
+          data-testid="hubble-plot"
         >
-          <defs>
-            <clipPath id="clip">
-              <rect
-                x={padding}
-                y={offsetTop}
-                width={width - padding - offsetRight}
-                height={calcHeight}
-              />
-            </clipPath>
-          </defs>
-          <XAxis
-            label={xAxisLabel}
-            scale={xScale}
-            {...{
-              height,
-              width,
-              padding,
-              offsetTop,
-              offsetRight,
-            }}
-          />
-          <YAxis
-            label={yAxisLabel}
-            scale={yScale}
-            {...{
-              height,
-              padding,
-              offsetTop,
-            }}
-          />
-          <CursorPoint
-            x={mousePosX}
-            y={mousePosY}
-            offsetTop={offsetTop}
-            pointClasses={classnames(
-              `color-${activeDataIndex + 1}-fill`,
-              `${cursorPoint}`,
-              {
-                [invisible]: !mousePosX && !mousePosY,
-              }
-            )}
-          />
-          <g>
-            {data &&
-              multiple &&
-              data.map((set, i) => {
-                const key = `galaxy-${i}`;
-                return (
-                  <Points
-                    key={key}
-                    data={set}
-                    {...{
-                      xScale,
-                      yScale,
-                      xValueAccessor,
-                      yValueAccessor,
-                      selectedData,
-                      hoveredData,
-                      offsetTop,
-                    }}
-                    colorize={i !== 0}
-                    pointClasses={`color-${i}-fill set-${i} ${galaxyPoint}`}
-                  />
-                );
-              })}
-            {data && !multiple && (
-              <Points
-                {...{
-                  data,
-                  xScale,
-                  yScale,
-                  xValueAccessor,
-                  yValueAccessor,
-                  selectedData,
-                  hoveredData,
-                  offsetTop,
-                }}
-                colorize
-                pointClasses={galaxyPoint}
-              />
-            )}
-          </g>
-          {(userTrendline || hubbleConstant) && xScale && yScale && (
-            <Trendline
-              {...{ xScale, yScale, hubbleConstant }}
-              captureAreaX={padding}
-              captureAreaY={offsetTop}
-              captureAreaWidth={width}
-              captureAreaHeight={calcHeight}
-              clickHandler={this.onTrendlineClick}
-              isInteractable={trendlineInteractable}
+          {loading && (
+            <CircularProgress
+              id={`${name}-loader`}
+              className="chart-loader"
+              scale={3}
             />
           )}
-        </svg>
+          <Tooltip
+            key="tooltip"
+            data={selectedData || hoveredData}
+            posX={tooltipPosX}
+            posY={tooltipPosY}
+            show={showTooltip}
+            accessors={tooltipAccessors}
+            labels={tooltipLabels}
+          />
+          {!isVisible && (
+            <div className={message}>
+              Plot not available. Please complete all questions from previous
+              pages.
+            </div>
+          )}
+          <svg
+            className={svgClasses}
+            preserveAspectRatio="xMidYMid meet"
+            viewBox={`0 0 ${width} ${height}`}
+            ref={this.svgEl}
+            data-testid="hubble-plot-svg"
+          >
+            <defs>
+              <clipPath id="clip">
+                <rect
+                  x={padding}
+                  y={offsetTop}
+                  width={width - padding - offsetRight}
+                  height={calcHeight}
+                />
+              </clipPath>
+            </defs>
+            <XAxis
+              label={xAxisLabel}
+              scale={xScale}
+              {...{
+                height,
+                width,
+                padding,
+                offsetTop,
+                offsetRight,
+              }}
+            />
+            <YAxis
+              label={yAxisLabel}
+              scale={yScale}
+              {...{
+                height,
+                padding,
+                offsetTop,
+              }}
+            />
+            <CursorPoint
+              x={mousePosX}
+              y={mousePosY}
+              offsetTop={offsetTop}
+              pointClasses={classnames(
+                `color-${activeDataIndex + 1}-fill`,
+                `${cursorPoint}`,
+                {
+                  [invisible]: !mousePosX && !mousePosY,
+                }
+              )}
+            />
+            <g>
+              {data &&
+                multiple &&
+                data.map((set, i) => {
+                  const key = `galaxy-${i}`;
+                  return (
+                    <Points
+                      key={key}
+                      data={set}
+                      {...{
+                        xScale,
+                        yScale,
+                        xValueAccessor,
+                        yValueAccessor,
+                        selectedData,
+                        hoveredData,
+                        offsetTop,
+                      }}
+                      colorize={i !== 0}
+                      pointClasses={`color-${i}-fill set-${i} ${galaxyPoint}`}
+                    />
+                  );
+                })}
+              {data && !multiple && (
+                <Points
+                  {...{
+                    data,
+                    xScale,
+                    yScale,
+                    xValueAccessor,
+                    yValueAccessor,
+                    selectedData,
+                    hoveredData,
+                    offsetTop,
+                  }}
+                  colorize
+                  pointClasses={galaxyPoint}
+                />
+              )}
+            </g>
+            {(userTrendline || hubbleConstant) && xScale && yScale && (
+              <Trendline
+                {...{ xScale, yScale, hubbleConstant }}
+                captureAreaX={padding}
+                captureAreaY={offsetTop}
+                captureAreaWidth={width}
+                captureAreaHeight={calcHeight}
+                clickHandler={this.onTrendlineClick}
+                isInteractable={trendlineInteractable}
+                slopeCallback={this.slopeCallback}
+              />
+            )}
+          </svg>
+        </div>
       </div>
     );
   }
