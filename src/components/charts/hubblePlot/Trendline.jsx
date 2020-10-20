@@ -39,8 +39,6 @@ class Trendline extends React.Component {
   }
 
   resetSlope() {
-    const { slopeCallback } = this.props;
-    slopeCallback(null);
     this.setState(prevState => ({
       ...prevState,
       slope: null,
@@ -138,7 +136,7 @@ class Trendline extends React.Component {
   }
 
   render() {
-    const { terminus: terminusState, slope } = this.state;
+    const { terminus: terminusState, slope, trendlineSelected } = this.state;
     const {
       hubbleConstant,
       captureAreaX,
@@ -183,7 +181,7 @@ class Trendline extends React.Component {
               strokeDasharray="10"
               markerEnd="url(#triangle)"
             />
-            {textPos && rectDims && (
+            {textPos && rectDims && isInteractable && !trendlineSelected && (
               <rect
                 width={rectDims.width + 2 * this.offset}
                 height={rectDims.height + 2 * this.offset}
@@ -194,7 +192,7 @@ class Trendline extends React.Component {
                 stroke="#000000"
               ></rect>
             )}
-            {textPos && (
+            {textPos && isInteractable && !trendlineSelected && (
               <text ref={this.label} x={textPos[0]} y={textPos[1]}>
                 slope = {formatValue(slope || hubbleConstant, 1)}
               </text>

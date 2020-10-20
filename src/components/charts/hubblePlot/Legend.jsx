@@ -6,14 +6,14 @@ import { legend, name } from './hubble-plot.module.scss';
 class Legend extends React.PureComponent {
   render() {
     const { slope, hubbleConstant } = this.props;
+    const legendSlope =
+      slope || hubbleConstant
+        ? `Slope ${formatValue(slope || hubbleConstant, 1)}`
+        : 'Click & Drag To Add A TrendLine';
 
     return (
       <div className={legend}>
-        {slope && (
-          <div className={name}>
-            Slope: {formatValue(slope || hubbleConstant, 1)}
-          </div>
-        )}
+        <div className={name}>{legendSlope}</div>
       </div>
     );
   }

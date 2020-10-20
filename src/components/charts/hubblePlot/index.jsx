@@ -352,7 +352,6 @@ class HubblePlot extends React.Component {
   }
 
   slopeCallback = value => {
-    console.log(value);
     this.setState(prevState => ({
       ...prevState,
       slope: value,
@@ -404,11 +403,15 @@ class HubblePlot extends React.Component {
     });
 
     const calcHeight = height - padding;
-
+    console.log(slope);
     return (
       <div>
         {isVisible && userTrendline && (
-          <Legend slope={slope} hubbleConstant={hubbleConstant} />
+          <Legend
+            slope={slope}
+            hubbleConstant={hubbleConstant}
+            isInteractable={trendlineInteractable}
+          />
         )}
         <div
           ref={this.svgContainer}
