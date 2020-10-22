@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { widgetTags } from './widgets-utilities.js';
 import ChartSwitcher from '../../containers/ChartSwitcherContainer.jsx';
+import HelpMenu from '../site/helpMenu/index.jsx';
 
 class Widget extends React.PureComponent {
   constructor(props) {
     super(props);
-
     this.widgetTags = { ...widgetTags, ChartSwitcher };
   }
 
@@ -15,8 +15,12 @@ class Widget extends React.PureComponent {
     const WidgetTag = this.widgetTags[type];
 
     if (!WidgetTag) return null;
-
-    return <WidgetTag {...this.props} />;
+    return (
+      <div>
+        <WidgetTag {...this.props} />
+        <HelpMenu />
+      </div>
+    );
   }
 }
 
