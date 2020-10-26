@@ -1,0 +1,14 @@
+.helpBtn {
+    float: right;
+  
+    :global {
+      .md-btn {
+        color: $black;
+        background-color: rgba(200,200,200,0.5);
+  
+        &:hover {
+          background-color: $white;
+        }
+      }
+    }
+  }
