@@ -403,7 +403,7 @@ class HubblePlot extends React.Component {
     });
 
     const calcHeight = height - padding;
-    console.log(slope);
+
     return (
       <div>
         {isVisible && userTrendline && (

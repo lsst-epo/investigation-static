@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select, mouse as d3mouse } from 'd3-selection';
+import Unit from '../shared/unit/index.jsx';
 import { formatValue, getElDims } from '../../../lib/utilities.js';
 
 class Trendline extends React.Component {
@@ -194,7 +195,8 @@ class Trendline extends React.Component {
             )}
             {textPos && isInteractable && !trendlineSelected && (
               <text ref={this.label} x={textPos[0]} y={textPos[1]}>
-                slope = {formatValue(slope || hubbleConstant, 1)}
+                slope = {formatValue(slope || hubbleConstant, 1)}{' '}
+                <Unit type="hubbleConstant" isSvg />
               </text>
             )}
           </g>
