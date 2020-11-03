@@ -87,7 +87,6 @@ class Point extends React.PureComponent {
         r={this.getRadius(id, radius)}
         fill="transparent"
         stroke={this.getStroke(isActive, isSelected, color)}
-        strokeWidth={0}
       />
     );
   }

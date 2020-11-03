@@ -246,7 +246,7 @@ class GalaxySelectorContainer extends React.PureComponent {
       const answer = answers[qId];
       const answerObj = !isEmpty(answer) ? { ...answer.data, ...dObj } : dObj;
 
-      updateAnswer(qId, answerObj);
+      updateAnswer(qId, answerObj, 'change');
     }
 
     if (d.length > 1) {
@@ -264,7 +264,7 @@ class GalaxySelectorContainer extends React.PureComponent {
   userHubblePlotCallback = (qId, plottedData) => {
     const { updateAnswer } = this.props;
 
-    updateAnswer(qId, plottedData);
+    updateAnswer(qId, plottedData, 'change');
 
     this.setState(prevState => ({
       ...prevState,

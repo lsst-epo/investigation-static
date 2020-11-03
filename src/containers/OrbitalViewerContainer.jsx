@@ -142,7 +142,7 @@ class OrbitalViewerContainer extends React.PureComponent {
     const { questionId } = options || {};
 
     if (questionId) {
-      updateAnswer(questionId, data);
+      updateAnswer(questionId, data, 'change');
     }
   }
 

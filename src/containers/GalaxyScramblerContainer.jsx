@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/isEmpty';
 import find from 'lodash/find';
 import classnames from 'classnames';
 import API from '../lib/API.js';
@@ -65,28 +64,6 @@ class GalaxyScramblerContainer extends React.PureComponent {
       navItems: this.generateNavItems(scrambles, activeScramble),
     }));
   };
-
-  userHubblePlotCallback = (qId, data) => {
-    const { updateAnswer } = this.props;
-
-    updateAnswer(qId, data);
-
-    this.setState(prevState => ({
-      ...prevState,
-      data,
-    }));
-  };
-
-  getHubbleConstant(qId) {
-    const { answers } = this.props;
-    const answer = answers[qId];
-
-    if (!isEmpty(answer)) {
-      return answer.data;
-    }
-
-    return null;
-  }
 
   generateNavItems(scrambles, activeScramble) {
     return scrambles.map((scramble, i) => {

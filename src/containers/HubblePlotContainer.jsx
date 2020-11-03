@@ -38,7 +38,7 @@ class HubblePlotContainer extends React.PureComponent {
   userHubblePlotCallback = (qId, data) => {
     const { updateAnswer, activeQuestionId } = this.props;
 
-    updateAnswer(qId || activeQuestionId, data);
+    updateAnswer(qId || activeQuestionId, data, 'change');
 
     this.setState(prevState => ({
       ...prevState,
@@ -48,7 +48,7 @@ class HubblePlotContainer extends React.PureComponent {
 
   userTrendlineCallback = (qId, data) => {
     const { updateAnswer, activeQuestionId } = this.props;
-    updateAnswer(qId || activeQuestionId, data);
+    updateAnswer(qId || activeQuestionId, data, 'change');
   };
 
   getHubbleConstant(qId, hubbleConstant) {

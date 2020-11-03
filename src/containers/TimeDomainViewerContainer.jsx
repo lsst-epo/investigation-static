@@ -85,7 +85,7 @@ class TimeDomainViewerContainer extends React.PureComponent {
     const qId = toggleDataPointsVisibility || activeQuestionId;
     const answerData = this.getSelectionAnswerData();
 
-    if (!answerData) updateAnswer(qId, data);
+    if (!answerData) updateAnswer(qId, data, 'change');
   };
 
   onBlinkChange = update => {
