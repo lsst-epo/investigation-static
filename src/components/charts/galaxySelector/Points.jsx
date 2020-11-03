@@ -36,7 +36,7 @@ class Points extends React.PureComponent {
               classes={pointClasses}
               x={xScale(xVal)}
               y={yScale(d[yValueAccessor])}
-              color={isNumber(color) ? chartColors.chart7 : color}
+              color={isNumber(color) ? chartColors.chart6 : color}
               tabIndex="0"
             />
           );

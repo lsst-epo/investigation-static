@@ -58,11 +58,11 @@ class AstroToolContainer extends React.PureComponent {
     const answer = answers[activeQuestionId || questionId];
 
     if (isEmpty(answer) && activeQuestionId === questionId) {
-      this.updateAnswer();
+      this.getInitialAnswer();
     }
   }
 
-  updateAnswer = () => {
+  getInitialAnswer = () => {
     const { widget } = this.props;
     const { options } = widget;
     const { objectName } = options || {};
@@ -93,7 +93,7 @@ class AstroToolContainer extends React.PureComponent {
           const { options: opt } = w || {};
           const { questionId } = opt || {};
           const { selectedData: newData } = this.state;
-          updateAnswer(questionId, newData);
+          updateAnswer(questionId, newData, 'change');
         }
       );
     }
@@ -107,7 +107,7 @@ class AstroToolContainer extends React.PureComponent {
     if (!d) return;
 
     if (questionId) {
-      updateAnswer(questionId, d);
+      updateAnswer(questionId, d, 'change');
       this.setState(prevState => ({
         ...prevState,
         selectedData: d,

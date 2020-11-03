@@ -98,7 +98,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
       const answer = answers[qId];
       const answerObj = !isEmpty(answer) ? { ...answer.data, ...dObj } : dObj;
 
-      updateAnswer(qId, answerObj);
+      updateAnswer(qId, answerObj, 'change');
     }
 
     if (d.length >= 1) {

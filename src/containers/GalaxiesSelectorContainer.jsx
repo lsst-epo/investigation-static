@@ -125,7 +125,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     const { toggleDataPointsVisibility: qId } = options || {};
 
     if (qId && isArray(allSelected)) {
-      updateAnswer(qId, allSelected);
+      updateAnswer(qId, allSelected, 'change');
     }
 
     this.updateActiveGalaxy(selection);
