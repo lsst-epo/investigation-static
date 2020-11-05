@@ -1,6 +1,11 @@
 .container {
   position: relative;
-  height: ($containerMaxWidth - $minPadding) / 2;
+  // width: 100%;
+  // min-width: $break30;
+  // max-width: $tallestSquareWidget;
+  height: 100%;
+  min-height: $break40;
+  max-height: calc(90vh - (2 * #{$siteHeaderHeight}) - (#{$minPadding} * 2));
   background-color: $black;
 
   @include respond($containerMaxWidth) {
@@ -97,7 +102,8 @@
   color: $white;
   cursor: pointer;
 
-  &.obs-answer, &.obs-hover {
+  &.obs-answer,
+  &.obs-hover {
     font-size: 18px;
     color: 'blue';
   }
@@ -143,7 +149,6 @@
       }
     }
   }
-
 }
 
 .details-toggle {
@@ -160,4 +165,3 @@
     background-color: $neutral20;
   }
 }
-
