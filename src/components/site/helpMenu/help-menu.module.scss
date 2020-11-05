@@ -1,14 +1,21 @@
-.helpBtn {
-    float: right;
-  
-    :global {
-      .md-btn {
-        color: $black;
-        background-color: rgba(200,200,200,0.5);
-  
-        &:hover {
-          background-color: $white;
-        }
+.help-btn {
+  position: absolute;
+  right: $minPadding / 2;
+  bottom: $minPadding / 2;
+  z-index: 2;
+
+  :global {
+    .md-btn {
+      color: $black;
+      background-color: rgba(200, 200, 200, 0.5);
+
+      &:hover {
+        background-color: $white;
       }
     }
   }
+}
+
+.help-wrapper {
+  position: relative;
+}

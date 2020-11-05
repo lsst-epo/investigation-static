@@ -4,6 +4,8 @@ import { widgetTags } from './widgets-utilities.js';
 import ChartSwitcher from '../../containers/ChartSwitcherContainer.jsx';
 import HelpMenu from '../site/helpMenu/index.jsx';
 
+import { helpWrapper } from '../site/helpMenu/help-menu.module.scss';
+
 class Widget extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -16,7 +18,7 @@ class Widget extends React.PureComponent {
 
     if (!WidgetTag) return null;
     return (
-      <div>
+      <div className={helpWrapper}>
         <WidgetTag {...this.props} />
         <HelpMenu />
       </div>

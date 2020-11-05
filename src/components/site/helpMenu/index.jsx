@@ -43,7 +43,17 @@ export default class SimpleModal extends PureComponent {
           onHide={this.handleHide}
           actions={actions}
           title="Lorem ipsum"
-        />
+        >
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse at aliquam purus. In lacinia nunc urna. Interdum et
+              malesuada fames ac ante ipsum primis in faucibus. Morbi vel nibh
+              magna. Donec ultricies vehicula egestas. Praesent dui ex, lobortis
+              quis lectus quis, pretium porta felis.
+            </p>
+          </div>
+        </DialogContainer>
       </div>
     );
   }
