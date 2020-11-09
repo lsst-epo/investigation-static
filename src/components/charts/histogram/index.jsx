@@ -604,7 +604,7 @@ Histogram.defaultProps = {
   width: 600,
   height: 600,
   padding: 80,
-  offsetTop: 0,
+  offsetTop: 5,
   offsetRight: 7,
   yAxisLabel: 'Number of Stars',
   tooltipAccessors: ['temperature'],
