@@ -19,6 +19,7 @@ import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
 import Templates from './Templates.jsx';
 import NavDrawer from '../shared/navDrawer/index.jsx';
+import ConditionalWrapper from '../../ConditionalWrapper';
 
 import styles from './light-curve.module.scss';
 import { paddedDrawerInner } from '../shared/navDrawer/nav-drawer.module.scss';
@@ -396,15 +397,21 @@ class LightCurve extends React.PureComponent {
     return (
       <>
         {legend}
-        <NavDrawer
-          cardClasses={styles.container}
-          interactableToolbar={interactableTemplates}
-          navItems={this.generateNavItems(templates || [])}
-          toolbarTitle={
-            `${lightCurveType} Template Selected` || 'No Template Selected'
-          }
-          showNavDrawer={chooseLightCurveTemplate}
-          contentClasses={paddedDrawerInner}
+        <ConditionalWrapper
+          condition={chooseLightCurveTemplate}
+          wrapper={children => (
+            <NavDrawer
+              cardClasses={styles.container}
+              interactableToolbar={interactableTemplates}
+              navItems={this.generateNavItems(templates || [])}
+              toolbarTitle={
+                `${lightCurveType} Template Selected` || 'No Template Selected'
+              }
+              contentClasses={paddedDrawerInner}
+            >
+              {children}
+            </NavDrawer>
+          )}
         >
           <div
             key="svg-container"
@@ -528,7 +535,7 @@ class LightCurve extends React.PureComponent {
               )}
             </svg>
           </div>
-        </NavDrawer>
+        </ConditionalWrapper>
       </>
     );
   }

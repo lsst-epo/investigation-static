@@ -20,6 +20,7 @@ import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import Star from '../components/site/icons/Star';
 import Legend from '../components/charts/shared/legend/index.jsx';
 import LegendItem from '../components/charts/shared/legend/LegendItem.jsx';
+import ConditionalWrapper from '../components/ConditionalWrapper';
 
 import {
   galaxyItem,
@@ -209,11 +210,17 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
         {data && showSelector && (
           <div className={showLightCurve ? 'col padded col-width-50' : 'col'}>
             <h2 className="space-bottom">Supernova Images</h2>
-            <NavDrawer
-              interactableToolbar
-              navItems={navItems}
-              toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
-              showNavDrawer={data ? data.length > 1 : false}
+            <ConditionalWrapper
+              condition={data ? data.length > 1 : false}
+              wrapper={children => (
+                <NavDrawer
+                  interactableToolbar
+                  navItems={navItems}
+                  toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
+                >
+                  {children}
+                </NavDrawer>
+              )}
             >
               <SupernovaSelector
                 className={`supernova-selector-${name}`}
@@ -231,19 +238,25 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                   activeImageIndex
                 )}
               />
-            </NavDrawer>
+            </ConditionalWrapper>
           </div>
         )}
         {(data || alerts) && showLightCurve && (
           <div className={showSelector ? 'col padded col-width-50' : 'col'}>
             <h2 className="space-bottom">Light Curve</h2>
-            <NavDrawer
-              cardClasses={container}
-              interactableToolbar
-              navItems={navItems}
-              toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
-              showNavDrawer={data && !multiple ? data.length > 1 : false}
-              contentClasses={paddedDrawerInner}
+            <ConditionalWrapper
+              condition={data && !multiple ? data.length > 1 : false}
+              wrapper={children => (
+                <NavDrawer
+                  cardClasses={container}
+                  interactableToolbar
+                  navItems={navItems}
+                  toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
+                  contentClasses={paddedDrawerInner}
+                >
+                  {children}
+                </NavDrawer>
+              )}
             >
               <LightCurve
                 className={`light-curve-${name} ${band}-band`}
@@ -284,7 +297,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                 templateZoomCallback={updateAnswer}
                 peakMagCallback={updateAnswer}
               />
-            </NavDrawer>
+            </ConditionalWrapper>
           </div>
         )}
       </div>

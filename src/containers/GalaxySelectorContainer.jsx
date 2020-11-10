@@ -293,7 +293,6 @@ class GalaxySelectorContainer extends React.PureComponent {
         <h2 className="space-bottom heading-primary">Galaxy Selector</h2>
         {data && (
           <NavDrawer
-            showNavDrawer
             interactableToolbar
             classes={styles.galaxyNavDrawer}
             cardClasses={styles.container}
