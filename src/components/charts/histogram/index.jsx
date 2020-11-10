@@ -461,10 +461,10 @@ class Histogram extends React.PureComponent {
           <NavDrawer
             cardClasses={styles.container}
             navItems={this.generateNavItems(groupNames)}
-            contentClasses={styles.mainContent}
+            contentClasses={styles.paddedDrawerInner}
             toolbarStyles={{ display: 'none' }}
           >
-            <div className={styles.paddedDrawerInner}>{children}</div>
+            {children}
           </NavDrawer>
         )}
       >

@@ -44,7 +44,6 @@ class NavDrawer extends React.PureComponent {
       toolbarTitle,
       toolbarActions,
       interactableToolbar,
-      showNavDrawer,
       cardClasses,
       toolbarStyles,
     } = this.props;
@@ -55,43 +54,35 @@ class NavDrawer extends React.PureComponent {
 
     return (
       <>
-        {showNavDrawer && (
-          <Card className={cardContainerClasses}>
-            <NavDrawerToolbar
-              menuIsOpen={menuIsOpen}
-              toggleMenu={this.menuToggler}
-              title={toolbarTitle}
-              actions={toolbarActions}
-              interactableToolbar={interactableToolbar}
-              toolbarStyles={toolbarStyles}
-            />
-            <NavigationDrawer
-              navItems={navItems}
-              visible={menuIsOpen}
-              onVisibilityChange={this.handleVisibilityChange}
-              position="left"
-              className={navClasses}
-              drawerClassName={drawerClasses}
-              mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY_MINI}
-              tabletDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
-              desktopDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
-              overlay={false}
-              contentClassName={contentClasses}
-            >
-              {children}
-            </NavigationDrawer>
-          </Card>
-        )}
-
-        {!showNavDrawer && children}
+        <Card className={cardContainerClasses}>
+          <NavDrawerToolbar
+            menuIsOpen={menuIsOpen}
+            toggleMenu={this.menuToggler}
+            title={toolbarTitle}
+            actions={toolbarActions}
+            interactableToolbar={interactableToolbar}
+            toolbarStyles={toolbarStyles}
+          />
+          <NavigationDrawer
+            navItems={navItems}
+            visible={menuIsOpen}
+            onVisibilityChange={this.handleVisibilityChange}
+            position="left"
+            className={navClasses}
+            drawerClassName={drawerClasses}
+            mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY_MINI}
+            tabletDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
+            desktopDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
+            overlay={false}
+            contentClassName={contentClasses}
+          >
+            {children}
+          </NavigationDrawer>
+        </Card>
       </>
     );
   }
 }
-
-NavDrawer.defaultProps = {
-  showNavDrawer: true,
-};
 
 NavDrawer.propTypes = {
   navItems: PropTypes.array,
@@ -105,7 +96,6 @@ NavDrawer.propTypes = {
   menuCloseCallback: PropTypes.func,
   toolbarActions: PropTypes.node,
   interactableToolbar: PropTypes.bool,
-  showNavDrawer: PropTypes.bool,
   toolbarStyles: PropTypes.object,
 };
 

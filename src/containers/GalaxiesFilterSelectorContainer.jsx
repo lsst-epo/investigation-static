@@ -154,7 +154,6 @@ class GalaxiesFilterSelectorContainer extends React.PureComponent {
             condition={data.length > 1}
             wrapper={children => (
               <NavDrawer
-                showNavDrawer
                 interactableToolbar
                 classes={styles.galaxyNavDrawer}
                 cardClasses={styles.container}
