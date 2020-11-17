@@ -20,7 +20,12 @@ class Widget extends React.PureComponent {
     return (
       <div className={helpWrapper}>
         <WidgetTag {...this.props} />
-        <HelpMenu />
+        <HelpMenu
+          title="Lorem Ipsum"
+          content={
+            '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse at aliquam purus. In lacinia nunc urna. Interdum etmalesuada fames ac ante ipsum primis in faucibus. Morbi vel nibhmagna. Donec ultricies vehicula egestas. Praesent dui ex, lobortisquis lectus quis, pretium porta felis.</p>'
+          }
+        />
       </div>
     );
   }

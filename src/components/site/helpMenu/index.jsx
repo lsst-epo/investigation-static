@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import { Button, DialogContainer } from 'react-md';
+import PropTypes from 'prop-types';
 import ButtonIcon from '../button/ButtonIcon';
 import InfoIcon from '../icons/InfoIcon';
 import { helpBtn } from './help-menu.module.scss';
+import { renderDef } from '../../../lib/utilities';
 
 export default class SimpleModal extends PureComponent {
   constructor(props) {
@@ -20,6 +22,7 @@ export default class SimpleModal extends PureComponent {
 
   render() {
     const { visible } = this.state;
+    const { title, content, modalClasses, helpButtonClasses } = this.props;
 
     const actions = [];
     actions.push({
@@ -34,6 +37,7 @@ export default class SimpleModal extends PureComponent {
           <Button
             icon
             iconEl={<ButtonIcon srText="Help" Icon={InfoIcon} />}
+            className={helpButtonClasses}
             onClick={this.handleShow}
           />
         </div>
@@ -41,20 +45,20 @@ export default class SimpleModal extends PureComponent {
           id="simple-action-dialog"
           visible={visible}
           onHide={this.handleHide}
+          className={modalClasses}
           actions={actions}
-          title="Lorem ipsum"
+          title={title}
         >
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse at aliquam purus. In lacinia nunc urna. Interdum et
-              malesuada fames ac ante ipsum primis in faucibus. Morbi vel nibh
-              magna. Donec ultricies vehicula egestas. Praesent dui ex, lobortis
-              quis lectus quis, pretium porta felis.
-            </p>
-          </div>
+          <div dangerouslySetInnerHTML={renderDef(content)}></div>
         </DialogContainer>
       </div>
     );
   }
 }
+
+SimpleModal.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.string,
+  modalClasses: PropTypes.string,
+  helpButtonClasses: PropTypes.string,
+};
