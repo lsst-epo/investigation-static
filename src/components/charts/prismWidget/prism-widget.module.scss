@@ -100,22 +100,26 @@
   .prism-small-colors {
     flex-grow: 1;
   }
+  .black-small-colors {
+    flex-grow: 1;
+    background-color: $black;
+  }
 }
 
 .prism-shape {
   .prism-wrapper {
     position: relative;
     width: 400px;
-    height: 100px;
+    height: 90px;
     margin: 80px auto auto -120px;
-    transform: rotate(36deg);
+    transform: rotate(40deg);
     perspective: 150px;
   }
 
   .prism-clip-wrapper {
     position: absolute;
-    top: -201px;
-    left: 155px;
+    top: -191px;
+    left: 159px;
     z-index: 1;
     display: flex;
     width: 700px;
@@ -185,6 +189,10 @@
   .prism-colors {
     flex-grow: 1;
   }
+  .black-colors {
+    flex-grow: 1;
+    background-color: $black;
+  }
 }
 
 .lens {
@@ -222,13 +230,14 @@
 
 .white-small-cover {
   position: absolute;
-  top: 2px;
-  left: 87px;
+  top: 7px;
+  left: 92px;
   display: block;
   width: 154px;
   height: 39px;
+  z-index: 3;
   background-color: $black;
-  transform: rotate(-2deg);
+  transform: rotate(3deg);
 }
 
 .background {
@@ -284,7 +293,7 @@
   }
 
   .white-small-cover {
-    transform: rotate(-1deg);
+    transform: rotate(3deg);
   }
 
   .white-cover {
@@ -327,7 +336,7 @@
   .white-small-cover {
     z-index: 0;
     width: 100%;
-    transform: rotate(-1deg);
+    transform: rotate(3deg);
   }
 
   .content-wrapper {
@@ -335,7 +344,6 @@
       .white-light-label {
         top: 50px;
         left: -70px;
-      }
     }
   }
 
@@ -344,4 +352,5 @@
       left: 140px;
     }
   }
+}
 }

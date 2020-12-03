@@ -32,6 +32,8 @@ import {
   visibleRay,
   hiddenRay,
   stripe,
+  blackColors,
+  blackSmallColors,
 } from './prism-widget.module.scss';
 import prismHexColors from '../../../assets/stylesheets/_variables.scss';
 
@@ -86,7 +88,7 @@ class PrismWidget extends React.PureComponent {
       'Yellow',
       'Green',
       'Blue',
-      'Indigo',
+      'Violet',
       'None',
     ];
 
@@ -102,12 +104,21 @@ class PrismWidget extends React.PureComponent {
                 <div className={prismSmallItems}>
                   {colors.map((color, i) => {
                     return (
-                      <div
-                        key={`div-${color}-lens`}
-                        className={prismSmallColors}
-                        name={color}
-                        style={this.getPrismColors(i)}
-                      ></div>
+                      <>
+                        <div
+                          key={`div-${color}-lens`}
+                          className={prismSmallColors}
+                          name={color}
+                          style={this.getPrismColors(i)}
+                        ></div>
+                        {i < 5 && (
+                          <div
+                            key={`div-${color}-blacklens`}
+                            className={`${blackSmallColors} ${hiddenRay}`}
+                            name={color}
+                          ></div>
+                        )}
+                      </>
                     );
                   })}
                 </div>
@@ -126,12 +137,21 @@ class PrismWidget extends React.PureComponent {
                     }
 
                     return (
-                      <div
-                        key={`div-${color}-lens`}
-                        className={`${prismColors} ${rays}`}
-                        name={color}
-                        style={this.getPrismColors(i)}
-                      ></div>
+                      <>
+                        <div
+                          key={`div-${color}-lens`}
+                          className={`${prismColors} ${rays}`}
+                          name={color}
+                          style={this.getPrismColors(i)}
+                        ></div>
+                        {i < 5 && (
+                          <div
+                            key={`div-${color}-blacklens`}
+                            className={`${blackColors} ${hiddenRay}`}
+                            name={color}
+                          ></div>
+                        )}
+                      </>
                     );
                   })}
                   {colors.map((color, i) => {
