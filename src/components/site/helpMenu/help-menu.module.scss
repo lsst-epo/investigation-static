@@ -1,8 +1,13 @@
-.help-btn {
+.widget-btn {
   position: absolute;
   right: $minPadding / 2;
   bottom: $minPadding / 2;
   z-index: 2;
+
+  .fullscreen{
+    right: $minPadding / 2;
+    top: $minPadding / 2;
+  }
 
   :global {
     .md-btn {
