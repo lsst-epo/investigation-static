@@ -25,7 +25,6 @@ import {
   prismSmallWrapper,
   prismSmallItems,
   prismSmallColors,
-  whiteSmallCover,
   background,
   selectContainer,
   selectLabel,
@@ -34,6 +33,7 @@ import {
   stripe,
   blackColors,
   blackSmallColors,
+  blackCover,
 } from './prism-widget.module.scss';
 import prismHexColors from '../../../assets/stylesheets/_variables.scss';
 
@@ -111,20 +111,20 @@ class PrismWidget extends React.PureComponent {
                           name={color}
                           style={this.getPrismColors(i)}
                         ></div>
-                        {i < 5 && (
+                        {/* {i < 5 && (
                           <div
                             key={`div-${color}-blacklens`}
                             className={`${blackSmallColors} ${hiddenRay}`}
                             name={color}
                           ></div>
-                        )}
+                        )} */}
                       </>
                     );
                   })}
                 </div>
               </div>
             </div>
-            <div className={`${whiteSmallCover}`}></div>
+            <div className={`${blackCover}`}></div>
             <div className={prismClipWrapper}>
               <div className={prismWrapper}>
                 <div className={prismItems}>
