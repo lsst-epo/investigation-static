@@ -1,12 +1,13 @@
 .widget-btn {
   position: absolute;
   right: $minPadding / 2;
-  bottom: $minPadding / 2;
   z-index: 2;
 
-  .fullscreen{
-    right: $minPadding / 2;
+  .fullscreen {
     top: $minPadding / 2;
+  }
+  .help {
+    bottom: $minPadding / 2;
   }
 
   :global {
@@ -20,6 +21,8 @@
     }
   }
 }
+
+
 
 .help-wrapper {
   position: relative;

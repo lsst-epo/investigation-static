@@ -5,10 +5,7 @@ import ButtonIcon from '../../site/button/ButtonIcon';
 import FullscreenIcon from '../../site/icons/FullscreenIcon';
 import FullscreenExit from '../../site/icons/FullscreenExit';
 import Widget from '../../widgets/index.jsx';
-import {
-  widgetBtn,
-  fullscreen,
-} from '../../site/helpMenu/help-menu.module.scss';
+import { widgetBtn, fullscreen} from '../../site/helpMenu/help-menu.module.scss';
 
 import {
   gridWidget,
@@ -37,7 +34,9 @@ class WidgetBlock extends React.PureComponent {
       bottom: 0,
       left: 0,
       width: '100%',
-      height: '600px',
+      height: '100%',
+      background: 'white',
+      paddingTop: '75px',
     };
   }
 
