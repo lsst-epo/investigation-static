@@ -1,8 +1,10 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import BarChart from '../components/site/icons/BarChart';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
+import { renderDef } from '../lib/utilities';
 import { widgetTags } from '../components/widgets/widgets-utilities.js';
 import {
   stackedItem,
@@ -10,6 +12,8 @@ import {
   paddedDrawerInner,
   navItem,
   activeItem,
+  iconOverrideStyles,
+  activeIconItem,
 } from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 
 class ChartSwitcherContainer extends React.PureComponent {
@@ -41,17 +45,28 @@ class ChartSwitcherContainer extends React.PureComponent {
 
   generateNavItems(activeIndex) {
     const { widget } = this.props;
-    const { widgets: nestedWidgets } = widget;
+    const { widgets: nestedWidgets, options: widgetOptions } = widget;
+    const { iconOverride: icon } = widgetOptions || {};
 
     return nestedWidgets.map((nestedWidget, i) => {
       const { options } = nestedWidget;
-      const { xAxisLabel, title } = options || {};
+      const { xAxisLabel, title, iconOverride } = options || {};
       const label = title || xAxisLabel;
-      // console.log('nested', xAxisLabel, title);
+      const showIcon = !iconOverride ? icon : iconOverride;
+
       return {
         leftAvatar: (
           <span>
-            <BarChart />
+            {showIcon ? (
+              <div
+                className={classnames(iconOverrideStyles, {
+                  [activeIconItem]: activeIndex === i,
+                })}
+                dangerouslySetInnerHTML={renderDef(showIcon)}
+              ></div>
+            ) : (
+              <BarChart />
+            )}
             <span className="screen-reader-only">{label}</span>
           </span>
         ),

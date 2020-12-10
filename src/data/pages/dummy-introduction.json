@@ -1,0 +1,14 @@
+{
+  "id": "dummy00",
+  "investigation": "dummy",
+  "order": "00",
+  "title": "Introduction",
+  "slug": "introduction/",
+  "previous": { "title": "", "link": "" },
+  "next": {
+    "title": "Characterizing NEOs",
+    "link": "/characterizing-neo/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>This is a dummy investigation used mostly as a home for pgae and widget level options that need to appear at least once in the page data in order to get index successfully by graphQL</p>"
+}

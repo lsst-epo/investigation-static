@@ -10,6 +10,7 @@ export const nestedWidgetOptionsFragment = graphql`
     tooltipAccessors
     tooltipLabels
     bins
+    iconOverride
   }
 `;
 
@@ -52,6 +53,7 @@ export const widgetOptionsFragment = graphql`
     questionId
     potentialOrbits
     noDetails
+    iconOverride
     observations {
       id
       label

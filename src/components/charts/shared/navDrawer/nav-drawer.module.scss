@@ -66,6 +66,18 @@
   display: block;
 }
 
+.icon-override-styles{
+  color: $basePrimary;
+
+  &:hover {
+    color : $white;
+  }
+
+  &.active-icon-item {
+    color: $white;
+  }
+}
+
 .nav-item {
   :global {
     .md-list-tile {
