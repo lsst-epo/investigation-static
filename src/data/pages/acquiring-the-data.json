@@ -1,0 +1,25 @@
+{
+    "id": "expand2",
+    "investigation": "expanding-universe",
+    "order": "01",
+    "title": "New Page 2",
+    "slug": "acquiring-the-data/",
+    "previous": {
+      "title": "Introduction",
+      "link": "/introduction/"
+    },
+    "next": {
+      "title": "Using Supernovae to Measure Distance",
+      "link": "/acquiring-the-data-1/"
+    },
+    "layout": "TwoCol",
+    "content": "<p>As you can see from this story, often breakthroughs come as a result of scientists considering ideas that are different from their own.</p>",
+    "images": [
+      {
+        "mediaPath": "/images/alarmClock.jpg",
+        "altText": "[alarmClock]",
+        "figText": "Not only scientific breakthroughs come from combining different ideas, but also everyday life objects. The first American alarm clock was created in 1787 by Levi Hutchins, successfully combining two functions into one device. Sixty years later, Frenchman Antoine Redier made it adjustable for the user to set the alarm time, and only in the 1940s, the first radio alarm clock was invented by James F. Reynolds.<br/>Credit: Rubin Observatory"
+      }
+    ]
+  }
+  
