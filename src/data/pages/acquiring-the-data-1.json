@@ -1,12 +1,12 @@
 {
-  "id": "expand2",
+  "id": "expand2-1",
   "investigation": "expanding-universe",
-  "order": "01",
+  "order": "011",
   "title": "Using Supernovae to Measure Distance",
   "slug": "acquiring-the-data-1/",
   "previous": {
-    "title": "Introduction",
-    "link": "/introduction/"
+    "title": "New Page 2",
+    "link": "/acquiring-the-data/"
   },
   "next": {
     "title": "Using Photometric Redshift to Measure Velocity",
@@ -16,9 +16,9 @@
   "content": "<p>In order to construct a Hubble plot, you need two pieces of information about each galaxy: its distance from Earth, and its recessional velocity (the speed at which it’s moving away from Earth).</p><p>One of the most difficult challenges for astronomers is to determine distances to faraway objects like galaxies. One way to measure the distance to a galaxy is to look for a certain type of supernova (an exploded star) called a Type Ia (pronounced “type one-a”) supernova. Type Ia supernovae are useful because they all reach the same peak <a target='_blank' href='https://simple.wikipedia.org/wiki/Luminosity'>luminosity</a> no matter where they occur in the Universe. So if the supernova appears very bright, we know it must be close to Earth, and if it appears very dim, we know it must be far away. If you can measure the distance to a Type Ia supernova, then you also know the distance to the galaxy it resides in.</p><p>This picture shows a supernova that exploded in the galaxy M101. The supernova is marked with an arrow. Notice that it is bright compared to the other stars in the galaxy, and even brighter than the core of the galaxy itself.</p>",
   "images": [
     {
-      "mediaPath": "/images/m101sn2011fe-500.jpg",
-      "altText": "[SN2011fe in M101]",
-      "figText": "Supernova 2011fe in the spiral galaxy Messier 101; T.A. Rector (University of Alaska Anchorage), H. Schweiker & S. Pakzad NOAO/AURA/NS"
+      "mediaPath": "/images/SN2019ek.jpg",
+      "altText": "[SN2010ek in M101]",
+      "figText": "Hubble Space Telescope image of SN 2019ehk in its spiral host galaxy, Messier 100. The image is a composite made of pre- and post-explosion images.<br/>Credit: CTIO/SOAR/NOIRLab/NSF/AURA/Northwestern University/C. Kilpatrick/University of California Santa Cruz/NASA-ESA Hubble Space Telescope"
     }
   ]
 }

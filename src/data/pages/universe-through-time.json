@@ -14,6 +14,13 @@
   },
   "layout": "TwoCol",
   "content": "<p>The Hubble plot can be used to provide an indirect measure for how the Universe has changed over time. When we observe objects in the Universe, we must take into account that the light we receive has traveled vast distances over a long period of time. As a result, we are actually seeing these objects not as they are now, but as they were in the past.</p>",
+  "images": [
+    {
+      "mediaPath": "/images/bigBangExpansion.jpg",
+      "altText": "[universe through time]",
+      "figText": "—Caption that mentions how this diagram is a visual representation of how the universe has changed through time—<br/>Credit: Rubin Observatory"
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
