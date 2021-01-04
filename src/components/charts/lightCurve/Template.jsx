@@ -177,7 +177,7 @@ class LightCurveTemplate extends React.PureComponent {
       //   [-Infinity, offsetTop],
       //   [width - offsetRight, Infinity],
       // ])
-      .scaleExtent([1, 20])
+      .scaleExtent([0.5, 20])
       .extent([
         [padding, offsetTop],
         [width - offsetRight, height - padding],
