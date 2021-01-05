@@ -1,0 +1,14 @@
+{
+    "id": "coloring16",
+    "investigation": "coloring-universe",
+    "order": "16",
+    "title": "Acknowledgements Page",
+    "slug": "acknowledgements/",
+    "previous": { "title": "Reflect and Discuss", "link": "/reflect-and-discuss/" },
+    "next": {
+      "title": null,
+      "link": null
+    },
+    "layout": "TwoCol",
+    "content": "<p>Acknowledgments go here...</p>"
+  }

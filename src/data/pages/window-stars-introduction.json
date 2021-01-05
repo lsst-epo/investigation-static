@@ -9,8 +9,8 @@
     "link": ""
   },
   "next": {
-    "title": "",
-    "link": ""
+    "title": "Acknowledgements Page",
+    "link": "/acknowledgements/"
   },
   "layout": "TwoCol",
   "content": "<p>A Window to the Stars intro page</p>"

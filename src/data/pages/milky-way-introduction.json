@@ -9,8 +9,8 @@
     "link": ""
   },
   "next": {
-    "title": "",
-    "link": ""
+    "title": "Acknowledgement Page",
+    "link": "/acknowledgements/"
   },
   "layout": "TwoCol",
   "content": "<p>Milky Way intro page</p>"

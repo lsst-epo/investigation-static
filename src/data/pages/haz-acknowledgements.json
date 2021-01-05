@@ -1,0 +1,14 @@
+{
+    "id": "hazardous29",
+    "investigation": "hazardous-asteroids",
+    "order": "29",
+    "title": "Acknowledgements Page",
+    "slug": "acknowledgements/",
+    "previous": { "title": "Reflect and Discuss", "link": "/reflect-discuss/" },
+    "next": {
+      "title": null,
+      "link": null
+    },
+    "layout": "TwoCol",
+    "content": "<p>Acknowledgments go here...</p>"
+  }

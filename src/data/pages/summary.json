@@ -5,7 +5,7 @@
   "title": "Putting it all Together",
   "slug": "summary/",
   "previous": {"title": "Reflect and Discuss", "link": "/discuss-report/"},
-  "next": {"title": null, "link": null},
+  "next": {"title": "Acknowledgements Page", "link": "/acknowledgements/"},
   "layout": "TwoCol",
   "questionsByPage": [
     {

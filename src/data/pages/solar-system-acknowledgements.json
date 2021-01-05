@@ -1,0 +1,14 @@
+{
+    "id": "solarsystem34",
+    "investigation": "solar-system",
+    "order": "34",
+    "title": "Acknowledgements Page",
+    "slug": "acknowledgements/",
+    "previous": { "title": "Putting it all Together", "link": "/solar-system-summary-5/" },
+    "next": {
+      "title": null,
+      "link": null
+    },
+    "layout": "TwoCol",
+    "content": "<p>Acknowledgments go here...</p>"
+  }

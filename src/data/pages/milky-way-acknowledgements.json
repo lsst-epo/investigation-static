@@ -1,0 +1,14 @@
+{
+    "id": "milkyway2",
+    "investigation": "milky-way",
+    "order": "2",
+    "title": "Acknowledgements Page",
+    "slug": "acknowledgements/",
+    "previous": { "title": "Introduction", "link": "/introduction/" },
+    "next": {
+      "title": null,
+      "link": null
+    },
+    "layout": "TwoCol",
+    "content": "<p>Acknowledgments go here...</p>"
+  }
