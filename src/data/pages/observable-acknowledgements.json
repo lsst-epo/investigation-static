@@ -1,0 +1,14 @@
+{
+    "id": "observable17",
+    "investigation": "observable-universe",
+    "order": "17",
+    "title": "Acknowledgements Page",
+    "slug": "acknowledgements/",
+    "previous": { "title": "Putting it all Together", "link": "/summary/" },
+    "next": {
+      "title": null,
+      "link": null
+    },
+    "layout": "TwoCol",
+    "content": "<p>Acknowledgments go here...</p>"
+  }
