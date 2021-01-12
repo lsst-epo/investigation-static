@@ -464,7 +464,8 @@ class HubblePlot extends React.Component {
             y={mousePosY}
             offsetTop={offsetTop}
             pointClasses={classnames(
-              `color-${activeDataIndex + 1}-fill`,
+              `color-${activeDataIndex + 1}-translucent-fill`,
+              `color-${activeDataIndex + 1}-stroke`,
               `${cursorPoint}`,
               {
                 [invisible]: !mousePosX && !mousePosY,
@@ -490,7 +491,7 @@ class HubblePlot extends React.Component {
                       offsetTop,
                     }}
                     colorize={i !== 0}
-                    pointClasses={`color-${i}-fill set-${i} ${galaxyPoint}`}
+                    pointClasses={`color-${i}-translucent-fill color-${i}-stroke set-${i} ${galaxyPoint}`}
                   />
                 );
               })}

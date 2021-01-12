@@ -38,7 +38,8 @@ class Points extends React.PureComponent {
           const hovered = includes(hoveredData, d);
           const classes = classnames('data-point', pointClasses, {
             [`data-point-${this.classify(name || ' ')}`]: !!name,
-            [`color-${i + 1}-fill`]: colorize,
+            [`color-${i + 1}-translucent-fill`]: colorize,
+            [`color-${i + 1}-stroke`]: colorize,
             selected,
             hovered,
             [notActive]: (selectedData || hoveredData) && !selected && !hovered,

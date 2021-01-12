@@ -25,7 +25,7 @@
   /* stylelint-disable-next-line declaration-no-important */
   outline: none !important;
   fill: $chart0;
-  stroke: none;
+  //stroke: none;
   transition: stroke $timing $duration, opacity $timing $duration;
 }
 
