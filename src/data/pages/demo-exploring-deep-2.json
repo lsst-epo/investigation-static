@@ -1,0 +1,45 @@
+{
+  "id": "demo-12",
+  "investigation": "demo-mini",
+  "order": "12",
+  "title": "Exploring Rubin Observatory Data: Redness vs. Distance",
+  "slug": "exploring-the-deep-2/",
+  "previous": {
+    "title": "Exploring Rubin Observatory Data: Brightness vs. Distance",
+    "link": "/exploring-the-deep-1/"
+  },
+  "next": {
+    "title": "Effects of an Asteroid Impact",
+    "link": "/impact-calc/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>This is a plot of redness vs. distance of galaxies from every direction that can be observed by the Rubin Observatory.</p>",
+  "widgets": [
+    {
+      "type": "GalacticProperties",
+      "source": "/data/galaxies/hsc/hsc.json",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "options": {
+        "title": "Redness Vs Distance",
+        "xAxisLabel": "Distance (Billion Ly)",
+        "yAxisLabel": "Flux ratio i/z (redness)",
+        "xValueAccessor": "distance",
+        "yValueAccessor": "color",
+        "tooltipAccessors": ["distance", "color"],
+        "tooltipUnits": ["Billion Ly", "Flux ratio"],
+        "tooltipLabels": ["Distance", "Flux"],
+        "domain": [
+          [0, 14],
+          [0, 2]
+        ],
+        "multiple": true,
+        "showUserPlot": "440",
+        "svgShapes": ["triangle", "triangle"],
+        "color": "4"
+      }
+    }
+  ]
+}

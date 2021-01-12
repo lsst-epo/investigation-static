@@ -2,23 +2,65 @@
   "id": "demo-10",
   "investigation": "demo-mini",
   "order": "10",
-  "title": "Observing How the Universe Changed over Time",
+  "title": "Exploring the Deep",
   "slug": "exploring-the-deep/",
   "previous": {
-    "title": "Observing Many Solar System Objects' Orbits",
-    "link": "/orbits-2/"
+    "title": "Distributions of Solar System Objects",
+    "link": "/orbits-3/"
   },
   "next": {
-    "title": "",
-    "link": ""
+    "title": "Exploring Rubin Observatory Data: Brightness vs. Distances",
+    "link": "/exploring-the-deep-1/"
   },
   "layout": "SingleCol",
-  "content": "<p>Click and drag to pan; Scroll to zoom. Use the menu to populate the visualization with groups of galaxies varying in distance from earth (i.e. groups of galaxies organized by ranges of redshift values.</p>",
+  "content": "<p>Here’s a deep field image from the Rubin Observatory LSST Camera. Nearly all of the objects in this image are galaxies, but many appear so small they could easily be mistaken for stars. This image shows thousands of galaxies of different sizes, brightness, and colors.</p><p>What relationships may exist between the brightness and color of a galaxy and its distance?  Let’s find out.</p><p>Begin by clicking on twenty of the large galaxies in the image. As you do, a circle will appear around the galaxies you select and you will add data points to the plot at the right. Note: not all the galaxies in this image have data. Keep clicking until you can record at least twenty data points for large galaxies.</p>",
   "widgets": [
     {
-      "type": "LargeScaleStructure",
-      "source": "/data/galaxies/eboss_ardis_dataset.json",
-      "options": {}
+      "type": "GalaxiesSelector",
+      "sources": [
+        "/data/galaxies/hsc/hsc_sub01.json",
+        "/data/galaxies/hsc/hsc_sub02.json",
+        "/data/galaxies/hsc/hsc_sub03.json",
+        "/data/galaxies/hsc/hsc_sub04.json",
+        "/data/galaxies/hsc/hsc_sub05.json",
+        "/data/galaxies/hsc/hsc_sub06.json",
+        "/data/galaxies/hsc/hsc_sub07.json",
+        "/data/galaxies/hsc/hsc_sub08.json",
+        "/data/galaxies/hsc/hsc_sub09.json",
+        "/data/galaxies/hsc/hsc_sub10.json",
+        "/data/galaxies/hsc/hsc_sub11.json",
+        "/data/galaxies/hsc/hsc_sub12.json",
+        "/data/galaxies/hsc/hsc_sub13.json",
+        "/data/galaxies/hsc/hsc_sub14.json",
+        "/data/galaxies/hsc/hsc_sub15.json",
+        "/data/galaxies/hsc/hsc_sub16.json"
+      ],
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "options": {
+        "toggleDataPointsVisibility": "440",
+        "randomSource": true,
+        "xValueAccessor": "distance",
+        "yValueAccessor": "brightness",
+        "color": "4"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "440",
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "<p>Now click on twenty of the small galaxies. Keep clicking until you have added at least twenty more data points for the small galaxies.</p>",
+          "answerPre": "<span>Selected Galaxies: </span>",
+          "answerAccessor": "galaxies"
+        }
+      ]
     }
   ]
 }

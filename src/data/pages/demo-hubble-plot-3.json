@@ -2,11 +2,11 @@
   "id": "demo-3",
   "investigation": "demo-mini",
   "order": "03",
-  "title": "Hubble Plot: A Matter of Perspective",
+  "title": "Testing the Hubble-Lemaître Law from Another Place in the Universe",
   "slug": "hubble-plot-3/",
   "previous": {
-    "title": "Defining Hubble's Constant",
-    "link": "/hubble-plot-2/"
+    "title": "Determining the Hubble Constant",
+    "link": "/hubble-plot-2-1/"
   },
   "next": {
     "title": "Observing Supernovae & Plotting a Light Curve",
@@ -14,13 +14,19 @@
   },
   "layout": "SingleCol",
   "content": "<p>Does the Universe appear to expand at the same rate, regardless of where an observer is located? Change your location (what galaxy is at the origin in the Hubble plot) and notice how the Hubble plot changes.</p><p>The other 3D visualization shows the position of all the galaxies used in the Hubble plot. This 3D visualization can be rotated (click and drag) or zoomed (scroll).</p>",
-  "widgets": [{
-    "type": "GalaxyScrambler",
-    "source": "/data/galaxies/scrambler-2.json",
-    "options": {
-      "preSelected": true,
-      "hubbleConstant": 65.7,
-      "domain": [[0, 1300], [0, 75000]]
+  "widgets": [
+    {
+      "type": "GalaxyScrambler",
+      "source": "/data/galaxies/scrambler-2.json",
+      "options": {
+        "preSelected": true,
+        "hubbleConstant": 65.7,
+        "domain": [
+          [0, 1300],
+          [0, 75000]
+        ],
+        "qaReview": false
+      }
     }
-  }]
+  ]
 }

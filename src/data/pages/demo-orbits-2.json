@@ -9,17 +9,19 @@
     "link": "/orbits-1/"
   },
   "next": {
-    "title": "Observing How the Universe Changed over Time",
-    "link": "/exploring-the-deep/"
+    "title": "Distributions of Solar System Objects",
+    "link": "/orbits-3/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "content": "<p>Left-click and drag to rotate; Right-click to pan; Scroll to zoom. Use the controls to play, pause, skip forward and back, and adjust the speed of the simulation.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/comets_orbit_50sample.json",
+      "source": "/data/neos/NEO_orbit_50sample_wname2021.json",
       "options": {
-        "defaultZoom": 0.2
+        "defaultZoom": 0.8,
+        "noLabels": true,
+        "qaReview": false
       }
     }
   ]

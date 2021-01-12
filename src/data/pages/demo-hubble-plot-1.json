@@ -2,25 +2,56 @@
   "id": "demo-1",
   "investigation": "demo-mini",
   "order": "01",
-  "title": "Creating a Hubble Plot",
+  "title": "Gathering the Data for a Hubble Plot - Galaxy 1",
   "slug": "hubble-plot-1/",
   "previous": {
     "title": "Introduction",
     "link": "/introduction/"
   },
   "next": {
-    "title": "Defining Hubble's Constant",
-    "link": "/hubble-plot-2/"
+    "title": "Gathering the Data for a Hubble Plot - Galaxy 2",
+    "link": "/hubble-plot-1-1/"
   },
   "layout": "TwoCol",
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "rowTitles": [["Galaxy #1"], ["Galaxy #2"], ["Galaxy #3"], ["Galaxy #4"]],
+      "colTitles": ["", "Galaxy Velocity", "Supernova Distance"],
+      "rows": [
+        [
+          { "accessor": "velocity", "id": "350" },
+          { "accessor": "distance", "id": "350" }
+        ],
+        [
+          { "accessor": "velocity", "id": "351" },
+          { "accessor": "distance", "id": "351" }
+        ],
+        [
+          { "accessor": "velocity", "id": "352" },
+          { "accessor": "distance", "id": "352" }
+        ],
+        [
+          { "accessor": "velocity", "id": "353" },
+          { "accessor": "distance", "id": "353" }
+        ]
+      ],
+      "qaReview": false
+    }
+  ],
   "widgets": [
     {
-      "type": "GalaxySelector",
+      "type": "GalaxySupernovaSelector",
       "source": "/data/galaxies/galaxy_selector.json",
       "options": {
         "autoplay": true,
-        "toggleDataPointsVisibility": "1",
-        "createUserHubblePlot": "2"
+        "preSelectedId": "ZTF19abqmpsr",
+        "toggleDataPointsVisibility": "350",
+        "qaReview": false
       }
     }
   ],
@@ -28,24 +59,11 @@
     {
       "question": [
         {
-          "id": "1",
+          "id": "350",
           "questionType": "accordion",
           "title": "Question #1",
-          "label": "<p>Select a Galaxy from the menu. Compare the images of the galaxy as you did before to find the location of the supernova. When you see the supernova, click on it. The information box above the images will provide you with the distance to the selected supernova in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because the supernova is in the galaxy, the distances to the supernova and the galaxy are the same.</p><p>Next, click on the center of the galaxy. The information box above the images will provide you with the recessional velocity of the selected galaxy in kilometers per second (km/s).</p>",
-          "answerPre": "<span>Total Selected: </span>",
-          "answerAccessor": "galaxy"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "2",
-          "questionType": "accordion",
-          "title": "Question #1",
-          "label": "<p>Once you have identified the supernova and galaxy the Hubble plot will slide out.  Use the graph axes to find where on the graph corresponds to the velocity and distance of the galaxy. Click on the plot to add a dot at the correct location for your data.</p>",
-          "answerPre": "<span>Selected: </span>",
-          "answerAccessor": "hubblePlot"
+          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it.  Your data for the supernova and the galaxy will appear in the chart. Repeat this process for each galaxy in the following pages.</p>",
+          "answerAccessor": "galaxySupernova"
         }
       ]
     }

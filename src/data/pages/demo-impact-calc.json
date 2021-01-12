@@ -1,0 +1,54 @@
+{
+  "id": "demo-13",
+  "investigation": "demo-mini",
+  "order": "13",
+  "title": "Effects of an Asteroid Impact",
+  "slug": "impact-calc/",
+  "previous": {
+    "title": "Exploring Rubin Observatory Data: Redness vs. Distance",
+    "link": "/exploring-the-deep-2/"
+  },
+  "next": {
+    "title": "Creating Your Astronomical Image",
+    "link": "/coloring/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Try placing yourself at different distances (r) away from the point of impact to see what you would experience. Two different types of damage are predicted:</p><ul><li><strong>Seismic</strong> damage: Asteroid impacts produce earthquakes. This damage is due to the energy that travels along the surface of the Earth.</li><li><strong>Air blast</strong> damage: Asteroid impacts produce a shock wave that moves through the air. This damage is due to the <strong>shock wave</strong> hitting structures or objects.</li></ul><p>You may select distances up to 20,000,000 meters away, which is on the other side of Earth opposite the impact.</p>",
+  "tables": [
+    {
+      "id": "7",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "title": "Asteroid Impact Damage",
+      "fixed": true,
+      "colTitles": ["", "3200 Phaeton"],
+      "rowTitles": [
+        ["Distance from Impact"],
+        ["Seismic Damage"],
+        ["Air Blast Damage"]
+      ],
+      "rows": [
+        [{ "accessor": "observerDistance", "id": "5555" }],
+        [{ "accessor": "mercalliIntensity", "id": "5555" }],
+        [{ "accessor": "airBlastDamage", "id": "5555" }]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "5555",
+          "questionType": "ImpactDamageCalculator",
+          "title": "Question #1",
+          "label": "Input the kinetic energy of your asteroid, and a distance from the impact to estimate the damage observed from that distance.",
+          "placeholder": "Enter values",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "all"
+        }
+      ]
+    }
+  ]
+}

@@ -1,16 +1,16 @@
 {
-  "id": "expand6_5",
-  "investigation": "expanding-universe",
-  "order": "06.5",
-  "title": "Constructing a Hubble plot",
-  "slug": "interpreting-a-hubble-plot-2/",
+  "id": "demo-1-3",
+  "investigation": "demo-mini",
+  "order": "01c",
+  "title": "Gathering the Data for a Hubble Plot - Galaxy 4",
+  "slug": "hubble-plot-1-3/",
   "previous": {
-    "title": "Interpreting a Hubble plot",
-    "link": "/interpreting-a-hubble-plot-1_4/"
+    "title": "Gathering the Data for a Hubble Plot - Galaxy 3",
+    "link": "/hubble-plot-1-2/"
   },
   "next": {
-    "title": "Interpreting a Hubble plot",
-    "link": "/interpreting-a-hubble-plot-3/"
+    "title": "Constructing a Hubble plot",
+    "link": "/hubble-plot-2/"
   },
   "layout": "TwoCol",
   "content": "",
@@ -50,8 +50,8 @@
       "source": "/data/galaxies/galaxy_selector.json",
       "options": {
         "autoplay": true,
-        "preSelectedId": "ZTF20acymtcs",
-        "toggleDataPointsVisibility": "352",
+        "preSelectedId": "ZTF20acxzkkf",
+        "toggleDataPointsVisibility": "353",
         "qaReview": false
       }
     }
@@ -60,10 +60,10 @@
     {
       "question": [
         {
-          "id": "352",
+          "id": "353",
           "questionType": "accordion",
           "title": "Question #1",
-          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Repeat this process for the galaxy on the next page.</p>",
+          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it.</p>",
           "answerAccessor": "galaxySupernova"
         }
       ]
