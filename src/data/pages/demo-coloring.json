@@ -1,0 +1,51 @@
+{
+  "id": "demo-14",
+  "investigation": "demo-mini",
+  "order": "14",
+  "title": "Creating Your Astronomical Image",
+  "slug": "coloring/",
+  "previous": {
+    "title": "Effects of an Asteroid Impact",
+    "link": "/impact-calc/"
+  },
+  "next": {
+    "title": "Further Exploration",
+    "link": "/conclusion/"
+  },
+ "layout": "SingleCol",
+  "contents": [
+    {
+      "content": "<p>Use the Astronomical Image Coloring Tool to create your image then answer the questions below.</p><p>To make an image:</p><ul><li>For each of the filters you wish to use, start by clicking on each filter and then assigning each filter with the correct chromatically ordered colors.</li><li>Adjust the sliders to color balance the image so it clearly shows the areas or objects you wish to study.</li></ul><p><i>Note: Some of the objects do not have images for 6 different filters. If an image is not available, the filter button will appear as “greyed out”.</i></p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "type": "AstroTool",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "source": "/data/filters/new-data-astro-filter.json",
+      "options": {
+        "questionId": "50"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "50",
+          "questionType": "accordion",
+          "answerAccessor": "colorTool",
+          "title": "Question #1",
+          "label": "Create and save your completed color balanced image on this page, then answer the questions below."
+        }
+      ]
+    }
+  ]
+}
