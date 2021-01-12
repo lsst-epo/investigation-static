@@ -2,36 +2,68 @@
   "id": "demo-2",
   "investigation": "demo-mini",
   "order": "02",
-  "title": "Defining Hubble's Constant",
+  "title": "Constructing a Hubble plot",
   "slug": "hubble-plot-2/",
   "previous": {
     "title": "Creating a Hubble Plot",
-    "link": "/hubble-plot-1/"
+    "link": "/hubble-plot-1-3/"
   },
   "next": {
-    "title": "Hubble Plot: A Matter of Perspective",
-    "link": "/hubble-plot-3/"
+    "title": "Determining the Hubble Constant",
+    "link": "/hubble-plot-2-1/"
   },
   "layout": "TwoCol",
-  "widgets": [{
-    "type": "HubblePlot",
-    "options": {
-      "showUserPlot": "2",
-      "userTrendline": "3"
+  "content": "",
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "rowTitles": [["Galaxy #1"], ["Galaxy #2"], ["Galaxy #3"], ["Galaxy #4"]],
+      "colTitles": ["", "Galaxy Velocity", "Supernova Distance"],
+      "rows": [
+        [
+          { "accessor": "velocity", "id": "350" },
+          { "accessor": "distance", "id": "350" }
+        ],
+        [
+          { "accessor": "velocity", "id": "351" },
+          { "accessor": "distance", "id": "351" }
+        ],
+        [
+          { "accessor": "velocity", "id": "352" },
+          { "accessor": "distance", "id": "352" }
+        ],
+        [
+          { "accessor": "velocity", "id": "353" },
+          { "accessor": "distance", "id": "353" }
+        ]
+      ]
     }
-  }],
-  "content": "<p>Click on the plot and drag to fit a line to determine the Hubble Constant.</p>",
+  ],
+  "widgets": [
+    {
+      "type": "HubblePlotter",
+      "source": "/data/galaxies/galaxy_selector.json",
+      "options": {
+        "createUserHubblePlot": "252",
+        "domain": [[0, 700], [0, 50000]]
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "3",
+          "id": "252",
           "questionType": "accordion",
           "tool": "selection",
-          "title": "Question #3",
-          "label": "<p>Click and drag anywhere on the Hubble plot to add a trendline</p>",
-          "answerPre": "<span>Hubble's Constant: </span>",
-          "answerAccessor": "hubbleConstant"
+          "title": "Question #1",
+          "label": "<p>Plot the data from your table by clicking on the correct location on the graph. You can adjust the location of your dot by clicking and dragging it to the desired location. You can also zoom on the plot for more accurate point placement.</p>",
+          "answerPre": "",
+          "answerAccessor": "hubblePlot"
         }
       ]
     }

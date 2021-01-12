@@ -1,0 +1,23 @@
+{
+  "id": "demo-15",
+  "investigation": "demo-mini",
+  "order": "15",
+  "title": "Further Exploration",
+  "slug": "conclusion/",
+  "previous": {
+    "title": "Creating Your Astronomical Image",
+    "link": "/coloring/"
+  },
+  "next": {
+    "title": "",
+    "link": ""
+  },
+  "layout": "TwoCol",
+  "content": "<p>Thank you for exploring some of the data driven educational experiences we have been developing.  Your exploration doesn't have to stop here.  These are links to the currently available full draft investigations:</p><ul><li><a href='https://explodingstars.netlify.app/'>Exploding Stars</a></li><li><a href='https://coloringtheuniverse.netlify.app/'>Coloring the Universe</a></li><li><a href='https://expandinguniverse.netlify.app/'>Expanding Universe</a></li><li><a href='https://surveyingthesolarsystem.netlify.app/'>Surveying the Solar System Universe</a></li><li><a href='https://hazardousasteroids.netlify.app/'>Surveying the Hazardous Asteroids</a></li><li><a href='https://observableuniverse.netlify.app/'>Exploring the Observable Universe</a></li></ul>",
+  "images": [
+    {
+      "mediaPath": "/images/rubin-graphic.png",
+      "altText": "Rubin Graphic"
+    }
+  ]
+}

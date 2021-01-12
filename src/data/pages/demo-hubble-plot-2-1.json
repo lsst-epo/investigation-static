@@ -1,0 +1,42 @@
+{
+  "id": "demo-2-1",
+  "investigation": "demo-mini",
+  "order": "02a",
+  "title": "Determining the Hubble Constant",
+  "slug": "hubble-plot-2-1/",
+  "previous": {
+    "title": "Constructing a Hubble plot",
+    "link": "/hubble-plot-2/"
+  },
+  "next": {
+    "title": "Testing the Hubble-Lemaître Law from Another Place in the Universe",
+    "link": "/hubble-plot-3/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Click and drag on the graph to add a trendline to your Hubble plot.  Place your trendline where you feel it best fits your data. The slope of this trendline is known as the Hubble Constant.</p>",
+  "widgets": [
+    {
+      "type": "HubblePlot",
+      "options": {
+        "showUserPlot": "252",
+        "userTrendline": "7",
+        "domain": [[0, 700], [0, 50000]]
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "7",
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #7",
+          "label": "<p>Click and drag anywhere on the Hubble plot to add a trendline</p>",
+          "answerPre": "<span>Hubble Constant: </span>",
+          "answerAccessor": "hubbleConstant"
+        }
+      ]
+    }
+  ]
+}

@@ -2,10 +2,10 @@
   "id": "demo-5",
   "investigation": "demo-mini",
   "order": "05",
-  "title": "Classifying Light Curves",
+  "title": "Determining the Peak Apparent Magnitude of Supernovae",
   "slug": "searching-sn/",
   "previous": {
-    "title": "Observing Supernovae & Plotting a Light Curve",
+    "title": "Observing Supernovae",
     "link": "/observing-sn/"
   },
   "next": {
@@ -13,31 +13,46 @@
     "link": "/detecting-objects/"
   },
   "layout": "TwoCol",
-  "content": "<p>What type of supernova is this? See which template (Ia or IIp) fits the light curve best. Once selected, each template can be scaled up or down (scroll) and repositioned (click and drag) to create the best fit.</p>",
-  "widgets": [{
+  "widgets": [
+    {
       "type": "SupernovaSelectorWithLightCurve",
-      "source": "/data/galaxies/ZTF19abqmpsr.json",
+      "source": "/data/galaxies/ZTF20acugxbm.json",
       "options": {
         "showLightCurve": true,
-        "chooseLightCurveTemplate": true,
-        "lightCurveTemplates": ["Ia", "IIp"],
-        "preSelectedLightCurveTemplate": "5"
+        "choosePeakMagnitude": true,
+        "lightCurveTemplates": ["Ia"],
+        "preSelectedLightCurveTemplate": "64",
+        "preSelectedLightCurveMagnitude": "164"
       }
-    }],
-    "questionsByPage": [
-      {
-        "question": [
-          {
-            "id": "5",
-            "questionType": "accordion",
-            "tool": "selection",
-            "title": "Question #1",
-            "label": "<p>Find the light curve template that best fits your light curve.</p>",
-            "answerPre": "<span>The selected light curve template represents a Type </span>",
-            "answerPost": "<span> supernova.</span>",
-            "answerAccessor": "light-curve-template"
-          }
-        ]
-      }
-    ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "64",
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "<pb>Get the best fit of the template to your light curve data. SAVE.</pb>",
+          "answerPre": "<span>The Type </span>",
+          "answerPost": "<span> template fits the data for Supernova #5</span>",
+          "answerAccessor": "light-curve-template"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "164",
+          "questionType": "accordion",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "<p>Determine the peak apparent magnitude of your fitted template. SAVE.</p>",
+          "answerPre": "<span>This supernova's magnitude is </span>",
+          "answerAccessor": "magnitude"
+        }
+      ]
+    }
+  ]
 }

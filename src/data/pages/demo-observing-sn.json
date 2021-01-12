@@ -2,28 +2,34 @@
   "id": "demo-4",
   "investigation": "demo-mini",
   "order": "04",
-  "title": "Observing Supernovae & Plotting a Light Curve",
+  "title": "Observing Supernovae",
   "slug": "observing-sn/",
   "previous": {
-    "title": "Hubble Plot: A Matter of Perspective",
+    "title": "Testing the Hubble-Lemaître Law from Another Place in the Universe",
     "link": "/hubble-plot-3/"
   },
   "next": {
-    "title": "Classifying Light Curves",
+    "title": "Determining the Peak Apparent Magnitude of Supernova",
     "link": "/searching-sn/"
   },
   "layout": "SingleCol",
   "content": "<p>Can you find the supernova in this time-lapse?  Click on the image where you think the supernova resides.  Use the controls to play, pause, and skip forward and back.</p><p>Once you've found the supernova, data associated with the observations will populate the Light Curve graph.  Click on a point on the Light Curve graph to learn more about that observation, and to skip to its associated image.</p>",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abqmpsr.json",
-    "options": {
-      "showSelector": true,
-      "showLightCurve": true,
-      "toggleDataPointsVisibility": "4",
-      "autoplay": true
+  "widgets": [
+    {
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19abqmpsr.json",
+      "layout": {
+        "row": "middle"
+      },
+      "options": {
+        "showSelector": true,
+        "showLightCurve": true,
+        "toggleDataPointsVisibility": "4",
+        "autoplay": true,
+        "qaReview": false
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
