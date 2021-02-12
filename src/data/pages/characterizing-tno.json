@@ -2,10 +2,10 @@
   "id": "solarsystem10",
   "investigation": "solar-system",
   "order": "10",
-  "title": "Characterizing TNOs",
+  "title": "Characterizing Trans-Neptunian Objects (TNOs)",
   "slug": "characterizing-tno/",
   "previous": {
-    "title": "Characterizing MBAs",
+    "title": "Characterizing Main Belt Asteroids (MBAs)",
     "link": "/characterizing-mba/"
   },
   "next": {
@@ -13,7 +13,7 @@
     "link": "/characterizing-comet/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let's analyze histograms for TNOs.</p><p>TNOs are objects that orbit the Sun at or beyond the orbit of Neptune, at a distance of about 30 au and beyond. This area includes the Kuiper Belt and the entire region out to the inner Oort Cloud, which begins at approximately 2000 au from the Sun.</p><p>Take time to examine the four orbital characteristics of this group of objects. Decide which of the statements provided below best describes this group’s orbital characteristics.</p>",
+  "content": "<p>TNOs are objects that orbit the Sun at or beyond the orbit of Neptune, at a distance of about 30 au and beyond. This area includes the Kuiper Belt and the entire region out to the inner Oort Cloud, which begins at approximately 2000 au from the Sun.</p><p>Decide which of the statements provided below best describes the orbital properties of TNOs.</p>",
   "tables": [
     {
       "id": "1",

@@ -2,18 +2,18 @@
   "id": "solarsystem15",
   "investigation": "solar-system",
   "order": "15",
-  "title": "Identifying Types of Solar System Objects",
+  "title": "Identifying Groups of Solar System Objects - 3",
   "slug": "identifying-groups-2/",
   "previous": {
-    "title": "Identifying Types of Solar System Objects",
+    "title": "Identifying Groups of Solar System Objects - 2",
     "link": "/identifying-groups-1/"
   },
   "next": {
-    "title": "Identifying Types of Solar System Objects",
+    "title": "Identifying Groups of Solar System Objects - 4",
     "link": "/identifying-groups-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>Use the data visualization tool to explore the orbital characteristics of a representative set of some small Solar System objects. All of the displayed points and their motions represent real objects. Notice that you can change the view to above or below the Sun, as well as along the plane of the Solar System (as if you were a planet orbiting the Sun).</p>",
+  "content": "<p>Use the Orbit Viewer to explore this group.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -75,7 +75,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain."
+          "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain your reasoning in terms of the unique set of orbital properties that defines this group of objects."
         }
       ]
     }

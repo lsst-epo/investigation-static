@@ -2,14 +2,14 @@
   "id": "solarsystem12",
   "investigation": "solar-system",
   "order": "12",
-  "title": "Characterizing Orbits",
+  "title": "Comparing Orbital Properties",
   "slug": "characterizing-orbits-4/",
   "previous": {
     "title": "Characterizing Comets",
     "link": "/characterizing-comet/"
   },
   "next": {
-    "title": "Identifying Types of Solar System Objects",
+    "title": "Identifying Groups of Solar System Objects - 1",
     "link": "/identifying-groups/"
   },
   "layout": "SingleCol",
@@ -65,7 +65,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Based on the observations you recorded in your table, describe the <i>similarities</i> that exist between these four groups of objects."
+          "label": "Which groups of objects have similar properties, and what are the properties they have in common? Provide at least three examples."
         }
       ]
     },
@@ -76,7 +76,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Based on the observations you recorded in your table, describe the <i>differences</i> that exist between these four groups of objects."
+          "label": "What differences exist between the different groups of objects? Provide at least three examples."
         }
       ]
     }

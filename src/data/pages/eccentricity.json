@@ -13,7 +13,7 @@
     "link": "/inclination/"
   },
   "layout": "TwoCol",
-  "content": "<p><b>Eccentricity</b> is a mathematical way of describing how elliptical (i.e., oval shaped) an orbit is. Eccentricity values range from 0 to almost 1. An eccentricity of 0 describes a perfectly circular orbit. The larger the eccentricity, the more elliptical the orbit.</p>",
+  "content": "<p><b>Eccentricity</b> describes how elliptical (i.e., oval shaped) an orbit is. Eccentricity values range from 0 to almost 1. An eccentricity of 0 describes a perfectly circular orbit. The larger the eccentricity, the more elliptical the orbit.</p>",
   "images": [
     {
       "mediaPath": "/images/eccentricity.png",

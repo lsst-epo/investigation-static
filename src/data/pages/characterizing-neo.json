@@ -2,18 +2,18 @@
   "id": "solarsystem08",
   "investigation": "solar-system",
   "order": "08",
-  "title": "Characterizing NEOs",
+  "title": "Characterizing Near-Earth Objects (NEOs)",
   "slug": "characterizing-neo/",
   "previous": {
     "title": "The Big View of the Solar System",
     "link": "/big-view/"
   },
   "next": {
-    "title": "Characterizing MBAs",
+    "title": "Characterizing Main Belt Asteroids (MBAs)",
     "link": "/characterizing-mba/"
   },
   "layout": "TwoCol",
-  "content": "<p>In order to examine these trends in more detail, it’s helpful to work with a large data set. Let’s start by analyzing some histograms for each group.</p><p>Take time to examine the four orbital characteristics of each group of objects individually. Decide which of the statements provided below best describes each group’s orbital characteristics.  Let's start with NEOs. </p><p>NEOs are asteroids or comets whose orbit intersects or gets very close to the orbit of Earth.</p>",
+  "content": "<p>To better understand the differences between the four groups, you will analyze orbital data for each group. The first group you will examine are the near-Earth objects (NEOs). NEOs are objects with orbits that intersect or get very close to the orbit of Earth.</p><p>Click on each icon found to the left of the histogram to examine different the orbital properties of NEOs. If you place your mouse above each bar on the histogram, the exact number of objects for the bar will appear. Some of the bars are so small that you might not notice them without looking carefully!</p><p>Decide which of the statements provided below best describes the orbital properties of NEOs.</p><p>NEOs are asteroids or comets whose orbit intersects or gets very close to the orbit of Earth.</p>",
   "tables": [
     {
       "id": "1",
@@ -70,7 +70,8 @@
             "xAxisLabel": "Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of NEOs",
-            "domain": [[0, 24], []],
+            "domain": [[0, 10], []],
+            "bins": 20,
             "tooltipAccessors": ["count", "semimajor_axis"],
             "tooltipLabels": ["NEOs", "Orbit Size (au)"]
           }
@@ -117,15 +118,19 @@
           "label": "Size of the orbit: ",
           "options": [
             {
-              "label": "The orbits are within the inner Solar System (closer to the Sun than Jupiter) less than 5.2 au",
-              "value": "Within inner Solar System"
+              "label": "All of the orbits are within the inner Solar System (between 0.5 - 4 au).",
+              "value": "Within inner Solar System (between 0.5 - 4 au)"
             },
             {
-              "label": "The orbits are located in the outer Solar System (beyond the orbit of Jupiter) greater than 5.2 au",
+              "label": "All of the orbits are within the inner Solar System (between 1.5 - 5.2 au).",
+              "value": "Within inner Solar System (between 1.5 - 5.2 au)"
+            },
+            {
+              "label": "All of the orbits are located in the outer Solar System beyond the orbit of Jupiter (greater than 5.2 au).",
               "value": "In the outer Solar System"
             },
             {
-              "label": "The orbits span both the inner and outer Solar System",
+              "label": "The orbit sizes span both the inner and outer Solar System.",
               "value": "Span inner and outer Solar System"
             }
           ],
@@ -152,7 +157,7 @@
               "value": "More elliptical than Earth’s"
             },
             {
-              "label": "There is a wide range in the shapes of the orbits",
+              "label": "There is an equal distribution across all shapes of orbits",
               "value": "Wide range of shapes"
             }
           ],
@@ -171,15 +176,15 @@
           "label": "Inclination: ",
           "options": [
             {
-              "label": "Most orbits are similar to Earth’s orbital plane  (0-20 degrees)",
+              "label": "Most orbits are similar to the tilt of Earth’s orbital plane (0-20°).",
               "value": "Similar to Earth’s"
             },
             {
-              "label": "Most orbits are considerably tilted compared to Earth’s orbital plane (more than 20 degrees)",
+              "label": "Most orbits are tilted compared to Earth’s orbital plane (more than 20°).",
               "value": "More tilted than Earth's"
             },
             {
-              "label": "There is a wide range in the tilt of the orbits",
+              "label": "There is an equal distribution across all tilts of the orbits.",
               "value": "Wide range in tilts"
             }
           ],
@@ -198,11 +203,11 @@
           "label": "Direction of the orbit (remember, an inclination greater than 90° indicates that the object orbits the Sun opposite the direction of Earth’s orbit): ",
           "options": [
             {
-              "label": "Most objects orbit the Sun in the same direction of Earth’s orbit.",
+              "label": "Almost all objects orbit the Sun in the same direction as Earth’s orbit.",
               "value": "Same direction as Earth’s"
             },
             {
-              "label": "A significant number of objects (more than 10%) orbit the Sun in the opposite direction of Earth’s orbit, i >90 ",
+              "label": "More than 10% of the objects orbit the Sun in the opposite direction of Earth’s orbit, (i >90°).",
               "value": "Opposite direction as Earth’s"
             }
           ],

@@ -5,15 +5,15 @@
   "title": "Characterizing Comets",
   "slug": "characterizing-comet/",
   "previous": {
-    "title": "Characterizing TNOs",
+    "title": "Characterizing Trans-Neptunian Objects (TNOs)",
     "link": "/characterizing-tno/"
   },
   "next": {
-    "title": "Characterizing Orbits",
+    "title": "Comparing Orbital Properties",
     "link": "/characterizing-orbits-4/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let's analyze histograms for comets.</p><p>Comets are icy objects found throughout the Solar System.</p><p>Take time to examine the four orbital characteristics of this group of objects. Decide which of the statements provided below best describes this group’s orbital characteristics.</p>",
+  "content": "<p>Comets are icy objects found throughout the Solar System.</p><p>Decide which of the statements provided below best describes the orbital properties of comets.</p>",
   "tables": [
     {
       "id": "1",

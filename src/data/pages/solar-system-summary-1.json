@@ -2,18 +2,18 @@
   "id": "solarsystem29",
   "investigation": "solar-system",
   "order": "29",
-  "title": "Putting it all Together",
+  "title": "Putting it all Together - Histograms",
   "slug": "solar-system-summary-1/",
   "previous": {
-    "title": "Putting it all Together",
+    "title": "Exploring A New Class of Objects",
     "link": "/solar-system-summary/"
   },
   "next": {
-    "title": "Putting it all Together",
+    "title": "Putting it all Together - Histograms",
     "link": "/solar-system-summary-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Use the histogram to answer the following questions:</p>",
+  "content": "<p>Click on each icon found to the left of the histogram to examine the different orbital properties. If you click above each bar on the histogram, the exact number of objects for the bar will appear. Complete the table below by clicking on each cell and entering a value.</p>",
   "widgets": [
     {
       "type": "OrbitalProperties",
@@ -37,13 +37,8 @@
         "row": "bottom",
         "col": "left"
       },
-      "colTitles": [
-        "Property",
-        "Min",
-        "Max",
-        "Average"
-      ],
-      "rowTitles": [["Orbit Size"], ["Eccentricity"], ["Inclination"], ["Diameter"]],
+      "colTitles": ["Property", "Min", "Max", "Most Common"],
+      "rowTitles": [["Orbit Size"], ["Eccentricity"], ["Inclination"]],
       "rows": [
         [
           { "accessor": "data", "id": "55" },
@@ -59,11 +54,6 @@
           { "accessor": "data", "id": "61" },
           { "accessor": "data", "id": "62" },
           { "accessor": "data", "id": "63" }
-        ],
-        [
-          { "accessor": "diameter", "id": "64" },
-          { "accessor": "diameter", "id": "65" },
-          { "accessor": "diameter", "id": "66" }
         ]
       ]
     }
@@ -98,7 +88,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the average orbit size?"
+          "label": "What is the most common orbit size?"
         }
       ]
     }

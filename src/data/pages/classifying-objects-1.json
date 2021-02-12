@@ -2,18 +2,18 @@
   "id": "solarsystem23",
   "investigation": "solar-system",
   "order": "23",
-  "title": "Classifying Newly Detected Solar System Objects",
+  "title": "Classifying Newly Detected Solar System Objects - 2",
   "slug": "classifying-objects-1/",
   "previous": {
-    "title": "Classifying Newly Detected Solar System Objects",
+    "title": "Classifying Newly Detected Solar System Objects - 1",
     "link": "/classifying-objects/"
   },
   "next": {
-    "title": "Classifying Newly Detected Solar System Objects",
+    "title": "Classifying Newly Detected Solar System Objects - 3",
     "link": "/classifying-objects-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Consider factors such as the object’s absolute magnitude, and the size, shape, and tilt of its orbit. Use the table of group properties that you constructed earlier as a reference. Then, give an explanation and evidence for your classification.</p>",
+  "content": "Use the orbital properties in the table you constructed above to help you determine which group this newly discovered object belongs to.",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -72,13 +72,7 @@
         "row": "bottom",
         "col": "left"
       },
-      "colTitles": [
-        "",
-        "Name",
-        "Absolute Magnitude",
-        "Type",
-        "Data/Evidence"
-      ],
+      "colTitles": ["", "Name", "Absolute Magnitude", "Type", "Data/Evidence"],
       "rowTitles": [["#1"], ["#2"], ["#3"]],
       "rows": [
         [
@@ -111,17 +105,6 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "What is this object's name?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "490",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What is this object's absolute magnitude?"
         }
       ]
     },

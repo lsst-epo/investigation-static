@@ -10,13 +10,21 @@
     "link": "/semi-major-axis/"
   },
   "layout": "SingleCol",
-  "content": "<p>Each night, the Rubin Observatory LSST camera takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an alert is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves in relation to the star field. Both images cover the same area of the sky (same field of view)</p>",
+  "contents": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "content": "<p>Each night, the Rubin Observatory LSST camera takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an alert is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves through the star field. Both images cover the same area of the sky (same field of view)</p>"
+    }
+  ],
   "widgets": [
     {
       "type": "TimeDomainDoubleViewer",
       "layout": {
         "col": "left",
-        "row": "top"
+        "row": "middle"
       },
       "sources": ["/data/neos/2003_QZ30.json", "/data/neos/tno120132.json"],
       "options": {
@@ -32,7 +40,7 @@
           "id": "1",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Is the amount of time it takes for the two objects to move across the sky approximately the same?",
+          "label": "Calculate the time it takes each object to move from its first to last position. (The times are displayed in the upper right corner of each image). Is the amount of time it takes for the two objects to move across the sky approximately the same?",
           "options": [
             { "label": "yes", "value": "yes" },
             { "label": "no", "value": "no" }
@@ -55,8 +63,8 @@
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "closer", "value": "closer"},
-            {"label": "farther", "value": "farther"}
+            { "label": "closer", "value": "closer" },
+            { "label": "farther", "value": "farther" }
           ],
           "answerPre": "...",
           "answerPost": "..."
@@ -71,8 +79,8 @@
           "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
-            {"label": "long", "value": "long"},
-            {"label": "short", "value": "short"}
+            { "label": "long", "value": "long" },
+            { "label": "short", "value": "short" }
           ],
           "answerPre": "...",
           "answerPost": "..."

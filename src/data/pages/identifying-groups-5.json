@@ -2,18 +2,18 @@
   "id": "solarsystem18",
   "investigation": "solar-system",
   "order": "18",
-  "title": "Identifying Types of Solar System Objects",
+  "title": "Distributions of Solar System Objects",
   "slug": "identifying-groups-5/",
   "previous": {
-    "title": "Identifying Types of Solar System Objects",
+    "title": "Comparing Groups of Solar System Objects",
     "link": "/identifying-groups-4/"
   },
   "next": {
-    "title": "The History of the Solar System",
+    "title": "The Formation of the Solar System",
     "link": "/history-solar-system/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let’s look at a histogram of the number of all small Solar System objects on the y-axis vs. distance from the Sun (semi-major axis) on the x-axis.</p><p>Note: the scale of the y-axis changes for each of the histograms.</p>",
+  "content": "<p>Now you will explore a histogram of the number of all small Solar System objects on the y-axis vs. size of orbit on the x-axis.</p><p>Note: the scale of the y-axis changes for each of the histograms.</p><p>Click on each icon found to the left of the histogram to change the group.</p>",
   "widgets": [
     {
       "type": "ChartSwitcher",
@@ -23,7 +23,7 @@
           "source": "/data/neos/NEO_semimajor_axis.json",
           "options": {
             "title": "NEO Sizes",
-            "xAxisLabel": "Orbit Sizes (au)",
+            "xAxisLabel": "NEO Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of NEOs",
             "domain": [[0, 100], null],
@@ -37,7 +37,7 @@
           "source": "/data/neos/MBA_ALL_semimajor_axis.json",
           "options": {
             "title": "MBA Sizes",
-            "xAxisLabel": "Orbit Sizes (au)",
+            "xAxisLabel": "NEO Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of MBAs",
             "domain": [[0, 100], null],
@@ -51,7 +51,7 @@
           "source": "/data/neos/TNO_semimajor_axis.json",
           "options": {
             "title": "TNO Sizes",
-            "xAxisLabel": "Orbit Sizes (au)",
+            "xAxisLabel": "NEO Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of TNOs",
             "domain": [[0, 100], null],
@@ -65,7 +65,7 @@
           "source": "/data/neos/comets_semimajor_axis_abridged.json",
           "options": {
             "title": "Comet Sizes",
-            "xAxisLabel": "Orbit Sizes (au)",
+            "xAxisLabel": "NEO Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of Comets",
             "domain": [[0, 100], null],
@@ -84,7 +84,7 @@
           "id": "30",
           "questionType": "select",
           "title": "Question #1",
-          "label": "According to data displayed in the histogram, which group of Solar System objects is the largest in number? ",
+          "label": "Which group of Solar System objects is the largest in number? ",
           "options": [
             { "label": "NEOs", "value": "NEOs" },
             { "label": "Comets", "value": "Comets" },
@@ -94,31 +94,6 @@
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "31a",
-          "questionType": "compoundInput",
-          "compoundQuestion": ["31a", "31b"],
-          "labelPre": "Two of the four main groups above make up most of the small Solar System objects. One group is centered at a distance of approximately ",
-          "labelPost": " au from the Sun, ",
-          "srLabel": "...",
-          "answerAccessor": "text",
-          "title": "Question #1"
-        },
-        {
-          "id": "31b",
-          "questionType": "compoundInput",
-          "compoundQuestion": ["31a", "31b"],
-          "labelPre": "and the second group is centered at a distance of ",
-          "labelPost": " au from the Sun.",
-          "srLabel": "...",
-          "answerAccessor": "text",
-          "answerPre": "...",
-          "answerPost": "..."
         }
       ]
     }
