@@ -1,0 +1,66 @@
+{
+  "id": "solarsystem34",
+  "investigation": "solar-system",
+  "order": "34",
+  "title": "Putting it all Together",
+  "slug": "solar-system-summary-6/",
+  "previous": {
+    "title": "Putting it all Together",
+    "link": "/solar-system-summary-5/"
+  },
+  "next": {
+    "title": "Reflect and Discuss",
+    "link": "/solar-system-discuss-report/"
+  },
+  "layout": "TwoCol",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/FINAL_orbit_50sample.json",
+      "options": {
+        "defaultZoom": 0.05
+      }
+    }
+  ],
+  "tables": [
+    {
+      "id": "2",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "colTitles": ["Property", "Min", "Max", "Most Common"],
+      "rowTitles": [["Orbital Size"], ["Eccentricity"], ["Inclination"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "55" },
+          { "accessor": "data", "id": "56" },
+          { "accessor": "data", "id": "57" }
+        ],
+        [
+          { "accessor": "data", "id": "58" },
+          { "accessor": "data", "id": "59" },
+          { "accessor": "data", "id": "60" }
+        ],
+        [
+          { "accessor": "data", "id": "61" },
+          { "accessor": "data", "id": "62" },
+          { "accessor": "data", "id": "63" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "72",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Now that your team has discovered these objects, you have the opportunity to name the group. What name do you propose and what is the significance or inspiration for your choice?"
+        }
+      ]
+    }
+  ]
+}

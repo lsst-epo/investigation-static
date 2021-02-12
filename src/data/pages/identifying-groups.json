@@ -2,18 +2,18 @@
   "id": "solarsystem13",
   "investigation": "solar-system",
   "order": "13",
-  "title": "Identifying Types of Solar System Objects",
+  "title": "Identifying Groups of Solar System Objects - 1",
   "slug": "identifying-groups/",
   "previous": {
-    "title": "Characterizing Orbits",
+    "title": "Comparing Orbital Properties",
     "link": "/characterizing-orbits-4/"
   },
   "next": {
-    "title": "Identifying Types of Solar System Objects",
+    "title": "Identifying Groups of Solar System Objects - 2",
     "link": "/identifying-groups-1/"
   },
   "layout": "TwoCol",
-  "content":"<p>Now you’ll use a data visualization tool to explore the orbital characteristics of a representative set of some small Solar System objects. All of the displayed points and their motions represent real objects. Notice that you can change the view to above or below the Sun, as well as along the plane of the Solar System (as if you were a planet orbiting the Sun).</p>",
+  "content": "<p>Now you’ll use the Orbit Viewer to explore the orbital characteristics of a representative set of objects from each group. All of the displayed points and their motions represent real objects. Click and drag to change the angle at which you view the orbits. You can also zoom in and out. Use the buttons in the bottom of the Orbit Viewer to start, pause, or move time forward or backward. You can click on the speedometer button (located at the lower right of the Orbit Viewer) to speed up the motion of the objects (to a maximum of 1year/second).</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -75,7 +75,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain."
+          "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain your reasoning in terms of the unique set of orbital properties that defines this group of objects."
         }
       ]
     }

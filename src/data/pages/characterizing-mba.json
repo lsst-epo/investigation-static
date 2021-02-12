@@ -2,18 +2,18 @@
   "id": "solarsystem09",
   "investigation": "solar-system",
   "order": "09",
-  "title": "Characterizing MBAs",
+  "title": "Characterizing Main Belt Asteroids(MBAs)",
   "slug": "characterizing-mba/",
   "previous": {
-    "title": "Characterizing NEOs",
+    "title": "Characterizing Near-Earth Objects(NEOs)",
     "link": "/characterizing-neo/"
   },
   "next": {
-    "title": "Characterizing TNOs",
+    "title": "Characterizing Trans-Neptunian Objects (TNOs)",
     "link": "/characterizing-tno/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let's analyze histograms for MBAs.</p><p>MBAs are objects that orbit the Sun between the orbits of Mars (1.5 au) and Jupiter (5.2 au).</p><p>Take time to examine the four orbital characteristics of this group of objects. Decide which of the statements provided below best describes this group’s orbital characteristics.</p>",
+  "content": "<p>MBAs are objects that orbit the Sun between the orbits of Mars (1.5 au) and Jupiter (5.2 au).</p><p>Decide which of the statements provided below best describes the orbital properties of MBAs.</p>",
   "tables": [
     {
       "id": "1",
@@ -71,7 +71,7 @@
             "yAxisLabel": "Number of MBAs",
             "xValueAccessor": "semimajor_axis",
             "domain": [[0, 10], []],
-            "bins": 10,
+            "bins": 20,
             "tooltipAccessors": ["count", "semimajor_axis"],
             "tooltipLabels": ["MBAs", "Orbit Size (au)"]
           }

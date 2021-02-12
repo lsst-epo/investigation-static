@@ -2,14 +2,14 @@
   "id": "solarsystem30",
   "investigation": "solar-system",
   "order": "30",
-  "title": "Putting it all Together",
+  "title": "Putting it all Together - Histograms",
   "slug": "solar-system-summary-2/",
   "previous": {
-    "title": "Putting it all Together",
+    "title": "Putting it all Together - Histograms",
     "link": "/solar-system-summary-1/"
   },
   "next": {
-    "title": "Putting it all Together",
+    "title": "Putting it all Together - Histograms",
     "link": "/solar-system-summary-3/"
   },
   "layout": "TwoCol",
@@ -37,13 +37,8 @@
         "row": "bottom",
         "col": "left"
       },
-      "colTitles": [
-        "Property",
-        "Min",
-        "Max",
-        "Average"
-      ],
-      "rowTitles": [["Distance"], ["Eccentricity"], ["Inclination"], ["Diameter"]],
+      "colTitles": ["Property", "Min", "Max", "Most Common"],
+      "rowTitles": [["Orbital Size"], ["Eccentricity"], ["Inclination"]],
       "rows": [
         [
           { "accessor": "data", "id": "55" },
@@ -59,11 +54,6 @@
           { "accessor": "data", "id": "61" },
           { "accessor": "data", "id": "62" },
           { "accessor": "data", "id": "63" }
-        ],
-        [
-          { "accessor": "diameter", "id": "64" },
-          { "accessor": "diameter", "id": "65" },
-          { "accessor": "diameter", "id": "66" }
         ]
       ]
     }
@@ -98,7 +88,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the average orbit eccentricity?"
+          "label": "What is the most common orbit eccentricity?"
         }
       ]
     }

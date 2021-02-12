@@ -2,14 +2,14 @@
   "id": "solarsystem17",
   "investigation": "solar-system",
   "order": "17",
-  "title": "Identifying Types of Solar System Objects",
+  "title": "Comparing Groups of Solar System Objects",
   "slug": "identifying-groups-4/",
   "previous": {
-    "title": "Identifying Types of Solar System Objects",
+    "title": "Identifying Groups of Solar System Objects - 4",
     "link": "/identifying-groups-3/"
   },
   "next": {
-    "title": "Identifying Types of Solar System Objects",
+    "title": "Distributions of Solar System Objects",
     "link": "/identifying-groups-5/"
   },
   "layout": "SingleCol",
@@ -76,7 +76,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "According to Kepler's Third Law and the information you recorded in your table, which of the four types of objects have orbital periods <i>shorter</i> than Jupiter's?"
+          "label": "Which of the four groups have orbital periods <i>shorter</i> than Jupiter's?"
         }
       ]
     },
@@ -87,7 +87,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "According to Kepler's Third Law and the information you recorded in your table, which of the four types of objects have orbital periods <i>longer</i> than Jupiter's?"
+          "label": "which of the four groups have orbital periods <i>longer</i> than Jupiter's?"
         }
       ]
     },

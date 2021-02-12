@@ -2,18 +2,18 @@
   "id": "solarsystem22",
   "investigation": "solar-system",
   "order": "22",
-  "title": "Classifying Newly Detected Solar System Objects",
+  "title": "Classifying Newly Detected Solar System Objects - 1",
   "slug": "classifying-objects/",
   "previous": {
-    "title": "The Sizes of Small Solar System Objects",
-    "link": "/object-magnitude-solar-system/"
+    "title": "The History of the Solar System",
+    "link": "/nebula-theory/"
   },
   "next": {
-    "title": "Estimating the Size of Asteroids",
+    "title": "Classifying Newly Detected Solar System Objects - 2",
     "link": "/classifying-objects-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Many small Solar System objects have been recently discovered by Rubin Observatory. You now have the chance to apply what you have learned to classify three such objects. Your choices for classifying each object are:<ul><li>MBA</li><li>TNO</li><li>NEO</li><li>Comet</li><li>None of the above</li></ul></p><p>Consider factors such as the object’s absolute magnitude, and the size, shape, and tilt of its orbit. Use the table of group properties that you constructed earlier as a reference. Then, give an explanation and evidence for your classification.</p>",
+  "content": "<p>Many small Solar System objects have been recently discovered by Rubin Observatory. You now have the chance to apply what you have learned to classify three such objects. Your choices for classifying each object are:<ul><li>MBA</li><li>TNO</li><li>NEO</li><li>Comet</li><li>None of the above</li></ul></p>Use the orbital properties in the table you constructed above to help you determine which group this newly discovered object belongs to.",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -72,13 +72,7 @@
         "row": "bottom",
         "col": "left"
       },
-      "colTitles": [
-        "",
-        "Name",
-        "Absolute Magnitude",
-        "Type",
-        "Data/Evidence"
-      ],
+      "colTitles": ["", "Name", "Absolute Magnitude", "Type", "Data/Evidence"],
       "rowTitles": [["#1"], ["#2"], ["#3"]],
       "rows": [
         [
@@ -111,17 +105,6 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "What is this object's name?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "460",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What is this object's absolute magnitude?"
         }
       ]
     },

@@ -2,18 +2,18 @@
   "id": "solarsystem28",
   "investigation": "solar-system",
   "order": "28",
-  "title": "Putting it all Together",
+  "title": "Exploring A New Class of Objects",
   "slug": "solar-system-summary/",
   "previous": {
-    "title": "Reflect and Discuss",
-    "link": "/solar-system-discuss-report/"
+    "title": "Classifying Newly Detected Solar System Objects - 3",
+    "link": "/classifying-objects-2/"
   },
   "next": {
-    "title": "Putting it all Together",
+    "title": "Putting it all Together - Histograms",
     "link": "/solar-system-summary-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>You are on a Solar System expedition and your team flies by objects that do not seem to fall into any of the four major groups you have investigated so far. You will use histograms, the orbit visualizer, and the size calculator to analyze the data for these objects.</p>",
+  "content": "<p>You are on a Solar System expedition and your team flies by objects that do not seem to fall into any of the four major groups you have investigated so far. You will use histograms and the Orbit Viewer to determine their orbital properties.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
