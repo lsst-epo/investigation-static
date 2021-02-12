@@ -1,7 +1,7 @@
 {
-  "id": "expand9",
+  "id": "expand10",
   "investigation": "expanding-universe",
-  "order": "09",
+  "order": "10",
   "title": "Testing the Hubble-Lemaître Law from Another Place in the Universe",
   "slug": "testing-law/",
   "previous": {
@@ -12,32 +12,66 @@
     "title": "The Universe through Time",
     "link": "/universe-through-time/"
   },
-  "content": "<p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law. But does this law apply only from our perspective in the Milky Way, or from other places in the Universe as well? To find out, let’s explore another Rubin Observatory data set.</p><p>We will begin by viewing the data for six galaxies observed from the Milky Way Galaxy.</p><p>Use the menu next to the Hubble plot to select different galaxies.  Click on different galaxies to see what the Hubble plots would look like for astronomers living in that galaxy.</p>",
-  "widgets": [{
-    "type": "GalaxyScrambler",
-    "source": "/data/galaxies/scrambler-2.json",
-    "options": {
-      "preSelected": true,
-      "hubbleConstant": 65.7,
-      "domain": [[0, 1300], [0, 75000]]
+  "content": "<p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law. But does this law apply only from our perspective in the Milky Way, or from other places in the Universe as well?</p><p>We will begin by viewing the data for five galaxies observed from the Milky Way Galaxy.</p><p>Select a galaxy from the menu by clicking on one of the star icons (on the left side of the Hubble plot) to see what the Hubble plots would look like for astronomers in each of the five galaxies.</p><p>Rotate and zoom the tool on the right to help visualize the relative positions of galaxies in space. Note: <i>this does not imply that the Universe is rotating or expanding.</i></p>",
+  "widgets": [
+    {
+      "type": "GalaxyScrambler",
+      "source": "/data/galaxies/scrambler-2.json",
+      "options": {
+        "preSelected": true,
+        "hubbleConstant": 65.7,
+        "domain": [
+          [0, 1300],
+          [0, 75000]
+        ]
+      }
     }
-  }],
+  ],
   "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "9",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "In the Hubble plot, the data from galaxy observations all fall along a straight line. Are the galaxies actually positioned in space along a straight line?",
+          "options": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ],
+          "placeholder": "Select yes/no",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
     {
       "question": [
         {
           "id": "10",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Imagine there are alien astronomers living in Galaxy #3. If we were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
+          "label": "If alien astronomers living in Galaxy #3 (the blue star), were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
           "options": [
-            {"label": "next to the origin", "value": "next to the origin"},
-            {"label": "next to the Milky Way Galaxy", "value": "next to the Milky Way Galaxy"},
-            {"label": "the third dot from the origin", "value": "the third dot from the origin"},
-            {"label": "at the origin", "value": "at the origin"}
+            { "label": "next to the origin", "value": "next to the origin" },
+            {
+              "label": "next to the Milky Way Galaxy",
+              "value": "next to the Milky Way Galaxy"
+            },
+            {
+              "label": "the third dot from the origin",
+              "value": "the third dot from the origin"
+            },
+            { "label": "at the origin", "value": "at the origin" }
           ],
           "placeholder": "Select the best description",
-          "answerPre": "<p>Selected: </p>",
+          "answerPre": "<>Selected: </>",
           "answerAccessor": "data"
         }
       ]
@@ -77,7 +111,7 @@
         {
           "id": "14",
           "questionType": "textArea",
-          "label": "Based on your investigations, would astronomers at all locations in the Universe observe that all galaxies are moving away from them?",
+          "label": "Do your observations suggest that astronomers at all locations in the Universe would observe that all galaxies are moving away from them?",
           "answerAccessor": "text"
         }
       ]
@@ -87,7 +121,7 @@
         {
           "id": "15",
           "questionType": "textArea",
-          "label": "Based on your investigations, would astronomers at all locations in the Universe observe that the Universe is expanding at the same rate?",
+          "label": "Do your observations suggest that astronomers at all locations in the Universe would observe that the Universe is expanding at the same rate?",
           "answerAccessor": "text"
         }
       ]

@@ -1,19 +1,19 @@
 {
-  "id": "expand4",
+  "id": "expand6",
   "investigation": "expanding-universe",
-  "order": "03",
-  "title": "Interpreting a Hubble plot",
+  "order": "06",
+  "title": "Constructing a Hubble plot",
   "slug": "interpreting-a-hubble-plot-1/",
   "previous": {
-    "title": "Using Photometric Redshift to Measure Velocity",
-    "link": "/acquiring-the-data-1-1/"
+    "title": "Gathering the Data for a Hubble Plot",
+    "link": "/acquiring-the-data-1/"
   },
   "next": {
     "title": "Interpreting a Hubble plot",
     "link": "/interpreting-a-hubble-plot-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>You will begin by hunting for Type Ia supernovae in Rubin Observatory images of six galaxies. Then you will identify the galaxies themselves.  Finally we'll use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble plot.</p>",
+  "content": "<p>You will begin by hunting for Type Ia supernovae in Rubin Observatory images of four galaxies. Then you will identify the galaxies themselves.  Finally you will use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble plot of your data.</p>",
   "widgets": [
     {
       "type": "GalaxySelector",
@@ -32,21 +32,9 @@
           "id": "251",
           "questionType": "accordion",
           "title": "Question #1",
-          "label": "<p>Select a Galaxy from the menu. Compare the images of the galaxy as you did before to find the location of the supernova. When you see the supernova, click on it. The information box above the images will provide you with the distance to the selected supernova in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because the supernova is in the galaxy, the distances to the supernova and the galaxy are the same.</p><p>Next, click on the center of the galaxy. The information box above the images will provide you with the recessional velocity of the selected galaxy in kilometers per second (km/s).</p>",
+          "label": "<p>Select a galaxy from the menu by clicking on one of the star icons on the left side of the Galaxy Selector. For each galaxy, you will make a set of observations and record your data:</p><ol><li>Identify the supernova by clicking on it. A green circle should appear when you have correctly located it.</li><li>Note that the supernova distance appears in the green box at the top of the Galaxy Selector. The distance is in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because the supernova is in the galaxy, the distances to the supernova and the galaxy are the same.</li><li>Identify the center of the galaxy by clicking on it. A yellow circle should appear when you have correctly located it.</li><li>Note that the galaxy velocity (moving away from Earth) appears in the green box at the top of the Galaxy Selector. The recessional velocity of the selected galaxy is in kilometers per second (km/s).</li><li>Once you have identified the supernova and galaxy,  the Hubble plot will slide out. Use the graph axes to find where on the graph corresponds to the velocity and distance of the galaxy. Click on the plot to add a dot at a location that is close to your measured values. (If you wish to reposition the dot, you can click in a different location). Click Save after you have placed the point.</li><li>Repeat this process for the Galaxies 2-4 by clicking the Next Galaxy button at the bottom of the Galaxy Selector. After you have plotted 4 points, go to the next page.</li></ol>",
           "answerPre": "<span>Total Selected: </span>",
           "answerAccessor": "galaxy"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "252",
-          "questionType": "accordion",
-          "title": "Question #1",
-          "label": "<p>Once you have identified the supernova and galaxy the Hubble plot will slide out.  Use the graph axes to find where on the graph corresponds to the velocity and distance of the galaxy. Click on the plot to add a dot at the correct location for your data.</p>",
-          "answerPre": "<span>Selected: </span>",
-          "answerAccessor": "hubblePlot"
         }
       ]
     }

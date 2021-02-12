@@ -5,21 +5,38 @@
   "title": "Reflect and Discuss",
   "slug": "discuss-report/",
   "previous": {
-    "title": "The Rubin Observatory Hubble Plot",
-    "link": "/lsst-hubble-plot-2/"
-  },
-  "next": {
     "title": "Putting it all Together",
     "link": "/summary/"
   },
-  "layout": "SingleCol",
+  "next": { "title": "Acknowledgements Page", "link": "/acknowledgements/" },
+  "layout": "TwoCol",
+  "widgets": [
+    {
+      "type": "HubblePlot",
+      "source": "/data/galaxies/large_hubble_sample.json",
+      "layout": {
+        "col": "right",
+        "row": "bottom"
+      },
+      "options": {
+        "showUserPlot": "252",
+        "preSelected": true,
+        "multiple": true,
+        "hubbleConstant": 65.7,
+        "domain": [
+          [0, 5000],
+          [0, 175000]
+        ]
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
         {
           "id": "25",
           "questionType": "textArea",
-          "label": "Would you have been able to determine that the expansion rate of the Universe is changing with time if you had only your original data?  Explain why or why not.",
+          "label": "Would you have been able to determine that the expansion rate of the Universe is changing with time if you had only your data from nearby galaxies?  Explain why or why not.",
           "answerAccessor": "text"
         }
       ]
@@ -29,7 +46,7 @@
         {
           "id": "26",
           "questionType": "textArea",
-          "label": "Do the data from this investigation provide supporting evidence for the Big Bang Theory? Explain what aspects of the Big Bang Theory are addressed and how they are supported.",
+          "label": "How do the data from this investigation provide supporting evidence for the Big Bang Theory? Explain what aspects of the Big Bang Theory are addressed and how they are supported.",
           "answerAccessor": "text"
         }
       ]

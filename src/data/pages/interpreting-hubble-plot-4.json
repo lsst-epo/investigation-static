@@ -1,7 +1,7 @@
 {
-  "id": "expand7",
+  "id": "expand8",
   "investigation": "expanding-universe",
-  "order": "07",
+  "order": "08",
   "title": "Interpreting a Hubble Plot",
   "slug": "interpreting-a-hubble-plot-4/",
   "previous": {
@@ -13,15 +13,17 @@
     "link": "/interpreting-a-hubble-plot-5/"
   },
   "layout": "TwoCol",
-  "content": "<p>Click and drag on the graph to add a trendline to your Hubble plot.  Place your trendline where you feel it best fits your data. The slope of this trendline is known as Hubble's Constant.</p>",
-  "widgets": [{
-    "type": "HubblePlot",
-    "options": {
-      "showUserPlot": "252",
-      "userTrendline": "7",
-      "required": ["252"]
+  "content": "<p>Click and drag on the graph to add a trendline to your Hubble plot.  Place your trendline where you feel it best fits your data. The slope of this trendline is known as the Hubble Constant.</p>",
+  "widgets": [
+    {
+      "type": "HubblePlot",
+      "options": {
+        "showUserPlot": "252",
+        "userTrendline": "7",
+        "required": ["252"]
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -30,9 +32,21 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #7",
-          "label": "<p>Click and drag anywhere on the Hubble plot to add a trendline</p>",
+          "label": "<p>Click and drag anywhere on the Hubble plot to add a trendline</p><p>Hubble Constant: 70.3 Km/s/Mpc</p>",
           "answerPre": "<span>Hubble's Constant: </span>",
           "answerAccessor": "hubbleConstant"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "7_1",
+          "questionType": "text",
+          "tool": "selection",
+          "title": "Question #7.1",
+          "label": "<p>Scientists currently estimate the Hubble COnstant to be between 67.7 and 74.0 (km/s)/Mpc. How does you value of the Hubble Constant compare to these values?</p>",
+          "answerAccessor": "text"
         }
       ]
     }
