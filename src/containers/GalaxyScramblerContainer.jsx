@@ -11,6 +11,7 @@ import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUti
 import { colorize } from '../lib/utilities.js';
 
 import {
+  widgetTitle,
   drawerContainer,
   scrambleItem,
   linkActive,
@@ -100,6 +101,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
         >
           <div className="container-flex spaced">
             <div className="col padded col-width-50">
+              <h2 className={widgetTitle}>Hubble plot</h2>
               <HubblePlot
                 className="hubble-plot"
                 {...{
@@ -110,6 +112,9 @@ class GalaxyScramblerContainer extends React.PureComponent {
               />
             </div>
             <div className="col padded col-width-50">
+              <h2 className={widgetTitle}>
+                Relative Positions of Galaxies in Space
+              </h2>
               <GalaxiesPosition3D
                 className="galaxies-position"
                 data={data}

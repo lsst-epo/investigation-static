@@ -31,8 +31,8 @@
           "labelPre": "The galaxy farthest from us provides information from a time that is ",
           "labelPost": " in the history of the Universe.",
           "options": [
-            {"label": "recent", "value": "recent"},
-            {"label": "early", "value": "early"}
+            { "label": "more recent", "value": "more recent" },
+            { "label": "long ago", "value": "long ago" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -46,7 +46,7 @@
         {
           "id": "18",
           "questionType": "text",
-          "label": "Was the Universe smaller or larger when it was younger?",
+          "label": "Was the Universe smaller or larger a long time ago?",
           "answerAccessor": "text"
         }
       ]

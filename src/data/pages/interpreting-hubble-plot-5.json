@@ -1,8 +1,8 @@
 {
-  "id": "expand8",
+  "id": "expand9",
   "investigation": "expanding-universe",
-  "order": "08",
-  "title": "Interpreting a Hubble Plot",
+  "order": "09",
+  "title": "Interpreting a Hubble Constant",
   "slug": "interpreting-a-hubble-plot-5/",
   "previous": {
     "title": "Interpreting a Hubble Plot",
@@ -13,32 +13,24 @@
     "link": "/testing-law/"
   },
   "layout": "TwoCol",
-  "content": "<p>The slope of a Hubble plot is known as Hubble's Constant, and the steepness of the slope corresponds with the rate of expansion of the Universe. A steeper slope indicates a faster rate of expansion.</p>",
-  "widgets": [{
-    "type": "HubblePlot",
-    "options": {
-      "showUserPlot": "252",
-      "userTrendline": "7",
-      "required": ["252", "7"]
+  "content": "<p>The steepness of the slope  of a Hubble plot corresponds with the rate of expansion of the Universe. A steeper slope indicates a faster rate of expansion.</p>",
+  "widgets": [
+    {
+      "type": "HubblePlot",
+      "options": {
+        "showUserPlot": "252",
+        "userTrendline": "7",
+        "required": ["252", "7"]
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
         {
           "id": "8",
           "questionType": "text",
-          "label": "Do your observations suggest that the Universe is getting bigger or getting smaller?",
-          "answerAccessor": "text"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "9",
-          "questionType": "text",
-          "label": "If the slope of the line for your data were steeper, would that indicate the Universe was expanding faster or slower?",
+          "label": "If scientists make observations that establish the Hubble Constant to be 90 (km/s)/Mpc, would that indicate the Universe is expanding faster or slower that your data suggest?",
           "answerAccessor": "text"
         }
       ]

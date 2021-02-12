@@ -1,7 +1,7 @@
 {
-  "id": "expand6",
+  "id": "expand7",
   "investigation": "expanding-universe",
-  "order": "06",
+  "order": "07",
   "title": "Interpreting a Hubble Plot",
   "slug": "interpreting-a-hubble-plot-3/",
   "previous": {
@@ -14,94 +14,70 @@
   },
   "layout": "TwoCol",
   "content": "<p>Use your Hubble plot to answer the questions.</p>",
-  "widgets": [{
-    "type": "HubblePlot",
-    "options": {
-      "showUserPlot": "252",
-      "preSelected": true,
-      "required": ["252"]
+  "widgets": [
+    {
+      "type": "HubblePlot",
+      "options": {
+        "showUserPlot": "252",
+        "preSelected": true,
+        "required": ["252"]
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "2",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["2", "3"],
-          "labelPre": "Based on its position and the scale of the axes on the plot, the data point for Galaxy 1 (click or hover over a point to see details about that galaxy) indicates that it is ",
-          "labelPost": " ",
-          "srLabel": "Based on its position and the scale of the axes on the plot, the data point for Galaxy 1 indicates that it is",
-          "answerAccessor": "select",
-          "placeholder": "Select a distance",
-          "options": [
-            { "label": "close", "value": "close" },
-            { "label": "far", "value": "far" }
-          ],
-          "answerPre": "Based on its position and the scale of the axis on the plot, the data point for Galaxy 1 indicates that it is ",
-          "answerPost": "."
-        },
-        {
-          "id": "3",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["2", "3"],
-          "labelPre": " from the Milky Way galaxy and is moving ",
-          "labelPost": " .",
-          "srLabel": "from the Milky Way galaxy and is moving",
-          "answerAccessor": "select",
-          "placeholder": "Select a speed",
-          "options": [
-            { "label": "fast", "value": "fast" },
-            { "label": "slow", "value": "slow" }
-          ],
-          "answerPre": "from the Milky Way galaxy and is moving ",
-          "answerPost": "."
+          "id": "4",
+          "questionType": "textArea",
+          "label": "Where would you plot the location of the Milky Way galaxy on this Hubble plot? Explain your reasoning.",
+          "answerAccessor": "text"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "4",
+          "id": "2",
+          "questionType": "text",
+          "label": "Based on your data, how many of the galaxies are moving away from Earth?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "5",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["4", "5"],
-          "labelPre": "More distant galaxies are moving away from Earth ",
-          "labelPost": " than nearby galaxies.",
-          "srLabel": "More distant galaxies are moving away from Earth",
+          "compoundQuestion": ["5", "6"],
+          "labelPre": "Far away galaxies are moving away from Earth ",
+          "labelPost": "  than nearby galaxies.",
+          "srLabel": "Far away galaxies are moving away from Earth ",
           "answerAccessor": "select",
           "placeholder": "Select a speed",
           "options": [
             { "label": "slower", "value": "slower" },
             { "label": "faster", "value": "faster" }
           ],
-          "answerPre": "Based on its position and the scale of the axis on the plot, the data point for Galaxy 1 indicates that it is ",
-          "answerPost": "."
+          "answerPre": "Far away galaxies are moving away from Earth  ",
+          "answerPost": " than nearby galaxies."
         },
         {
-          "id": "5",
+          "id": "6",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["4", "5"],
-          "labelPre": " This means the light from galaxies that are farther away is redshifted by a ",
+          "compoundQuestion": ["5", "6"],
+          "labelPre": "This means that the Universe is ",
           "labelPost": " amount than the light from nearby galaxies.",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select a size",
           "options": [
-            { "label": "greater", "value": "greater" },
-            { "label": "smaller", "value": "smaller" }
+            { "label": "expanding (getting larger)", "value": "greater" },
+            { "label": "contracting (getting smaller)", "value": "smaller" }
           ],
           "answerPre": " ",
           "answerPost": "."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "6",
-          "questionType": "textArea",
-          "label": "Where would you plot the location of the Milky Way galaxy on this Hubble plot? Explain your reasoning.",
-          "answerAccessor": "text"
         }
       ]
     }

@@ -1,0 +1,38 @@
+{
+  "id": "expand2",
+  "investigation": "expanding-universe",
+  "order": "02",
+  "title": "Introduction",
+  "slug": "introduction-1/",
+  "previous": {
+    "title": "Introduction",
+    "link": "/introduction/"
+  },
+  "next": {
+    "title": "Using Supernovae to Measure Distance",
+    "link": "/acquiring-the-data/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>As you can see from this story, often breakthroughs come as a result of scientists considering ideas that are different from their own. </p>",
+  "images": [
+    {
+      "mediaPath": "/images/alarmClock.jpg",
+      "altText": "The first American alarm clock was created in 1787 by Levi Hutchins, successfully combining two functions into one device. Sixty years later, Frenchman Antoine Redier made it adjustable so the user could set the alarm time, and only in the 1940s was the first radio alarm clock invented by James F. Reynolds.",
+      "figText": "<p>Not only scientific breakthroughs come from combining different ideas, but also everyday life objects. The first American alarm clock was created in 1787 by Levi Hutchins, successfully combining two functions into one device. Sixty years later, Frenchman Antoine Redier made it adjustable so the user could set the alarm time, and only in the 1940s was the first radio alarm clock invented by James F. Reynolds.</p><p>Credit: Rubin Observatory.</p>"
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "321",
+          "questionType": "textArea",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "<p>Describe a time when you were working in a group, and the solution to a problem came from listening to somebody who had an idea different from yours.</p>",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}

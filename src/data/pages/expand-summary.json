@@ -5,10 +5,13 @@
   "title": "Putting it all Together",
   "slug": "summary/",
   "previous": {
+    "title": "The Rubin Observatory Hubble Plot",
+    "link": "/lsst-hubble-plot/"
+  },
+  "next": {
     "title": "Reflect and Discuss",
     "link": "/discuss-report/"
   },
-  "next": {"title": "Acknowledgements Page", "link": "/acknowledgements/"},
   "layout": "SingleCol",
   "questionsByPage": [
     {
@@ -16,15 +19,15 @@
         {
           "id": "28",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["28", "29"],
+          "compoundQuestion": ["28", "29", "30"],
           "labelPre": "We observe the light from distant galaxies to be ",
           "labelPost": ", ",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "redshifted", "value": "redshifted"},
-            {"label": "blueshifted", "value": "blueshifted"}
+            { "label": "redshifted", "value": "redshifted" },
+            { "label": "blueshifted", "value": "blueshifted" }
           ],
           "answerPre": " ",
           "answerPost": "."
@@ -32,15 +35,31 @@
         {
           "id": "29",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["28", "29"],
+          "compoundQuestion": ["28", "29", "30"],
           "labelPre": " indicating that these galaxies are all moving ",
-          "labelPost": " us.",
+          "labelPost": " us,",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "toward", "value": "toward"},
-            {"label": "away from", "value": "away from"}
+            { "label": "toward", "value": "toward" },
+            { "label": "away from", "value": "away from" }
+          ],
+          "answerPre": " ",
+          "answerPost": "."
+        },
+        {
+          "id": "30",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["28", "29", "30"],
+          "labelPre": " and that the Universe is ",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "select",
+          "placeholder": "Select",
+          "options": [
+            { "label": "expanding", "value": "expanding" },
+            { "label": "contracting", "value": "contracting" }
           ],
           "answerPre": " ",
           "answerPost": "."
@@ -56,15 +75,36 @@
           "labelPre": "(Choose the two variables that best complete this sentence) To construct a Hubble Plot you need to determine the ",
           "labelPost": " of galaxies.",
           "options": [
-            {"label": "color", "value": "color"},
-            {"label": "brightness", "value": "brightness"},
-            {"label": "distance", "value": "distance"},
-            {"label": "recessional velocity", "value": "recessional velocity"},
-            {"label": "age", "value": "age"}
+            { "label": "color", "value": "color" },
+            { "label": "brightness", "value": "brightness" },
+            { "label": "distance", "value": "distance" },
+            {
+              "label": "recessional velocity",
+              "value": "recessional velocity"
+            },
+            { "label": "age", "value": "age" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "multi-select"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "39",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "A Universe that is slowly expanding would have a Hubble plot with a slope that is ",
+          "labelPost": " .",
+          "options": [
+            { "label": "steep", "value": "steep" },
+            { "label": "flat", "value": "flat" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
         }
       ]
     },
@@ -77,8 +117,8 @@
           "labelPre": "The Hubble plot for an observer in a different galaxy would also indicate that all galaxies are moving ",
           "labelPost": " them.",
           "options": [
-            {"label": "towards", "value": "towards"},
-            {"label": "away from", "value": "away from"}
+            { "label": "towards", "value": "towards" },
+            { "label": "away from", "value": "away from" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -95,28 +135,11 @@
           "labelPre": "Observations of the expansion of the Universe from different locations reveal that the Universe ",
           "labelPost": ".",
           "options": [
-            {"label": "does not have a center", "value": "does not have a center"},
-            {"label": "has an edge", "value": "has an edge"}
-          ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "32",
-          "questionType": "select",
-          "title": "Question #1",
-          "labelPre": "The Hubble plot constructed from Rubin Observatory data supports the idea of a Universe that is ",
-          "labelPost": " in size.",
-          "options": [
-            {"label": "getting bigger", "value": "getting bigger"},
-            {"label": "getting smaller", "value": "getting smaller"},
-            {"label": "contracting", "value": "contracting"},
-            {"label": "remaining constant", "value": "remaining constant"}
+            {
+              "label": "does not have a center",
+              "value": "does not have a center"
+            },
+            { "label": "has an edge", "value": "has an edge" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
@@ -136,8 +159,8 @@
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "a long time ago", "value": "a long time ago"},
-            {"label": "close to our time", "value": "close to our time"}
+            { "label": "a long time ago", "value": "a long time ago" },
+            { "label": "close to our time", "value": "close to our time" }
           ],
           "answerPre": " ",
           "answerPost": "."
@@ -152,8 +175,11 @@
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "a long time ago", "value": "a long time ago"},
-            {"label": "close to our time", "value": "close to our time"}
+            { "label": "a long time ago", "value": "a long time ago" },
+            {
+              "label": "from more recent times",
+              "value": "from more recent times"
+            }
           ],
           "answerPre": " ",
           "answerPost": "."
@@ -166,14 +192,14 @@
           "id": "35",
           "questionType": "compoundSelect",
           "compoundQuestion": ["35", "36", "37"],
-          "labelPre": "The slope of the line in this Hubble plot is ",
+          "labelPre": "The slope of a Hubble plot is ",
           "labelPost": "for data from very distant objects compared to nearby objects.",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "steeper", "value": "steeper"},
-            {"label": "flatter", "value": "flatter"}
+            { "label": "steeper", "value": "steeper" },
+            { "label": "flatter", "value": "flatter" }
           ],
           "answerPre": " ",
           "answerPost": "."
@@ -188,8 +214,8 @@
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "faster", "value": "faster"},
-            {"label": "slower", "value": "slower"}
+            { "label": "faster", "value": "faster" },
+            { "label": "slower", "value": "slower" }
           ],
           "answerPre": " ",
           "answerPost": "."
@@ -204,8 +230,8 @@
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "speeding up", "value": "speeding up"},
-            {"label": "slowing down", "value": "slowing down"}
+            { "label": "speeding up", "value": "speeding up" },
+            { "label": "slowing down", "value": "slowing down" }
           ],
           "answerPre": " ",
           "answerPost": "."
