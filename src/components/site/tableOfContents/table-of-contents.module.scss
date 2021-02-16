@@ -70,7 +70,6 @@
 }
 
 .table-of-contents {
-  $pageNavHeight: 168px;
   z-index: 14;
   padding-top: calc(#{$siteHeaderHeight} + 10px);
 
@@ -82,10 +81,12 @@
 
   :global {
     .md-list {
-      height: 100%;
-      max-height: calc(100vh - #{$pageNavHeight});
+      height: calc(100vh - 324px);
       padding-top: 0;
-      padding-bottom: $pageNavHeight;
+      padding-bottom: 0;
+      @include respond($break80, max) {
+        height: calc(100vh - 330px);
+      }
     }
   }
 }
