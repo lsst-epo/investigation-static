@@ -2,7 +2,7 @@
   "id": "expand12",
   "investigation": "expanding-universe",
   "order": "12",
-  "title": "The Rubin Observatory Hubble Plot",
+  "title": "The Changing Hubble Constant",
   "slug": "lsst-hubble-plot/",
   "previous": {
     "title": "The Universe through Time",
@@ -19,7 +19,7 @@
         "col": "left",
         "row": "top"
       },
-      "content": "<p>Your Hubble plot was made from observations for a small sample of nearby galaxies. Rubin Observatory will detect millions of supernovae in host galaxies that are much farther away and dimmer than the galaxies you have investigated so far. This plot shows the galaxies you plotted in color, and data for over a thousand supernovae and galaxies (in grey) detected by Rubin Observatory in grey.</p><p>Notice not all the data points fit onto the trendline.</p>"
+      "content": "<p>Your Hubble plot was made from observations for a small sample of nearby galaxies. Rubin Observatory will detect millions of supernovae in host galaxies that are much farther away and dimmer than the galaxies you have investigated so far. This plot shows the galaxies you plotted in color, and data for over a thousand supernovae and galaxies (in grey) detected by Rubin Observatory.</p><p>Notice not all the data points fit onto the trendline.</p>"
     },
     {
       "layout": {

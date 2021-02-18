@@ -2,14 +2,14 @@
   "id": "expand8",
   "investigation": "expanding-universe",
   "order": "08",
-  "title": "Interpreting a Hubble Plot",
+  "title": "Determining the Hubble Constant",
   "slug": "interpreting-a-hubble-plot-4/",
   "previous": {
     "title": "Interpreting a Hubble Plot",
     "link": "/interpreting-a-hubble-plot-3/"
   },
   "next": {
-    "title": "Interpreting a Hubble Plot",
+    "title": "Interpreting the Hubble Constant",
     "link": "/interpreting-a-hubble-plot-5/"
   },
   "layout": "TwoCol",
@@ -45,7 +45,7 @@
           "questionType": "text",
           "tool": "selection",
           "title": "Question #7.1",
-          "label": "<p>Scientists currently estimate the Hubble COnstant to be between 67.7 and 74.0 (km/s)/Mpc. How does you value of the Hubble Constant compare to these values?</p>",
+          "label": "<p>Scientists currently estimate the Hubble Constant to be between 67.7 and 74.0 (km/s)/Mpc. How does your value of the Hubble Constant compare to these values?</p>",
           "answerAccessor": "text"
         }
       ]
