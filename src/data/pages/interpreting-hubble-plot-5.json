@@ -2,10 +2,10 @@
   "id": "expand9",
   "investigation": "expanding-universe",
   "order": "09",
-  "title": "Interpreting a Hubble Constant",
+  "title": "Interpreting the Hubble Constant",
   "slug": "interpreting-a-hubble-plot-5/",
   "previous": {
-    "title": "Interpreting a Hubble Plot",
+    "title": "Determining the Hubble Constant",
     "link": "/interpreting-a-hubble-plot-4/"
   },
   "next": {
@@ -30,7 +30,7 @@
         {
           "id": "8",
           "questionType": "text",
-          "label": "If scientists make observations that establish the Hubble Constant to be 90 (km/s)/Mpc, would that indicate the Universe is expanding faster or slower that your data suggest?",
+          "label": "If scientists make observations that establish the Hubble Constant to be 90 (km/s)/Mpc, would that indicate the Universe is expanding faster or slower than your data suggest?",
           "answerAccessor": "text"
         }
       ]

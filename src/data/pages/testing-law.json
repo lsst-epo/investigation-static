@@ -5,7 +5,7 @@
   "title": "Testing the Hubble-Lemaître Law from Another Place in the Universe",
   "slug": "testing-law/",
   "previous": {
-    "title": "Interpreting a Hubble Plot",
+    "title": "Interpreting the Hubble Constant",
     "link": "/interpreting-a-hubble-plot-5/"
   },
   "next": {
@@ -57,7 +57,7 @@
           "id": "10",
           "questionType": "select",
           "title": "Question #1",
-          "label": "If alien astronomers living in Galaxy #3 (the blue star), were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
+          "label": "If alien astronomers living in Galaxy #2 (the blue star), were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
           "options": [
             { "label": "next to the origin", "value": "next to the origin" },
             {
@@ -81,7 +81,7 @@
         {
           "id": "11",
           "questionType": "textArea",
-          "label": "Is the relationship between the distance of a galaxy and the speed of a galaxy the same or different than what you observed from the Milky Way Galaxy? Explain.",
+          "label": "Is the relationship between the distance of a galaxy and the velocity of a galaxy the same or different than what you observed from the Milky Way Galaxy? Explain.",
           "answerAccessor": "text"
         }
       ]
@@ -91,7 +91,7 @@
         {
           "id": "12",
           "questionType": "textArea",
-          "label": "How does the Hubble Constant for the observations made by the alien astronomers in Galaxy #3 compare to the Hubble Constant you measured from Earth (in the Milky Way Galaxy)?",
+          "label": "How does the Hubble Constant for the observations made by the alien astronomers in Galaxy #2 compare to the Hubble Constant you measured from Earth (in the Milky Way Galaxy)?",
           "answerAccessor": "text"
         }
       ]
