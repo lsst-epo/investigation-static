@@ -35,6 +35,7 @@ class GalaxiesPosition3D extends React.PureComponent {
 
     return {
       grid3D: {
+        show: false,
         bottom: '20%',
         viewControl: {
           projection: 'perspective',
