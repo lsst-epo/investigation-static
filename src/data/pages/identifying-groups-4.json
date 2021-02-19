@@ -87,7 +87,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "which of the four groups have orbital periods <i>longer</i> than Jupiter's?"
+          "label": "Which of the four groups have orbital periods <i>longer</i> than Jupiter's?"
         }
       ]
     },

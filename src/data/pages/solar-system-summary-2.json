@@ -2,14 +2,14 @@
   "id": "solarsystem30",
   "investigation": "solar-system",
   "order": "30",
-  "title": "Putting it all Together - Histograms",
+  "title": "Defining Orbital Properties - Eccentricities- 2",
   "slug": "solar-system-summary-2/",
   "previous": {
-    "title": "Putting it all Together - Histograms",
+    "title": "Defining Orbital Properties - Orbit Sizes",
     "link": "/solar-system-summary-1/"
   },
   "next": {
-    "title": "Putting it all Together - Histograms",
+    "title": "Defining Orbital Properties - Inclinations - 3",
     "link": "/solar-system-summary-3/"
   },
   "layout": "TwoCol",
@@ -38,7 +38,7 @@
         "col": "left"
       },
       "colTitles": ["Property", "Min", "Max", "Most Common"],
-      "rowTitles": [["Orbital Size"], ["Eccentricity"], ["Inclination"]],
+      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclination º"]],
       "rows": [
         [
           { "accessor": "data", "id": "55" },

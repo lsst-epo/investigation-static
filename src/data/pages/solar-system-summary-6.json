@@ -30,7 +30,7 @@
         "col": "left"
       },
       "colTitles": ["Property", "Min", "Max", "Most Common"],
-      "rowTitles": [["Orbital Size"], ["Eccentricity"], ["Inclination"]],
+      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclination º"]],
       "rows": [
         [
           { "accessor": "data", "id": "55" },
