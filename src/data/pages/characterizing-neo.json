@@ -112,37 +112,6 @@
     {
       "question": [
         {
-          "id": "6",
-          "questionType": "select",
-          "title": "Question #1",
-          "label": "Size of the orbit: ",
-          "options": [
-            {
-              "label": "All of the orbits are within the inner Solar System (between 0.5 - 4 au).",
-              "value": "Within inner Solar System (between 0.5 - 4 au)"
-            },
-            {
-              "label": "All of the orbits are within the inner Solar System (between 1.5 - 5.2 au).",
-              "value": "Within inner Solar System (between 1.5 - 5.2 au)"
-            },
-            {
-              "label": "All of the orbits are located in the outer Solar System beyond the orbit of Jupiter (greater than 5.2 au).",
-              "value": "In the outer Solar System"
-            },
-            {
-              "label": "The orbit sizes span both the inner and outer Solar System.",
-              "value": "Span inner and outer Solar System"
-            }
-          ],
-          "placeholder": "Select best description of NEOs",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
           "id": "4",
           "questionType": "select",
           "title": "Question #1",
@@ -209,6 +178,37 @@
             {
               "label": "More than 10% of the objects orbit the Sun in the opposite direction of Earth’s orbit, (i >90°).",
               "value": "Opposite direction as Earth’s"
+            }
+          ],
+          "placeholder": "Select best description of NEOs",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "6",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Size of the orbit: ",
+          "options": [
+            {
+              "label": "All of the orbits are within the inner Solar System (between 0.5 - 4 au).",
+              "value": "Within inner Solar System (between 0.5 - 4 au)"
+            },
+            {
+              "label": "All of the orbits are within the inner Solar System (between 1.5 - 5.2 au).",
+              "value": "Within inner Solar System (between 1.5 - 5.2 au)"
+            },
+            {
+              "label": "All of the orbits are located in the outer Solar System beyond the orbit of Jupiter (greater than 5.2 au).",
+              "value": "In the outer Solar System"
+            },
+            {
+              "label": "The orbit sizes span both the inner and outer Solar System.",
+              "value": "Span inner and outer Solar System"
             }
           ],
           "placeholder": "Select best description of NEOs",

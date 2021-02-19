@@ -2,10 +2,10 @@
   "id": "solarsystem31",
   "investigation": "solar-system",
   "order": "31",
-  "title": "Putting it all Together - Histograms",
+  "title": "Defining Orbital Properties - Inclinations - 3",
   "slug": "solar-system-summary-3/",
   "previous": {
-    "title": "Putting it all Together - Histograms",
+    "title": "Defining Orbital Properties - Eccentricities- 2",
     "link": "/solar-system-summary-2/"
   },
   "next": {
@@ -38,7 +38,7 @@
         "col": "left"
       },
       "colTitles": ["Property", "Min", "Max", "Most Common"],
-      "rowTitles": [["Orbital Size"], ["Eccentricity"], ["Inclination"]],
+      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclination º"]],
       "rows": [
         [
           { "accessor": "data", "id": "55" },
@@ -108,6 +108,17 @@
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "70",
+          "questionType": "textArea",
+          "title": "Question #1",
+          "label": "Between which two planets are the majority of these objects located?",
+          "answerAccessor": "text"
         }
       ]
     }

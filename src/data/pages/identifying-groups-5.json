@@ -37,7 +37,7 @@
           "source": "/data/neos/MBA_ALL_semimajor_axis.json",
           "options": {
             "title": "MBA Sizes",
-            "xAxisLabel": "NEO Orbit Sizes (au)",
+            "xAxisLabel": "MBA Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of MBAs",
             "domain": [[0, 100], null],
@@ -51,7 +51,7 @@
           "source": "/data/neos/TNO_semimajor_axis.json",
           "options": {
             "title": "TNO Sizes",
-            "xAxisLabel": "NEO Orbit Sizes (au)",
+            "xAxisLabel": "TNO Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of TNOs",
             "domain": [[0, 100], null],
@@ -65,7 +65,7 @@
           "source": "/data/neos/comets_semimajor_axis_abridged.json",
           "options": {
             "title": "Comet Sizes",
-            "xAxisLabel": "NEO Orbit Sizes (au)",
+            "xAxisLabel": "Comet Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of Comets",
             "domain": [[0, 100], null],

@@ -5,7 +5,7 @@
   "title": "Putting it all Together",
   "slug": "solar-system-summary-5/",
   "previous": {
-    "title": "Putting it all Together",
+    "title": "Defining Orbital Properties - Inclinations - 3",
     "link": "/solar-system-summary-3/"
   },
   "next": {
@@ -63,7 +63,7 @@
         "col": "right"
       },
       "colTitles": ["Property", "Min", "Max", "Most Common"],
-      "rowTitles": [["Orbital Size"], ["Eccentricity"], ["Inclination"]],
+      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclination º"]],
       "rows": [
         [
           { "accessor": "data", "id": "55" },
