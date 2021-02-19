@@ -13,7 +13,7 @@ import {
 import Button from '../../site/button/index.js';
 
 function OrbitalDetails({ data, velocity }) {
-  const { H, a, i, e, Principal_desig: name, Earth_moid: moid } = data || {};
+  const { a, i, e, Principal_desig: name } = data || {};
   const [active, setActive] = useState(false);
 
   function renderValueWithUnits(value, unitType, showUnit) {
@@ -51,14 +51,9 @@ function OrbitalDetails({ data, velocity }) {
           includeRowTitles
           rows={[
             ['Scientific Name', name || ''],
-            [
-              'Semi-major Axis',
-              renderValueWithUnits(a, 'semimajor_axis', true),
-            ],
+            ['Orbit Size', renderValueWithUnits(a, 'semimajor_axis', true)],
             ['Eccentricity', renderValueWithUnits(e, 'eccentricity', false)],
             ['Inclination', renderValueWithUnits(i, 'inclination', true)],
-            ['Absolute Magnitude', renderValueWithUnits(H, 'magnitude', false)],
-            ['Earth MOID', renderValueWithUnits(moid, 'moid', true)],
             [
               'Orbital Speed',
               renderValueWithUnits(toSigFigs(velocity, 3), 'velocity', true),
