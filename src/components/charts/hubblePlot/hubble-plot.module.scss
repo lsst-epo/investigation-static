@@ -12,6 +12,18 @@
   // }
 }
 
+.axis {
+  :global .tick {
+    @include labelPrimary;
+  }
+}
+
+.axis-grid {
+  :global line {
+    stroke: $neutral50;
+  }
+}
+
 .widget-title {
   margin-left: 20px;
   text-align: center;
