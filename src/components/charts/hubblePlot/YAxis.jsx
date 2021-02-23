@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
 import { axisLeft as d3AxisLeft } from 'd3-axis';
+import { axis } from './hubble-plot.module.scss';
 
 class YAxis extends React.PureComponent {
   constructor(props) {
@@ -33,7 +34,7 @@ class YAxis extends React.PureComponent {
       <>
         <g
           key="y-axis"
-          className="y-axis axis"
+          className={`y-axis ${axis}`}
           transform={`translate(${padding}, ${offsetTop})`}
           ref={this.yAxisContainer}
         />

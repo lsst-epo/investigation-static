@@ -18,6 +18,7 @@ import { arrayify } from '../../../lib/utilities.js';
 import Trendline from './Trendline.jsx';
 import Points from './Points';
 import CursorPoint from './CursorPoint.jsx';
+import AxisGrid from './AxisGrid.jsx';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
@@ -439,6 +440,17 @@ class HubblePlot extends React.Component {
               />
             </clipPath>
           </defs>
+          <AxisGrid
+            {...{
+              height,
+              width,
+              xScale,
+              yScale,
+              padding,
+              offsetTop,
+              offsetRight,
+            }}
+          />
           <XAxis
             label={xAxisLabel}
             scale={xScale}
@@ -540,7 +552,7 @@ HubblePlot.defaultProps = {
   xValueAccessor: 'distance',
   yValueAccessor: 'velocity',
   xAxisLabel: 'Distance (Mpc)',
-  yAxisLabel: 'Velocity (Km/s)',
+  yAxisLabel: 'Velocity (km/s)',
   tooltipAccessors: ['name', 'distance', 'velocity'],
   tooltipLabels: ['Galaxy', 'Distance', 'Velocity'],
   isVisible: true,

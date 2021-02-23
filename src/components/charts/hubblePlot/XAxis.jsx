@@ -41,7 +41,7 @@ class XAxis extends React.PureComponent {
       <>
         <g
           key="x-axis"
-          className="x-axis axis"
+          className={`x-axis axis ${styles.axis}`}
           transform={`translate(0, ${height - padding + offsetTop})`}
           ref={this.xAxisContainer}
         />
