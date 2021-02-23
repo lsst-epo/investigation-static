@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-md';
@@ -54,8 +53,13 @@ class Header extends React.PureComponent {
             {pageNumber && `: Page ${pageNumber}`}
           </span>
           <div className={styles.headerInner}>
-            <Link to="/" className={logo && styles.logoWrapper}>
-              <span className={`${logo && 'screen-reader-only'}`}>Home</span>
+            <a
+              href="http://rubineducation.org/"
+              className={logo && styles.logoWrapper}
+            >
+              <span className={`${logo && 'screen-reader-only'}`}>
+                Rubin Education
+              </span>
               {logo && (
                 <img
                   aria-hidden
@@ -64,7 +68,7 @@ class Header extends React.PureComponent {
                   className={styles.siteLogo}
                 />
               )}
-            </Link>
+            </a>
           </div>
         </div>
       </Toolbar>

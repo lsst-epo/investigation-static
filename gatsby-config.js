@@ -69,7 +69,7 @@ module.exports = {
         background_color: `#087f80`,
         theme_color: `#087f80`,
         display: `minimal-ui`,
-        icon: `src/images/lsst-logo.svg`, // This path is relative to the root of the site.
+        icon: `src/images/Rubin-favicon-32px.png`, // This path is relative to the root of the site.
       },
     },
     // {
