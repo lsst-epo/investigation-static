@@ -30,8 +30,34 @@ class GalaxiesPosition3D extends React.PureComponent {
     });
   }
 
+  createLineData(datum, data, origin) {
+    if (data.length === 4) {
+      return [
+        [origin[1].x, origin[1].y, origin[1].z],
+        [datum.x, datum.y, datum.z],
+      ];
+    }
+    return [
+      [origin[0].x, origin[0].y, origin[0].z],
+      [datum.x, datum.y, datum.z],
+    ];
+  }
+
   getOption(data) {
     const [labels, noLabels] = partition(data, o => o.label);
+
+    const connectingLines = data.map(datum => {
+      return {
+        type: 'line3D',
+        animation: false,
+        data: this.createLineData(datum, noLabels, labels),
+        lineStyle: {
+          color: '#000',
+          opacity: 0.3,
+          width: 1.5,
+        },
+      };
+    });
 
     return {
       grid3D: {
@@ -65,7 +91,7 @@ class GalaxiesPosition3D extends React.PureComponent {
           name: 'Labeled Data',
           animation: false,
           data: this.arrayifyLabelsData(labels),
-          symbolSize: 10,
+          symbolSize: 20,
           itemStyle: {
             color: params => {
               return params.data[4];
@@ -83,6 +109,7 @@ class GalaxiesPosition3D extends React.PureComponent {
             },
           },
         },
+        ...connectingLines,
       ],
     };
   }
