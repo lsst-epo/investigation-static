@@ -30,8 +30,27 @@ class GalaxiesPosition3D extends React.PureComponent {
     });
   }
 
+  arrayifyLabelsDataPoints(data) {
+    return [data.x, data.y, data.z];
+  }
+
   getOption(data) {
     const [labels, noLabels] = partition(data, o => o.label);
+
+    const connectingLines = noLabels.map(datum => {
+      return {
+        type: 'line3D',
+        data: [
+          this.arrayifyLabelsDataPoints(labels[0]),
+          this.arrayifyLabelsDataPoints(datum),
+        ],
+        lineStyle: {
+          color: '#000',
+          opacity: 0.3,
+          width: 1.5,
+        },
+      };
+    });
 
     return {
       grid3D: {
@@ -65,7 +84,7 @@ class GalaxiesPosition3D extends React.PureComponent {
           name: 'Labeled Data',
           animation: false,
           data: this.arrayifyLabelsData(labels),
-          symbolSize: 10,
+          symbolSize: 20,
           itemStyle: {
             color: params => {
               return params.data[4];
@@ -83,6 +102,7 @@ class GalaxiesPosition3D extends React.PureComponent {
             },
           },
         },
+        ...connectingLines,
       ],
     };
   }
