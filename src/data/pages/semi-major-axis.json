@@ -13,7 +13,7 @@
     "link": "/eccentricity/"
   },
   "layout": "TwoCol",
-  "content": "<p>By making a series of careful measurements, astronomers can determine the orbit for a newly discovered Solar System object. Three properties used to describe an orbit are used throughout this investigation:</p><p>Orbital size is related to the orbit's <a href='#glossary' target='_blank'><b>semi-major axis</b></a> (which is defined as half of the longest diameter of the object's orbit). It is measured in <a href='#glossary' target='_blank'><b>astronomical units</b></a> (au). You can also think of the orbit's semi-major axis as its average distance from the Sun.</p>",
+  "content": "<p>By making a series of careful measurements, astronomers can determine the orbit for a newly discovered Solar System object. Three properties used to describe an orbit are used throughout this investigation:</p><p>Orbital size is related to the orbit's <a href='http://rubineducation.org/glossary/semi-major-axis' target='_blank'>semi-major axis</a> (which is defined as half of the longest diameter of the object's orbit). It is measured in <a href='http://rubineducation.org/glossary/astronomical-unit-au' target='_blank'>astronomical units</a> (au). You can also think of the orbit's semi-major axis as its average distance from the Sun.</p>",
   "images": [
     {
       "mediaPath": "/images/semi-major-axis.png",
