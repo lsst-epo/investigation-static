@@ -19,3 +19,59 @@
     display: inline;
   }
 }
+
+.qa-review-no-active-state {
+  color: $basePrimary;
+
+  .qa-review-label,
+  .qa-review-label-pre,
+  .qa-review-label-post,
+  .calculator-label,
+  p {
+    font-size: 16px !important; /* stylelint-disable-line declaration-no-important *//* stylelint-disable-line declaration-no-important *//* stylelint-disable-line declaration-no-important */
+    font-weight: $medium !important; /* stylelint-disable-line declaration-no-important *//* stylelint-disable-line declaration-no-important */
+    color: $basePrimary !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+.qa-review-block {
+  margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+  font-size: 16px;
+  font-weight: $medium;
+  color: $basePrimary;
+
+  .answer-label,
+  .answer-label p {
+    @extend .qa-review-block;
+  }
+
+  :global .answer-content {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: $regular;
+    color: $black;
+  }
+
+  .qa-review-block-input {
+    display: block;
+  }
+
+  .qa-review-inline-input {
+    display: inline-block;
+    max-width: 180px;
+    margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
+    text-decoration: underline;
+  }
+
+  .answer-content {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: $regular;
+    color: $black;
+
+    &-select {
+      @extend .answer-content;
+      text-decoration: underline;
+    }
+  }
+}

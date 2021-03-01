@@ -14,6 +14,7 @@ import {
   boldText,
   craterDiameterStyle,
   craterDepthStyle,
+  qaReviewHighlight,
 } from './equations.module.scss';
 
 export default function FindImpactCrater(props) {
@@ -23,7 +24,13 @@ export default function FindImpactCrater(props) {
     velocity,
     craterDiameter,
     craterDepth,
+    qaReview,
   } = props;
+
+  const addColorClass = classnames({
+    [color]: !qaReview,
+    [qaReviewHighlight]: qaReview,
+  });
 
   return (
     <div className={findImpactCraterEquation} data-testid="qa-calc-impact">
@@ -31,15 +38,19 @@ export default function FindImpactCrater(props) {
       <p className={classnames(equation, craterDiameterStyle)}>
         <QACalculatorIcon content="D<sub>c</sub> = " />
         <span>0.0461 &times; </span>
-        <span className={color}>
+        <span className={addColorClass}>
           {!density ? <span>&#x1D780;</span> : addTheCommas(density)}
           {density && (
-            <QACalculatorIconUnit className={color} tiny unit="density" />
+            <QACalculatorIconUnit
+              className={addColorClass}
+              tiny
+              unit="density"
+            />
           )}
         </span>
         <sup>1/3</sup>
         <span> &times; </span>
-        <span className={color}>
+        <span className={addColorClass}>
           {!asteroidDiameter ? (
             <span>
               D<sub>a</sub>
@@ -49,26 +60,34 @@ export default function FindImpactCrater(props) {
           )}
         </span>
         {asteroidDiameter && (
-          <QACalculatorIconUnit className={color} tiny unit="diameter" />
+          <QACalculatorIconUnit
+            className={addColorClass}
+            tiny
+            unit="diameter"
+          />
         )}
         <sup>0.78</sup>
         <span> &times; </span>
-        <span className={color}>
+        <span className={addColorClass}>
           {!velocity ? 'v' : addTheCommas(velocity)}
         </span>
         {velocity && (
-          <QACalculatorIconUnit className={color} tiny unit="velocity" />
+          <QACalculatorIconUnit
+            className={addColorClass}
+            tiny
+            unit="velocity"
+          />
         )}
         <sup>0.44</sup>
         <span> = </span>
-        <span className={color}>
+        <span>
           {craterDiameter ? (
             <span>
               {addTheCommas(toSigFigs(craterDiameter, 3))}
               <QACalculatorIconUnit unit="craterDiameter" />
             </span>
           ) : (
-            <span className={color}>?</span>
+            <span>?</span>
           )}
         </span>
       </p>
@@ -77,18 +96,21 @@ export default function FindImpactCrater(props) {
         <p className={craterDepthStyle}>
           <QACalculatorIcon content="d<sub>c</sub> = " />
           <span className={fraction}>
-            <span className={`numerator ${color}`}>
+            <span className={`numerator ${addColorClass}`}>
               {craterDiameter ? (
                 <span>
                   {addTheCommas(toSigFigs(craterDiameter, 3))}
                   <QACalculatorIconUnit
-                    className={color}
+                    className={addColorClass}
                     tiny
                     unit="craterDiameter"
                   />
                 </span>
               ) : (
-                <QACalculatorIcon className={color} content="D<sub>c</sub>" />
+                <QACalculatorIcon
+                  className={addColorClass}
+                  content="D<sub>c</sub>"
+                />
               )}
             </span>
             <span className={denominator}>2 &radic; 2</span>
@@ -96,12 +118,12 @@ export default function FindImpactCrater(props) {
           <span> = </span>
           <span>
             {craterDepth ? (
-              <span className={color}>
+              <span>
                 {addTheCommas(toSigFigs(craterDepth, 3))}
                 <QACalculatorIconUnit tiny unit="craterDiameter" />
               </span>
             ) : (
-              <span className={color}>?</span>
+              <span>?</span>
             )}
           </span>
         </p>
@@ -116,4 +138,5 @@ FindImpactCrater.propTypes = {
   velocity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   craterDiameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   craterDepth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  qaReview: PropTypes.bool,
 };

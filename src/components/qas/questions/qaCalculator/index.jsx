@@ -17,7 +17,14 @@ import {
 import CalculatedMeasurement from './CalculatedMeasurement';
 import FindDistanceModulus from './equations/FindDistanceModulus';
 import FindParsecs from './equations/FindParsecs';
-import { active as activeClass, qaCard } from '../../styles.module.scss';
+import {
+  active as activeClass,
+  qaCard,
+  qaReviewBlock,
+  answerContent,
+  qaReviewNoActiveState,
+  calculatorLabel,
+} from '../../styles.module.scss';
 import {
   qaCalc,
   calcLabel,
@@ -170,7 +177,7 @@ class QACalculator extends React.PureComponent {
     const { questionNumber, question, answer, activeId } = this.props;
     const { answerable, value, hasFocus } = this.state;
 
-    const { questionType } = question;
+    const { questionType, qaReview } = question;
 
     const { id, label } = question;
     const active = activeId === id;
@@ -183,13 +190,18 @@ class QACalculator extends React.PureComponent {
     };
     const cardClasses = classnames(qaCard, qaCalc, marginTop, {
       [activeClass]: hasFocus,
+      [qaReviewNoActiveState]: qaReview,
     });
     const fieldClasses = classnames(
       'qa-text-input',
       qaCalcInput,
       answeredClasses
     );
-    const labelClasses = classnames(calcLabel, answeredClasses);
+    const labelClasses = classnames(
+      calcLabel,
+      answeredClasses,
+      calculatorLabel
+    );
 
     const { inputs, equation } = this.calculator[questionType];
     const FindEquation = equation || null;
@@ -229,35 +241,47 @@ class QACalculator extends React.PureComponent {
                     className={textFieldContainerClasses}
                     key={`text-input-${id}-${defaultValue}`}
                   >
-                    <TextField
-                      id={`text-input-${id}-${defaultValue}`}
-                      data-testid={`qa-calc-input-${i}`}
-                      className={classnames(fieldClasses, {
-                        'no-label': !inputLabel,
-                      })}
-                      leftIcon={leftIcon}
-                      rightIcon={rightIcon}
-                      label={inputLabel}
-                      placeholder={placeholder}
-                      lineDirection="center"
-                      type="number"
-                      min={min}
-                      max={max}
-                      value={value[defaultValue] || ''}
-                      onBlur={this.handleBlur}
-                      onFocus={this.handleFocus}
-                      onChange={onChangeValue =>
-                        this.handleChange(onChangeValue, defaultValue, input)
-                      }
-                      disabled={!(answerable || answered || active)}
-                    />
+                    {qaReview && (
+                      <div className={qaReviewBlock}>
+                        <span>{inputLabel}</span>
+                        <span>{leftIcon}&nbsp;</span>
+                        <span className={answerContent}>
+                          {value[defaultValue] || '(No answer provided)'}
+                        </span>
+                        {value[defaultValue] && <span>{rightIcon}</span>}
+                      </div>
+                    )}
+                    {!qaReview && (
+                      <TextField
+                        id={`text-input-${id}-${defaultValue}`}
+                        data-testid={`qa-calc-input-${i}`}
+                        className={classnames(fieldClasses, {
+                          'no-label': !inputLabel,
+                        })}
+                        leftIcon={leftIcon}
+                        rightIcon={rightIcon}
+                        label={inputLabel}
+                        placeholder={placeholder}
+                        lineDirection="center"
+                        type="number"
+                        min={min}
+                        max={max}
+                        value={value[defaultValue] || ''}
+                        onBlur={this.handleBlur}
+                        onFocus={this.handleFocus}
+                        onChange={onChangeValue =>
+                          this.handleChange(onChangeValue, defaultValue, input)
+                        }
+                        disabled={!(answerable || answered || active)}
+                      />
+                    )}
                   </div>
                 );
               })}
           </div>
           {questionType !== 'DistanceCalculator' && (
             <div className={marginTop}>
-              <FindEquation {...value} />
+              <FindEquation {...value} {...{ qaReview }} />
             </div>
           )}
         </CardText>
@@ -265,12 +289,27 @@ class QACalculator extends React.PureComponent {
           <>
             <CardActions expander style={{ display: 'none' }} />
             <CardText expandable>
-              <FindDistanceModulus variable={value.magnitude} />
-              <FindParsecs variable={value.distanceModulus} />
+              <FindDistanceModulus
+                variable={value.magnitude}
+                {...{ qaReview }}
+              />
+              <FindParsecs variable={value.distanceModulus} {...{ qaReview }} />
               <div className="results-list">
-                <CalculatedMeasurement unit="pc" value={value.parsecs} />
-                <CalculatedMeasurement unit="Mpc" value={value.megaParsecs} />
-                <CalculatedMeasurement unit="ly" value={value.lightYears} />
+                <CalculatedMeasurement
+                  unit="pc"
+                  value={value.parsecs}
+                  {...{ qaReview }}
+                />
+                <CalculatedMeasurement
+                  unit="Mpc"
+                  value={value.megaParsecs}
+                  {...{ qaReview }}
+                />
+                <CalculatedMeasurement
+                  unit="ly"
+                  value={value.lightYears}
+                  {...{ qaReview }}
+                />
                 <CalculatedMeasurement
                   unit="Mly"
                   value={value.megaLightYears}

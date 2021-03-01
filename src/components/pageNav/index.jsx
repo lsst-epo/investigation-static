@@ -18,7 +18,8 @@ class PageNav extends React.PureComponent {
     if (isLinkToFirstPage) {
       buttonLink = `${baseUrl}`;
     } else if (isLinkToLastPage) {
-      buttonLink = `${baseUrl}/last-page/`;
+      // buttonLink = `${baseUrl}/last-page/`;
+      buttonLink = `${baseUrl}/qa-review/`;
     }
 
     return (

@@ -253,6 +253,23 @@ exports.createPages = async ({ graphql, actions }) => {
     investigations.forEach(investigation => {
       const { id } = investigation;
       createPage({
+        path: `/${id}/qa-review/`,
+        component: path.resolve(`./src/containers/QAReviewContainer.jsx`),
+        context: { investigations, investigation: id, env: INVESTIGATION },
+      });
+    });
+  } else {
+    createPage({
+      path: '/qa-review/',
+      component: path.resolve(`./src/containers/QAReviewContainer.jsx`),
+      context: { investigations, env: INVESTIGATION },
+    });
+  }
+
+  if (isAll) {
+    investigations.forEach(investigation => {
+      const { id } = investigation;
+      createPage({
         path: `/${id}/last-page/`,
         component: path.resolve(`./src/containers/EndingContainer.jsx`),
         context: { investigations, investigation: id, env: INVESTIGATION },

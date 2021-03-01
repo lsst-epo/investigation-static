@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { QACalculatorIconUnit } from '../qQaCalculatorIcons.jsx';
 import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
 import {
@@ -9,9 +10,15 @@ import {
   denominator,
   exponent,
 } from '../qaCalculator.module.scss';
+import { qaReviewHighlight } from './equations.module.scss';
 
 export default function FindKineticEnergy(props) {
-  const { kineticEnergy, mass, velocity } = props;
+  const { kineticEnergy, mass, velocity, qaReview } = props;
+
+  const addColorClass = classnames({
+    [color]: !qaReview,
+    [qaReviewHighlight]: qaReview,
+  });
 
   return (
     <p className={equation} data-testid="qa-calc-kinetic-energy">
@@ -21,7 +28,7 @@ export default function FindKineticEnergy(props) {
         <span className={denominator}>2</span>
       </span>
       <span> &times; </span>
-      <span className={color}>
+      <span className={addColorClass}>
         {mass ? (
           <span>
             {addTheCommas(mass)}
@@ -32,7 +39,7 @@ export default function FindKineticEnergy(props) {
         )}
       </span>
       <span> &times; </span>
-      <span className={color}>
+      <span className={addColorClass}>
         {velocity ? (
           <span>
             {addTheCommas(velocity)}
@@ -44,11 +51,14 @@ export default function FindKineticEnergy(props) {
       </span>
       <span className={exponent}>2</span>
       <span>= </span>
-      <span className={color}>
+      <span className={addColorClass}>
         {kineticEnergy ? (
           <span>
             {addTheCommas(toSigFigs(+kineticEnergy, 3))}
-            <QACalculatorIconUnit className={color} unit="kineticEnergy" />
+            <QACalculatorIconUnit
+              className={addColorClass}
+              unit="kineticEnergy"
+            />
           </span>
         ) : (
           '?'
@@ -62,4 +72,5 @@ FindKineticEnergy.propTypes = {
   kineticEnergy: PropTypes.number,
   mass: PropTypes.string,
   velocity: PropTypes.string,
+  qaReview: PropTypes.bool,
 };

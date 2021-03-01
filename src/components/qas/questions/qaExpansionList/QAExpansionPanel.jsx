@@ -7,6 +7,7 @@ import Question from 'react-md/lib/ExpansionPanels/ExpansionPanel';
 import Answer from '../../answers/ExpansionPanel';
 import { renderDef } from '../../../../lib/utilities.js';
 import styles from './styles.module.scss';
+import { qaReviewNoActiveState, qaReviewLabel } from '../../styles.module.scss';
 
 class QAExpansionPanel extends React.PureComponent {
   render() {
@@ -22,7 +23,14 @@ class QAExpansionPanel extends React.PureComponent {
       saveHandler,
       editHandler,
     } = this.props;
-    const { answerPre, answerPost, answerAccessor, id: qId, label } = question;
+    const {
+      answerPre,
+      answerPost,
+      answerAccessor,
+      id: qId,
+      label,
+      qaReview,
+    } = question;
 
     const answered = !isEmpty(answer);
     const isExpanded = active || answered;
@@ -32,9 +40,14 @@ class QAExpansionPanel extends React.PureComponent {
       [styles.active]: active,
       [styles.answered]: answered,
       unstyled: !active,
+      [qaReviewNoActiveState]: qaReview,
     });
 
-    const updatedLabel = `<span class=${styles.labelWithNumber}>${questionNumber}. ${label}</span>`;
+    const questionLabelClassess = classnames(styles.labelWithNumber, {
+      [qaReviewLabel]: qaReview,
+    });
+
+    const updatedLabel = `<span class="${questionLabelClassess}">${questionNumber}. ${label}</span>`;
 
     return (
       <Question
@@ -61,6 +74,7 @@ class QAExpansionPanel extends React.PureComponent {
             accessor={answerAccessor}
             showEditButton={!active && answered}
             editHandler={editHandler}
+            qaReview={qaReview}
           />
         )}
       </Question>

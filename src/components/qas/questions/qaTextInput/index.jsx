@@ -100,6 +100,7 @@ class TextInput extends React.PureComponent {
       placeholder,
       labelPre,
       labelPost,
+      qaReview,
     } = question;
     const isTextArea = questionType === 'textArea';
     const rows = isTextArea ? { rows: 1, maxRows: 8 } : {};
@@ -150,29 +151,47 @@ class TextInput extends React.PureComponent {
         {onlyQaNumber && !updatedLabelPre && (
           <span className={styles.labelPre}>{onlyQaNumber}&nbsp;</span>
         )}
-        <TextField
-          id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
-          className={fieldClasses}
-          type="text"
-          label={
-            <div
-              className={qaStyles.labelWithNumber}
-              dangerouslySetInnerHTML={renderDef(
-                updatedLabel ||
-                  `Complete this statement by filling in the blank: ${labelPre}, blank, ${labelPost}`
-              )}
+        {qaReview && (
+          <span className={qaStyles.qaReviewBlock}>
+            <span
+              className={qaStyles.answerLabel}
+              dangerouslySetInnerHTML={renderDef(updatedLabel)}
             />
-          }
-          lineDirection="center"
-          fullWidth={!(labelPre || labelPost)}
-          placeholder={placeholder}
-          {...rows}
-          defaultValue={answered ? answer.content : ''}
-          onBlur={this.handleBlur}
-          onFocus={this.handleFocus}
-          onChange={this.handleChange}
-          disabled={!(answerable || answered || active)}
-        />
+            <span
+              className={classnames(qaStyles.answerContent, {
+                [qaStyles.qaReviewInlineInput]: labelPre || labelPost,
+                [qaStyles.qaReviewBlockInput]: !labelPre && !labelPost,
+              })}
+            >
+              {answered ? answer.content : 'Answer Not Provided'}
+            </span>
+          </span>
+        )}
+        {!qaReview && (
+          <TextField
+            id={`text-${isTextArea ? 'area' : 'input'}-${id}`}
+            className={fieldClasses}
+            type="text"
+            label={
+              <div
+                className={qaStyles.labelWithNumber}
+                dangerouslySetInnerHTML={renderDef(
+                  updatedLabel ||
+                    `Complete this statement by filling in the blank: ${labelPre}, blank, ${labelPost}`
+                )}
+              />
+            }
+            lineDirection="center"
+            fullWidth={!(labelPre || labelPost)}
+            placeholder={placeholder}
+            {...rows}
+            defaultValue={answered ? answer.content : ''}
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
+            onChange={this.handleChange}
+            disabled={!(answerable || answered || active)}
+          />
+        )}
         {labelPost && (
           <span className={labelClasses}>&nbsp;{labelPost}&nbsp;</span>
         )}
