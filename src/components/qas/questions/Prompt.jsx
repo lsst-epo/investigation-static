@@ -5,20 +5,32 @@ import classnames from 'classnames';
 import Card from '../../site/card';
 import { renderDef } from '../../../lib/utilities.js';
 import { qaPrompt, qaLabel } from './prompt.module.scss';
-import { qaCard, active, labelWithNumber } from '../styles.module.scss';
+import {
+  qaCard,
+  active,
+  labelWithNumber,
+  qaReviewNoActiveState,
+  qaReviewLabel,
+} from '../styles.module.scss';
 
 class Prompt extends React.PureComponent {
   render() {
     const { question, questionNumber } = this.props;
-    const { label } = question;
-    const cardClasses = classnames(qaCard, active, qaPrompt);
+    const { label, qaReview } = question;
+    const cardClasses = classnames(qaCard, qaPrompt, {
+      [active]: !qaReview,
+      [qaReviewNoActiveState]: qaReview,
+    });
     const updatedLabel = questionNumber ? `${questionNumber}. ${label}` : label;
+    const labelClasses = classnames(labelWithNumber, qaLabel, {
+      [qaReviewLabel]: qaReview,
+    });
 
     return (
       <Card className={cardClasses}>
         <div
-          className={`${labelWithNumber} ${qaLabel}`}
-          dangerouslySetInnerHTML={renderDef(updatedLabel)}
+          className={labelClasses}
+          dangerouslySetInnerHTML={renderDef(`<span>${updatedLabel}</span>`)}
         />
       </Card>
     );

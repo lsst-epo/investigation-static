@@ -1,5 +1,11 @@
 :global {
   @include react-md-toolbars;
+
+  @media print {
+    .header-primary {
+      visibility: hidden;
+    }
+  }
 }
 
 .inner-container {

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Button from 'react-md/lib/Buttons/Button';
 import FormattedAnswer from './FormattedAnswer';
+import { qaReviewBlock } from '../styles.module.scss';
 
 class AnswerExpansionPanel extends React.PureComponent {
   render() {
@@ -13,11 +15,12 @@ class AnswerExpansionPanel extends React.PureComponent {
       accessor,
       showEditButton,
       editHandler,
+      qaReview,
     } = this.props;
 
     return (
       <div className="container-flex centered">
-        {showEditButton && (
+        {!qaReview && showEditButton && (
           <Button
             onClick={() => editHandler(id)}
             flat
@@ -27,8 +30,15 @@ class AnswerExpansionPanel extends React.PureComponent {
             Change Answer
           </Button>
         )}
-        <p id={`answer-content-${id}`}>
-          <FormattedAnswer {...{ pre, post }} type={accessor} body={content} />
+        <p
+          id={`answer-content-${id}`}
+          className={classnames({ [qaReviewBlock]: qaReview })}
+        >
+          <FormattedAnswer
+            {...{ pre, post, qaReview }}
+            type={accessor}
+            body={content}
+          />
         </p>
       </div>
     );
@@ -43,6 +53,7 @@ AnswerExpansionPanel.propTypes = {
   post: PropTypes.string,
   showEditButton: PropTypes.bool,
   editHandler: PropTypes.func,
+  qaReview: PropTypes.bool,
 };
 
 export default AnswerExpansionPanel;

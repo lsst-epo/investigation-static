@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {
   addTheCommas,
   toSigFigs,
@@ -11,6 +12,7 @@ import {
   findImpactCraterEquation,
   boldText,
   // seismicDamageText,
+  qaReviewHighlight,
 } from './equations.module.scss';
 
 export default function FindImpactDamage(props) {
@@ -19,14 +21,20 @@ export default function FindImpactDamage(props) {
     // mercalliIntensity,
     overPressure,
     // airBlastDamage,
+    qaReview,
   } = props;
+
+  const addColorClass = classnames({
+    [color]: !qaReview,
+    [qaReviewHighlight]: qaReview,
+  });
 
   return (
     <div className={findImpactCraterEquation} data-testid="qa-calc-impact">
       <div className={marginTop}>
         <p>
           <span className={boldText}>Richter Magnitude = </span>
-          <span className={color}>
+          <span className={addColorClass}>
             {richterMagnitudeAtObserverDistance > 0 ? (
               <span>
                 {addTheCommas(
@@ -54,7 +62,7 @@ export default function FindImpactDamage(props) {
       <div className={marginTop}>
         <p>
           <span className={boldText}>Air Blast Over Pressure = </span>
-          <span className={color}>
+          <span className={addColorClass}>
             {overPressure ? (
               <span>
                 {addTheCommas(toSigFigs(overPressure, 3))}
@@ -85,4 +93,5 @@ FindImpactDamage.propTypes = {
   // mercalliIntensity: PropTypes.array,
   overPressure: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   // airBlastDamage: PropTypes.array,
+  qaReview: PropTypes.bool,
 };

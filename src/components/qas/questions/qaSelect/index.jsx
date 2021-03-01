@@ -95,6 +95,7 @@ class QASelect extends React.PureComponent {
       options,
       placeholder,
       questionType,
+      qaReview,
     } = question;
 
     const active = ids ? checkIds(ids, activeId) : activeId === id;
@@ -108,14 +109,19 @@ class QASelect extends React.PureComponent {
       [styles.unanswered]: !answered,
       [styles.answerable]: answerable || answered || active,
       [styles.inlineQaSelect]: labelPre || labelPost,
+      [qaStyles.qaReviewNoActiveState]: qaReview,
     });
     const selectClasses = classnames({
       [styles.hideLabel]: labelPre || labelPost,
     });
     const labelPreClasses = classnames(
       styles.labelPre,
-      qaStyles.labelWithNumber
+      qaStyles.labelWithNumber,
+      { [qaStyles.qaReviewLabelPre]: qaReview }
     );
+    const labelPostClasses = classnames(styles.labelPost, {
+      [qaStyles.qaReviewLabelPost]: qaReview,
+    });
 
     const hasQANumber = questionNumber && firstQuestion;
     const updatedLabel =
@@ -143,23 +149,43 @@ class QASelect extends React.PureComponent {
           {onlyQaNumber && !updatedLabelPre && (
             <span className={labelPreClasses}>{onlyQaNumber}&nbsp;</span>
           )}
-          <Select
-            id={`qa-select-${id}`}
-            className={selectClasses}
-            options={options}
-            label={updatedLabel || srLabel || placeholder}
-            name={label || srLabel || placeholder}
-            value={answered ? answer.content || answer.data : 'DEFAULT'}
-            handleBlur={this.handler}
-            handleChange={this.handler}
-            handleFocus={this.handler}
-            placeholder={placeholder}
-            disabled={!(answerable || answered || active)}
-            showLabel={!!label}
-            inline={!!labelPre || !!labelPost}
-          />
+          {qaReview && (
+            <div
+              className={classnames(qaStyles.qaReviewBlock, {
+                [styles.inlineQaSelect]: !!labelPre || !!labelPost,
+              })}
+            >
+              <span className={selectClasses}>{updatedLabel}</span>
+              <div
+                className={classnames(qaStyles.answerContentSelect, {
+                  [styles.inlineQaSelect]: !!labelPre || !!labelPost,
+                })}
+              >
+                {answered
+                  ? answer.content || answer.data
+                  : '(nothing selected)'}
+              </div>
+            </div>
+          )}
+          {!qaReview && (
+            <Select
+              id={`qa-select-${id}`}
+              className={selectClasses}
+              options={options}
+              label={updatedLabel || srLabel || placeholder}
+              name={label || srLabel || placeholder}
+              value={answered ? answer.content || answer.data : 'DEFAULT'}
+              handleBlur={this.handler}
+              handleChange={this.handler}
+              handleFocus={this.handler}
+              placeholder={placeholder}
+              disabled={!(answerable || answered || active)}
+              showLabel={!!label}
+              inline={!!labelPre || !!labelPost}
+            />
+          )}
           {labelPost && (
-            <span className={styles.labelPost}>&nbsp;{labelPost}&nbsp;</span>
+            <span className={labelPostClasses}>&nbsp;{labelPost}&nbsp;</span>
           )}
         </div>
       </ConditionalWrapper>

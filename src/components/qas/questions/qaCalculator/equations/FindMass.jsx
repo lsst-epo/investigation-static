@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { QACalculatorIconUnit } from '../qQaCalculatorIcons.jsx';
 import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
 import {
@@ -9,15 +10,22 @@ import {
   equation,
   exponent,
 } from '../qaCalculator.module.scss';
+import { qaReviewHighlight } from './equations.module.scss';
 
 export default function FindMass(props) {
-  const { density, mass, diameter } = props;
+  const { density, mass, diameter, qaReview } = props;
+
+  const addColorClass = classnames({
+    [color]: !qaReview,
+    [qaReviewHighlight]: qaReview,
+  });
+
   return (
     <p className={equation}>
       <span>
         m<sub>a</sub> ={' '}
       </span>
-      <span className={color}>
+      <span className={addColorClass}>
         {density ? (
           <span>
             {addTheCommas(density)}
@@ -34,7 +42,7 @@ export default function FindMass(props) {
       </span>
       &nbsp;&times; &pi; &times; <span>( </span>
       <span className={fraction}>
-        <span className={`numerator ${color}`}>
+        <span className={`numerator ${addColorClass}`}>
           {diameter ? (
             <span>
               {addTheCommas(diameter)}
@@ -51,7 +59,7 @@ export default function FindMass(props) {
       <span> )</span>
       <span className={exponent}> 3</span>
       <span> = </span>
-      <span className={color}>
+      <span className={addColorClass}>
         {mass ? (
           <span>
             {addTheCommas(toSigFigs(mass, 3))}
@@ -69,4 +77,5 @@ FindMass.propTypes = {
   density: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   mass: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   diameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  qaReview: PropTypes.bool,
 };

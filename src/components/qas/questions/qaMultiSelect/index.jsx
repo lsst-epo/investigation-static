@@ -125,6 +125,7 @@ class QAMultiSelect extends React.PureComponent {
       options,
       placeholder,
       questionType,
+      qaReview,
     } = question;
 
     const active = ids ? checkIds(ids, activeId) : activeId === id;
@@ -137,6 +138,13 @@ class QAMultiSelect extends React.PureComponent {
       answered,
       unanswered: !answered,
       [styles.answerable]: answerable || answered || active,
+      [qaStyles.qaReviewNoActiveState]: qaReview,
+    });
+    const labelPreClasses = classnames(styles.labelPre, {
+      [qaStyles.qaReviewLabelPre]: qaReview,
+    });
+    const labelPostClasses = classnames(styles.labelPost, {
+      [qaStyles.qaReviewLabelPost]: qaReview,
     });
 
     const labelToUse = !isEmpty(labelPre) ? labelPre : label;
@@ -152,39 +160,48 @@ class QAMultiSelect extends React.PureComponent {
       >
         <div className={selectClasses}>
           {labelToUse && (
-            <span className={styles.labelPre}>{updatedLabelPre}&nbsp;</span>
+            <span className={labelPreClasses}>{updatedLabelPre}&nbsp;</span>
           )}
-          <DropdownMenu
-            id="multi-select"
-            className={styles.multiSelectDropdown}
-            listStyle={{ left: 0, top: 0 }}
-            menuItems={this.getMultiSelectOptions(options)}
-            toggleQuery=".toggle"
-            onVisibilityChange={this.handleChange}
-            anchor={{
-              x: DropdownMenu.HorizontalAnchors.CENTER,
-              y: DropdownMenu.VerticalAnchors.OVERLAP,
-            }}
-            position={DropdownMenu.Positions.TOP_LEFT}
-            simplifiedMenu={false}
-            animationPosition="below"
-            sameWidth={!isEmpty(label)}
-            listInline
-            fullWidth={!isEmpty(label)}
-          >
-            <span
-              className={classnames(
-                'toggle',
-                styles.multiSelectOptions,
-                styles.selectedOptions,
-                { [styles.fullWidthSelect]: !isEmpty(label) }
-              )}
-            >
-              {selectedOptions.join(', ') || placeholder}
+          {qaReview && (
+            <span className={qaStyles.qaReviewBlock}>
+              <span className={qaStyles.answerContentSelect}>
+                {selectedOptions.join(', ') || '(none selected)'}
+              </span>
             </span>
-          </DropdownMenu>
+          )}
+          {!qaReview && (
+            <DropdownMenu
+              id="multi-select"
+              className={styles.multiSelectDropdown}
+              listStyle={{ left: 0, top: 0 }}
+              menuItems={this.getMultiSelectOptions(options)}
+              toggleQuery=".toggle"
+              onVisibilityChange={this.handleChange}
+              anchor={{
+                x: DropdownMenu.HorizontalAnchors.CENTER,
+                y: DropdownMenu.VerticalAnchors.OVERLAP,
+              }}
+              position={DropdownMenu.Positions.TOP_LEFT}
+              simplifiedMenu={false}
+              animationPosition="below"
+              sameWidth={!isEmpty(label)}
+              listInline
+              fullWidth={!isEmpty(label)}
+            >
+              <span
+                className={classnames(
+                  'toggle',
+                  styles.multiSelectOptions,
+                  styles.selectedOptions,
+                  { [styles.fullWidthSelect]: !isEmpty(label) }
+                )}
+              >
+                {selectedOptions.join(', ') || placeholder}
+              </span>
+            </DropdownMenu>
+          )}
           {labelPost && (
-            <span className={styles.labelPost}>&nbsp;{labelPost}&nbsp;</span>
+            <span className={labelPostClasses}>&nbsp;{labelPost}&nbsp;</span>
           )}
         </div>
       </ConditionalWrapper>
