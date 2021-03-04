@@ -84,7 +84,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
   }
 
   render() {
-    const { data, navItems, activeScramble } = this.state;
+    const { data, navItems, activeScramble, activeGalaxy } = this.state;
     const { options } = this.props;
     const { hubbleConstant } = options || {};
 
@@ -117,8 +117,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
               </h2>
               <GalaxiesPosition3D
                 className="galaxies-position"
-                data={data}
-                options={options}
+                {...{ data, activeGalaxy, options }}
               />
             </div>
           </div>

@@ -4,7 +4,6 @@ import GalaxySelector from '../../containers/GalaxySelectorContainer.jsx';
 import GalaxiesSelector from '../../containers/GalaxiesSelectorContainer.jsx';
 import GalaxiesFilterSelector from '../../containers/GalaxiesFilterSelectorContainer.jsx';
 import HubblePlot from '../../containers/HubblePlotContainer.jsx';
-import GalaxiesPosition3D from '../../containers/GalaxiesPosition3DContainer.jsx';
 import LargeScaleStructure from '../../containers/LargeScaleStructureContainer.jsx';
 import GalacticProperties from '../../containers/GalacticPropertiesContainer.jsx';
 import GalacticPropertiesCombo from '../../containers/GalacticPropertiesComboContainer.jsx';
@@ -24,7 +23,6 @@ export const widgetTags = {
   GalaxiesSelector,
   GalaxiesFilterSelector,
   HubblePlot,
-  GalaxiesPosition3D,
   GalacticProperties,
   GalacticPropertiesCombo,
   LargeScaleStructure,

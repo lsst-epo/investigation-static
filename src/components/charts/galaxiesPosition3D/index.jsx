@@ -1,56 +1,102 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'echarts-gl';
+import filter from 'lodash/filter';
 import ReactEcharts from 'echarts-for-react';
 import partition from 'lodash/partition';
 import { chart } from './galaxies-position-3D.module.scss';
+
+const nodeSize = 10;
+const originSize = nodeSize * 2;
+const defaultNode = {
+  type: 'scatter3D',
+  animation: false,
+  itemStyle: {
+    color: params => {
+      return params.data[4];
+    },
+  },
+  label: {
+    show: true,
+    distance: 3,
+    formatter: params => {
+      return params.data[3];
+    },
+    textStyle: {
+      fontSize: 14,
+      fontFamily: 'Roboto',
+    },
+  },
+};
+
+const defaultLine = {
+  type: 'line3D',
+  animation: false,
+  lineStyle: {
+    color: '#000000',
+    opacity: 0.3,
+    width: 1.5,
+  },
+};
 
 class GalaxiesPosition3D extends React.PureComponent {
   getAxisInfo(axisName) {
     return {
       name: axisName,
-      nameGap: 25,
       type: 'value',
-      nameTextStyle: {
-        fontSize: 12,
-        fontFamily: 'Roboto',
-      },
     };
   }
 
-  arrayifyLabelsData(data) {
-    return data.map(labelData => {
-      return [
-        labelData.x,
-        labelData.y,
-        labelData.z,
-        labelData.label,
-        labelData.color,
-      ];
+  dataObjsToArray(data) {
+    return data.map(datum => {
+      return [datum.x, datum.y, datum.z, datum.label, datum.color];
     });
   }
 
-  arrayifyLabelsDataPoints(data) {
-    return [data.x, data.y, data.z];
+  createLineData(node, origin) {
+    return [
+      [origin.x, origin.y, origin.z],
+      [node.x, node.y, node.z],
+    ];
   }
 
-  getOption(data) {
-    const [labels, noLabels] = partition(data, o => o.label);
-
-    const connectingLines = noLabels.map(datum => {
+  getConnectingLines(nodes, activeGalaxy) {
+    return nodes.map(node => {
       return {
-        type: 'line3D',
-        data: [
-          this.arrayifyLabelsDataPoints(labels[0]),
-          this.arrayifyLabelsDataPoints(datum),
-        ],
-        lineStyle: {
-          color: '#000',
-          opacity: 0.3,
-          width: 1.5,
-        },
+        ...defaultLine,
+        name: 'Distance Between Galaxies',
+        data: this.createLineData(node, activeGalaxy),
       };
     });
+  }
+
+  getOrigin(activeGalaxy) {
+    return {
+      ...defaultNode,
+      name: 'Origin Galaxy',
+      data: this.dataObjsToArray([activeGalaxy]),
+      symbolSize: originSize,
+    };
+  }
+
+  getLabeledNodes(labeledNodes) {
+    return {
+      ...defaultNode,
+      name: 'Labeled Galaxies',
+      data: this.dataObjsToArray(labeledNodes),
+      symbolSize: nodeSize,
+    };
+  }
+
+  getOption(data, origin) {
+    const dataWithoutOrigin = filter(data, item => {
+      return item.id !== origin.id;
+    });
+
+    const [labeledNodes, unlabeledNodes] = partition(
+      dataWithoutOrigin,
+      o => o.label
+    );
 
     return {
       grid3D: {
@@ -65,57 +111,37 @@ class GalaxiesPosition3D extends React.PureComponent {
       yAxis3D: this.getAxisInfo('y'),
       zAxis3D: this.getAxisInfo('z'),
       dataset: {
-        source: noLabels,
+        source: unlabeledNodes,
         dimensions: ['x', 'y', 'z'],
       },
       series: [
         {
           type: 'scatter3D',
           animation: false,
-          symbolSize: 10,
+          symbolSize: nodeSize,
           itemStyle: {
             color: params => {
               return params.data.color;
             },
           },
         },
-        {
-          type: 'scatter3D',
-          name: 'Labeled Data',
-          animation: false,
-          data: this.arrayifyLabelsData(labels),
-          symbolSize: 20,
-          itemStyle: {
-            color: params => {
-              return params.data[4];
-            },
-          },
-          label: {
-            show: true,
-            distance: 3,
-            formatter: params => {
-              return params.data[3];
-            },
-            textStyle: {
-              fontSize: 10,
-              fontFamily: 'Roboto',
-            },
-          },
-        },
-        ...connectingLines,
+        this.getLabeledNodes(labeledNodes),
+        this.getOrigin(origin),
+        ...this.getConnectingLines(dataWithoutOrigin, origin),
       ],
     };
   }
 
   render() {
-    const { data } = this.props;
+    const { data, activeGalaxy } = this.props;
+
     return (
       <>
         {data && (
           <ReactEcharts
             className={chart}
             style={{ width: '100%', height: '80%' }}
-            option={this.getOption(data)}
+            option={this.getOption(data, activeGalaxy)}
           />
         )}
       </>
@@ -125,7 +151,7 @@ class GalaxiesPosition3D extends React.PureComponent {
 
 GalaxiesPosition3D.propTypes = {
   data: PropTypes.array,
-  // options: PropTypes.object,
+  activeGalaxy: PropTypes.object,
 };
 
 export default GalaxiesPosition3D;
