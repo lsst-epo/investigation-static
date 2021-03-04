@@ -67,7 +67,7 @@ class TableOfContents extends React.PureComponent {
       <Drawer
         header={
           <>
-            <Progress />
+            <Progress type="small" />
             <hr className="md-divider" />
             <h4 className={heading}>Table of Contents</h4>
           </>

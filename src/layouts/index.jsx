@@ -9,7 +9,7 @@ import GlobalStore from '../state/GlobalStore';
 import SEO from '../components/seo';
 import Header from '../components/site/header';
 import TableOfContents from '../components/site/tableOfContents';
-import logo from '../images/rubin-logo.svg';
+import logo from '../images/rubin-small-logo.svg';
 
 import styles from './layout.module.scss';
 
@@ -151,6 +151,7 @@ class Layout extends React.Component {
         <Header
           {...{ investigationTitle, logo }}
           pageNumber={this.getCurrentPageNumber()}
+          totalPages={this.global.totalPages}
           tocVisability={tocIsOpen}
           toggleToc={investigation && this.toggleToc}
         />
