@@ -15,21 +15,16 @@ class ImageLoader extends React.PureComponent {
       loaded: false,
     };
 
-    // this.timeFallback = null;
-    // this.setTimeoutFallback();
+    this.timeFallback = setTimeout(this.handleLoading, 4000);
   }
 
-  // componentWillUnmount() {
-  //   clearTimeout(this.timeFallback);
-  // }
-
-  // setTimeoutFallback() {
-  //   this.timeFallback = setTimeout(this.handleLoading, 10000);
-  // }
+  componentWillUnmount() {
+    clearTimeout(this.timeFallback);
+  }
 
   handleLoading = () => {
-    // clearTimeout(this.timeFallback);
     this.setState(() => ({ loaded: true }));
+    clearTimeout(this.timeFallback);
   };
 
   render() {
