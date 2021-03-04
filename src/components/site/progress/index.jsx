@@ -1,10 +1,11 @@
 import React, { useGlobal } from 'reactn';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import LinearProgress from 'react-md/lib/Progress/LinearProgress';
 
 import { headerTitle, big, small } from './progress.module.scss';
 
-const Progress = ({ type }) => {
+const Progress = ({ className, type, showQuestions, showPages }) => {
   const [visitedPages] = useGlobal('visitedPages');
   const [totalPages] = useGlobal('totalPages');
   const [totalQAsByInvestigation] = useGlobal('totalQAsByInvestigation');
@@ -14,17 +15,20 @@ const Progress = ({ type }) => {
   } = totalQAsByInvestigation;
   const pagesProgress = (visitedPages.length / totalPages) * 100;
   const questionsProgress = (totalAnswered / totalQuestions) * 100;
-  const classes = type === 'big' ? big : small;
+  const classes = classnames(className, {
+    [big]: type === 'big',
+    [small]: type === 'small',
+  });
 
   return (
     <div>
-      {((type === 'big' && pagesProgress > 0) || type !== 'big') && (
+      {showPages && (
         <div className={classes}>
           <div className={headerTitle}>Pages Visited</div>
           <LinearProgress id="pages-bar" value={pagesProgress} />
         </div>
       )}
-      {((type === 'big' && questionsProgress > 0) || type !== 'big') && (
+      {showQuestions && (
         <div className={classes}>
           <div className={headerTitle}>Questions Answered</div>
           <LinearProgress id="questions-bar" value={questionsProgress} />
@@ -36,6 +40,15 @@ const Progress = ({ type }) => {
 
 Progress.propTypes = {
   type: PropTypes.string,
+  showQuestions: PropTypes.bool,
+  showPages: PropTypes.bool,
+  className: PropTypes.string,
+};
+
+Progress.defaultProps = {
+  type: 'small',
+  showQuestions: true,
+  showPages: true,
 };
 
 export default Progress;

@@ -24,9 +24,9 @@ test('Header Logo alt text is Investigation Title', () => {
 
 test('Header renders page number if provided', () => {
   // Arrange
-  const { getByText } = render(<Header logo="fake/image/path" investigationTitle={testTitle} pageNumber={22} />);
+  const { getByText } = render(<Header logo="fake/image/path" investigationTitle={testTitle} pageNumber={22} totalPages={50} />);
   // Assert
-  expect(getByText(`${testTitle}: Page 22`)).toBeInTheDocument();
+  expect(getByText(`${testTitle}: Page 22 of 50`)).toBeInTheDocument();
 });
 
 test('When TOC is visible Header TOC toggle reads "Close..."', () => {

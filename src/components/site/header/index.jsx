@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-md';
+import LinearProgress from 'react-md/lib/Progress/LinearProgress';
 import Button from '../button/index';
 import ButtonIcon from '../button/ButtonIcon';
 import Close from '../icons/Close';
@@ -9,6 +10,17 @@ import Menu from '../icons/Menu';
 import styles from './header.module.scss';
 
 class Header extends React.PureComponent {
+  checkQAProgress(pageId) {
+    const { totalQAsByPage } = this.global;
+    const { progress } = totalQAsByPage[pageId] || {};
+
+    return progress === 1;
+  }
+
+  isActivePage = linkId => {
+    return linkId === this.global.pageId;
+  };
+
   render() {
     const {
       investigationTitle,
@@ -16,6 +28,7 @@ class Header extends React.PureComponent {
       tocVisability,
       logo,
       pageNumber,
+      totalPages,
     } = this.props;
 
     return (
@@ -27,6 +40,14 @@ class Header extends React.PureComponent {
         titleClassName="screen-reader-only"
         className="header-primary"
       >
+        {pageNumber && (
+          <div className={styles.progressBarWrapper}>
+            <LinearProgress
+              id="current-page-of-total"
+              value={pageNumber ? (pageNumber / totalPages) * 100 : 0}
+            />
+          </div>
+        )}
         <div className={styles.innerContainer}>
           {toggleToc && (
             <Button
@@ -50,7 +71,9 @@ class Header extends React.PureComponent {
           )}
           <span className={styles.investigationTitle}>
             {investigationTitle}
-            {pageNumber && `: Page ${pageNumber}`}
+            {pageNumber &&
+              totalPages &&
+              `: Page ${pageNumber} of ${totalPages}`}
           </span>
           <div className={styles.headerInner}>
             <a
@@ -82,6 +105,7 @@ Header.propTypes = {
   toggleToc: PropTypes.func,
   logo: PropTypes.string,
   pageNumber: PropTypes.number,
+  totalPages: PropTypes.number,
 };
 
 export default Header;
