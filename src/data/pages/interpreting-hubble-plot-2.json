@@ -1,27 +1,27 @@
 {
-  "id": "expand6",
+  "id": "expand6_5",
   "investigation": "expanding-universe",
-  "order": "06",
+  "order": "065",
   "title": "Constructing a Hubble plot",
-  "slug": "interpreting-a-hubble-plot-1/",
+  "slug": "interpreting-a-hubble-plot-2/",
   "previous": {
-    "title": "Gathering the Data for a Hubble Plot",
-    "link": "/acquiring-the-data-1/"
+    "title": "Interpreting a Hubble plot",
+    "link": "/interpreting-a-hubble-plot-1_4/"
   },
   "next": {
     "title": "Interpreting a Hubble plot",
-    "link": "/interpreting-a-hubble-plot-1_2/"
+    "link": "/interpreting-a-hubble-plot-3/"
   },
   "layout": "TwoCol",
   "content": "<p>You will begin by hunting for Type Ia supernovae in Rubin Observatory images of four galaxies. Then you will identify the galaxies themselves.  Finally you will use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble plot of your data.</p>",
   "widgets": [
     {
-      "type": "GalaxySupernovaSelector",
+      "type": "GalaxySelector",
       "source": "/data/galaxies/galaxy_selector.json",
       "options": {
         "autoplay": true,
-        "preSelectedId": "ZTF19abqmpsr",
-        "toggleDataPointsVisibility": "350"
+        "toggleDataPointsVisibility": "251",
+        "createUserHubblePlot": "252"
       }
     }
   ],
@@ -29,10 +29,10 @@
     {
       "question": [
         {
-          "id": "350",
+          "id": "354",
           "questionType": "accordion",
           "title": "Question #1",
-          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Repeat this process for each Galaxy in the following pages</p>",
+          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Next you will plot your selections.",
           "answerPre": "<span>Total Selected: </span>",
           "answerAccessor": "galaxy"
         }
