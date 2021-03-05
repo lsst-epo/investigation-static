@@ -26,6 +26,7 @@ export const widgetOptionsFragment = graphql`
     lightCurveTemplates
     choosePeakMagnitude
     chooseLightCurveTemplate
+    preSelectedId
     preSelectedLightCurveTemplate
     preSelectedLightCurveMagnitude
     toggleDataPointsVisibility
