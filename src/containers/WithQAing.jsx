@@ -26,6 +26,7 @@ export const WithQAing = ComposedComponent => {
         volume: this.getVolumeContent,
         mass: this.getMassContent,
         galaxy: this.getGalaxyContent,
+        galaxySupernova: this.getGalaxySupernovaContent,
         coloringGalaxy: this.getColoringGalaxyContent,
         neo: this.getNeoContent,
         galaxies: this.getGalaxiesContent,
@@ -141,6 +142,15 @@ export const WithQAing = ComposedComponent => {
       }${numOfSupernovae && ' & '}${numOfSupernovae} ${
         numOfSupernovae > 1 ? 'supernovae' : 'supernova'
       }`;
+    }
+
+    getGalaxySupernovaContent(data) {
+      const galaxyText = data.velocity ? 'Galaxy' : '';
+      const supernovaText = data.distance ? 'Supernova' : '';
+      const foundText = data.velocity || data.distance ? ' found!' : '';
+      const andText = data.velocity && data.distance ? ' and ' : '';
+
+      return `${galaxyText}${andText}${supernovaText}${foundText}`;
     }
 
     getColoringGalaxyContent(data) {

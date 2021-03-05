@@ -1,6 +1,7 @@
 import SupernovaSelectorWithLightCurve from '../../containers/SupernovaSelectorWithLightCurveContainer.jsx';
 import GalaxyScrambler from '../../containers/GalaxyScramblerContainer.jsx';
 import GalaxySelector from '../../containers/GalaxySelectorContainer.jsx';
+import GalaxySupernovaSelector from '../../containers/GalaxySupernovaSelectorContainer.jsx';
 import GalaxiesSelector from '../../containers/GalaxiesSelectorContainer.jsx';
 import GalaxiesFilterSelector from '../../containers/GalaxiesFilterSelectorContainer.jsx';
 import HubblePlot from '../../containers/HubblePlotContainer.jsx';
@@ -20,6 +21,7 @@ export const widgetTags = {
   SupernovaSelectorWithLightCurve,
   GalaxyScrambler,
   GalaxySelector,
+  GalaxySupernovaSelector,
   GalaxiesSelector,
   GalaxiesFilterSelector,
   HubblePlot,
