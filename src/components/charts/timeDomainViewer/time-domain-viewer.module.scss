@@ -9,7 +9,7 @@
   transition: fill $timing $duration, stroke $timing $duration, opacity $timing $duration;
 
   &.selected {
-    stroke-width: 2;
+    stroke-width: 4;
   }
 }
 

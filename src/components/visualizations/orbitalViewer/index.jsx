@@ -10,6 +10,7 @@ import PlaybackSpeed from './PlaybackSpeed.jsx';
 import OrbitalDetails from './OrbitalDetails.jsx';
 
 import { container, orbitalCanvas } from './orbital-viewer.module.scss';
+import chartColors from '../../../assets/stylesheets/_variables.scss';
 
 function OrbitalViewer({
   neos,
@@ -99,7 +100,7 @@ function OrbitalViewer({
           />
           <mesh position={[0, 0, 0]}>
             <sphereBufferGeometry attach="geometry" args={[15, 16, 8]} />
-            <meshBasicMaterial attach="material" color="yellow" />
+            <meshBasicMaterial attach="material" color={chartColors.chart5} />
             {/* <axesHelper args={[1000, 1000, 1000]} /> */}
           </mesh>
         </Canvas>
