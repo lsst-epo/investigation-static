@@ -11,7 +11,7 @@ const earth = {
   Ref: 'Earth',
   Principal_desig: 'Earth',
   orbitColor: '#83e570',
-  objectColor: '#777839',
+  objectColor: '#3cae3F',
   objectRadius: 15,
 };
 

@@ -16,6 +16,7 @@ import {
   getAlertImages,
   getGalaxyPointData,
 } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
+import { colorize } from '../lib/utilities.js';
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
 import chartColors from '../assets/stylesheets/_variables.scss';
@@ -45,10 +46,15 @@ class GalaxySelectorContainer extends React.PureComponent {
     } = this.props;
 
     API.get(source).then(response => {
-      const data = response.data.map(galaxy => {
-        galaxy.images = getAlertImages(galaxy.id || galaxy.name, galaxy.alerts);
-        return galaxy;
-      });
+      const data = colorize(
+        response.data.map(galaxy => {
+          galaxy.images = getAlertImages(
+            galaxy.id || galaxy.name,
+            galaxy.alerts
+          );
+          return galaxy;
+        })
+      );
 
       const { options, answers } = this.props;
 
@@ -209,8 +215,8 @@ class GalaxySelectorContainer extends React.PureComponent {
           <StarAvatar classes={`color-${i + 1}-fill`} content={name} />
         ),
         primaryText: name,
-        className: classnames(styles.galaxyItem, {
-          [styles.linkActive]: active,
+        className: classnames(styles.galaxyItem, `galaxy-item-${i + 1}`, {
+          'link-active': active,
           [styles.linkIsComplete]: complete,
           [styles.linkIsNotComplete]: !complete,
           [styles.linkIsDisabled]: disabled,

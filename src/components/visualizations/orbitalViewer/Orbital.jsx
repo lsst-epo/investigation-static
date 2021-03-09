@@ -19,6 +19,7 @@ import {
   unitToAu,
 } from './orbitalUtilities.js';
 import { label } from './orbital-viewer.module.scss';
+import chartColors from '../../../assets/stylesheets/_variables.scss';
 
 // extend({ MeshLine, MeshLineMaterial });
 
@@ -203,13 +204,13 @@ const Orbital = ({
           <meshLineMaterial
             attach="material"
             lineWidth={5}
-            color={active ? 'hotpink' : orbitColor || '#ffffff'}
+            color={active ? chartColors.chart2 : orbitColor || '#ffffff'}
           />
         </mesh> */}
         <line ref={mesh} geometry={pathLine}>
           <lineBasicMaterial
             attach="material"
-            color={active ? 'hotpink' : orbitColor || '#ffffff'}
+            color={active ? chartColors.chart2 : orbitColor || '#ffffff'}
           />
         </line>
         {/* Orbital Object */}
@@ -233,7 +234,9 @@ const Orbital = ({
           />
           <meshBasicMaterial
             attach="material"
-            color={active ? 'hotpink' : objectColor || 'red'}
+            color={
+              active ? chartColors.chart2 : objectColor || chartColors.chart1
+            }
           />
         </mesh>
         {devMode && (
@@ -241,7 +244,7 @@ const Orbital = ({
             {/* Center */}
             <mesh position={offsetCenter}>
               <sphereBufferGeometry attach="geometry" args={[2, 10, 10]} />
-              <meshBasicMaterial attach="material" color="red" />
+              <meshBasicMaterial attach="material" color={chartColors.chart1} />
               <HTML>
                 <div className={label}>center</div>
               </HTML>

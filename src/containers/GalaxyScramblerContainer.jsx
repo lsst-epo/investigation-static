@@ -14,7 +14,6 @@ import {
   widgetTitle,
   drawerContainer,
   scrambleItem,
-  linkActive,
 } from '../components/charts/hubblePlot/hubble-plot.module.scss';
 import { paddedDrawerInner } from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 
@@ -75,8 +74,8 @@ class GalaxyScramblerContainer extends React.PureComponent {
           <StarAvatar classes={`color-${i + 1}-fill`} content={name} />
         ),
         primaryText: name,
-        className: classnames(scrambleItem, {
-          [linkActive]: activeScramble.name === scramble.name,
+        className: classnames(scrambleItem, `scramble-item-${i + 1}`, {
+          'link-active': activeScramble.name === scramble.name,
         }),
         onClick: () => this.setActiveScramble(scramble),
       };

@@ -176,8 +176,8 @@ class Trendline extends React.Component {
               x2={terminus[0]}
               y1={captureAreaY + start[1]}
               y2={terminus[1]}
-              strokeWidth={1}
-              stroke="#1d4a79"
+              strokeWidth={2}
+              stroke="#000000"
               strokeDasharray="10"
               markerEnd="url(#triangle)"
             />

@@ -9,7 +9,7 @@
   transition: fill $timing $duration;
 
   &.selected {
-    stroke-width: 2;
+    stroke-width: 4;
   }
 }
 
@@ -77,15 +77,25 @@ aside {
     transition: background-color $timing $duration;
 
     &.link-is-complete {
-      background-color: $baseSecondaryDark;
+      background-color: $black;
     }
+  }
 
-    &.link-active {
-      background-color: $basePrimary;
-    }
+  @for $i from 0 through length($chartColors) - 1 {
+    :global {
+      .galaxy-item-#{$i} {
+        $chartColor: nth($chartColors, $i + 1);
 
-    &:hover {
-      background-color: $basePrimary;
+        &.link-active, &:hover {
+          /* stylelint-disable-next-line declaration-no-important */
+          background-color: $chartColor !important;
+
+          .color-#{$i}-fill {
+            /* stylelint-disable-next-line declaration-no-important */
+            fill: $white !important;
+          }
+        }
+      }
     }
   }
 }
@@ -93,9 +103,7 @@ aside {
 // full size drawer
 nav {
   .galaxy-item {
-    &.link-active {
-      background-color: $basePrimary;
-
+    &.link-active, .md-fake-btn:hover {
       :global {
         .md-tile-text--primary.md-text--theme-primary,
         .md-text {
@@ -106,7 +114,7 @@ nav {
     }
 
     &.link-is-complete {
-      background-color: $baseSecondaryDark;
+      background-color: $black;
 
       :global {
         .md-tile-text--primary,
@@ -118,16 +126,22 @@ nav {
       }
     }
   }
-}
 
-.link-is-complete {
-  // background: yellow;
-}
+  @for $i from 0 through length($chartColors) - 1 {
+    :global {
+      .galaxy-item-#{$i} {
+        $chartColor: nth($chartColors, $i + 1);
 
-.link-is-not-complete {
-  // background: red;
-}
+        &.link-active, .md-fake-btn:hover {
+          /* stylelint-disable-next-line declaration-no-important */
+          background-color: $chartColor !important;
 
-.link-is-disabled {
-  // background: green;
+          .color-#{$i}-fill {
+            /* stylelint-disable-next-line declaration-no-important */
+            fill: $white !important;
+          }
+        }
+      }
+    }
+  }
 }
