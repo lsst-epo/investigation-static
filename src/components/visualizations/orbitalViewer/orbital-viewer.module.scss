@@ -1,16 +1,13 @@
 .container {
   position: relative;
-  // width: 100%;
-  // min-width: $break30;
-  // max-width: $tallestSquareWidget;
   height: 100%;
   min-height: $break40;
-  max-height: calc(90vh - (2 * #{$siteHeaderHeight}) - (#{$minPadding} * 2));
+  max-height: $tallestSquareWidget;
   background-color: $black;
 
-  @include respond($containerMaxWidth) {
-    height: calc((100vw - #{$minPadding} * 2) / 2);
-  }
+  // @include respond($containerMaxWidth) {
+  //   height: calc((100vw - #{$minPadding} * 2) / 2);
+  // }
 }
 
 .orbital-canvas {
