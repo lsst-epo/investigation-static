@@ -86,7 +86,8 @@ aside {
       .galaxy-item-#{$i} {
         $chartColor: nth($chartColors, $i + 1);
 
-        &.link-active, &:hover {
+        &.link-active,
+        &:hover {
           /* stylelint-disable-next-line declaration-no-important */
           background-color: $chartColor !important;
 
@@ -103,7 +104,8 @@ aside {
 // full size drawer
 nav {
   .galaxy-item {
-    &.link-active, .md-fake-btn:hover {
+    &.link-active,
+    .md-fake-btn:hover {
       :global {
         .md-tile-text--primary.md-text--theme-primary,
         .md-text {
@@ -132,7 +134,8 @@ nav {
       .galaxy-item-#{$i} {
         $chartColor: nth($chartColors, $i + 1);
 
-        &.link-active, .md-fake-btn:hover {
+        &.link-active,
+        .md-fake-btn:hover {
           /* stylelint-disable-next-line declaration-no-important */
           background-color: $chartColor !important;
 
@@ -144,4 +147,12 @@ nav {
       }
     }
   }
+}
+
+.hubble-plot-container {
+  padding: $minPadding $minPadding $minPadding 80px;
+}
+
+.toolbar-buttons {
+  height: 100%;
 }

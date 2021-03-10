@@ -45,11 +45,9 @@
   ],
   "widgets": [
     {
-      "type": "GalaxySelector",
+      "type": "HubblePlotter",
       "source": "/data/galaxies/galaxy_selector.json",
       "options": {
-        "autoplay": true,
-        "toggleDataPointsVisibility": "251",
         "createUserHubblePlot": "252"
       }
     }
@@ -58,12 +56,13 @@
     {
       "question": [
         {
-          "id": "251",
+          "id": "252",
           "questionType": "accordion",
+          "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Next you will plot your selections.",
-          "answerPre": "<span>Total Selected: </span>",
-          "answerAccessor": "galaxy"
+          "label": "<p>Plot each galaxy's distance and supernova's velocity as defined in the table on the hubble plot.</p>",
+          "answerPre": "",
+          "answerAccessor": "hubblePlot"
         }
       ]
     }

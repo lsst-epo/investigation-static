@@ -1,3 +1,4 @@
+import { isArray } from 'lodash';
 import find from 'lodash/find';
 import findIndex from 'lodash/findIndex';
 import isEmpty from 'lodash/isEmpty';
@@ -61,7 +62,10 @@ export const getSelectedData = (activeGalaxy, answers, qId) => {
 
   if (!isEmpty(answer) && activeGalaxy) {
     const { data } = answer;
-    const galaxy = data[activeGalaxy.name];
+    const galaxy = isArray(data)
+      ? find(data, { name: activeGalaxy.name })
+      : data[activeGalaxy.name];
+
     if (isEmpty(galaxy)) return null;
 
     const selectedData = Object.keys(galaxy).map(key => {
