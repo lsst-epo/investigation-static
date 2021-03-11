@@ -79,6 +79,10 @@
     margin: 0;
   }
 
+  .disabled-link {
+    pointer-events: none;
+  }
+
   :global {
     .md-list {
       height: calc(100vh - 324px);

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isArray from 'lodash/isArray';
+import filter from 'lodash/filter';
 import SliderCustom from '../../site/slider/index.jsx';
 import Select from '../../site/selectField/index.jsx';
 import Button from '../../site/button/index.js';
@@ -170,7 +171,13 @@ class ColorTool extends React.PureComponent {
       () => {
         const { selectedData, selectorValue } = this.state;
         if (selectionCallback) {
-          selectionCallback(selectedData, selectorValue);
+          const activeFilters = filter(selectedData.filters, {
+            active: true,
+          });
+
+          if (activeFilters > 0) {
+            selectionCallback(selectedData, selectorValue);
+          }
         }
       }
     );
