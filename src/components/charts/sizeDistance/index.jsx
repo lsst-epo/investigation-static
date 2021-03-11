@@ -361,7 +361,7 @@ class SizeDistance extends React.Component {
               offsetTop={offsetTop}
               scale={yScale}
             />
-            <g>
+            <g clipPath="url('#clip')">
               {data &&
                 multiple &&
                 data.map((set, i) => {

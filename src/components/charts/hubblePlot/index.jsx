@@ -12,6 +12,7 @@ import {
   mouse as d3mouse,
 } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
+import { zoom as d3Zoom } from 'd3-zoom';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
@@ -34,7 +35,16 @@ import {
 class HubblePlot extends React.Component {
   constructor(props) {
     super(props);
-    const { options } = props;
+    const {
+      options,
+      xDomain,
+      yDomain,
+      width,
+      height,
+      padding,
+      offsetTop,
+      offsetRight,
+    } = props;
     const { domain } = options || {};
 
     this.state = {
@@ -47,12 +57,18 @@ class HubblePlot extends React.Component {
       mousePosX: null,
       mousePosY: null,
       showTooltip: false,
-      xScale: d3ScaleLinear()
-        .domain(domain ? domain[0] : props.xDomain)
-        .range([props.padding, props.width]),
-      yScale: d3ScaleLinear()
-        .domain(domain ? domain[1] : props.yDomain)
-        .range([props.height - props.padding, 0]),
+      xScale: this.getXScale(
+        domain ? domain[0] : xDomain,
+        width,
+        padding,
+        offsetRight
+      ),
+      yScale: this.getYScale(
+        domain ? domain[1] : yDomain,
+        height,
+        padding,
+        offsetTop
+      ),
       hubbleConstant: null,
       activeDataIndex: null,
     };
@@ -84,6 +100,48 @@ class HubblePlot extends React.Component {
 
   componentWillUnmount() {
     this.removeEventListeners();
+  }
+
+  rescale(transformEvent) {
+    const {
+      xDomain,
+      yDomain,
+      width,
+      height,
+      padding,
+      offsetTop,
+      offsetRight,
+      options,
+    } = this.props;
+    const { domain } = options || {};
+
+    this.setState(prevState => ({
+      ...prevState,
+      showTooltip: false,
+      xScale: transformEvent.rescaleX(
+        this.getXScale(
+          domain ? domain[0] : xDomain,
+          width,
+          padding,
+          offsetRight
+        )
+      ),
+      yScale: transformEvent.rescaleY(
+        this.getYScale(domain ? domain[1] : yDomain, height, padding, offsetTop)
+      ),
+    }));
+  }
+
+  getXScale(domain, width, padding, offsetRight) {
+    return d3ScaleLinear()
+      .domain(domain)
+      .range([padding, width - offsetRight]);
+  }
+
+  getYScale(domain, height, padding, offsetTop) {
+    return d3ScaleLinear()
+      .domain(domain)
+      .range([height - padding, offsetTop]);
   }
 
   updateSelectedData() {
@@ -227,6 +285,10 @@ class HubblePlot extends React.Component {
     }));
   };
 
+  onZoom = () => {
+    this.rescale(d3Event.transform);
+  };
+
   onTrendlineClick = () => {
     const { userTrendlineCallback, options } = this.props;
     const { userTrendline } = options || {};
@@ -240,7 +302,14 @@ class HubblePlot extends React.Component {
 
   // add event listeners to Scatterplot and Points
   addEventListeners() {
-    const { options } = this.props;
+    const {
+      width,
+      height,
+      padding,
+      offsetTop,
+      offsetRight,
+      options,
+    } = this.props;
     const { preSelected, createUserHubblePlot, userTrendline } = options || {};
     const $hubblePlot = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
@@ -271,6 +340,20 @@ class HubblePlot extends React.Component {
         }
       });
 
+      const zoom = d3Zoom()
+        .translateExtent([
+          [padding, offsetTop],
+          [width - offsetRight, height - padding],
+        ])
+        .scaleExtent([1, 5])
+        .extent([
+          [padding, offsetTop],
+          [width - offsetRight, height - padding],
+        ])
+        .on('zoom', this.onZoom);
+
+      $hubblePlot.call(zoom).on('mousedown.zoom', null);
+
       $hubblePlot.on('mousemove', () => {
         const [mousePosX, mousePosY] = d3mouse(this.svgEl.current);
 
@@ -281,13 +364,13 @@ class HubblePlot extends React.Component {
         }));
       });
 
-      $hubblePlot.on('mouseout', () => {
-        this.setState(prevState => ({
-          ...prevState,
-          mousePosX: null,
-          mousePosY: null,
-        }));
-      });
+      // $hubblePlot.on('mouseout', () => {
+      //   this.setState(prevState => ({
+      //     ...prevState,
+      //     mousePosX: null,
+      //     mousePosY: null,
+      //   }));
+      // });
     }
 
     // add event listeners to points
@@ -471,20 +554,20 @@ class HubblePlot extends React.Component {
               offsetTop,
             }}
           />
-          <CursorPoint
-            x={mousePosX}
-            y={mousePosY}
-            offsetTop={offsetTop}
-            pointClasses={classnames(
-              `color-${activeDataIndex + 1}-translucent-fill`,
-              `color-${activeDataIndex + 1}-stroke`,
-              `${cursorPoint}`,
-              {
-                [invisible]: !mousePosX && !mousePosY,
-              }
-            )}
-          />
-          <g>
+          <g clipPath="url('#clip')">
+            <CursorPoint
+              x={mousePosX}
+              y={mousePosY}
+              offsetTop={offsetTop}
+              pointClasses={classnames(
+                `color-${activeDataIndex + 1}-translucent-fill`,
+                `color-${activeDataIndex + 1}-stroke`,
+                `${cursorPoint}`,
+                {
+                  [invisible]: !mousePosX && !mousePosY,
+                }
+              )}
+            />
             {data &&
               multiple &&
               data.map((set, i) => {

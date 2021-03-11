@@ -239,46 +239,48 @@ class AsteroidClass extends React.Component {
               offsetTop={offsetTop}
               scale={yScale}
             />
-            {maxs && mins && (
-              <Region
-                type={styles.filtersRegion}
-                points={this.getRegionPoints()}
-                xValueAccessor="x"
-                yValueAccessor="y"
-                {...{ xScale, yScale, offsetTop, offsetRight }}
-              />
-            )}
-            {data && (
-              <Points
-                {...{
-                  data,
-                  xScale,
-                  yScale,
-                  selectedData,
-                  hoveredData,
-                  offsetTop,
-                }}
-                pointClasses={classnames(styles.point)}
-              />
-            )}
-            {mins && maxs && means && (
-              <Summary
-                filters={this.filters}
-                means={means}
-                mins={mins}
-                maxs={maxs}
-                {...{ xScale, yScale, offsetTop }}
-              />
-            )}
-            {overlayData && (
-              <FilterValuesLine
-                lineClasses={styles.overlayLine}
-                pointClasses={styles.overlayPoint}
-                filters={this.filters}
-                filterValues={overlayData}
-                {...{ xScale, yScale, offsetTop }}
-              />
-            )}
+            <g clipPath="url('#clip')">
+              {maxs && mins && (
+                <Region
+                  type={styles.filtersRegion}
+                  points={this.getRegionPoints()}
+                  xValueAccessor="x"
+                  yValueAccessor="y"
+                  {...{ xScale, yScale, offsetTop, offsetRight }}
+                />
+              )}
+              {data && (
+                <Points
+                  {...{
+                    data,
+                    xScale,
+                    yScale,
+                    selectedData,
+                    hoveredData,
+                    offsetTop,
+                  }}
+                  pointClasses={classnames(styles.point)}
+                />
+              )}
+              {mins && maxs && means && (
+                <Summary
+                  filters={this.filters}
+                  means={means}
+                  mins={mins}
+                  maxs={maxs}
+                  {...{ xScale, yScale, offsetTop }}
+                />
+              )}
+              {overlayData && (
+                <FilterValuesLine
+                  lineClasses={styles.overlayLine}
+                  pointClasses={styles.overlayPoint}
+                  filters={this.filters}
+                  filterValues={overlayData}
+                  {...{ xScale, yScale, offsetTop }}
+                />
+              )}
+            </g>
           </svg>
         </div>
       </>
