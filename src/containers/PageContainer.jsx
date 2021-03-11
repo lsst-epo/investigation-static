@@ -94,6 +94,7 @@ class PageContainer extends React.PureComponent {
       content,
       contents,
       widgets,
+      checkpoints,
       images,
       tables,
       questionsByPage,
@@ -121,6 +122,7 @@ class PageContainer extends React.PureComponent {
             previous,
             next,
             widgets,
+            checkpoints,
             tables,
             images,
             answers,
@@ -169,6 +171,9 @@ export const query = graphql`
         }
         widgets {
           ...Widget
+        }
+        checkpoints {
+          ...Checkpoint
         }
         questionsByPage {
           ...Question

@@ -32,6 +32,7 @@ class TwoCol extends React.PureComponent {
       tables,
       images,
       widgets,
+      checkpoints,
       shared,
     } = this.props;
 
@@ -57,6 +58,10 @@ class TwoCol extends React.PureComponent {
       {
         type: 'table',
         blocks: tables,
+      },
+      {
+        type: 'checkpoint',
+        blocks: checkpoints,
       },
     ];
 
@@ -146,6 +151,7 @@ TwoCol.propTypes = {
   images: PropTypes.array,
   tables: PropTypes.array,
   widgets: PropTypes.array,
+  checkpoints: PropTypes.array,
   shared: PropTypes.object,
 };
 

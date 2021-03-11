@@ -4,6 +4,7 @@ import WidgetBlock from './WidgetBlock';
 import ImageBlock from './ImageBlock';
 import TableBlock from './TableBlock';
 import ContentBlock from './ContentBlock';
+import CheckpointBlock from './CheckpointBlock';
 
 class Blocks extends React.PureComponent {
   constructor(props) {
@@ -14,6 +15,7 @@ class Blocks extends React.PureComponent {
       image: ImageBlock,
       table: TableBlock,
       content: ContentBlock,
+      checkpoint: CheckpointBlock,
     };
   }
 
