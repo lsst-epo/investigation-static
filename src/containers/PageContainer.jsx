@@ -45,7 +45,10 @@ class PageContainer extends React.PureComponent {
       const { id: qId, required } = questions[i].question[0];
       const answer = answers[qId];
 
-      if (required && !answer) return true;
+      if (!answer) {
+        // if (!required) return false;
+        return true;
+      }
     }
 
     return false;
