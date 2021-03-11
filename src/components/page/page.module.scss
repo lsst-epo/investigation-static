@@ -28,6 +28,7 @@
   grid-area: grid-copy;
 
   + .grid-widget,
+  + .grid-checkpoint,
   + .grid-image,
   + .grid-table,
   + .grid-qas,
@@ -83,6 +84,7 @@
   grid-area: grid-qas;
 
   + .grid-widget,
+  + .grid-checkpoint,
   + .grid-image,
   + .grid-table,
   + .grid-copy {
@@ -92,6 +94,18 @@
 
 .grid-widget {
   + .grid-widget,
+  + .grid-checkpoint,
+  + .grid-image,
+  + .grid-table,
+  + .grid-qas,
+  + .grid-copy {
+    margin-top: $minPadding;
+  }
+}
+
+.grid-checkpoint {
+  + .grid-widget,
+  + .grid-checkpoint,
   + .grid-image,
   + .grid-table,
   + .grid-qas,
@@ -110,6 +124,35 @@
 
 .grid-widget-bottom {
   grid-area: grid-widget-bottom;
+}
+
+.grid-checkpoint-top {
+  grid-area: grid-checkpoint-top;
+}
+
+.grid-checkpoint-middle {
+  grid-area: grid-checkpoint-middle;
+}
+
+.grid-checkpoint-bottom {
+  grid-area: grid-checkpoint-bottom;
+}
+
+.grid-checkpoint-middle,
+.grid-checkpoint-bottom {
+  margin-top: $minPadding;
+}
+
+.grid-checkpoint-top,
+.grid-checkpoint-middle,
+.grid-checkpoint-bottom {
+  display: block;
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 
 .grid-image-top,

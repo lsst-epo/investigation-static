@@ -13,6 +13,14 @@
     "link": "/discuss-report/"
   },
   "layout": "SingleCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

@@ -15,6 +15,7 @@ class Page extends React.PureComponent {
       tables,
       images,
       widgets,
+      checkpoints,
       shared,
     } = this.props;
 
@@ -41,6 +42,10 @@ class Page extends React.PureComponent {
       {
         type: 'table',
         blocks: tables,
+      },
+      {
+        type: 'checkpoint',
+        blocks: checkpoints,
       },
     ];
 
@@ -91,5 +96,6 @@ Page.propTypes = {
   images: PropTypes.array,
   tables: PropTypes.array,
   widgets: PropTypes.array,
+  checkpoints: PropTypes.array,
   shared: PropTypes.object,
 };

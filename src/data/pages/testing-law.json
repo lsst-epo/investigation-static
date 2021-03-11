@@ -27,6 +27,14 @@
       }
     }
   ],
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
