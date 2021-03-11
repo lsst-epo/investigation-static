@@ -7,7 +7,11 @@ import classnames from 'classnames';
 import { Drawer } from 'react-md';
 import Check from '../icons/Check';
 import Progress from '../progress/index.jsx';
-import { tableOfContents, heading } from './table-of-contents.module.scss';
+import {
+  tableOfContents,
+  heading,
+  disabledLink,
+} from './table-of-contents.module.scss';
 
 @reactn
 class TableOfContents extends React.PureComponent {
@@ -25,6 +29,7 @@ class TableOfContents extends React.PureComponent {
           } = link;
           const baseUrl = linkBaseUrl && useBaseUrl ? `/${linkBaseUrl}/` : '/';
           const isActive = this.isActivePage(id);
+          const allQsComplete = this.checkQAProgress(id);
 
           return {
             component: Link,
@@ -33,9 +38,11 @@ class TableOfContents extends React.PureComponent {
             primaryText: `${pageNumber}. ${title}`,
             leftIcon: <Check />,
             active: isActive,
+            disabled: !allQsComplete && !isActive,
             className: classnames('toc-link', `link--page-id--${id}`, {
               'link-active': isActive,
-              'qa-progress--complete': this.checkQAProgress(id),
+              'qa-progress--complete': allQsComplete,
+              [disabledLink]: !allQsComplete && !isActive,
             }),
           };
         }
