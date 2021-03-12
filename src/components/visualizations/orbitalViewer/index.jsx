@@ -23,6 +23,7 @@ function OrbitalViewer({
   potentialOrbits,
   observations,
   noDetails,
+  detailsSet,
   refObjs,
 }) {
   const speeds = [0.00001157, 1.1574, 11.574, 30, 365.25]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
@@ -63,7 +64,11 @@ function OrbitalViewer({
     <>
       <div className={container}>
         {!potentialOrbits && !noDetails && (
-          <OrbitalDetails velocity={activeVelocity} data={activeNeo} />
+          <OrbitalDetails
+            type={detailsSet}
+            velocity={activeVelocity}
+            data={activeNeo}
+          />
         )}
         {!paused && <PlaybackSpeed {...{ elapsedTime, dayPerVizSec }} />}
         <Canvas invalidateFrameloop className={orbitalCanvas}>
@@ -132,6 +137,7 @@ OrbitalViewer.propTypes = {
   potentialOrbits: PropTypes.bool,
   observations: PropTypes.array,
   noDetails: PropTypes.bool,
+  detailsSet: PropTypes.string,
   refObjs: PropTypes.array,
 };
 

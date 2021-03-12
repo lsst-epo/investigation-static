@@ -12,9 +12,13 @@ import {
 } from './orbital-viewer.module.scss';
 import Button from '../../site/button/index.js';
 
-function OrbitalDetails({ data, velocity }) {
-  const { a, i, e, Principal_desig: name } = data || {};
+function OrbitalDetails({ data, velocity, type }) {
+  const { H, a, i, e, Principal_desig: name, Earth_moid: moid } = data || {};
   const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    if (data) setActive(true);
+  }, [data]);
 
   function renderValueWithUnits(value, unitType, showUnit) {
     if (!value) return '';
@@ -27,9 +31,26 @@ function OrbitalDetails({ data, velocity }) {
     );
   }
 
-  useEffect(() => {
-    if (data) setActive(true);
-  }, [data]);
+  function getRows() {
+    if (type === 'hazardous-asteroids') {
+      return [
+        ['Scientific Name', name || ''],
+        ['Absolute Magnitude', renderValueWithUnits(H, 'magnitude', false)],
+        ['Earth MOID', renderValueWithUnits(moid, 'moid', true)],
+      ];
+    }
+
+    return [
+      ['Scientific Name', name || ''],
+      ['Orbit Size', renderValueWithUnits(a, 'semimajor_axis', true)],
+      ['Eccentricity', renderValueWithUnits(e, 'eccentricity', false)],
+      ['Inclination', renderValueWithUnits(i, 'inclination', true)],
+      [
+        'Orbital Speed',
+        renderValueWithUnits(toSigFigs(velocity, 3), 'velocity', true),
+      ],
+    ];
+  }
 
   return (
     <>
@@ -46,20 +67,7 @@ function OrbitalDetails({ data, velocity }) {
           [activeDetails]: active,
         })}
       >
-        <Table
-          className={detailsTable}
-          includeRowTitles
-          rows={[
-            ['Scientific Name', name || ''],
-            ['Orbit Size', renderValueWithUnits(a, 'semimajor_axis', true)],
-            ['Eccentricity', renderValueWithUnits(e, 'eccentricity', false)],
-            ['Inclination', renderValueWithUnits(i, 'inclination', true)],
-            [
-              'Orbital Speed',
-              renderValueWithUnits(toSigFigs(velocity, 3), 'velocity', true),
-            ],
-          ]}
-        />
+        <Table className={detailsTable} includeRowTitles rows={getRows()} />
       </div>
     </>
   );
@@ -68,6 +76,7 @@ function OrbitalDetails({ data, velocity }) {
 OrbitalDetails.propTypes = {
   data: PropTypes.object,
   velocity: PropTypes.number,
+  type: PropTypes.string,
 };
 
 export default OrbitalDetails;
