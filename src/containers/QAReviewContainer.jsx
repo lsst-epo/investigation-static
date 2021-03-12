@@ -126,27 +126,14 @@ export const query = graphql`
     allPagesJson {
       nodes {
         investigation
+        tables {
+          ...Table
+        }
+        widgets {
+          ...Widget
+        }
         questionsByPage {
-          question {
-            id
-            label
-            labelPost
-            labelPre
-            questionType
-            placeholder
-            compoundQuestion
-            answerAccessor
-            answerPost
-            answerPre
-            tool
-            title
-            srLabel
-            required
-            options {
-              label
-              value
-            }
-          }
+          ...Question
         }
       }
     }

@@ -36,8 +36,7 @@
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data",
-          "required": false
+          "answerAccessor": "data"
         }
       ]
     },

@@ -19,7 +19,6 @@ export const questionFragment = graphql`
         label
         value
       }
-      required
     }
   }
 `;
