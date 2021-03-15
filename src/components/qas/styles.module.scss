@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-no-important */
 .qa {
   + .qa {
     margin-top: $minPadding / 4;
@@ -28,14 +29,14 @@
   .qa-review-label-post,
   .calculator-label,
   p {
-    font-size: 16px !important; /* stylelint-disable-line declaration-no-important *//* stylelint-disable-line declaration-no-important *//* stylelint-disable-line declaration-no-important */
-    font-weight: $medium !important; /* stylelint-disable-line declaration-no-important *//* stylelint-disable-line declaration-no-important */
-    color: $basePrimary !important; /* stylelint-disable-line declaration-no-important */
+    font-size: 16px !important;
+    font-weight: $medium !important;
+    color: $basePrimary !important;
   }
 }
 
 .qa-review-block {
-  margin: 0 !important; /* stylelint-disable-line declaration-no-important */
+  margin: 0 !important;
   font-size: 16px;
   font-weight: $medium;
   color: $basePrimary;
@@ -59,7 +60,7 @@
   .qa-review-inline-input {
     display: inline-block;
     max-width: 180px;
-    margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
+    margin-top: 0 !important;
     text-decoration: underline;
   }
 
@@ -74,4 +75,9 @@
       text-decoration: underline;
     }
   }
+}
+
+.qa-review-table-container {
+  max-width: 800px;
+  margin: 2 * $minPadding $minPadding;
 }

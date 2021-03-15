@@ -6,8 +6,10 @@ import { graphql, Link } from 'gatsby';
 import find from 'lodash/find';
 import filter from 'lodash/filter';
 import flattenDeep from 'lodash/flattenDeep';
+import ObservationsTable from '../components/charts/shared/observationsTables/ObservationsTable';
 import QAs from '../components/qas';
 import Button from '../components/site/button/index.js';
+import { qaReviewTableContainer } from '../components/qas/styles.module.scss';
 
 @reactn
 class QAReviewContainer extends React.PureComponent {
@@ -29,30 +31,46 @@ class QAReviewContainer extends React.PureComponent {
     const { env: id, investigation } = pageContext;
     const { answers } = this.global;
 
-    const filteredQuestions = filter(data.allPagesJson.nodes, [
+    const filteredByInvestigation = filter(data.allPagesJson.nodes, [
       'investigation',
       id || investigation,
-    ]);
-
-    const questions = flattenDeep(
-      filteredQuestions
-        .filter(fq => !!fq.questionsByPage)
-        .map(fq => {
-          return fq.questionsByPage.map(qbp => {
+    ])
+      .sort((a, b) => a.order - b.order)
+      .map(inv => {
+        if (inv.questionsByPage) {
+          inv.questionsByPage = inv.questionsByPage.map(qbp => {
             qbp.question.map(q => {
               q.qaReview = true;
               return q;
             });
             return qbp;
           });
-        })
+        }
+        if (inv.tables) {
+          inv.tables = inv.tables.map(table => {
+            table.qaReview = true;
+            return table;
+          });
+        }
+        return inv;
+      });
+
+    const questions = flattenDeep(
+      filteredByInvestigation.filter(fq => !!fq.questionsByPage)
+    );
+
+    const tables = flattenDeep(
+      filteredByInvestigation.filter(inv => !!inv.tables)
     );
 
     this.setState(prevState => ({
       ...prevState,
       data,
+      // questions,
+      pages: filteredByInvestigation,
       questions,
       answers,
+      tables,
     }));
 
     this.dispatch.updatePageId(null);
@@ -61,17 +79,7 @@ class QAReviewContainer extends React.PureComponent {
   render() {
     const { pageContext } = this.props;
     const { investigations, env, investigation: invId } = pageContext;
-    const { envInvestigation, questions, answers } = this.state;
-
-    const shared = {
-      questions,
-      answers,
-      updateAnswer: () => {},
-      activeAnswer: {},
-      advanceActiveQuestion: () => {},
-      setActiveQuestion: () => {},
-      activeQuestionId: '',
-    };
+    const { envInvestigation, pages, answers } = this.state;
 
     return (
       <>
@@ -82,7 +90,34 @@ class QAReviewContainer extends React.PureComponent {
 
         {envInvestigation ? (
           <>
-            {questions && <QAs {...shared} />}
+            {pages &&
+              pages.map(page => {
+                const { questionsByPage: questions, tables } = page;
+                const shared = {
+                  questions,
+                  answers,
+                  updateAnswer: () => {},
+                  activeAnswer: {},
+                  advanceActiveQuestion: () => {},
+                  setActiveQuestion: () => {},
+                  activeQuestionId: '',
+                };
+                return (
+                  <span key={`page-${page.id}`}>
+                    {questions && <QAs {...shared} />}
+                    {tables &&
+                      tables.map((table, tableIndex) => (
+                        <div
+                          // eslint-disable-next-line react/no-array-index-key
+                          key={`table-id-${table.id}-${tableIndex}`}
+                          className={qaReviewTableContainer}
+                        >
+                          <ObservationsTable {...table} answers={answers} />
+                        </div>
+                      ))}
+                  </span>
+                );
+              })}
             <div className="container-flex spaced">
               <div className="col">
                 <Button
@@ -125,7 +160,7 @@ export const query = graphql`
   query QAReviewQuery {
     allPagesJson {
       nodes {
-        investigation
+        ...PageMeta
         tables {
           ...Table
         }

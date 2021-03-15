@@ -80,7 +80,8 @@
     "serve": "gatsby serve",
     "test": "jest --verbose",
     "watch-test": "jest --watch --verbose",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "develop": "yarn clean && yarn start"
   },
   "repository": {
     "type": "git",
