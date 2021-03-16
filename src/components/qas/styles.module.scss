@@ -77,7 +77,15 @@
   }
 }
 
+.qa-review-page-container {
+  display: block;
+}
+
 .qa-review-table-container {
   max-width: 800px;
   margin: 2 * $minPadding $minPadding;
+}
+
+.qa-review-widget-container {
+  margin: $minPadding;
 }
