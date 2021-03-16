@@ -7,9 +7,14 @@ import find from 'lodash/find';
 import filter from 'lodash/filter';
 import flattenDeep from 'lodash/flattenDeep';
 import ObservationsTable from '../components/charts/shared/observationsTables/ObservationsTable';
+import Widget from '../components/widgets/index';
 import QAs from '../components/qas';
 import Button from '../components/site/button/index.js';
-import { qaReviewTableContainer } from '../components/qas/styles.module.scss';
+import {
+  qaReviewPageContainer,
+  qaReviewTableContainer,
+  qaReviewWidgetContainer,
+} from '../components/qas/styles.module.scss';
 
 @reactn
 class QAReviewContainer extends React.PureComponent {
@@ -52,6 +57,17 @@ class QAReviewContainer extends React.PureComponent {
             return table;
           });
         }
+        if (inv.widgets) {
+          inv.widgets = inv.widgets.map(widget => {
+            widget.options = {
+              ...widget.options,
+              qaReview: true,
+              disabled: true,
+              autoplay: false,
+            };
+            return widget;
+          });
+        }
         return inv;
       });
 
@@ -63,6 +79,10 @@ class QAReviewContainer extends React.PureComponent {
       filteredByInvestigation.filter(inv => !!inv.tables)
     );
 
+    const widgets = flattenDeep(
+      filteredByInvestigation.filter(inv => !!inv.widgets)
+    );
+
     this.setState(prevState => ({
       ...prevState,
       data,
@@ -71,6 +91,7 @@ class QAReviewContainer extends React.PureComponent {
       questions,
       answers,
       tables,
+      widgets,
     }));
 
     this.dispatch.updatePageId(null);
@@ -92,7 +113,7 @@ class QAReviewContainer extends React.PureComponent {
           <>
             {pages &&
               pages.map(page => {
-                const { questionsByPage: questions, tables } = page;
+                const { questionsByPage: questions, tables, widgets } = page;
                 const shared = {
                   questions,
                   answers,
@@ -103,7 +124,10 @@ class QAReviewContainer extends React.PureComponent {
                   activeQuestionId: '',
                 };
                 return (
-                  <span key={`page-${page.id}`}>
+                  <span
+                    key={`page-${page.id}`}
+                    className={qaReviewPageContainer}
+                  >
                     {questions && <QAs {...shared} />}
                     {tables &&
                       tables.map((table, tableIndex) => (
@@ -115,6 +139,18 @@ class QAReviewContainer extends React.PureComponent {
                           <ObservationsTable {...table} answers={answers} />
                         </div>
                       ))}
+                    {widgets &&
+                      widgets.map(widget => {
+                        const { options, type } = widget || {};
+                        return (
+                          <div
+                            key={`widget-${widget.type}`}
+                            className={qaReviewWidgetContainer}
+                          >
+                            <Widget {...{ widget, options, type, ...shared }} />
+                          </div>
+                        );
+                      })}
                   </span>
                 );
               })}
