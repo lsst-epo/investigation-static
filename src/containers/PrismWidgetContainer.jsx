@@ -25,15 +25,15 @@ class PrismWidgetContainer extends React.PureComponent {
 
   render() {
     const { widget } = this.props;
-    const {
-      options: { questionId },
-    } = widget || {};
+    const { options } = widget || {};
+    const { questionId, qaReview } = options || {};
 
     return (
       <PrismWidget
         selectedColor={this.getSelectedColor()}
         hasQuestionId={questionId !== null}
         selectionCallback={this.selectionCallback}
+        {...{ qaReview }}
       />
     );
   }

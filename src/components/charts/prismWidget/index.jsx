@@ -79,6 +79,7 @@ class PrismWidget extends React.PureComponent {
   };
 
   render() {
+    const { qaReview } = this.props;
     const { selectedColor } = this.state;
     const colors = [
       'Red',
@@ -179,6 +180,7 @@ class PrismWidget extends React.PureComponent {
             block
             position="top left"
             fullWidth
+            disabled={qaReview}
             simplifiedMenu={false}
             listStyle={{
               left: 0,
@@ -196,6 +198,7 @@ class PrismWidget extends React.PureComponent {
 PrismWidget.propTypes = {
   selectionCallback: PropTypes.func,
   selectedColor: PropTypes.string,
+  qaReview: PropTypes.bool,
 };
 
 export default PrismWidget;

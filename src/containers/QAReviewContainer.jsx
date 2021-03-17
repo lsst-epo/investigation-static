@@ -75,7 +75,7 @@ class QAReviewContainer extends React.PureComponent {
       widget.options = {
         ...widget.options,
         qaReview: true,
-        disabled: true,
+        preSelected: true,
         autoplay: false,
       };
 

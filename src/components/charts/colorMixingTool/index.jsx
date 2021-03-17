@@ -169,13 +169,13 @@ class ColorTool extends React.PureComponent {
         ...newState,
       }),
       () => {
-        const { selectedData, selectorValue } = this.state;
+        const { data, selectedData, selectorValue } = this.state;
         if (selectionCallback) {
           const activeFilters = filter(selectedData.filters, {
             active: true,
           });
 
-          if (activeFilters > 0) {
+          if (isArray(data) || activeFilters > 0) {
             selectionCallback(selectedData, selectorValue);
           }
         }
@@ -195,6 +195,7 @@ class ColorTool extends React.PureComponent {
       hideControls,
       hideImage,
       hideSubHeadTitle,
+      qaReview,
     } = this.props;
     const { data, selectedData, resetBtnActive, selectorValue } = this.state;
     const filters = selectedData ? selectedData.filters : [];
@@ -254,6 +255,7 @@ class ColorTool extends React.PureComponent {
                     value={selectorValue}
                     saveListScrollTop
                     fullWidth
+                    disabled={qaReview}
                     listStyle={{ width: '100%' }}
                     // position="below"
                   />
@@ -396,6 +398,7 @@ ColorTool.propTypes = {
   hideControls: PropTypes.bool,
   hideImage: PropTypes.bool,
   hideSubHeadTitle: PropTypes.bool,
+  qaReview: PropTypes.bool,
 };
 
 export default ColorTool;
