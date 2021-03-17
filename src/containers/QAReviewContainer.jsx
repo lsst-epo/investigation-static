@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import find from 'lodash/find';
 import filter from 'lodash/filter';
-import flattenDeep from 'lodash/flattenDeep';
 import ObservationsTable from '../components/charts/shared/observationsTables/ObservationsTable';
 import Widget from '../components/widgets/index';
 import QAs from '../components/qas';
@@ -34,73 +33,88 @@ class QAReviewContainer extends React.PureComponent {
   componentDidMount() {
     const { pageContext, data } = this.props;
     const { env: id, investigation } = pageContext;
-    const { answers } = this.global;
-
-    const filteredByInvestigation = filter(data.allPagesJson.nodes, [
-      'investigation',
-      id || investigation,
-    ])
-      .sort((a, b) => a.order - b.order)
-      .map(inv => {
-        if (inv.questionsByPage) {
-          inv.questionsByPage = inv.questionsByPage.map(qbp => {
-            qbp.question.map(q => {
-              q.qaReview = true;
-              return q;
-            });
-            return qbp;
-          });
-        }
-        if (inv.tables) {
-          inv.tables = inv.tables.map(table => {
-            table.qaReview = true;
-            return table;
-          });
-        }
-        if (inv.widgets) {
-          inv.widgets = inv.widgets.map(widget => {
-            widget.options = {
-              ...widget.options,
-              qaReview: true,
-              disabled: true,
-              autoplay: false,
-            };
-            return widget;
-          });
-        }
-        return inv;
-      });
-
-    const questions = flattenDeep(
-      filteredByInvestigation.filter(fq => !!fq.questionsByPage)
-    );
-
-    const tables = flattenDeep(
-      filteredByInvestigation.filter(inv => !!inv.tables)
-    );
-
-    const widgets = flattenDeep(
-      filteredByInvestigation.filter(inv => !!inv.widgets)
-    );
 
     this.setState(prevState => ({
       ...prevState,
-      data,
-      // questions,
-      pages: filteredByInvestigation,
-      questions,
-      answers,
-      tables,
-      widgets,
+      pages: this.reviewifyPages(
+        this.getOrderedPages(data.allPagesJson.nodes, id, investigation)
+      ),
     }));
 
     this.dispatch.updatePageId(null);
   }
 
+  reviewifyQuestion(question, questionNumbers, pageId, qIndex) {
+    question.number = questionNumbers[qIndex];
+    question.question.forEach(q => {
+      q.qaReview = true;
+    });
+
+    return question;
+  }
+
+  reviewifyQuestions(questionsByPage, pageId) {
+    const { questionNumbersByPage } = this.global || {};
+    const questionNumbers = questionNumbersByPage[pageId];
+
+    return questionsByPage.map((qWrapper, index) => {
+      return this.reviewifyQuestion(qWrapper, questionNumbers, pageId, index);
+    });
+  }
+
+  reviewifyTables(tables) {
+    return tables.map(table => {
+      table.qaReview = true;
+
+      return table;
+    });
+  }
+
+  reviewifyWidgets(widgets) {
+    return widgets.map(widget => {
+      widget.options = {
+        ...widget.options,
+        qaReview: true,
+        disabled: true,
+        autoplay: false,
+      };
+
+      return widget;
+    });
+  }
+
+  getOrderedPages(pages, id, investigation) {
+    return filter(pages, ['investigation', id || investigation]).sort(
+      (a, b) => a.order - b.order
+    );
+  }
+
+  reviewifyPages(pages) {
+    return pages.map(page => {
+      if (page.questionsByPage) {
+        page.questionsByPage = this.reviewifyQuestions(
+          page.questionsByPage,
+          page.id
+        );
+      }
+
+      if (page.tables) {
+        page.tables = this.reviewifyTables(page.tables);
+      }
+
+      if (page.widgets) {
+        page.widgets = this.reviewifyWidgets(page.widgets);
+      }
+
+      return page;
+    });
+  }
+
   render() {
+    const { answers } = this.global;
     const { pageContext } = this.props;
     const { investigations, env, investigation: invId } = pageContext;
-    const { envInvestigation, pages, answers } = this.state;
+    const { envInvestigation, pages } = this.state;
 
     return (
       <>

@@ -43,6 +43,7 @@
 
   .answer-label,
   .answer-label p {
+    display: inline-block;
     @extend .qa-review-block;
   }
 

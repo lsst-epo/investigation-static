@@ -1,7 +1,7 @@
 {
   "id": "hazardous21a",
   "investigation": "hazardous-asteroids",
-  "order": "21a",
+  "order": "21.1",
   "title": "Evaluating the Consequences of an Asteroid Impact",
   "slug": "asteroid-impact-3/",
   "previous": {
@@ -20,11 +20,7 @@
         "col": "right",
         "row": "top"
       },
-      "rowTitles": [
-        ["Mass"],
-        ["Velocity"],
-        ["Kinetic Energy"]
-      ],
+      "rowTitles": [["Mass"], ["Velocity"], ["Kinetic Energy"]],
       "colTitles": ["", "Asteroid #1", "Asteroid #2", "Asteroid #3"],
       "rows": [
         [
