@@ -144,6 +144,11 @@ class GalaxiesFilterSelectorContainer extends React.PureComponent {
       selectedData,
     } = this.state;
 
+    const { widget } = this.props;
+    const {
+      options: { preSelected },
+    } = widget || {};
+
     return (
       <>
         <h2 className="space-bottom heading-primary">
@@ -172,7 +177,7 @@ class GalaxiesFilterSelectorContainer extends React.PureComponent {
             <div className="galaxy-selector-images--container">
               <GalaxySelector
                 className={`galaxy-selector-${data.name}`}
-                {...{ selectedData, activeGalaxy }}
+                {...{ selectedData, activeGalaxy, preSelected }}
                 data={activeGalaxyPointData}
                 image={activeGalaxy.image}
                 selectionCallback={this.selectionCallback}

@@ -123,7 +123,7 @@ class GalaxySupernovaSelectorContainer extends React.PureComponent {
     } = this.state;
 
     const { options } = this.props;
-    const { image, autoplay } = options || {};
+    const { image, autoplay, preSelected } = options || {};
 
     return (
       <>
@@ -134,7 +134,7 @@ class GalaxySupernovaSelectorContainer extends React.PureComponent {
           <div className="galaxy-selector-images--container">
             <GalaxySelector
               className={`galaxy-selector-${data.name}`}
-              {...{ selectedData, activeGalaxy, autoplay }}
+              {...{ selectedData, activeGalaxy, autoplay, preSelected }}
               data={activeGalaxyPointData}
               alerts={activeGalaxy ? activeGalaxy.alerts : []}
               image={image}

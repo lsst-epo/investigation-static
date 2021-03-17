@@ -159,6 +159,7 @@ class AstroToolContainer extends React.PureComponent {
       hideControls,
       hideImage,
       hideSubHeadTitle,
+      qaReview,
     } = options || {};
     const { jsonData, selectorValue, selectedData } = this.state;
     const { title, colorOptions, hexColors, data: dataObjects } =
@@ -187,6 +188,7 @@ class AstroToolContainer extends React.PureComponent {
             hideControls,
             hideImage,
             hideSubHeadTitle,
+            qaReview,
           }}
           menuItems={this.getMenuItems()}
           colorBlocks={this.getColorBlocks()}
