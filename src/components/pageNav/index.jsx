@@ -1,19 +1,54 @@
+/* eslint-disable react/jsx-handler-names */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import classnames from 'classnames';
 import Button from '../site/button';
 import ButtonIcon from '../site/button/ButtonIcon';
 import ArrowLeft from '../site/icons/ArrowLeft';
 import ArrowRight from '../site/icons/ArrowRight';
+import AnswerRequiredAlert from '../site/answerRequiredAlert';
 import styles from './page-nav.module.scss';
 
 class PageNav extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showAlert: false,
+    };
+  }
+
+  componentDidMount() {
+    this.setState(prevState => ({
+      ...prevState,
+      showAlert: false,
+    }));
+  }
+
+  handleShowAlert = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      showAlert: true,
+    }));
+  };
+
+  handleHideAlert = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      showAlert: false,
+    }));
+  };
+
   renderNavItem(type, item, baseUrl, disableButton = false) {
     const { link, title } = item;
     const linkIsBlank = link === '' || link === null;
     const isLinkToFirstPage = linkIsBlank && type === 'previous';
     const isLinkToLastPage = linkIsBlank && type === 'next';
     let buttonLink = `${baseUrl}${link}`;
+    const buttonClasses = classnames('outlined', {
+      'is-disabled': disableButton,
+    });
 
     if (isLinkToFirstPage) {
       buttonLink = `${baseUrl}`;
@@ -25,19 +60,24 @@ class PageNav extends React.PureComponent {
     return (
       <Button
         icon
-        className="outlined"
-        to={buttonLink}
-        component={disableButton ? null : Link}
+        className={buttonClasses}
+        to={!disableButton ? buttonLink : null}
+        component={!disableButton ? Link : null}
         iconEl={
           type === 'previous' ? (
             <ButtonIcon srText={title || 'Home'} Icon={ArrowLeft} />
           ) : (
-            <ButtonIcon srText={title || 'Home'} Icon={ArrowRight} />
+            <ButtonIcon
+              srText={
+                !disableButton ? title || 'Home' : 'All Answers Are Required'
+              }
+              Icon={ArrowRight}
+            />
           )
         }
-        disabled={disableButton}
+        onClick={!disableButton ? null : this.handleShowAlert}
         iconBefore={type === 'previous'}
-        tooltipLabel={item.title}
+        tooltipLabel={!disableButton ? item.title : 'All Answers Are Required'}
         tooltipPosition="top"
       />
     );
@@ -45,14 +85,21 @@ class PageNav extends React.PureComponent {
 
   render() {
     const { previous, next, baseUrl, disableButton } = this.props;
+    const { showAlert } = this.state;
 
     return (
-      <div className={styles.pageNavigation}>
-        <nav role="navigation" className={styles.navSecondary}>
-          {previous && this.renderNavItem('previous', previous, baseUrl)}
-          {next && this.renderNavItem('next', next, baseUrl, disableButton)}
-        </nav>
-      </div>
+      <>
+        <AnswerRequiredAlert
+          showAlert={showAlert && !disableButton ? false : showAlert}
+          handleClose={this.handleHideAlert}
+        />
+        <div className={styles.pageNavigation}>
+          <nav role="navigation" className={styles.navSecondary}>
+            {previous && this.renderNavItem('previous', previous, baseUrl)}
+            {next && this.renderNavItem('next', next, baseUrl, disableButton)}
+          </nav>
+        </div>
+      </>
     );
   }
 }

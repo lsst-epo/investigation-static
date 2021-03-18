@@ -1,25 +1,3 @@
-:global {
-  .md-btn {
-    &.md-btn--icon {
-      .md-icon {
-        color: inherit;
-        transition: color $duration $timing;
-      }
-
-      &.outlined {
-        color: $white;
-        border: 1px solid $white;
-        transition: background $duration $timing;
-
-        &:hover {
-          color: $md-primary-color;
-          background: $white;
-          border-color: $white;
-        }
-      }
-    }
-  }
-}
 
 .page-navigation {
   position: fixed;
@@ -29,6 +7,41 @@
   z-index: 20;
   padding: 8px 1rem;
   background-color: $md-primary-color;
+
+  :global {
+    .md-btn {
+      &.md-btn--icon {
+        svg {
+          margin-top: -2px;
+          margin-left: -2px;
+        }
+
+        .md-icon {
+          color: inherit;
+          transition: color $duration $timing;
+        }
+
+        &.outlined {
+          color: $white;
+          border: 2px solid $white;
+          transition: background $duration $timing;
+
+          &:hover {
+            color: $md-primary-color;
+            background: $white;
+            border-color: $white;
+          }
+
+          &.is-disabled {
+            color: $neutral20;
+            background: $neutral30;
+            border: solid 2px;
+            border-color: $neutral20;
+          }
+        }
+      }
+    }
+  }
 
   .nav-secondary {
     @include navPrimary;
