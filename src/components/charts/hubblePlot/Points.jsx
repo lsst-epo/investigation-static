@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import includes from 'lodash/includes';
+import find from 'lodash/find';
 import classnames from 'classnames';
 import Point from './Point.jsx';
 import { notActive, invisible } from './hubble-plot.module.scss';
@@ -25,6 +25,7 @@ class Points extends React.PureComponent {
       pointClasses,
       offsetTop,
       colorize,
+      draggedPoint,
     } = this.props;
 
     return (
@@ -34,8 +35,9 @@ class Points extends React.PureComponent {
           const key = `point-${id}-${i}`;
           const x = d[xValueAccessor];
           const y = d[yValueAccessor];
-          const selected = includes(selectedData, d);
-          const hovered = includes(hoveredData, d);
+          const selected = !!find(selectedData, d);
+          const hovered = !!find(hoveredData, d);
+
           const classes = classnames('data-point', pointClasses, {
             [`data-point-${this.classify(name || ' ')}`]: !!name,
             [`color-${i + 1}-translucent-fill`]: colorize,
@@ -43,7 +45,7 @@ class Points extends React.PureComponent {
             selected,
             hovered,
             [notActive]: (selectedData || hoveredData) && !selected && !hovered,
-            [invisible]: x === null || y === null,
+            [invisible]: x === null || y === null || draggedPoint === d,
           });
 
           return (
@@ -74,6 +76,7 @@ Points.propTypes = {
   pointClasses: PropTypes.string,
   offsetTop: PropTypes.number,
   colorize: PropTypes.bool,
+  draggedPoint: PropTypes.object,
 };
 
 export default Points;
