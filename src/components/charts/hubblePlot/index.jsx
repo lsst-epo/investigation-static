@@ -14,6 +14,7 @@ import {
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import { zoom as d3Zoom } from 'd3-zoom';
 import 'd3-transition';
+import { drag as d3Drag } from 'd3-drag';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
 import Trendline from './Trendline.jsx';
@@ -52,6 +53,7 @@ class HubblePlot extends React.Component {
       userData: null,
       selectedData: null,
       hoveredData: null,
+      draggedPoint: null,
       tooltipPosX: 0,
       tooltipPosY: 0,
       mousePosX: null,
@@ -218,7 +220,9 @@ class HubblePlot extends React.Component {
     const { createUserHubblePlot } = options || {};
     const pointPos = d3mouse(this.svgEl.current);
 
-    if (data) {
+    if (!this.showGhost()) {
+      this.clearSelection();
+    } else if (data) {
       const userData = [...data];
       let targetDatum = userData[userData.length - 1];
       const userDatum = find(userData, d => {
@@ -259,10 +263,109 @@ class HubblePlot extends React.Component {
     }
   }
 
+  drag = d => {
+    const {
+      xValueAccessor,
+      yValueAccessor,
+      userHubblePlotCallback,
+      options,
+      data,
+    } = this.props;
+    const { createUserHubblePlot } = options || {};
+    const { xScale, yScale, selectedData } = this.state;
+    const {
+      sourceEvent: { offsetX: startX, offsetY: startY },
+    } = d3Event;
+    const isActivePoint = selectedData
+      ? selectedData[0].name === d.name
+      : false;
+
+    this.setState(
+      prevState => ({
+        ...prevState,
+        tooltipPosX: startX,
+        tooltipPosY: startY,
+        showTooltip: true,
+        hoveredData: null,
+        selectedData: isActivePoint ? null : arrayify(d),
+      }),
+      () => {
+        const { selectionCallback } = this.props;
+        const { selectedData: newData } = this.state;
+
+        if (selectionCallback) {
+          selectionCallback(newData);
+        }
+      }
+    );
+
+    d3Event.on('drag', () => {
+      const [dragPosX, dragPosY] = d3mouse(this.svgEl.current);
+      const { draggedPoint: oldDraggedPoint } = this.state;
+
+      const newState = {
+        mousePosX: dragPosX,
+        mousePosY: dragPosY,
+      };
+
+      if (oldDraggedPoint !== d) {
+        newState.draggedPoint = d;
+      }
+
+      this.setState(prevState => ({
+        ...prevState,
+        ...newState,
+      }));
+    });
+
+    d3Event.on('end', () => {
+      const [mousePosX, mousePosY] = d3mouse(this.svgEl.current);
+      const {
+        sourceEvent: { offsetX: endX, offsetY: endY },
+      } = d3Event;
+      const xVal = xScale.invert(mousePosX);
+      const yVal = yScale.invert(mousePosY);
+      const updatedDatum = {
+        ...d,
+        [xValueAccessor]: xVal,
+        [yValueAccessor]: yVal,
+      };
+
+      this.setState(
+        prevState => ({
+          ...prevState,
+          draggedPoint: null,
+          mousePosX: null,
+          mousePosY: null,
+          selectedData: arrayify(updatedDatum),
+          tooltipPosX: endX,
+          tooltipPosY: endY,
+          showTooltip: true,
+        }),
+        () => {
+          if (userHubblePlotCallback && createUserHubblePlot) {
+            const updatedData = [...data];
+            const draggedPointIndex = findIndex(updatedData, datum => {
+              return d.name === datum.name;
+            });
+
+            updatedData[draggedPointIndex] = {
+              ...d,
+              [xValueAccessor]: xVal,
+              [yValueAccessor]: yVal,
+            };
+
+            userHubblePlotCallback(createUserHubblePlot, updatedData);
+          }
+        }
+      );
+    });
+    // }
+  };
+
   // mouseover/focus handler for point
   onMouseOver = d => {
     const pointPos = d3ClientPoint(this.svgContainer.current, d3Event);
-
     // add hover style on point and show tooltip
     this.setState(prevState => ({
       ...prevState,
@@ -276,7 +379,6 @@ class HubblePlot extends React.Component {
   // mouseout/blur handler for point
   onMouseOut = () => {
     const { selectedData } = this.state;
-
     // remove hover style on point but don't hide tooltip
     this.setState(prevState => ({
       ...prevState,
@@ -327,16 +429,16 @@ class HubblePlot extends React.Component {
           this.clearSelection();
         }
       });
+
+      $allPoints
+        .on('mouseover', this.onMouseOver)
+        .on('mouseout', this.onMouseOut);
     } else if (!preSelected && createUserHubblePlot) {
       $hubblePlot.on('click', () => {
         const pointData = d3Select(d3Event.target).datum();
 
-        if (pointData) {
-          this.toggleSelection(pointData);
-        } else if (createUserHubblePlot) {
+        if (!pointData && createUserHubblePlot) {
           this.toggleUserPoint();
-        } else {
-          this.clearSelection();
         }
       });
 
@@ -355,28 +457,32 @@ class HubblePlot extends React.Component {
       $hubblePlot.call(zoom).on('mousedown.zoom', null);
 
       $hubblePlot.on('mousemove', () => {
-        const [mousePosX, mousePosY] = d3mouse(this.svgEl.current);
+        if (this.showGhost()) {
+          const [mousePosX, mousePosY] = d3mouse(this.svgEl.current);
 
-        this.setState(prevState => ({
-          ...prevState,
-          mousePosX,
-          mousePosY,
-        }));
+          this.setState(prevState => ({
+            ...prevState,
+            mousePosX,
+            mousePosY,
+          }));
+        }
       });
 
-      // $hubblePlot.on('mouseout', () => {
-      //   this.setState(prevState => ({
-      //     ...prevState,
-      //     mousePosX: null,
-      //     mousePosY: null,
-      //   }));
-      // });
-    }
+      $hubblePlot.on('mouseout', () => {
+        if (this.showGhost()) {
+          this.setState(prevState => ({
+            ...prevState,
+            mousePosX: null,
+            mousePosY: null,
+          }));
+        }
+      });
 
-    // add event listeners to points
-    $allPoints
-      .on('mouseover', this.onMouseOver)
-      .on('mouseout', this.onMouseOut);
+      $allPoints
+        .on('mouseover', this.onMouseOver)
+        .on('mouseout', this.onMouseOut)
+        .call(d3Drag().on('start', this.drag));
+    }
   }
 
   // add event listeners to Scatterplot and Points
@@ -388,7 +494,11 @@ class HubblePlot extends React.Component {
       .on('click', null)
       .on('mousemove', null)
       .on('mouseout', null);
-    $allPoints.on('mouseover', null).on('mouseout', null);
+    $allPoints
+      .on('mouseover', null)
+      .on('mouseout', null)
+      .on('click', null)
+      .on('drag', null);
   }
 
   updatePoints() {
@@ -433,6 +543,19 @@ class HubblePlot extends React.Component {
     this.addEventListeners();
   }
 
+  showGhost() {
+    const { xValueAccessor, yValueAccessor, activeGalaxy, data } = this.props;
+    const activePlotted = find(data, { name: activeGalaxy.name }) || {};
+
+    if (!data) return true;
+
+    if (activePlotted[xValueAccessor] && activePlotted[yValueAccessor]) {
+      return false;
+    }
+
+    return true;
+  }
+
   render() {
     const {
       data,
@@ -466,6 +589,7 @@ class HubblePlot extends React.Component {
       mousePosX,
       mousePosY,
       activeDataIndex,
+      draggedPoint,
     } = this.state;
 
     const { userTrendline, multiple } = options || {};
@@ -577,6 +701,7 @@ class HubblePlot extends React.Component {
                     key={key}
                     data={set}
                     {...{
+                      draggedPoint,
                       xScale,
                       yScale,
                       xValueAccessor,
@@ -593,6 +718,7 @@ class HubblePlot extends React.Component {
             {data && !multiple && (
               <Points
                 {...{
+                  draggedPoint,
                   data,
                   xScale,
                   yScale,
