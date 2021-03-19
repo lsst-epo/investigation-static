@@ -53,6 +53,15 @@
           }
         }
 
+        &.link-qa-review {
+          background-color: $baseSecondary;
+
+          &:hover .md-list-tile--active,
+          &.link-active {
+            background-color: $baseSecondary;
+          }
+        }
+
         .md-fake-btn {
           padding-left: 1rem;
 
@@ -88,6 +97,7 @@
       height: calc(100vh - 324px);
       padding-top: 0;
       padding-bottom: 0;
+
       @include respond($break80, max) {
         height: calc(100vh - 330px);
       }
