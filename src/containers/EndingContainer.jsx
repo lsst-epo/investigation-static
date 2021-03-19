@@ -65,8 +65,8 @@ class LastPage extends React.PureComponent {
           </>
         )}
         {envInvestigation ? (
-          <div className="container-flex spaced">
-            <div className="col">
+          <div>
+            <div className="space-bottom">
               <Button
                 flat
                 secondary
@@ -78,7 +78,24 @@ class LastPage extends React.PureComponent {
               </Button>
             </div>
             {isAnswers && (
-              <div className="col">
+              <>
+                <div className="space-bottom">
+                  <Button
+                    flat
+                    secondary
+                    swapTheming
+                    to="/qa-review/"
+                    component={Link}
+                  >
+                    Review Your Answers
+                  </Button>
+                </div>
+              </>
+            )}
+            {isAnswers && (
+              <div className="space-bottom">
+                <br />
+                <br />
                 <Button
                   flat
                   primary

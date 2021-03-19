@@ -62,12 +62,21 @@ class InvestigationsLanding extends React.PureComponent {
               <>
                 <br />
                 <br />
-                <br />
                 <div className="space-bottom">
                   <p className="copy-primary space-bottom">
-                    It looks like you&apos;ve done this investigation before. If
-                    you&apos;d like to start over you can clear your answers.
+                    It looks like you&apos;ve started this investigation before.
                   </p>
+                  <div className="space-bottom">
+                    <Button
+                      flat
+                      secondary
+                      swapTheming
+                      to="/qa-review/"
+                      component={Link}
+                    >
+                      Review Your Answers
+                    </Button>
+                  </div>
                   <Button
                     flat
                     primary

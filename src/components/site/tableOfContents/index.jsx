@@ -6,6 +6,7 @@ import filter from 'lodash/filter';
 import classnames from 'classnames';
 import { Drawer } from 'react-md';
 import Check from '../icons/Check';
+import Star from '../icons/Star';
 import Progress from '../progress/index.jsx';
 import {
   tableOfContents,
@@ -15,39 +16,53 @@ import {
 
 @reactn
 class TableOfContents extends React.PureComponent {
-  getNavLinks(navLinks, investigation, useBaseUrl) {
-    return [
-      ...filter(navLinks, link => link.investigation === investigation).map(
-        link => {
-          if (link.divider || link.subheader) return link;
-          const {
-            title,
-            pageNumber,
-            id,
-            investigation: linkBaseUrl,
-            slug,
-          } = link;
-          const baseUrl = linkBaseUrl && useBaseUrl ? `/${linkBaseUrl}/` : '/';
-          const isActive = this.isActivePage(id);
-          const allQsComplete = this.checkQAProgress(id);
+  getNavLink(link, useBaseUrl) {
+    const { title, pageNumber, id, investigation: linkBaseUrl, slug } = link;
+    const baseUrl = linkBaseUrl && useBaseUrl ? `/${linkBaseUrl}/` : '/';
+    const isActive = this.isActivePage(id);
+    const allQsComplete = this.checkQAProgress(id);
 
-          return {
-            component: Link,
-            label: title,
-            to: baseUrl + slug,
-            primaryText: `${pageNumber}. ${title}`,
-            leftIcon: <Check />,
-            active: isActive,
-            disabled: !allQsComplete && !isActive,
-            className: classnames('toc-link', `link--page-id--${id}`, {
-              'link-active': isActive,
-              'qa-progress--complete': allQsComplete,
-              [disabledLink]: !allQsComplete && !isActive,
-            }),
-          };
-        }
+    return {
+      component: Link,
+      label: title,
+      to: baseUrl + slug,
+      primaryText: `${pageNumber}. ${title}`,
+      leftIcon: <Check />,
+      active: isActive,
+      disabled: !allQsComplete && !isActive,
+      className: classnames('toc-link', `link--page-id--${id}`, {
+        'link-active': isActive,
+        'qa-progress--complete': allQsComplete,
+        [disabledLink]: !allQsComplete && !isActive,
+      }),
+    };
+  }
+
+  getNavLinks(pages, investigation, useBaseUrl) {
+    const navLinks = [
+      ...filter(pages, page => page.investigation === investigation).map(page =>
+        this.getNavLink(page, useBaseUrl)
       ),
     ];
+    const baseUrl = investigation && useBaseUrl ? `/${investigation}/` : '/';
+
+    const qaReviewLink = {
+      component: Link,
+      label: 'Review Your Answers',
+      to: baseUrl + 'qa-review/',
+      primaryText: 'Review Your Answers',
+      leftIcon: <Star />,
+      active: true,
+      disabled: false,
+      className: classnames('toc-link', 'link-qa-review', {
+        'link-active': true,
+        'qa-progress--complete': true,
+        [disabledLink]: false,
+      }),
+    };
+
+    navLinks.push(qaReviewLink);
+    return navLinks;
   }
 
   checkQAProgress(pageId) {
@@ -68,7 +83,7 @@ class TableOfContents extends React.PureComponent {
 
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
-    const { visible, navLinks, investigation, isAll } = this.props;
+    const { visible, pages, investigation, isAll } = this.props;
 
     return (
       <Drawer
@@ -84,7 +99,7 @@ class TableOfContents extends React.PureComponent {
         className={tableOfContents}
         visible={visible}
         onVisibilityChange={this.handleVisibility}
-        navItems={this.getNavLinks(navLinks, investigation, isAll)}
+        navItems={this.getNavLinks(pages, investigation, isAll)}
         overlay
       />
     );
@@ -95,7 +110,7 @@ TableOfContents.propTypes = {
   isAll: PropTypes.bool,
   visible: PropTypes.bool,
   toggleToc: PropTypes.func.isRequired,
-  navLinks: PropTypes.array,
+  pages: PropTypes.array,
   investigation: PropTypes.string,
 };
 

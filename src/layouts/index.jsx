@@ -161,7 +161,7 @@ class Layout extends React.Component {
             toggleToc={this.toggleToc}
             investigation={investigation}
             isAll={!envInvestigation || envInvestigation === 'all'}
-            navLinks={pages}
+            pages={pages}
           />
         )}
         <main className={styles.container}>{children}</main>
