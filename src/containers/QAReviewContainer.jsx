@@ -1,18 +1,23 @@
 /* eslint-disable react/jsx-handler-names */
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import find from 'lodash/find';
 import filter from 'lodash/filter';
+import Card from '../components/site/card';
+import TextField from '../components/site/forms/textField';
 import ObservationsTable from '../components/charts/shared/observationsTables/ObservationsTable';
 import Widget from '../components/widgets/index';
 import QAs from '../components/qas';
 import Button from '../components/site/button/index.js';
 import {
-  qaReviewPageContainer,
+  qaReviewQuestionsContainer,
   qaReviewTableContainer,
   qaReviewWidgetContainer,
+  qaReviewCard,
+  qaReviewPage,
 } from '../components/qas/styles.module.scss';
 
 @reactn
@@ -63,24 +68,38 @@ class QAReviewContainer extends React.PureComponent {
   }
 
   reviewifyTables(tables) {
-    return tables.map(table => {
-      table.qaReview = true;
+    const rt = [];
 
-      return table;
+    tables.forEach(table => {
+      const { qaReview } = table;
+
+      if (qaReview !== false) {
+        table.qaReview = true;
+        rt.push(table);
+      }
     });
+
+    return rt;
   }
 
   reviewifyWidgets(widgets) {
-    return widgets.map(widget => {
-      widget.options = {
-        ...widget.options,
-        qaReview: true,
-        preSelected: true,
-        autoplay: false,
-      };
+    const rw = [];
+    widgets.forEach(widget => {
+      const { options } = widget || {};
+      const { qaReview } = options || {};
+      if (qaReview !== false) {
+        widget.options = {
+          ...widget.options,
+          qaReview: true,
+          disabled: true,
+          autoplay: false,
+        };
 
-      return widget;
+        rw.push(widget);
+      }
     });
+
+    return rw;
   }
 
   getOrderedPages(pages, id, investigation) {
@@ -110,21 +129,48 @@ class QAReviewContainer extends React.PureComponent {
     });
   }
 
+  handleName = name => {
+    this.dispatch.updateName(name);
+  };
+
+  handlePrint = () => {
+    window.print();
+  };
+
   render() {
-    const { answers } = this.global;
+    const { answers, name } = this.global;
     const { pageContext } = this.props;
-    const { investigations, env, investigation: invId } = pageContext;
+    const { investigations } = pageContext;
     const { envInvestigation, pages } = this.state;
 
     return (
-      <>
-        <h2 className="space-bottom heading-primary">
+      <div>
+        <h2 className="space-bottom heading-primary dont-print">
           Great job! Let&apos;s review your answers for the{' '}
-          {envInvestigation.title} investigation.
+          {envInvestigation.title} Investigation.
         </h2>
 
         {envInvestigation ? (
           <>
+            <Card className={`dont-print ${qaReviewCard}`}>
+              <TextField
+                id="name-input"
+                type="text"
+                label="Please enter your name"
+                defaultValue={name}
+                placeholder="Name"
+                onChange={this.handleName}
+              />
+            </Card>
+            <br />
+            <br />
+            <br />
+            <h3 className="space-bottom">
+              <div className="space-bottom">
+                {envInvestigation.title} Investigation: Questions & Answers
+              </div>
+              <div>Name: {name}</div>
+            </h3>
             {pages &&
               pages.map(page => {
                 const { questionsByPage: questions, tables, widgets } = page;
@@ -137,23 +183,16 @@ class QAReviewContainer extends React.PureComponent {
                   setActiveQuestion: () => {},
                   activeQuestionId: '',
                 };
+
                 return (
-                  <span
-                    key={`page-${page.id}`}
-                    className={qaReviewPageContainer}
-                  >
-                    {questions && <QAs {...shared} />}
-                    {tables &&
-                      tables.map((table, tableIndex) => (
-                        <div
-                          // eslint-disable-next-line react/no-array-index-key
-                          key={`table-id-${table.id}-${tableIndex}`}
-                          className={qaReviewTableContainer}
-                        >
-                          <ObservationsTable {...table} answers={answers} />
-                        </div>
-                      ))}
-                    {widgets &&
+                  <div key={`page-${page.id}`} className={qaReviewPage}>
+                    {questions && (
+                      <div className={qaReviewQuestionsContainer}>
+                        <QAs {...shared} />
+                      </div>
+                    )}
+                    {questions &&
+                      widgets &&
                       widgets.map(widget => {
                         const { options, type } = widget || {};
                         return (
@@ -165,19 +204,23 @@ class QAReviewContainer extends React.PureComponent {
                           </div>
                         );
                       })}
-                  </span>
+                    {questions &&
+                      tables &&
+                      tables.map((table, tableIndex) => (
+                        <div
+                          key={`table-id-${table.id}-${tableIndex}`}
+                          className={qaReviewTableContainer}
+                        >
+                          <ObservationsTable {...table} answers={answers} />
+                        </div>
+                      ))}
+                  </div>
                 );
               })}
-            <div className="container-flex spaced">
+            <div className="container-flex spaced dont-print">
               <div className="col">
-                <Button
-                  flat
-                  secondary
-                  swapTheming
-                  to={`${!env ? invId : ''}/last-page/`}
-                  component={Link}
-                >
-                  All Done Reviewing
+                <Button flat secondary swapTheming onClick={this.handlePrint}>
+                  Print Your Answers
                 </Button>
               </div>
             </div>
@@ -194,7 +237,7 @@ class QAReviewContainer extends React.PureComponent {
             );
           })
         )}
-      </>
+      </div>
     );
   }
 }

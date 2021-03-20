@@ -16,5 +16,6 @@ export const tableFragment = graphql`
       id
       content
     }
+    qaReview
   }
 `;

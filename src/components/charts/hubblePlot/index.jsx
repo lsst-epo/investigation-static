@@ -412,12 +412,14 @@ class HubblePlot extends React.Component {
       offsetRight,
       options,
     } = this.props;
-    const { preSelected, createUserHubblePlot, userTrendline } = options || {};
+    const { preSelected, createUserHubblePlot, userTrendline, qaReview } =
+      options || {};
     const $hubblePlot = d3Select(this.svgEl.current);
     const $allPoints = d3Select(this.svgEl.current).selectAll('.data-point');
 
     if (
       (!preSelected && userTrendline) ||
+      !!qaReview ||
       (preSelected && !createUserHubblePlot)
     ) {
       $hubblePlot.on('click', () => {

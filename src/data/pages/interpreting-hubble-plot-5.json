@@ -20,7 +20,8 @@
       "options": {
         "showUserPlot": "252",
         "userTrendline": "7",
-        "required": ["252", "7"]
+        "required": ["252", "7"],
+        "qaReview": false
       }
     }
   ],

@@ -8,6 +8,7 @@ import API from '../lib/API.js';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import StarAvatar from '../components/charts/shared/navDrawer/StarAvatar.jsx';
+import ConditionalWrapper from '../components/ConditionalWrapper.jsx';
 import HubblePlot from '../components/charts/hubblePlot/index.jsx';
 import {
   getSelectedData,
@@ -180,26 +181,36 @@ class HubblePlotterContainer extends React.PureComponent {
     const { data, activeGalaxy, plottedData } = this.state;
 
     const { options } = this.props;
+    const { qaReview } = options || {};
 
     return (
       <>
         <h2 className="space-bottom heading-primary">Hubble Plot</h2>
         {data && (
-          <NavDrawer
-            interactableToolbar
-            classes={styles.galaxyNavDrawer}
-            cardClasses={styles.container}
-            contentClasses={styles.galaxyDrawerContent}
-            drawerClasses={styles.galaxyDrawer}
-            navItems={this.generateNavItems(data)}
-            toolbarTitle={activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'}
-            toolbarActions={
-              <Navigation
-                handlePrevGalaxy={this.gotToPrevGalaxy}
-                handleNextGalaxy={this.goToNextGalaxy}
-              />
-            }
-            menuOpenCallback={this.closeScatterPlot}
+          <ConditionalWrapper
+            condition={!qaReview}
+            wrapper={children => (
+              <NavDrawer
+                interactableToolbar
+                classes={styles.galaxyNavDrawer}
+                cardClasses={styles.container}
+                contentClasses={styles.galaxyDrawerContent}
+                drawerClasses={styles.galaxyDrawer}
+                navItems={this.generateNavItems(data)}
+                toolbarTitle={
+                  activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'
+                }
+                toolbarActions={
+                  <Navigation
+                    handlePrevGalaxy={this.gotToPrevGalaxy}
+                    handleNextGalaxy={this.goToNextGalaxy}
+                  />
+                }
+                menuOpenCallback={this.closeScatterPlot}
+              >
+                {children}
+              </NavDrawer>
+            )}
           >
             <div className={styles.hubblePlotContainer}>
               <HubblePlot
@@ -213,7 +224,7 @@ class HubblePlotterContainer extends React.PureComponent {
                 selectionCallback={this.selectionCallback}
               />
             </div>
-          </NavDrawer>
+          </ConditionalWrapper>
         )}
       </>
     );

@@ -1,11 +1,5 @@
 :global {
   @include react-md-toolbars;
-
-  @media print {
-    .header-primary {
-      visibility: hidden;
-    }
-  }
 }
 
 .progress-bar-wrapper {

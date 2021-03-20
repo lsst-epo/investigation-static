@@ -7,7 +7,7 @@ class GlobalStore {
   constructor(initialGlobals) {
     this.emptyState = {
       investigation: null,
-      // questions: null,
+      name: null,
       answers: {},
       pageId: null,
       activeQuestionId: null,
@@ -40,6 +40,13 @@ class GlobalStore {
   addReducers() {
     addReducer('empty', () => {
       return this.emptyState;
+    });
+
+    addReducer('updateName', (global, dispatch, name) => {
+      return {
+        ...global,
+        name,
+      };
     });
 
     // addReducer(

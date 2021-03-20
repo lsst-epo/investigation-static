@@ -3,4 +3,8 @@
   max-width: $containerMaxWidth;
   padding: $siteHeaderHeight + $minPadding $minPadding $pageNavHeight + $minPadding $minPadding;
   margin: 0 auto;
+
+  @media print {
+    padding-top: 0;
+  }
 }

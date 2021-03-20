@@ -54,6 +54,7 @@ export const widgetOptionsFragment = graphql`
     potentialOrbits
     noDetails
     detailsSet
+    qaReview
     observations {
       id
       label

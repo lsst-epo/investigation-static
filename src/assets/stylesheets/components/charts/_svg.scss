@@ -2,6 +2,10 @@
   position: relative;
   min-width: $break30;
   max-width: $tallestSquareWidget;
+
+  @media print {
+    width: $break30;
+  }
 }
 
 .svg-chart {
