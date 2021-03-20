@@ -15,6 +15,10 @@
   }
 }
 
+.qa-review-card {
+  padding: $minPadding;
+}
+
 .label-with-number {
   p:first-child() {
     display: inline;
@@ -41,6 +45,10 @@
   font-weight: $medium;
   color: $basePrimary;
 
+  @media print {
+    font-size: 14px;
+  }
+
   .answer-label,
   .answer-label p {
     display: inline-block;
@@ -56,6 +64,7 @@
 
   .qa-review-block-input {
     display: block;
+    margin-top: $minPadding / 2 !important;
   }
 
   .qa-review-inline-input {
@@ -78,15 +87,39 @@
   }
 }
 
-.qa-review-page-container {
-  display: block;
+.qa-review-table-container,
+.qa-review-widget-container {
+  margin: $minPadding;
+
+  @media print {
+    break-inside: avoid;
+  }
 }
 
-.qa-review-table-container {
-  max-width: 800px;
-  margin: 2 * $minPadding $minPadding;
+.qa-review-questions-container {
+  :global {
+    .qas {
+      > div {
+        margin-bottom: $minPadding;
+      }
+
+      .md-fake-btn,
+      .md-card {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+
+      .md-panel-content {
+        padding-bottom: 0 !important;
+      }
+    }
+  }
 }
 
 .qa-review-widget-container {
-  margin: $minPadding;
+  width: 800px;
+
+  @media print {
+    width: 50%;
+  }
 }

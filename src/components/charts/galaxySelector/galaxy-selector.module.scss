@@ -53,6 +53,10 @@
 .galaxy-nav-drawer {
   position: relative;
   outline: none;
+
+  @media print {
+    display: none;
+  }
 }
 
 .galaxy-drawer-content {

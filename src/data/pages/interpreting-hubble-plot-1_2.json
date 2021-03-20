@@ -40,7 +40,8 @@
           { "accessor": "velocity", "id": "353" },
           { "accessor": "distance", "id": "353" }
         ]
-      ]
+      ],
+      "qaReview": false
     }
   ],
   "widgets": [
@@ -50,7 +51,8 @@
       "options": {
         "autoplay": true,
         "preSelectedId": "ZTF19abxvjkn",
-        "toggleDataPointsVisibility": "351"
+        "toggleDataPointsVisibility": "351",
+        "qaReview": false
       }
     }
   ],

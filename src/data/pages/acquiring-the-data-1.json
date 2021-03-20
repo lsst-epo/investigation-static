@@ -21,7 +21,8 @@
       "options": {
         "autoplay": true,
         "showSelector": true,
-        "toggleDataPointsVisibility": "1"
+        "toggleDataPointsVisibility": "1",
+        "qaReview": false
       }
     }
   ],
