@@ -7,7 +7,7 @@ export const units = {
   lifetime: ' Gyr',
   radius: ' R',
   count: ' stars',
-  distance: ' MPc',
+  distance: ' Mpc',
   velocity: ' m/s',
   inclination: '°',
   semimajor_axis: ' AU',
