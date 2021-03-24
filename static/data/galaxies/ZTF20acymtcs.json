@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ZTF20acymtcs",
+    "name": "ZTF20acymtcs",
+    "band": "r",
+    "color": "#1ab579",
+    "Dec": 18.74361216,
+    "RA": 45.08449499,
+    "distance": 260.56534588375627,
+    "velocity": 17760.29576288593,
+    "redshift": 0.061062,
+    "supernovaPoint": {"ra": "600", "dec": "600"},
+    "galaxyPoint": {"ra": "700", "dec": "460"},
+    "alerts": [
+      {
+        "alert_id": 149216727,
+        "error": 0.05,
+        "date": 58719.46459,
+        "magnitude": 17.58,
+        "image_id": 1448127963715
+      },
+      {
+        "alert_id": 159607160,
+        "error": 0.04,
+        "date": 58722.4869,
+        "magnitude": 17.35,
+        "image_id": 1456150543715
+      },
+      {
+        "alert_id": 166456030,
+        "error": 0.03,
+        "date": 58725.49949,
+        "magnitude": 17.24,
+        "image_id": 1464149233715
+      },
+      {
+        "alert_id": 178322578,
+        "error": 0.04,
+        "date": 58732.47771,
+        "magnitude": 17.38,
+        "image_id": 1466102113715
+      },
+      {
+        "alert_id": 184863430,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 17.61,
+        "image_id": 1470106903715
+      }
+    ]
+  }
+]

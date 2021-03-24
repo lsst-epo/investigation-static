@@ -50,7 +50,7 @@
       "source": "/data/galaxies/galaxy_selector.json",
       "options": {
         "autoplay": true,
-        "preSelectedId": "ZTF19abxvjkn",
+        "preSelectedId": "ZTF20acuxpwz",
         "toggleDataPointsVisibility": "351",
         "qaReview": false
       }
