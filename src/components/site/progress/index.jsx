@@ -25,13 +25,19 @@ const Progress = ({ className, type, showQuestions, showPages }) => {
       {showPages && (
         <div className={classes}>
           <div className={headerTitle}>Pages Visited</div>
-          <LinearProgress id="pages-bar" value={pagesProgress} />
+          <LinearProgress
+            id="pages-bar"
+            value={pagesProgress > 100 ? 100 : pagesProgress}
+          />
         </div>
       )}
       {showQuestions && (
         <div className={classes}>
           <div className={headerTitle}>Questions Answered</div>
-          <LinearProgress id="questions-bar" value={questionsProgress} />
+          <LinearProgress
+            id="questions-bar"
+            value={questionsProgress > 100 ? 100 : questionsProgress}
+          />
         </div>
       )}
     </div>

@@ -46,7 +46,7 @@
 
     &-translucent-fill {
       /* stylelint-disable-next-line declaration-no-important */
-      fill: transparentize($chartColor, 0.5) !important;
+      fill: transparentize($chartColor, 0.4) !important;
     }
 
     &-stroke {

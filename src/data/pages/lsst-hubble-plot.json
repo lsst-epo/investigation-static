@@ -55,7 +55,7 @@
         {
           "id": "20",
           "questionType": "textArea",
-          "label": "Do your data agree with the Rubin Observatory data for nearby galaxies regarding the expansion of the Universe? Explain.",
+          "label": "Do your data (colored dots) agree with the Rubin Observatory data (grey dots) for nearby galaxies regarding the expansion of the Universe? Explain.",
           "answerAccessor": "text"
         }
       ]
@@ -129,7 +129,7 @@
         {
           "id": "24",
           "questionType": "textArea",
-          "label": "A long time ago, was the Universe a long time ago expanding faster or slower than it is now? Explain your reasoning.",
+          "label": "A long time ago, was the Universe expanding faster or slower than it is now? Explain your reasoning.",
           "answerAccessor": "text"
         }
       ]

@@ -108,7 +108,7 @@
           "labelPost": " .",
           "options": [
             { "label": "steep", "value": "steep" },
-            { "label": "flat", "value": "flat" }
+            { "label": "flatter", "value": "flatter" }
           ],
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",

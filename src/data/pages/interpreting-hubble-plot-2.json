@@ -13,7 +13,7 @@
     "link": "/interpreting-a-hubble-plot-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>You will begin by hunting for Type Ia supernovae in Rubin Observatory images of four galaxies. Then you will identify the galaxies themselves.  Finally you will use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble plot of your data.</p>",
+  "content": "",
   "tables": [
     {
       "id": "1",
@@ -48,7 +48,8 @@
       "type": "HubblePlotter",
       "source": "/data/galaxies/galaxy_selector.json",
       "options": {
-        "createUserHubblePlot": "252"
+        "createUserHubblePlot": "252",
+        "domain": [[0, 700], [0, 50000]]
       }
     }
   ],
@@ -60,7 +61,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Plot each galaxy's distance and supernova's velocity as defined in the table on the hubble plot.</p>",
+          "label": "<p>Plot the data from your table by clicking on the correct location on the graph. You can adjust the location of your dot by clicking and dragging it to the desired location. You can also zoom on the plot for more accurate point placement.</p>",
           "answerPre": "",
           "answerAccessor": "hubblePlot"
         }

@@ -20,7 +20,7 @@
       "options": {
         "showUserPlot": "252",
         "userTrendline": "7",
-        "required": ["252"]
+        "domain": [[0, 700], [0, 50000]]
       }
     }
   ],
@@ -32,8 +32,8 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #7",
-          "label": "<p>Click and drag anywhere on the Hubble plot to add a trendline</p><p>Hubble Constant: 70.3 Km/s/Mpc</p>",
-          "answerPre": "<span>Hubble's Constant: </span>",
+          "label": "<p>Click and drag anywhere on the Hubble plot to add a trendline</p>",
+          "answerPre": "<span>Hubble Constant: </span>",
           "answerAccessor": "hubbleConstant"
         }
       ]

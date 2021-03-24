@@ -1,7 +1,7 @@
 [
   {
     "id": "ZTF19abqmpsr",
-    "name": "ZTF19abqmpsr",
+    "name": "Galaxy #1",
     "band": "r",
     "Dec": 18.74361216,
     "RA": 45.08449499,
@@ -106,7 +106,7 @@
   },
   {
     "id": "ZTF20acuxpwz",
-    "name": "ZTF20acuxpwz",
+    "name": "Galaxy #2",
     "band": "r",
     "Dec": 18.74361216,
     "RA": 45.08449499,
@@ -155,7 +155,7 @@
   },
   {
     "id": "ZTF20acymtcs",
-    "name": "ZTF20acymtcs",
+    "name": "Galaxy #3",
     "band": "r",
     "Dec": 18.74361216,
     "RA": 45.08449499,
@@ -204,7 +204,7 @@
   },
   {
     "id": "ZTF20acxzkkf",
-    "name": "ZTF20acxzkkf",
+    "name": "Galaxy #4",
     "band": "g",
     "Dec": 18.74361216,
     "RA": 45.08449499,

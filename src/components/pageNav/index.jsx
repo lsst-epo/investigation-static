@@ -48,13 +48,27 @@ class PageNav extends React.PureComponent {
     let buttonLink = `${baseUrl}${link}`;
     const buttonClasses = classnames('outlined', {
       'is-disabled': disableButton,
+      'link-to-first': isLinkToFirstPage,
+      'link-to-last': isLinkToLastPage,
     });
 
     if (isLinkToFirstPage) {
       buttonLink = `${baseUrl}`;
     } else if (isLinkToLastPage) {
-      // buttonLink = `${baseUrl}/last-page/`;
       buttonLink = `${baseUrl}/qa-review/`;
+      return (
+        <Button
+          flat
+          swapTheming
+          className={buttonClasses}
+          to={buttonLink}
+          component={Link}
+          tooltipLabel={item.title}
+          tooltipPosition="top"
+        >
+          Review your Answers
+        </Button>
+      );
     }
 
     return (
