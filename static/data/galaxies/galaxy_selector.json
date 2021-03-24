@@ -1,427 +1,268 @@
-[{
-  "name": "Galaxy #1",
-  "id": "ZTF19abqmpsr",
-  "color": "#1ab579",
-  "distance": 141.69708547161875,
-  "Dec": 18.74361216,
-  "velocity": 9736.736057325023,
-  "RA": 45.08449499,
-  "redshift": 0.033,
-  "supernovaPoint": {
-    "ra": "600",
-    "dec": "600"
+[
+  {
+    "id": "ZTF19abqmpsr",
+    "name": "ZTF19abqmpsr",
+    "band": "r",
+    "Dec": 18.74361216,
+    "RA": 45.08449499,
+    "distance": 141.69708547161875,
+    "velocity": 9736.736057325023,
+    "redshift": 0.033,
+    "supernovaPoint": { "ra": "600", "dec": "600" },
+    "galaxyPoint": { "ra": "700", "dec": "460" },
+    "alerts": [
+      {
+        "alert_id": 149216727,
+        "error": 0.05,
+        "date": 58719.46459,
+        "magnitude": 17.58,
+        "image_id": 149331854
+      },
+      {
+        "alert_id": 159607160,
+        "error": 0.04,
+        "date": 58722.4869,
+        "magnitude": 17.35,
+        "image_id": 159442774
+      },
+      {
+        "alert_id": 166456030,
+        "error": 0.03,
+        "date": 58725.49949,
+        "magnitude": 17.24,
+        "image_id": 162160454
+      },
+      {
+        "alert_id": 178322578,
+        "error": 0.04,
+        "date": 58732.47771,
+        "magnitude": 17.38,
+        "image_id": 166238950
+      },
+      {
+        "alert_id": 184863430,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 17.61,
+        "image_id": 166456154
+      },
+      {
+        "alert_id": 194530284,
+        "error": 0.05,
+        "date": 58738.50529,
+        "magnitude": 17.85,
+        "image_id": 169025701
+      },
+      {
+        "alert_id": 194530250,
+        "error": 0.07,
+        "date": 58741.42101,
+        "magnitude": 17.93,
+        "image_id": 176820594
+      },
+      {
+        "alert_id": 205538086,
+        "error": 0.06,
+        "date": 58747.44057,
+        "magnitude": 18.07,
+        "image_id": 184864020
+      },
+      {
+        "alert_id": 213417642,
+        "error": 0.06,
+        "date": 58750.46681,
+        "magnitude": 18.16,
+        "image_id": 205658185
+      },
+      {
+        "alert_id": 255350536,
+        "error": 0.07,
+        "date": 58759.37255,
+        "magnitude": 18.68,
+        "image_id": 213131370
+      },
+      {
+        "alert_id": 255350594,
+        "error": 0.08,
+        "date": 58763.37458,
+        "magnitude": 18.81,
+        "image_id": 218619956
+      },
+      {
+        "alert_id": 255350771,
+        "error": 0.1,
+        "date": 58766.4912,
+        "magnitude": 19.06,
+        "image_id": 255350573
+      },
+      {
+        "alert_id": 255350485,
+        "error": 0.13,
+        "date": 58769.42076,
+        "magnitude": 18.9,
+        "image_id": 255350622
+      }
+    ]
   },
-  "galaxyPoint": {
-    "ra": "700",
-    "dec": "460"
+  {
+    "id": "ZTF20acuxpwz",
+    "name": "ZTF20acuxpwz",
+    "band": "r",
+    "Dec": 18.74361216,
+    "RA": 45.08449499,
+    "distance": 582.67432235417,
+    "velocity": 38826.22411060534,
+    "redshift": 0.139,
+    "supernovaPoint": { "ra": "600", "dec": "600" },
+    "galaxyPoint": { "ra": "650", "dec": "475" },
+    "alerts": [
+      {
+        "alert_id": 149216727,
+        "error": 0.05,
+        "date": 58719.46459,
+        "magnitude": 17.58,
+        "image_id": 1434235723215
+      },
+      {
+        "alert_id": 159607160,
+        "error": 0.04,
+        "date": 58722.4869,
+        "magnitude": 17.35,
+        "image_id": 1436184723215
+      },
+      {
+        "alert_id": 166456030,
+        "error": 0.03,
+        "date": 58725.49949,
+        "magnitude": 17.24,
+        "image_id": 1439235593215
+      },
+      {
+        "alert_id": 178322578,
+        "error": 0.04,
+        "date": 58732.47771,
+        "magnitude": 17.38,
+        "image_id": 1441224573215
+      },
+      {
+        "alert_id": 184863430,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 17.61,
+        "image_id": 1445214393215
+      }
+    ]
   },
-  "alerts": [{
-    "alert_id": 149216727,
-    "error": 0.05,
-    "date": 58719.46459,
-    "magnitude": 17.58,
-    "image_id": 149331854
-  }, {
-    "alert_id": 159607160,
-    "error": 0.04,
-    "date": 58722.4869,
-    "magnitude": 17.35,
-    "image_id": 159442774
-  }, {
-    "alert_id": 166456030,
-    "error": 0.03,
-    "date": 58725.49949,
-    "magnitude": 17.24,
-    "image_id": 162160454
-  }, {
-    "alert_id": 178322578,
-    "error": 0.04,
-    "date": 58732.47771,
-    "magnitude": 17.38,
-    "image_id": 166238950
-  }, {
-    "alert_id": 184863430,
-    "error": 0.06,
-    "date": 58735.48303,
-    "magnitude": 17.61,
-    "image_id": 166456154
-  }, {
-    "alert_id": 194530284,
-    "error": 0.05,
-    "date": 58738.50529,
-    "magnitude": 17.85,
-    "image_id": 169025701
-  }, {
-    "alert_id": 194530250,
-    "error": 0.07,
-    "date": 58741.42101,
-    "magnitude": 17.93,
-    "image_id": 176820594
-  }, {
-    "alert_id": 205538086,
-    "error": 0.06,
-    "date": 58747.44057,
-    "magnitude": 18.07,
-    "image_id": 184864020
-  }, {
-    "alert_id": 213417642,
-    "error": 0.06,
-    "date": 58750.46681,
-    "magnitude": 18.16,
-    "image_id": 205658185
-  }, {
-    "alert_id": 255350536,
-    "error": 0.07,
-    "date": 58759.37255,
-    "magnitude": 18.68,
-    "image_id": 213131370
-  }, {
-    "alert_id": 255350594,
-    "error": 0.08,
-    "date": 58763.37458,
-    "magnitude": 18.81,
-    "image_id": 218619956
-  }, {
-    "alert_id": 255350771,
-    "error": 0.1,
-    "date": 58766.4912,
-    "magnitude": 19.06,
-    "image_id": 255350573
-  }, {
-    "alert_id": 255350485,
-    "error": 0.13,
-    "date": 58769.42076,
-    "magnitude": 18.9,
-    "image_id": 255350622
-  }]
-}, {
-  "name": "Galaxy #2",
-  "id": "ZTF19abxvjkn",
-  "color": "#eb7c39",
-  "distance": 231.55354261593232,
-  "Dec": 16.60698643,
-  "velocity": 15814.291346935735,
-  "RA": 118.300078,
-  "redshift": 0.05418,
-  "supernovaPoint": {
-    "ra": "600",
-    "dec": "600"
+  {
+    "id": "ZTF20acymtcs",
+    "name": "ZTF20acymtcs",
+    "band": "r",
+    "Dec": 18.74361216,
+    "RA": 45.08449499,
+    "distance": 260.56534588375627,
+    "velocity": 17760.29576288593,
+    "redshift": 0.061062,
+    "supernovaPoint": { "ra": "600", "dec": "600" },
+    "galaxyPoint": { "ra": "700", "dec": "380" },
+    "alerts": [
+      {
+        "alert_id": 149216727,
+        "error": 0.05,
+        "date": 58719.46459,
+        "magnitude": 17.58,
+        "image_id": 1448127963715
+      },
+      {
+        "alert_id": 159607160,
+        "error": 0.04,
+        "date": 58722.4869,
+        "magnitude": 17.35,
+        "image_id": 1456150543715
+      },
+      {
+        "alert_id": 166456030,
+        "error": 0.03,
+        "date": 58725.49949,
+        "magnitude": 17.24,
+        "image_id": 1464149233715
+      },
+      {
+        "alert_id": 178322578,
+        "error": 0.04,
+        "date": 58732.47771,
+        "magnitude": 17.38,
+        "image_id": 1466102113715
+      },
+      {
+        "alert_id": 184863430,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 17.61,
+        "image_id": 1470106903715
+      }
+    ]
   },
-  "galaxyPoint": {
-    "ra": "700",
-    "dec": "460"
-  },
-  "alerts": [{
-    "alert_id": 188185951,
-    "error": 0.1,
-    "date": 58733.48881,
-    "magnitude": 18.13,
-    "image_id": 188185951
-  }, {
-    "alert_id": 188185946,
-    "error": 0.07,
-    "date": 58736.49079,
-    "magnitude": 17.97,
-    "image_id": 188185946
-  }, {
-    "alert_id": 192986531,
-    "error": 0.09,
-    "date": 58739.52449,
-    "magnitude": 17.89,
-    "image_id": 192986531
-  }, {
-    "alert_id": 196470635,
-    "error": 0.14,
-    "date": 58742.52403,
-    "magnitude": 17.98,
-    "image_id": 196470635
-  }, {
-    "alert_id": 202035027,
-    "error": 0.08,
-    "date": 58745.52657,
-    "magnitude": 18.1,
-    "image_id": 202035027
-  }, {
-    "alert_id": 208008473,
-    "error": 0.08,
-    "date": 58748.51598,
-    "magnitude": 18.42,
-    "image_id": 208008473
-  }, {
-    "alert_id": 218992784,
-    "error": 0.1,
-    "date": 58751.48296,
-    "magnitude": 18.74,
-    "image_id": 218992784
-  }, {
-    "alert_id": 218992758,
-    "error": 0.11,
-    "date": 58756.46904,
-    "magnitude": 19.24,
-    "image_id": 218992758
-  }, {
-    "alert_id": 255648158,
-    "error": 0.12,
-    "date": 58758.51201,
-    "magnitude": 19.43,
-    "image_id": 255648158
-  }, {
-    "alert_id": 255648176,
-    "error": 0.14,
-    "date": 58759.47334,
-    "magnitude": 19.6,
-    "image_id": 255648176
-  }]
-}, {
-  "name": "Galaxy #3",
-  "id": "ZTF19abqqmui",
-  "color": "#4c8cd2",
-  "distance": 213.8878328238106,
-  "Dec": 6.317683836,
-  "velocity": 14625.44589774079,
-  "RA": 330.4135403,
-  "redshift": 0.05,
-  "supernovaPoint": {
-    "ra": "600",
-    "dec": "600"
-  },
-  "galaxyPoint": {
-    "ra": "670",
-    "dec": "465"
-  },
-  "alerts": [{
-    "alert_id": 166166993,
-    "error": 0.07,
-    "date": 58725.32416,
-    "magnitude": 17.95,
-    "image_id": 166166993
-  }, {
-    "alert_id": 173570303,
-    "error": 0.06,
-    "date": 58730.30054,
-    "magnitude": 17.96,
-    "image_id": 173570303
-  }, {
-    "alert_id": 181009323,
-    "error": 0.08,
-    "date": 58733.31741,
-    "magnitude": 18.06,
-    "image_id": 181009323
-  }, {
-    "alert_id": 194347771,
-    "error": 0.15,
-    "date": 58741.20722,
-    "magnitude": 18.68,
-    "image_id": 194347771
-  }, {
-    "alert_id": 205249677,
-    "error": 0.14,
-    "date": 58747.29667,
-    "magnitude": 19.28,
-    "image_id": 205249677
-  }, {
-    "alert_id": 220237781,
-    "error": 0.2,
-    "date": 58754.27372,
-    "magnitude": 19.89,
-    "image_id": 220237781
-  }]
-}, {
-  "name": "Galaxy #4",
-  "id": "ZTF19abvhduf",
-  "color": "#fed828",
-  "distance": 124.63102831794073,
-  "Dec": 56.07525,
-  "velocity": 8573.901530035577,
-  "RA": 97.139708,
-  "redshift": 0.029,
-  "supernovaPoint": {
-    "ra": "600",
-    "dec": "600"
-  },
-  "galaxyPoint": {
-    "ra": "590",
-    "dec": "770"
-  },
-  "alerts": [{
-    "alert_id": 171421658,
-    "error": 0.1,
-    "date": 58727.47458,
-    "magnitude": 18.4,
-    "image_id": 171421658
-  }, {
-    "alert_id": 177561123,
-    "error": 0.05,
-    "date": 58732.43144,
-    "magnitude": 16.26,
-    "image_id": 177561123
-  }, {
-    "alert_id": 184758886,
-    "error": 0.04,
-    "date": 58735.47012,
-    "magnitude": 15.59,
-    "image_id": 184758886
-  }, {
-    "alert_id": 194650659,
-    "error": 0.03,
-    "date": 58738.4913,
-    "magnitude": 15.27,
-    "image_id": 194650659
-  }, {
-    "alert_id": 194819837,
-    "error": 0.02,
-    "date": 58741.51118,
-    "magnitude": 15.08,
-    "image_id": 194819837
-  }, {
-    "alert_id": 200203572,
-    "error": 0.03,
-    "date": 58744.5076,
-    "magnitude": 15.09,
-    "image_id": 200203572
-  }, {
-    "alert_id": 206255726,
-    "error": 0.03,
-    "date": 58747.49965,
-    "magnitude": 15.17,
-    "image_id": 206255726
-  }, {
-    "alert_id": 218801300,
-    "error": 0.02,
-    "date": 58750.45003,
-    "magnitude": 15.29,
-    "image_id": 218801300
-  }, {
-    "alert_id": 218801192,
-    "error": 0.03,
-    "date": 58756.44897,
-    "magnitude": 15.63,
-    "image_id": 218801192
-  }, {
-    "alert_id": 255608460,
-    "error": 0.04,
-    "date": 58759.44573,
-    "magnitude": 15.86,
-    "image_id": 255608460
-  }, {
-    "alert_id": 255608519,
-    "error": 0.04,
-    "date": 58763.46589,
-    "magnitude": 16.19,
-    "image_id": 255608519
-  }, {
-    "alert_id": 255608560,
-    "error": 0.04,
-    "date": 58766.47084,
-    "magnitude": 16.44,
-    "image_id": 255608560
-  }, {
-    "alert_id": 273772343,
-    "error": 0.08,
-    "date": 58775.40546,
-    "magnitude": 17.13,
-    "image_id": 273772343
-  }, {
-    "alert_id": 290708129,
-    "error": 0.06,
-    "date": 58778.50684,
-    "magnitude": 17.34,
-    "image_id": 290708129
-  }, {
-    "alert_id": 290708084,
-    "error": 0.06,
-    "date": 58784.46372,
-    "magnitude": 17.62,
-    "image_id": 290708084
-  }, {
-    "alert_id": 319950697,
-    "error": 0.08,
-    "date": 58787.42559,
-    "magnitude": 17.73,
-    "image_id": 319950697
-  }, {
-    "alert_id": 319950714,
-    "error": 0.06,
-    "date": 58789.43277,
-    "magnitude": 17.78,
-    "image_id": 319950714
-  }, {
-    "alert_id": 319950737,
-    "error": 0.07,
-    "date": 58790.34856,
-    "magnitude": 17.77,
-    "image_id": 319950737
-  }, {
-    "alert_id": 319950814,
-    "error": 0.07,
-    "date": 58793.53228,
-    "magnitude": 17.91,
-    "image_id": 319950814
-  }, {
-    "alert_id": 319950628,
-    "error": 0.14,
-    "date": 58796.26389,
-    "magnitude": 17.94,
-    "image_id": 319950628
-  }, {
-    "alert_id": 327867101,
-    "error": 0.09,
-    "date": 58802.19769,
-    "magnitude": 17.96,
-    "image_id": 327867101
-  }, {
-    "alert_id": 353179229,
-    "error": 0.09,
-    "date": 58805.49568,
-    "magnitude": 18.06,
-    "image_id": 353179229
-  }, {
-    "alert_id": 353179234,
-    "error": 0.1,
-    "date": 58811.43014,
-    "magnitude": 18.2,
-    "image_id": 353179234
-  }, {
-    "alert_id": 356569478,
-    "error": 0.12,
-    "date": 58830.21781,
-    "magnitude": 18.4,
-    "image_id": 356569478
-  }, {
-    "alert_id": 367622907,
-    "error": 0.12,
-    "date": 58838.22064,
-    "magnitude": 18.5,
-    "image_id": 367622907
-  }, {
-    "alert_id": 382179972,
-    "error": 0.14,
-    "date": 58855.17521,
-    "magnitude": 18.83,
-    "image_id": 382179972
-  }, {
-    "alert_id": 384652022,
-    "error": 0.16,
-    "date": 58859.13348,
-    "magnitude": 18.86,
-    "image_id": 384652022
-  }, {
-    "alert_id": 388504291,
-    "error": 0.14,
-    "date": 58861.11726,
-    "magnitude": 18.98,
-    "image_id": 388504291
-  }, {
-    "alert_id": 395733041,
-    "error": 0.11,
-    "date": 58864.1508,
-    "magnitude": 19.05,
-    "image_id": 395733041
-  }, {
-    "alert_id": 396235175,
-    "error": 0.1,
-    "date": 58864.1977,
-    "magnitude": 19.05,
-    "image_id": 396235175
-  }]
-}]
+  {
+    "id": "ZTF20acxzkkf",
+    "name": "ZTF20acxzkkf",
+    "band": "g",
+    "Dec": 18.74361216,
+    "RA": 45.08449499,
+    "distance": 185.26871750526453,
+    "velocity": 12693.231701939567,
+    "redshift": 0.043245,
+    "supernovaPoint": { "ra": "600", "dec": "600" },
+    "galaxyPoint": { "ra": "750", "dec": "500" },
+    "alerts": [
+      {
+        "alert_id": 149216727,
+        "error": 0.05,
+        "date": 58719.46459,
+        "magnitude": 17.58,
+        "image_id": 1445540973415
+      },
+      {
+        "alert_id": 159607160,
+        "error": 0.04,
+        "date": 58722.4869,
+        "magnitude": 17.35,
+        "image_id": 1448502113415
+      },
+      {
+        "alert_id": 166456030,
+        "error": 0.03,
+        "date": 58725.49949,
+        "magnitude": 17.24,
+        "image_id": 1450470633415
+      },
+      {
+        "alert_id": 178322578,
+        "error": 0.04,
+        "date": 58732.47771,
+        "magnitude": 17.38,
+        "image_id": 1461487513415
+      },
+      {
+        "alert_id": 184863430,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 17.61,
+        "image_id": 1469540833415
+      },
+      {
+        "alert_id": 184863431,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 17.61,
+        "image_id": 1471465993415
+      },
+      {
+        "alert_id": 184863432,
+        "error": 0.06,
+        "date": 58735.48303,
+        "magnitude": 17.61,
+        "image_id": 1477456813415
+      }
+    ]
+  }
+]

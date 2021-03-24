@@ -33,7 +33,7 @@ export const getAlertImages = (galaxyName, alerts) => {
   return alerts.map(alert => {
     return {
       id: alert.image_id,
-      name: `/images/galaxies/${galaxyName}/${alert.image_id}_sci.jpeg`,
+      name: `/images/galaxies/${galaxyName}/${alert.image_id}_sci.jpg`,
     };
   });
 };

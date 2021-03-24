@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import filter from 'lodash/filter';
 import API from '../lib/API.js';
+import { colorize } from '../lib/utilities.js';
 import GalaxySelector from '../components/charts/galaxySelector';
 import {
   getSelectedData,
@@ -32,7 +33,8 @@ class GalaxySupernovaSelectorContainer extends React.PureComponent {
     } = this.props;
 
     API.get(source).then(response => {
-      const data = response.data.map(galaxy => {
+      const colorizedData = colorize(response.data);
+      const data = colorizedData.map(galaxy => {
         galaxy.images = getAlertImages(galaxy.id || galaxy.name, galaxy.alerts);
         return galaxy;
       });
@@ -40,7 +42,9 @@ class GalaxySupernovaSelectorContainer extends React.PureComponent {
       const { options } = this.props;
       const { preSelectedId } = options || {};
 
-      const selectedGalaxy = filter(data, { id: preSelectedId })[0] || {};
+      const selectedGalaxy =
+        (preSelectedId ? filter(data, { id: preSelectedId })[0] : data[0]) ||
+        {};
 
       const { alerts } = selectedGalaxy;
 
