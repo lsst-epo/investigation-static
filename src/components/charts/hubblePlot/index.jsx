@@ -680,20 +680,22 @@ class HubblePlot extends React.Component {
               offsetTop,
             }}
           />
-          <g clipPath="url('#clip')">
-            <CursorPoint
-              x={mousePosX}
-              y={mousePosY}
-              offsetTop={offsetTop}
-              pointClasses={classnames(
-                `color-${activeDataIndex + 1}-translucent-fill`,
-                `color-${activeDataIndex + 1}-stroke`,
-                `${cursorPoint}`,
-                {
-                  [invisible]: !mousePosX && !mousePosY,
-                }
-              )}
-            />
+          <g>
+            <g clipPath="url('#clip')">
+              <CursorPoint
+                x={mousePosX}
+                y={mousePosY}
+                offsetTop={offsetTop}
+                pointClasses={classnames(
+                  `color-${activeDataIndex + 1}-translucent-fill`,
+                  `color-${activeDataIndex + 1}-stroke`,
+                  `${cursorPoint}`,
+                  {
+                    [invisible]: !mousePosX && !mousePosY,
+                  }
+                )}
+              />
+            </g>
             {data &&
               multiple &&
               data.map((set, i) => {
