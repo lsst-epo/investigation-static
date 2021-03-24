@@ -38,6 +38,19 @@
             border: solid 2px;
             border-color: $neutral20;
           }
+
+        }
+      }
+
+      &.link-to-last {
+        color: $basePrimary;
+        background: $white;
+        border: 2px solid $white;
+        transition: background $duration $timing, color $duration $timing;
+
+        &:hover {
+          color: $white;
+          background: $basePrimary;
         }
       }
     }

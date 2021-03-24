@@ -12,7 +12,7 @@
     "title": "The Universe through Time",
     "link": "/universe-through-time/"
   },
-  "content": "<p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law. But does this law apply only from our perspective in the Milky Way, or from other places in the Universe as well?</p><p>We will begin by viewing the data for five galaxies observed from the Milky Way Galaxy.</p><p>Select a galaxy from the menu by clicking on one of the star icons (on the left side of the Hubble plot) to see what the Hubble plots would look like for astronomers in each of the five galaxies.</p><p>Rotate and zoom the tool on the right to help visualize the relative positions of galaxies in space. Note: <i>this does not imply that the Universe is rotating or expanding.</i></p>",
+  "content": "<p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the <a href='http://rubineducation.org/glossary/hubble-plot' target='_blank'>Hubble-Lemaitre Law</a>. But does this law apply only from our perspective in the Milky Way, or from other places in the Universe as well?</p><p>We will begin by viewing the data for five galaxies observed from the Milky Way Galaxy.</p><p>Select a galaxy from the menu by clicking on one of the star icons (on the left side of the Hubble plot) to see what the Hubble plots would look like for astronomers in each of the five galaxies.</p><p>Rotate and zoom the tool on the right to help visualize the relative positions of galaxies in space. Note: <i>this does not imply that the Universe is rotating or expanding.</i></p>",
   "widgets": [
     {
       "type": "GalaxyScrambler",
@@ -66,7 +66,7 @@
           "id": "10",
           "questionType": "select",
           "title": "Question #1",
-          "label": "If alien astronomers living in Galaxy #2 (the blue star), were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
+          "label": "If alien astronomers living in Galaxy #2 were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
           "options": [
             { "label": "next to the origin", "value": "next to the origin" },
             {
@@ -121,16 +121,6 @@
           "id": "14",
           "questionType": "textArea",
           "label": "Do your observations suggest that astronomers at all locations in the Universe would observe that all galaxies are moving away from them?",
-          "answerAccessor": "text"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "15",
-          "questionType": "textArea",
-          "label": "Do your observations suggest that astronomers at all locations in the Universe would observe that the Universe is expanding at the same rate?",
           "answerAccessor": "text"
         }
       ]

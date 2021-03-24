@@ -11,12 +11,12 @@
       margin: 0;
 
       &.md-progress--linear {
-        height: 4px;
-        background: $baseSecondaryLight;
+        height: 5px;
+        background: $baseSecondary;
       }
 
       .md-progress--linear-active {
-        background: $baseSecondaryDark;
+        background: $chart3;
       }
     }
   }
@@ -41,7 +41,7 @@
 }
 
 .site-logo {
-  width: 75px;
+  width: 63px;
   margin: 0 $minPadding;
 }
 

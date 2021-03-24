@@ -20,8 +20,8 @@
       "options": {
         "showUserPlot": "252",
         "preSelected": true,
-        "required": ["252"],
-        "qaReview": false
+        "qaReview": false,
+        "domain": [[0, 700], [0, 50000]]
       }
     }
   ],

@@ -2,10 +2,10 @@
   "id": "expand6_4",
   "investigation": "expanding-universe",
   "order": "06.4",
-  "title": "Constructing a Hubble plot",
+  "title": "Gathering the Data for a Hubble Plot - Galaxy 4",
   "slug": "interpreting-a-hubble-plot-1_4/",
   "previous": {
-    "title": "Interpreting a Hubble plot",
+    "title": "Gathering the Data for a Hubble Plot - Galaxy 3",
     "link": "/interpreting-a-hubble-plot-1_3/"
   },
   "next": {
@@ -13,7 +13,7 @@
     "link": "/interpreting-a-hubble-plot-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>You will begin by hunting for Type Ia supernovae in Rubin Observatory images of four galaxies. Then you will identify the galaxies themselves.  Finally you will use the distances to the supernovae, and the recessional velocities of the galaxies to create a Hubble plot of your data.</p>",
+  "content": "",
   "tables": [
     {
       "id": "1",
@@ -63,7 +63,7 @@
           "id": "353",
           "questionType": "accordion",
           "title": "Question #1",
-          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Repeat this process for each Galaxy in the following pages</p>",
+          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it.</p>",
           "answerAccessor": "galaxySupernova"
         }
       ]

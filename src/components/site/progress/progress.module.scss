@@ -2,13 +2,18 @@
   @include react-md-progress-linear;
 
   .md-drawer {
-    .md-progress--linear {
-      height: 20px;
-    }
-
     .md-progress {
       width: auto;
       margin: 0 1em 1em;
+
+      &.md-progress--linear {
+        height: 20px;
+        background: $baseSecondary;
+      }
+
+      .md-progress--linear-active {
+        background: $chart3;
+      }
     }
   }
 }
@@ -29,13 +34,18 @@
   }
 
   :global {
-    .md-progress--linear {
-      height: 30px;
-    }
-
     .md-progress {
       width: 100%;
       margin: 0;
+
+      &.md-progress--linear {
+        height: 30px;
+        background: $baseSecondary;
+      }
+
+      .md-progress--linear-active {
+        background: $chart3;
+      }
     }
   }
 }
