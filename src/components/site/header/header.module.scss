@@ -2,6 +2,10 @@
   @include react-md-toolbars;
 }
 
+.header-primary {
+  display: block;
+}
+
 .progress-bar-wrapper {
   :global {
     .md-progress {

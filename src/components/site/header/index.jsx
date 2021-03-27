@@ -38,7 +38,7 @@ class Header extends React.PureComponent {
         colored
         fixed
         titleClassName="screen-reader-only"
-        className="header-primary dont-print"
+        className={`${styles.headerPrimary} dont-print`}
       >
         {pageNumber && (
           <div className={styles.progressBarWrapper}>
