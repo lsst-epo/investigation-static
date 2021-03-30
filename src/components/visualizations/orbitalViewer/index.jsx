@@ -26,7 +26,14 @@ function OrbitalViewer({
   detailsSet,
   refObjs,
 }) {
-  const speeds = [0.00001157, 1.1574, 11.574, 30, 365.25]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
+  const speeds = [365.25, 30, 11.574, 1.1574, 0.00001157]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
+  const speedWords = {
+    365.25: '1 yr',
+    30: '30 days',
+    11.574: '12 days',
+    1.1574: '1 day',
+    0.00001157: '1 sec',
+  };
 
   const [playing, setPlaying] = useState(!paused);
   const [activeVelocity, setActiveVelocity] = useState(null);
@@ -40,12 +47,12 @@ function OrbitalViewer({
     setFrameOverride(null);
   };
 
-  const handleStepSelect = () => {
-    const lastIndex = speeds.length - 1;
-    const oldIndex = speeds.indexOf(dayPerVizSec);
-    const newIndex = oldIndex >= lastIndex ? 0 : oldIndex + 1;
+  const handleStepSelect = step => {
+    setDayPerVizSec(speeds[step.target.value]);
+  };
 
-    setDayPerVizSec(speeds[newIndex]);
+  const handleZoomReset = () => {
+    // TODO: Add zoom reset logic
   };
 
   const handleNext = () => {
@@ -70,7 +77,12 @@ function OrbitalViewer({
             data={activeNeo}
           />
         )}
-        {!paused && <PlaybackSpeed {...{ elapsedTime, dayPerVizSec }} />}
+        {!paused && (
+          <PlaybackSpeed
+            {...{ elapsedTime, dayPerVizSec, speeds, speedWords }}
+            sliderOnChangeCallback={handleStepSelect}
+          />
+        )}
         <Canvas invalidateFrameloop className={orbitalCanvas}>
           <CameraController pov={pov} />
           <Camera
@@ -116,7 +128,7 @@ function OrbitalViewer({
               handleStartStop,
               handleNext,
               handlePrevious,
-              handleStepSelect,
+              handleZoomReset,
               dayPerVizSec,
             }}
           />

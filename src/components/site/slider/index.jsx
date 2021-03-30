@@ -14,6 +14,9 @@ class SliderCustom extends React.PureComponent {
       label,
       style,
       discrete,
+      min,
+      max,
+      step,
       value,
       defaultValue,
     } = this.props;
@@ -28,6 +31,9 @@ class SliderCustom extends React.PureComponent {
           thumbStyle,
           style,
           discrete,
+          min,
+          max,
+          step,
           value,
           defaultValue,
         }}
@@ -49,6 +55,9 @@ SliderCustom.propTypes = {
   label: PropTypes.node,
   style: PropTypes.object,
   discrete: PropTypes.bool,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
   value: PropTypes.number,
   defaultValue: PropTypes.number,
 };
