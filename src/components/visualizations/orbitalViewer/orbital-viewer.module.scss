@@ -10,15 +10,103 @@
   z-index: 1;
 }
 
-.playback-speed {
+.playback-speed-slider-header {
+  position: absolute;
+  top: 24px;
+  right: 15px;
+  z-index: 2;
+  width: 110px;
+  padding: 5px;
+  text-align: center;
+  background-color: transparentize($white, 0.2);
+  border-radius: 10px;
+}
+
+.playback-speed-title {
+  @include subheadingPrimary;
+  margin: 0;
+}
+
+.playback-speed-slider-label {
+  @include labelSecondary;
+}
+
+.playback-speed-slider {
+  $offset: 300px;
+  position: absolute;
+  top: calc(80px + (#{$minPadding} + #{$tallestSquareWidget} - #{$offset}) / 2);
+  right: $minPadding + 50px;
+  z-index: 2;
+  width: calc(#{$tallestSquareWidget} - #{$offset});
+  height: $minPadding;
+  margin-right: calc(-1 * (#{$tallestSquareWidget} - #{$offset}) / 2);
+  cursor: pointer;
+  background: transparentize($white, 0.2);
+  border: 2px solid $black;
+  border-radius: 10px;
+  outline: none;
+  transform: rotate(90deg);
+  appearance: none;
+
+  &:focus {
+    cursor: pointer;
+  }
+}
+
+.playback-speed-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: $minPadding + 8px;
+  height: $minPadding + 8px;
+  background: $basePrimary;
+  border-radius: 50%;
+}
+
+.elapsed-time-container {
   @include labelSecondary;
   position: absolute;
-  top: 0;
-  right: 0;
+  right: $minPadding;
+  bottom: 100px;
   z-index: 2;
-  padding: $minPadding;
-  color: $white;
-  text-align: right;
+  color: $black;
+  text-align: center;
+  background-color: transparentize($white, 0.2);
+  border: 1px solid $black;
+  border-radius: 10px;
+
+  .elapsed-time-title {
+    @include labelSecondary;
+    padding-top: 5px;
+  }
+
+  .elapsed-time-inner {
+    display: flex;
+    flex-flow: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    border-top: 1px solid $black;
+
+    .elapsed-time-divider {
+      display: block;
+      width: 1px;
+      height: 50px;
+      background-color: $black;
+    }
+
+    .elapsed-time-block {
+      width: 50px;
+
+      .elapsed-val {
+        @include subheadingPrimary;
+        color: $black;
+      }
+
+      .elapsed-label {
+        @include labelSecondary;
+        color: $black;
+      }
+    }
+  }
 }
 
 .padded-drawer-inner {
