@@ -108,12 +108,20 @@ class Tooltip extends React.PureComponent {
   }
 
   renderAccessor(accessor, label, data, unit) {
+    const { dataTotal } = this.props;
     const isCount = accessor === 'count';
+    const isCountOfTotal = accessor === 'countOfTotal';
 
     let content = '';
 
     if (isCount) {
       content = this.renderValue(accessor, data.length, unit || label);
+    } else if (isCountOfTotal) {
+      content = this.renderValue(
+        accessor,
+        [data.length, dataTotal],
+        unit || label
+      );
     } else if (data.length > 1) {
       content = this.renderRange(accessor, data, unit);
     } else if (data.length === 1) {
@@ -122,7 +130,9 @@ class Tooltip extends React.PureComponent {
 
     return (
       <div className="value-row" key={accessor}>
-        {!isCount && <span>{label || capitalize(accessor)}: </span>}
+        {!isCount && !isCountOfTotal && (
+          <span>{label || capitalize(accessor)}: </span>
+        )}
         {content}
       </div>
     );
@@ -161,6 +171,7 @@ Tooltip.defaultProps = {
 Tooltip.propTypes = {
   graph: PropTypes.string,
   data: PropTypes.array,
+  dataTotal: PropTypes.number,
   posX: PropTypes.number,
   posY: PropTypes.number,
   show: PropTypes.bool,
