@@ -418,6 +418,16 @@ class Histogram extends React.PureComponent {
     });
   }
 
+  calculateTotalNumberOfObjects(dataset) {
+    let count = 0;
+    if (dataset) {
+      dataset.forEach(d => {
+        count += d.length;
+      });
+    }
+    return count;
+  }
+
   render() {
     const {
       // data: meanData,
@@ -448,6 +458,8 @@ class Histogram extends React.PureComponent {
       groupNames,
       activePlots,
     } = this.state;
+
+    const totalObjects = this.calculateTotalNumberOfObjects(data);
 
     const svgClasses = classnames('histogram svg-chart', {
       loading,
@@ -483,6 +495,7 @@ class Histogram extends React.PureComponent {
             key="tooltip"
             graph="histogram"
             data={selectedData || hoveredData}
+            dataTotal={totalObjects}
             posX={tooltipPosX}
             posY={tooltipPosY}
             show={showTooltip}

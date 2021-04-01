@@ -72,7 +72,7 @@
             "yAxisLabel": "Number of NEOs",
             "domain": [[0, 10], []],
             "bins": 20,
-            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
             "tooltipLabels": ["NEOs", "Orbit Size (au)"]
           }
         },
@@ -86,7 +86,7 @@
             "yAxisLabel": "Number of NEOs",
             "domain": [[0, 1], []],
             "bins": 10,
-            "tooltipAccessors": ["count", "eccentricity"],
+            "tooltipAccessors": ["countOfTotal", "eccentricity"],
             "tooltipLabels": ["NEOs", "Eccentricity"]
           }
         },
@@ -100,7 +100,7 @@
             "yAxisLabel": "Number of NEOs",
             "domain": [[0, 180], null],
             "bins": 9,
-            "tooltipAccessors": ["count", "inclination"],
+            "tooltipAccessors": ["countOfTotal", "inclination"],
             "tooltipLabels": ["NEOs", "Inclination (degrees)"]
           }
         }

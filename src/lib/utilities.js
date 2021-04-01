@@ -1,6 +1,7 @@
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
 import isNumber from 'lodash/isNumber';
+import isArray from 'lodash/isArray';
 import { extent as d3Extent, mean as d3Mean } from 'd3-array';
 import chartColors from '../assets/stylesheets/_variables.scss';
 
@@ -242,6 +243,15 @@ const getDamageDescription = function(data) {
   return data.description;
 };
 
+const getCountOutOfTotal = function(data) {
+  if (!isArray(data)) return null;
+  const [count, total] = data;
+  const formattedCount = addTheCommas(formatValue(count));
+  const formattedTotal = addTheCommas(formatValue(total));
+
+  return `${formattedCount} of ${formattedTotal}`;
+};
+
 export const getValue = function(accessor, data) {
   return (
     {
@@ -270,7 +280,8 @@ export const getValue = function(accessor, data) {
       diameter: formatValue(data, 0),
       craterDiameter: addTheCommas(toSigFigs(data, 3)),
       craterDepth: addTheCommas(toSigFigs(data, 3)),
-      count: formatValue(data ? data.length : 0, 0),
+      count: addTheCommas(formatValue(data ? data.length : 0, 0)),
+      countOfTotal: getCountOutOfTotal(data),
       kineticEnergy: addTheCommas(toSigFigs(+data, 3)),
       volume: toSigFigs(data, 4),
       overPressure: addTheCommas(toSigFigs(data, 3)),

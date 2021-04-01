@@ -46,7 +46,11 @@ class OrbitalProperties extends React.PureComponent {
           />
         ) : (
           <div className={loadingWrapper}>
-            <CircularProgress className="chart-loader" scale={3} />
+            <CircularProgress
+              id="chart-loader"
+              className="chart-loader"
+              scale={3}
+            />
           </div>
         )}
       </>

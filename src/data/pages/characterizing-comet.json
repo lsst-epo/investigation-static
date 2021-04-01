@@ -72,7 +72,7 @@
             "yAxisLabel": "Number of comets",
             "domain": [[0, 100], []],
             "bins": 20,
-            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
             "tooltipLabels": ["Comets", "Orbit Size (au)"]
           }
         },
@@ -86,7 +86,7 @@
             "yAxisLabel": "Number of comets",
             "domain": [[0, 1], []],
             "bins": 10,
-            "tooltipAccessors": ["count", "eccentricity"],
+            "tooltipAccessors": ["countOfTotal", "eccentricity"],
             "tooltipLabels": ["Comets", "Eccentricity"]
           }
         },
@@ -100,7 +100,7 @@
             "yAxisLabel": "Number of comets",
             "domain": [[0, 180], []],
             "bins": 9,
-            "tooltipAccessors": ["count", "inclination"],
+            "tooltipAccessors": ["countOfTotal", "inclination"],
             "tooltipLabels": ["Comets", "Inclination (degrees)"]
           }
         }
