@@ -51,8 +51,8 @@ const Orbital = ({
     M,
     Node: ascendingNode,
     Peri: peri,
-    Principal_desig: scientificName,
-    Name: name,
+    Principal_desig: pd,
+    name,
   } = data || {};
 
   const [rotation] = useState(() => [
@@ -225,7 +225,7 @@ const Orbital = ({
                 fontSize: getLabelSize(),
               }}
             >
-              {name || scientificName}
+              {name || pd}
             </div>
           </HTML>
           <sphereBufferGeometry

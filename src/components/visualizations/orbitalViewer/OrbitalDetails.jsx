@@ -13,7 +13,8 @@ import {
 import Button from '../../site/button/index.js';
 
 function OrbitalDetails({ data, velocity, type }) {
-  const { H, a, i, e, Principal_desig: name, Earth_moid: moid } = data || {};
+  const { H, a, i, e, name, Principal_desig: pd, Earth_moid: moid } =
+    data || {};
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -34,14 +35,14 @@ function OrbitalDetails({ data, velocity, type }) {
   function getRows() {
     if (type === 'hazardous-asteroids') {
       return [
-        ['Scientific Name', name || ''],
+        ['Scientific Name', name || pd || ''],
         ['Absolute Magnitude', renderValueWithUnits(H, 'magnitude', false)],
         ['Earth MOID', renderValueWithUnits(moid, 'moid', true)],
       ];
     }
 
     return [
-      ['Scientific Name', name || ''],
+      ['Scientific Name', name || pd || ''],
       ['Orbit Size', renderValueWithUnits(a, 'semimajor_axis', true)],
       ['Eccentricity', renderValueWithUnits(e, 'eccentricity', false)],
       ['Inclination', renderValueWithUnits(i, 'inclination', true)],
