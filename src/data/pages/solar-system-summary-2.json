@@ -17,7 +17,7 @@
   "widgets": [
     {
       "type": "OrbitalProperties",
-      "source": "/data/neos/FINAL_eccentricity.json",
+      "source": "/data/neos/final_eccentricity_hist.json",
       "options": {
         "title": "Eccentricities",
         "xAxisLabel": "Eccentricities",
@@ -25,7 +25,7 @@
         "xValueAccessor": "eccentricity",
         "domain": [[0, 1], null],
         "bins": 20,
-        "tooltipAccessors": ["count", "eccentricity"],
+        "tooltipAccessors": ["countOfTotal", "eccentricity"],
         "tooltipLabels": ["Objects", "Eccentricity"]
       }
     }

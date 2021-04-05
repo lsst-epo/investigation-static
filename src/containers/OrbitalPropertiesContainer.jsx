@@ -20,8 +20,8 @@ class OrbitalPropertiesContainer extends React.PureComponent {
     if (sources) {
       all(this.allGets(sources)).then(
         spread((...responses) => {
-          const data = responses.map(reponse => {
-            const { data: rData } = reponse;
+          const data = responses.map(response => {
+            const { data: rData } = response;
             return rData;
           });
 
@@ -39,8 +39,7 @@ class OrbitalPropertiesContainer extends React.PureComponent {
   setData(data) {
     this.setState(prevState => ({
       ...prevState,
-      data: data.data || data,
-      group: data.group || 'all',
+      data,
     }));
   }
 

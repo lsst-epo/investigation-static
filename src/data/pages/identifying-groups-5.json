@@ -20,7 +20,7 @@
       "widgets": [
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/NEO_semimajor_axis.json",
+          "source": "/data/neos/neo_semimajor_axis_hist.json",
           "options": {
             "title": "NEO Sizes",
             "xAxisLabel": "NEO Orbit Sizes (au)",
@@ -28,13 +28,13 @@
             "yAxisLabel": "Number of NEOs",
             "domain": [[0, 100], null],
             "bins": 20,
-            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
             "tooltipLabels": ["NEOs", "Orbit Size (au)"]
           }
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/MBA_ALL_semimajor_axis.json",
+          "source": "/data/neos/mba_semimajor_axis_hist.json",
           "options": {
             "title": "MBA Sizes",
             "xAxisLabel": "MBA Orbit Sizes (au)",
@@ -42,13 +42,13 @@
             "yAxisLabel": "Number of MBAs",
             "domain": [[0, 100], null],
             "bins": 20,
-            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
             "tooltipLabels": ["MBAs", "Orbit Size (au)"]
           }
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/TNO_semimajor_axis.json",
+          "source": "/data/neos/tno_semimajor_axis_hist.json",
           "options": {
             "title": "TNO Sizes",
             "xAxisLabel": "TNO Orbit Sizes (au)",
@@ -56,13 +56,13 @@
             "yAxisLabel": "Number of TNOs",
             "domain": [[0, 100], null],
             "bins": 20,
-            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
             "tooltipLabels": ["TNOs", "Orbit Size (au)"]
           }
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/comets_semimajor_axis_abridged.json",
+          "source": "/data/neos/comets_semimajor_axis_hist.json",
           "options": {
             "title": "Comet Sizes",
             "xAxisLabel": "Comet Orbit Sizes (au)",
@@ -70,7 +70,7 @@
             "yAxisLabel": "Number of Comets",
             "domain": [[0, 100], null],
             "bins": 20,
-            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
             "tooltipLabels": ["Comets", "Orbit Size (au)"]
           }
         }

@@ -64,7 +64,7 @@
       "widgets": [
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/MBA_ALL_semimajor_axis.json",
+          "source": "/data/neos/mba_semimajor_axis_hist.json",
           "options": {
             "title": "MBA Orbit Sizes",
             "xAxisLabel": "Orbit Sizes (au)",
@@ -78,7 +78,7 @@
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/MBA_ALL_eccentricity.json",
+          "source": "/data/neos/mba_eccentricity_hist.json",
           "options": {
             "title": "MBA Eccentricities",
             "xAxisLabel": "Eccentricities",
@@ -92,7 +92,7 @@
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/MBA_ALL_inclination.json",
+          "source": "/data/neos/mba_inclination_hist.json",
           "options": {
             "title": "MBA Inclinations",
             "xAxisLabel": "Inclinations (degrees)",

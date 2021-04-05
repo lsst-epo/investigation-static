@@ -17,7 +17,7 @@
   "widgets": [
     {
       "type": "OrbitalProperties",
-      "source": "/data/neos/FINAL_inclination.json",
+      "source": "/data/neos/final_inclination_hist.json",
       "options": {
         "title": "Inclinations",
         "xAxisLabel": "Inclinations (degrees)",
@@ -25,7 +25,7 @@
         "xValueAccessor": "inclination",
         "domain": [[0, 180], []],
         "bins": 18,
-        "tooltipAccessors": ["count", "inclination"],
+        "tooltipAccessors": ["countOfTotal", "inclination"],
         "tooltipLabels": ["Objects", "Inclination (degrees)"]
       }
     }

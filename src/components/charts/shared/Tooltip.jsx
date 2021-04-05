@@ -96,7 +96,8 @@ class Tooltip extends React.PureComponent {
   }
 
   renderRange(accessor, data, unit) {
-    const minMax = extentFromSet(data, accessor);
+    const { graph } = this.props;
+    const minMax = graph === 'histogram' ? data : extentFromSet(data, accessor);
 
     return (
       <>
@@ -117,11 +118,7 @@ class Tooltip extends React.PureComponent {
     if (isCount) {
       content = this.renderValue(accessor, data.length, unit || label);
     } else if (isCountOfTotal) {
-      content = this.renderValue(
-        accessor,
-        [data.length, dataTotal],
-        unit || label
-      );
+      content = this.renderValue(accessor, [data[2], dataTotal], unit || label);
     } else if (data.length > 1) {
       content = this.renderRange(accessor, data, unit);
     } else if (data.length === 1) {
