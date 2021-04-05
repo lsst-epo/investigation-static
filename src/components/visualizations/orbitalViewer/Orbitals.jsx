@@ -47,12 +47,13 @@ function Orbitals({
         objectRadius,
         Ref: ref,
         Principal_desig: pd,
+        name,
       } = planet;
 
       return (
         <Orbital
           type="planet"
-          key={ref + pd}
+          key={`${ref}-${pd || name}`}
           data={planet}
           position={[0, 0, 0]}
           zoomMod={zoomLevel}
@@ -110,10 +111,12 @@ function Orbitals({
         />
       ) : (
         neos.map((neo, badId) => {
-          const { Ref: ref, Principal_desig: pd } = neo;
+          const { Ref: ref, Principal_desig: pd, name } = neo;
           return (
             <Orbital
-              key={ref && pd ? ref + pd : `orbit-${badId}`}
+              key={
+                ref && (pd || name) ? `${ref}-${pd || name}` : `orbit-${badId}`
+              }
               data={neo}
               position={[0, 0, 0]}
               active={neo === activeNeo}

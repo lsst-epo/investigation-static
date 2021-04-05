@@ -17,7 +17,7 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/NEO_orbit_50sample.json",
+      "source": "/data/neos/NEO_orbit_50sample_wname2021.json",
       "options": {
         "defaultZoom": 0.8
       }
