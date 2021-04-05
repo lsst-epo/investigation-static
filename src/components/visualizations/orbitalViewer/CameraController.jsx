@@ -1,50 +1,58 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 // import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { useThree } from 'react-three-fiber';
 
-function CameraController({ pov }) {
+function CameraController({ pov, reset }) {
   const { camera, gl } = useThree();
+  const orbitControls = useRef();
 
-  function setPov(controls) {
+  function setPov() {
     if (pov) {
       const targetPov = {
         side: Math.PI / 1.0075,
         top: Math.PI / 2,
       }[pov];
       // horizontal rotation
-      controls.minAzimuthAngle = 0;
-      controls.maxAzimuthAngle = 0;
+      orbitControls.current.minAzimuthAngle = 0;
+      orbitControls.current.maxAzimuthAngle = 0;
       // vertical rotation
-      controls.minPolarAngle = targetPov;
-      controls.maxPolarAngle = targetPov;
+      orbitControls.current.minPolarAngle = targetPov;
+      orbitControls.current.maxPolarAngle = targetPov;
     }
 
-    return controls;
+    orbitControls.current.update();
   }
 
   useEffect(() => {
-    const controls = new OrbitControls(camera, gl.domElement);
-    controls.minDistance = 70;
-    controls.maxDistance = 10000;
-    controls.screenSpacePanning = true;
+    if (orbitControls.current && reset > 0) {
+      orbitControls.current.reset();
+    }
+  }, [reset]);
+
+  useEffect(() => {
+    orbitControls.current = new OrbitControls(camera, gl.domElement);
+    orbitControls.current.minDistance = 70;
+    orbitControls.current.maxDistance = 10000;
+    orbitControls.current.screenSpacePanning = true;
     // controls.mouseButtons.RIGHT = THREE.MOUSE.PAN;
     // controls.mouseButtons.LEFT = THREE.MOUSE.ROTATE;
     // controls.touches.TWO = THREE.TOUCH.PAN;
     // controls.touches.ONE = THREE.TOUCH.DOLLY_ROTATE;
 
-    setPov(controls, pov).update();
-
+    setPov();
     return () => {
-      controls.dispose();
+      orbitControls.current.dispose();
     };
   }, [camera, gl]);
+
   return null;
 }
 
 CameraController.propTypes = {
   pov: PropTypes.string,
+  reset: PropTypes.number,
 };
 
 export default CameraController;

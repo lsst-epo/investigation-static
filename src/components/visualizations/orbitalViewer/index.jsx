@@ -41,6 +41,7 @@ function OrbitalViewer({
   const [frameOverride, setFrameOverride] = useState(null);
   const [dayPerVizSec, setDayPerVizSec] = useState(paused ? 0 : speeds[2]);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [reset, setReset] = useState(0);
   const handleStartStop = () => {
     setPlaying(!playing);
     setStepDirection(1);
@@ -52,7 +53,7 @@ function OrbitalViewer({
   };
 
   const handleZoomReset = () => {
-    // TODO: Add zoom reset logic
+    setReset(reset + 1);
   };
 
   const handleNext = () => {
@@ -84,7 +85,7 @@ function OrbitalViewer({
           />
         )}
         <Canvas invalidateFrameloop className={orbitalCanvas}>
-          <CameraController pov={pov} />
+          <CameraController pov={pov} reset={reset} />
           <Camera
             left={-15000}
             right={15000}
