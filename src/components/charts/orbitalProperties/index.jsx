@@ -63,7 +63,7 @@ OrbitalProperties.defaultProps = {
 };
 
 OrbitalProperties.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.object,
   valueAccessor: PropTypes.string,
   domain: PropTypes.array,
   dataSelectionCallback: PropTypes.func,

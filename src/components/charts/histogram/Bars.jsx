@@ -5,7 +5,7 @@ import Bar from './Bar.jsx';
 class Bars extends React.PureComponent {
   isMatch(testData, data) {
     return testData
-      ? testData.x0 === data.x0 && testData.x1 === data.x1
+      ? testData[0] === data[0] && testData[1] === data[1]
       : false;
   }
 
@@ -27,17 +27,17 @@ class Bars extends React.PureComponent {
       <g className="data-bars">
         {data.map((d, i) => {
           const key = `bar-${i}`;
-          const barHeight = yScale(0) - yScale(d.length);
+          const barHeight = yScale(0) - yScale(d[2]);
 
           return (
             <Bar
               key={key}
               classes={barClasses}
               colorClass={colorClass}
-              x={xScale(d.x0)}
-              y={yScale(d.length) + offsetTop}
+              x={xScale(d[0])}
+              y={yScale(d[2]) + offsetTop}
               absentY={offsetTop}
-              width={xScale(d.x1) - xScale(d.x0)}
+              width={xScale(d[1]) - xScale(d[0])}
               height={barHeight}
               absentHeight={graphHeight - padding - barHeight - 1}
               selected={this.isMatch(selectedData, d)}

@@ -64,20 +64,20 @@
       "widgets": [
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/TNO_semimajor_axis.json",
+          "source": "/data/neos/tno_semimajor_axis_hist.json",
           "options": {
             "title": "TNO Orbit Sizes",
             "xAxisLabel": "Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of TNOs",
             "domain": [[0, 65], []],
-            "tooltipAccessors": ["count", "semimajor_axis"],
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
             "tooltipLabels": ["TNOs", "Orbit Size (au)"]
           }
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/TNO_eccentricity.json",
+          "source": "/data/neos/tno_eccentricity_hist.json",
           "options": {
             "title": "TNO Eccentricities",
             "xAxisLabel": "Eccentricities",
@@ -85,13 +85,13 @@
             "yAxisLabel": "Number of TNOs",
             "domain": [[0, 1], []],
             "bins": 10,
-            "tooltipAccessors": ["count", "eccentricity"],
+            "tooltipAccessors": ["countOfTotal", "eccentricity"],
             "tooltipLabels": ["TNOs", "Eccentricity"]
           }
         },
         {
           "type": "OrbitalProperties",
-          "source": "/data/neos/TNO_inclination.json",
+          "source": "/data/neos/tno_inclination_hist.json",
           "options": {
             "title": "TNO Inclinations",
             "xAxisLabel": "Inclinations (degrees)",
@@ -99,7 +99,7 @@
             "yAxisLabel": "Number of TNOs",
             "domain": [[0, 180], []],
             "bins": 9,
-            "tooltipAccessors": ["count", "inclination"],
+            "tooltipAccessors": ["countOfTotal", "inclination"],
             "tooltipLabels": ["TNOs", "Inclination (degrees)"]
           }
         }

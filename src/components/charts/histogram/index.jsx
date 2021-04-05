@@ -7,13 +7,7 @@ import {
   event as d3Event,
   clientPoint as d3ClientPoint,
 } from 'd3-selection';
-import {
-  histogram as d3Histogram,
-  thresholdScott as d3ThresholdScott,
-  thresholdSturges as d3ThresholdSturges,
-  // threshholdFreedmanDiaconis as d3ThresholdFreedmanDiaconis,
-  max as d3Max,
-} from 'd3-array';
+import { max as d3Max } from 'd3-array';
 import {
   scalePoint as d3ScalePoint,
   scaleLinear as d3ScaleLinear,
@@ -26,7 +20,6 @@ import ConditionalWrapper from '../../ConditionalWrapper';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Bars from './Bars.jsx';
-// import MeanBar from './MeanBar.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
 import { capitalize } from '../../../lib/utilities';
 
@@ -70,19 +63,10 @@ class Histogram extends React.PureComponent {
       offsetTop,
       height,
       valueAccessor,
-      domain,
       multiple,
-      bins,
     } = this.props;
 
     if (!isEmpty(data)) {
-      const histData = this.histogramData(
-        data,
-        valueAccessor,
-        domain,
-        multiple,
-        bins
-      );
       const groupNames =
         multiple && data.map(set => this.objectTypes[set.group.toLowerCase()]);
       const activePlots = {};
@@ -95,9 +79,9 @@ class Histogram extends React.PureComponent {
 
       this.setState(prevState => ({
         ...prevState,
-        data: histData,
+        data,
         xScale: this.getXScale(
-          histData,
+          data.histogram,
           valueAccessor,
           width,
           padding,
@@ -106,7 +90,13 @@ class Histogram extends React.PureComponent {
         ),
         groupNames,
         activePlots,
-        yScale: this.getYScale(histData, height, padding, offsetTop, multiple),
+        yScale: this.getYScale(
+          data.histogram,
+          height,
+          padding,
+          offsetTop,
+          multiple
+        ),
       }));
     }
   }
@@ -133,70 +123,13 @@ class Histogram extends React.PureComponent {
     }
   }
 
-  histogramData(data, valueAccessor, domain, multiple, bins) {
-    if (valueAccessor === 'luminosity') {
-      return d3Histogram()
-        .value(d => {
-          return Math.log10(d[valueAccessor]); // eslint-disable-line dot-notation
-        })
-        .thresholds(d3ThresholdScott)(data);
-    }
-
-    // if (valueAccessor === 'radius') {
-    //   return d3Histogram()
-    //     .value(d => {
-    //       return d[valueAccessor]; // eslint-disable-line dot-notation
-    //     })
-    //     .thresholds(10)(data);
-    // }
-
-    if (domain && multiple) {
-      return data.map(set => {
-        const { data: dataset } = set;
-
-        return d3Histogram()
-          .value(d => {
-            return d[valueAccessor]; // eslint-disable-line dot-notation
-          })
-          .thresholds(bins || d3ThresholdSturges)
-          .domain(domain)(dataset);
-      });
-    }
-
-    if (domain) {
-      return d3Histogram()
-        .value(d => {
-          return d[valueAccessor]; // eslint-disable-line dot-notation
-        })
-        .thresholds(bins || d3ThresholdSturges)
-        .domain(domain)(data);
-    }
-
-    return d3Histogram().value(d => {
-      return d[valueAccessor]; // eslint-disable-line dot-notation
-    })(data);
-  }
-
-  getLuminosityXScale(data, width, padding, offsetRight) {
-    const last = data[data.length - 1];
-    const domain = data.map(d => {
-      return d.x0;
-    });
-
-    domain.push(last.x1);
-
-    return d3ScalePoint()
-      .domain(domain)
-      .range([padding, width - offsetRight]);
-  }
-
   getPointXScale(data, width, padding, offsetRight) {
     const last = data[data.length - 1];
     const domain = data.map(d => {
-      return d.x0;
+      return d[0];
     });
 
-    domain.push(last.x1);
+    domain.push(last[1]);
 
     return d3ScalePoint()
       .domain(domain)
@@ -205,15 +138,7 @@ class Histogram extends React.PureComponent {
 
   getXScale(data, valueAccessor, width, padding, offsetRight, multiple) {
     if (multiple) {
-      if (valueAccessor === 'luminosity') {
-        return this.getLuminosityXScale(data[0], width, padding, offsetRight);
-      }
-
       return this.getPointXScale(data[0], width, padding, offsetRight);
-    }
-
-    if (valueAccessor === 'luminosity') {
-      return this.getLuminosityXScale(data, width, padding, offsetRight);
     }
 
     return this.getPointXScale(data, width, padding, offsetRight);
@@ -224,7 +149,7 @@ class Histogram extends React.PureComponent {
       .domain([
         0,
         d3Max(data, d => {
-          return d.length;
+          return d[2];
         }) * 1.1,
       ])
       .range([height - padding, offsetTop]);
@@ -333,11 +258,12 @@ class Histogram extends React.PureComponent {
 
   updateBars() {
     const { loading, data, groupNames } = this.state;
+    const { histogram } = data || {};
     const { multiple } = this.props;
     const $histogram = d3Select(this.svgEl.current);
 
     if (!multiple) {
-      $histogram.selectAll('.data-bar-data').data(data);
+      $histogram.selectAll('.data-bar-data').data(histogram);
 
       if (loading) {
         this.setState(prevState => ({
@@ -418,16 +344,6 @@ class Histogram extends React.PureComponent {
     });
   }
 
-  calculateTotalNumberOfObjects(dataset) {
-    let count = 0;
-    if (dataset) {
-      dataset.forEach(d => {
-        count += d.length;
-      });
-    }
-    return count;
-  }
-
   render() {
     const {
       // data: meanData,
@@ -459,7 +375,7 @@ class Histogram extends React.PureComponent {
       activePlots,
     } = this.state;
 
-    const totalObjects = this.calculateTotalNumberOfObjects(data);
+    const { histogram, total_number: totalNumber } = data || {};
 
     const svgClasses = classnames('histogram svg-chart', {
       loading,
@@ -495,7 +411,7 @@ class Histogram extends React.PureComponent {
             key="tooltip"
             graph="histogram"
             data={selectedData || hoveredData}
-            dataTotal={totalObjects}
+            dataTotal={totalNumber || 0}
             posX={tooltipPosX}
             posY={tooltipPosY}
             show={showTooltip}
@@ -541,7 +457,7 @@ class Histogram extends React.PureComponent {
             {xScale && yScale && !multiple && (
               <>
                 <Bars
-                  data={data}
+                  data={histogram}
                   selectedData={selectedData}
                   hoveredData={hoveredData}
                   offsetTop={offsetTop}
@@ -625,7 +541,7 @@ Histogram.defaultProps = {
 };
 
 Histogram.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.object,
   activeId: PropTypes.string,
   activeData: PropTypes.any,
   dataSelectionCallback: PropTypes.func,
@@ -637,12 +553,10 @@ Histogram.propTypes = {
   xAxisLabel: PropTypes.node,
   yAxisLabel: PropTypes.string,
   valueAccessor: PropTypes.string,
-  domain: PropTypes.array,
   tooltipAccessors: PropTypes.array,
   tooltipLabels: PropTypes.array,
   tooltipUnits: PropTypes.array,
   multiple: PropTypes.bool,
-  bins: PropTypes.number,
 };
 
 export default Histogram;
