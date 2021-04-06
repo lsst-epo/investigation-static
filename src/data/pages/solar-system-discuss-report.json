@@ -13,6 +13,13 @@
     "link": "/acknowledgements/"
   },
   "layout": "TwoCol",
+  "images": [
+    {
+      "mediaPath": "/images/thought-bubbles.png",
+      "altText": "Reflect and Discuss",
+      "figText": ""
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
