@@ -6,7 +6,9 @@ import {
   playbackSpeedTitle,
   playbackSpeedSliderHeader,
   playbackSpeedSlider,
+  playbackSpeedSliderLabelTop,
   playbackSpeedSliderLabel,
+  playbackSpeedSliderLabelBottom,
   elapsedTimeContainer,
   elapsedTimeInner,
   elapsedTimeTitle,
@@ -68,6 +70,16 @@ function PlaybackSpeed({
         <div className={playbackSpeedSliderLabel}>
           1 sec = {speedWords[dayPerVizSec]}
         </div>
+      </div>
+      <div className={playbackSpeedSliderLabelTop}>
+        1 second
+        <br />
+        is 1 year
+      </div>
+      <div className={playbackSpeedSliderLabelBottom}>
+        Normal
+        <br />
+        Time
       </div>
       <input
         className={playbackSpeedSlider}
