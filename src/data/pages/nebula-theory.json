@@ -13,6 +13,13 @@
     "link": "/classifying-objects/"
   },
   "layout": "TwoCol",
+  "images": [
+    {
+      "mediaPath": "/images/interactions.png",
+      "altText": "Interactions between objects",
+      "figText": "How orbits of small Solar System objects can change."
+    }
+  ],
   "contents": [
     {
       "layout": {
