@@ -41,6 +41,7 @@ const Orbital = ({
   zoomMod,
   defaultZoom,
   type,
+  noLabels,
 }) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
@@ -218,16 +219,18 @@ const Orbital = ({
           position={point.position}
           onClick={() => selectionCallback(data, 'neo')}
         >
-          <HTML>
-            <div
-              className={label}
-              style={{
-                fontSize: getLabelSize(),
-              }}
-            >
-              {name || pd}
-            </div>
-          </HTML>
+          {(type === 'planet' || !noLabels || active) && (
+            <HTML>
+              <div
+                className={label}
+                style={{
+                  fontSize: getLabelSize(),
+                }}
+              >
+                {name || pd}
+              </div>
+            </HTML>
+          )}
           <sphereBufferGeometry
             attach="geometry"
             args={[type !== 'planet' ? getRadius() : objectRadius, 10, 10]}
@@ -342,6 +345,7 @@ Orbital.propTypes = {
   zoomMod: PropTypes.number,
   defaultZoom: PropTypes.number,
   type: PropTypes.string,
+  noLabels: PropTypes.bool,
 };
 
 export default Orbital;

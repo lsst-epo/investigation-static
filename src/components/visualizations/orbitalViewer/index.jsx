@@ -25,6 +25,7 @@ function OrbitalViewer({
   noDetails,
   detailsSet,
   refObjs,
+  noLabels,
 }) {
   const speeds = [365.25, 30, 11.574, 1.1574, 0.00001157]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
   const speedWords = {
@@ -114,6 +115,7 @@ function OrbitalViewer({
               selectionCallback,
               elapsedTime,
               setElapsedTime,
+              noLabels,
             }}
           />
           <mesh position={[0, 0, 0]}>
@@ -150,6 +152,7 @@ OrbitalViewer.propTypes = {
   potentialOrbits: PropTypes.bool,
   observations: PropTypes.array,
   noDetails: PropTypes.bool,
+  noLabels: PropTypes.bool,
   detailsSet: PropTypes.string,
   refObjs: PropTypes.array,
 };

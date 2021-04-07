@@ -19,7 +19,9 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/FINAL_orbit_50sample_wname2021.json",
       "options": {
-        "defaultZoom": 0.05
+        "defaultZoom": 0.05,
+        "noLabels": true,
+        "qaReview": false
       }
     }
   ]

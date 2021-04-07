@@ -19,7 +19,9 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/test-distant.json",
       "options": {
-        "defaultZoom": 0.25
+        "defaultZoom": 0.25,
+        "noLabels": false,
+        "qaReview": false
       }
     }
   ],
@@ -64,7 +66,8 @@
           { "accessor": "data", "id": "17" },
           { "accessor": "data", "id": "19" }
         ]
-      ]
+      ],
+      "qaReview": false
     },
     {
       "id": "2",
@@ -90,7 +93,8 @@
           { "accessor": "data", "id": "67" },
           { "accessor": "data", "id": "68" }
         ]
-      ]
+      ],
+      "qaReview": false
     }
   ],
   "questionsByPage": [

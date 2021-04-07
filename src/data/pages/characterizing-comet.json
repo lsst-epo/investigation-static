@@ -55,7 +55,8 @@
           { "accessor": "data", "id": "17" },
           { "accessor": "data", "id": "19" }
         ]
-      ]
+      ],
+      "qaReview": false
     }
   ],
   "widgets": [

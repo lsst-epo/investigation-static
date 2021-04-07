@@ -54,7 +54,8 @@
           { "accessor": "data", "id": "17" },
           { "accessor": "data", "id": "19" }
         ]
-      ]
+      ],
+      "qaReview": false
     },
     {
       "id": "2",
@@ -80,7 +81,8 @@
           { "accessor": "data", "id": "62" },
           { "accessor": "data", "id": "63" }
         ]
-      ]
+      ],
+      "qaReview": false
     }
   ],
   "questionsByPage": [

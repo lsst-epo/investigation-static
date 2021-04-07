@@ -21,6 +21,7 @@ function Orbitals({
   refObjs,
   elapsedTime,
   setElapsedTime,
+  noLabels,
 }) {
   function reducer(state) {
     const { remainingInits } = state;
@@ -130,6 +131,7 @@ function Orbitals({
                 frameOverride,
                 selectionCallback,
                 activeVelocityCallback,
+                noLabels,
               }}
               initCallback={dispatch}
             />
@@ -156,6 +158,7 @@ Orbitals.propTypes = {
   refObjs: PropTypes.array,
   elapsedTime: PropTypes.number,
   setElapsedTime: PropTypes.func,
+  noLabels: PropTypes.bool,
 };
 
 export default Orbitals;

@@ -19,7 +19,9 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/TNO_orbit_50sample_wname2021.json",
       "options": {
-        "defaultZoom": 0.03
+        "defaultZoom": 0.03,
+        "noLabels": true,
+        "qaReview": false
       }
     }
   ],
@@ -64,7 +66,8 @@
           { "accessor": "data", "id": "17" },
           { "accessor": "data", "id": "19" }
         ]
-      ]
+      ],
+      "qaReview": false
     }
   ],
   "questionsByPage": [

@@ -195,6 +195,10 @@ class QAReviewContainer extends React.PureComponent {
                       widgets &&
                       widgets.map(widget => {
                         const { options, type } = widget || {};
+                        const { qaReview } = options || {};
+
+                        if (!qaReview) return null;
+
                         return (
                           <div
                             key={`widget-${widget.type}`}

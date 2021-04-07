@@ -18,7 +18,9 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/FINAL_orbit_50sample_wname2021.json",
       "options": {
-        "defaultZoom": 0.05
+        "defaultZoom": 0.05,
+        "noLabels": true,
+        "qaReview": false
       }
     }
   ],
@@ -47,7 +49,8 @@
           { "accessor": "data", "id": "62" },
           { "accessor": "data", "id": "63" }
         ]
-      ]
+      ],
+      "qaReview": false
     }
   ],
   "questionsByPage": [

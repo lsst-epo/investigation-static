@@ -19,7 +19,9 @@
       "type": "OrbitalViewer",
       "source": "/data/neos/test-tno.json",
       "options": {
-        "defaultZoom": 0.06
+        "defaultZoom": 0.06,
+        "noLabels": false,
+        "qaReview": false
       }
     }
   ],
@@ -64,7 +66,8 @@
           { "accessor": "data", "id": "17" },
           { "accessor": "data", "id": "19" }
         ]
-      ]
+      ],
+      "qaReview": false
     },
     {
       "id": "2",
