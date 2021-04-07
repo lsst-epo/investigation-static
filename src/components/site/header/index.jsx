@@ -40,14 +40,6 @@ class Header extends React.PureComponent {
         titleClassName="screen-reader-only"
         className={`${styles.headerPrimary} dont-print`}
       >
-        {pageNumber && (
-          <div className={styles.progressBarWrapper}>
-            <LinearProgress
-              id="current-page-of-total"
-              value={pageNumber ? (pageNumber / totalPages) * 100 : 0}
-            />
-          </div>
-        )}
         <div className={styles.innerContainer}>
           {toggleToc && (
             <Button
@@ -94,6 +86,14 @@ class Header extends React.PureComponent {
             </a>
           </div>
         </div>
+        {pageNumber && (
+          <div className={styles.progressBarWrapper}>
+            <LinearProgress
+              id="current-page-of-total"
+              value={pageNumber ? (pageNumber / totalPages) * 100 : 0}
+            />
+          </div>
+        )}
       </Toolbar>
     );
   }
