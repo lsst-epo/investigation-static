@@ -39,8 +39,13 @@ $offset: 300px;
   position: absolute;
   right: $minPadding / 2;
   z-index: 2;
-  width: 60px;
+  width: 70px;
+  padding: 5px;
   color: $white;
+  text-align: center;
+  background-color: transparentize($basePrimary, 0.2);
+  border: 1px solid $black;
+  border-radius: 10px;
 }
 
 .playback-speed-slider-label-bottom {
