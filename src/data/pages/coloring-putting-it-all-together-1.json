@@ -15,14 +15,14 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>Use the Astronomical Image Coloring Tool to look at different objects and their available filters. Once you have decided what image you want to work with and what question you want to answer using this image, answer the questions below.</p>",
+      "content": "<p>Use the Astronomical Image Coloring Tool to create your image.</p>",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<p>To make an image:</p><ul><li>For each of the filters you wish to use, start by turning on each filter and assigning colors.</li><li>Adjust the sliders to enhance the image. Think about color-balancing the image so it clearly shows the areas or objects you wish to study.</li></ul>",
+      "content": "<p>To make an image:</p><ul><li>For each of the filters you wish to use, start by clicking on each filter and then assigning each filter with the correct chromatically ordered colors.</li><li>Adjust the sliders to color balance the image so it clearly shows the areas or objects you wish to study.</li></ul><p><i>Note: Some of the objects do not have images for 6 different filters. If an image is not available, the filter button will appear as “greyed out”.</i></p>",
       "layout": {
         "col": "left",
         "row": "top"

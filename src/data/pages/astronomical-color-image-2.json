@@ -6,7 +6,7 @@
   "slug": "astronomical-color-images-2/",
   "previous": {
     "title": "Constructing an Astronomical Image",
-    "link": "/astronomical-color-images-1/"
+    "link": "/astronomical-color-images/"
   },
   "next": {
     "title": "What Should My Image Look Like?",
@@ -15,10 +15,10 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>As you just saw, if the slider for a filter is moved too far to the left or the right, that color in the image may appear too strong or too weak. However, color balancing does not mean setting the same intensity for each filter. For instance, if you want to show the blue stars in a galaxy, you may want to increase the intensity of blue in the image. In summary, To color balance an image, adjust the sliders so that the image communicates the information you want it to and looks pleasing to you.</p><p>Now it’s your turn to color balance galaxy M33. Adjust all the sliders until you are satisfied with the appearance of your image.</p>",
+      "content": "<p>In addition to chromatically ordering an image, the image should be color balanced.  Color balancing means adjusting the color intensity sliders for each filter until you have an image that effectively conveys astronomical information and is aesthetically pleasing. It is important to note that there are many different ways to correctly color balance an image.</p><p>Color balancing does not mean setting the same intensity for each filter. For instance, if you want to show the blue stars in a galaxy, you may want to increase the intensity of the filter that passes blue light in the image, and assign that filter the color  blue. You may also wish to use a filter that does not transmit any blue light to emphasize areas where there are no blue stars, and assign this filter a color other than blue.</p><p>There are a few general guidelines to follow with color balancing:</p><ul><li>If all objects in your image appear the same color, then the intensity slider associated with this filter and color should be decreased. You may also need to increase the intensity of other colors.</li><li>For astronomical images, the background should be dark, but not necessarily totally black.</li></ul>",
       "layout": {
         "col": "left",
-        "row": "bottom"
+        "row": "top"
       }
     }
   ],
@@ -44,29 +44,7 @@
           "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "<p>Now let's try something different.</p><ul><li>Move the slider next to the g filter back to its original location (40%).</li><li>Now move the slider next to the r filter all the way to the left and answer the two questions below.</li></ul>"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "25a",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What happens to the appearance of the image?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "26a",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Explain why the appearance of the image changed in the way it did."
+          "label": "<p>Now it’s your turn to color balance galaxy M33. Adjust the sliders until you are satisfied that you have color balanced this image.</p>"
         }
       ]
     }

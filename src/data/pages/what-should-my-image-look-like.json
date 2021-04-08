@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>On this page you see three different images of M33 made using different filters, chromatic ordering sequences, and color balances. Compare them with your final image of M33.</p>",
+      "content": "<p>On this page you see three different images of M33 made using different filters, chromatic ordering sequences, and color balances. Note how these images look compared to your image of M33.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -42,11 +42,53 @@
     {
       "mediaPath": "/images/figure-11-M33.png",
       "altText": "Three different filtered images of M33.",
-      "figText": "<p>Three different images of M33 have been made using different combinations of filters and color balancing.</p><p>From left to right:<br /><a href='http://www.galex.caltech.edu/media/glx2009-01f_img03.html' target='_blank'>Combined infrared and ultraviolet image of M33. Credit: Spitzer/GALEX data</a>, NASA/JPL-Caltech</p><p><a href='https://commons.wikimedia.org/wiki/File:Messier_33_(Image_Of_Team)_(18235295964).jpg' target='_blank'>Collective image of M33 obtained with the contributions of: Paolo Demaria</a>, Giuseppe Donatiello (composition and processing), Marco Favuzzi, Terenzio Fusco, Rolando Ligustri, Alessandro Elio Milani, Zlatko Orbanic, Andrea Pistocchini, and Tim Stone. Creative Commons CCO 1.0.</p><p><a href='https://commons.wikimedia.org/wiki/File:Messier_33.jpg' target='_blank'>Image of M33 by Francesco Antonucci</a>, Creative Commons 4.0 international.</p>",
+      "figText": "<p>Three different images of M33 have been made using different combinations of filters and color balancing.</p><p>Left image:<br /><a href='http://www.galex.caltech.edu/media/glx2009-01f_img03.html' target='_blank'>Combined infrared and ultraviolet image of M33. Credit: Spitzer/GALEX data</a>, NASA/JPL-Caltech</p><p>Center image:<br /><a href='https://commons.wikimedia.org/wiki/File:Messier_33_(Image_Of_Team)_(18235295964).jpg' target='_blank'>Collective image of M33 obtained with the contributions of: Paolo Demaria</a>, Giuseppe Donatiello (composition and processing), Marco Favuzzi, Terenzio Fusco, Rolando Ligustri, Alessandro Elio Milani, Zlatko Orbanic, Andrea Pistocchini, and Tim Stone. Creative Commons CCO 1.0.</p><p>Right image:<br /><a href='https://commons.wikimedia.org/wiki/File:Messier_33.jpg' target='_blank'>Image of M33 by Francesco Antonucci</a>, Creative Commons 4.0 international.</p>",
       "layout": {
         "col": "left",
         "row": "middle"
       }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "285",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["285", "286", "287"],
+          "labelPre": "<span>The sentence below comes from the NASA/JPL-Caltech information page, on the far left image. The sentence identifies three different objects that are listed in order based on the wavelength of the light they emit from shortest to longest. Since this is a chromatically ordered image, choose the correct color to fill in the blanks in the sentence below:</span><br /><br /><span>Far-ultraviolet light from young stars glimmers</span>",
+          "labelPost": ",",
+          "srLabel": "...",
+          "answerAccessor": "text",
+          "placeholder": " ",
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "286",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["285", "286", "287"],
+          "labelPre": "near-ultraviolet light from intermediate age stars glows",
+          "labelPost": ",",
+          "srLabel": "...",
+          "answerAccessor": "text",
+          "placeholder": " ",
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "287",
+          "questionType": "compoundInput",
+          "compoundQuestion": ["285", "286", "287"],
+          "labelPre": "and dust rich in organic molecules burns",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "text",
+          "placeholder": " ",
+          "answerPre": "...",
+          "answerPost": "..."
+        }
+      ]
     }
   ]
 }

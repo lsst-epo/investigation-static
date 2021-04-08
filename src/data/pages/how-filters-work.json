@@ -1,19 +1,19 @@
 {
-  "id": "coloring03",
+  "id": "coloring02",
   "investigation": "coloring-universe",
-  "order": "030",
+  "order": "020",
   "title": "How Filters Work",
   "slug": "how-filters-work/",
   "previous": {
+    "title": "Types Of Light",
+    "link": "/types-of-light/"
+  },
+  "next": {
     "title": "How Digital Cameras Construct A Color Image",
     "link": "/construct-a-color-image/"
   },
-  "next": {
-    "title": "Constructing an Image with Three Filters",
-    "link": "/constructing-with-three-filters/"
-  },
   "layout": "TwoCol",
-  "content": "",
+  "content": "Filters allow only certain wavelengths of light to pass through them, while blocking other wavelengths.",
   "widgets": [
     {
       "type": "PrismWidget",
@@ -35,17 +35,6 @@
           "answerAccessor": "data",
           "title": "Question #1",
           "label": "<p>To better understand how filters work, try out the filter tool.</p><p>Select a filter from the dropdown menu and observe the effect that filter has on the light coming out of the prism.</p>"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "1",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What happens to the white light when it passes through the prism?"
         }
       ]
     },

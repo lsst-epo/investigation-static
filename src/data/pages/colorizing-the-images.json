@@ -6,7 +6,7 @@
   "slug": "colorizing-the-images/",
   "previous": {
     "title": "Constructing an Image with Three Filters",
-    "link": "/constructing-with-three-filters-1/"
+    "link": "/constructing-with-three-filters/"
   },
   "next": {
     "title": "Eyes vs. Telescopes - Different Ways of Seeing",
@@ -56,7 +56,7 @@
           "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "<p>Try to recreate this image using the color filter tool:</p><ul><li>Turn on filters one by one by clicking the RGB buttons.</li><li>Since the filtered images are in black and white, you need to colorize them before combining them. Do this by selecting a color to the left of the sliders.</li><li>Now adjust the sliders to change the color intensity of the image. When the sliders are correctly placed, the image will be properly color balanced. If the colors in the image are not balanced, objects in the image (e.g., the shirts) will appear the wrong color.</li></ul>"
+          "label": "<p>Try to recreate this image using the color filter tool:</p><ul><li>Turn on each filter by clicking the R, G, or B button.</li><li>Since the filtered images are in greyscale, they must be colorized. Do this by selecting a filter (color) in the center column.</li><li>Now adjust the color intensity sliders to create an image that looks similar to the full color image above.</li></ul>"
         }
       ]
     }

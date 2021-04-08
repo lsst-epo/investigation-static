@@ -5,7 +5,7 @@
   "title": "Detecting Far Away Galaxies",
   "slug": "detecting-far-away-galaxies/",
   "previous": {
-    "title": "Uses of Astronomical Filters",
+    "title": "Seeing Through Dusty Nebulae",
     "link": "/uses-of-astronomical-filters-1/"
   },
   "next": {
@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Some galaxies are very distant—so distant that their light, because of <a href='http://astronomy.swin.edu.au/cosmos/C/Cosmological+Redshift' target='_blank'>cosmological redshift</a>, is detectable only at infrared wavelengths.</p><p>To quickly spot the most distant galaxies, a color composite image can be made using at least one infrared filter. The image obtained from the filter that transmits the light with the shortest wavelengths is colorized blue, and the image from the filter that transmits the light with the longest (infrared) wavelengths is colorized red. The color image at the right was made by combining all three filtered images and shows the most distant galaxies in a very red-orange color, because they are brightest at very long wavelengths.</p>",
+      "content": "<p>Some galaxies are distant—that their light has been shifted to longer wavelengths (redshifted) due to the expansion of the Universe. In some cases this shifting to longer wavelengths can make the galaxies detectable only at infrared wavelengths.</p><p>To detect the infrared light from a distant galaxy, you need to be sure to use both a filter that passes infrared light from the galaxy and a filter that does not pass this infrared light. Next, compare the images created from these two filters and look for objects that appear only in the infrared. If you are trying to observe the most distant galaxies, whose light has been shifted to the longest wavelengths, you want to use a filter that passes infrared light at the longest wavelengths (like the y filter).</p><p>In the full color image at the right, the long wavelength infrared light from distant galaxies (detected with z-filter) was colorized red, making it possible to quickly spot the distant galaxy as a red-orange color.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -63,7 +63,7 @@
           "answerAccessor": "coloringGalaxy",
           "answerPre": "<span>Found: </span>",
           "title": "Question #1",
-          "label": "Identify a distant galaxy in the three black and white images. Then look for the same galaxy in the color image. When you find it, click on it."
+          "label": "Look for the distant galaxy in the three black and white images. Then click on this galaxy in the color image."
         }
       ]
     }

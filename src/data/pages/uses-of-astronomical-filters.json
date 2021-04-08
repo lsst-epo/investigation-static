@@ -9,20 +9,20 @@
     "link": "/rubin-lsst-camera-filters/"
   },
   "next": {
-    "title": "Uses of Astronomical Filters",
+    "title": "Seeing Through Dusty Nebulae",
     "link": "/uses-of-astronomical-filters-1/"
   },
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Just by looking up at the night sky, you can probably tell that stars are not all the same color. Some stars and galaxies emit a lot of blue light, while others emit a lot of red light. Likewise, there are objects in space that emit large amounts of infrared or ultraviolet light. </p>",
+      "content": "<p>Just by looking up at the night sky, you can probably tell that stars are not all the same color. Some stars emit a lot of blue light, while others emit a lot of red light. Likewise, there are objects in space that emit large amounts of infrared or ultraviolet light. </p>",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<p>Astronomers can use these different wavelengths of light to learn about cosmic objects. In the next section of the investigation, you will learn a few ways that light is used to explore the Universe:</p><ul><li>How infrared light is used to see into dusty nebulae and find dim red stars</li><li>How infrared light is used to locate very distant galaxies</li><li>How red light is used to locate the star-forming regions in a galaxy</li><li>How blue light is used to locate hot, young stars</li></ul>",
+      "content": "<p>In the next section of the investigation, you will learn a few ways that light is used to explore:</p><ul><li>How infrared light is used to see into dusty nebulae and find dim red stars</li><li>How infrared light is used to locate very distant galaxies</li><li>How red light is used to locate the star-forming regions in galaxies</li></ul>",
       "layout": {
         "col": "left",
         "row": "top"
