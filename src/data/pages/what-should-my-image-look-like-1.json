@@ -44,7 +44,7 @@
           "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "Now use the Astronomical Image Color Filter Tool to create a color balanced image of spiral galaxy M63. You’ll know you’re done when your image is created using filters that are chromatically ordered, has a good color balance, and a dark background. (The background does not have to be totally black.)"
+          "label": "Now use the Astronomical Image Color Filter Tool to create an image of spiral galaxy M63 that is both chromatically ordered and color balanced."
         }
       ]
     }

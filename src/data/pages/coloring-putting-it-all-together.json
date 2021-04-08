@@ -15,21 +15,14 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Now it’s your turn to answer a scientific question by creating your own color image of the cosmos and exploring what it reveals. In this investigation you have learned how to:</p><ul><li><a href='/uses-of-astronomical-filters-1/' target='_blank'>Look through a dusty nebula to see what’s inside</a></li><li><a href='/detecting-far-away-galaxies/' target='_blank'>Search for a faraway galaxy</a></li><li><a href='/visible-light-filters/' target='_blank'>Locate the hot young stars in a galaxy</a></li><li><a href='/visible-light-filters/' target='_blank'>Identify star-forming regions in a galaxy</a></li></ul></li></ul>",
+      "content": "<p>In this investigation you have learned how to:</p><ul><li><a href='/constructing-with-three-filters/' target='_blank'>Construct a chromatically ordered and color balanced image of a galaxy or nebula that shows where the longest and shortest wavelengths of light are coming from.</a></li><li><a href='/uses-of-astronomical-filters-1/' target='_blank'>Look through a dusty nebula by using infrared filters</a></li><li><a href='/detecting-far-away-galaxies/' target='_blank'>Find a faraway galaxy by using infrared filters</a></li><li><a href='/visible-light-filters/' target='_blank'>Locate the areas of hot young stars and star-forming regions from the blue and red light they emit in a galaxy</a></li></ul></li></ul>",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<p>Think about these points before you begin:</p><ul><li>What question do you want to answer? (You can design your own question here or explore an option listed above.)</li><li>What types of objects would you look at to investigate your question?</li><li>What filters will be most appropriate for conducting your investigation? Why? (You don’t have to use all the filters.)</li><li>What colors do you want to use for your chromatic ordering sequence and which color will you assign to each filter?</li></ul>",
-      "layout": {
-        "col": "left",
-        "row": "top"
-      }
-    },
-    {
-      "content": "<p>Record some of your ideas and then go to the next page to explore the available images and filters.</p>",
+      "content": "<p>Now it’s your turn to answer a scientific question by creating your own color image of the cosmos and exploring what it reveals. Answer the following questions to help decide on the astronomical object, filters, and chromatic ordering for your image.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -54,6 +47,55 @@
         "col": "left",
         "row": "middle"
       }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "290",
+          "questionType": "select",
+          "answerAccessor": "data",
+          "label": "What types of objects would you like to investigate?",
+          "options": [
+            { "label": "Spiral Galaxies", "value": "Spiral Galaxies" },
+            { "label": "Dusty Nebulae", "value": "Dusty Nebulae" },
+            { "label": "Far away galaxies", "value": "Far away galaxies" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "Selected: "
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "291",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "label": "<p>What question do you want to answer about your object? (choose a question from the list below or develop your own question):</p><ul><li>Which is the most distant galaxy in the image?</li><li>Where are young stars located in a spiral galaxy?</li><li>Where are star forming regions located in a spiral galaxy?</li><li>Which stars are hidden by the dust in a nebula?</li></ul>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "292",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "label": "<p>What filters are most appropriate for conducting your investigation? Why? (You don’t have to use all the filters.)</p>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "293",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "label": "<p>What chromatic ordering sequence will you use?  List the filters you will use and the color you will assign to each filter:</p>"
+        }
+      ]
     }
   ]
 }

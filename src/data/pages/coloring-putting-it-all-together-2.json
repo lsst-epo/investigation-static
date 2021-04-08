@@ -35,40 +35,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What did you do to create a color balanced image?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "70",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What procedure did you follow to analyze the image? "
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "80",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What did you learn through this process? (What was the answer to the question you posed?)"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "90",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What improvements would you make in a future investigation (e.g., different filters, different balance, etc.) to make the image more effective in communicating your results?"
+          "label": "Provide a detailed, step-by-step description of the process to go from a set of images taken with multiple filters, to a chromatically ordered and color balanced image that communicates a specific astronomical idea or object:"
         }
       ]
     }

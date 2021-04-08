@@ -16,7 +16,7 @@
     {
       "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
       "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "figText": "",
       "layout": {
         "col": "left",
         "row": "middle"
@@ -26,7 +26,7 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>The Rubin Observatory LSST Camera contains six filters, identified by the letters u, g, r, i, z and y. Four of these filters (u, g, r, and i) transmit some visible light our eyes can see. The u filter also transmits ultraviolet light. The z and y filters transmit only infrared light. As you can see, these filters transmit light over a broader range of wavelengths and are not limited to just one color of light. You can remember these filters in their correct order from short wavelengths to long wavelengths by using the mnemonic “U-Grizy”.</p>",
+      "content": "<p>The Rubin Observatory LSST Camera contains six filters, identified by the letters u, g, r, i, z and y. The letters for each filter do not correspond to a single color. For instance, r does not mean red.  Four of these filters (u, g, r, and i) transmit some visible light our eyes can see. The u filter also transmits ultraviolet light, while the i filter also transmits some infrared light. The z and y filters transmit only infrared light.  Since all of these filters transmit light over a broad range of wavelengths, we describe them as <a href=\"http://rubineducation.org/glossary/broadband-filter\" target=\"_blank\">broadband filters</a>.</p><p>You can remember these filters in their correct order from short wavelengths to long wavelengths by using the mnemonic “U-Grizy”. The graphic below compares the ranges of visible light at the top, with the ranges of the Rubin Observatory LSST Camera filters at the bottom.  (The unit nm is the abbreviation for nanometers. One nanometer is 10<sup>-9</sup> meters.)</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -68,8 +68,8 @@
             { "label": "ultraviolet", "value": "violet" }
           ],
           "title": "Question #1",
-          "labelPre": "and what form of light is it?",
-          "labelPost": "",
+          "labelPre": "which are",
+          "labelPost": "light.",
           "srLabel": "...",
           "answerPre": "...",
           "answerPost": "...",
@@ -111,8 +111,8 @@
             { "label": "ultraviolet", "value": "violet" }
           ],
           "title": "Question #1",
-          "labelPre": "and what form of light is it?",
-          "labelPost": "",
+          "labelPre": "which are",
+          "labelPost": "light.",
           "srLabel": "...",
           "answerPre": "...",
           "answerPost": "...",
@@ -123,7 +123,29 @@
     {
       "question": [
         {
-          "id": "9",
+          "id": "9.0",
+          "questionType": "multiSelect",
+          "title": "Question #1",
+          "labelPre": "Which of these are broadband filters?",
+          "labelPost": "",
+          "options": [
+            { "label": "u", "value": "u" },
+            { "label": "g", "value": "g" },
+            { "label": "r", "value": "r" },
+            { "label": "i", "value": "i" },
+            { "label": "z", "value": "z" },
+            { "label": "y", "value": "y" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "multi-select"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "9.1",
           "questionType": "multiSelect",
           "title": "Question #1",
           "labelPre": "What two filters transmit green light?",
@@ -171,7 +193,51 @@
           "title": "Question #1",
           "questionType": "multiSelect",
           "answerAccessor": "multi-select",
-          "labelPre": "What two filters transmit both visible and invisible light?",
+          "labelPre": "If you wanted to detect a hot star that is giving off short wavelength visible light as well as ultraviolet light, which filter would be best to choose?",
+          "labelPost": "",
+          "options": [
+            { "label": "u", "value": "u" },
+            { "label": "g", "value": "g" },
+            { "label": "r", "value": "r" },
+            { "label": "i", "value": "i" },
+            { "label": "z", "value": "z" },
+            { "label": "y", "value": "y" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "11.1",
+          "title": "Question #1",
+          "questionType": "multiSelect",
+          "answerAccessor": "multi-select",
+          "labelPre": "If you wanted to detect a gas and dust cloud that is giving off long wavelength visible light as well as infrared light, which filter would be best to choose?",
+          "labelPost": "",
+          "options": [
+            { "label": "u", "value": "u" },
+            { "label": "g", "value": "g" },
+            { "label": "r", "value": "r" },
+            { "label": "i", "value": "i" },
+            { "label": "z", "value": "z" },
+            { "label": "y", "value": "y" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "11.2",
+          "title": "Question #1",
+          "questionType": "multiSelect",
+          "answerAccessor": "multi-select",
+          "labelPre": "If you wanted to detect a galaxy whose light has been stretched to the longest wavelengths that Rubin Observatory can observe, which filter would you use?",
           "labelPost": "",
           "options": [
             { "label": "u", "value": "u" },

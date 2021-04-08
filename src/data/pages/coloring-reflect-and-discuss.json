@@ -44,8 +44,8 @@
           "label": "You are wearing a pair of sunglasses and notice that the lenses of your glasses make the color of the sun look yellow. What is the most likely explanation for this color change?",
           "options": [
             {
-              "label": "The lens of your sunglasses changes the white light of the sun into yellow light.",
-              "value": "The lens of your sunglasses changes the white light of the sun into yellow light."
+              "label": "The lens of your sunglasses cause the white light of the sun to become yellow light.",
+              "value": "The lens of your sunglasses cause the white light of the sun to become yellow light"
             },
             {
               "label": "The lens of your sunglasses reflects yellow light but transmits other colors.",
@@ -66,21 +66,9 @@
         {
           "id": "28",
           "title": "Question #1",
-          "questionType": "multiSelect",
-          "answerAccessor": "multi-select",
-          "label": "An object is imaged using the z, g, and u filters. What colors would you assign to each of these filters to produce a representative color image?",
-          "labelPre": "",
-          "labelPost": "",
-          "options": [
-            { "label": "violet", "value": "violet" },
-            { "label": "blue", "value": "blue" },
-            { "label": "green", "value": "green" },
-            { "label": "yellow", "value": "yellow" },
-            { "label": "orange", "value": "orange" },
-            { "label": "red", "value": "red" }
-          ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>"
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "label": "An object is imaged using the z, g, and u filters. What colors would you assign to each of these filters to chromatically order them? In your answer, provide the filter letter and its corresponding color."
         }
       ]
     },
@@ -102,7 +90,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "A new type of object has been discovered in space. Its surface appears to emit more green light than any other color. You have a chance to use Rubin Observatory images to study this object. Which three filters would you select to construct a representative color image of the object, what colors would you assign to them, and what color would the asteroid be in your image? Explain your reasoning."
+          "label": "A new type of object has been discovered in space. Its surface is brightest at green wavelengths of light. You have a chance to use Rubin Observatory images to study this object. Which three filters would you select to construct a full color image of the object, what colors would you assign to them, and what color would the object be in your image? Explain your reasoning."
         }
       ]
     }

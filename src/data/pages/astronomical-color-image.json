@@ -9,11 +9,11 @@
     "link": "/color-in-astronomical-images/"
   },
   "next": {
-    "title": "Constructing an Astronomical Image",
-    "link": "/astronomical-color-images-1/"
+    "title": "Color Balancing an Image",
+    "link": "/astronomical-color-images-2/"
   },
   "layout": "SingleCol",
-  "content": "<p>To practice this technique, let’s use images taken with the six Rubin Observatory filters to create a color image with the Astronomical Image Color Filter Tool. It works in a similar way to the Color Filter Tool. We will use it to explore an image of M33, a spiral galaxy.</p><ul><li>Turn on the u filter. You should see a greyscale image of M33.</li><li>Now click on the left side of the slider and select the color violet. You should now see the image turn violet. Do not adjust the slider.</li><li>Repeat for the remaining filters, assigning the colors in chromatic order.</li></ul><p><em>Note: If you have difficulty distinguishing between certain colors, you can substitute alternate colors; cyan and magenta are available for this purpose.</em></p>",
+  "content": "",
   "widgets": [
     {
       "type": "AstroTool",
@@ -36,7 +36,7 @@
           "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "<p>You now see a full color image of M33, made by combining the light from these six filters. For this image the sliders are automatically positioned so that the colors are properly balanced such that you don’t see too much of one color.</p>"
+          "label": "<p>Now you will practice constructing an image using chromatic ordering with images of M33, a spiral galaxy, taken through the six Rubin Observatory filters. Follow the steps in the bullet list below.</p><ul><li>Click on the u filter. You should now see a greyscale image of M33.</li><li>Now click to the left side of the Color Intensity slider and select the color violet. You should now see the image turn violet. <i>Do not adjust the slider</i>.</li><li>Repeat for the remaining filters, assigning the colors in chromatic order. <i>Do not adjust any of the sliders.</i></li></ul><p><i>Note: If you have difficulty distinguishing between certain colors, you can substitute alternate colors; cyan and magenta are available for this purpose.</i></p><p>You now see a full color image of M33, made by combining the light from these six filters.</p>"
         }
       ]
     }
