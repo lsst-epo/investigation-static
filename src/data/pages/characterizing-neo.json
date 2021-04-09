@@ -13,7 +13,7 @@
     "link": "/characterizing-mba/"
   },
   "layout": "TwoCol",
-  "content": "<p>To better understand the differences between the four groups, you will analyze orbital data for each group. The first group you will examine are the near-Earth objects (NEOs). NEOs are objects with orbits that intersect or get very close to the orbit of Earth.</p><p>Click on each icon found to the left of the histogram to examine different the orbital properties of NEOs. If you place your mouse above each bar on the histogram, the exact number of objects for the bar will appear. Some of the bars are so small that you might not notice them without looking carefully!</p><p>Decide which of the statements provided below best describes the orbital properties of NEOs.</p><p>NEOs are asteroids or comets whose orbit intersects or gets very close to the orbit of Earth.</p>",
+  "content": "<p>To better understand the differences between the four groups, you will analyze orbital data for each group. The first group you will examine are the near-Earth objects (NEOs). NEOs are objects with orbits that intersect or get very close to the orbit of Earth.</p><p>Click on each icon found to the left of the histogram to examine the different orbital properties of NEOs. If you place your mouse above each bar on the histogram, the exact number of objects for the bar will appear. Some of the bars are so small that you might not notice them without looking carefully!</p><p>Decide which of the statements provided below best describes the orbital properties of NEOs.</p><p>NEOs are asteroids or comets whose orbit intersects or gets very close to the orbit of Earth.</p>",
   "tables": [
     {
       "id": "1",

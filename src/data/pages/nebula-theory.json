@@ -17,7 +17,7 @@
     {
       "mediaPath": "/images/interactions.png",
       "altText": "Interactions between objects",
-      "figText": "How orbits of small Solar System objects can change."
+      "figText": "How orbits of small Solar System objects can change. Credit: Rubin Observatory"
     }
   ],
   "contents": [
@@ -43,7 +43,7 @@
           "id": "34",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Imagine a close encounter in space between two objects, one with a large mass, and one with a small mass. As the objects approach each other, the gravitational forces they exert on each other must be equal according to Newton’s Third Law. Which object would experience a greater acceleration (change in its direction and speed)? Hint: think about Newton’s Second Law (force = mass X acceleration). Select The more massive object would have its direction and speed affected moreThe less massive object would have its direction and speed affected moreBoth objects would experience the same change in direction and speed",
+          "label": "Imagine a close encounter in space between two objects, one with a large mass, and one with a small mass. As the objects approach each other, the gravitational forces they exert on each other must be equal according to Newton’s Third Law. Which object would experience a greater acceleration (change in its direction and speed)? Hint: think about Newton’s Second Law (force = mass X acceleration).",
           "options": [
             {
               "label": "The more massive object would have its direction and speed affected more",
