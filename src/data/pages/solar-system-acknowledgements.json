@@ -13,5 +13,5 @@
     "link": null
   },
   "layout": "TwoCol",
-  "content": "<p>Acknowledgments go here...</p>"
+  "content": "<p>This investigation was created by the Education and Public Outreach program of the Vera C. Rubin Observatory Construction project. In an effort to create and test this investigation prior to the start of Operations, we rely on the data of our scientific colleagues. In particular, this investigation has made use of data and/or services provided by the International Astronomical Union’s Minor Planet Center.</p><p>The team would also like to thank Siegfried Eggl, Henry Hsieh, and Mike Kelley for useful scientific discussions in the development of this investigation.</p><h2>Funding Support</h2><p>Vera C. Rubin Observatory is a Federal project jointly funded by the National Science Foundation (NSF) and the Department of Energy (DOE) Office of Science, with early construction funding received from private donations through the LSST Corporation. The NSF-funded LSST (now Rubin Observatory) Project Office for construction was established as an operating center under the management of the Association of Universities for Research in Astronomy (AURA). The DOE-funded effort to build the Rubin Observatory LSST Camera (LSSTCam) is managed by SLAC National Accelerator Laboratory (SLAC).</p>"
 }
