@@ -6,8 +6,8 @@
   display: block;
 }
 
-.progress-bar-wrapper {
-  :global {
+:global {
+  .progress-bar-wrapper {
     .md-progress {
       position: absolute;
       bottom: 0;
@@ -24,19 +24,19 @@
       }
     }
   }
-}
 
-.inner-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0 auto;
-}
+  .inner-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+  }
 
-.header-inner {
-  display: flex;
-  justify-content: space-between;
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .logo-wrapper {

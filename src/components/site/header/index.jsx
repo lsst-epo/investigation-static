@@ -41,14 +41,14 @@ class Header extends React.PureComponent {
         className={`${styles.headerPrimary} dont-print`}
       >
         {pageNumber && (
-          <div className={styles.progressBarWrapper}>
+          <div className="progress-bar-wrapper">
             <LinearProgress
               id="current-page-of-total"
               value={pageNumber ? (pageNumber / totalPages) * 100 : 0}
             />
           </div>
         )}
-        <div className={styles.innerContainer}>
+        <div className="inner-container">
           {toggleToc && (
             <Button
               className={`${styles.tocToggle} md-btn--toolbar md-toolbar--action-left`}
@@ -75,7 +75,7 @@ class Header extends React.PureComponent {
               totalPages &&
               `: Page ${pageNumber} of ${totalPages}`}
           </span>
-          <div className={styles.headerInner}>
+          <div className="header-inner">
             <a
               href="http://rubineducation.org/"
               className={logo && styles.logoWrapper}
