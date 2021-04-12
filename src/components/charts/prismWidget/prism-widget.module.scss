@@ -1,258 +1,61 @@
 .content-wrapper {
-  position: relative;
-  margin: auto;
-  overflow: hidden;
-  text-align: center;
+  font-size: 42px;
+  background-color: #000000;
 }
 
-.visibleRay {
-  z-index: 3;
+.prism-outline {
+  fill: none;
+  stroke: #ffffff;
+  stroke-miterlimit: 10;
+  stroke-width: 12;
 }
 
-.hiddenRay {
-  z-index: 0;
+.white-line {
+  fill: none;
+  stroke: #ffffff;
+  stroke-miterlimit: 10;
+  stroke-width: 7;
 }
 
-.stripe {
-  top: -58px;
-  top: '-36px';
-  right: 84px;
-  z-index: 1;
-  z-index: 1;
-  width: 7px;
-  visibility: 'visible';
-  opacity: 1;
-  transition: 'all 1.2s ease 0s';
+.filter {
+  fill: none;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-width: 27.27;
 }
 
-.prism-shape {
-  position: relative;
-  left: -100px;
-  width: 150px;
-  height: 150px;
-  margin: 32px auto 80px;
-  border-bottom: 3px solid $protonWhite;
+@mixin prismClasses {
+  $noArrow: '#no-arrow';
 
-  &::before,
-  &::after {
-    position: absolute;
-    bottom: 0;
-    z-index: 3;
-    width: 150px;
-    height: 3px;
-    content: '';
-    background: $protonWhite;
-  }
+  @each $color, $hex in $prismHexColors {
+    .ray-#{$color} {
+      fill: $hex;
 
-  &::before {
-    right: -72px;
-    transform: rotate(60deg) translateX(-47%);
-  }
+      &.no-arrow {
+        fill: url(#{$noArrow}-#{$color});
+      }
+    }
 
-  &::after {
-    left: -72px;
-    transform: rotate(-60deg) translateX(47%);
-  }
+    .arrow-#{$color} {
+      fill: $hex;
+    }
 
-  .white-streak {
-    position: absolute;
-    width: 300px;
-    height: 2px;
-    background: $protonWhite;
-    border-radius: 10px 0 0 10px;
-    transform: rotate(-13deg) translateY(calc(100% + 110px));
+    .ray-#{$color}.no-arrow + .arrow-#{$color} {
+      opacity: 0;
+    }
   }
 }
 
-.streak {
-  top: 15px;
-  left: -286px;
-}
-
-.prism-small-clip-wrapper {
-  position: absolute;
-  top: 9px;
-  left: 12px;
-  z-index: -1;
-  display: flex;
-  width: 221px;
-  height: 96px;
-  overflow: hidden;
-  transform: rotate(9deg);
-}
-
-.prism-small-wrapper {
-  position: relative;
-  width: 161px;
-  height: 30px;
-  margin: 68px auto auto -27px;
-  transform: rotate(-24deg);
-  perspective: 9px;
-}
-
-.prism-small-items {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  transform: rotateY(-14.5deg);
-
-  .prism-small-colors {
-    flex-grow: 1;
-  }
-}
-
-.prism-shape {
-  .prism-wrapper {
-    position: relative;
-    width: 400px;
-    height: 100px;
-    margin: 80px auto auto -120px;
-    transform: rotate(36deg);
-    perspective: 150px;
-  }
-
-  .prism-clip-wrapper {
-    position: absolute;
-    top: -201px;
-    left: 155px;
-    z-index: 1;
-    display: flex;
-    width: 700px;
-    height: 520px;
-    overflow: hidden;
-    transform: rotate(-31deg);
-  }
-
-  .white-light-label,
-  .prism-label,
-  .filter-label {
-    position: absolute;
-    color: $protonWhite;
-  }
-
-  .white-light-label {
-    top: 60px;
-    left: -100px;
-    float: left;
-    transform: rotate(-13deg);
-  }
-
-  .prism-label {
-    top: 156px;
-    left: 53px;
-  }
-
-  .filter-label {
-    top: 0;
-    left: 280px;
-    z-index: 20;
-  }
-
-  .hide-label {
-    display: none;
-  }
-}
-
-.prism-radio {
-  margin-top: 30px;
-  margin-left: 30px;
-}
-
-@-webkit-keyframes glow {
-  to {
-    flex-grow: 1;
-    width: 100%;
-  }
-}
-
-@keyframes glow {
-  to {
-    flex-grow: 1;
-    width: 100%;
-  }
-}
-
-.prism-items {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: 120%;
-  height: 100%;
-  margin-top: -4px;
-  transform: rotateY(-20deg);
-
-  .prism-colors {
-    flex-grow: 1;
-  }
-}
-
-.lens {
-  position: absolute;
-  top: -37px;
-  right: 164px;
-  width: 10px;
-  height: 170px;
-  background-color: $protonWhite;
-  border-radius: 10px;
-}
-
-.camera-filter {
-  top: -58px;
-  right: 84px;
-  z-index: 1;
-  width: 7px;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.1s linear;
-
-  &:active {
-    top: -27px;
-  }
-}
-
-.white-cover {
-  top: -45px;
-  right: -36px;
-  display: none;
-  width: 200px;
-  height: 200px;
-  background-color: $black;
-}
-
-.white-small-cover {
-  position: absolute;
-  top: 2px;
-  left: 87px;
-  display: block;
-  width: 154px;
-  height: 39px;
-  background-color: $black;
-  transform: rotate(-2deg);
-}
-
-.background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -2;
-  width: 100%;
-  height: 350px;
-  background-color: $black;
-}
+@include prismClasses;
 
 .select-container {
   display: block;
-  padding: 0 40% 20px;
+  width: 150px;
+  padding-bottom: $minPadding;
   margin: 0 auto;
-  background-color: $black;
+  background-color: #000000;
 
   .select-label {
-    min-width: 150px;
-    margin-bottom: 0;
     color: $white;
   }
 
@@ -265,7 +68,7 @@
 
       .md-select-field {
         .md-select-field--text-field {
-          min-width: 150px;
+          width: 150px;
           padding: 20px 15px;
           background-color: white;
           border-radius: 5px;
@@ -279,74 +82,6 @@
           display: none;
         }
       }
-    }
-  }
-}
-
-@media only screen and (max-width: $break100) {
-  .prism-shape {
-    left: -15px;
-  }
-
-  .white-small-cover {
-    transform: rotate(-1deg);
-  }
-
-  .white-cover {
-    right: 40px;
-  }
-
-  .lens:not(.white-cover) {
-    right: 230px;
-  }
-
-  .prism-items {
-    width: 120%;
-  }
-
-  .prism-shape {
-    .filter-label {
-      left: 200px;
-    }
-  }
-}
-
-@media only screen and (max-width: $break50) {
-  .prism-items {
-    width: 110%;
-    margin-top: -2px;
-  }
-
-  .prism-shape {
-    left: 20px;
-  }
-
-  .white-cover {
-    right: 70px;
-  }
-
-  .lens:not(.white-cover) {
-    right: 260px;
-  }
-
-  .white-small-cover {
-    z-index: 0;
-    width: 100%;
-    transform: rotate(-1deg);
-  }
-
-  .content-wrapper {
-    .prism-shape {
-      .white-light-label {
-        top: 50px;
-        left: -70px;
-      }
-    }
-  }
-
-  .prism-shape {
-    .filter-label {
-      left: 140px;
     }
   }
 }
