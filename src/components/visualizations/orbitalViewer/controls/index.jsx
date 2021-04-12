@@ -15,7 +15,7 @@ const OrbitViewerControls = ({
   handleStartStop,
   handleNext,
   handlePrevious,
-  handleZoomReset,
+  handleReset,
 }) => {
   const StartStopTag = playing ? Pause : Play;
   const StartStopText = playing ? 'Pause' : 'Play';
@@ -50,7 +50,7 @@ const OrbitViewerControls = ({
         <Button
           icon
           iconEl={<ButtonIcon srText="Reset" Icon={Replay} />}
-          onClick={handleZoomReset}
+          onClick={handleReset}
         />
         <span className={buttonLabel}>
           <span>Reset</span>
@@ -65,7 +65,7 @@ OrbitViewerControls.propTypes = {
   handleStartStop: PropTypes.func,
   handleNext: PropTypes.func,
   handlePrevious: PropTypes.func,
-  handleZoomReset: PropTypes.func,
+  handleReset: PropTypes.func,
 };
 
 export default OrbitViewerControls;

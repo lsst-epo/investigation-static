@@ -42,6 +42,7 @@ const Orbital = ({
   defaultZoom,
   type,
   noLabels,
+  reset,
 }) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
@@ -84,6 +85,18 @@ const Orbital = ({
     velocity: getVelocity(posZero.distanceTo(sunPos), majAxis),
     period: 0,
   });
+
+  useEffect(() => {
+    if (reset > 0) {
+      setPoint({
+        position: posZero,
+        rotation: [0, 0, 0],
+        progress: 0,
+        velocity: getVelocity(posZero.distanceTo(sunPos), majAxis),
+        period: 0,
+      });
+    }
+  }, [reset]);
 
   function getInitialPoint(targetAngle) {
     const length180 = 0.5;
@@ -346,6 +359,7 @@ Orbital.propTypes = {
   defaultZoom: PropTypes.number,
   type: PropTypes.string,
   noLabels: PropTypes.bool,
+  reset: PropTypes.number,
 };
 
 export default Orbital;

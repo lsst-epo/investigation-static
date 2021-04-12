@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Canvas } from 'react-three-fiber';
 // import * as THREE from 'three';
@@ -49,11 +49,19 @@ function OrbitalViewer({
     setFrameOverride(null);
   };
 
+  useEffect(() => {
+    if (reset > 0) {
+      setDayPerVizSec(speeds[2]);
+      setStepDirection(1);
+      setElapsedTime(0);
+    }
+  }, [reset]);
+
   const handleStepSelect = step => {
     setDayPerVizSec(speeds[step.target.value]);
   };
 
-  const handleZoomReset = () => {
+  const handleReset = () => {
     setReset(reset + 1);
   };
 
@@ -86,7 +94,7 @@ function OrbitalViewer({
           />
         )}
         <Canvas invalidateFrameloop className={orbitalCanvas}>
-          <CameraController pov={pov} reset={reset} />
+          <CameraController {...{ pov, reset }} />
           <Camera
             left={-15000}
             right={15000}
@@ -116,6 +124,7 @@ function OrbitalViewer({
               elapsedTime,
               setElapsedTime,
               noLabels,
+              reset,
             }}
           />
           <mesh position={[0, 0, 0]}>
@@ -131,7 +140,7 @@ function OrbitalViewer({
               handleStartStop,
               handleNext,
               handlePrevious,
-              handleZoomReset,
+              handleReset,
               dayPerVizSec,
             }}
           />
