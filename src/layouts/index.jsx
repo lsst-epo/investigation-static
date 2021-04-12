@@ -129,16 +129,13 @@ class Layout extends React.Component {
     }));
   };
 
-  getCurrentPageNumber() {
-    const { pageId: id } = this.global;
-    const { pages } = this.state;
-    const currentPage = find(pages, { id });
-    const { pageNumber } = currentPage || {};
-
+  getCurrentPageNumber(pages, pageId) {
+    const { pageNumber } = find(pages, { id: pageId }) || {};
     return pageNumber;
   }
 
   render() {
+    const { pageId } = this.global;
     const { tocIsOpen, pages, investigationTitle } = this.state;
     const { children, pageContext } = this.props;
     const { investigation: contextInvestigation, env: envInvestigation } =
@@ -150,7 +147,7 @@ class Layout extends React.Component {
         <SEO title={investigation || 'Investigation'} />
         <Header
           {...{ investigationTitle, logo }}
-          pageNumber={this.getCurrentPageNumber()}
+          pageNumber={this.getCurrentPageNumber(pages, pageId)}
           totalPages={this.global.totalPages}
           tocVisability={tocIsOpen}
           toggleToc={investigation && this.toggleToc}
