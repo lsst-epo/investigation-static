@@ -18,7 +18,7 @@
     {
       "mediaPath": "/images/eccentricity.png",
       "altText": "Examples of orbital ellipses with different eccentricities.",
-      "figText": "Examples of orbital ellipses with different eccentricities. NASA illustration by Robert Simmon. Credit: Modified from image by Lassuncty, Creative Commons 3.0 Unported."
+      "figText": "Examples of orbital ellipses with different eccentricities. Modified from <a href='https://earthobservatory.nasa.gov/features/OrbitsCatalog' target='_blank'>NASA illustration</a> by Robert Simmon."
     }
   ]
 }
