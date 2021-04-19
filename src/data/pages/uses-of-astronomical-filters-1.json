@@ -22,7 +22,7 @@
       }
     },
     {
-      "content": "<p>The Trifid Nebula is a dense cloud of gas and dust. The glowing gas in the nebula is the bright cloud, and the non-glowing gas and dust appears to be very dark areas. If the Trifid Nebula was observed using visible light alone, many of the stars within it would be hidden from view.</p>",
+      "content": "<p>The Trifid Nebula is a dense cloud of gas and dust. The glowing gas in the nebula is the bright cloud, and the non-glowing gas and dust appears as very dark areas. If the Trifid Nebula was observed using visible light alone, many of the stars within it would be hidden from view.</p>",
       "layout": {
         "col": "left",
         "row": "top"
