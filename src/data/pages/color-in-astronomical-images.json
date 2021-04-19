@@ -15,14 +15,14 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Astronomers use a particular method for choosing colors when building a color image. It is called <a href=\"http://rubineducation.org/glossary/chromatic-ordering\" target=\"_blank\">chromatic ordering</a>. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. </p>",
+      "content": "<p>Astronomers use a particular method for choosing colors when building a color image. It is called <a href='http://rubineducation.org/glossary/chromatic-ordering' target='_blank'>chromatic ordering</a>. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. </p>",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<p>When using chromatic ordering,assign the image produced by the filter that transmits light with the shortest wavelengths to a color in the visible spectrum that also has a short wavelength. For instance, suppose you assign the color blue to the g filter. You would then assign the images made by filters that transmit longer wavelengths of light to colors that correspond with wavelengths longer than blue.</p>",
+      "content": "<p>When using chromatic ordering, assign the image produced by the filter that transmits light with the shortest wavelengths to a color in the visible spectrum that also has a short wavelength. For instance, suppose you assign the color blue to the g filter. You would then assign the images made by filters that transmit longer wavelengths of light to colors that correspond with wavelengths longer than blue.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -36,7 +36,7 @@
       }
     },
     {
-      "content": "<p>Sometimes images from all six filters are not all available. In that case, the images can be assigned any colors as long as they follow the chromatic order method. For example, suppose you have a set of images taken using only these filters: g, r, i, and y. Any of the following Examples of Chromatic Ordering sequences shown in the table at the right would be correct.</p>",
+      "content": "<p>Sometimes images from all six filters are not all available. In that case, the images can be assigned any colors as long as they follow the chromatic order method. For example, suppose you have a set of images taken using only these filters: g, r, i, and y. Any of the following sequences shown in the table at the right (\"Examples of Chromatic Ordering\") would be correct.</p>",
       "layout": {
         "col": "left",
         "row": "middle"

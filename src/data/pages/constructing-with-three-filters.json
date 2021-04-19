@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>At right are three greyscale images obtained using red, green, and blue filters. Notice in each image where it is dark and where it is bright. A color (red, green, or blue) is then assigned to each of the filtered greyscale images. selected. This is known as colorizing the image. Finally, the three colorized images are combined to create the full color image (shown on the far right.</p><p>Compare the filtered images to the full color image, then choose the right words to finish the following sentences.</p>",
+      "content": "<p>At right are three greyscale images obtained using red, green, and blue filters. Notice in each image where it is dark and where it is bright. A color (red, green, or blue) is then assigned to each of the filtered greyscale images. This is known as colorizing the image. Finally, the three <a href='http://rubineducation.org/glossary/colorize' target='_blank'>colorized</a> images are combined to create the full color image shown on the right.</p><p>Compare the filtered images to the full color image, then choose the right words to finish the following sentences.</p>",
       "layout": {
         "col": "left",
         "row": "top"

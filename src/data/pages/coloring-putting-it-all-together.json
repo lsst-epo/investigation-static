@@ -9,13 +9,13 @@
     "link": "/what-should-my-image-look-like-1/"
   },
   "next": {
-    "title": "Putting It All Together",
+    "title": "Creating Your Astronomical Image",
     "link": "/putting-it-all-together-1/"
   },
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>In this investigation you have learned how to:</p><ul><li><a href='/constructing-with-three-filters/' target='_blank'>Construct a chromatically ordered and color balanced image of a galaxy or nebula that shows where the longest and shortest wavelengths of light are coming from.</a></li><li><a href='/uses-of-astronomical-filters-1/' target='_blank'>Look through a dusty nebula by using infrared filters</a></li><li><a href='/detecting-far-away-galaxies/' target='_blank'>Find a faraway galaxy by using infrared filters</a></li><li><a href='/visible-light-filters/' target='_blank'>Locate the areas of hot young stars and star-forming regions from the blue and red light they emit in a galaxy</a></li></ul></li></ul>",
+      "content": "<p>In this investigation you have learned how to:</p><ul><li><a href='/color-in-astronomical-images/' target='_blank'>Construct a chromatically ordered and color balanced image of a galaxy or nebula that shows where the longest and shortest wavelengths of light are coming from.</a></li><li><a href='/uses-of-astronomical-filters-1/' target='_blank'>Look through a dusty nebula by using infrared filters</a></li><li><a href='/detecting-far-away-galaxies/' target='_blank'>Find a faraway galaxy by using infrared filters</a></li><li><a href='/visible-light-filters/' target='_blank'>Locate the areas of hot young stars and star-forming regions from the blue and red light they emit in a galaxy</a></li></ul></li></ul>",
       "layout": {
         "col": "left",
         "row": "top"

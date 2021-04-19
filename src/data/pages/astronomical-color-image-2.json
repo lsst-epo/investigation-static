@@ -9,13 +9,13 @@
     "link": "/astronomical-color-images/"
   },
   "next": {
-    "title": "What Should My Image Look Like?",
+    "title": "Connecting Wavelengths, Colors and Astronomical Objects",
     "link": "/what-should-my-image-look-like/"
   },
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>In addition to chromatically ordering an image, the image should be color balanced.  Color balancing means adjusting the color intensity sliders for each filter until you have an image that effectively conveys astronomical information and is aesthetically pleasing. It is important to note that there are many different ways to correctly color balance an image.</p><p>Color balancing does not mean setting the same intensity for each filter. For instance, if you want to show the blue stars in a galaxy, you may want to increase the intensity of the filter that passes blue light in the image, and assign that filter the color  blue. You may also wish to use a filter that does not transmit any blue light to emphasize areas where there are no blue stars, and assign this filter a color other than blue.</p><p>There are a few general guidelines to follow with color balancing:</p><ul><li>If all objects in your image appear the same color, then the intensity slider associated with this filter and color should be decreased. You may also need to increase the intensity of other colors.</li><li>For astronomical images, the background should be dark, but not necessarily totally black.</li></ul>",
+      "content": "<p>In addition to chromatically ordering an image, the image should be color balanced.  Color balancing means adjusting the color intensity sliders for each filter until you have an image that effectively conveys astronomical information and is aesthetically pleasing. It is important to note that <i>there are many different ways to correctly color balance an image</i>.</p><p>Color balancing <i>does not</i> mean setting the same intensity for each filter. For instance, if you want to show the blue stars in a galaxy, you may want to increase the intensity of the filter that passes blue light in the image, and assign that filter the color  blue. You may also wish to use a filter that does not transmit any blue light to emphasize areas where there are no blue stars, and assign this filter a color other than blue.</p><p>There are a few general guidelines to follow with color balancing:</p><ul><li>If all objects in your image appear the same color, then the intensity slider associated with this filter and color should be decreased. You may also need to increase the intensity of other colors.</li><li>For astronomical images, the background should be dark, but not necessarily totally black.</li></ul>",
       "layout": {
         "col": "left",
         "row": "top"

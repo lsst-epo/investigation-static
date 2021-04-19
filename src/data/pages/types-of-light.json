@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "images": [
     {
-      "mediaPath": "/images/EM-spectrum-full.jpg",
+      "mediaPath": "/images/electromagnetic-spectrum.jpg",
       "altText": "The Electromagnetic Spectrum",
       "figText": "The <a href='https://imagine.gsfc.nasa.gov/science/toolbox/emspectrum1.html' target='_blank'>electromagnetic spectrum</a> shows all forms of electromagnetic radiation arranged in order of wavelengths.",
       "layout": {
