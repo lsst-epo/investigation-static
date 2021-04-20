@@ -213,9 +213,9 @@ class ColorTool extends React.PureComponent {
       <>
         {title && <h2>{title}</h2>}
         {selectedObjectName && (hideControls || !isArray(data)) && (
-          <h4 className={subHead}>
+          <>
             {isArray(data) && (
-              <>
+              <h4 className={subHead}>
                 <span>
                   <span className={subHeadTitle}>Object Type:</span>&nbsp;
                   {selectedCategoryName}
@@ -230,15 +230,15 @@ class ColorTool extends React.PureComponent {
                     </span>
                   </>
                 )}
-              </>
+              </h4>
             )}
             {!isArray(data) && !hideSubHeadTitle && (
-              <span>
+              <h4 className={subHead}>
                 <span className={subHeadTitle}>Object:</span>&nbsp;
                 {selectedObjectName}
-              </span>
+              </h4>
             )}
-          </h4>
+          </>
         )}
         <div className={`container-flex ${container}`}>
           {!hideControls && (
