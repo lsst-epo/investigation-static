@@ -1,14 +1,17 @@
 {
-    "id": "coloring16",
-    "investigation": "coloring-universe",
-    "order": "16",
-    "title": "Acknowledgements Page",
-    "slug": "acknowledgements/",
-    "previous": { "title": "Reflect and Discuss", "link": "/reflect-and-discuss/" },
-    "next": {
-      "title": null,
-      "link": null
-    },
-    "layout": "TwoCol",
-    "content": "<p>Acknowledgments go here...</p>"
-  }
+  "id": "coloring16",
+  "investigation": "coloring-universe",
+  "order": "16",
+  "title": "Acknowledgements Page",
+  "slug": "acknowledgements/",
+  "previous": {
+    "title": "Reflect and Discuss",
+    "link": "/reflect-and-discuss/"
+  },
+  "next": {
+    "title": null,
+    "link": null
+  },
+  "layout": "TwoCol",
+  "content": "<p>This investigation was created by the Education and Public Outreach program of the Vera C. Rubin Observatory Construction project. In an effort to create and test this investigation prior to the start of Operations, we rely on the data of our scientific colleagues. A majority of the images were taken, processed, and provided by Travis A. Rector of the University of Alaska Anchorage and CTIO/NOAO/NSF. Additionally, the variety of topics covered in this investigation led to images provided by a large number of surveys being used. Links have been included throughout to the publicly-available source images.</p><p>Dropout galaxies were sourced from the deep field images from Hyper Suprime-Cam Subaru Strategic Program, a wide-field optical imaging survey on the 8.2 meter Subaru Telescope, as part of Public Data Release 1. Images were accessed through the Rubin Science Platform.</p><p>The team would also like to thank Travis A. Rector for providing his long expertise in processing color images for the public in the creation and design of this investigation.</p><h2>Funding Support</h2><p>Vera C. Rubin Observatory is a Federal project jointly funded by the National Science Foundation (NSF) and the Department of Energy (DOE) Office of Science, with early construction funding received from private donations through the LSST Corporation. The NSF-funded LSST (now Rubin Observatory) Project Office for construction was established as an operating center under the management of the Association of Universities for Research in Astronomy (AURA). The DOE-funded effort to build the Rubin Observatory LSST Camera (LSSTCam) is managed by SLAC National Accelerator Laboratory (SLAC).</p>"
+}
