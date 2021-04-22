@@ -22,7 +22,8 @@
         "row": "top"
       },
       "options": {
-        "questionId": "prismTool_01"
+        "questionId": "prismTool_01",
+        "qaReview": false
       }
     }
   ],
