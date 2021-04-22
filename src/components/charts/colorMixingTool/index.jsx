@@ -7,6 +7,7 @@ import SliderCustom from '../../site/slider/index.jsx';
 import Select from '../../site/selectField/index.jsx';
 import Button from '../../site/button/index.js';
 import ArrowDown from '../../site/icons/ArrowDown';
+import FilterImage from './FilterImage';
 import {
   getResetBtnState,
   getDataAndPrepare,
@@ -354,17 +355,15 @@ class ColorTool extends React.PureComponent {
                   });
 
                   return (
-                    <div
+                    <FilterImage
                       key={`filter-${label}`}
                       className={imageClassName}
-                      style={{
-                        backgroundImage: image
-                          ? `url(/images/colorTool/${image}`
-                          : 'none',
-                        backgroundColor: color,
-                        filter: `brightness(${brightness}) contrast(1.3)`,
+                      {...{
+                        image,
+                        color,
+                        brightness,
                       }}
-                    ></div>
+                    />
                   );
                 })}
             </div>
