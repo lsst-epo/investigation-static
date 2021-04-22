@@ -22,6 +22,7 @@ class SliderCustom extends React.PureComponent {
     } = this.props;
     return (
       <Slider
+        step={step || 1}
         {...{
           id,
           className,
@@ -33,7 +34,6 @@ class SliderCustom extends React.PureComponent {
           discrete,
           min,
           max,
-          step,
           value,
           defaultValue,
         }}
