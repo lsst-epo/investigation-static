@@ -50,7 +50,8 @@
       },
       "options": {
         "autoplay": false,
-        "toggleDataPointsVisibility": "15"
+        "toggleDataPointsVisibility": "15",
+        "qaReview": false
       }
     }
   ],
