@@ -117,9 +117,10 @@
 }
 
 .qa-review-widget-container {
-  width: 800px;
+  width: 100%;
+  max-width: 1200px;
 
   @media print {
-    width: 50%;
+    width: 70%;
   }
 }
