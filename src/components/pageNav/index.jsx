@@ -8,6 +8,7 @@ import ButtonIcon from '../site/button/ButtonIcon';
 import ArrowLeft from '../site/icons/ArrowLeft';
 import ArrowRight from '../site/icons/ArrowRight';
 import AnswerRequiredAlert from '../site/answerRequiredAlert';
+import AnswersCompletedAlert from '../site/answersCompletedAlert';
 import styles from './page-nav.module.scss';
 
 class PageNav extends React.PureComponent {
@@ -15,47 +16,92 @@ class PageNav extends React.PureComponent {
     super(props);
 
     this.state = {
-      showAlert: false,
+      showAllRequiredAlert: false,
+      showCompletedAlert: false,
+      allAnswered: false,
     };
   }
 
-  componentDidMount() {
+  componentDidUpdate(prevProps) {
+    const { disableButton } = this.props;
+    const { disableButton: prevDisableButton } = prevProps;
+
+    if (disableButton) {
+      this.updateAllAnswersBool(false);
+    } else {
+      this.updateAllAnswersBool(true);
+    }
+
+    if (!disableButton && prevDisableButton) {
+      this.handleShowCompletedAlert();
+    }
+  }
+
+  updateAllAnswersBool(state) {
     this.setState(prevState => ({
       ...prevState,
-      showAlert: false,
+      allAnswered: state,
     }));
   }
 
-  handleShowAlert = () => {
+  handleShowAllRequiredAlert = () => {
     this.setState(prevState => ({
       ...prevState,
-      showAlert: true,
+      showAllRequiredAlert: true,
     }));
   };
 
-  handleHideAlert = () => {
+  handleShowCompletedAlert = () => {
     this.setState(prevState => ({
       ...prevState,
-      showAlert: false,
+      showCompletedAlert: true,
     }));
   };
+
+  handleHideAllRequiredAlert = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      showAllRequiredAlert: false,
+    }));
+  };
+
+  handleHideCompletedAlert = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      showCompletedAlert: false,
+    }));
+  };
+
+  getNavLink(type, item, baseUrl) {
+    const { link } = item;
+    const linkIsBlank = link === '' || link === null;
+    const isLinkToFirstPage = linkIsBlank && type === 'previous';
+    const isLinkToLastPage = linkIsBlank && type === 'next';
+
+    if (isLinkToFirstPage) {
+      return `${baseUrl}`;
+    }
+
+    if (isLinkToLastPage) {
+      return `${baseUrl}/qa-review/`;
+    }
+
+    return `${baseUrl}${link}`;
+  }
 
   renderNavItem(type, item, baseUrl, disableButton = false) {
     const { link, title } = item;
     const linkIsBlank = link === '' || link === null;
     const isLinkToFirstPage = linkIsBlank && type === 'previous';
     const isLinkToLastPage = linkIsBlank && type === 'next';
-    let buttonLink = `${baseUrl}${link}`;
+    const buttonLink = this.getNavLink(type, item, baseUrl);
     const buttonClasses = classnames('outlined', {
       'is-disabled': disableButton,
       'link-to-first': isLinkToFirstPage,
       'link-to-last': isLinkToLastPage,
     });
 
-    if (isLinkToFirstPage) {
-      buttonLink = `${baseUrl}`;
-    } else if (isLinkToLastPage) {
-      buttonLink = `${baseUrl}/qa-review/`;
+    if (isLinkToLastPage) {
       return (
         <Button
           flat
@@ -89,7 +135,7 @@ class PageNav extends React.PureComponent {
             />
           )
         }
-        onClick={!disableButton ? null : this.handleShowAlert}
+        onClick={!disableButton ? null : this.handleShowAllRequiredAlert}
         iconBefore={type === 'previous'}
         tooltipLabel={!disableButton ? item.title : 'All Answers Are Required'}
         tooltipPosition="top"
@@ -99,13 +145,24 @@ class PageNav extends React.PureComponent {
 
   render() {
     const { previous, next, baseUrl, disableButton } = this.props;
-    const { showAlert } = this.state;
+    const { showAllRequiredAlert, showCompletedAlert } = this.state;
 
     return (
       <>
         <AnswerRequiredAlert
-          showAlert={showAlert && !disableButton ? false : showAlert}
-          handleClose={this.handleHideAlert}
+          showAlert={
+            showAllRequiredAlert && !disableButton
+              ? false
+              : showAllRequiredAlert
+          }
+          handleClose={this.handleHideAllRequiredAlert}
+        />
+        <AnswersCompletedAlert
+          showAlert={
+            showCompletedAlert && disableButton ? false : showCompletedAlert
+          }
+          nextUrl={this.getNavLink('next', next, baseUrl)}
+          handleClose={this.handleHideCompletedAlert}
         />
         <div className={styles.pageNavigation}>
           <nav role="navigation" className={styles.navSecondary}>
