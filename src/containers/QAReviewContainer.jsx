@@ -170,6 +170,7 @@ class QAReviewContainer extends React.PureComponent {
                 {envInvestigation.title} Investigation: Questions & Answers
               </div>
               <div>Name: {name}</div>
+              <div className="print-only">Date: {new Date().toString()}</div>
             </h3>
             {pages &&
               pages.map(page => {
