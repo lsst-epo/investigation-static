@@ -145,13 +145,12 @@ class QAReviewContainer extends React.PureComponent {
 
     return (
       <div>
-        <h2 className="space-bottom heading-primary dont-print">
-          Great job! Let&apos;s review your answers for the{' '}
-          {envInvestigation.title} Investigation.
-        </h2>
-
         {envInvestigation ? (
           <>
+            <h2 className="space-bottom heading-primary dont-print">
+              Great job! Let&apos;s review your answers for the{' '}
+              {envInvestigation.title} Investigation.
+            </h2>
             <Card className={`dont-print ${qaReviewCard}`}>
               <TextField
                 id="name-input"
