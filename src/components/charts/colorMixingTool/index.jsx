@@ -34,6 +34,8 @@ import {
   container,
   resetBtn,
   imageContainer,
+  activeFilter,
+  backgroundImage,
   toolActionsHeader,
   buttonToolContainer,
   selectToolContainer,
@@ -171,17 +173,21 @@ class ColorTool extends React.PureComponent {
       () => {
         const { data, selectedData, selectorValue } = this.state;
         if (selectionCallback) {
-          const activeFilters = filter(selectedData.filters, {
-            active: true,
-          });
-
-          if (data || activeFilters > 0) {
+          if (data || this.isActiveFilter(selectedData.filters)) {
             selectionCallback(selectedData, selectorValue);
           }
         }
       }
     );
   };
+
+  isActiveFilter(filters) {
+    return (
+      filter(filters, {
+        active: true,
+      }).length > 0
+    );
+  }
 
   render() {
     const {
@@ -200,8 +206,13 @@ class ColorTool extends React.PureComponent {
     const { data, selectedData, resetBtnActive, selectorValue } = this.state;
     const filters = selectedData ? selectedData.filters : [];
     const controlsContainerClasses = classnames(container, controlsContainer);
+    const isActiveFilters = this.isActiveFilter(filters);
     const imageContainerClasses = classnames(imageContainer, {
       [colFullWidth]: hideControls && !hideImage,
+      [activeFilter]: isActiveFilters,
+    });
+    const backgroundImageClasses = classnames(backgroundImage, {
+      [activeFilter]: isActiveFilters,
     });
     const selectedObjectName = objectName || selectorValue;
     const selectedCategoryName = getCategoryName(data, selectedObjectName);
@@ -238,7 +249,7 @@ class ColorTool extends React.PureComponent {
           </>
         )}
         <div className={container}>
-          {!hideControls && (
+          {!hideControls && !qaReview && (
             <div className={controlsContainerClasses}>
               {isArray(data) && (
                 <div className={`${container} ${selectToolContainer}`}>
@@ -343,6 +354,11 @@ class ColorTool extends React.PureComponent {
           )}
           {!hideImage && (
             <div className={imageContainerClasses}>
+              <img
+                alt="Black Background"
+                src="/images/black.jpg"
+                className={backgroundImageClasses}
+              />
               {filters &&
                 filters.map(filterImg => {
                   const { label, image, color, brightness } = filterImg;
