@@ -89,7 +89,7 @@
 
 .qa-review-table-container,
 .qa-review-widget-container {
-  margin: $minPadding;
+  padding: $minPadding;
 
   @media print {
     break-inside: avoid;

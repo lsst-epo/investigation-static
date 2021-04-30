@@ -25,7 +25,6 @@ import {
   selectContainer,
   button,
   active,
-  col50,
   colFullWidth,
   subHead,
   subHeadTitle,
@@ -176,7 +175,7 @@ class ColorTool extends React.PureComponent {
             active: true,
           });
 
-          if (isArray(data) || activeFilters > 0) {
+          if (data || activeFilters > 0) {
             selectionCallback(selectedData, selectorValue);
           }
         }
@@ -200,11 +199,8 @@ class ColorTool extends React.PureComponent {
     } = this.props;
     const { data, selectedData, resetBtnActive, selectorValue } = this.state;
     const filters = selectedData ? selectedData.filters : [];
-    const controlsContainerClasses = classnames(container, controlsContainer, {
-      [col50]: !hideControls && !hideImage,
-    });
+    const controlsContainerClasses = classnames(container, controlsContainer);
     const imageContainerClasses = classnames(imageContainer, {
-      [col50]: !hideControls && !hideImage,
       [colFullWidth]: hideControls && !hideImage,
     });
     const selectedObjectName = objectName || selectorValue;
@@ -241,7 +237,7 @@ class ColorTool extends React.PureComponent {
             )}
           </>
         )}
-        <div className={`container-flex ${container}`}>
+        <div className={container}>
           {!hideControls && (
             <div className={controlsContainerClasses}>
               {isArray(data) && (

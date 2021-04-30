@@ -9,10 +9,10 @@
     "link": "/introduction/"
   },
   "next": {
-    "title": "How Filters Work",
-    "link": "/how-filters-work/"
+    "title": "Types of Visible Light",
+    "link": "/types-of-visible-light/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "images": [
     {
       "mediaPath": "/images/electromagnetic-spectrum.jpg",
@@ -22,15 +22,6 @@
         "row": "middle",
         "col": "left"
       }
-    },
-    {
-      "mediaPath": "/images/visible_spectrum.jpg",
-      "altText": "Visible Spectrum",
-      "figText": "<a href='http://www.daltonism.org.uk/2018/01/rainbows/' target='_blank'>Visible light colors</a> arranged in order of wavelengths from the shortest (violet) to the longest (red).",
-      "layout": {
-        "row": "top",
-        "col": "right"
-      }
     }
   ],
   "contents": [
@@ -39,13 +30,6 @@
       "layout": {
         "row": "top",
         "col": "left"
-      }
-    },
-    {
-      "content": "<p>You may have learned the acronym “Roy G. Biv” to remember the order of the colors of the visible part of the electromagnetic spectrum. These different colors correspond to different wavelengths and energies, with red having the lowest energy and the longest wavelengths and violet having the highest energy and the shortest wavelengths.</p>",
-      "layout": {
-        "row": "bottom",
-        "col": "right"
       }
     }
   ]
