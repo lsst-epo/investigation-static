@@ -24,7 +24,8 @@
       "options": {
         "questionId": "50",
         "hideControls": true
-      }
+      },
+      "qaReview": false
     }
   ],
   "questionsByPage": [
