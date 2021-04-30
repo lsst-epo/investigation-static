@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import classnames from 'classnames';
@@ -16,14 +16,29 @@ import {
 
 const AnswersCompletedAlert = ({ showAlert, handleClose, nextUrl }) => {
   const alertTimeout = useRef(null);
+  const delayTimeout = useRef(null);
+  const [delayedShow, setDelayedShow] = useState(false);
 
   useEffect(() => {
     if (showAlert) {
-      alertTimeout.current = setTimeout(handleClose, 5000);
+      clearTimeout(delayTimeout.current);
+      delayTimeout.current = setTimeout(() => {
+        setDelayedShow(true);
+      }, 15000);
+    } else {
+      setDelayedShow(false);
+      clearTimeout(delayTimeout.current);
+    }
+  }, [showAlert]);
+
+  useEffect(() => {
+    if (delayedShow) {
+      clearTimeout(alertTimeout.current);
+      alertTimeout.current = setTimeout(handleClose, 8000);
     } else {
       clearTimeout(alertTimeout.current);
     }
-  }, [showAlert]);
+  }, [delayedShow]);
 
   const alertClasses = classnames(answersCompleted, {
     [showAnswersCompleted]: showAlert,

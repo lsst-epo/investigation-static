@@ -9,7 +9,6 @@ import ColorSwatch from '../components/charts/colorMixingTool/ColorSwatch.jsx';
 import {
   getAnswerData,
   getObjectFromArrayGroup,
-  resetAllFilters,
 } from '../components/charts/colorMixingTool/color-tool.utilities.js';
 import API from '../lib/API.js';
 
@@ -50,54 +49,6 @@ class AstroToolContainer extends React.PureComponent {
       }));
     });
   }
-
-  componentDidUpdate() {
-    const { widget, answers, activeQuestionId } = this.props;
-    const { options } = widget;
-    const { questionId } = options || {};
-    const answer = answers[activeQuestionId || questionId];
-
-    if (isEmpty(answer) && activeQuestionId === questionId) {
-      this.getInitialAnswer();
-    }
-  }
-
-  getInitialAnswer = () => {
-    const { widget } = this.props;
-    const { options } = widget;
-    const { objectName } = options || {};
-    const {
-      jsonData,
-      selectedData: oldSelectedData,
-      selectorValue: oldSelectorVal,
-    } = this.state;
-
-    if (jsonData) {
-      const selectorValue = objectName || oldSelectorVal;
-      const selectedData =
-        oldSelectedData ||
-        getObjectFromArrayGroup(jsonData.data, selectorValue);
-      const newSelectedData = {
-        name: selectorValue,
-        filters: resetAllFilters(selectedData),
-      };
-
-      this.setState(
-        prevState => ({
-          ...prevState,
-          selectedData: newSelectedData,
-          selectorValue,
-        }),
-        () => {
-          const { updateAnswer, widget: w } = this.props;
-          const { options: opt } = w || {};
-          const { questionId } = opt || {};
-          const { selectedData: newData } = this.state;
-          updateAnswer(questionId, newData, 'change');
-        }
-      );
-    }
-  };
 
   selectionCallback = (d, val) => {
     const { widget } = this.props;
