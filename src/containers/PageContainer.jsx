@@ -42,10 +42,20 @@ class PageContainer extends React.PureComponent {
     if (!questions) return false;
 
     for (let i = 0; i < questions.length; i += 1) {
-      const { id: qId } = questions[i].question[0];
-      const answer = answers[qId];
+      const { question } = questions[i];
+      if (question[0].compoundQuestion) {
+        for (let j = 0; j < question.length; j += 1) {
+          const { id: qId } = question[j];
+          const answer = answers[qId];
 
-      if (!answer) return true;
+          if (!answer) return true;
+        }
+      } else {
+        const { id: qId } = question[0];
+        const answer = answers[qId];
+
+        if (!answer) return true;
+      }
     }
 
     return false;
