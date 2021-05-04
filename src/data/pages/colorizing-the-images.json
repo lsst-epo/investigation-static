@@ -13,6 +13,14 @@
     "link": "/eyes-vs-telescopes/"
   },
   "layout": "SingleCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "contents": [
     {
       "content": "<p>Here are the same images, now colorized with their assigned colors, and the resulting image in full color.</p>",
