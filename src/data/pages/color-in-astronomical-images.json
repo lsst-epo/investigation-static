@@ -13,6 +13,14 @@
     "link": "/astronomical-color-images/"
   },
   "layout": "TwoCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "contents": [
     {
       "content": "<p>Astronomers use a particular method for choosing colors when building a color image. It is called <a href='http://rubineducation.org/glossary/chromatic-ordering' target='_blank'>chromatic ordering</a>. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. </p>",

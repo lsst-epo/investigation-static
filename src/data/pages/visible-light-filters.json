@@ -13,6 +13,14 @@
     "link": "/color-in-astronomical-images/"
   },
   "layout": "TwoCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "contents": [
     {
       "content": "<p>Active star-forming regions can be identified in spiral galaxies in locations where there are:<ul><li>fuzzy patches of hydrogen gas emitting red light.</li><li>areas with hot young stars emitting large amounts of blue and ultraviolet light.</li></ul></p><p>By combining three or more filters that include red, blue, and ultraviolet wavelengths, you can locate the star-forming regions in a galaxy, such as the galaxy at right.</p>",
