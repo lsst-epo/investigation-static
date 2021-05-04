@@ -18,30 +18,16 @@ class PageNav extends React.PureComponent {
     this.state = {
       showAllRequiredAlert: false,
       showCompletedAlert: false,
-      allAnswered: false,
     };
   }
 
   componentDidUpdate(prevProps) {
-    const { disableButton } = this.props;
-    const { disableButton: prevDisableButton } = prevProps;
+    const { allQuestionsAnswered } = this.props;
+    const { allQuestionsAnswered: prevAllQuestionsAnswered } = prevProps;
 
-    if (disableButton) {
-      this.updateAllAnswersBool(false);
-    } else {
-      this.updateAllAnswersBool(true);
-    }
-
-    if (!disableButton && prevDisableButton) {
+    if (allQuestionsAnswered && !prevAllQuestionsAnswered) {
       this.handleShowCompletedAlert();
     }
-  }
-
-  updateAllAnswersBool(state) {
-    this.setState(prevState => ({
-      ...prevState,
-      allAnswered: state,
-    }));
   }
 
   handleShowAllRequiredAlert = () => {
@@ -89,14 +75,30 @@ class PageNav extends React.PureComponent {
     return `${baseUrl}${link}`;
   }
 
-  renderNavItem(type, item, baseUrl, disableButton = false) {
+  getButtonIconEl(type, title) {
+    const { allQuestionsAnswered } = this.props;
+    if (type === 'previous') {
+      return <ButtonIcon srText={title || 'Home'} Icon={ArrowLeft} />;
+    }
+    return (
+      <ButtonIcon
+        srText={
+          allQuestionsAnswered ? title || 'Home' : 'All Answers Are Required'
+        }
+        Icon={ArrowRight}
+      />
+    );
+  }
+
+  renderNavItem(type, item, baseUrl, allQuestionsAnswered = false) {
     const { link, title } = item;
     const linkIsBlank = link === '' || link === null;
     const isLinkToFirstPage = linkIsBlank && type === 'previous';
     const isLinkToLastPage = linkIsBlank && type === 'next';
+    const isPrevOrAllQsA = type === 'previous' || allQuestionsAnswered;
     const buttonLink = this.getNavLink(type, item, baseUrl);
     const buttonClasses = classnames('outlined', {
-      'is-disabled': disableButton,
+      'is-disabled': !allQuestionsAnswered && type === 'next',
       'link-to-first': isLinkToFirstPage,
       'link-to-last': isLinkToLastPage,
     });
@@ -121,53 +123,37 @@ class PageNav extends React.PureComponent {
       <Button
         icon
         className={buttonClasses}
-        to={!disableButton ? buttonLink : null}
-        component={!disableButton ? Link : null}
-        iconEl={
-          type === 'previous' ? (
-            <ButtonIcon srText={title || 'Home'} Icon={ArrowLeft} />
-          ) : (
-            <ButtonIcon
-              srText={
-                !disableButton ? title || 'Home' : 'All Answers Are Required'
-              }
-              Icon={ArrowRight}
-            />
-          )
-        }
-        onClick={!disableButton ? null : this.handleShowAllRequiredAlert}
+        to={isPrevOrAllQsA ? buttonLink : null}
+        component={isPrevOrAllQsA ? Link : null}
+        iconEl={this.getButtonIconEl(type, title)}
+        onClick={isPrevOrAllQsA ? null : this.handleShowAllRequiredAlert}
         iconBefore={type === 'previous'}
-        tooltipLabel={!disableButton ? item.title : 'All Answers Are Required'}
+        tooltipLabel={item.title}
         tooltipPosition="top"
       />
     );
   }
 
   render() {
-    const { previous, next, baseUrl, disableButton } = this.props;
+    const { previous, next, baseUrl, allQuestionsAnswered } = this.props;
     const { showAllRequiredAlert, showCompletedAlert } = this.state;
 
     return (
       <>
         <AnswerRequiredAlert
-          showAlert={
-            showAllRequiredAlert && !disableButton
-              ? false
-              : showAllRequiredAlert
-          }
+          showAlert={showAllRequiredAlert && !allQuestionsAnswered}
           handleClose={this.handleHideAllRequiredAlert}
         />
         <AnswersCompletedAlert
-          showAlert={
-            showCompletedAlert && disableButton ? false : showCompletedAlert
-          }
+          showAlert={showCompletedAlert && allQuestionsAnswered}
           nextUrl={this.getNavLink('next', next, baseUrl)}
           handleClose={this.handleHideCompletedAlert}
         />
         <div className={styles.pageNavigation}>
           <nav role="navigation" className={styles.navSecondary}>
             {previous && this.renderNavItem('previous', previous, baseUrl)}
-            {next && this.renderNavItem('next', next, baseUrl, disableButton)}
+            {next &&
+              this.renderNavItem('next', next, baseUrl, allQuestionsAnswered)}
           </nav>
         </div>
       </>
@@ -178,7 +164,7 @@ class PageNav extends React.PureComponent {
 export default PageNav;
 
 PageNav.propTypes = {
-  disableButton: PropTypes.bool,
+  allQuestionsAnswered: PropTypes.bool,
   baseUrl: PropTypes.string,
   previous: PropTypes.object,
   next: PropTypes.object,
