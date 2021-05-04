@@ -1,3 +1,4 @@
+
 {
   "id": "coloring15",
   "investigation": "coloring-universe",
@@ -17,7 +18,7 @@
     {
       "mediaPath": "/images/noao-ring.jpg",
       "altText": "Ring Nebula",
-      "figText": "The WIYN 3.5-meter telescope on Kitt Peak took this image of the Ring Nebula on April 2, 2002 in a three-minute exposure aided by the WIYN Tip-Tilt Module (WTTM). This new adaptive optics device helps correct for degradation of the image quality due to atmospheric effects and shaking of the telescope by wind. The image was taken through two filters -- one (red) that isolates the light of ionized Hydrogen (H-alpha at 6563 A) plus singly-ionized nitrogen ([NII] at 6584A), and another (green that isolates the light of doubly-ionized oxygen ([OIII] at 5007 A). The corrected “seeing” in this image is about 0.3 arc seconds (FWHM). Credit: C.F.Claver/WIYN/NOIRLab/NSF",
+      "figText": "The WIYN 3.5-meter telescope on Kitt Peak took this image of the Ring Nebula through two filters: The red filter passes the light of ionized hydrogen, and the green filter passes the light of ionized oxygen. Credit: C.F.Claver/WIYN/NOIRLab/NSF",
       "layout": {
         "col": "right",
         "row": "top"

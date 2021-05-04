@@ -15,7 +15,7 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>Use the Astronomical Image Coloring Tool to create your image.</p>",
+      "content": "<p>Use the Astronomical Image Coloring Tool to create your image then answer the questions below.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -31,7 +31,7 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
+      "mediaPath": "/images/wavelengths-ranges-wide.jpg",
       "altText": "Wavelength Ranges of Visible Light",
       "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {

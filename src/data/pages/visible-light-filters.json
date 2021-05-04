@@ -24,16 +24,16 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/ngc3718-z-mixed.jpg",
+      "mediaPath": "/images/opo1036a.jpg",
       "altText": "Warped Spiral Galaxy NGC 3718",
-      "figText": "Clusters of hot young blue stars and red fuzzy patches of gas clouds mark the arms of warped spiral galaxy NGC 3718. Image by T. A. Rector (University of Alaska Anchorage), and colorized by J. Pinto (Rubin Observatory/NSF/AURA).",
+      "figText": "NGC 3982 is a spiral galaxy showing areas of active star formation and hot, young stars. Image credit: NASA, ESA, and the Hubble Heritage Team (STScI/AURA); Acknowledgment: A. Riess (STScI)",
       "layout": {
         "col": "right",
         "row": "top"
       }
     },
     {
-      "mediaPath": "/images/wavelength_ranges_of_visible_light.jpg",
+      "mediaPath": "/images/wavelengths-ranges-small.jpg",
       "altText": "Wavelength Ranges of Visible Light",
       "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {

@@ -44,7 +44,7 @@ $md-switch-ball-fallback-color: $md-switch-fallback-color;
 $md-slider-warn-md: false; // only need to set this if using the dark theme.
 
 // Prism Colors
-$prismIndigo: #861cff;
+$prismViolet: #861cff;
 $prismBlue: #0019ff;
 $prismGreen: #6bd853;
 $prismYellow: #ffdd15;
@@ -52,7 +52,7 @@ $prismOrange: #f18922;
 $prismRed: #ec1c24;
 
 $prismHexColors: (
-  'indigo': $prismIndigo,
+  'violet': $prismViolet,
   'blue': $prismBlue,
   'green': $prismGreen,
   'yellow': $prismYellow,

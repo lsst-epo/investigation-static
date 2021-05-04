@@ -21,7 +21,7 @@ class PrismWidget extends React.PureComponent {
       Yellow: prismHexColors.yellow,
       Green: prismHexColors.green,
       Blue: prismHexColors.blue,
-      Indigo: prismHexColors.indigo,
+      Violet: prismHexColors.violet,
       None: 'transparent',
     };
   }
@@ -106,9 +106,9 @@ class PrismWidget extends React.PureComponent {
                 <stop offset="77%" stopColor="transparent" />
                 <stop offset="100%" stopColor="transparent" />
               </linearGradient>
-              <linearGradient id="no-arrow-indigo">
-                <stop offset="0%" stopColor={this.prismColors.Indigo} />
-                <stop offset="77%" stopColor={this.prismColors.Indigo} />
+              <linearGradient id="no-arrow-violet">
+                <stop offset="0%" stopColor={this.prismColors.Violet} />
+                <stop offset="77%" stopColor={this.prismColors.Violet} />
                 <stop offset="77%" stopColor="transparent" />
                 <stop offset="100%" stopColor="transparent" />
               </linearGradient>
@@ -167,15 +167,15 @@ class PrismWidget extends React.PureComponent {
             </text>
             <g id="rays_out">
               <path
-                id="indigo_ray"
-                className={classnames(styles.rayIndigo, {
-                  [styles.noArrow]: this.hideArrow('Indigo'),
+                id="violet_ray"
+                className={classnames(styles.rayViolet, {
+                  [styles.noArrow]: this.hideArrow('Violet'),
                 })}
                 d="M546.1,312.5l212.8,1.9h0.4l0.5,0.2L1396,522.8c6.9,2.3,10.7,9.7,8.5,16.7s-9.7,10.7-16.7,8.5l0,0l-0.4-0.1L757.8,320.4l0.9,0.2L546.1,312.5z"
               />
               <polygon
-                id="indigo_arrow"
-                className={styles.arrowIndigo}
+                id="violet_arrow"
+                className={styles.arrowViolet}
                 points="1426.5,547.9 1353.2,550.6 1377.9,530.1 1372.3,498.5"
               />
               <path
