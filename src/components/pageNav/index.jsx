@@ -7,14 +7,14 @@ import Button from '../site/button';
 import ButtonIcon from '../site/button/ButtonIcon';
 import ArrowLeft from '../site/icons/ArrowLeft';
 import ArrowRight from '../site/icons/ArrowRight';
-import AnswerRequiredAlert from '../site/answerRequiredAlert';
-import AnswersCompletedAlert from '../site/answersCompletedAlert';
+import Notification from '../site/notifications';
 import styles from './page-nav.module.scss';
 
 class PageNav extends React.PureComponent {
   constructor(props) {
     super(props);
 
+    this.answersRequiredText = 'All Answers Are Required';
     this.state = {
       showAllRequiredAlert: false,
       showCompletedAlert: false,
@@ -83,11 +83,19 @@ class PageNav extends React.PureComponent {
     return (
       <ButtonIcon
         srText={
-          allQuestionsAnswered ? title || 'Home' : 'All Answers Are Required'
+          allQuestionsAnswered ? title || 'Home' : this.answersRequiredText
         }
         Icon={ArrowRight}
       />
     );
+  }
+
+  getButtonTooltipLabel(type, title) {
+    const { allQuestionsAnswered } = this.props;
+    if (type === 'next') {
+      return allQuestionsAnswered ? title || 'Home' : this.answersRequiredText;
+    }
+    return title || 'Home';
   }
 
   renderNavItem(type, item, baseUrl, allQuestionsAnswered = false) {
@@ -128,7 +136,7 @@ class PageNav extends React.PureComponent {
         iconEl={this.getButtonIconEl(type, title)}
         onClick={isPrevOrAllQsA ? null : this.handleShowAllRequiredAlert}
         iconBefore={type === 'previous'}
-        tooltipLabel={item.title}
+        tooltipLabel={this.getButtonTooltipLabel(type, item.title)}
         tooltipPosition="top"
       />
     );
@@ -140,14 +148,20 @@ class PageNav extends React.PureComponent {
 
     return (
       <>
-        <AnswerRequiredAlert
-          showAlert={showAllRequiredAlert && !allQuestionsAnswered}
-          handleClose={this.handleHideAllRequiredAlert}
-        />
-        <AnswersCompletedAlert
-          showAlert={showCompletedAlert && allQuestionsAnswered}
+        <Notification
+          showAllRequiredAlert={
+            showAllRequiredAlert && allQuestionsAnswered
+              ? false
+              : showAllRequiredAlert
+          }
+          showCompletedAlert={
+            showCompletedAlert && !allQuestionsAnswered
+              ? false
+              : showCompletedAlert
+          }
           nextUrl={this.getNavLink('next', next, baseUrl)}
-          handleClose={this.handleHideCompletedAlert}
+          handleHideAllRequiredAlert={this.handleHideAllRequiredAlert}
+          handleHideCompletedAlert={this.handleHideCompletedAlert}
         />
         <div className={styles.pageNavigation}>
           <nav role="navigation" className={styles.navSecondary}>
