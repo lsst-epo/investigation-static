@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>On this page you see three different images of M33 made using different filters, chromatic ordering sequences, and color balances. Note how these images look compared to your image of M33.</p>",
+      "content": "<p>Below are three different images of M3 made using different filters, chromatic ordering sequences, and color balances. Note how these images look compared to your image of M33.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -57,7 +57,7 @@
           "id": "285",
           "questionType": "compoundInput",
           "compoundQuestion": ["285", "286", "287"],
-          "labelPre": "<span>The sentence below comes from the NASA/JPL-Caltech information page, on the far left image. The sentence identifies three different objects that are listed in order based on the wavelength of the light they emit from shortest to longest. Since this is a chromatically ordered image, choose the correct color to fill in the blanks in the sentence below:</span><br /><br /><span>Far-ultraviolet light from young stars glimmers</span>",
+          "labelPre": "<span>The sentence below comes from the NASA/JPL-Caltech information page and describes what is seen in the far left image. The sentence identifies three different objects that are listed in order based on the wavelength of the light they emit from shortest to longest. Since this is a chromatically ordered image, choose the correct color to fill in the blanks in the sentence below:</span><br /><br /><span>Far-ultraviolet light from young stars glimmers</span>",
           "labelPost": ",",
           "srLabel": "...",
           "answerAccessor": "text",

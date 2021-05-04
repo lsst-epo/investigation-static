@@ -24,12 +24,12 @@
       }
     },
     {
-      "mediaPath": "/images/Eye-Bayer filter comparison.png",
+      "mediaPath": "/images/eye-bayer-filter-comparison-V2-100.jpg",
       "altText": "Image sensor with filter arrangement",
-      "figText": "Cone cells are photoreceptor cells. They are responsible for color vision and eye color sensitivity in humans since they respond differently to different wavelengths. The Bayer filter is a color filter array that mimics the physiology of the human eye. Credit: Vera C. Rubin Observatory.",
+      "figText": "Cone cells are responsible for color vision in humans since they respond differently to different wavelengths. Bottom: The Bayer filter is a color filter array that mimics the physiology of the human eye. Credit: Vera C. Rubin Observatory.",
       "layout": {
         "col": "right",
-        "row": "bottom"
+        "row": "top"
       }
     }
   ],
