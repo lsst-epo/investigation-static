@@ -7,10 +7,20 @@
 $protonWhite: #ffffff;
 $duskGray: #2b2e34;
 $lightBlue: #bee7f5;
-$mediumBlue: #2979c1;
+$mediumBlue: #2979c1; // #00babc fails WCAG AA certification contrast with background
 $darkBlue: #074a9c;
 $ral5018HR: #087f80; // #058B8C was slightly too light to reach WCAG AA certification with normal-sized text
 $boldRed: #df0039;
+
+// Accent Warm Colors
+$awRed: #ed4c4c;
+$awOrange: #fab364;
+$awYellow: #ffe266;
+
+// Accent Cold Colors
+$acPurple: #583671;
+$acGreen: #3cae3f;
+$acBlue: #1c81a4;
 
 $white: $protonWhite;
 $black: $duskGray;
@@ -68,12 +78,12 @@ $prismHexColors: (
 
 // Chart colors
 $chart0: $neutral30;
-$chart1: #ed4c4c;
-$chart2: #1c81a4;
-$chart3: #fab364;
-$chart4: #3cae3f;
-$chart5: #ffe266;
-$chart6: #583671;
+$chart1: $awRed;
+$chart2: $acBlue;
+$chart3: $awOrange;
+$chart4: $acGreen;
+$chart5: $awYellow;
+$chart6: $acPurple;
 
 $chartColors: $chart0 $chart1 $chart2 $chart3 $chart4 $chart5 $chart6;
 
@@ -138,7 +148,10 @@ $minPadding: 20px;
 $baseLineHeight: 1.4;
 $verticalSpace: $baseLineHeight * 1em;
 $headingWithSpaceHeight: 90px;
-$tallestSquareWidget: calc(100vh - #{$pageNavHeight} - #{$siteHeaderHeight} - #{$headingWithSpaceHeight} - #{$minPadding});
+$tallestSquareWidget: calc(
+  100vh - #{$pageNavHeight} - #{$siteHeaderHeight} - #{$headingWithSpaceHeight} -
+  #{$minPadding}
+);
 
 // $durationFast: 0.1s;
 $duration: 0.2s;
