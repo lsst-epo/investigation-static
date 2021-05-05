@@ -13,8 +13,10 @@ test('Button renders with required props', () => {
 
 test('ButtonIcon renders with props', () => {
   // Arrange
-  const { getByText, getByRole } = render(<ButtonIcon Icon={ArrowLeft} srText="test" />);
-  const srEl = getByText('test')
+  const { getByText, getByRole } = render(
+    <ButtonIcon Icon={ArrowLeft} srText="test" />
+  );
+  const srEl = getByText('test');
   // Assert
   expect(srEl).toHaveClass('screen-reader-only');
   expect(getByRole('presentation')).toBeInTheDocument();
@@ -25,4 +27,3 @@ test('ButtonIcon renders Icon', () => {
   const { getByRole } = render(<ButtonIcon Icon={ArrowLeft} />);
   // Assert
 });
-

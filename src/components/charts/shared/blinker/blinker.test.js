@@ -2,9 +2,16 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Blinker from './index.jsx';
 
-const imagesId = 'blinker-images'
-const controlsId = 'blinker-controls'
-const testProps = {"images":[{"id":1,"name":"/path/to/image/1.jpeg"}, {"id":2,"name":"/path/to/image/2.jpeg"}, {"id":3,"name":"/path/to/image/3.jpeg"}],"activeId":1};
+const imagesId = 'blinker-images';
+const controlsId = 'blinker-controls';
+const testProps = {
+  images: [
+    { id: 1, name: '/path/to/image/1.jpeg' },
+    { id: 2, name: '/path/to/image/2.jpeg' },
+    { id: 3, name: '/path/to/image/3.jpeg' },
+  ],
+  activeId: 1,
+};
 const testHandler = jest.fn();
 
 test('Blinker renders with required props', () => {
@@ -18,7 +25,9 @@ test('Blinker renders with required props', () => {
 
 test('Blinker calls callback when Start/Stop is clicked', () => {
   // Arrange
-  const { getByText } = render(<Blinker handleStartStop={testHandler} {...testProps} />);
+  const { getByText } = render(
+    <Blinker handleStartStop={testHandler} {...testProps} />
+  );
   // Act
   fireEvent.click(getByText('Start/Stop'));
   // Assert
@@ -27,7 +36,9 @@ test('Blinker calls callback when Start/Stop is clicked', () => {
 
 test('Blinker calls callback when Forward is clicked', () => {
   // Arrange
-  const { getByText } = render(<Blinker handleNext={testHandler} {...testProps} />);
+  const { getByText } = render(
+    <Blinker handleNext={testHandler} {...testProps} />
+  );
   // Act
   fireEvent.click(getByText('Forward'));
   // Assert
@@ -36,7 +47,9 @@ test('Blinker calls callback when Forward is clicked', () => {
 
 test('Blinker calls callback when Backward is clicked', () => {
   // Arrange
-  const { getByText } = render(<Blinker handlePrevious={testHandler} {...testProps} />);
+  const { getByText } = render(
+    <Blinker handlePrevious={testHandler} {...testProps} />
+  );
   // Act
   fireEvent.click(getByText('Backward'));
   // Assert

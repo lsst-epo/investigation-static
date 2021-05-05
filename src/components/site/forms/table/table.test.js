@@ -2,9 +2,13 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Table from './index.jsx';
 
-const testId = "test-table";
+const testId = 'test-table';
 const testTitles = ['#1', '#2', '#3'];
-const testRows = [['A', 'B', 'C'], ['D', 'E', 'F'], ['G', 'H', 'I']];
+const testRows = [
+  ['A', 'B', 'C'],
+  ['D', 'E', 'F'],
+  ['G', 'H', 'I'],
+];
 
 test('Table renders with NO props', () => {
   // Arrange
@@ -40,7 +44,9 @@ test('Table renders Table Body with rows prop', () => {
 
 test('Table renders Row Titles with includeRowTitles prop', () => {
   // Arrange
-  const { getByTestId } = render(<Table colTitles={testTitles} rows={testRows} includeRowTitles />);
+  const { getByTestId } = render(
+    <Table colTitles={testTitles} rows={testRows} includeRowTitles />
+  );
   const table = getByTestId(testId);
   const tbody = table.querySelector('tbody');
   const td = tbody.querySelector('td');
