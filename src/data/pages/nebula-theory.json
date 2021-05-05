@@ -13,6 +13,14 @@
     "link": "/classifying-objects/"
   },
   "layout": "TwoCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "images": [
     {
       "mediaPath": "/images/interactions.png",
