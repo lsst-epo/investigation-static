@@ -309,7 +309,10 @@ class ScatterPlot extends React.PureComponent {
         [width - offsetRight, height - padding],
       ])
       .scaleExtent([1, 5])
-      .extent([[padding, offsetTop], [width - offsetRight, height - padding]])
+      .extent([
+        [padding, offsetTop],
+        [width - offsetRight, height - padding],
+      ])
       .on('zoom', this.onZoom);
 
     $scatterplot.call(zoom).on('mousedown.zoom', null);

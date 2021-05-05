@@ -10,4 +10,3 @@ test('Card renders with required props', () => {
   expect(card).toBeInTheDocument();
   expect(card).toHaveClass('md-card');
 });
-

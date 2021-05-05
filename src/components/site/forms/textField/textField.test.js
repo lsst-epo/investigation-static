@@ -10,4 +10,3 @@ test('TextField renders with required props', () => {
   expect(textField).toBeInTheDocument();
   expect(textField).toHaveClass('md-text-field');
 });
-
