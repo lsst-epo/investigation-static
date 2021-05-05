@@ -22,6 +22,14 @@
       }
     }
   ],
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "AstroTool",

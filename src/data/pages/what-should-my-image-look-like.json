@@ -13,17 +13,9 @@
     "link": "/what-should-my-image-look-like-1/"
   },
   "layout": "TwoCol",
-  "checkpoints": [
-    {
-      "layout": {
-        "col": "left",
-        "row": "bottom"
-      }
-    }
-  ],
   "contents": [
     {
-      "content": "<p>Below are three different images of M3 made using different filters, chromatic ordering sequences, and color balances. Note how these images look compared to your image of M33.</p>",
+      "content": "<p>Below are three different images of M33 made using different filters, chromatic ordering sequences, and color balances. Note how these images look compared to your image of M33.</p>",
       "layout": {
         "col": "left",
         "row": "top"
