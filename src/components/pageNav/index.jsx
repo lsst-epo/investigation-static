@@ -7,8 +7,7 @@ import Button from '../site/button';
 import ButtonIcon from '../site/button/ButtonIcon';
 import ArrowLeft from '../site/icons/ArrowLeft';
 import ArrowRight from '../site/icons/ArrowRight';
-import AnswerRequiredAlert from '../site/answerRequiredAlert';
-import AnswersCompletedAlert from '../site/answersCompletedAlert';
+import Notification from '../site/notification';
 import styles from './page-nav.module.scss';
 
 class PageNav extends React.PureComponent {
@@ -16,8 +15,8 @@ class PageNav extends React.PureComponent {
     super(props);
 
     this.state = {
-      showAllRequiredAlert: false,
-      showCompletedAlert: false,
+      showAllRequiredNotification: false,
+      showCompletedNotification: false,
     };
   }
 
@@ -26,35 +25,31 @@ class PageNav extends React.PureComponent {
     const { allQuestionsAnswered: prevAllQuestionsAnswered } = prevProps;
 
     if (allQuestionsAnswered && !prevAllQuestionsAnswered) {
-      this.handleShowCompletedAlert();
+      this.handleShowCompletedNotification();
+      this.handleHideAllRequiredNotification();
     }
   }
 
-  handleShowAllRequiredAlert = () => {
+  handleShowAllRequiredNotification = () => {
+    const { allQuestionsAnswered } = this.props;
     this.setState(prevState => ({
       ...prevState,
-      showAllRequiredAlert: true,
+      showAllRequiredNotification: true && !allQuestionsAnswered,
     }));
   };
 
-  handleShowCompletedAlert = () => {
+  handleHideAllRequiredNotification = () => {
     this.setState(prevState => ({
       ...prevState,
-      showCompletedAlert: true,
+      showAllRequiredNotification: false,
     }));
   };
 
-  handleHideAllRequiredAlert = () => {
+  handleShowCompletedNotification = () => {
+    const { allQuestionsAnswered } = this.props;
     this.setState(prevState => ({
       ...prevState,
-      showAllRequiredAlert: false,
-    }));
-  };
-
-  handleHideCompletedAlert = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      showCompletedAlert: false,
+      showCompletedNotification: true && allQuestionsAnswered,
     }));
   };
 
@@ -126,7 +121,7 @@ class PageNav extends React.PureComponent {
         to={isPrevOrAllQsA ? buttonLink : null}
         component={isPrevOrAllQsA ? Link : null}
         iconEl={this.getButtonIconEl(type, title)}
-        onClick={isPrevOrAllQsA ? null : this.handleShowAllRequiredAlert}
+        onClick={isPrevOrAllQsA ? null : this.handleShowAllRequiredNotification}
         iconBefore={type === 'previous'}
         tooltipLabel={item.title}
         tooltipPosition="top"
@@ -136,19 +131,42 @@ class PageNav extends React.PureComponent {
 
   render() {
     const { previous, next, baseUrl, allQuestionsAnswered } = this.props;
-    const { showAllRequiredAlert, showCompletedAlert } = this.state;
+    const {
+      showAllRequiredNotification,
+      showCompletedNotification,
+    } = this.state;
 
     return (
       <>
-        <AnswerRequiredAlert
-          showAlert={showAllRequiredAlert && !allQuestionsAnswered}
-          handleClose={this.handleHideAllRequiredAlert}
-        />
-        <AnswersCompletedAlert
-          showAlert={showCompletedAlert && allQuestionsAnswered}
-          nextUrl={this.getNavLink('next', next, baseUrl)}
-          handleClose={this.handleHideCompletedAlert}
-        />
+        <Notification
+          classes={styles.answersRequired}
+          show={showAllRequiredNotification}
+          handleClose={this.handleHideAllRequiredNotification}
+          icon="StopIcon"
+        >
+          <p>Please answer all questions before continuing to the next page.</p>
+        </Notification>
+        <Notification
+          classes={styles.answersCompleted}
+          show={showCompletedNotification}
+          delay={15000}
+          showFor={8000}
+          handleClose={() => {
+            this.setState(prevState => ({
+              ...prevState,
+              showCompletedNotification: false,
+            }));
+          }}
+          icon="CheckmarkIcon"
+        >
+          <p>
+            You answered all of the questions on this page.{' '}
+            <Link to={this.getNavLink('next', next, baseUrl)}>
+              Go to the next page
+            </Link>{' '}
+            when you&apos;re ready.
+          </p>
+        </Notification>
         <div className={styles.pageNavigation}>
           <nav role="navigation" className={styles.navSecondary}>
             {previous && this.renderNavItem('previous', previous, baseUrl)}
