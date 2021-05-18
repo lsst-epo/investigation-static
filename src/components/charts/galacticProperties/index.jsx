@@ -287,6 +287,7 @@ class GalacticProperties extends React.Component {
       tooltipUnits,
       tooltipLabels,
       options,
+      color,
     } = this.props;
 
     const { svgShapes } = options || {};
@@ -409,9 +410,10 @@ class GalacticProperties extends React.Component {
                     offsetTop,
                   }}
                   svgShape={svgShapes ? svgShapes[0] : 'circle'}
-                  pointClasses={classnames(styles.groupPoint, {
-                    'color-1-fill': yValueAccessor !== 'color',
-                  })}
+                  pointClasses={classnames(
+                    styles.groupPoint,
+                    color || 'color-1-fill'
+                  )}
                 />
               )}
             </g>
@@ -461,6 +463,7 @@ GalacticProperties.propTypes = {
   preSelected: PropTypes.bool,
   name: PropTypes.string,
   selectionCallback: PropTypes.func,
+  color: PropTypes.string,
 };
 
 export default GalacticProperties;

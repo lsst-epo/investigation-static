@@ -6,12 +6,8 @@ import API from '../lib/API.js';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import GalacticProperties from '../components/charts/galacticProperties/index.jsx';
 import ScatterPlot from '../components/site/icons/Star';
-import {
-  card,
-  linkActive,
-  propertyItem,
-} from '../components/charts/galacticProperties/galactic-properties.module.scss';
-import { paddedDrawerInner } from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
+import style from '../components/charts/galacticProperties/galactic-properties.module.scss';
+import navStyle from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 
 class GalacticPropertiesComboContainer extends React.PureComponent {
   constructor(props) {
@@ -20,7 +16,6 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
     this.properties = [
       {
         name: 'Brightness vs Distance',
-        color: 'rgb(254, 216, 40)',
         options: {
           svgShapes: ['triangle'],
           title: 'Brightness Vs Distance',
@@ -37,7 +32,6 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
       },
       {
         name: 'Color vs Distance',
-        color: 'rgb(26, 181, 121)',
         options: {
           svgShapes: ['circle'],
           title: 'Color Vs Distance',
@@ -56,6 +50,7 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
 
     this.state = {
       data: null,
+      activePropertyIndex: 1,
       activeProperty: this.properties[0],
       navItems: this.generateNavItems(this.properties, this.properties[0]),
     };
@@ -99,35 +94,38 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
     return null;
   };
 
-  setActiveProperty = activeProperty => {
+  setActiveProperty = (activeProperty, index) => {
     this.setState(prevState => ({
       ...prevState,
       navItems: this.generateNavItems(this.properties, activeProperty),
+      activePropertyIndex: index,
       activeProperty,
     }));
   };
 
   generateNavItems(properties, activeProperty) {
-    return properties.map(property => {
-      const { name, color } = property;
+    return properties.map((property, i) => {
+      const { name } = property;
+      const isActive = activeProperty === property;
       return {
         leftAvatar: (
           <span>
-            <ScatterPlot style={{ fill: color }} />
+            <ScatterPlot />
             <span className="screen-reader-only">{name}</span>
           </span>
         ),
         primaryText: name,
-        className: classnames(propertyItem, {
-          [linkActive]: activeProperty === property,
+        className: classnames(navStyle[`colorizedNavItem${i + 1}`], {
+          [navStyle.inactive]: !isActive,
+          [navStyle.active]: isActive,
         }),
-        onClick: () => this.setActiveProperty(property),
+        onClick: () => this.setActiveProperty(property, i + 1),
       };
     });
   }
 
   render() {
-    const { data, navItems, activeProperty } = this.state;
+    const { data, navItems, activeProperty, activePropertyIndex } = this.state;
     const {
       title,
       xAxisLabel,
@@ -144,8 +142,8 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
     return (
       <NavDrawer
         interactableToolbar
-        cardClasses={card}
-        contentClasses={paddedDrawerInner}
+        cardClasses={style.card}
+        contentClasses={navStyle.paddedDrawerInner}
         navItems={navItems}
         toolbarTitle={title}
       >
@@ -154,6 +152,7 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
             <GalacticProperties
               className="color-brightness-vs-distance-combo"
               options={activeProperty.options}
+              color={`color-${activePropertyIndex}-fill`}
               {...{
                 data,
                 xAxisLabel,

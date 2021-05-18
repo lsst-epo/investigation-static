@@ -78,14 +78,14 @@ $prismHexColors: (
 
 // Chart colors
 $chart0: $neutral30;
-$chart1: $awRed;
-$chart2: $acBlue;
-$chart3: $awOrange;
+$chart1: $acBlue;
+$chart2: $awYellow;
+$chart3: $awRed;
 $chart4: $acGreen;
-$chart5: $awYellow;
+$chart5: $awOrange;
 $chart6: $acPurple;
 
-$chartColors: $chart0 $chart1 $chart2 $chart3 $chart4 $chart5 $chart6;
+$chartColors: $chart0 $chart6 $chart5 $chart4 $chart3 $chart2 $chart1;
 
 :export {
   @for $i from 0 through length($chartColors) - 1 {
@@ -150,7 +150,7 @@ $verticalSpace: $baseLineHeight * 1em;
 $headingWithSpaceHeight: 90px;
 $tallestSquareWidget: calc(
   100vh - #{$pageNavHeight} - #{$siteHeaderHeight} - #{$headingWithSpaceHeight} -
-  #{$minPadding}
+    #{$minPadding}
 );
 
 // $durationFast: 0.1s;

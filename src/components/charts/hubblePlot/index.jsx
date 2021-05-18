@@ -576,6 +576,7 @@ class HubblePlot extends React.Component {
       hubbleConstant,
       options,
       trendlineInteractable,
+      color,
       isVisible,
     } = this.props;
 
@@ -590,7 +591,6 @@ class HubblePlot extends React.Component {
       showTooltip,
       mousePosX,
       mousePosY,
-      activeDataIndex,
       draggedPoint,
     } = this.state;
 
@@ -686,14 +686,9 @@ class HubblePlot extends React.Component {
                 x={mousePosX}
                 y={mousePosY}
                 offsetTop={offsetTop}
-                pointClasses={classnames(
-                  `color-${activeDataIndex + 1}-translucent-fill`,
-                  `color-${activeDataIndex + 1}-stroke`,
-                  `${cursorPoint}`,
-                  {
-                    [invisible]: !mousePosX && !mousePosY,
-                  }
-                )}
+                pointClasses={classnames(color, `${cursorPoint}`, {
+                  [invisible]: !mousePosX && !mousePosY,
+                })}
               />
             </g>
             {data &&
@@ -715,7 +710,7 @@ class HubblePlot extends React.Component {
                       offsetTop,
                     }}
                     colorize={i !== 0}
-                    pointClasses={`color-${i}-translucent-fill color-${i}-stroke set-${i} ${galaxyPoint}`}
+                    pointClasses={`${color} set-${i} ${galaxyPoint}`}
                   />
                 );
               })}
@@ -796,6 +791,7 @@ HubblePlot.propTypes = {
   userHubblePlotCallback: PropTypes.func,
   userTrendlineCallback: PropTypes.func,
   trendlineInteractable: PropTypes.bool,
+  color: PropTypes.string,
 };
 
 export default HubblePlot;
