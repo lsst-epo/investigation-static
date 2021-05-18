@@ -17,6 +17,7 @@ import {
 import { getHubblePlotData } from '../components/charts/hubblePlot/hubblePlotUtilities.js';
 
 import styles from '../components/charts/galaxySelector/galaxy-selector.module.scss';
+import navStyle from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 
 class HubblePlotterContainer extends React.PureComponent {
   constructor(props) {
@@ -26,6 +27,7 @@ class HubblePlotterContainer extends React.PureComponent {
       data: null,
       plottedData: null,
       selectedData: null,
+      activeGalaxyIndex: null,
       activeGalaxy: null,
       activeGalaxyPointData: null,
       openMenu: false,
@@ -44,6 +46,7 @@ class HubblePlotterContainer extends React.PureComponent {
       this.setState(prevState => ({
         ...prevState,
         activeGalaxy: data[0],
+        activeGalaxyIndex: 1,
         activeGalaxyPointData: getGalaxyPointData(data[0]),
         data,
         plottedData: getHubblePlotData(data, options, answers),
@@ -83,10 +86,11 @@ class HubblePlotterContainer extends React.PureComponent {
     }));
   }
 
-  chooseGalaxyToPlot(activeGalaxy) {
+  chooseGalaxyToPlot(activeGalaxy, index) {
     this.setState(prevState => ({
       ...prevState,
       activeGalaxy,
+      activeGalaxyIndex: index,
       activeGalaxyPointData: getGalaxyPointData(activeGalaxy),
     }));
   }
@@ -142,15 +146,16 @@ class HubblePlotterContainer extends React.PureComponent {
           <StarAvatar classes={`color-${i + 1}-fill`} content={name} />
         ),
         primaryText: name,
-        className: classnames(styles.galaxyItem, `galaxy-item-${i + 1}`, {
-          'link-active': active,
+        className: classnames(navStyle[`colorizedNavItem${i + 1}`], {
+          [navStyle.inactive]: !active,
+          [navStyle.active]: active,
           [styles.linkIsComplete]: complete,
           [styles.linkIsNotComplete]: !complete,
           [styles.linkIsDisabled]: disabled,
         }),
         disabled,
         active,
-        onClick: () => this.chooseGalaxyToPlot(item),
+        onClick: () => this.chooseGalaxyToPlot(item, i + 1),
       };
     });
   }
@@ -178,7 +183,7 @@ class HubblePlotterContainer extends React.PureComponent {
   };
 
   render() {
-    const { data, activeGalaxy, plottedData } = this.state;
+    const { data, activeGalaxy, activeGalaxyIndex, plottedData } = this.state;
 
     const { options } = this.props;
     const { qaReview } = options || {};
@@ -220,6 +225,7 @@ class HubblePlotterContainer extends React.PureComponent {
                   activeGalaxy,
                 }}
                 data={plottedData}
+                color={`color-${activeGalaxyIndex}-translucent-fill color-${activeGalaxyIndex}-stroke`}
                 userHubblePlotCallback={this.userHubblePlotCallback}
                 selectionCallback={this.selectionCallback}
               />

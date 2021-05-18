@@ -44,7 +44,7 @@ class Points extends React.PureComponent {
               x={xScale(d[xValueAccessor])}
               y={yScale(d[yValueAccessor]) + offsetTop}
               label={label}
-              fill={useFluxColor ? getFluxRgba(color) : null}
+              // fill={useFluxColor ? getFluxRgba(color) : null}
             />
           );
         })}

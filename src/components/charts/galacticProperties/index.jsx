@@ -287,6 +287,7 @@ class GalacticProperties extends React.Component {
       tooltipUnits,
       tooltipLabels,
       options,
+      color,
     } = this.props;
 
     const {
@@ -405,9 +406,10 @@ class GalacticProperties extends React.Component {
                     hoveredData,
                     offsetTop,
                   }}
-                  pointClasses={classnames(styles.groupPoint, {
-                    'color-1-fill': yValueAccessor !== 'color',
-                  })}
+                  pointClasses={classnames(
+                    styles.groupPoint,
+                    color || 'color-1-fill'
+                  )}
                 />
               )}
             </g>
@@ -457,6 +459,7 @@ GalacticProperties.propTypes = {
   preSelected: PropTypes.bool,
   name: PropTypes.string,
   selectionCallback: PropTypes.func,
+  color: PropTypes.string,
 };
 
 export default GalacticProperties;

@@ -77,10 +77,6 @@
         transition: fill $timing $duration;
       }
 
-      // .md-text {
-      //   color: $basePrimary;
-      // }
-
       &:hover {
         background-color: $basePrimary;
 
@@ -111,6 +107,56 @@
         .md-text {
           /* stylelint-disable-next-line declaration-no-important */
           color: $white !important;
+        }
+      }
+    }
+  }
+}
+
+aside .colorized-nav-item,
+nav .colorized-nav-item {
+  @for $i from 0 through length($chartColors) - 1 {
+    $color: nth($chartColors, $i + 1);
+
+    &-#{$i} {
+      margin-bottom: -1px;
+      background-color: $neutral10;
+      transition: background-color $timing $duration;
+
+      :global {
+        .md-icon {
+          fill: $color;
+          transition: fill $timing $duration;
+        }
+
+        .md-text {
+          /* stylelint-disable-next-line declaration-no-important */
+          color: $color !important;
+        }
+      }
+
+      &.active,
+      &:hover {
+        /* stylelint-disable-next-line declaration-no-important */
+        background-color: $color !important;
+
+        > div {
+          /* stylelint-disable-next-line declaration-no-important */
+          background-color: $color !important;
+        }
+
+        :global {
+          .md-icon {
+            /* stylelint-disable-next-line declaration-no-important */
+            fill: $white !important;
+          }
+
+          .md-tile-text--primary,
+          .md-tile-text--primary.md-text,
+          .md-text {
+            /* stylelint-disable-next-line declaration-no-important */
+            color: $white !important;
+          }
         }
       }
     }

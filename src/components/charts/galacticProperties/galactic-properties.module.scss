@@ -19,87 +19,12 @@
 
 .group-point {
   stroke: none;
-  transition: fill $timing $duration, stroke $timing $duration, opacity $timing $duration;
+  transition: fill $timing $duration, stroke $timing $duration,
+    opacity $timing $duration;
 }
 
 .invisible {
   display: none;
-}
-
-// NavDrawer related styles
-.card {
-  position: relative;
-  box-shadow: none;
-}
-
-// mini drawer
-aside {
-  .property-item {
-    margin-bottom: -1px;
-    background-color: $neutral10;
-    transition: background-color $timing $duration;
-
-    .nav-avatar {
-      @include labelPrimary;
-      font-weight: $medium;
-      color: $basePrimary;
-    }
-
-    :global {
-      .md-icon {
-        fill: $basePrimary;
-      }
-    }
-
-    &:hover {
-      background-color: $basePrimary;
-
-      .nav-avatar {
-        color: $white;
-      }
-    }
-
-    &.link-active {
-      background-color: $basePrimary;
-
-      .nav-avatar {
-        color: $white;
-      }
-    }
-
-    &.link-is-disabled {
-      background-color: rgba(200, 200, 200, 0.6);
-
-      .nav-avatar {
-        color: $neutral10;
-      }
-    }
-  }
-}
-
-// full size drawer
-nav {
-  .property-item {
-    :global {
-      .md-text {
-        @include labelPrimary;
-        font-weight: $medium;
-      }
-    }
-
-    &.link-active {
-      background-color: $basePrimary;
-
-      :global {
-        .md-tile-text--primary,
-        .md-tile-text--primary.md-text--theme-primary,
-        .md-text {
-          /* stylelint-disable-next-line declaration-no-important */
-          color: $white !important;
-        }
-      }
-    }
-  }
 }
 
 // Multiple datasets Legend
