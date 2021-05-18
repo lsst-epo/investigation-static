@@ -406,7 +406,7 @@ class GalacticProperties extends React.Component {
                     offsetTop,
                   }}
                   pointClasses={classnames(styles.groupPoint, {
-                    'color-1-fill': yValueAccessor !== 'color',
+                    'color-0-fill': yValueAccessor !== 'color',
                   })}
                 />
               )}

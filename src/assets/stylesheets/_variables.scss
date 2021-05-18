@@ -150,7 +150,7 @@ $verticalSpace: $baseLineHeight * 1em;
 $headingWithSpaceHeight: 90px;
 $tallestSquareWidget: calc(
   100vh - #{$pageNavHeight} - #{$siteHeaderHeight} - #{$headingWithSpaceHeight} -
-  #{$minPadding}
+    #{$minPadding}
 );
 
 // $durationFast: 0.1s;
