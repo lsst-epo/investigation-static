@@ -238,6 +238,27 @@ export const toSigFigs = (number, precision) => {
   return String(roundedValue);
 };
 
+export const scientificNotation = (number, precision, returnHtml = true) => {
+  if (number === 0) return 0;
+
+  const [val, exp] = Number.parseFloat(number)
+    .toExponential()
+    .split('e');
+
+  const numPlaces = Math.abs(+exp);
+
+  if ((Math.abs(number) < 1 && numPlaces > 3) || numPlaces > 9) {
+    const coefficientAndBase = `${parseFloat(toSigFigs(+val, precision))} x 10`;
+
+    return returnHtml
+      ? renderDef(`${coefficientAndBase}<sup>${+exp}</sup>`)
+      : `${coefficientAndBase}^${+exp}`;
+  }
+
+  const sigFigged = addTheCommas(toSigFigs(number, precision));
+  return returnHtml ? renderDef(sigFigged) : sigFigged;
+};
+
 const getDamageDescription = function(data) {
   if (!data) return null;
   return data.description;
@@ -282,7 +303,7 @@ export const getValue = function(accessor, data) {
       craterDepth: addTheCommas(toSigFigs(data, 3)),
       count: addTheCommas(formatValue(data ? data.length : 0, 0)),
       countOfTotal: getCountOutOfTotal(data),
-      kineticEnergy: addTheCommas(toSigFigs(+data, 3)),
+      kineticEnergy: scientificNotation(+data, 3),
       volume: toSigFigs(data, 4),
       overPressure: addTheCommas(toSigFigs(data, 3)),
       mercalliIntensity: getDamageDescription(data),
