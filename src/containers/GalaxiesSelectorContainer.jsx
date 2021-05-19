@@ -174,6 +174,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
           <GalacticProperties
             className="brightness-vs-distance"
             data={selectedData || []}
+            options={options}
             xDomain={chartDomain[0]}
             yDomain={chartDomain[1]}
             selectionCallback={this.userGalacticPropertiesCallback}
