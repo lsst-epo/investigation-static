@@ -2,14 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import find from 'lodash/find';
 import classnames from 'classnames';
-import Point from './Point.jsx';
+import Point from '../shared/shapes';
 import { getFluxRgba } from './galacticPropertiesUtilities.js';
 import { invisible } from './galactic-properties.module.scss';
+
+const dimension = 20;
 
 class Points extends React.PureComponent {
   render() {
     const {
       data,
+      svgShape,
+      svgShapeIndex,
       selectedData,
       hoveredData,
       xScale,
@@ -41,6 +45,10 @@ class Points extends React.PureComponent {
               classes={classes}
               selected={selected}
               hovered={hovered}
+              height={dimension}
+              width={dimension}
+              svgShape={svgShape}
+              svgShapeIndex={svgShapeIndex}
               x={xScale(d[xValueAccessor])}
               y={yScale(d[yValueAccessor]) + offsetTop}
               label={label}
@@ -55,6 +63,8 @@ class Points extends React.PureComponent {
 
 Points.propTypes = {
   data: PropTypes.array,
+  svgShape: PropTypes.string,
+  svgShapeIndex: PropTypes.number,
   selectedData: PropTypes.array,
   hoveredData: PropTypes.array,
   xValueAccessor: PropTypes.string,

@@ -36,6 +36,7 @@ export const widgetOptionsFragment = graphql`
     autoplay
     preSelected
     multiple
+    svgShapes
     domain
     xAxisLabel
     yAxisLabel

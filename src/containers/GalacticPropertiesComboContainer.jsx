@@ -22,6 +22,7 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
         name: 'Brightness vs Distance',
         color: 'rgb(254, 216, 40)',
         options: {
+          svgShapes: ['triangle'],
           title: 'Brightness Vs Distance',
           xAxisLabel: 'Distance (Billion Ly)',
           yAxisLabel: 'Observed Brightness',
@@ -38,6 +39,7 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
         name: 'Color vs Distance',
         color: 'rgb(26, 181, 121)',
         options: {
+          svgShapes: ['circle'],
           title: 'Color Vs Distance',
           xAxisLabel: 'Distance (Billion Ly)',
           yAxisLabel: 'Flux ratio i/z (color)',
@@ -63,7 +65,14 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
     const {
       widget: { source, options },
     } = this.props;
-    const { multiple } = options || {};
+    const { multiple, svgShapes } = options || {};
+
+    this.properties = this.properties.map((property, i) => {
+      if (svgShapes && svgShapes[i]) {
+        property.options.svgShapes = [svgShapes[i]];
+      }
+      return property;
+    });
 
     API.get(source).then(response => {
       const { data } = response;

@@ -289,6 +289,8 @@ class GalacticProperties extends React.Component {
       options,
     } = this.props;
 
+    const { svgShapes } = options || {};
+
     const {
       xScale,
       yScale,
@@ -389,6 +391,7 @@ class GalacticProperties extends React.Component {
                         hoveredData,
                         offsetTop,
                       }}
+                      svgShape={svgShapes ? svgShapes[i] : 'circle'}
                       pointClasses={pointClasses}
                     />
                   );
@@ -405,6 +408,7 @@ class GalacticProperties extends React.Component {
                     hoveredData,
                     offsetTop,
                   }}
+                  svgShape={svgShapes ? svgShapes[0] : 'circle'}
                   pointClasses={classnames(styles.groupPoint, {
                     'color-1-fill': yValueAccessor !== 'color',
                   })}

@@ -31,9 +31,13 @@
         "tooltipAccessors": ["distance", "brightness"],
         "tooltipUnits": ["Billion Ly"],
         "tooltipLabels": ["Distance", "Brightness"],
-        "domain": [[0, 28], [0, 200]],
+        "domain": [
+          [0, 28],
+          [0, 200]
+        ],
         "multiple": true,
-        "showUserPlot": "44"
+        "showUserPlot": "44",
+        "svgShapes": ["circle", "circle"]
       }
     }
   ],
