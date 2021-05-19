@@ -15,7 +15,14 @@ class StellarValue extends React.PureComponent {
 
     return (
       <>
-        {!isSvg && <span>{formatted}</span>}
+        {!isSvg &&
+          // eslint-disable-next-line no-underscore-dangle
+          (formatted.__html ? (
+            // eslint-disable-next-line react/no-danger
+            <span dangerouslySetInnerHTML={formatted} />
+          ) : (
+            <span>{formatted}</span>
+          ))}
         {isSvg && <tspan>{formatted}</tspan>}
         {formatted && <Unit type={type} isSvg={isSvg} />}
       </>
