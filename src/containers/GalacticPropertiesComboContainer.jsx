@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import API from '../lib/API.js';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import GalacticProperties from '../components/charts/galacticProperties/index.jsx';
-import ScatterPlot from '../components/site/icons/Star';
+import Icon from '../components/site/icons/CustomIcon';
 import {
   card,
   linkActive,
@@ -20,9 +20,10 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
     this.properties = [
       {
         name: 'Brightness vs Distance',
-        color: 'rgb(254, 216, 40)',
+        color: 'rgb(237 76 76)',
         options: {
           title: 'Brightness Vs Distance',
+          icon: 'galaxy',
           xAxisLabel: 'Distance (Billion Ly)',
           yAxisLabel: 'Observed Brightness',
           xValueAccessor: 'distance',
@@ -39,6 +40,7 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
         color: 'rgb(26, 181, 121)',
         options: {
           title: 'Color Vs Distance',
+          icon: 'galaxy',
           xAxisLabel: 'Distance (Billion Ly)',
           yAxisLabel: 'Flux ratio i/z (color)',
           xValueAccessor: 'distance',
@@ -100,11 +102,12 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
 
   generateNavItems(properties, activeProperty) {
     return properties.map(property => {
-      const { name, color } = property;
+      const { name, color, options } = property;
+      const { icon } = options || {};
       return {
         leftAvatar: (
           <span>
-            <ScatterPlot style={{ fill: color }} />
+            <Icon name={icon || 'star'} style={{ fill: color }} />
             <span className="screen-reader-only">{name}</span>
           </span>
         ),

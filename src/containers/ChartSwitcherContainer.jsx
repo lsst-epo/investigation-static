@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import BarChart from '../components/site/icons/BarChart';
+import Icon from '../components/site/icons/CustomIcon';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import { widgetTags } from '../components/widgets/widgets-utilities.js';
 import {
@@ -45,13 +45,13 @@ class ChartSwitcherContainer extends React.PureComponent {
 
     return nestedWidgets.map((nestedWidget, i) => {
       const { options } = nestedWidget;
-      const { xAxisLabel, title } = options || {};
+      const { xAxisLabel, title, icon } = options || {};
       const label = title || xAxisLabel;
       // console.log('nested', xAxisLabel, title);
       return {
         leftAvatar: (
           <span>
-            <BarChart />
+            <Icon name={icon || 'barChart'} />
             <span className="screen-reader-only">{label}</span>
           </span>
         ),

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 export const nestedWidgetOptionsFragment = graphql`
   fragment NestedWidgetOptions on PagesJsonWidgetsWidgetsOptions {
     title
+    icon
     domain
     yAxisLabel
     xAxisLabel
