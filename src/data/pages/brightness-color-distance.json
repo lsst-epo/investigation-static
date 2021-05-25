@@ -35,7 +35,8 @@
             "tooltipLabels": ["Distance", "Brightness"],
             "domain": [ [0, 28], [0, 200]],
             "svgShapes": ["circle"],
-            "color": "2"
+            "color": "2",
+            "icon": "galaxy"
           }
         },
         {
@@ -52,7 +53,8 @@
             "tooltipLabels": ["Distance", "Color"],
             "domain": [[0, 14], [0, 2]],
             "svgShapes": ["triangle"],
-            "color": "1"
+            "color": "1",
+            "icon": "galaxy"
           }
         }
       ]

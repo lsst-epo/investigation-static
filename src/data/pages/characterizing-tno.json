@@ -68,6 +68,7 @@
           "source": "/data/neos/tno_semimajor_axis_hist.json",
           "options": {
             "title": "TNO Orbit Sizes",
+            "icon": "barChart",
             "xAxisLabel": "Orbit Sizes (au)",
             "xValueAccessor": "semimajor_axis",
             "yAxisLabel": "Number of TNOs",

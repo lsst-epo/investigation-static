@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import API from '../lib/API.js';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
-import StarAvatar from '../components/charts/shared/navDrawer/StarAvatar.jsx';
+import Icon from '../components/site/icons/CustomIcon.jsx';
 import ConditionalWrapper from '../components/ConditionalWrapper.jsx';
 import HubblePlot from '../components/charts/hubblePlot/index.jsx';
 import {
@@ -143,7 +143,11 @@ class HubblePlotterContainer extends React.PureComponent {
 
       return {
         leftAvatar: (
-          <StarAvatar classes={`color-${i + 1}-fill`} content={name} />
+          <Icon
+            name="galaxy"
+            className={`color-${i + 1}-fill`}
+            content={name}
+          />
         ),
         primaryText: name,
         className: classnames(navStyle[`colorizedNavItem${i + 1}`], {

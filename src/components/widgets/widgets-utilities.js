@@ -7,7 +7,6 @@ import GalaxiesFilterSelector from '../../containers/GalaxiesFilterSelectorConta
 import HubblePlot from '../../containers/HubblePlotContainer.jsx';
 import LargeScaleStructure from '../../containers/LargeScaleStructureContainer.jsx';
 import GalacticProperties from '../../containers/GalacticPropertiesContainer.jsx';
-import GalacticPropertiesCombo from '../../containers/GalacticPropertiesComboContainer.jsx';
 import OrbitalViewer from '../../containers/OrbitalViewerContainer.jsx';
 import OrbitalProperties from '../../containers/OrbitalPropertiesContainer.jsx';
 import TimeDomainViewer from '../../containers/TimeDomainViewerContainer.jsx';
@@ -26,7 +25,6 @@ export const widgetTags = {
   GalaxiesFilterSelector,
   HubblePlot,
   GalacticProperties,
-  GalacticPropertiesCombo,
   LargeScaleStructure,
   OrbitalViewer,
   OrbitalProperties,
