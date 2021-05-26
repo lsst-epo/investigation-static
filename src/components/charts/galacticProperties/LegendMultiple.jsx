@@ -7,8 +7,7 @@ import styles from './galactic-properties.module.scss';
 
 class LegendMultiple extends React.PureComponent {
   render() {
-    const { yValueAccessor, numOfSets } = this.props;
-    const useFluxColor = yValueAccessor === 'color';
+    const { numOfSets, color } = this.props;
 
     return (
       <Card className={styles.legend}>
@@ -21,21 +20,14 @@ class LegendMultiple extends React.PureComponent {
               setId,
               styles.groupPoint,
               {
-                [`color-${i}-background`]: i > 0,
-                [styles.defaultPoint]: isDefaultSet && !useFluxColor,
+                [`color-${color || i}-background`]: i > 0,
+                [styles.defaultPoint]: isDefaultSet,
               }
             );
 
             return (
               <div key={setId} className={styles.legendRow}>
-                <span
-                  className={pointClasses}
-                  style={
-                    isDefaultSet && useFluxColor
-                      ? { backgroundColor: getFluxRgba(0.76) }
-                      : {}
-                  }
-                ></span>
+                <span className={pointClasses}></span>
                 <span>{`${
                   isDefaultSet ? 'Rubin Observatory Data' : 'Your Data'
                 }`}</span>
@@ -48,8 +40,8 @@ class LegendMultiple extends React.PureComponent {
 }
 
 LegendMultiple.propTypes = {
-  yValueAccessor: PropTypes.string,
   numOfSets: PropTypes.number,
+  color: PropTypes.string,
 };
 
 export default LegendMultiple;

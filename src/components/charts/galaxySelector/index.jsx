@@ -324,6 +324,7 @@ class GalaxySelector extends React.PureComponent {
       activeImageId,
       activeGalaxy,
       selectedData: selectedDataProp,
+      color,
     } = this.props;
 
     const {
@@ -388,6 +389,7 @@ class GalaxySelector extends React.PureComponent {
                 xValueAccessor={xValueAccessor}
                 yValueAccessor={yValueAccessor}
                 pointClasses={`galaxy galaxy-${data.name}`}
+                color={color}
                 active={activeGalaxy}
               />
             )}
@@ -449,6 +451,7 @@ GalaxySelector.propTypes = {
   multiple: PropTypes.bool,
   legend: PropTypes.node,
   name: PropTypes.string,
+  color: PropTypes.string,
   autoplay: PropTypes.bool,
   selectionCallback: PropTypes.func,
   blinkCallback: PropTypes.func,

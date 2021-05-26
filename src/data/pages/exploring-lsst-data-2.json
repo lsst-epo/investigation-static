@@ -37,7 +37,8 @@
         ],
         "multiple": true,
         "showUserPlot": "44",
-        "svgShapes": ["circle", "circle"]
+        "svgShapes": ["circle", "circle"],
+        "color": "4"
       }
     }
   ],

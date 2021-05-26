@@ -287,10 +287,9 @@ class GalacticProperties extends React.Component {
       tooltipUnits,
       tooltipLabels,
       options,
-      color,
     } = this.props;
 
-    const { svgShapes } = options || {};
+    const { svgShapes, color } = options || {};
 
     const {
       xScale,
@@ -315,6 +314,7 @@ class GalacticProperties extends React.Component {
           <LegendMultiple
             yValueAccessor={yValueAccessor}
             numOfSets={data.length}
+            color={color}
           />
         )}
         <div
@@ -376,7 +376,7 @@ class GalacticProperties extends React.Component {
                 data.map((set, i) => {
                   const setId = `set-${i}`;
                   const pointClasses = classnames(setId, styles.groupPoint, {
-                    [`color-${i}-fill`]: i > 0,
+                    [`color-${color || i}-fill`]: i > 0,
                   });
 
                   return (
@@ -412,7 +412,7 @@ class GalacticProperties extends React.Component {
                   svgShape={svgShapes ? svgShapes[0] : 'circle'}
                   pointClasses={classnames(
                     styles.groupPoint,
-                    color || 'color-1-fill'
+                    `color-${color}-fill` || 'color-1-fill'
                   )}
                 />
               )}
@@ -463,7 +463,6 @@ GalacticProperties.propTypes = {
   preSelected: PropTypes.bool,
   name: PropTypes.string,
   selectionCallback: PropTypes.func,
-  color: PropTypes.string,
 };
 
 export default GalacticProperties;

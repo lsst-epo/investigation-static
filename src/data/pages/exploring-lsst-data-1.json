@@ -34,7 +34,8 @@
         "domain": [[0, 14], [0, 2]],
         "multiple": true,
         "showUserPlot": "44",
-        "svgShapes": ["triangle", "triangle"]
+        "svgShapes": ["triangle", "triangle"],
+        "color": "4"
       }
     }
   ],

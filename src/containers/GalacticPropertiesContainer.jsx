@@ -25,8 +25,8 @@ class GalacticPropertiesContainer extends React.PureComponent {
     } = this.props;
     const { randomSource, showUserPlot, multiple } = options || {};
     const randoGalsAnsId = 'randomGalaxies';
-    const randomGalaxiesAnswer = answers[randoGalsAnsId];
-    const userPlotAnswer = answers[showUserPlot];
+    const randomGalaxiesAnswer = (answers || {})[randoGalsAnsId];
+    const userPlotAnswer = (answers || {})[showUserPlot];
     const userPlot = userPlotAnswer ? userPlotAnswer.data : [];
 
     if (sources && showUserPlot && multiple) {
@@ -109,7 +109,7 @@ class GalacticPropertiesContainer extends React.PureComponent {
 
   render() {
     const { data } = this.state;
-    const { options } = this.props;
+    const { options, nested } = this.props;
     const {
       title,
       xAxisLabel,
@@ -124,7 +124,9 @@ class GalacticPropertiesContainer extends React.PureComponent {
 
     return (
       <>
-        <h2 className="space-bottom">{title || 'Brightness Vs Distance'}</h2>
+        {!nested && (
+          <h2 className="space-bottom">{title || 'Brightness Vs Distance'}</h2>
+        )}
         <GalacticProperties
           className="brightness-vs-distance"
           {...{
@@ -151,6 +153,7 @@ GalacticPropertiesContainer.propTypes = {
   widget: PropTypes.object,
   answers: PropTypes.object,
   updateAnswer: PropTypes.func,
+  nested: PropTypes.bool,
 };
 
 export default GalacticPropertiesContainer;

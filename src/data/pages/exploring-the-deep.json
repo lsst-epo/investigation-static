@@ -42,7 +42,8 @@
         "toggleDataPointsVisibility": "44",
         "randomSource": true,
         "xValueAccessor": "distance",
-        "yValueAccessor": "brightness"
+        "yValueAccessor": "brightness",
+        "color": "4"
       }
     }
   ],

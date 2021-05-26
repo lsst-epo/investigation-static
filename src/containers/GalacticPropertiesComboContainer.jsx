@@ -15,22 +15,6 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
 
     this.properties = [
       {
-        name: 'Brightness vs Distance',
-        options: {
-          svgShapes: ['triangle'],
-          title: 'Brightness Vs Distance',
-          xAxisLabel: 'Distance (Billion Ly)',
-          yAxisLabel: 'Observed Brightness',
-          xValueAccessor: 'distance',
-          yValueAccessor: 'brightness',
-          tooltipAccessors: ['distance', 'brightness'],
-          tooltipUnits: ['Billion Ly'],
-          tooltipLabels: ['Distance', 'Brightness'],
-          xDomain: [0, 28],
-          yDomain: [0, 200],
-        },
-      },
-      {
         name: 'Color vs Distance',
         options: {
           svgShapes: ['circle'],
@@ -44,6 +28,22 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
           tooltipLabels: ['Distance', 'Color'],
           xDomain: [0, 16],
           yDomain: [0, 2],
+        },
+      },
+      {
+        name: 'Brightness vs Distance',
+        options: {
+          svgShapes: ['triangle'],
+          title: 'Brightness Vs Distance',
+          xAxisLabel: 'Distance (Billion Ly)',
+          yAxisLabel: 'Observed Brightness',
+          xValueAccessor: 'distance',
+          yValueAccessor: 'brightness',
+          tooltipAccessors: ['distance', 'brightness'],
+          tooltipUnits: ['Billion Ly'],
+          tooltipLabels: ['Distance', 'Brightness'],
+          xDomain: [0, 28],
+          yDomain: [0, 200],
         },
       },
     ];
@@ -151,8 +151,10 @@ class GalacticPropertiesComboContainer extends React.PureComponent {
           <div className="col padded">
             <GalacticProperties
               className="color-brightness-vs-distance-combo"
-              options={activeProperty.options}
-              color={`color-${activePropertyIndex}-fill`}
+              options={{
+                ...activeProperty.options,
+                color: activePropertyIndex,
+              }}
               {...{
                 data,
                 xAxisLabel,

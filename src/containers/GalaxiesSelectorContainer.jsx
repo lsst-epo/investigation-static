@@ -137,6 +137,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
 
   render() {
     const { answers, options } = this.props;
+    const {color} = options;
     const { toggleDataPointsVisibility, showUserPlot, preSelected } =
       options || {};
     const {
@@ -161,6 +162,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
             <GalaxySelector
               className="galaxies-selector"
               data={preSelected ? selectedData : data}
+              color={color}
               {...{ selectedData, preSelected, activeGalaxy }}
               image={{ mediaPath: imagePath, altText: name }}
               xDomain={imageDomain[0]}

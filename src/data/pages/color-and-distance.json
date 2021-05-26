@@ -32,11 +32,13 @@
         "tooltipAccessors": ["distance", "color"],
         "tooltipUnits": ["Billion Ly", "Flux ratio"],
         "tooltipLabels": ["Distance", "Color"],
+        "color": "1",
         "domain": [
           [0, 16],
           [0, 2]
         ],
-        "svgShapes": ["triangle"]
+        "svgShapes": ["triangle"],
+        "color": "4"
       }
     }
   ],

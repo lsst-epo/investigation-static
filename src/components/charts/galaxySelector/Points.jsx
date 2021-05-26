@@ -17,6 +17,7 @@ class Points extends React.PureComponent {
       yValueAccessor,
       pointClasses,
       active,
+      color: colorOverride,
     } = this.props;
 
     return (
@@ -27,6 +28,10 @@ class Points extends React.PureComponent {
           const modR = 0.6 * radius;
           const isSelected = !!find(selectedData, { id: d.id });
           const isActive = active ? active.id === d.id : false;
+          const pointColor = isNumber(color) ? chartColors.chart6 : color;
+          const colorOverrideHex = colorOverride
+            ? chartColors[`chart${colorOverride}`]
+            : false;
 
           return (
             <Point
@@ -36,7 +41,7 @@ class Points extends React.PureComponent {
               classes={pointClasses}
               x={xScale(xVal)}
               y={yScale(d[yValueAccessor])}
-              color={isNumber(color) ? chartColors.chart6 : color}
+              color={colorOverrideHex || pointColor}
               tabIndex="0"
             />
           );
@@ -55,6 +60,7 @@ Points.propTypes = {
   xScale: PropTypes.func,
   yScale: PropTypes.func,
   pointClasses: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default Points;

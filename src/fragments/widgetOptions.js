@@ -7,6 +7,9 @@ export const nestedWidgetOptionsFragment = graphql`
     yAxisLabel
     xAxisLabel
     xValueAccessor
+    yValueAccessor
+    svgShapes
+    color
     tooltipAccessors
     tooltipLabels
     bins
@@ -37,6 +40,7 @@ export const widgetOptionsFragment = graphql`
     preSelected
     multiple
     svgShapes
+    color
     domain
     xAxisLabel
     yAxisLabel
