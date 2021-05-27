@@ -137,7 +137,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
 
   render() {
     const { answers, options } = this.props;
-    const {color} = options;
+    const { color } = options;
     const { toggleDataPointsVisibility, showUserPlot, preSelected } =
       options || {};
     const {

@@ -4,13 +4,7 @@ import classnames from 'classnames';
 import Icon from '../components/site/icons/CustomIcon';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import { widgetTags } from '../components/widgets/widgets-utilities.js';
-import {
-  stackedItem,
-  visibilityActive,
-  paddedDrawerInner,
-  navItem,
-  activeItem,
-} from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
+import style from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
 
 class ChartSwitcherContainer extends React.PureComponent {
   constructor(props) {
@@ -45,9 +39,10 @@ class ChartSwitcherContainer extends React.PureComponent {
 
     return nestedWidgets.map((nestedWidget, i) => {
       const { options } = nestedWidget;
-      const { xAxisLabel, title, icon } = options || {};
+      const { xAxisLabel, title, icon, color } = options || {};
       const label = title || xAxisLabel;
-      // console.log('nested', xAxisLabel, title);
+      const isActive = activeIndex === i;
+
       return {
         leftAvatar: (
           <span>
@@ -56,8 +51,12 @@ class ChartSwitcherContainer extends React.PureComponent {
           </span>
         ),
         primaryText: label,
-        className: classnames(navItem, {
-          [activeItem]: activeIndex === i,
+        className: classnames({
+          [style.navItem]: !color,
+          [style.activeItem]: isActive,
+          [style[`colorizedNavItem${color}`]]: color,
+          [style.active]: isActive,
+          [style.inactive]: !isActive,
         }),
         onClick: () => this.setActiveIndex(i),
       };
@@ -80,7 +79,7 @@ class ChartSwitcherContainer extends React.PureComponent {
             navItems={navItems}
             toolbarTitle={title}
           >
-            <div className={paddedDrawerInner}>
+            <div className={style.paddedDrawerInner}>
               {nestedWidgets.map((nestedWidget, i) => {
                 const { type, options: nestedOptions } = nestedWidget;
                 const key = type + i;
@@ -88,8 +87,8 @@ class ChartSwitcherContainer extends React.PureComponent {
 
                 if (!WidgetTag) return null;
 
-                const itemClasses = classnames(stackedItem, {
-                  [visibilityActive]: activeIndex === i,
+                const itemClasses = classnames(style.stackedItem, {
+                  [style.visibilityActive]: activeIndex === i,
                 });
 
                 return (
