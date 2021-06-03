@@ -5,7 +5,7 @@
   "title": "Classifying Supernova #1",
   "slug": "searching-for-supernovae-1-1/",
   "previous": {
-    "title": "Searching For Supernova #1",
+    "title": "Searching For Supernovae",
     "link": "/searching-for-supernovae-1/"
   },
   "next": {
@@ -13,29 +13,40 @@
     "link": "/searching-for-supernovae-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Astronomers are interested in studying different types of supernovae for several reasons. Although all types of star explosions enrich the Universe with heavy elements, some specific types of supernovae are linked to gamma ray bursts or the production of many different types of neutrinos. Type Ia supernovae, are particularly useful for calculating distances. Let’s look at a few different supernovae and try to classify them. You can determine the type of supernova by overlaying supernovae light curve templates. Try this out by first selecting a template from the menu to the left of the light curve graph, and then dragging the light curve template over your light curve graph. You can also scroll to change the size of the template. Try to match the template to your data points. Try a different template.  Repeat this process until you find the template that best fits your data.</p>",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
-    "options": {
-  	  "showLightCurve": true,
-  	  "chooseLightCurveTemplate": true,
-      "lightCurveTemplates": ["Ia", "IIp"],
-      "preSelectedLightCurveTemplate": "91"
+  "widgets": [
+    {
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
+      "options": {
+        "showLightCurve": true,
+        "chooseLightCurveTemplate": true,
+        "lightCurveTemplates": ["Ia", "IIp"],
+        "preSelectedLightCurveTemplate": "91"
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
         {
           "id": "91",
-          "questionType": "accordion",
+          "questionType": "select",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Find the light curve template that best fits your light curve.</p>",
-          "answerPre": "<span>The selected light curve template represents a Type </span>",
-          "answerPost": "<span> supernova.</span>",
-          "answerAccessor": "light-curve-template"
+          "label": "What type of supernova is this?",
+          "options": [
+            {
+              "label": "Type Ia",
+              "value": "Type Ia"
+            },
+            {
+              "label": "Type IIp",
+              "value": "Type IIp"
+            }
+          ],
+          "placeholder": "Select one",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
         }
       ]
     },
@@ -44,8 +55,32 @@
         {
           "id": "93",
           "questionType": "textArea",
-          "label": "Explain your answer—which aspects of the shape of the light curve caused you to choose this type?",
+          "label": "Explain your answer — which aspects of the light curve caused you to choose this type?",
           "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "930",
+          "questionType": "select",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "Was this formed from a white dwarf or a high mass main sequence star?",
+          "options": [
+            {
+              "label": "White Dwarf",
+              "value": "White Dwarf"
+            },
+            {
+              "label": "High Mass Star",
+              "value": "High Mass Star"
+            }
+          ],
+          "placeholder": "Select the best description",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
         }
       ]
     }

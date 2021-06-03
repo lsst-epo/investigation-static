@@ -2,22 +2,31 @@
   "id": "11a",
   "investigation": "exploding-stars",
   "order": "12a",
-  "title": "Searching For Supernova #1",
+  "title": "Searching For Supernovae",
   "slug": "searching-for-supernovae-1/",
-  "previous": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-2/"},
-  "next": {"title": "Classifying Supernova #1", "link": "/searching-for-supernovae-1-1/"},
+  "previous": {
+    "title": "Using Light Curves to Classify Supernovae",
+    "link": "/classifying-supernovae-light-curves/"
+  },
+  "next": {
+    "title": "Classifying Supernova #1",
+    "link": "/searching-for-supernovae-1-1/"
+  },
   "layout": "TwoCol",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
-    "options": {
-      "showSelector": true,
-      "showLightCurve": false,
-      "autoplay": false,
-      "toggleDataPointsVisibility": "90",
-      "autoplay": true
+  "content": "<p>You will now have a chance to find and classify three newly-discovered supernovae.</p>",
+  "widgets": [
+    {
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
+      "options": {
+        "showSelector": true,
+        "showLightCurve": false,
+        "autoplay": false,
+        "toggleDataPointsVisibility": "90",
+        "autoplay": true
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [

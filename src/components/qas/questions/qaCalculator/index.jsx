@@ -296,21 +296,6 @@ class QACalculator extends React.PureComponent {
               <FindParsecs variable={value.distanceModulus} {...{ qaReview }} />
               <div className="results-list">
                 <CalculatedMeasurement
-                  unit="pc"
-                  value={value.parsecs}
-                  {...{ qaReview }}
-                />
-                <CalculatedMeasurement
-                  unit="Mpc"
-                  value={value.megaParsecs}
-                  {...{ qaReview }}
-                />
-                <CalculatedMeasurement
-                  unit="ly"
-                  value={value.lightYears}
-                  {...{ qaReview }}
-                />
-                <CalculatedMeasurement
                   unit="Mly"
                   value={value.megaLightYears}
                 />

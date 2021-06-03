@@ -7,10 +7,10 @@
   "previous": { "title": "Introduction", "link": "/introduction/" },
   "next": { "title": "Blinking Supernovae", "link": "/blinking-supernovae/" },
   "layout": "SingleCol",
-  "content": "<p>The picture below shows a supernova that exploded in the nearby galaxy M101. The supernova is marked with a green arrow. Notice that it is bright compared to the other stars in the galaxy, but how can we know if it’s a supernova? The answer is, with this picture alone, we can’t!</p><p>Astronomers find supernovae by comparing two or more images of the same region in the sky and looking for differences. Since supernovae are exploding stars, and stars are generally found in galaxies, they can search for supernovae by comparing images of the same galaxy taken at different times (a technique called “blinking”). Once astronomers find a supernova, they take as many images as possible over a period of months to study how it changes. Since the Rubin Observatory will take a new image of the sky every three to four nights, it has a much greater ability to detect more changes in the sky such as supernovae than other telescopes.</p>",
+  "content": "<p>This image shows a supernova that exploded in the nearby galaxy M101. The supernova is circled. Notice that it is bright compared to the light from its host galaxy. But how can we know if it’s a supernova? The answer is, with this picture alone, we can’t!</p><p>Astronomers find supernovae by comparing two or more images of the same region in the sky and looking for sudden changes in the brightness of an object in the images. Since supernovae are found in galaxies, we search for supernovae by comparing images of the same galaxy taken at different times (a technique called “blinking”). Once astronomers find a supernova, they take as many images as possible over a period of months to study how the supernova changes in brightness. Since Rubin Observatory takes images of the entire sky (visible from its locations) every three to four nights, it has a much greater ability to detect the changes in brightness of objects than other telescopes.</p>",
   "images": [
     {
-      "mediaPath": "/images/discovering-supernovae.png",
+      "mediaPath": "/images/noao-m101sn2011fe_01.jpg",
       "altText": "Supernova 2011fe in the spiral galaxy Messier 101; T.A. Rector (University of Alaska Anchorage), H. Schweiker & S. Pakzad NOAO/AURA/NS",
       "figText": "Supernova 2011fe in the spiral galaxy Messier 101; T.A. Rector (University of Alaska Anchorage), H. Schweiker & S. Pakzad NOAO/AURA/NS"
     }

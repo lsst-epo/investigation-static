@@ -4,22 +4,30 @@
   "order": "17",
   "title": "Determining the Peak Apparent Magnitude of Supernova #5",
   "slug": "distance-to-supernovae-1-1/",
-  "previous": {"title": "Determining the Peak Apparent Magnitude of Supernova #4", "link": "/distance-to-supernovae-1/"},
-  "next": {"title": "Determining the Peak Apparent Magnitude of Supernova #6", "link": "/distance-to-supernovae-1-2/"},
+  "previous": {
+    "title": "Determining the Peak Apparent Magnitude of Supernova #4",
+    "link": "/distance-to-supernovae-1/"
+  },
+  "next": {
+    "title": "Determining the Peak Apparent Magnitude of Supernova #6",
+    "link": "/distance-to-supernovae-1-2/"
+  },
   "layout": "TwoCol",
-  "content": "<p>Here’s another Type Ia supernovae.</p>",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abxvjkn_g_lightcurve.json",
-    "options": {
-      "showLightCurve": true,
-      "choosePeakMagnitude": true,
-      "chooseLightCurveTemplate": true,
-      "lightCurveTemplates": ["Ia"],
-      "preSelectedLightCurveTemplate": "64",
-      "preSelectedLightCurveMagnitude": "164"
+  "content": "<p>Here’s another Type Ia supernovae.</p><p>Quick recap of directions:</p>",
+  "widgets": [
+    {
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19abxvjkn_g_lightcurve.json",
+      "options": {
+        "showLightCurve": true,
+        "choosePeakMagnitude": true,
+        "chooseLightCurveTemplate": true,
+        "lightCurveTemplates": ["Ia"],
+        "preSelectedLightCurveTemplate": "64",
+        "preSelectedLightCurveMagnitude": "164"
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -28,7 +36,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Use the Type Ia template to fit the data.</p>",
+          "label": "<pb>Get the best fit of the template to your light curve data. SAVE.</pb>",
           "answerPre": "<span>The Type </span>",
           "answerPost": "<span> template fits the data for Supernova #5</span>",
           "answerAccessor": "light-curve-template"
@@ -42,7 +50,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>A horizontal line will appear on the graph. Use it to mark the peak apparent magnitude (m) of the light curve on the template.</p>",
+          "label": "<p>Determine the peak apparent magnitude of your fitted template. SAVE.</p>",
           "answerPre": "<span>This supernova's magnitude is </span>",
           "answerAccessor": "magnitude"
         }

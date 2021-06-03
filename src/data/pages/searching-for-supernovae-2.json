@@ -2,20 +2,28 @@
   "id": "21",
   "investigation": "exploding-stars",
   "order": "13a",
-  "title": "Searching Supernova #2",
+  "title": "Searching For Supernova #2",
   "slug": "searching-for-supernovae-2/",
-  "previous": {"title": "Classifying Supernova #1", "link": "/searching-for-supernovae-1-1/"},
-  "next": {"title": "Classifying Supernova #2", "link": "/searching-for-supernovae-2-1/"},
+  "previous": {
+    "title": "Classifying Supernova #1",
+    "link": "/searching-for-supernovae-1-1/"
+  },
+  "next": {
+    "title": "Classifying Supernova #2",
+    "link": "/searching-for-supernovae-2-1/"
+  },
   "layout": "TwoCol",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abvhduf_g_lightcurve.json",
-    "options": {
-      "showSelector": true,
-      "toggleDataPointsVisibility": "59",
-      "autoplay": true
+  "widgets": [
+    {
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19abvhduf_g_lightcurve.json",
+      "options": {
+        "showSelector": true,
+        "toggleDataPointsVisibility": "59",
+        "autoplay": true
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -24,7 +32,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Use the controls to play, pause, and skip between images. Can you spot the supernova? Click on the supernova when you find it.</p>",
+          "label": "<p>Use the controls to play, pause, and skip between images. Click on the supernova when you find it.</p>",
           "answerPre": "<span>Selected Supernova: </span>",
           "answerAccessor": "supernova"
         }

@@ -13,7 +13,7 @@
     "link": "/distance-to-supernovae-1-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>Here’s another Type Ia supernovae.</p>",
+  "content": "<p>Here’s the third Type Ia supernovae.</p><p>Quick recap of directions:</p>",
   "widgets": [
     {
       "type": "SupernovaSelectorWithLightCurve",
@@ -38,7 +38,7 @@
           "title": "Question #1",
           "label": "<p>Use the Type Ia template to fit the data.</p>",
           "answerPre": "<span>The Type </span>",
-          "answerPost": "<span> template fits the data for Supernova #6</span>",
+          "label": "<pb>Get the best fit of the template to your light curve data. SAVE.</pb>",
           "answerAccessor": "light-curve-template"
         }
       ]
@@ -50,7 +50,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>A horizontal line will appear on the graph. Drag it to fit the peak apparent magnitude (m) of the light curve on the template.</p>",
+          "label": "<p>Determine the peak apparent magnitude of your fitted template. SAVE.</p>",
           "answerPre": "<span>This supernova's magnitude is </span>",
           "answerAccessor": "magnitude"
         }

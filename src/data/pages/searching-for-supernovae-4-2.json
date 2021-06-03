@@ -1,0 +1,43 @@
+{
+  "id": "23c",
+  "investigation": "exploding-stars",
+  "order": "15c",
+  "title": "Using Type Ia Supernovae to Measure Distances",
+  "slug": "searching-for-supernovae-4-2/",
+  "previous": {
+    "title": "Using Type Ia Supernovae to Measure Distances",
+    "link": "/searching-for-supernovae-4-1/"
+  },
+  "next": {
+    "title": "Determining the Peak Apparent Magnitude of Supernova #1",
+    "link": "/distance-to-supernovae-1/"
+  },
+  "layout": "TwoCol",
+  "widgets": [
+    {
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19abucvgu_g_lightcurve.json",
+      "options": {
+        "showLightCurve": true,
+        "chooseLightCurveTemplate": true,
+        "lightCurveTemplates": ["Ia", "IIp"],
+        "preSelectedLightCurveTemplate": "611"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "611",
+          "tool": "selection",
+          "title": "Question #1",
+          "questionType": "accordion",
+          "label": "<p>Now practice fitting the Type Ia supernova template to this sample data:</p><ol><li>Click the Ia template tab at the top left of the light curve graph.</li><li>Practice dragging the template as far as you can in every direction: up, down, right, left.</li><li>Practice making the template as big and small as you can.</li><li>Change the template size and position to intersect as many points or error bars as possible. Since you are using real data, it is highly unlikely that you will get a perfect fit for all of your points. It is more important to fit most of the curve instead of just trying to fit the peak.</li><li>Click Save when you are satisfied with the fit of your template.</li><li>Place your cursor on the light curve, and a horizontal line will appear on the graph.</li><li>Move the line until it is aligned with the peak apparent magnitude (m) of the template (this may not be the highest data point!).  Click when you are satisfied with the position of the line, then SAVE when the apparent magnitude is reported.</li></ol>",
+          "answerPre": "<span>Selected Supernova: </span>",
+          "answerAccessor": "light-curve-template"
+        }
+      ]
+    }
+  ]
+}

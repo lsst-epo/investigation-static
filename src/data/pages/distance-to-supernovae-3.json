@@ -4,10 +4,21 @@
   "order": "21",
   "title": "Galaxy Distances in the Local Universe",
   "slug": "distance-to-supernovae-3/",
-  "previous": {"title": "Finding the Distance to Galaxies", "link": "/distance-to-supernovae-2/"},
-  "next": {"title": "Reflect and Discuss", "link": "/discuss-report/"},
+  "previous": {
+    "title": "How Galaxies are Arranged in Space",
+    "link": "/distance-to-supernovae-2-1/"
+  },
+  "next": { "title": "Reflect and Discuss", "link": "/discuss-report/" },
   "layout": "TwoCol",
-  "content": "<p>By using Type Ia supernovae to measure the distance from Earth to other galaxies in the Universe, astronomers have been able to map the distribution of galaxies in space. Our Milky Way galaxy is orbited by dozens of small satellite galaxies, and it's a member of a larger group of galaxies called the Local Group. The Local Group is contained in the Laniakea Supercluster, along with other groups of galaxies. And again, thanks to observations of Type Ia supernovae, we know that galaxy superclusters are scattered throughout the Universe.</p><p>The Locations and Distances table shows the approximate distances to these locations.</p><p>The Magnitudes and Distances table shows the magnitudes and distances you recorded for Supernovae #4, #5, and #6.</p>",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
+  "content": "<p>Compare the distances for your galaxies with the provided distances to other locations in the Universe to answer the questions below.</p>",
   "tables": [
     {
       "id": "2",
@@ -16,17 +27,20 @@
         "col": "right",
         "row": "top"
       },
-      "colTitles": [
-        "Location",
-        "Distance"
+      "colTitles": ["Location", "Distance"],
+      "rowTitles": [
+        ["Inside the Milky Way"],
+        ["Possible satellite galaxy of the Milky Way"],
+        ["Member of the Local Group"],
+        ["Member of the Laniakea Supercluster"],
+        ["Beyond the Laniakea Supercluster"]
       ],
-      "rowTitles": [["Inside the Milky Way"], ["Possible satellite galaxy of the Milky Way"], ["Member of the Local Group"], ["Member of the Laniakea Supercluster"], ["Beyond the Laniakea Supercluster"]],
       "rows": [
-        [{"content": "Less than 100,000 LY away"}],
-        [{"content": "100,000 - 1.4 Mly"}],
-        [{"content": "1.4 - 5 Mly"}],
-        [{"content": "5 - 520 Mly"}],
-        [{"content": "Beyond 520 Mly"}]
+        [{ "content": "Less than 100,000 ly (0.1 Mly) away" }],
+        [{ "content": "0.1 - 1.4 Mly" }],
+        [{ "content": "1.4 - 5 Mly" }],
+        [{ "content": "5 - 520 Mly" }],
+        [{ "content": "Beyond 520 Mly" }]
       ]
     },
     {
@@ -36,11 +50,7 @@
         "col": "left",
         "row": "top"
       },
-      "colTitles": [
-        "Supernova",
-        "Apparent Magnitude (m)",
-        "Distance (Mly)"
-      ],
+      "colTitles": ["Supernova", "Apparent Magnitude (m)", "Distance (Mly)"],
       "rowTitles": [["#4"], ["#5"], ["#6"]],
       "rows": [
         [
@@ -62,27 +72,32 @@
     {
       "question": [
         {
-          "id": "72",
-          "questionType": "text",
-          "label": "The Andromeda Galaxy (M31) is the closest large galaxy to the Milky Way. It is at a distance of 2.5 MLY (0.78 Mpc) from Earth. Approximately how many times farther away is Supernova 4 compared to M31?",
-          "answerAccessor": "text"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
           "id": "73",
           "questionType": "select",
-          "label": "Based on Supernova #4's distance from Earth, select the answer that best describes the possble location of Supernova #4.",
+          "label": "Based on Supernova #4's distance from Earth, select the answer that best describes the possible location of Supernova #4.",
           "answerAccessor": "select",
           "placeholder": "Select a location",
           "options": [
-            {"label": "Inside the Milky Way", "value": "Inside the Milky Way"},
-            {"label": "Possible satellite galaxy of the Milky Way", "value": "Possible satellite galaxy of the Milky Way"},
-            {"label": "Member of the Local Group", "value": "Member of the Local Group"},
-            {"label": "Member of the Laniakea", "value": "Member of the Laniakea"},
-            {"label": "Beyond the Laniakea Supercluster", "value": "Beyond the Laniakea Supercluster"}
+            {
+              "label": "Inside the Milky Way",
+              "value": "Inside the Milky Way"
+            },
+            {
+              "label": "Possible satellite galaxy of the Milky Way",
+              "value": "Possible satellite galaxy of the Milky Way"
+            },
+            {
+              "label": "Member of the Local Group",
+              "value": "Member of the Local Group"
+            },
+            {
+              "label": "Member of the Laniakea",
+              "value": "Member of the Laniakea"
+            },
+            {
+              "label": "Beyond the Laniakea Supercluster",
+              "value": "Beyond the Laniakea Supercluster"
+            }
           ],
           "answerPre": "Supernova #4 is located ",
           "answerPost": "."
@@ -94,15 +109,30 @@
         {
           "id": "74",
           "questionType": "select",
-          "label": "Based on Supernova #5's distance from Earth, select the answer that best describes the possble location of Supernova #5.",
+          "label": "Based on Supernova #5's distance from Earth, select the answer that best describes the possible location of Supernova #5.",
           "answerAccessor": "select",
           "placeholder": "Select a location",
           "options": [
-            {"label": "Inside the Milky Way", "value": "Inside the Milky Way"},
-            {"label": "Possible satellite galaxy of the Milky Way", "value": "Possible satellite galaxy of the Milky Way"},
-            {"label": "Member of the Local Group", "value": "Member of the Local Group"},
-            {"label": "Member of the Laniakea", "value": "Member of the Laniakea"},
-            {"label": "Beyond the Laniakea Supercluster", "value": "Beyond the Laniakea Supercluster"}
+            {
+              "label": "Inside the Milky Way",
+              "value": "Inside the Milky Way"
+            },
+            {
+              "label": "Possible satellite galaxy of the Milky Way",
+              "value": "Possible satellite galaxy of the Milky Way"
+            },
+            {
+              "label": "Member of the Local Group",
+              "value": "Member of the Local Group"
+            },
+            {
+              "label": "Member of the Laniakea",
+              "value": "Member of the Laniakea"
+            },
+            {
+              "label": "Beyond the Laniakea Supercluster",
+              "value": "Beyond the Laniakea Supercluster"
+            }
           ],
           "answerPre": "Supernova #4 is located ",
           "answerPost": "."
@@ -114,15 +144,30 @@
         {
           "id": "75",
           "questionType": "select",
-          "label": "Based on Supernova #6's distance from Earth, select the answer that best describes the possble location of Supernova #6.",
+          "label": "Based on Supernova #6's distance from Earth, select the answer that best describes the possible location of Supernova #6.",
           "answerAccessor": "select",
           "placeholder": "Select a location",
           "options": [
-            {"label": "Inside the Milky Way", "value": "Inside the Milky Way"},
-            {"label": "Possible satellite galaxy of the Milky Way", "value": "Possible satellite galaxy of the Milky Way"},
-            {"label": "Member of the Local Group", "value": "Member of the Local Group"},
-            {"label": "Member of the Laniakea", "value": "Member of the Laniakea"},
-            {"label": "Beyond the Laniakea Supercluster", "value": "Beyond the Laniakea Supercluster"}
+            {
+              "label": "Inside the Milky Way",
+              "value": "Inside the Milky Way"
+            },
+            {
+              "label": "Possible satellite galaxy of the Milky Way",
+              "value": "Possible satellite galaxy of the Milky Way"
+            },
+            {
+              "label": "Member of the Local Group",
+              "value": "Member of the Local Group"
+            },
+            {
+              "label": "Member of the Laniakea",
+              "value": "Member of the Laniakea"
+            },
+            {
+              "label": "Beyond the Laniakea Supercluster",
+              "value": "Beyond the Laniakea Supercluster"
+            }
           ],
           "answerPre": "Supernova #4 is located ",
           "answerPost": "."
