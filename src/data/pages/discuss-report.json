@@ -10,12 +10,14 @@
   },
   "next": { "title": "Putting it all Together", "link": "/summary/" },
   "layout": "TwoCol",
-  "content": "<p>Recall the relationship that exists between the relative size of a galaxy and its distance from Earth. The supernova marked by an arrow in the image is from a galaxy of a similar size as the galaxies that contained Supernovae 4, 5, and 6.</p><p>Refer to the chart collecting your distance and magnitude observations from the previous section to get an idea of the approximate distance of Supernovae #4, #5, and #6.</p>",
-  "images": [{
-    "mediaPath": "/images/expoloding-universe_discuss-report.jpg",
-    "altText": "Superonva among other celestial objects",
-    "figText": "Supernova imaged by the Hubble Space Telescope. The image on the left shows a section of the Hubble Deep Field. The image on the right shows a very magnified view of the boxed area in the left image. The supernova is marked by the arrow. Image credit: NASA, Adam Riess (Space Telescope Science Institute, Baltimore, MD)."
-  }],
+  "content": "<p>The Andromeda Galaxy (M31) is the closest large galaxy to the Milky Way. It is at a distance of 2.5 Mly from Earth. Approximately how many times farther away is Supernova 4 compared to the Andromeda galaxy?</p>",
+  "images": [
+    {
+      "mediaPath": "/images/thought-bubbles.png",
+      "altText": "",
+      "figText": ""
+    }
+  ],
   "tables": [
     {
       "id": "1",
@@ -23,11 +25,7 @@
         "col": "left",
         "row": "top"
       },
-      "colTitles": [
-        "Supernova",
-        "Apparent Magnitude (m)",
-        "Distance (Mly)"
-      ],
+      "colTitles": ["Supernova", "Apparent Magnitude (m)", "Distance (Mly)"],
       "rowTitles": [["#4"], ["#5"], ["#6"]],
       "rows": [
         [
@@ -50,57 +48,8 @@
       "question": [
         {
           "id": "77",
-          "questionType": "select",
-          "label": "Use your data from Supernovae 4, 5, and 6 to estimate the peak apparent magnitude of the supernova in this image. The magnitude is closest to:",
-          "answerAccessor": "select",
-          "placeholder": "Select a magnitude",
-          "options": [
-            { "label": "-20", "value": "-20" },
-            { "label": "-10", "value": "-10" },
-            { "label": "+10", "value": "+10" },
-            { "label": "+20", "value": "+20" }
-          ],
-          "answerPre": "The peak magnitude is closest to ",
-          "answerPost": "."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "78",
-          "questionType": "select",
-          "label": "Estimate the distance in light years to this supernova:",
-          "answerAccessor": "select",
-          "placeholder": "Select a distance",
-          "options": [
-            { "label": "1 million", "value": "1 million" },
-            { "label": "10 million", "value": "10 million" },
-            { "label": "100 million", "value": "100 million" },
-            { "label": "1 billion", "value": "1 billion" },
-            { "label": "10 billion", "value": "10 billion" }
-          ],
-          "answerPre": "This supernova is ",
-          "answerPost": "light years away."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "79",
-          "questionType": "text",
-          "label": "<p>How much farther away is this supernova than the farthest supernova in your class (or lab group)?</p>",
-          "answerAccessor": "text"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "80",
-          "questionType": "text",
-          "label": "<p>Why are Type Ia supernovae especially useful for measuring the distances to very far away galaxies?</p>",
+          "questionType": "textArea",
+          "label": "In this investigation you have learned how to classify (categorize) types of supernovae according to the shape of their light curves. Describe how you categorize something in your everyday life. What is an advantage of categorizing? What could be a disadvantage of categorizing?",
           "answerAccessor": "text"
         }
       ]

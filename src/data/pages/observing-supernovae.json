@@ -4,23 +4,31 @@
   "order": "04",
   "title": "Observing Supernovae",
   "slug": "observing-supernovae/",
-  "previous": {"title": "Blinking Supernovae", "link": "/blinking-supernovae/"},
-  "next": {"title": "Describing Light Curves", "link": "/describe-light-curve/"},
+  "previous": {
+    "title": "Blinking Supernovae",
+    "link": "/blinking-supernovae/"
+  },
+  "next": {
+    "title": "Describing Light Curves",
+    "link": "/describe-light-curve/"
+  },
   "layout": "SingleCol",
-  "content": "<p>Rubin Observatory monitors millions of galaxies on a regular basis and is contributing to a huge increase in the number of supernovae discovered each night. It’s your turn to examine some of these recently-discovered supernovae</p><p>Find the supernova by stepping through the images below. Once you have located the supernova and clicked on it, you will see a set of observations of the magnitude of the supernova at different times on the graph at the right. This is known as a light curve. Now advance through all of the other images of the supernova and watch as the corresponding magnitude of the supernova in the image is selected on the graph.</p>",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abqmpsr.json",
-    "layout": {
-      "row": "bottom"
-    },
-    "options": {
-      "showSelector": true,
-      "showLightCurve": true,
-      "toggleDataPointsVisibility": "82",
-      "autoplay": true
+  "content": "<p>Rubin Observatory monitors millions of galaxies on a regular basis and is contributing to a huge increase in the number of supernovae discovered each night. It’s your turn to examine some of these recently-discovered supernovae.</p><p>Find the supernova the images on the left, and click on it. You will now see a set of data of the <a href='http://rubineducation.org/glossary/apparent-magnitude' target='_blank'>apparent magnitude</a> of the supernova taken over a series of days on the graph at the right. This is known as a <a href='http://rubineducation.org/glossary/light-curve' target='_blank'>light curve</a>. Advance through all of the images of the supernova and watch as the corresponding brightness of the supernova in the image matches a circled data point on the graph.</p>",
+  "widgets": [
+    {
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19abqmpsr.json",
+      "layout": {
+        "row": "bottom"
+      },
+      "options": {
+        "showSelector": true,
+        "showLightCurve": true,
+        "toggleDataPointsVisibility": "82",
+        "autoplay": true
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -29,7 +37,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Click on a point on the Image to select the supernova</p>",
+          "label": "<p>Click on the supernova in the image</p>",
           "answerPre": "<span>Selected: </span>",
           "answerAccessor": "supernova"
         }

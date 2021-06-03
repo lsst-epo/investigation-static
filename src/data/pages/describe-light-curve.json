@@ -4,19 +4,42 @@
   "order": "05",
   "title": "Describing Light Curves",
   "slug": "describe-light-curve/",
-  "previous": {"title": "Observing Supernovae ", "link": "/observing-supernovae/"},
-  "next": {"title": "Classifying Supernovae", "link": "/classifying-supernovae/"},
+  "previous": {
+    "title": "Observing Supernovae ",
+    "link": "/observing-supernovae/"
+  },
+  "next": {
+    "title": "Classifying Type IIp Supernovae",
+    "link": "/classifying-supernovae-iip/"
+  },
   "layout": "TwoCol",
-  "content": "<p>Use this light curve to answer the following questions</p>",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abqmpsr.json",
-    "options": {
-      "showSelector": false,
-      "showLightCurve": true,
-      "autoplay": false
+  "contents": [
+    {
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "content": "<p>Use this light curve to answer the following questions.</p>"
+    },
+    {
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      },
+      "content": "<p>Supernovae are relatively rare events. Even in a galaxy the size of the Milky Way, only about one supernova occurs every 50 years. But because there are so many galaxies in the Universe, astronomers have observed over 50,000 supernovae, enough to identify patterns of how they change in brightness and classify them into different groups.</p>"
     }
-  }],
+  ],
+  "widgets": [
+    {
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19abqmpsr.json",
+      "options": {
+        "showSelector": false,
+        "showLightCurve": true,
+        "autoplay": false
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
@@ -27,10 +50,22 @@
           "title": "Question #1",
           "label": "What is the best way to describe how the brightness of this supernova changes over time?",
           "options": [
-            {"label": "It starts at peak brightness, then gradually gets dimmer", "value": "It starts at peak brightness, then gradually gets dimmer"},
-            {"label": "It starts out dim, gets bright, then gradually gets dimmer", "value": "It starts out dim, gets bright, then gradually gets dimmer"},
-            {"label": "It starts out very bright, gets dim, then begins to brighten again", "value": "It starts out very bright, gets dim, then begins to brighten again"},
-            {"label": "It starts very dim, then gradually gets brighter", "value": "It starts very dim, then gradually gets brighter"}
+            {
+              "label": "It starts at peak brightness, then gradually gets dimmer",
+              "value": "It starts at peak brightness, then gradually gets dimmer"
+            },
+            {
+              "label": "It starts out by getting brighter, reaches peak brightness, then gradually gets dimmer",
+              "value": "It starts out by getting brighter, reaches peak brightness, then gradually gets dimmer"
+            },
+            {
+              "label": "It starts out very bright, gets dim, then begins to brighten again",
+              "value": "It starts out very bright, gets dim, then begins to brighten again"
+            },
+            {
+              "label": "It starts very dim, then gradually gets brighter",
+              "value": "It starts very dim, then gradually gets brighter"
+            }
           ],
           "placeholder": "Select the best description",
           "answerPre": "<p>Selected: </p>",

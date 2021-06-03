@@ -4,27 +4,33 @@
   "order": "18b",
   "title": "Comparing Peak Apparent Magnitudes",
   "slug": "distance-to-supernovae-1-3/",
-  "previous": {"title": "Determining the Peak Apparent Magnitude of Supernova #2", "link": "/distance-to-supernovae-1-2/"},
-  "next": {"title": "Calculating the Distance to Supernovae", "link": "/distance-to-supernovae-2/"},
+  "previous": {
+    "title": "Determining the Peak Apparent Magnitude of Supernova #2",
+    "link": "/distance-to-supernovae-1-2/"
+  },
+  "next": {
+    "title": "Calculating the Distance to Supernovae",
+    "link": "/distance-to-supernovae-2/"
+  },
   "layout": "SingleCol",
+  "contents": [
+    {
+      "content": "Here are the peak apparent magnitudes you determined for your three Type Ia supernovae:",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
   "tables": [
     {
       "id": "1",
-      "colTitles": [
-        "Supernova",
-        "Apparent Magnitude (m)"
-      ],
+      "colTitles": ["Supernova", "Apparent Magnitude (m)"],
       "rowTitles": [["#4"], ["#5"], ["#6"]],
       "rows": [
-        [
-          { "accessor": "magnitude", "id": "163" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "164" }
-        ],
-        [
-          { "accessor": "magnitude", "id": "165" }
-        ]
+        [{ "accessor": "magnitude", "id": "163" }],
+        [{ "accessor": "magnitude", "id": "164" }],
+        [{ "accessor": "magnitude", "id": "165" }]
       ]
     }
   ],
@@ -34,7 +40,17 @@
         {
           "id": "120",
           "questionType": "text",
-          "label": "Rank the Type Ia supernovae in your observations table from dimmest to brightest.",
+          "label": "Which of the three Type Ia supernovae appears brightest from Earth?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "121",
+          "questionType": "textArea",
+          "label": "Recall that most Type Ia supernovae, when corrected, have about the same intrinsic peak brightness. Which one of these supernovae is the closest to Earth? Explain your reasoning.",
           "answerAccessor": "text"
         }
       ]

@@ -4,25 +4,45 @@
   "order": "09",
   "title": "Using Light Curves to Classify Supernovae",
   "slug": "classifying-supernovae-light-curves/",
-  "previous": {"title": "Classifying Type Ia Supernovae", "link": "/classifying-supernovae-ia/"},
-  "next": {"title": "Identifying Supernovae Types", "link": "/identifying-supernovae-types-1/"},
+  "previous": {
+    "title": "Classifying Type Ia Supernovae",
+    "link": "/classifying-supernovae-ia/"
+  },
+  "next": {
+    "title": "Searching for Supernovae",
+    "link": "/searching-for-supernovae-1/"
+  },
   "layout": "TwoCol",
-  "content": "<p>The light curves for Type Ia and Type IIp supernovae are different from each other. Observations of Type Ia supernovae show that after they peak in brightness, their light fades away at a relatively constant rate over a period of months. Type Ia supernovae emit about 10 billion times more energy than the Sun. Type IIp supernovae do not become as bright as Type Ia; they peak at about 1 billion times the Sun’s energy output. After Type IIp supernovae attain peak brightness, their brightness levels drop slightly, then remain unchanged for about 90 days, before beginning to slowly fade.  Explore these two types of supernovae by selecting different light curves.</p>",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/two-kinds.json",
-    "options": {
-      "showLightCurve": true
+  "content": "<p>Observe the light curves for two supernovae.</p>",
+  "images": [
+    {
+      "mediaPath": "/images/Type-IIp---Type-Ia-graphics-comparison.jpeg",
+      "altText": "Type IIp and Type Ia Light Curves comparison",
+      "figText": ""
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
         {
           "id": "52",
-          "questionType": "text",
-          "label": "What are the types of supernovae we will be investigating?",
-          "answerAccessor": "text"
+          "questionType": "select",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "Which graph shows a supernova that increases to a peak brightness and then dims continuously over a period of months?",
+          "options": [
+            {
+              "label": "Graph 1",
+              "value": "Graph 1"
+            },
+            {
+              "label": "Graph 2",
+              "value": "Graph 2"
+            }
+          ],
+          "placeholder": "Select one",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
         }
       ]
     },
@@ -30,9 +50,47 @@
       "question": [
         {
           "id": "53",
-          "questionType": "text",
-          "label": "Which type of Supernova always has the same peak brightness?",
-          "answerAccessor": "text"
+          "questionType": "select",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "Which graph shows a supernova that increases until reaching a peak brightness, then its brightness level drops slightly, and its brightness remains approximately the same for several months?",
+          "options": [
+            {
+              "label": "Graph 1",
+              "value": "Graph 1"
+            },
+            {
+              "label": "Graph 2",
+              "value": "Graph 2"
+            }
+          ],
+          "placeholder": "Select one",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "530",
+          "questionType": "select",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "Which graph shows a Type IIp supernova?",
+          "options": [
+            {
+              "label": "Graph 1",
+              "value": "Graph 1"
+            },
+            {
+              "label": "Graph 2",
+              "value": "Graph 2"
+            }
+          ],
+          "placeholder": "Select one",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
         }
       ]
     }

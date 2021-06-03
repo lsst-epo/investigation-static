@@ -1,7 +1,7 @@
 {
-  "id": "13",
+  "id": "13a",
   "investigation": "exploding-stars",
-  "order": "19",
+  "order": "19a",
   "title": "Calculating the Distance to Supernovae",
   "slug": "distance-to-supernovae-2/",
   "previous": {
@@ -9,11 +9,11 @@
     "link": "/distance-to-supernovae-1-3/"
   },
   "next": {
-    "title": "Finding the distance to Supernovae",
-    "link": "/distance-to-supernovae-3/"
+    "title": "How Galaxies are Arranged in Space",
+    "link": "/distance-to-supernovae-2-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Because all Type Ia supernovae have the same intrinsic brightness, we can calculate their distances from their apparent magnitudes. Astronomers use a relationship called the distance modulus to calculate the distance to a supernova. The distance modulus (DM) is the difference between the peak apparent magnitude (m) and the peak absolute magnitude (M). For Type Ia supernovae, M is always the same value: -19.4. So the DM = (m - (- 19.4)) or (m + 19.4).</p><p>In order to calculate the actual distance from Earth, the value for the distance modulus (DM) is inserted into the equation below:</p><p>d = 10 ^ ((DM+5)/5)</p><p>Where distance (d) is expressed in parsecs*, and DM is your value for the distance modulus.</p><p>*1 parsec = 3.26 light years</p><p>The following questions will guide you through the distance calculations for the supernovae from the previous section.  The apparent magnitudes you observed in the previous section are in the table.  After you calculate the distances to the supernovae, the distances will be added to the table in MLy.</p>",
+  "content": "<p>Astronomers use a relationship called the <a href='http://rubineducation.org/glossary/distance-modulus' target='_blank'>distance modulus</a> to calculate the distance to a supernova. The distance modulus (DM) is the difference between the peak apparent magnitude (m) and the peak absolute magnitude (M). For most Type Ia supernovae, the corrected peak absolute magnitudes M is always the same value: -19.4.</p><p>So the DM = (m - M)<br/><span style='margin-left: 80px;'> = (m - (-19.4))</span><br /><span style='margin-left: 80px;'> = (m + 19.4)</span></p><p>In order to calculate the actual distance from Earth, the value of the distance modulus (DM) is inserted into the equation below:</p><p>d = 10 ^ ((DM+5)/5)</p><p>Where distance (d) is expressed in parsecs*, and DM is your value for the distance modulus.</p><p>*1 parsec = 3.26 light-years</p><p>Does this look complicated? Don’t worry- we’ll do the calculations for you! All you have to do is enter the peak apparent magnitudes you determined. The calculated distances will be added to the table, reported in mega light-years (Mly). One Mly is equal to one million light-years</p>",
   "tables": [
     {
       "id": "1",
@@ -87,7 +87,7 @@
           "labelPost": " and ",
           "srLabel": "What best describes the luminosity of a supernova that is close to Earth appear?",
           "answerAccessor": "select",
-          "placeholder": "Select a luminosity",
+          "placeholder": "Select",
           "options": [
             { "label": "bright", "value": "bright" },
             { "label": "dim", "value": "dim" }
@@ -103,13 +103,13 @@
           "labelPost": " .",
           "srLabel": "What best describes the peak apparent magnitude of a supernova that is close to Earth?",
           "answerAccessor": "select",
-          "placeholder": "Select a magnitude",
+          "placeholder": "Select",
           "options": [
             { "label": "large", "value": "large" },
             { "label": "small", "value": "small" }
           ],
           "answerPre": "A supernova that is close to Earth has a ",
-          "answerPost": " apparant magnitude."
+          "answerPost": " apparent magnitude."
         }
       ]
     }

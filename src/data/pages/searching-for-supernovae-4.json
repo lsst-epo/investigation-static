@@ -1,38 +1,60 @@
 {
-  "id": "23",
+  "id": "23a",
   "investigation": "exploding-stars",
-  "order": "15",
-  "title": "Comparing Supernovae Light Curves",
+  "order": "15a",
+  "title": "Type Ia Supernovae as Standard Candles",
   "slug": "searching-for-supernovae-4/",
-  "previous": {"title": "Classifying Supernova #3", "link": "/searching-for-supernovae-3-1/"},
-  "next": {"title": "Determining the Peak Apparent Magnitude of Supernova #1", "link": "/distance-to-supernovae-1/"},
+  "previous": {
+    "title": "Classifying Supernova #3",
+    "link": "/searching-for-supernovae-3-1/"
+  },
+  "next": {
+    "title": "Using Type Ia Supernovae to Measure Distances",
+    "link": "/searching-for-supernovae-4-1/"
+  },
   "layout": "TwoCol",
-  "content": "<p>Use the menu to the left of the light curve graph to review the supernovae light curves from the previous sections.</p>",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/three-kinds.json",
-    "options": {
-      "showLightCurve": true
+  "content": "<p>Astronomers classify types of supernovae for different reasons. Type Ia supernovae are particularly useful because they can be used to measure distances to other galaxies. To be able to use Type Ia supernovae to determine distance,  we must first determine their actual, or intrinsic, peak brightness from the data we receive in our observations.</p><p>There is a relationship between the peak brightness of a Type Ia supernovae and the rate at which it decreases in brightness that allows astronomers to fit templates (which are graphs with model light curves) to Type Ia supernova data. Using these templates astronomers can correct the light curve of a Type Ia supernova to determine its intrinsic peak brightness, which is expressed as the supernova’s <a href='http://rubineducation.org/glossary/absolute-magnitude' target='_blank'>absolute magnitude</a> (M).  Astronomers have determined that most Type Ia supernovae have about the same intrinsic peak brightness and absolute magnitude.  For this reason, Type Ia supernovae are sometimes called <a href='http://rubineducation.org/glossary/standard-candle' target='_blank'>standard candles</a>.</p>",
+  "images": [
+    {
+      "mediaPath": "/images/Llight curve template fitting and correction-100.jpg",
+      "altText": "An illustration made to show Type Ia light curve template fitting.",
+      "figText": "This image is an illustration made to show Type Ia light curve template fitting (left) and how the light curves would look after corrections are applied (right). Real astronomy data looks very similar to this."
     }
-  }],
+  ],
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "61",
-          "questionType": "textArea",
-          "label": "List the names of the supernovae formed by white dwarf stars.",
-          "answerAccessor": "text"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "62",
-          "questionType": "textArea",
-          "label": "List the names of the supernovae formed from high mass main sequence stars.",
-          "answerAccessor": "text"
+          "id": "610",
+          "tool": "selection",
+          "title": "Question #1",
+          "questionType": "select",
+          "label": "Suppose you observe Type Ia supernovae at their peak brightness in two different galaxies. One galaxy is farther away than the other. In which galaxy will the supernova appear brighter?",
+          "options": [
+            {
+              "label": "The supernova in the farther galaxy will appear brighter",
+              "value": "The supernova in the farther galaxy will appear brighter"
+            },
+            {
+              "label": "The supernova in the closer galaxy will appear brighter",
+              "value": "The supernova in the closer galaxy will appear brighter"
+            },
+            {
+              "label": "The supernovae will appear the same brightness because Type Ia supernovae always have the same intrinsic peak brightness.",
+              "value": "The supernovae will appear the same brightness because Type Ia supernovae always have the same intrinsic peak brightness."
+            }
+          ],
+          "placeholder": "Select one",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
         }
       ]
     }

@@ -4,20 +4,28 @@
   "order": "03",
   "title": "Blinking Supernovae",
   "slug": "blinking-supernovae/",
-  "previous": {"title": "Discovering Supernovae", "link": "/discovering-supernovae/"},
-  "next": {"title": "Observing Supernovae ", "link": "/observing-supernovae/"},
+  "previous": {
+    "title": "Discovering Supernovae",
+    "link": "/discovering-supernovae/"
+  },
+  "next": {
+    "title": "Observing Supernovae ",
+    "link": "/observing-supernovae/"
+  },
   "layout": "TwoCol",
-  "content": "<p>These are a series of images showing a supernova discovered in the galaxy NGC 6946. The first image was taken before the explosion and the last images were taken afterwards. Use the controls to pause, play, or skip between these images.  Can you find the supernova? First it appears as a bright star, but then it fades from view. When you spot the supernova, click on it.</p>",
-  "widgets": [{
-    "type": "SupernovaSelectorWithLightCurve",
-    "source": "/data/galaxies/ZTF19abqqmui_g_lightcurve.json",
-    "options": {
-      "showSelector": true,
-      "toggleDataPointsVisibility": "50",
-      "legend": false,
-      "autoplay": true
+  "content": "<p>These are a series of images showing a supernova discovered in a galaxy. The first image was taken before the explosion and the rest of the images were taken afterwards over a period of days. Use the controls to pause, play, or move through these images one at a time. Can you find the supernova? It appears as a bright spot, but then it fades from view. When you find the supernova, click on it.</p>",
+  "widgets": [
+    {
+      "type": "SupernovaSelectorWithLightCurve",
+      "source": "/data/galaxies/ZTF19abqqmui_g_lightcurve.json",
+      "options": {
+        "showSelector": true,
+        "toggleDataPointsVisibility": "50",
+        "legend": false,
+        "autoplay": true
+      }
     }
-  }],
+  ],
   "questionsByPage": [
     {
       "question": [
