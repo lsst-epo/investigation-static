@@ -12325,6 +12325,11 @@ react-helmet@^5.2.1:
     react-fast-compare "^2.0.2"
     react-side-effect "^1.1.0"
 
+react-hook-mathjax@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/react-hook-mathjax/-/react-hook-mathjax-2.0.5.tgz#bd15e5cca38cd6c3a2564b68a380beaf9f6814cd"
+  integrity sha512-AtOWIhrVGpO5dVplEZWf8G8Z6kGyxpNH5Xc7MPIdOm/d/o+s13ZMta+YClsZpFGbhAccpoHyeZ59YJE1IelMLQ==
+
 react-hot-loader@^4.12.20:
   version "4.12.20"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.12.20.tgz#c2c42362a7578e5c30357a5ff7afa680aa0bef8a"

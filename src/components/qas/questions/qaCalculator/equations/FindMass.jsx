@@ -1,75 +1,37 @@
+/* eslint-disable react/no-danger */
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { QACalculatorIconUnit } from '../qQaCalculatorIcons.jsx';
-import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
+import MathJax from '../../../../site/mathJax';
 import {
-  color,
-  fraction,
-  denominator,
-  equation,
-  exponent,
-} from '../qaCalculator.module.scss';
-import { qaReviewHighlight } from './equations.module.scss';
+  addTheCommas,
+  scientificNotation,
+} from '../../../../../lib/utilities.js';
+import {
+  colorize,
+  addColorAndUnit,
+} from '../../../../site/mathJax/mathjax.utilities.js';
 
 export default function FindMass(props) {
   const { density, mass, diameter, qaReview } = props;
 
-  const addColorClass = classnames({
-    [color]: !qaReview,
-    [qaReviewHighlight]: qaReview,
-  });
+  const p = !density
+    ? colorize(`\\rho`)
+    : addColorAndUnit(addTheCommas(density), 'density');
+  const d = !diameter
+    ? colorize(`D_a`)
+    : addColorAndUnit(addTheCommas(diameter), 'diameter');
+  const m =
+    !mass || +mass === 0
+      ? colorize(`?`)
+      : addColorAndUnit(scientificNotation(mass, 3, 'latex'), 'mass');
 
   return (
-    <p className={equation}>
-      <span>
-        m<sub>a</sub> ={' '}
-      </span>
-      <span className={addColorClass}>
-        {density ? (
-          <span>
-            {addTheCommas(density)}
-            <QACalculatorIconUnit tiny unit="density" />
-          </span>
-        ) : (
-          <span>&#x1D780;</span>
-        )}
-      </span>
-      <span> &times; </span>
-      <span className={fraction}>
-        <span className="numerator">4</span>
-        <span className={denominator}>3</span>
-      </span>
-      &nbsp;&times; &pi; &times; <span>( </span>
-      <span className={fraction}>
-        <span className={`numerator ${addColorClass}`}>
-          {diameter ? (
-            <span>
-              {addTheCommas(diameter)}
-              <QACalculatorIconUnit tiny unit="diameter" />
-            </span>
-          ) : (
-            <span>
-              D<sub>a</sub>
-            </span>
-          )}
-        </span>
-        <span className={denominator}>2</span>
-      </span>
-      <span> )</span>
-      <span className={exponent}> 3</span>
-      <span> = </span>
-      <span className={addColorClass}>
-        {mass ? (
-          <span>
-            {addTheCommas(toSigFigs(mass, 3))}
-            <QACalculatorIconUnit tiny unit="mass" />
-          </span>
-        ) : (
-          '?'
-        )}
-      </span>
-    </p>
+    <div>
+      <MathJax
+        laTex={`{\\bf m_a} = ${p} \\  \\times {4 \\over 3} \\times \\pi \\times ({${d} \\  \\over 2}) ^ 3 = \\ ${m}`}
+      />
+    </div>
   );
 }
 

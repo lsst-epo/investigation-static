@@ -238,7 +238,11 @@ export const toSigFigs = (number, precision) => {
   return String(roundedValue);
 };
 
-export const scientificNotation = (number, precision, returnHtml = true) => {
+export const scientificNotation = (
+  number,
+  precision,
+  returnFormat = 'html'
+) => {
   if (number === 0) return 0;
 
   const [val, exp] = Number.parseFloat(number)
@@ -248,15 +252,19 @@ export const scientificNotation = (number, precision, returnHtml = true) => {
   const numPlaces = Math.abs(+exp);
 
   if ((Math.abs(number) < 1 && numPlaces > 3) || numPlaces > 9) {
-    const coefficientAndBase = `${parseFloat(toSigFigs(+val, precision))} x 10`;
+    const coefficient = parseFloat(toSigFigs(+val, precision));
 
-    return returnHtml
-      ? renderDef(`${coefficientAndBase}<sup>${+exp}</sup>`)
-      : `${coefficientAndBase}^${+exp}`;
+    if (returnFormat === 'html') {
+      return renderDef(`${coefficient} x 10<sup>${+exp}</sup>`);
+    }
+    if (returnFormat === 'latex') {
+      return `${coefficient} \\times 10^{${+exp}}`;
+    }
+    return `${coefficient} x 10^${+exp}`;
   }
 
   const sigFigged = addTheCommas(toSigFigs(number, precision));
-  return returnHtml ? renderDef(sigFigged) : sigFigged;
+  return returnFormat === 'html' ? renderDef(sigFigged) : sigFigged;
 };
 
 const getDamageDescription = function(data) {
@@ -284,7 +292,7 @@ export const getValue = function(accessor, data) {
       luminosity: formatValue(data, 2),
       radius: formatValue(data, 2),
       stellarMass: formatValue(data, 2),
-      mass: addTheCommas(toSigFigs(data, 3)),
+      mass: scientificNotation(data, 3),
       lifetime: formatValue(data / 1000000000, 2),
       temperature: formatValue(data, 0),
       brightness: formatValue(data, 2),

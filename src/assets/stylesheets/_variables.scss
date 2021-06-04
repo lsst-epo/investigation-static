@@ -37,6 +37,20 @@ $baseSecondaryLight: $lightBlue;
 $baseSecondary: $mediumBlue;
 $baseSecondaryDark: $darkBlue;
 
+
+$baseColors: (
+  'primary': $basePrimary,
+  'secondaryLight': $baseSecondaryLight,
+  'secondary': $mediumBlue,
+  'secondaryDark': $darkBlue,
+);
+
+:export {
+  @each $color, $hex in $baseColors {
+    #{$color}: $hex;
+  }
+}
+
 $error: $boldRed;
 
 // Start overriding react-md variables
