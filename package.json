@@ -36,6 +36,7 @@
     "react-axe": "^3.3.0",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
+    "react-hook-mathjax": "^2.0.5",
     "react-md": "^1.12.3",
     "react-three-fiber": "^4.0.25",
     "reactn": "^2.2.5",
