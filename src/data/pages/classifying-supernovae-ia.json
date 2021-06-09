@@ -14,6 +14,25 @@
   },
   "layout": "TwoCol",
   "content": "<p>A different type of supernova can form when a <a href='http://rubineducation.org/glossary/white-dwarf' target='_blank'>white dwarf</a> exceeds a mass limit of about 1.4 times the mass of the Sun. This is called the <a href='http://rubineducation.org/glossary/Chandrasekhar-Limit' target='_blank'>Chandrasekhar Limit</a>. If a white dwarf becomes more massive than this limit, it will collapse and explode as a Type Ia (pronounced “type one-a”) supernova. The Type Ia supernova, like the Type IIp, triggers powerful fusion reactions creating elements heavier than iron, and emitting large amounts of energy and matter.</p><p>To accumulate enough mass to exceed this limit, a white dwarf must be part of a binary star system. In one case the white dwarf is paired with a red giant star. If the two are close enough to each other, the white dwarf can pull gas from the red giant until the white dwarf reaches the Chandrasekhar Limit. In the second case, two white dwarfs merge together. In both cases, Type Ia supernovae reach the same peak brightness.</p><p>Type Ia supernovae increase to a peak brightness and then dim continuously over a period of months. Type Ia supernovae emit about 10 billion times more energy than the Sun at their peak brightness (significantly more energy output than the Type IIp supernovae).</p>",
+  "videos": [
+    {
+      "mediaPath": "Type-Ia-supernova-animation-(1245-px).mp4",
+      "altText": "Type IIp supernova animation",
+      "figText": "",
+      "options": {
+        "autoPlay": true,
+        "showControls": true,
+        "volume": 0.8,
+        "loop": false,
+        "height": "1080",
+        "width": "1920"
+      },
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [

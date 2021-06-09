@@ -9,17 +9,30 @@
     "link": "/blinking-supernovae/"
   },
   "next": {
-    "title": "Describing Light Curves",
-    "link": "/describe-light-curve/"
+    "title": "Classifying Type IIp Supernovae",
+    "link": "/classifying-supernovae-iip/"
   },
   "layout": "SingleCol",
-  "content": "<p>Rubin Observatory monitors millions of galaxies on a regular basis and is contributing to a huge increase in the number of supernovae discovered each night. It’s your turn to examine some of these recently-discovered supernovae.</p><p>Find the supernova the images on the left, and click on it. You will now see a set of data of the <a href='http://rubineducation.org/glossary/apparent-magnitude' target='_blank'>apparent magnitude</a> of the supernova taken over a series of days on the graph at the right. This is known as a <a href='http://rubineducation.org/glossary/light-curve' target='_blank'>light curve</a>. Advance through all of the images of the supernova and watch as the corresponding brightness of the supernova in the image matches a circled data point on the graph.</p>",
+  "contents": [
+    {
+      "content": "<p>Rubin Observatory monitors millions of galaxies on a regular basis and is contributing to a huge increase in the number of supernovae discovered each night. It’s your turn to examine some of these recently-discovered supernovae.</p><p>Find the supernova the images on the left, and click on it. You will now see a set of data of the <a href='http://rubineducation.org/glossary/apparent-magnitude' target='_blank'>apparent magnitude</a> of the supernova taken over a series of days on the graph at the right. This is known as a <a href='http://rubineducation.org/glossary/light-curve' target='_blank'>light curve</a>. Advance through all of the images of the supernova and watch as the corresponding brightness of the supernova in the image matches a circled data point on the graph.</p>",
+      "layout": {
+        "row": "top"
+      }
+    },
+    {
+      "content": "<p>Supernovae are relatively rare events. Even in a galaxy the size of the Milky Way, only about one supernova occurs every 50 years. But because there are so many galaxies in the Universe, astronomers have observed over 50,000 supernovae, enough to identify patterns of how they change in brightness and classify them into different groups.</p>",
+      "layout": {
+        "row": "bottom"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "SupernovaSelectorWithLightCurve",
       "source": "/data/galaxies/ZTF19abqmpsr.json",
       "layout": {
-        "row": "bottom"
+        "row": "middle"
       },
       "options": {
         "showSelector": true,
@@ -40,6 +53,38 @@
           "label": "<p>Click on the supernova in the image</p>",
           "answerPre": "<span>Selected: </span>",
           "answerAccessor": "supernova"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "51",
+          "questionType": "select",
+          "tool": "selection",
+          "title": "Question #1",
+          "label": "What is the best way to describe how the brightness of this supernova changes over time?",
+          "options": [
+            {
+              "label": "It starts at peak brightness, then gradually gets dimmer",
+              "value": "It starts at peak brightness, then gradually gets dimmer"
+            },
+            {
+              "label": "It starts out by getting brighter, reaches peak brightness, then gradually gets dimmer",
+              "value": "It starts out by getting brighter, reaches peak brightness, then gradually gets dimmer"
+            },
+            {
+              "label": "It starts out very bright, gets dim, then begins to brighten again",
+              "value": "It starts out very bright, gets dim, then begins to brighten again"
+            },
+            {
+              "label": "It starts very dim, then gradually gets brighter",
+              "value": "It starts very dim, then gradually gets brighter"
+            }
+          ],
+          "placeholder": "Select the best description",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
         }
       ]
     }

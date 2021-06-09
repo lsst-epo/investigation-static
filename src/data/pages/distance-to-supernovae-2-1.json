@@ -13,5 +13,24 @@
     "link": "/distance-to-supernovae-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>By using Type Ia supernovae to measure the distance from Earth to other galaxies, astronomers have been able to map the distribution of galaxies in space. Our Milky Way galaxy is orbited by dozens of nearby and small satellite galaxies. The Milky Way galaxy, these satellite galaxies and more than 50 other galaxies are all part of what we call the Local Group. The Local Group, along with over 100,000 other galaxies, are all part of the Laniakea Supercluster. Laniakea is just one of many galaxy superclusters that are scattered throughout the Universe.</p>"
+  "content": "<p>By using Type Ia supernovae to measure the distance from Earth to other galaxies, astronomers have been able to map the distribution of galaxies in space. Our Milky Way galaxy is orbited by dozens of nearby and small satellite galaxies. The Milky Way galaxy, these satellite galaxies and more than 50 other galaxies are all part of what we call the Local Group. The Local Group, along with over 100,000 other galaxies, are all part of the Laniakea Supercluster. Laniakea is just one of many galaxy superclusters that are scattered throughout the Universe.</p>",
+  "videos": [
+    {
+      "mediaPath": "Organization-of-the-local-Universe—V3.mp4",
+      "altText": "Type IIp supernova animation",
+      "figText": "",
+      "options": {
+        "autoPlay": true,
+        "showControls": true,
+        "volume": 0.8,
+        "loop": false,
+        "height": "800",
+        "width": "800"
+      },
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ]
 }

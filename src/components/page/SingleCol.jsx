@@ -14,6 +14,7 @@ class Page extends React.PureComponent {
       answers,
       tables,
       images,
+      videos,
       widgets,
       checkpoints,
       shared,
@@ -30,6 +31,10 @@ class Page extends React.PureComponent {
       {
         type: 'image',
         blocks: images,
+      },
+      {
+        type: 'video',
+        blocks: videos,
       },
       {
         type: 'content',
@@ -94,6 +99,7 @@ Page.propTypes = {
   questions: PropTypes.array,
   answers: PropTypes.object,
   images: PropTypes.array,
+  videos: PropTypes.array,
   tables: PropTypes.array,
   widgets: PropTypes.array,
   checkpoints: PropTypes.array,

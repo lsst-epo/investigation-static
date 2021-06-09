@@ -5,13 +5,32 @@
   "title": "Type IIp Supernovae",
   "slug": "classifying-supernovae-iip/",
   "previous": {
-    "title": "Describing Light Curves",
-    "link": "/describe-light-curve/"
+    "title": "Observing Supernovae ",
+    "link": "/observing-supernovae/"
   },
   "next": {
     "title": "Type Ia Supernovae",
     "link": "/classifying-supernovae-ia/"
   },
   "layout": "TwoCol",
-  "content": "<p>One type of supernova happens when a high mass <a href='http://rubineducation.org/glossary/main-sequence-lifetime' target='_blank'>main sequence</a> star nears the end of its life. If the star has a mass more than eight times that of the Sun, its core will eventually collapse when the outward pressure from fusion reactions can no longer balance the inward force of gravity. This causes a massive explosion (a supernova) triggering powerful fusion reactions creating elements heavier than iron, and emitting large amounts of energy and matter which blow off the outer layers of the star.</p><p>Supernovae of this type stay bright for over 90 days, and are called Type IIp (pronounced “type two-p”) supernovae. The peak brightness of Type IIp supernovae are not all the same, and depend on the mass of the main sequence star they come from. Type IIp supernovae typically peak at about 1 billion times the energy output of the Sun. Notice that the light curve of the Type IIp supernova increases until reaching a peak brightness, then its brightness level drops slightly, and its brightness remains approximately the same for several months, before beginning to slowly fade.</p>"
+  "content": "<p>One type of supernova happens when a high mass <a href='http://rubineducation.org/glossary/main-sequence-lifetime' target='_blank'>main sequence</a> star nears the end of its life. If the star has a mass more than eight times that of the Sun, its core will eventually collapse when the outward pressure from fusion reactions can no longer balance the inward force of gravity. This causes a massive explosion (a supernova) triggering powerful fusion reactions creating elements heavier than iron, and emitting large amounts of energy and matter which blow off the outer layers of the star.</p><p>Supernovae of this type stay bright for over 90 days, and are called Type IIp (pronounced “type two-p”) supernovae. The peak brightness of Type IIp supernovae are not all the same, and depend on the mass of the main sequence star they come from. Type IIp supernovae typically peak at about 1 billion times the energy output of the Sun. Notice that the light curve of the Type IIp supernova increases until reaching a peak brightness, then its brightness level drops slightly, and its brightness remains approximately the same for several months, before beginning to slowly fade.</p>",
+  "videos": [
+    {
+      "mediaPath": "Type-IIp-supernova-animation-(1245-px).mp4",
+      "altText": "Type IIp supernova animation",
+      "figText": "",
+      "options": {
+        "autoPlay": true,
+        "showControls": true,
+        "volume": 0.8,
+        "loop": false,
+        "height": "1080",
+        "width": "1920"
+      },
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ]
 }

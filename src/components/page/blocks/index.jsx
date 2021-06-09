@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WidgetBlock from './WidgetBlock';
 import ImageBlock from './ImageBlock';
+import VideoBlock from './VideoBlock';
 import TableBlock from './TableBlock';
 import ContentBlock from './ContentBlock';
 import CheckpointBlock from './CheckpointBlock';
@@ -13,6 +14,7 @@ class Blocks extends React.PureComponent {
     this.blockTags = {
       widget: WidgetBlock,
       image: ImageBlock,
+      video: VideoBlock,
       table: TableBlock,
       content: ContentBlock,
       checkpoint: CheckpointBlock,
