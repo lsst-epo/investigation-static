@@ -6,7 +6,7 @@
   "slug": "summary/",
   "previous": { "title": "Reflect and Discuss", "link": "/discuss-report/" },
   "next": { "title": "Acknowledgements Page", "link": "/acknowledgements/" },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "questionsByPage": [
     {
       "question": [

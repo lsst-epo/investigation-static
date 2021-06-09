@@ -103,6 +103,7 @@ class PageContainer extends React.PureComponent {
       widgets,
       checkpoints,
       images,
+      videos,
       tables,
       questionsByPage,
     } = data.allPagesJson.nodes[0];
@@ -132,6 +133,7 @@ class PageContainer extends React.PureComponent {
             checkpoints,
             tables,
             images,
+            videos,
             answers,
             shared,
             questions,
@@ -172,6 +174,9 @@ export const query = graphql`
         }
         images {
           ...Image
+        }
+        videos {
+          ...Video
         }
         tables {
           ...Table
