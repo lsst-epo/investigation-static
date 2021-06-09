@@ -367,7 +367,6 @@ class LightCurve extends React.PureComponent {
       templateZoomCallback,
       peakMagCallback,
       templateTransform,
-      chooseLightCurveTemplate,
       pointsAreVisible,
       interactableTemplates,
       interactablePeakMag,
@@ -388,6 +387,7 @@ class LightCurve extends React.PureComponent {
       yScale,
       lightCurveType,
     } = this.state;
+    const numberOfLightCurveTemplates = templates && templates.length;
 
     const svgClasses = classnames('svg-chart light-curve', {
       loading,
@@ -398,7 +398,7 @@ class LightCurve extends React.PureComponent {
       <>
         {legend}
         <ConditionalWrapper
-          condition={chooseLightCurveTemplate}
+          condition={numberOfLightCurveTemplates > 1}
           wrapper={children => (
             <NavDrawer
               cardClasses={styles.container}
@@ -555,14 +555,12 @@ LightCurve.defaultProps = {
   yAxisLabel: 'Apparent Magnitude (m)',
   tooltipAccessors: ['date', 'magnitude'],
   tooltipLabels: ['Time', 'Apparent Magnitude (m)'],
-  chooseLightCurveTemplate: false,
 };
 
 LightCurve.propTypes = {
   data: PropTypes.array.isRequired,
   templates: PropTypes.array,
   templatesData: PropTypes.object,
-  chooseLightCurveTemplate: PropTypes.bool,
   interactableTemplates: PropTypes.bool,
   interactablePeakMag: PropTypes.bool,
   activeAlertId: PropTypes.string,
