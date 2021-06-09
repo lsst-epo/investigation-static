@@ -29,7 +29,6 @@ export const widgetOptionsFragment = graphql`
     userTrendline
     lightCurveTemplates
     choosePeakMagnitude
-    chooseLightCurveTemplate
     preSelectedId
     preSelectedLightCurveTemplate
     preSelectedLightCurveMagnitude

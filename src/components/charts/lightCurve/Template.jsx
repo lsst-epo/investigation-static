@@ -61,8 +61,13 @@ class LightCurveTemplate extends React.PureComponent {
     } = this.props;
 
     if (transform && active) {
+      const $template = d3Select(this.svgEl.current);
       const { x, y, k } = transform;
       this.rescale(d3ZoomIdentity.translate(x, y).scale(k));
+      $template.call(
+        d3Zoom().transform,
+        d3ZoomIdentity.translate(x, y).scale(k)
+      );
     } else {
       this.setState(prevState => ({
         ...prevState,
@@ -73,7 +78,7 @@ class LightCurveTemplate extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const { data, interactableTemplates } = this.props;
+    const { data, interactableTemplates, transform } = this.props;
 
     if (interactableTemplates) {
       this.addEventListeners();
@@ -81,6 +86,16 @@ class LightCurveTemplate extends React.PureComponent {
 
     if (!prevProps.data !== data || !isEmpty(data)) {
       this.updateTemplate();
+    }
+
+    if (
+      prevProps.transform !== d3ZoomIdentity &&
+      prevProps.transform !== transform &&
+      transform === d3ZoomIdentity
+    ) {
+      const $template = d3Select(this.svgEl.current);
+      this.rescale(d3ZoomIdentity);
+      $template.call(d3Zoom().transform, d3ZoomIdentity);
     }
   }
 

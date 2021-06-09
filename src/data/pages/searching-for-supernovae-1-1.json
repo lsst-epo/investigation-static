@@ -19,9 +19,7 @@
       "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
       "options": {
         "showLightCurve": true,
-        "chooseLightCurveTemplate": true,
-        "lightCurveTemplates": ["Ia", "IIp"],
-        "preSelectedLightCurveTemplate": "91"
+        "lightCurveTemplates": ["Ia"]
       }
     }
   ],
