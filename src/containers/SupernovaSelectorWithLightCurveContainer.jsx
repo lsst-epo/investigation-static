@@ -179,6 +179,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     } = this.props;
     const {
       autoplay,
+      loop,
       showSelector,
       showLightCurve,
       lightCurveTemplates,
@@ -225,6 +226,7 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
               <SupernovaSelector
                 className={`supernova-selector-${name}`}
                 autoplay={autoplay && !selectedData}
+                loop={loop}
                 {...{ selectedData, activeGalaxy, preSelected }}
                 data={getSupernovaPointData(activeGalaxy)}
                 alerts={activeGalaxy ? activeGalaxy.alerts : []}

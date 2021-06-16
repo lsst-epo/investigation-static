@@ -20,7 +20,8 @@
       "options": {
         "showSelector": true,
         "toggleDataPointsVisibility": "59",
-        "autoplay": true
+        "autoplay": true,
+        "loop": false
       }
     }
   ],
