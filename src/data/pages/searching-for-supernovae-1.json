@@ -21,9 +21,9 @@
       "options": {
         "showSelector": true,
         "showLightCurve": false,
-        "autoplay": false,
         "toggleDataPointsVisibility": "90",
-        "autoplay": true
+        "autoplay": true,
+        "loop": false
       }
     }
   ],

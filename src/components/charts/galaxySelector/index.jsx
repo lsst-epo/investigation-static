@@ -209,8 +209,16 @@ class GalaxySelector extends React.PureComponent {
   }
 
   nextBlink = () => {
-    const { blinkCallback, images } = this.props;
-    blinkCallback(this.getBlink(images, 1));
+    const { blinkCallback, images, loop } = this.props;
+
+    const nextBlink = this.getBlink(images, 1);
+    const { activeImageIndex: nextActiveImageIndex } = nextBlink || {};
+
+    if (loop === false && nextActiveImageIndex === images.length - 1) {
+      this.stopBlink();
+    }
+
+    blinkCallback(nextBlink);
   };
 
   previousBlink = () => {
@@ -453,6 +461,7 @@ GalaxySelector.propTypes = {
   name: PropTypes.string,
   color: PropTypes.string,
   autoplay: PropTypes.bool,
+  loop: PropTypes.bool,
   selectionCallback: PropTypes.func,
   blinkCallback: PropTypes.func,
 };

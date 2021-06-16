@@ -38,6 +38,7 @@ export const widgetOptionsFragment = graphql`
     hideImage
     randomSource
     autoplay
+    loop
     preSelected
     multiple
     svgShapes

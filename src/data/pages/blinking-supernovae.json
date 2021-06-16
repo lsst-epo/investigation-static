@@ -22,7 +22,8 @@
         "showSelector": true,
         "toggleDataPointsVisibility": "50",
         "legend": false,
-        "autoplay": true
+        "autoplay": true,
+        "loop": false
       }
     }
   ],
