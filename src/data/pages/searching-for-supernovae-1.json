@@ -23,7 +23,7 @@
         "showLightCurve": false,
         "toggleDataPointsVisibility": "90",
         "autoplay": true,
-        "loop": false
+        "loop": true
       }
     }
   ],
