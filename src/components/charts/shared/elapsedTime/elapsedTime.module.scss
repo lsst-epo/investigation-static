@@ -1,0 +1,48 @@
+$padding: $minPadding / 2.3;
+
+.elapsed-time-container {
+  position: absolute;
+  right: $minPadding;
+  bottom: $minPadding;
+  z-index: 2;
+
+  background-color: $white;
+  border-radius: $padding;
+
+  .header {
+    padding: $padding;
+    border-bottom: 1px solid $black;
+  }
+
+  .panel-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .left-panel {
+      border-right: 1px solid $black;
+    }
+
+    .left-panel,
+    .right-panel {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: space-between;
+      width: 50%;
+      padding: $padding;
+
+      .number {
+        display: flex;
+        flex: 1;
+        font-size: 1.4rem;
+      }
+
+      .text {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
 import { getAlertFromImageId } from './galaxySelectorUtilities.js';
 import Blinker from '../shared/blinker/index.jsx';
+import ElapsedTime from '../shared/elapsedTime/index.jsx';
 import Points from './Points';
 import Message from './Message';
 import Legend from '../shared/legend/index.jsx';
@@ -317,6 +318,16 @@ class GalaxySelector extends React.PureComponent {
     }));
   };
 
+  getAlertDaysAndHours = (id, alerts) => {
+    const currentAlert = getAlertFromImageId(id, alerts);
+    const dateDiff = currentAlert.date - alerts[0].date;
+
+    return {
+      days: Math.round(dateDiff),
+      hours: Math.round((24 / dateDiff) % 24),
+    };
+  };
+
   render() {
     const {
       data,
@@ -331,6 +342,7 @@ class GalaxySelector extends React.PureComponent {
       legend,
       activeImageId,
       activeGalaxy,
+      alerts,
       selectedData: selectedDataProp,
       color,
     } = this.props;
@@ -414,14 +426,21 @@ class GalaxySelector extends React.PureComponent {
               alt={image.altText}
             />
           ) : (
-            <Blinker
-              images={images}
-              activeId={activeImageId}
-              playing={playing}
-              handleStartStop={this.startStopBlink}
-              handleNext={this.onNextBlink}
-              handlePrevious={this.onPreviousBlink}
-            />
+            <>
+              <Blinker
+                images={images}
+                activeId={activeImageId}
+                playing={playing}
+                handleStartStop={this.startStopBlink}
+                handleNext={this.onNextBlink}
+                handlePrevious={this.onPreviousBlink}
+              />
+              {alerts && (
+                <ElapsedTime
+                  {...this.getAlertDaysAndHours(activeImageId, alerts)}
+                />
+              )}
+            </>
           )}
         </div>
       </>
