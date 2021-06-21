@@ -23,7 +23,7 @@ export const getActiveImageIndex = (
 
 export const getAlertFromImageId = (imageId, alerts) => {
   const newAlert = find(alerts, alert => {
-    return imageId === alert.image_id;
+    return imageId === alert.alert_id || imageId === alert.image_id;
   });
 
   return newAlert;
@@ -31,9 +31,12 @@ export const getAlertFromImageId = (imageId, alerts) => {
 
 export const getAlertImages = (galaxyName, alerts) => {
   return alerts.map(alert => {
+    const imageId = alert.image ? +alert.alert_id : alert.image_id;
+    const imageFilename = alert.image || `${alert.image_id}_sci.jpg`;
+
     return {
-      id: alert.image_id,
-      name: `/images/galaxies/${galaxyName}/${alert.image_id}_sci.jpg`,
+      id: imageId,
+      name: `/images/galaxies/${galaxyName}/${imageFilename}`,
     };
   });
 };

@@ -17,7 +17,7 @@
   "widgets": [
     {
       "type": "SupernovaSelectorWithLightCurve",
-      "source": "/data/galaxies/ZTF19abqqmui_g_lightcurve.json",
+      "source": "/data/galaxies/ZTF20acwxbyr.json",
       "options": {
         "showLightCurve": true,
         "choosePeakMagnitude": true,
