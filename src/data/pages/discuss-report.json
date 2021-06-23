@@ -1,7 +1,7 @@
 {
   "id": "17",
   "investigation": "exploding-stars",
-  "order": "22",
+  "order": "17",
   "title": "Reflect and Discuss",
   "slug": "discuss-report/",
   "previous": {
@@ -40,7 +40,8 @@
           { "accessor": "magnitude", "id": "165" },
           { "accessor": "megaLightYears", "id": "68" }
         ]
-      ]
+      ],
+      "qaReview": false
     }
   ],
   "questionsByPage": [

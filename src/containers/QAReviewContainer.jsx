@@ -52,7 +52,8 @@ class QAReviewContainer extends React.PureComponent {
   reviewifyQuestion(question, questionNumbers, pageId, qIndex) {
     question.number = questionNumbers[qIndex];
     question.question.forEach(q => {
-      q.qaReview = true;
+      const { qaReview } = q;
+      q.qaReview = qaReview !== null ? qaReview : true;
     });
 
     return question;
@@ -188,7 +189,7 @@ class QAReviewContainer extends React.PureComponent {
                   <div key={`page-${page.id}`} className={qaReviewPage}>
                     {questions && (
                       <div className={qaReviewQuestionsContainer}>
-                        <QAs {...shared} />
+                        <QAs {...shared} qaReviewPage />
                       </div>
                     )}
                     {questions &&
