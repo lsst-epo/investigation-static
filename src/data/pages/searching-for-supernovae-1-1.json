@@ -1,7 +1,7 @@
 {
-  "id": "11b",
+  "id": "07b",
   "investigation": "exploding-stars",
-  "order": "12b",
+  "order": "07.2",
   "title": "Classifying Supernova #1",
   "slug": "searching-for-supernovae-1-1/",
   "previous": {
@@ -19,7 +19,8 @@
       "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
       "options": {
         "showLightCurve": true,
-        "lightCurveTemplates": ["Ia"]
+        "lightCurveTemplates": ["Ia"],
+        "qaReview": false
       }
     }
   ],

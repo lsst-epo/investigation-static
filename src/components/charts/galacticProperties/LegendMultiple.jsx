@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Card from '../../site/card/index.js';
-import { getFluxRgba } from './galacticPropertiesUtilities.js';
 import styles from './galactic-properties.module.scss';
 
 class LegendMultiple extends React.PureComponent {

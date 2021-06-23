@@ -1,7 +1,7 @@
 {
-  "id": "8",
+  "id": "06",
   "investigation": "exploding-stars",
-  "order": "09",
+  "order": "06",
   "title": "Using Light Curves to Classify Supernovae",
   "slug": "classifying-supernovae-light-curves/",
   "previous": {
@@ -73,7 +73,7 @@
     {
       "question": [
         {
-          "id": "530",
+          "id": "54",
           "questionType": "select",
           "tool": "selection",
           "title": "Question #1",

@@ -1,7 +1,7 @@
 {
   "id": "18",
   "investigation": "exploding-stars",
-  "order": "23",
+  "order": "18",
   "title": "Putting it all Together",
   "slug": "summary/",
   "previous": { "title": "Reflect and Discuss", "link": "/discuss-report/" },

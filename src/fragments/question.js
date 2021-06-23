@@ -19,6 +19,7 @@ export const questionFragment = graphql`
         label
         value
       }
+      qaReview
     }
   }
 `;

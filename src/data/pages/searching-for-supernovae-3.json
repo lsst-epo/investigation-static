@@ -1,7 +1,7 @@
 {
-  "id": "22a",
+  "id": "10a",
   "investigation": "exploding-stars",
-  "order": "14a",
+  "order": "10.1",
   "title": "Searching For Supernova #3",
   "slug": "searching-for-supernovae-3/",
   "previous": {
@@ -21,7 +21,8 @@
         "showSelector": true,
         "toggleDataPointsVisibility": "60",
         "autoplay": true,
-        "loop": false
+        "loop": false,
+        "qaReview": false
       }
     }
   ],

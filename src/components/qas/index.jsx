@@ -13,6 +13,7 @@ class QAs extends React.PureComponent {
       updateAnswer,
       advanceActiveQuestion,
       setActiveQuestion,
+      qaReviewPage,
     } = this.props;
 
     return (
@@ -20,8 +21,10 @@ class QAs extends React.PureComponent {
         {questions.map(question => {
           const { question: q, number } = question;
           const primeQ = q[0];
-          const { id, questionType } = primeQ;
+          const { id, questionType, qaReview } = primeQ;
           const key = `qa-${id}`;
+
+          if (qaReviewPage && !qaReview) return false;
 
           if (q.length > 1) {
             return (
@@ -66,6 +69,7 @@ QAs.propTypes = {
   updateAnswer: PropTypes.func,
   advanceActiveQuestion: PropTypes.func,
   setActiveQuestion: PropTypes.func,
+  qaReviewPage: PropTypes.bool,
 };
 
 export default QAs;

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import find from 'lodash/find';
 import classnames from 'classnames';
 import Point from '../shared/shapes';
-import { getFluxRgba } from './galacticPropertiesUtilities.js';
 import { invisible } from './galactic-properties.module.scss';
 
 const dimension = 20;
@@ -27,7 +26,7 @@ class Points extends React.PureComponent {
     return (
       <g className="data-points">
         {data.map((d, i) => {
-          const { id, name, label, color, use_color: useColor } = d;
+          const { id, name, label, use_color: useColor } = d;
           const key = `point-${id}-${i}`;
           const useFluxColor = yValueAccessor === 'color';
           const selected = !!find(selectedData, { id });

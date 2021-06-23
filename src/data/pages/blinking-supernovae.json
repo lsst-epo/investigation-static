@@ -1,7 +1,7 @@
 {
-  "id": "3",
+  "id": "02",
   "investigation": "exploding-stars",
-  "order": "03",
+  "order": "02",
   "title": "Blinking Supernovae",
   "slug": "blinking-supernovae/",
   "previous": {
@@ -23,7 +23,8 @@
         "toggleDataPointsVisibility": "50",
         "legend": false,
         "autoplay": true,
-        "loop": false
+        "loop": false,
+        "qaReview": false
       }
     }
   ],
@@ -37,7 +38,8 @@
           "title": "Question #1",
           "label": "<p>Click on a point on the Image to select the supernova</p>",
           "answerPre": "<span>Selected Supernova: </span>",
-          "answerAccessor": "supernova"
+          "answerAccessor": "supernova",
+          "qaReview": false
         }
       ]
     }

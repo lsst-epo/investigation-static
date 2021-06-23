@@ -1,7 +1,7 @@
 {
-  "id": "15",
+  "id": "16",
   "investigation": "exploding-stars",
-  "order": "21",
+  "order": "16",
   "title": "Galaxy Distances in the Local Universe",
   "slug": "distance-to-supernovae-3/",
   "previous": {
@@ -65,7 +65,8 @@
           { "accessor": "magnitude", "id": "165" },
           { "accessor": "megaLightYears", "id": "68" }
         ]
-      ]
+      ],
+      "qaReview": false
     }
   ],
   "questionsByPage": [

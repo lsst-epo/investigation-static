@@ -1,7 +1,7 @@
 {
-  "id": "26",
+  "id": "14b",
   "investigation": "exploding-stars",
-  "order": "18b",
+  "order": "14.2",
   "title": "Comparing Peak Apparent Magnitudes",
   "slug": "distance-to-supernovae-1-3/",
   "previous": {
@@ -31,7 +31,8 @@
         [{ "accessor": "magnitude", "id": "163" }],
         [{ "accessor": "magnitude", "id": "164" }],
         [{ "accessor": "magnitude", "id": "165" }]
-      ]
+      ],
+      "qaReview": false
     }
   ],
   "questionsByPage": [

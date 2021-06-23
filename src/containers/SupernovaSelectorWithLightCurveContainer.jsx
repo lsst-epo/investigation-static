@@ -280,10 +280,10 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
                   activeAlert ? activeAlert.alert_id.toString() : null
                 }
                 interactableTemplates={
-                  activeQuestionId && activeQuestionId === templateAnswerId
+                  !!activeQuestionId && activeQuestionId === templateAnswerId
                 }
                 interactablePeakMag={
-                  activeQuestionId && peakMagAnswerId === activeQuestionId
+                  !!activeQuestionId && peakMagAnswerId === activeQuestionId
                 }
                 pointsAreVisible={
                   selectorQId ? !isEmpty(answers[selectorQId]) : true

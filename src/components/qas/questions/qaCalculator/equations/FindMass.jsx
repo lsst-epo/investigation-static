@@ -13,7 +13,7 @@ import {
 } from '../../../../site/mathJax/mathjax.utilities.js';
 
 export default function FindMass(props) {
-  const { density, mass, diameter, qaReview } = props;
+  const { density, mass, diameter } = props;
 
   const p = !density
     ? colorize(`\\rho`)
@@ -39,5 +39,4 @@ FindMass.propTypes = {
   density: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   mass: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   diameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  qaReview: PropTypes.bool,
 };

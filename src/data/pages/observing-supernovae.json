@@ -1,7 +1,7 @@
 {
-  "id": "4",
+  "id": "03",
   "investigation": "exploding-stars",
-  "order": "04",
+  "order": "03",
   "title": "Observing Supernovae",
   "slug": "observing-supernovae/",
   "previous": {
@@ -38,7 +38,8 @@
         "showSelector": true,
         "showLightCurve": true,
         "toggleDataPointsVisibility": "82",
-        "autoplay": true
+        "autoplay": true,
+        "qaReview": false
       }
     }
   ],
