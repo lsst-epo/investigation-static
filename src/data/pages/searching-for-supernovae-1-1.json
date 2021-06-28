@@ -19,7 +19,6 @@
       "source": "/data/galaxies/ZTF19aavjzrz_r_lightcurve.json",
       "options": {
         "showLightCurve": true,
-        "lightCurveTemplates": ["Ia"],
         "qaReview": false
       }
     }

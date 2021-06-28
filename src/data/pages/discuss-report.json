@@ -10,7 +10,6 @@
   },
   "next": { "title": "Putting it all Together", "link": "/summary/" },
   "layout": "TwoCol",
-  "content": "<p>The Andromeda Galaxy (M31) is the closest large galaxy to the Milky Way. It is at a distance of 2.5 Mly from Earth. Approximately how many times farther away is Supernova 4 compared to the Andromeda galaxy?</p>",
   "images": [
     {
       "mediaPath": "/images/thought-bubbles.png",
@@ -49,6 +48,16 @@
       "question": [
         {
           "id": "77",
+          "questionType": "textArea",
+          "label": "The Andromeda Galaxy (M31) is the closest large galaxy to the Milky Way. It is at a distance of 2.5 Mly from Earth. Approximately how many times farther away is Supernova 4 compared to the Andromeda galaxy?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "78",
           "questionType": "textArea",
           "label": "In this investigation you have learned how to classify (categorize) types of supernovae according to the shape of their light curves. Describe how you categorize something in your everyday life. What is an advantage of categorizing? What could be a disadvantage of categorizing?",
           "answerAccessor": "text"
