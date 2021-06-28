@@ -125,7 +125,7 @@
           "questionType": "compoundSelect",
           "compoundQuestion": ["86", "87", "88", "89"],
           "labelPre": "because they reach about the same ",
-          "labelPost": " peak intrinsic brightness.",
+          "labelPost": " magnitude.",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",

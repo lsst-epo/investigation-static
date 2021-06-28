@@ -9,7 +9,7 @@ function CalculatedMeasurement({ unit, value, qaReview }) {
     pc: 'Parsecs (pc)',
     Mpc: 'Mega Parsecs (Mpc)',
     ly: 'Light Years (ly)',
-    Mly: 'Mega Light Years (Mly)',
+    Mly: 'Megalight-years (Mly)',
     D: 'D (km)',
   };
 

@@ -19,7 +19,6 @@
       "source": "/data/galaxies/ZTF20acxzkkf.json",
       "options": {
         "showLightCurve": true,
-        "lightCurveTemplates": ["Ia"],
         "qaReview": false
       }
     }
