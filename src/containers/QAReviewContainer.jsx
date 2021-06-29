@@ -256,7 +256,7 @@ QAReviewContainer.propTypes = {
 
 export const query = graphql`
   query QAReviewQuery {
-    allPagesJson {
+    allPagesJson(sort: { fields: order, order: ASC }) {
       nodes {
         ...PageMeta
         tables {
