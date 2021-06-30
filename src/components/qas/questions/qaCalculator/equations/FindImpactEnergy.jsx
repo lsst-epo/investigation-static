@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
 import { QACalculatorIconUnit } from '../qQaCalculatorIcons';
 import {
@@ -10,23 +9,17 @@ import {
   denominator,
   exponent,
 } from '../qaCalculator.module.scss';
-import { qaReviewHighlight } from './equations.module.scss';
 
 export default function FindImpactEnergy(props) {
-  const { diameter, density, velocity, kineticEnergy, qaReview } = props;
-
-  const addColorClass = classnames({
-    [color]: !qaReview,
-    [qaReviewHighlight]: qaReview,
-  });
+  const { diameter, density, velocity, kineticEnergy } = props;
 
   return (
-    <p className={equation} data-testid="qa-calc-impact">
+    <p className={`equation ${equation}`} data-testid="qa-calc-impact">
       <span>KE = </span>
       <span className={fraction}>
         <span className="numerator">
           <span>&pi; &times; </span>
-          <span className={addColorClass}>
+          <span className={color}>
             {density ? (
               <span>
                 {addTheCommas(density)}
@@ -37,7 +30,7 @@ export default function FindImpactEnergy(props) {
             )}
           </span>
           <span> &times; </span>
-          <span className={addColorClass}>
+          <span className={color}>
             {diameter ? (
               <span>
                 {addTheCommas(diameter)}
@@ -51,7 +44,7 @@ export default function FindImpactEnergy(props) {
           </span>
           <span className={exponent}>3</span>
           <span> &times; </span>
-          <span className={addColorClass}>
+          <span className={color}>
             {velocity ? (
               <span>
                 {addTheCommas(velocity)}
@@ -66,14 +59,11 @@ export default function FindImpactEnergy(props) {
         <span className={denominator}>12</span>
       </span>
       <span> = </span>
-      <span className={addColorClass}>
+      <span className={color}>
         {kineticEnergy ? (
           <span>
             {addTheCommas(toSigFigs(+kineticEnergy, 3))}
-            <QACalculatorIconUnit
-              className={addColorClass}
-              unit="kineticEnergy"
-            />
+            <QACalculatorIconUnit className={color} unit="kineticEnergy" />
           </span>
         ) : (
           '?'
@@ -88,5 +78,4 @@ FindImpactEnergy.propTypes = {
   density: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   velocity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   kineticEnergy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  qaReview: PropTypes.bool,
 };

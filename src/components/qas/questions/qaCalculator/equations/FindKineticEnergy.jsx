@@ -1,37 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { QACalculatorIconUnit } from '../qQaCalculatorIcons.jsx';
 import {
   addTheCommas,
   scientificNotation,
 } from '../../../../../lib/utilities.js';
 import {
-  color,
   equation,
+  color,
   fraction,
   denominator,
   exponent,
 } from '../qaCalculator.module.scss';
-import { qaReviewHighlight } from './equations.module.scss';
 
 export default function FindKineticEnergy(props) {
-  const { kineticEnergy, mass, velocity, qaReview } = props;
-
-  const addColorClass = classnames({
-    [color]: !qaReview,
-    [qaReviewHighlight]: qaReview,
-  });
+  const { kineticEnergy, mass, velocity } = props;
 
   return (
-    <p className={equation} data-testid="qa-calc-kinetic-energy">
+    <p className={`equation ${equation}`} data-testid="qa-calc-kinetic-energy">
       <span>KE = </span>
       <span className={fraction}>
         <span className="numerator">1</span>
         <span className={denominator}>2</span>
       </span>
       <span> &times; </span>
-      <span className={addColorClass}>
+      <span className={color}>
         {mass ? (
           <span>
             {addTheCommas(mass)}
@@ -42,7 +35,7 @@ export default function FindKineticEnergy(props) {
         )}
       </span>
       <span> &times; </span>
-      <span className={addColorClass}>
+      <span className={color}>
         {velocity ? (
           <span>
             {addTheCommas(velocity)}
@@ -54,17 +47,14 @@ export default function FindKineticEnergy(props) {
       </span>
       <span className={exponent}>2</span>
       <span>= </span>
-      <span className={addColorClass}>
+      <span className={color}>
         {kineticEnergy ? (
           <span>
             <span
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={scientificNotation(+kineticEnergy, 3)}
             ></span>
-            <QACalculatorIconUnit
-              className={addColorClass}
-              unit="kineticEnergy"
-            />
+            <QACalculatorIconUnit className={color} unit="kineticEnergy" />
           </span>
         ) : (
           '?'
@@ -78,5 +68,4 @@ FindKineticEnergy.propTypes = {
   kineticEnergy: PropTypes.number,
   mass: PropTypes.string,
   velocity: PropTypes.string,
-  qaReview: PropTypes.bool,
 };
