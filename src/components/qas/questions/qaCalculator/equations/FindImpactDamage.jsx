@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import {
   addTheCommas,
   toSigFigs,
@@ -8,33 +7,17 @@ import {
 } from '../../../../../lib/utilities.js';
 import { QACalculatorIconUnit } from '../qQaCalculatorIcons';
 import { marginTop, color } from '../qaCalculator.module.scss';
-import {
-  findImpactCraterEquation,
-  boldText,
-  // seismicDamageText,
-  qaReviewHighlight,
-} from './equations.module.scss';
+import { findImpactCraterEquation, boldText } from './equations.module.scss';
 
 export default function FindImpactDamage(props) {
-  const {
-    richterMagnitudeAtObserverDistance,
-    // mercalliIntensity,
-    overPressure,
-    // airBlastDamage,
-    qaReview,
-  } = props;
-
-  const addColorClass = classnames({
-    [color]: !qaReview,
-    [qaReviewHighlight]: qaReview,
-  });
+  const { richterMagnitudeAtObserverDistance, overPressure } = props;
 
   return (
     <div className={findImpactCraterEquation} data-testid="qa-calc-impact">
       <div className={marginTop}>
-        <p>
+        <p className="equation">
           <span className={boldText}>Richter Magnitude = </span>
-          <span className={addColorClass}>
+          <span className={color}>
             {richterMagnitudeAtObserverDistance > 0 ? (
               <span>
                 {addTheCommas(
@@ -46,23 +29,11 @@ export default function FindImpactDamage(props) {
             )}
           </span>
         </p>
-        {/* <p>
-          <span className={boldText}>Seismic damage:</span>
-        </p>
-        {mercalliIntensity &&
-          mercalliIntensity.map((mi, index) => (
-            <p
-              key={`mercalli-intensity-${index}`}
-              className={seismicDamageText}
-            >
-              {mi.description}
-            </p>
-          ))} */}
       </div>
       <div className={marginTop}>
-        <p>
+        <p className="equation">
           <span className={boldText}>Air Blast Over Pressure = </span>
-          <span className={addColorClass}>
+          <span className={color}>
             {overPressure ? (
               <span>
                 {addTheCommas(toSigFigs(overPressure, 3))}
@@ -73,13 +44,6 @@ export default function FindImpactDamage(props) {
             )}
           </span>
         </p>
-        {/* <p className={boldText}>Air Blast Over Pressure damage:</p>
-        <ul>
-          {airBlastDamage &&
-            airBlastDamage.map((damage, index) => (
-              <li key={`damage-message-${index}`}>{damage}</li>
-            ))}
-        </ul> */}
       </div>
     </div>
   );
@@ -90,8 +54,5 @@ FindImpactDamage.propTypes = {
     PropTypes.number,
     PropTypes.string,
   ]),
-  // mercalliIntensity: PropTypes.array,
   overPressure: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // airBlastDamage: PropTypes.array,
-  qaReview: PropTypes.bool,
 };

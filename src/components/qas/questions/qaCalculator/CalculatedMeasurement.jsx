@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { color, calculationBlock } from './qaCalculator.module.scss';
 import { addTheCommas, toSigFigs } from '../../../../lib/utilities';
 
-function CalculatedMeasurement({ unit, value, qaReview }) {
+function CalculatedMeasurement({ unit, value }) {
   const labels = {
     pc: 'Parsecs (pc)',
     Mpc: 'Mega Parsecs (Mpc)',
@@ -15,13 +14,9 @@ function CalculatedMeasurement({ unit, value, qaReview }) {
 
   return (
     <div className={calculationBlock}>
-      <p>
+      <p className="equation">
         <span>{labels[unit] || unit} = </span>
-        <span
-          className={classnames(color, {
-            [color]: !qaReview,
-          })}
-        >
+        <span className={color}>
           {value ? addTheCommas(toSigFigs(value, 3)) : '?'}
         </span>
       </p>
@@ -32,7 +27,6 @@ function CalculatedMeasurement({ unit, value, qaReview }) {
 CalculatedMeasurement.propTypes = {
   unit: PropTypes.string,
   value: PropTypes.number,
-  qaReview: PropTypes.bool,
 };
 
 export default CalculatedMeasurement;

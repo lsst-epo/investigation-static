@@ -35,7 +35,10 @@
   p {
     font-size: 16px !important;
     font-weight: $medium !important;
-    color: $basePrimary !important;
+
+    :global &:not(.equation) {
+      color: $basePrimary !important;
+    }
   }
 }
 
