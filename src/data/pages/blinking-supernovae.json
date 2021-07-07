@@ -36,7 +36,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Click on a point on the Image to select the supernova</p>",
+          "label": "<p>Click on a point on the image to select the supernova</p>",
           "answerPre": "<span>Selected Supernova: </span>",
           "answerAccessor": "supernova",
           "qaReview": false
