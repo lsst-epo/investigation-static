@@ -1,0 +1,56 @@
+{
+  "id": "observable10a",
+  "investigation": "observable-universe",
+  "order": "10.1",
+  "title": "The Cosmic Microwave Background and the Growth of Galaxies",
+  "slug": "cosmic-microwave-background/",
+  "previous": {
+    "title": "Estimating the Size of the Observable Universe",
+    "link": "/size-observable-universe/"
+  },
+  "next": {
+    "title": "Observing How the Universe Changed over Time",
+    "link": "/change-over-time-1/"
+  },
+  "layout": "TwoCol",
+  "images": [
+    {
+      "mediaPath": "/images/wmap.png",
+      "altText": "Temperature fluctuations (shown as color differences) in the cosmic microwave background",
+      "figText": "Temperature fluctuations (shown as color differences) in the cosmic microwave background, made from nine years of WMAP observations. These are the seeds of galaxies, from a time when the Universe was less than 400,000 years old.  Credit: NASA",
+      "layout": {
+        "col": "right",
+        "row": "middle"
+      }
+    }
+  ],
+  "contents": [
+    {
+      "content": "<p>This image displays the distribution of the <a href='http://rubineducation.org/glossary/cosmic-microwave-background-radiation' target='_blank'>cosmic microwave background radiation</a> (CMB), which is the first light that we can detect from the early Universe.</p>",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      }
+    },
+    {
+      "content": "The large scale structure of the early Universe is believed to have resulted from the small fluctuations in the cosmic microwave background. In this map, red areas represent places in the Universe where the temperatures were slightly higher and had slightly less matter, and blue areas represent places in the Universe where the temperatures were slightly lower and had slightly more matter. Since the distribution of matter was not perfectly uniform, over time gravitational forces began to shape where in the Universe there would be higher and lower concentrations of galaxies.",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "20",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What color from this image of the CMB would you use to predict where in the Universe you might expect to find early galaxies forming?"
+        }
+      ]
+    }
+  ]
+}

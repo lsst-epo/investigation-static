@@ -1,14 +1,30 @@
 {
-    "id": "observable17",
-    "investigation": "observable-universe",
-    "order": "17",
-    "title": "Acknowledgements Page",
-    "slug": "acknowledgements/",
-    "previous": { "title": "Putting it all Together", "link": "/summary/" },
-    "next": {
-      "title": null,
-      "link": null
+  "id": "observable17",
+  "investigation": "observable-universe",
+  "order": "17",
+  "title": "Acknowledgements Page",
+  "slug": "acknowledgements/",
+  "previous": { "title": "Putting it all Together", "link": "/summary/" },
+  "next": {
+    "title": null,
+    "link": null
+  },
+  "layout": "SingleCol",
+  "contents": [
+    {
+      "content": "<p>This investigation was created by the Education and Public Outreach program of the Vera C. Rubin Observatory Construction project. In an effort to create and test this investigation prior to the start of Operations, we rely on the data of our scientific colleagues. In particular, this investigation was made possible thanks to data from the UltraVISTA catalog as well as the eBOSS and BOSS spectroscopic galaxy sample of SDSS-IV Data Release 16. Deep field images are from Hyper Suprime-Cam Subaru Strategic Program, a wide-field optical imaging survey on the 8.2 meter Subaru Telescope, as part of Public Data Release 1. Images were accessed through the Rubin Observatory Science Platform.</p><p>The team would also like to specifically thank Simon Krughoff for his help and advice in navigating the Science Platform.</p>"
     },
-    "layout": "TwoCol",
-    "content": "<p>Acknowledgments go here...</p>"
-  }
+    {
+      "content": "<h2>References</h2><p>Ahumada, R. et al. 2019, arXiv:1912.02905, <a href='https://ui.adsabs.harvard.edu/abs/2019arXiv191202905A/abstract' target='_blank'>2019arXiv191202905A</a></p><p>Aihara, H. et al. 2018, PASJ, 70, 8, doi: <a href='https://ui.adsabs.harvard.edu/link_gateway/2018PASJ...70S...8A/doi:10.1093/pasj/psx081' target='_blank'>10.1093/pasj/psx081</a></p><p>Argudo-Fernández, M. et al. 2015, ASCL, 1505.012: <a href='https://ui.adsabs.harvard.edu/abs/2015ascl.soft05012A/abstract' target='_blank'>2015ascl.soft05012A </a></p><p>lanton, M. R. et al. 2017, ApJ, 154, 28, doi: <a href='https://ui.adsabs.harvard.edu/link_gateway/2017AJ....154...28B/doi:10.3847/1538-3881/aa7567' target='_blank'>10.3847/1538-3881/aa7567</a></p><p>Muzzin, A. et al. 2013, ApJS, 206, 8, doi: <a href='https://ui.adsabs.harvard.edu/link_gateway/2013ApJS..206....8M/doi:10.1088/0067-0049/206/1/8' target='_blank'>10.1088/0067-0049/206/1/8</a></p>"
+    },
+    {
+      "content": "<h2>Funding Support</h2><p>Vera C. Rubin Observatory is a Federal project jointly funded by the National Science Foundation (NSF) and the Department of Energy (DOE) Office of Science, with early construction funding received from private donations through the LSST Corporation. The NSF-funded LSST (now Rubin Observatory) Project Office for construction was established as an operating center under the management of the Association of Universities for Research in Astronomy (AURA). The DOE-funded effort to build the Rubin Observatory LSST Camera (LSSTCam) is managed by SLAC National Accelerator Laboratory (SLAC).</p>"
+    },
+    {
+      "content": "<p>Funding for the Sloan Digital Sky Survey IV has been provided by the Alfred P. Sloan Foundation, the U.S. Department of Energy Office of Science, and the Participating Institutions. SDSS-IV acknowledges support and resources from the Center for High-Performance Computing at the University of Utah. The SDSS web site is <a href='http://www.sdss.org' target='_blank'>www.sdss.org.</a></p>"
+    },
+    {
+      "content": "<p>SDSS-IV is managed by the Astrophysical Research Consortium for the Participating Institutions of the SDSS Collaboration including the Brazilian Participation Group, the Carnegie Institute for Science, Carnegie Mellon University, the Chilean Participation Group, the French Participation Group, Harvard-Smithsonian Center for Astrophysics, Instituto de Astrofísica de Canarias, The Johns Hopkins University, Kavli Institute for the Physics and Mathematics of the Universe(IPMU) / University of Tokyo, the Korean Participation Group, Lawrence Berkeley National Laboratory, Leibniz Institut für Astrophysik Potsdam (AIP), Max-Planck-Institut für Astronomie (MPIA Heidelberg), Max-Planck-Institut für Astrophysik (MPA Garching), Max-Planck-Institut für Extraterrestrische Physik (MPE), National Astronomical Observatories of China, New Mexico State University, New York University, University of Notre Dame, Observatório Nacional / MCTI, The Ohio State University, Pennsylvania State University, Shanghai Astronomical Observatory, United Kingdom Participation Group, Universidad Nacional Autónoma de México, University of Arizona, University of Colorado Boulder, University of Oxford, University of Portsmouth, University of Utah, University of Virginia, University of Washington, University of Wisconsin, Vanderbilt University, and Yale University.</p>"
+    }
+  ]
+}

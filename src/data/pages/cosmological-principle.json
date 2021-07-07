@@ -5,15 +5,15 @@
   "title": "The Cosmological Principle",
   "slug": "cosmological-principle/",
   "previous": {
-    "title": "Exploring the Relationship between Color, Brightness, & Apparent Size",
-    "link": "/brightness-color-distance/"
+    "title": "Exploring the Relationship between Color & Distance",
+    "link": "/color-and-distance/"
   },
   "next": {
-    "title": "Exploring Rubin Observatory Data: flux vs distance",
-    "link": "/exploring-lsst-data-1/"
+    "title": "Testing the Cosmological Principle",
+    "link": "/testing-the-cosmological-principle/"
   },
   "layout": "SingleCol",
-  "content": "<p>Astronomers who study the Universe (cosmologists) have made a basic assumption that for any particular time, the Universe appears to look very similar in every direction, no matter where you are located within it. This is known as the <strong>cosmological principle</strong>.</p><p>The cosmological principle doesn’t mean that the Universe is <em>exactly</em> the same in all directions. Imagine that you are in the middle of a desert.  As you look around you in every direction, you see sand, rocks, mountains and maybe some plants. Not every mountain peak looks identical, and some places may have some more plants than others, but it is generally the same landscape.</p><p>Every person in your class has a Rubin Observatory image from a different, random area of the sky as viewed from Earth. Compare your image and plot to others from the class (or choose a few more fields from the list) to see if the patterns in your data agree with the patterns in their data sets and answer the following question:</p>",
+  "content": "<p>Astronomers who study the Universe (cosmologists) have made a basic assumption that for any particular time, the Universe appears to look very similar in every direction, and when viewed from any location. These two ideas are part of the <a href='http://rubineducation.org/glossary/cosmological-principle' target='_blank'>cosmological principle</a>.</p><p>The cosmological principle doesn’t imply that the Universe is <em>exactly</em> the same in all directions. Imagine that you are in the middle of a desert. As you look around you in every direction, you see sand, rocks, mountains and maybe some plants. Not every mountain peak looks identical, and some places may have some more plants than others, but it is generally the same landscape. Additionally, a person at a different location in the desert who looks around in all directions would see roughly the same thing that you see when looking in all directions.</p>",
   "images": [
     {
       "mediaPath": "/images/Paisajes.jpeg",
@@ -22,22 +22,6 @@
       "layout": {
         "row": "middle"
       }
-    }
-  ],
-  "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "11",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Do plots from different directions show similar distributions of galaxy distances and colors? Explain.",
-          "layout": {
-            "row": "bottom"
-          }
-        }
-      ]
     }
   ]
 }

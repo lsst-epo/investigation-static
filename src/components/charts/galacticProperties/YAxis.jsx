@@ -31,12 +31,33 @@ class YAxis extends React.PureComponent {
 
     return (
       <>
+        {/* <defs>
+          <marker
+            id="arrowhead"
+            markerWidth="10"
+            markerHeight="7"
+            refX="0"
+            refY="3.5"
+            orient="auto"
+          >
+            <polygon points="0 0, 10 3.5, 0 7" />
+          </marker>
+        </defs> */}
         <g
           key="y-axis"
           className="y-axis axis"
           transform={`translate(${padding}, ${offsetTop})`}
           ref={this.yAxisContainer}
         />
+        {/* <line
+          x1={0}
+          x2={0}
+          y1={10}
+          y2={10}
+          transform={`translate(${padding - 10}, ${offsetTop +
+            1}), rotate(-90)`}
+          markerEnd="url(#arrowhead)"
+        /> */}
         <text
           key="y-axis-label"
           className="y-axis-label"

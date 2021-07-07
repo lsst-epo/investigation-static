@@ -2,18 +2,26 @@
   "id": "observable5",
   "investigation": "observable-universe",
   "order": "05",
-  "title": "Exploring the Relationship between Color & Distance",
+  "title": "Exploring the Relationship between Reddening & Distance",
   "slug": "color-and-distance/",
   "previous": {
-    "title": "Effects of Expansion",
-    "link": "/effects-of-expansion/"
+    "title": "Exploring the Relationship between Brightness and Distance",
+    "link": "/exploring-the-deep-1/"
   },
   "next": {
-    "title": "Exploring the Relationship between Color, Brightness, & Apparent Size",
-    "link": "/brightness-color-distance/"
+    "title": "The Cosmological Principle",
+    "link": "/cosmological-principle/"
   },
   "layout": "TwoCol",
-  "content": "<p>You will now explore the different galaxies in the Rubin Observatory image by using a plot of color vs distance. On this plot, <u>smaller</u> flux ratio numbers are <u>redder</u> colors.  Let’s think about how this happens.  Recall from the Hubble-Lemaitre Law that the Universe is expanding, and this expansion causes light waves to appear to be stretched to longer wavelengths. This is called <a target='_blank' href='http://astronomy.swin.edu.au/cosmos/c/cosmological+redshift'>cosmological redshift</a>.</p>",
+  "content": "<p>The expansion of the Universe causes light waves to appear to be stretched to longer wavelengths.  The actual galaxy colors do not change, but from our vantage point on Earth they appear to become redder when their light is stretched to longer wavelengths. This stretching is called <a href='http://rubineducation.org/glossary/cosmological-redshift' target='_blank'>cosmological redshift</a>.</p><p>Here are the data for all of the galaxies you selected in the Rubin Observatory deep field image, plotted by their redness vs distance.</p><p>The color of a galaxy may be converted into a numerical value by using a <a href='http://rubineducation.org/glossary/flux-ratio' target='_blank'>flux ratio</a>, which is just a comparison of how bright the galaxy appears through two different filters (in this case, it compares the galaxy brightness through the i filter to its brightness through the z filter). Smaller flux ratio numbers means the light from the object being observed appears redder.</p>",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "GalacticProperties",
@@ -23,15 +31,15 @@
       },
       "options": {
         "preSelected": true,
-        "showUserPlot": "44",
-        "title": "Color Vs Distance",
+        "showUserPlot": "440",
+        "title": "Flux Vs Distance",
         "xAxisLabel": "Distance (Billion Ly)",
-        "yAxisLabel": "Flux ratio i/z (color)",
+        "yAxisLabel": "Flux ratio i/z (redness)",
         "xValueAccessor": "distance",
         "yValueAccessor": "color",
         "tooltipAccessors": ["distance", "color"],
         "tooltipUnits": ["Billion Ly", "Flux ratio"],
-        "tooltipLabels": ["Distance", "Color"],
+        "tooltipLabels": ["Distance", "Flux"],
         "color": "1",
         "domain": [
           [0, 16],
@@ -65,30 +73,12 @@
     {
       "question": [
         {
-          "id": "7",
-          "questionType": "select",
-          "title": "Question #1",
-          "labelPre": "As the Universe expands and a galaxy’s light is stretched to longer wavelengths, would the light you observe from this galaxy appear ",
-          "labelPost": " .",
-          "srLabel": "...",
-          "options": [
-            { "label": "redder", "value": "redder" },
-            { "label": "less red", "value": "less red" }
-          ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
           "id": "8",
-          "questionType": "select",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["8", "9"],
           "title": "Question #1",
           "labelPre": "Light that travels a large distance (and for a long time) while the Universe is expanding will be redshifted ",
-          "labelPost": " than light that travels a short distance.",
+          "labelPost": ",",
           "srLabel": "...",
           "options": [
             { "label": "more", "value": "more" },
@@ -97,17 +87,14 @@
           "placeholder": "Select",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
+        },
         {
           "id": "9",
-          "questionType": "select",
-          "title": "Question #1",
-          "labelPre": "Galaxies that are very far away will appear ",
-          "labelPost": " than galaxies that are near Earth.",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["8", "9"],
+          "title": "Question #2",
+          "labelPre": " causing the light from more distant galaxies to appear ",
+          "labelPost": "",
           "srLabel": "...",
           "options": [
             { "label": "redder", "value": "redder" },
