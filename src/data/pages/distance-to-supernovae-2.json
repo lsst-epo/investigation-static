@@ -83,8 +83,8 @@
           "id": "69",
           "questionType": "compoundSelect",
           "compoundQuestion": ["69", "70"],
-          "labelPre": "A supernova that is close to Earth will appear ",
-          "labelPost": " and ",
+          "labelPre": "A supernova that is close to Earth will appear",
+          "labelPost": "and",
           "srLabel": "What best describes the luminosity of a supernova that is close to Earth appear?",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -92,15 +92,15 @@
             { "label": "bright", "value": "bright" },
             { "label": "dim", "value": "dim" }
           ],
-          "answerPre": "A supernova that is close to Earth will appear ",
+          "answerPre": "A supernova that is close to Earth will appear",
           "answerPost": "."
         },
         {
           "id": "70",
           "questionType": "compoundSelect",
           "compoundQuestion": ["69", "70"],
-          "labelPre": " have a peak apparent magnitude number that is ",
-          "labelPost": " .",
+          "labelPre": "have a peak apparent magnitude number that is",
+          "labelPost": ".",
           "srLabel": "What best describes the peak apparent magnitude of a supernova that is close to Earth?",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -108,8 +108,8 @@
             { "label": "large", "value": "large" },
             { "label": "small", "value": "small" }
           ],
-          "answerPre": "A supernova that is close to Earth has a ",
-          "answerPost": " apparent magnitude."
+          "answerPre": "A supernova that is close to Earth has a",
+          "answerPost": "apparent magnitude."
         }
       ]
     }

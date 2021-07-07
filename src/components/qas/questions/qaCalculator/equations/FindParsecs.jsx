@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { equation } from '../../../styles.module.scss';
-import { fraction, denominator, color } from '../qaCalculator.module.scss';
+import { color } from '../qaCalculator.module.scss';
 import { addTheCommas, toSigFigs } from '../../../../../lib/utilities.js';
 
 export default function FindParsecs(props) {
@@ -10,7 +10,7 @@ export default function FindParsecs(props) {
   return (
     <p className={`equation ${equation}`} data-testid="qa-calc-parsecs">
       <span>d = 10 </span>
-      <sup className={fraction}>
+      <sup>
         <span>
           <span>(</span>
           <span className={color}>
@@ -18,7 +18,7 @@ export default function FindParsecs(props) {
           </span>
           <span>+ 5)</span>
         </span>
-        <span className={denominator}>5</span>
+        <span> / 5</span>
       </sup>
     </p>
   );

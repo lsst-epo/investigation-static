@@ -14,8 +14,8 @@
           "id": "810",
           "questionType": "compoundSelect",
           "compoundQuestion": ["810", "820", "830"],
-          "labelPre": "Different types of stars can explode to form supernovae. A star that is more than 8 times the mass of the Sun forms a Type ",
-          "labelPost": " supernova. ",
+          "labelPre": "Different types of stars can explode to form supernovae. A star that is more than 8 times the mass of the Sun forms a Type",
+          "labelPost": "supernova.",
           "srLabel": "What type of supernova forms from a star that has a mass at least 8 times the mass of the Sun?",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -23,15 +23,15 @@
             { "label": "Ia", "value": "Ia" },
             { "label": "IIp", "value": "IIp" }
           ],
-          "answerPre": "A star that is at least 8 times the mass of the Sun forms a ",
-          "answerPost": " supernova."
+          "answerPre": "A star that is at least 8 times the mass of the Sun forms a",
+          "answerPost": "supernova."
         },
         {
           "id": "820",
           "questionType": "compoundSelect",
           "compoundQuestion": ["810", "820", "830"],
-          "labelPre": " A Type ",
-          "labelPost": " supernova ",
+          "labelPre": "A Type",
+          "labelPost": "supernova",
           "srLabel": "What type of supernova forms from a star in binary star system?",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -39,15 +39,15 @@
             { "label": "Ia", "value": "Ia" },
             { "label": "IIp", "value": "IIp" }
           ],
-          "answerPre": "A star in a binary star system forms a ",
-          "answerPost": " supernova."
+          "answerPre": "A star in a binary star system forms a",
+          "answerPost": "supernova."
         },
         {
           "id": "830",
           "questionType": "compoundSelect",
           "compoundQuestion": ["810", "820", "830"],
-          "labelPre": "forms from a ",
-          "labelPost": " star in a binary star system.",
+          "labelPre": "forms from a",
+          "labelPost": "star in a binary star system.",
           "srLabel": "What type of star in a binary star system...?",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -55,8 +55,8 @@
             { "label": "massive star", "value": "massive star" },
             { "label": "white dwarf", "value": "white dwarf" }
           ],
-          "answerPre": "A star in a binary star system forms a ",
-          "answerPost": " supernova."
+          "answerPre": "A star in a binary star system forms a",
+          "answerPost": "supernova."
         }
       ]
     },
@@ -67,7 +67,7 @@
           "questionType": "compoundSelect",
           "compoundQuestion": ["84", "85"],
           "labelPre": "Type Ia supernovae achieve a intrinsic peak brightness that is ",
-          "labelPost": " than the intrinsic peak brightness of Type IIp supernovae. ",
+          "labelPost": "than the intrinsic peak brightness of Type IIp supernovae.",
           "srLabel": "Is the maximum luminosity of a Type Ia supernova high or lower than the maximum luminosity of a Type IIp supernova?",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -75,15 +75,15 @@
             { "label": "higher", "value": "higher" },
             { "label": "lower", "value": "lower" }
           ],
-          "answerPre": "The maximum luminosity of  Type Ia supernova is ",
-          "answerPost": " than the maximum luminosity of Type IIp supernova."
+          "answerPre": "The maximum luminosity of  Type Ia supernova is",
+          "answerPost": "than the maximum luminosity of Type IIp supernova."
         },
         {
           "id": "85",
           "questionType": "compoundSelect",
           "compoundQuestion": ["84", "85"],
           "labelPre": "After reaching its peak brightness, the light output from a Type Ia supernova",
-          "labelPost": " for a few months.",
+          "labelPost": "for a few months.",
           "srLabel": "Describe how the light output of Type Ia supernovae changes in the few months after it reaches its peak brightness?",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -97,8 +97,8 @@
               "value": "stays about the same brightness"
             }
           ],
-          "answerPre": "A Type Ia supernova's light output ",
-          "answerPost": " in the few moths after it reaches its peak brightness."
+          "answerPre": "A Type Ia supernova's light output",
+          "answerPost": "in the few moths after it reaches its peak brightness."
         }
       ]
     },
@@ -108,8 +108,8 @@
           "id": "86",
           "questionType": "compoundSelect",
           "compoundQuestion": ["86", "87", "88", "89"],
-          "labelPre": "Type ",
-          "labelPost": " supernovae can be used to determine distances ",
+          "labelPre": "Type",
+          "labelPost": "supernovae can be used to determine distances",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -124,8 +124,8 @@
           "id": "87",
           "questionType": "compoundSelect",
           "compoundQuestion": ["86", "87", "88", "89"],
-          "labelPre": "because they reach about the same ",
-          "labelPost": " magnitude.",
+          "labelPre": "because they reach about the same",
+          "labelPost": "magnitude.",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -141,7 +141,7 @@
           "questionType": "compoundSelect",
           "compoundQuestion": ["86", "87", "88", "89"],
           "labelPre": "Type ",
-          "labelPost": " supernovae cannot be used for distance measurement",
+          "labelPost": "supernovae cannot be used for distance measurement",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -156,7 +156,7 @@
           "id": "89",
           "questionType": "compoundSelect",
           "compoundQuestion": ["86", "87", "88", "89"],
-          "labelPre": "because the stars that become this type of supernova have a range of ",
+          "labelPre": "because the stars that become this type of supernova have a range of",
           "labelPost": ".",
           "srLabel": "...",
           "answerAccessor": "select",
