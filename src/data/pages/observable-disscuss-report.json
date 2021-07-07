@@ -12,12 +12,30 @@
     "title": "Putting it all Together",
     "link": "/summary/"
   },
-  "layout": "SingleCol",
+  "layout": "TwoCol",
+  "images": [
+    {
+      "mediaPath": "/images/thought-bubbles.png",
+      "altText": "Reflect and Discuss",
+      "figText": ""
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
         {
           "id": "28",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Is the large-scale structure changing in a manner that is consistent with the cosmological principle?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "29",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
@@ -32,7 +50,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "While looking up at the night sky a friend of yours says, “Did you know that all of the stars we see  up there have long since burned out and died? We just don’t know it yet because it takes so long for their light to get here.” Considering that stars typically live for several billion years, and that most of the stars you can see are within 1000 light years of us, how would you respond to your friend?"
+          "label": "While looking up at the night sky a friend of yours says, “Did you know that all of the stars we see up there have long since burned out and died? We just don’t know it yet because it takes so long for their light to get here.” Considering that stars typically live for several billion years, and that most of the stars you can see are within 1000 light years of us, how would you respond to your friend?"
         }
       ]
     },
@@ -44,6 +62,17 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "New telescopes are being designed that will be able to collect ten times as much light as the largest telescopes that currently exist. With these new telescopes, do you think that astronomers will be able to see galaxies ten times farther away than those we can see now? Explain your reasoning."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "32",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Do you think it's important for us to continue observing far away places of the Universe, where we will never be able to visit?  Why or why not?"
         }
       ]
     }

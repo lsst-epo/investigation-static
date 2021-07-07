@@ -5,15 +5,15 @@
   "title": "Observing How the Universe Changed over Time",
   "slug": "change-over-time-1/",
   "previous": {
-    "title": "Estimating the Size of the Observable Universe",
-    "link": "/size-observable-universe/"
+    "title": "The Cosmic Microwave Background and the Growth of Galaxies",
+    "link": "/cosmic-microwave-background/"
   },
   "next": {
-    "title": "The Large-Scale Structure of the Universe",
+    "title": "Observing the Growth of Voids",
     "link": "/change-over-time-4/"
   },
   "layout": "SingleCol",
-  "content": "<p>The distribution and concentration of matter in the Universe for sizes larger than a galaxy is called the <strong>large-scale structure</strong> of the Universe. Astronomers can measure the distance to billions of galaxies using data from Rubin Observatory. Using the distances and position of galaxies, astronomers can create a map of the observable Universe that reveals this large-scale structure.</p><p>Here is a series of maps that show the galaxies detected by Rubin Observatory at certain distances away from Earth. The distances are expressed as redshift numbers. Lower redshift numbers are closer to Earth, and higher redshift numbers represent farther distances. Each map can be thought of as a view back to a particular time in the history of the Universe—at greater distances we see the Universe as it was at earlier times.</p><p>Switch between the different redshift ranges to explore how the Universe has changed over time. Try zooming and dragging the maps for a closer look.</p>",
+  "content": "<p>The distribution and concentration of matter in the Universe for sizes larger than a galaxy is called the <a href='http://rubineducation.org/glossary/large-scale-structure' target='_blank'>large-scale structure</a> of the Universe. Astronomers can use the location of the distance to billions of galaxies using data from Rubin Observatory to create a map that reveals this large-scale structure.</p><p>Here is a series of maps that show the galaxies detected by Rubin Observatory at certain distances away from Earth (expressed as redshift numbers). Lower redshift numbers correspond with distances that are closer to Earth, and higher redshift numbers correspond with distances that are farther. Each map can be thought of as a slice in time from the history of the Universe—at greater distances we see the Universe as it was at earlier times.</p><p>Select the redshift that corresponds with the earliest time, and then move through the maps to see how the Universe has changed over time.</p>",
   "widgets": [
     {
       "type": "LargeScaleStructure",
@@ -24,7 +24,7 @@
     {
       "question": [
         {
-          "id": "19",
+          "id": "21",
           "questionType": "select",
           "answerAccessor": "data",
           "title": "Question #1",
@@ -41,7 +41,7 @@
     {
       "question": [
         {
-          "id": "20",
+          "id": "22",
           "questionType": "select",
           "answerAccessor": "data",
           "title": "Question #2",
@@ -58,11 +58,11 @@
     {
       "question": [
         {
-          "id": "21",
+          "id": "23",
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #3",
-          "label": "Describe how the <em>distribution</em> of galaxies in the Universe has changed over time. When were large numbers of galaxies clumped together (more concentrated) in some places? When were galaxies distributed more evenly?"
+          "label": "Describe how the distribution of galaxies in the Universe has changed over time. When were large numbers of galaxies clumped together (more concentrated) in larger groupings in some places? When were galaxies distributed more evenly in smaller groupings?"
         }
       ]
     }

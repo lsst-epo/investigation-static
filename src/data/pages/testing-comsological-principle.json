@@ -1,18 +1,19 @@
 {
-  "id": "observable5a",
+  "id": "observable6a",
   "investigation": "observable-universe",
-  "order": "05a",
-  "title": "Exploring the Relationship between Color, Brightness, & Apparent Size",
-  "slug": "brightness-color-distance/",
+  "order": "06.1",
+  "title": "Testing the Cosmological Principle",
+  "slug": "testing-the-cosmological-principle/",
   "previous": {
-    "title": "Exploring the Relationship between Color & Distance",
-    "link": "/color-and-distance/"
-  },
-  "next": {
     "title": "The Cosmological Principle",
     "link": "/cosmological-principle/"
   },
+  "next": {
+    "title": "Exploring Rubin Observatory Data: Redness vs. Distance",
+    "link": "/exploring-lsst-data-1/"
+  },
   "layout": "TwoCol",
+  "content": "<p>Here is your deep field image and plots of the brightness versus distance and redness versus distance for all galaxies in your image that have data.</p><p>Every person in your class has a Rubin Observatory deep field image for a different random area of the sky as viewed from Earth. Compare your image and plots to others from the class to see if the patterns in your data agree with the patterns in their data sets, then the following question:</p>",
   "widgets": [
     {
       "type": "ChartSwitcher",
@@ -27,13 +28,16 @@
           "options": {
             "title": "Brightness Vs Distance",
             "xAxisLabel": "Distance (Billion Ly)",
-            "yAxisLabel": "Observed Brightness",
+            "yAxisLabel": "Observed Brightness (Flux µJy)",
             "xValueAccessor": "distance",
             "yValueAccessor": "brightness",
             "tooltipAccessors": ["distance", "brightness"],
             "tooltipUnits": ["Billion Ly"],
             "tooltipLabels": ["Distance", "Brightness"],
-            "domain": [ [0, 28], [0, 200]],
+            "domain": [
+              [0, 28],
+              [0, 200]
+            ],
             "svgShapes": ["circle"],
             "color": "2",
             "icon": "galaxy"
@@ -45,13 +49,16 @@
           "options": {
             "title": "Color Vs Distance",
             "xAxisLabel": "Distance (Billion Ly)",
-            "yAxisLabel": "Flux ratio i/z (color)",
+            "yAxisLabel": "Flux ratio i/z (redness)",
             "xValueAccessor": "distance",
             "yValueAccessor": "color",
             "tooltipAccessors": ["distance", "color"],
             "tooltipUnits": ["Billion Ly", "Flux ratio"],
             "tooltipLabels": ["Distance", "Color"],
-            "domain": [[0, 14], [0, 2]],
+            "domain": [
+              [0, 14],
+              [0, 2]
+            ],
             "svgShapes": ["triangle"],
             "color": "1",
             "icon": "galaxy"
@@ -68,7 +75,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Using all of the three properties (apparent size, color and brightness) you have established thus far in the investigation, what can you predict about the apparent size, color and brightness of a galaxy that is very far away? Examine the two plots on the right to support your ideas."
+          "label": "Do images and plots from your classmates support the cosmological principle? Explain."
         }
       ]
     }

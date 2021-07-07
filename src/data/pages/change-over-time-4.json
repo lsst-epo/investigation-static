@@ -2,7 +2,7 @@
   "id": "observable14",
   "investigation": "observable-universe",
   "order": "14",
-  "title": "Observing How the Universe Changed over Time",
+  "title": "Observing the Growth of Voids",
   "slug": "change-over-time-4/",
   "previous": {
     "title": "Observing How the Universe Changed over Time",
@@ -13,7 +13,14 @@
     "link": "/discuss-report/"
   },
   "layout": "SingleCol",
-  "content": "<p>If you look at the map for the most recent times, you will notice that there are some areas that have a very low concentration of galaxies. Areas of very low galaxy concentrations are referred to as <strong>voids</strong>.</p>",
+  "content": "<p>If you look at the map for the most recent times, you will notice that there are some areas that have a very low concentration of galaxies. Areas of very low galaxy concentrations are referred to as <a href='http://rubineducation.org/glossary/voids' target='_blank'>voids</a>.</p>",
+  "checkpoints": [
+    {
+      "layout": {
+        "row": "bottom"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "LargeScaleStructure",
@@ -25,22 +32,34 @@
     {
       "question": [
         {
-          "id": "26",
-          "questionType": "textArea",
-          "answerAccessor": "text",
+          "id": "26a",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["26a", "26b"],
+          "answerAccessor": "select",
           "title": "Question #1",
-          "label": "Will the number of galaxies in the regions we call voids be increasing or decreasing with time?  Explain why this would be happening based on what you know about gravity and matter."
-        }
-      ]
-    },
-    {
-      "question": [
+          "options": [
+            { "label": "grow", "value": "grow" },
+            { "label": "shrink", "value": "shrink" },
+            { "label": "stay the same", "value": "stay the same" }
+          ],
+          "labelPre": "As time goes on, voids will ",
+          "labelPost": "",
+          "placeholder": "Select"
+        },
         {
-          "id": "29",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "The total amount of matter of the Universe does not change over time. Explain how this applies to the changes in the size of voids and concentrations of galaxies over time."
+          "id": "26b",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["26a", "26b"],
+          "answerAccessor": "select",
+          "title": "Question #2",
+          "options": [
+            { "label": "higher", "value": "higher" },
+            { "label": "lower", "value": "lower" },
+            { "label": "stay the same", "value": "stay the same" }
+          ],
+          "labelPre": " and the concentration of galaxies in voids will become ",
+          "labelPost": ".",
+          "placeholder": "Select"
         }
       ]
     },
@@ -48,10 +67,10 @@
       "question": [
         {
           "id": "27",
-          "questionType": "text",
+          "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Is the large-scale structure changing in the same way, in all directions, over time?"
+          "label": "Explain your answer above why this would be happening based on what you know about gravity and matter."
         }
       ]
     }

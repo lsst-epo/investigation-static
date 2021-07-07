@@ -2,16 +2,17 @@
   "id": "observable3a",
   "investigation": "observable-universe",
   "order": "03a",
-  "title": "Exploring the Deep",
+  "title": "Exploring the Relationship between Brightness and Distance",
   "slug": "exploring-the-deep-1/",
   "previous": {
-    "title": "Exploring the Deep",
+    "title": "Exploring a Deep Field",
     "link": "/exploring-the-deep/"
   },
   "next": {
-    "title": "Effects of Expansion",
-    "link": "/effects-of-expansion/"
+    "title": "Exploring the Relationship between Color & Distance",
+    "link": "/color-and-distance/"
   },
+  "content": "Click on any point on the plot and the corresponding galaxy in the deep field image will be highlighted with a yellow circle.",
   "widgets": [
     {
       "type": "GalaxiesSelector",
@@ -21,7 +22,7 @@
       },
       "options": {
         "preSelected": true,
-        "showUserPlot": "44",
+        "showUserPlot": "440",
         "xValueAccessor": "distance",
         "yValueAccessor": "brightness",
         "color": "4"
@@ -33,18 +34,10 @@
       "question": [
         {
           "id": "1",
-          "questionType": "select",
+          "questionType": "textArea",
           "title": "Question #1",
-          "labelPre": "Use the plot plus your image to answer this question: Most of the bright galaxies appear ",
-          "labelPost": " on the image.",
-          "srLabel": "...",
-          "options": [
-            { "label": "large", "value": "large" },
-            { "label": "small", "value": "small" }
-          ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
+          "label": "Do most nearby galaxies appear bright, dim, or are they both bright and dim? Explain your reasoning by using data from your plot to support your answer.",
+          "answerAccessor": "text"
         }
       ]
     },
@@ -52,35 +45,9 @@
       "question": [
         {
           "id": "2",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["2", "3"],
-          "labelPre": "Use the plot and your image to answer this question: Galaxies that are far away tend to have an apparent size that is ",
-          "labelPost": ", ",
-          "srLabel": "...",
-          "answerAccessor": "select",
-          "placeholder": "Select",
-          "options": [
-            { "label": "big", "value": "big" },
-            { "label": "small", "value": "small" }
-          ],
-          "answerPre": " ",
-          "answerPost": "."
-        },
-        {
-          "id": "3",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["2", "3"],
-          "labelPre": " and they appear ",
-          "labelPost": ".",
-          "srLabel": "...",
-          "answerAccessor": "select",
-          "placeholder": "Select",
-          "options": [
-            { "label": "bright", "value": "bright" },
-            { "label": "dim", "value": "dim" }
-          ],
-          "answerPre": " ",
-          "answerPost": "."
+          "questionType": "textArea",
+          "label": "Do most far away galaxies appear bright, dim, or are they both bright and dim? Explain your reasoning by using data from your plot to support your answer.",
+          "answerAccessor": "text"
         }
       ]
     }

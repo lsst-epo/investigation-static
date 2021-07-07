@@ -2,18 +2,18 @@
   "id": "observable7",
   "investigation": "observable-universe",
   "order": "07",
-  "title": "Exploring Rubin Observatory Data: flux vs distance",
+  "title": "Exploring Rubin Observatory Data: Redness vs. Distance",
   "slug": "exploring-lsst-data-1/",
   "previous": {
-    "title": "The Cosmological Principle",
-    "link": "/cosmological-principle/"
+    "title": "Testing the Cosmological Principle",
+    "link": "/testing-the-cosmological-principle/"
   },
   "next": {
-    "title": "Exploring Rubin Observatory Data: brightness vs distance",
+    "title": "Investigating the Effect of Expansion on Galaxy Distances",
     "link": "/exploring-lsst-data-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now let’s add in data from every direction that can be observed by the Rubin Observatory.</p>",
+  "content": "<p>Now let’s add in data from every direction that can be observed by the Rubin Observatory to your data set.</p>",
   "widgets": [
     {
       "type": "GalacticProperties",
@@ -23,17 +23,20 @@
         "row": "top"
       },
       "options": {
-        "title": "Color Vs Distance",
+        "title": "Redness Vs Distance",
         "xAxisLabel": "Distance (Billion Ly)",
-        "yAxisLabel": "Flux ratio i/z (color)",
+        "yAxisLabel": "Flux ratio i/z (redness)",
         "xValueAccessor": "distance",
         "yValueAccessor": "color",
         "tooltipAccessors": ["distance", "color"],
         "tooltipUnits": ["Billion Ly", "Flux ratio"],
-        "tooltipLabels": ["Distance", "Color"],
-        "domain": [[0, 14], [0, 2]],
+        "tooltipLabels": ["Distance", "Flux"],
+        "domain": [
+          [0, 14],
+          [0, 2]
+        ],
         "multiple": true,
-        "showUserPlot": "44",
+        "showUserPlot": "440",
         "svgShapes": ["triangle", "triangle"],
         "color": "4"
       }
@@ -47,40 +50,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Compare your deep field data to the Rubin Observatory data. Do they show similar distributions of galaxy distances and colors? Explain."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "13",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Summarize the trend between galaxy distances and apparent color."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "14",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Does the trend you see in these data agree with what you previously learned about cosmological redshift and distance? Explain."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "15",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Do your data support the cosmological principle? Explain."
+          "label": "Do your data from a single direction and the Rubin Observatory data from all directions show similar distributions of galaxy redness vs. distance? Explain."
         }
       ]
     }

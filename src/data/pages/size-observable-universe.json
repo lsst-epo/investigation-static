@@ -9,11 +9,34 @@
     "link": "/defining-observable-universe/"
   },
   "next": {
-    "title": "Observing How the Universe Changed over Time",
-    "link": "/change-over-time-1/"
+    "title": "The Cosmic Microwave Background and the Growth of Galaxies",
+    "link": "/cosmic-microwave-background/"
   },
   "layout": "TwoCol",
-  "content": "<p>If you imagine the observable Universe as a sphere, you can use your data to determine a minimum size for the entire Universe. Look at this graph of the full data set for brightness vs. distance from the Rubin Observatory, and find the distance to the galaxy that is farthest away. This farthest away galaxy defines the minimum current radius of your observable Universe.</p><p>Remember that according to the cosmological principle, the Universe is the same in all directions. Since your observable Universe has the shape of a sphere, the total width (diameter) of your observable Universe is double the radius defined by the distance to the farthest galaxy.</p><p>We can’t assume that the most distant galaxy in the Rubin Observatory data set is the farthest away a galaxy can be in the entire Universe. There may be many more galaxies that are beyond your observable Universe, but the light from those galaxies has not yet had time to reach us. But this calculation gives us an estimate for the minimum size that the entire Universe is today.</p>",
+  "contents": [
+    {
+      "content": "<p>If you imagine the observable Universe as a sphere, you can use the Rubin Observatory data to determine a minimum size for your observable Universe. Look at this graph of the full data set for galaxy brightness vs. distance, and find the distance to the galaxy that is farthest away. This farthest away galaxy defines the minimum current radius of your observable Universe.</p><p>Remember that according to the cosmological principle, the Universe appears the same in all directions. Since your observable Universe has the shape of a sphere, the total width (diameter) of your observable Universe is double the radius defined by the distance to the farthest galaxy.</p>",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      }
+    },
+    {
+      "content": "We can’t assume that the most distant galaxy in the Rubin Observatory data set is the farthest away a galaxy can be in the entire Universe. There may be many more galaxies that are beyond your observable Universe, but the light from those galaxies has not yet had time to reach us. So the entire Universe must be much larger than the size of the observable Universe you calculated.",
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "GalacticProperties",
@@ -25,7 +48,7 @@
       "options": {
         "title": "Brightness Vs Distance",
         "xAxisLabel": "Distance (Billion Ly)",
-        "yAxisLabel": "Observed Brightness",
+        "yAxisLabel": "Observed Brightness (Flux µJy)",
         "xValueAccessor": "distance",
         "yValueAccessor": "brightness",
         "tooltipAccessors": ["distance", "brightness"],

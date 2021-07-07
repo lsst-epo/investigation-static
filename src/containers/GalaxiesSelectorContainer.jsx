@@ -25,8 +25,8 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     this.defaultOptions = {
       xValueAccessor: 'distance',
       yValueAccessor: 'brightness',
-      xAxisLabel: 'Distance (Billion LY)',
-      yAxisLabel: 'Observed Brightness',
+      xAxisLabel: 'Distance (Billion µLY)',
+      yAxisLabel: 'Observed Brightness (Flux Jy',
       tooltipAccessors: ['distance', 'brightness'],
       tooltipUnits: ['Billion Ly'],
       tooltipLabels: ['Distance', 'Brightness'],
