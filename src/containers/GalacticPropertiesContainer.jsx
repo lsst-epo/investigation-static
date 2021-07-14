@@ -125,7 +125,7 @@ class GalacticPropertiesContainer extends React.PureComponent {
     return (
       <>
         {!nested && (
-          <h2 className="space-bottom">{title || 'Brightness Vs Distance'}</h2>
+          <h2 className="space-bottom">{title || 'Brightness vs. Distance'}</h2>
         )}
         <GalacticProperties
           className="brightness-vs-distance"

@@ -13,7 +13,6 @@
     "link": "/exploring-the-deep/"
   },
   "layout": "TwoCol",
-  "layout": "TwoCol",
   "images": [
     {
       "mediaPath": "/images/measuring-distances-V2.jpg",
@@ -25,5 +24,5 @@
       }
     }
   ],
-  "content": "<p>Over its ten-year survey, Rubin Observatory will detect about 20 billion galaxies, most of them very faint because of their large distances from Earth. The Rubin Observatory LSST Camera measures brightness of these galaxies through different filters, which are then compared to models for the light from galaxies at different distances. The distance of the best matching model is used to estimate the distance for the observed galaxy.</p>"
+  "content": "<p>Over its ten-year survey, Rubin Observatory will detect about 20 billion galaxies, most of them very faint because of their large distances from Earth. The Rubin Observatory LSST Camera measures the brightness of these galaxies through different filters, which are then compared to models for the light from galaxies at different distances. The distance of the best matching model is used to estimate the distance for the observed galaxy.</p>"
 }

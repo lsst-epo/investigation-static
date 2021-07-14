@@ -32,7 +32,7 @@
       "options": {
         "preSelected": true,
         "showUserPlot": "440",
-        "title": "Flux Vs Distance",
+        "title": "Flux vs. Distance",
         "xAxisLabel": "Distance (Billion Ly)",
         "yAxisLabel": "Flux ratio i/z (redness)",
         "xValueAccessor": "distance",

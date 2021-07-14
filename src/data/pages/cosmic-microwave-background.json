@@ -17,7 +17,7 @@
     {
       "mediaPath": "/images/wmap.png",
       "altText": "Temperature fluctuations (shown as color differences) in the cosmic microwave background",
-      "figText": "Temperature fluctuations (shown as color differences) in the cosmic microwave background, made from nine years of WMAP observations. These are the seeds of galaxies, from a time when the Universe was less than 400,000 years old.  Credit: NASA",
+      "figText": "Temperature fluctuations (shown as color differences) in the cosmic microwave background, made from nine years of <a href='https://www.nasa.gov/feature/making-sense-of-the-big-bang-wilkinson-microwave-anisotropy-probe' target='_blank'>WMAP</a> observations. These are the seeds of galaxies, from a time when the Universe was less than 400,000 years old.  Credit: NASA",
       "layout": {
         "col": "right",
         "row": "middle"

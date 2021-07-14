@@ -172,7 +172,7 @@ class GalaxiesSelectorContainer extends React.PureComponent {
           </div>
         </div>
         <div className="col padded col-width-50">
-          <h2 className="space-bottom">Brightness Vs Distance</h2>
+          <h2 className="space-bottom">Brightness vs. Distance</h2>
           <GalacticProperties
             className="brightness-vs-distance"
             data={selectedData || []}
