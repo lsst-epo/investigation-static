@@ -26,7 +26,7 @@
           "type": "GalacticProperties",
           "source": "/data/galaxies/hsc/hsc_sub01.json",
           "options": {
-            "title": "Brightness Vs Distance",
+            "title": "Brightness vs. Distance",
             "xAxisLabel": "Distance (Billion Ly)",
             "yAxisLabel": "Observed Brightness (Flux µJy)",
             "xValueAccessor": "distance",
@@ -47,7 +47,7 @@
           "type": "GalacticProperties",
           "source": "/data/galaxies/hsc/hsc_sub01.json",
           "options": {
-            "title": "Color Vs Distance",
+            "title": "Redness vs. Distance",
             "xAxisLabel": "Distance (Billion Ly)",
             "yAxisLabel": "Flux ratio i/z (redness)",
             "xValueAccessor": "distance",

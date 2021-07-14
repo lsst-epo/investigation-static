@@ -23,7 +23,7 @@
         "row": "top"
       },
       "options": {
-        "title": "Redness Vs Distance",
+        "title": "Redness vs. Distance",
         "xAxisLabel": "Distance (Billion Ly)",
         "yAxisLabel": "Flux ratio i/z (redness)",
         "xValueAccessor": "distance",
@@ -51,6 +51,28 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "Do your data from a single direction and the Rubin Observatory data from all directions show similar distributions of galaxy redness vs. distance? Explain."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "13",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Does the trend you see in these data agree with what you previously learned about cosmological redshift and distance? Explain."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "14",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Do your data support the cosmological principle? Explain."
         }
       ]
     }

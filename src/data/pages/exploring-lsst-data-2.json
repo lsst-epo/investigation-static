@@ -23,7 +23,7 @@
         "row": "top"
       },
       "options": {
-        "title": "Brightness Vs Distance",
+        "title": "Brightness vs. Distance",
         "xAxisLabel": "Distance (Billion Ly)",
         "yAxisLabel": "Observed Brightness (Flux µJy)",
         "xValueAccessor": "distance",
