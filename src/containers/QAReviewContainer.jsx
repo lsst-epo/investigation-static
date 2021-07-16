@@ -85,15 +85,33 @@ class QAReviewContainer extends React.PureComponent {
 
   reviewifyWidgets(widgets) {
     const rw = [];
+    const reviewify = {
+      qaReview: true,
+      disabled: true,
+      autoplay: false,
+    };
     widgets.forEach(widget => {
-      const { options } = widget || {};
+      const nw = [];
+      const { widgets: nestedWidgets, options } = widget || {};
+      if (nestedWidgets) {
+        nestedWidgets.forEach((nWidget, nIndex) => {
+          const { options: nOptions } = nWidget || {};
+          const { qaReview: nQaReview } = nOptions || {};
+          if (nQaReview !== false) {
+            widget.widgets[nIndex].options = {
+              ...widget.widgets[nIndex].options,
+              ...reviewify,
+            };
+            nw.push(nWidget);
+          }
+        });
+        widget.widgets = nw;
+      }
       const { qaReview } = options || {};
       if (qaReview !== false) {
         widget.options = {
           ...widget.options,
-          qaReview: true,
-          disabled: true,
-          autoplay: false,
+          ...reviewify,
         };
 
         rw.push(widget);
@@ -195,10 +213,15 @@ class QAReviewContainer extends React.PureComponent {
                     {questions &&
                       widgets &&
                       widgets.map(widget => {
-                        const { options, type } = widget || {};
+                        const { options, type, widgets: nestedWidgets } =
+                          widget || {};
                         const { qaReview } = options || {};
+                        const doNotRenderNestedWidgets =
+                          nestedWidgets && nestedWidgets.length === 0;
 
-                        if (!qaReview) return null;
+                        if (!qaReview || doNotRenderNestedWidgets) {
+                          return null;
+                        }
 
                         return (
                           <div

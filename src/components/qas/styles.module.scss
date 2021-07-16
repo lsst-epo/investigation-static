@@ -122,6 +122,9 @@
 .qa-review-widget-container {
   width: 100%;
   max-width: 1200px;
+  padding-left: 0;
+  margin-left: $minPadding;
+  overflow: hidden;
 
   @media print {
     width: 70%;

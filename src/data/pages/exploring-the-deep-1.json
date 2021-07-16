@@ -25,7 +25,8 @@
         "showUserPlot": "440",
         "xValueAccessor": "distance",
         "yValueAccessor": "brightness",
-        "color": "4"
+        "color": "4",
+        "qaReview": false
       }
     }
   ],
