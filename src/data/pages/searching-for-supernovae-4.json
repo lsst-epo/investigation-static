@@ -18,7 +18,7 @@
     {
       "mediaPath": "/images/Llight curve template fitting and correction-100.jpg",
       "altText": "An illustration made to show Type Ia light curve template fitting.",
-      "figText": "This image is an illustration made to show Type Ia light curve template fitting (left) and how the light curves would look after corrections are applied (right). Real astronomy data looks very similar to this."
+      "figText": "This image is an illustration made to show Type Ia light curve template fitting (left) and how the light curves would look after corrections are applied (right). Luminosity (y-axis) is a measure of intrinsic brightness. Real astronomy data looks very similar to this."
     }
   ],
   "checkpoints": [
