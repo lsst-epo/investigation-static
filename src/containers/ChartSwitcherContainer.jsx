@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '../components/site/icons/CustomIcon';
+import ConditionalWrapper from '../components/ConditionalWrapper';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import { widgetTags } from '../components/widgets/widgets-utilities.js';
 import style from '../components/charts/shared/navDrawer/nav-drawer.module.scss';
@@ -70,16 +71,28 @@ class ChartSwitcherContainer extends React.PureComponent {
     const activeWidget = nestedWidgets[activeIndex];
     const { options: activeOptions } = activeWidget;
     const { title } = activeOptions || {};
+    const twoOrMoreNestedWidgets = nestedWidgets.length >= 2;
 
     return (
       <>
         {navItems && (
-          <NavDrawer
-            interactableToolbar
-            navItems={navItems}
-            toolbarTitle={title}
+          <ConditionalWrapper
+            condition={twoOrMoreNestedWidgets}
+            wrapper={children => (
+              <NavDrawer
+                interactableToolbar
+                navItems={navItems}
+                toolbarTitle={title}
+              >
+                {children}
+              </NavDrawer>
+            )}
           >
-            <div className={style.paddedDrawerInner}>
+            <div
+              className={classnames({
+                [style.paddedDrawerInner]: twoOrMoreNestedWidgets,
+              })}
+            >
               {nestedWidgets.map((nestedWidget, i) => {
                 const { type, options: nestedOptions } = nestedWidget;
                 const key = type + i;
@@ -93,6 +106,7 @@ class ChartSwitcherContainer extends React.PureComponent {
 
                 return (
                   <div key={key} className={itemClasses}>
+                    {!twoOrMoreNestedWidgets && <h2>{title}</h2>}
                     <WidgetTag
                       type={type}
                       widget={nestedWidget}
@@ -103,7 +117,7 @@ class ChartSwitcherContainer extends React.PureComponent {
                 );
               })}
             </div>
-          </NavDrawer>
+          </ConditionalWrapper>
         )}
       </>
     );

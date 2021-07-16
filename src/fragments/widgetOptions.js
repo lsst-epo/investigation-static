@@ -14,6 +14,7 @@ export const nestedWidgetOptionsFragment = graphql`
     tooltipAccessors
     tooltipLabels
     bins
+    qaReview
   }
 `;
 

@@ -25,7 +25,9 @@
     {
       "type": "LargeScaleStructure",
       "source": "/data/galaxies/eboss_ardis_dataset.json",
-      "options": {}
+      "options": {
+        "qaReview": false
+      }
     }
   ],
   "questionsByPage": [

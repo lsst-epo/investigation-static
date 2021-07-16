@@ -40,7 +40,8 @@
             ],
             "svgShapes": ["circle"],
             "color": "2",
-            "icon": "galaxy"
+            "icon": "galaxy",
+            "qaReview": false
           }
         },
         {
@@ -61,7 +62,8 @@
             ],
             "svgShapes": ["triangle"],
             "color": "1",
-            "icon": "galaxy"
+            "icon": "galaxy",
+            "qaReview": false
           }
         }
       ]
