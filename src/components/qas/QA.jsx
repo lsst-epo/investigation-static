@@ -22,6 +22,7 @@ const questions = {
   DistanceCalculator: QACalculator,
   SizeCalculator: QACalculator,
   MassCalculator: QACalculator,
+  MassKECalculator: QACalculator,
   KineticEnergyCalculator: QACalculator,
   ImpactEnergyCalculator: QACalculator,
   ImpactCalculator: QACalculator,

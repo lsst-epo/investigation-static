@@ -8,7 +8,7 @@ export const units = {
   radius: ' R',
   count: ' stars',
   distance: ' Mpc',
-  velocity: ' km/s',
+  velocity: ' m/s',
   inclination: '°',
   semimajor_axis: ' au',
   moid: ' au',

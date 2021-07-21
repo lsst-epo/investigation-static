@@ -32,7 +32,7 @@ export default function FindImpactDamage(props) {
       </div>
       <div className={marginTop}>
         <p className="equation">
-          <span className={boldText}>Air Blast Over Pressure = </span>
+          <span className={boldText}>Air Blast Pressure = </span>
           <span className={color}>
             {overPressure ? (
               <span>

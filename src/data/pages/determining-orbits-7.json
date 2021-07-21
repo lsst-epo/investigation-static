@@ -2,10 +2,10 @@
   "id": "hazardous14",
   "investigation": "hazardous-asteroids",
   "order": "14",
-  "title": "Determining the Orbit of an Asteroid",
+  "title": "Evaluating the Trend in Impact Probability",
   "slug": "determining-orbits-7/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "How New Observations Affect Probability",
     "link": "/determining-orbits-6/"
   },
   "next": {
@@ -13,7 +13,7 @@
     "link": "/determining-orbits-8/"
   },
   "layout": "TwoCol",
-  "content": "<p>After measuring the actual position of the asteroid on many different nights and different locations along its orbit, astronomers can rule out many of the possible orbits. The remaining possible orbits are shown here. Of the 500 remaining orbits, only 2 cross Earth’s orbit.</p>",
+  "content": "<p>After measuring the actual position of the asteroid on many different nights and different locations along its orbit, astronomers can rule out many of the possible orbits. The remaining possible orbits are shown here. Of the 500 remaining orbits, only 2 cross Earth’s orbit and the orbit is considered well-defined.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -32,7 +32,18 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Calculate the probability of this asteroid hitting Earth:"
+          "label": "What is the probability of this asteroid hitting Earth:"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "250",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Did the probability increase, decrease or stay the same?"
         }
       ]
     },
@@ -42,8 +53,8 @@
           "id": "26",
           "questionType": "compoundSelect",
           "compoundQuestion": ["26", "27"],
-          "labelPre": "The case of asteroid WD5-A that you just investigated is typical in terms of how its probable impact threat changes as its orbit becomes refined. As more observations and measurements are made, the probability of impact typically ",
-          "labelPost": " until such time when all of the possible impact orbits can be eliminated",
+          "labelPre": "The case of the asteroid that you just investigated is typical in terms of how its probable impact threat changes as its orbit becomes refined. As more observations and measurements are made, the probability of impact typically",
+          "labelPost": "until such time when the actual obit is well-defined,",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
@@ -59,14 +70,20 @@
           "id": "27",
           "questionType": "compoundSelect",
           "compoundQuestion": ["26", "27"],
-          "labelPre": ", at which time the probability ",
+          "labelPre": "at which time the probability",
           "labelPost": ".",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            { "label": "becomes very low (less than 1% to zero percent)", "value": "becomes very low (less than 1% to zero percent)" },
-            { "label": "stays the same at between 5 -10%", "value": "stays the same at between 5 -10%" }
+            {
+              "label": "becomes very low (less than 1% to zero percent)",
+              "value": "becomes very low (less than 1% to zero percent)"
+            },
+            {
+              "label": "stays the same at between 5 -10%",
+              "value": "stays the same at between 5 -10%"
+            }
           ],
           "answerPre": "...",
           "answerPost": "..."

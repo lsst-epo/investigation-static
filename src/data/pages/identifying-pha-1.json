@@ -2,18 +2,25 @@
   "id": "hazardous17",
   "investigation": "hazardous-asteroids",
   "order": "17",
-  "title": "Identifying Potentially Hazardous Asteroids",
+  "title": "Size and Brightness of Asteroids",
   "slug": "identifying-pha-1/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Defining Potentially Hazardous Asteroids",
     "link": "/identifying-pha/"
   },
   "next": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Calculating Asteroid Size",
     "link": "/identifying-pha-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>In order for astronomers to decide if an asteroid poses a significant threat to Earth, it’s not enough just to know about the orbits and positions of Earth and the asteroid. The size of the asteroid is an important factor too. Most asteroids that hit Earth don’t cause serious damage. Small objects less than one meter in diameter (approximately the size of a chair) enter Earth’s atmosphere frequently, but just burn up or fall harmlessly to the ground. However, an object larger than one meter in diameter won't burn up in the atmosphere and could have an effect on Earth. So even if an impact with a large object is highly unlikely, it is taken seriously.</p><p>You can get an estimate of the size of an asteroid by measuring its brightness. Let’s think about how this works by completing the following statement:</p>",
+  "images": [
+    {
+      "mediaPath": "/images/Investigation-3.png",
+      "altText": "Size and Brightness of Asteroids",
+      "figText": ""
+    }
+  ],
+  "content": "<p>In order for astronomers to decide if an asteroid poses a significant threat to Earth, it’s not enough just to know about the orbits and locations of Earth and the asteroid. The size of the asteroid is an important factor too.</p><p>Scientists estimate that about every 10,000 years, on average, an asteroid about 100 m in diameter strikes the Earth, potentially causing significant damage. But most asteroids that enter Earth’s atmosphere don’t cause serious damage. Small objects less than one meter in diameter (approximately the size of a chair) enter Earth’s atmosphere frequently, but just burn up or fall harmlessly to the ground. However, objects larger than one meter in diameter won't burn up in the atmosphere and could cause damage. So even if an impact with an object greater than 140 m in diameter is a rare event, smaller asteroids also need to be monitored.</p><p>You can get an estimate of the size of an asteroid by measuring its brightness. Think about how this works by completing the following statement:</p>",
   "questionsByPage": [
     {
       "question": [
@@ -27,8 +34,8 @@
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "more", "value": "more"},
-            {"label": "less", "value": "less"}
+            { "label": "more", "value": "more" },
+            { "label": "less", "value": "less" }
           ],
           "answerPre": "...",
           "answerPost": "..."
@@ -43,8 +50,8 @@
           "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
-            {"label": "dimmer", "value": "dimmer"},
-            {"label": "brighter", "value": "brighter"}
+            { "label": "dimmer", "value": "dimmer" },
+            { "label": "brighter", "value": "brighter" }
           ],
           "answerPre": "...",
           "answerPost": "..."

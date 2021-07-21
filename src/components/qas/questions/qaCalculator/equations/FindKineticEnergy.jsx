@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { QACalculatorIconUnit } from '../qQaCalculatorIcons.jsx';
@@ -26,10 +27,10 @@ export default function FindKineticEnergy(props) {
       <span> &times; </span>
       <span className={color}>
         {mass ? (
-          <span>
-            {addTheCommas(mass)}
+          <>
+            <span dangerouslySetInnerHTML={scientificNotation(mass, 3)} />
             <QACalculatorIconUnit tiny unit="mass" />
-          </span>
+          </>
         ) : (
           'm'
         )}
@@ -51,7 +52,6 @@ export default function FindKineticEnergy(props) {
         {kineticEnergy ? (
           <span>
             <span
-              // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={scientificNotation(+kineticEnergy, 3)}
             ></span>
             <QACalculatorIconUnit className={color} unit="kineticEnergy" />

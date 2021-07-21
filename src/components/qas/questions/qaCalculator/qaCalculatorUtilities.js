@@ -176,17 +176,10 @@ export const calculateVolume = radius => {
   return (4 / 3) * Math.PI * radius ** 3;
 };
 
-export const calculateMass = ({ density, diameter }) => {
-  if (!density || !diameter) return null;
-  return density * calculateVolume(diameter / 2);
-};
+export const calculateKineticEnergy = ({ mass, velocity }) => {
+  if (!mass || !velocity) return null;
 
-export const calculateDiameter = ({ magnitude, albedo }) => {
-  if (!albedo || !magnitude) return null;
-  const diameter = (1329 / Math.sqrt(+albedo)) * 10 ** (-0.2 * +magnitude);
-
-  // unit conversion from km to m
-  return diameter * 1000;
+  return 0.5 * +mass * (+velocity) ** 2;
 };
 
 export const calculateImpactEnergy = (diameter, velocity, density) => {
@@ -195,10 +188,33 @@ export const calculateImpactEnergy = (diameter, velocity, density) => {
   return (Math.PI * +density * (+diameter / 2) ** 3 * (+velocity) ** 2) / 12;
 };
 
-export const calculateKineticEnergy = ({ mass, velocity }) => {
-  if (!mass || !velocity) return null;
+export const calculateMass = props => {
+  const { density, diameter, velocity } = props;
 
-  return 0.5 * +mass * (+velocity) ** 2;
+  if (!density || !diameter || !velocity) {
+    return {
+      ...props,
+      mass: null,
+      kineticEnergy: null,
+    };
+  }
+
+  const mass = density * calculateVolume(diameter / 2);
+  const kineticEnergy = calculateKineticEnergy({ mass, velocity });
+
+  return {
+    ...props,
+    mass,
+    kineticEnergy,
+  };
+};
+
+export const calculateDiameter = ({ magnitude, albedo }) => {
+  if (!albedo || !magnitude) return null;
+  const diameter = (1329 / Math.sqrt(+albedo)) * 10 ** (-0.2 * +magnitude);
+
+  // unit conversion from km to m
+  return diameter * 1000;
 };
 
 export const calculateRichterMagnitude = eImpact => {

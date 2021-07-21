@@ -2,18 +2,33 @@
   "id": "hazardous16",
   "investigation": "hazardous-asteroids",
   "order": "16",
-  "title": "Identifying Potentially Hazardous Asteroids",
+  "title": "Defining Potentially Hazardous Asteroids",
   "slug": "identifying-pha/",
   "previous": {
     "title": "Determining the Orbit of an Asteroid",
     "link": "/determining-orbits-8/"
   },
   "next": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Size and Brightness of Asteroids",
     "link": "/identifying-pha-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>The <a href='https://simple.wikipedia.org/wiki/International_Astronomical_Union' target='_blank'>International Astronomical Union</a> has created a category for asteroids that pose a potential threat of an Earth impact that would inflict serious damage. They are called <a href='https://www.iau.org/public/themes/neo/nea2/' target='_blank'>Potentially Hazardous Asteroids (PHAs)</a>. PHAs must meet these requirements:</p><ul><li>Their orbits must come within 0.05 AU of the orbit of Earth.</li><li>The objects must be at least 140m in diameter.</li></ul><p>If an asteroid comes within 0.05 AU of Earth, the gravitational attraction between the two objects becomes strong enough to alter the orbit of the asteroid so that it could hit Earth.</p><p>It’s important to note that, in the PHA definition, the distance of 0.05 AU is the distance between the orbits of Earth and asteroid at their closest approach, not the actual distance between Earth and the asteroid. The closest distance between the two orbits is known as the Minimum Orbit Intersection Distance (MOID).</p>",
+  "images": [
+    {
+      "mediaPath": "/images/Investigation-2.png",
+      "altText": "Defining Potentially Hazardous Asteroids",
+      "figText": ""
+    }
+  ],
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
+  "content": "<p>The <a href='https://simple.wikipedia.org/wiki/International_Astronomical_Union' target='_blank'>International Astronomical Union</a> has created a category for asteroids that pose a potential threat of an Earth impact that would inflict serious damage. They are called <a href='https://www.iau.org/public/themes/neo/nea2/' target='_blank'>Potentially Hazardous Asteroids (PHAs)</a>. PHAs must meet these requirements:</p><ul><li>Their orbits must come within 0.05 au of the orbit of Earth.</li><li>The objects must be at least 140 m in diameter.</li></ul><p>If an asteroid comes within 0.05 au of Earth, it is considered close enough that over short time scales (within about one hundred years) its orbit could be altered by the gravitational attraction of a plane so that the asteroid could hit Earth. Most often, Jupiter, because of its large mass, is the planet responsible for altering asteroid orbits.</p><p>It’s important to note that, in the PHA definition, the distance of 0.05 au is the distance between the orbits of Earth and asteroid at their closest approach, not the actual distance between Earth and the asteroid. The closest distance between the two orbits is known as the <a href='http://rubineducation.org/glossary/minimum-orbit-intersection-distance-moid' target='_blank'>Minimum Orbit Intersection Distance</a> (MOID).</p>",
   "questionsByPage": [
     {
       "question": [
@@ -21,15 +36,15 @@
           "id": "28",
           "questionType": "compoundSelect",
           "compoundQuestion": ["28", "29"],
-          "labelPre": "If Earth were more massive, its gravitational force would ",
-          "labelPost": ", ",
+          "labelPre": "If Earth were more massive, the gravitational force would exert on nearby asteroids would",
+          "labelPost": ",",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select",
           "options": [
-            {"label": "become stronger", "value": "become stronger"},
-            {"label": "become weaker", "value": "become weaker"},
-            {"label": "stay the same", "value": "stay the same"}
+            { "label": "become stronger", "value": "become stronger" },
+            { "label": "become weaker", "value": "become weaker" },
+            { "label": "stay the same", "value": "stay the same" }
           ],
           "answerPre": "...",
           "answerPost": "..."
@@ -38,15 +53,15 @@
           "id": "29",
           "questionType": "compoundSelect",
           "compoundQuestion": ["28", "29"],
-          "labelPre": "so the minimum distance (0.05 AU) for the asteroid to become a potential threat would ",
+          "labelPre": "causing the Earth’s MOID to",
           "labelPost": ".",
           "srLabel": "...",
           "answerAccessor": "select",
           "placeholder": "Select a type",
           "options": [
-            {"label": "increase", "value": "increase"},
-            {"label": "decrease", "value": "decrease"},
-            {"label": "be the same", "value": "be the same"}
+            { "label": "increase", "value": "increase" },
+            { "label": "decrease", "value": "decrease" },
+            { "label": "be the same", "value": "be the same" }
           ],
           "answerPre": "...",
           "answerPost": "..."

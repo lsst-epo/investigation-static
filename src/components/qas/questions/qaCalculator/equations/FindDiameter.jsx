@@ -18,7 +18,9 @@ export default function FindDiameter(props) {
 
   return (
     <p className={`equation ${equation}`} data-testid="qa-calc-size">
-      <span>D = </span>
+      <span>
+        D<sub>a</sub> ={' '}
+      </span>
       <span className={fraction}>
         <span className={numerator}>1329</span>
         <span className={denominator}>

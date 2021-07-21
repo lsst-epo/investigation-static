@@ -2,18 +2,18 @@
   "id": "hazardous24",
   "investigation": "hazardous-asteroids",
   "order": "24",
-  "title": "Putting it all Together",
+  "title": "Determining the Mass of an Asteroid",
   "slug": "summary-1/",
   "previous": {
-    "title": "Putting it all Together",
+    "title": "Investigating a Newly-Discovered Asteroid",
     "link": "/summary/"
   },
   "next": {
-    "title": "Effects of an Asteroid Impact",
+    "title": "Calculating the Crater Depth and Diameter",
     "link": "/summary-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Based on where the asteroid is in its orbit around the Sun, scientists can roughly estimate the incoming velocity of the asteroid. The velocity is a combination of the speed of the asteroid and the speed of the Earth at the time when the asteroid enters Earth’s atmosphere. The mass of an asteroid is estimated by using the asteroid’s diameter and creating an asteroid model based on some assumptions about its density and shape.</p><p>Because we cannot study most asteroids up close, we do not have a good idea of their shape or composition. So even though most asteroids are irregular in shape, we model them as being spherical. This allows us to determine an overall volume for an asteroid by using its diameter. Because the composition of the asteroid is not known, we assume it is a rocky asteroid (the most common type) with a density of ~2500 kg/m³. Using these assumptions, we can estimate the mass of the asteroid.</p>",
+  "content": "<p>Now that you have determined if your asteroid is potentially hazardous, the next step is to predict how much damage it could produce if it were to impact Earth. The damage can be mathematically calculated based on the asteroid’s <a href='http://rubineducation.org/glossary/kinetic-energy' target='_blank'>kinetic energy</a> (KE) at the time of impact. To calculate <a href='' target='_blank'>kinetic energy</a> you have to know the incoming velocity (v) of the asteroid in addition to its mass (m):</p><p>KE = ½ mv<sup>2</sup></p><p>Based on where the asteroid is in its orbit around the Sun, scientists can roughly estimate the incoming velocity of the asteroid. The velocity is a combination of the speed of the asteroid and the speed of the Earth at the time when the asteroid enters Earth’s atmosphere. The estimated incoming velocity of your asteroid is displayed in the chart at the right.</p><p>The mass of an asteroid is estimated by using the asteroid’s diameter and creating an asteroid model based on some assumptions about its density and shape. Because we cannot study most asteroids up close, we do not have a good idea of their shape or composition. So even though most asteroids are irregular in shape, we model them as being a sphere, which allows us to calculate the volume for an asteroid by using its diameter (D<sub>a</sub>). Because the composition of the asteroid is not known, we assume it is a rocky asteroid (the most common type) with a density(𝞀) of ~2500 kg/m³. Using these assumptions, we can estimate the mass of the asteroid.</p>",
   "tables": [
     {
       "id": "5",
@@ -25,15 +25,17 @@
       "colTitles": ["", "3200 Phaeton"],
       "rowTitles": [
         ["Asteroid Diameter"],
-        ["Asteroid Velocity"],
         ["Asteroid Density"],
-        ["Asteroid Mass"]
+        ["Asteroid Velocity"],
+        ["Asteroid Mass"],
+        ["Asteroid Kinetic Energy"]
       ],
       "rows": [
         [{ "accessor": "diameter", "id": "48" }],
-        [{ "content": "12,900 m/s" }],
         [{ "content": "2,500 kg/m³" }],
-        [{ "accessor": "mass", "id": "52" }]
+        [{ "content": "12,900 m/s" }],
+        [{ "accessor": "mass", "id": "52" }],
+        [{ "accessor": "kineticEnergy", "id": "52" }]
       ]
     }
   ],
@@ -44,7 +46,7 @@
           "id": "52",
           "questionType": "MassCalculator",
           "title": "Question #1",
-          "label": "Input your asteroid’s size (diameter) and density into the calculator to determine its mass:",
+          "label": "Input your asteroid’s velocity, density and diameter into the calculator to determine its mass (m<sub>a</sub>) and kinetic energy (KE):",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "mass"

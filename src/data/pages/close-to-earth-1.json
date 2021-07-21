@@ -6,11 +6,11 @@
   "slug": "close-to-earth-1/",
   "previous": { "title": "Introduction", "link": "/introduction/" },
   "next": {
-    "title": "Looking at Asteroids Close to Earth",
-    "link": "/close-to-earth-2/"
+    "title": "Examining Asteroid Orbits from a Different Perspective",
+    "link": "/close-to-earth-4/"
   },
   "layout": "TwoCol",
-  "content": "<p>Most asteroids orbit the Sun between the planets Mars and Jupiter, but some have orbits closer to Earth. The diagram at right shows the orbits of three asteroids and the inner planets. In the diagram at right, click on the names of three different asteroids (Amor, Apollo, and Atira) to see their orbits.</p>",
+  "content": "<p>Most asteroids orbit the Sun between the planets Mars and Jupiter, but some have orbits closer to Earth. The diagram at right shows the orbits of three asteroids and the inner planets. In the diagram at right, click on the names of three different asteroids (Amor, Apollo, and Atira) to see their orbits.</p><p>Note: you can scroll to zoom in and out, and right click and drag to change the location of the objects in the window.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -32,7 +32,7 @@
           "id": "1",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Which of the three objects appears to cross Earth’s orbit?",
+          "label": "In this top-down view, which of the three objects appears to have an orbit that crosses Earth’s orbit?",
           "options": [
             {
               "label": "Amor",
@@ -59,7 +59,7 @@
           "id": "2",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Which of these three asteroids could hit Earth based on the orbit shown in this top view representation?",
+          "label": "Which of these three asteroids could hit Earth based on the orbit shown in this top-down view representation?",
           "options": [
             {
               "label": "Amor",

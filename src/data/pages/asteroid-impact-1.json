@@ -2,14 +2,14 @@
   "id": "hazardous20",
   "investigation": "hazardous-asteroids",
   "order": "20",
-  "title": "Evaluating the Consequences of an Asteroid Impact",
+  "title": "Calculating the Kinetic Energy of an Asteroid",
   "slug": "asteroid-impact-1/",
   "previous": {
-    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "title": "Predicting the Size of Impact Craters",
     "link": "/asteroid-impact/"
   },
   "next": {
-    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "title": "Evaluating the Role of Kinetic Energy on Asteroid Impacts",
     "link": "/asteroid-impact-3/"
   },
   "layout": "TwoCol",

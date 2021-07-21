@@ -37,14 +37,22 @@ export const DistanceCalculator = {
 
 export const MassCalculator = {
   value: {
+    velocity: null,
+    kineticEnergy: null,
     mass: null,
     density: null,
     diameter: null,
   },
-  solutionVariable: 'mass',
+  solutionVariable: 'all',
   equation: FindMass,
   formula: calculateMass,
   inputs: [
+    {
+      leftIcon: <QACalculatorIcon content="v =" />,
+      rightIcon: <QACalculatorIconUnit unit="velocity" />,
+      placeholder: 'velocity',
+      defaultValue: 'velocity',
+    },
     {
       leftIcon: <QACalculatorIcon content="&#x1D780; =" />,
       rightIcon: <QACalculatorIconUnit unit="density" />,

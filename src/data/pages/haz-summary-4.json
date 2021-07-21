@@ -2,18 +2,26 @@
   "id": "hazardous26a",
   "investigation": "hazardous-asteroids",
   "order": "26.1",
-  "title": "Effects of an Asteroid Impact",
+  "title": "Finding a Safe Location",
   "slug": "summary-4/",
   "previous": {
-    "title": "Putting it all Together",
+    "title": "Finding the Location of Severe Damage",
     "link": "/summary-3/"
   },
   "next": {
-    "title": "Putting it all Together",
-    "link": "/summary-5"
+    "title": "Learning More about Asteroid Detection",
+    "link": "/learn-more/"
   },
   "layout": "TwoCol",
-  "content": "<p>Try placing yourself at different distances (r) away from the point of impact to see what you would experience. You may select distances up to 20,000 km away, which is on the other side of Earth opposite the impact.</p>",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
+  "content": "<p>If you want to be sure your family has a good chance of surviving the impact from your asteroid, you need to get far enough away so that the air blast pressure is below 7000 Pa.</p>",
   "tables": [
     {
       "id": "7",
@@ -22,23 +30,96 @@
         "row": "top"
       },
       "fixed": true,
-      "title": "Asteroid Impact Damage",
-      "colTitles": ["", "3200 Phaeton"],
+      "title": "Asteroid Impact Properties",
+      "colTitles": ["Asteroid Name", "3200 Phaeton"],
       "rowTitles": [
         ["Asteroid Kinetic Energy"],
         ["Crater Diameter"],
-        ["Crater Depth"],
-        ["Distance from Impact"],
-        ["Seismic Damage"],
-        ["Air Blast Damage"]
+        ["Crater Depth"]
       ],
       "rows": [
         [{ "accessor": "kineticEnergy", "id": "53" }],
         [{ "accessor": "craterDiameter", "id": "53" }],
-        [{ "accessor": "craterDepth", "id": "53" }],
-        [{ "accessor": "observerDistance", "id": "56" }],
-        [{ "accessor": "mercalliIntensity", "id": "56" }],
-        [{ "accessor": "airBlastDamage", "id": "56" }]
+        [{ "accessor": "craterDepth", "id": "53" }]
+      ]
+    },
+    {
+      "id": "8",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "title": "Asteroid Impact Properties",
+      "colTitles": [
+        "Richter Magnitude",
+        "Earthquake Rating",
+        "Earthquake Effects"
+      ],
+      "rows": [
+        [
+          { "content": "Less than 2.0" },
+          { "content": "Micro" },
+          {
+            "content": "Normally only detected by seismograms. Most people cannot feel it."
+          }
+        ],
+        [
+          { "content": "2.0 - 2.9" },
+          { "content": "Minor" },
+          { "content": "A few people feel it. No building damage." }
+        ],
+        [
+          { "content": "3.0 - 3.9" },
+          { "content": "Minor" },
+          { "content": "Indoor objects can be seen shaking." }
+        ],
+        [
+          { "content": "4.0 - 4.9" },
+          { "content": "Light" },
+          {
+            "content": "Most people feel it. Indoor objects shake or fall to floor."
+          }
+        ],
+        [
+          { "content": "5.0 - 5.9" },
+          { "content": "Moderate" },
+          {
+            "content": "Everyone feels it. Can damage or destroy buildings not designed to withstand earthquakes."
+          }
+        ],
+        [
+          { "content": "6.0 - 6.9" },
+          { "content": "Strong" },
+          {
+            "content": "Some building damage to Earthquake-resistant structures. Felt hundreds of miles from epicenter."
+          }
+        ],
+        [
+          { "content": "7.0 - 7.9" },
+          { "content": "Major" },
+          {
+            "content": "Widespread damage in areas up to 150 miles from epicenter"
+          }
+        ],
+        [
+          { "content": "8.0 - 8.9" },
+          { "content": "Great" },
+          {
+            "content": "Felt over a very large region. Widespread damage in large areas and structures such as bridges are destroyed."
+          }
+        ],
+        [
+          { "content": "9.0 - 9.9" },
+          { "content": "Great" },
+          {
+            "content": "Severe damage or destruction of most buildings and structures. Permanent changes to the ground surface."
+          }
+        ],
+        [
+          { "content": "10" },
+          { "content": "Massive" },
+          { "content": "Never recorded." }
+        ]
       ]
     }
   ],
@@ -46,12 +127,45 @@
     {
       "question": [
         {
-          "id": "56",
+          "id": "554",
+          "questionType": "textArea",
+          "title": "Question #1",
+          "label": "At what distance would you have to be in order to have a good chance of surviving the impact?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "555",
+          "questionType": "text",
+          "title": "Question #1",
+          "labelPre": "According to the Richter magnitude table, the earthquake at this distance produced would be rated as",
+          "labelPost": ".",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "556",
+          "questionType": "textArea",
+          "title": "Question #1",
+          "label": "What earthquake effects would be experienced at this distance?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "55",
           "questionType": "ImpactDamageCalculator",
           "title": "Question #1",
-          "label": "Input the kinetic energy of your asteroid, and a distance from the impact to estimate the damage observed from that distance. How far away from the point of impact would you have to be where damage is very severe: most buildings and bridges are destroyed, and even large multi-story steel frame buildings suffer substantial damage and may collapse?",
+          "label": "",
           "placeholder": "Enter values",
-          "answerPre": "<p>Selected: </p>",
           "answerAccessor": "all"
         }
       ]

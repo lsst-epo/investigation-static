@@ -17,6 +17,7 @@ import {
 import CalculatedMeasurement from './CalculatedMeasurement';
 import FindDistanceModulus from './equations/FindDistanceModulus';
 import FindParsecs from './equations/FindParsecs';
+import { renderDef } from '../../../../lib/utilities';
 import {
   active as activeClass,
   qaCard,
@@ -216,7 +217,11 @@ class QACalculator extends React.PureComponent {
         onExpanderClick={() => {}}
       >
         <CardText>
-          <div className={labelClasses}>{updatedLabel}</div>
+          <div
+            className={labelClasses}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={renderDef(updatedLabel)}
+          />
           <div className="container">
             {inputs &&
               inputs.map((input, i) => {

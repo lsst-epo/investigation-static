@@ -2,18 +2,18 @@
   "id": "hazardous18",
   "investigation": "hazardous-asteroids",
   "order": "18",
-  "title": "Identifying Potentially Hazardous Asteroids",
+  "title": "Calculating Asteroid Size",
   "slug": "identifying-pha-2/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Size and Brightness of Asteroids",
     "link": "/identifying-pha-1/"
   },
   "next": {
-    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "title": "Predicting the Size of Impact Craters",
     "link": "/asteroid-impact/"
   },
   "layout": "TwoCol",
-  "content": "<p>To estimate the size of an asteroid, we must know its absolute magnitude and albedo. The absolute magnitude can be thought of as the asteroid’s actual brightness, as opposed to how bright it appears to an observer on Earth. The light we see from asteroids is reflected sunlight. Asteroids don’t emit any light of their own, since they are icy or rocky objects. The absolute magnitudes of the brightest asteroids are around 3. Most of the asteroids that come close to Earth are very dim, with absolute magnitude values ranging from 18-24.</p><p>An asteroid’s albedo is a measure of the reflectivity of its surface. An object that is pure white reflects 100% of the light that hits it and has an albedo of 1. An object that is pure black reflects 0% of the light that hits it and has an albedo of 0. The albedo for an asteroid depends on its surface material and roughness, but it ranges from 0.05 (5%), which is similar to the amount of light that reflects from charcoal or a blacktop road, to 0.25 (25%), which is similar to the amount of sunlight that reflects from grass.</p><p>The equation for calculating the size of an asteroid is given by:</p><p class='equation'><span>D = </span><span class='fraction'><span class='numerator'>1329</span><span class='denominator'><span class='square-root'><span>p</span></span></span></span><span><span> 10 </span><span class='exponent'>-0.2 &times; <span>H</span></span></span></p><p>Where D is the diameter of the asteroid (in meters), H is the absolute magnitude of the asteroid, and p is the albedo of the asteroid.</p>",
+  "content": "<p>To calculate the size of an asteroid, we must know its absolute magnitude and albedo. Asteroids don’t emit any light of their own, since they are icy or rocky objects. The light we see from asteroids is reflected sunlight. The <a href='http://rubineducation.org/glossary/absolute-magnitude' target='_blank'>absolute magnitude (H)</a> can be thought of as the asteroid’s actual brightness, as opposed to how bright it appears to an observer on Earth. The absolute magnitudes of the brightest asteroids are around 3. Most of the asteroids that come close to Earth are very dim, with absolute magnitude values ranging from 18-24.</p><p>An asteroid’s <a href='http://rubineducation.org/glossary/albedo' target='_blank'>albedo (p)</a> is a measure of the reflectivity of its surface. An object that is pure white reflects 100% of the light that hits it and has an albedo of 1. An object that is pure black reflects 0% of the light that hits it and has an albedo of 0. The albedo for an asteroid depends on its surface material and roughness, but it ranges from 0.05 (5%), which is similar to the amount of light that reflects from charcoal or a blacktop road, to 0.25 (25%), which is similar to the amount of sunlight that reflects from grass.</p><p>The equation for calculating the size of an asteroid is given by:</p><p class='equation'><span>D = </span><span class='fraction'><span class='numerator'>1329</span><span class='denominator'><span class='square-root'><span>p</span></span></span></span><span><span> 10 </span><span class='exponent'>-0.2 &times; <span>H</span></span></span></p><p>Where D is the diameter of the asteroid (in meters), H is the absolute magnitude of the asteroid, and p is the albedo of the asteroid.</p>",
   "tables": [
     {
       "id": "2",
@@ -25,11 +25,11 @@
       "colTitles": ["Requirements"],
       "rows": [
         [
-          { "content": "Their orbits must come within 0.05 AU of the orbit of Earth" }
+          {
+            "content": "Their orbits must come within 0.05 AU of the orbit of Earth"
+          }
         ],
-        [
-          { "content": "They must be at least 140m in diameter" }
-        ]
+        [{ "content": "They must be at least 140m in diameter" }]
       ]
     }
   ],
@@ -54,7 +54,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "If we know the orbit of this asteroid is going to come within 0.05 AU of Earth’s orbit (within the next one hundred years), then, based on the size you have calculated, is this asteroid potentially hazardous?"
+          "label": "If we know the orbit of this asteroid is going to come within 0.05 au of Earth’s orbit (within the next one hundred years), then, based on the size you have calculated, is this asteroid potentially hazardous?"
         }
       ]
     }

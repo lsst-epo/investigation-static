@@ -2,18 +2,18 @@
   "id": "hazardous13",
   "investigation": "hazardous-asteroids",
   "order": "13",
-  "title": "Determining the Orbit of an Asteroid",
+  "title": "How New Observations Affect Probability",
   "slug": "determining-orbits-6/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Making a Final Observation",
     "link": "/determining-orbits-5-1/"
   },
   "next": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Evaluating the Trend in Impact Probability",
     "link": "/determining-orbits-7/"
   },
   "layout": "TwoCol",
-  "content": "<p>Astronomers have now ruled out 2000 of the possible 3000 orbits of the asteroid. Of the remaining 1000 possible orbits, 10 orbits show the asteroid hitting Earth.</p>",
+  "content": "<p>Astronomers have now ruled out 2000 of the possible 3000 orbits initially calculated. Of the remaining 1000 possible orbits, 10 orbits show the asteroid hitting Earth.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -32,7 +32,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Calculate the new probability for this asteroid hitting Earth."
+          "label": "What is the new probability for this asteroid hitting Earth?"
         }
       ]
     },
@@ -63,17 +63,6 @@
           "answerAccessor": "text",
           "title": "Question #1",
           "label": "How did the addition of more observations affect the total number of possible orbits and the probability of an impact happening?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "240",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Where is it best to point your telescope to make the next new observation of a newly-detected asteroid? In your answer, explain how the spread of possible orbits needs to be considered."
         }
       ]
     }

@@ -2,18 +2,18 @@
   "id": "hazardous08",
   "investigation": "hazardous-asteroids",
   "order": "08",
-  "title": "Determining the Orbit of an Asteroid",
+  "title": "Detecting an Asteroid",
   "slug": "determining-orbits/",
   "previous": {
-    "title": "Looking at Asteroids Close to Earth",
-    "link": "/close-to-earth-7/"
+    "title": "Tracking Potential Impacts Over Time",
+    "link": "/close-to-earth-5/"
   },
   "next": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Calculating the Possible Orbits of an Asteroid",
     "link": "/determining-orbits-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Astronomers are continuously in search of new asteroids that could possibly hit Earth. Asteroids are discovered by detecting an object that has changed position in two or more pictures taken of a particular location in space. After the first night that it is discovered, additional observations need to be done to measure its speed and direction of motion.</p><p>Let’s look at a typical asteroid. In this example, asteroid 2003_QZ30 was observed at three different times during the same night. Each time, the position of the asteroid was measured.</p>",
+  "content": "<p>Astronomers are continuously in search of new asteroids that could possibly hit Earth. Asteroids are discovered by detecting an object that has changed position in two or more pictures taken of a particular location in space. After the first night an asteroid is discovered, additional observations need to be done to measure the speed and direction of motion of the asteroid.</p><p>Let’s look at a typical asteroid. In this example, asteroid 2003_QZ30 was observed at three different times during the same night. Each time, the position of the asteroid was measured.</p>",
   "widgets": [
     {
       "type": "TimeDomainViewer",
@@ -32,7 +32,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p> Pause the animation, then click on the location of the asteroid in the Image</p>",
+          "label": "<p> Pause the animation, then click on the location of the asteroid in the image</p><p>Click save when you are done.</p>",
           "answerPre": "<span>Selected Asteroid: </span>",
           "answerAccessor": "neo"
         }
