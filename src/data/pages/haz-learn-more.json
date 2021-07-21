@@ -5,13 +5,33 @@
   "title": "Learning More about Asteroid Detection",
   "slug": "learn-more/",
   "previous": {
-    "title": "Putting it all Together",
-    "link": "/summary-5/"
+    "title": "Finding a Safe Location",
+    "link": "/summary-4/"
   },
   "next": {
     "title": "Reflect and Discuss",
     "link": "/reflect-discuss/"
   },
   "layout": "TwoCol",
-  "content": "<p>The geological record of Earth reminds us that though rare, significant impact events do happen. A number of organizations are working diligently to devise better detection and protection methods against the threat of an asteroid impact. To learn more about current efforts, check out any of these organizations:</p><p><a target='_blank' href='https://www.planetary.org/explore/projects/planetary-defense/'>Planetary Defense</a></p><p><a target='_blank' href='https://b612foundation.org/'>B612 Foundation<a/></p><p></p<p><a href='https://cneos.jpl.nasa.gov/'>The Center for Near Earth Objects Studies<a/></p><p><a target='_blank' href='https://www.nasa.gov/planetarydefense/neoo'>NASA Planetary Defense Coordination Office - NEOs<a/></p>"
+  "images": [
+    {
+      "mediaPath": "/images/investigation-4.png",
+      "altText": "Learning More about Asteroid Detection",
+      "figText": ""
+    }
+  ],
+  "content": "<p>The geological record of Earth reminds us that though rare, significant impact events do happen. A number of organizations are working diligently to devise better detection and protection methods against the threat of an asteroid impact. To learn more about current efforts, check out any of these organizations:</p><p><a target='_blank' href='https://www.nasa.gov/content/asteroid-grand-challenge/mitigate/how-do-we-mitigate-the-hazard-of-possible-asteroid-impacts'>Asteroid mitigation strategies</a><br />If a potentially hazardous asteroid is coming your way, what can you do about it?</p><p><a href='https://cneos.jpl.nasa.gov/'>The Center for Near Earth Objects Studies<a/><br />Find news and data about close approaches of asteroids to Earth.</p><p><a target='_blank' href='https://www.nasa.gov/planetarydefense/neoo'>NASA Planetary Defense Coordination Office - NEOs<a/><br />This center plays a lead role in coordinating U.S. government monitoring of close approach asteroids and planning a response to an actual impact threat.</p><p><a href='https://cneos.jpl.nasa.gov/sentry/' target='_blank'>JPL SENTRY Collision Monitoring System</a><br />SENTRY lists data and information about known objects that have highest potential for a future Earth impact.</p><p>Use the SENTRY site above to answer this question:</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "57",
+          "questionType": "textArea",
+          "title": "Question #1",
+          "label": "Of all of the asteroids now listed on SENTRY, which is of most concern to you? List its name and explain all of the factors (year range for impact, number of potential impacts, impact probability, <a href='http://rubineducation.org/glossary/palermo-scale' target='_blank'>Palermo Scale</a>, etc.) you considered in making your decision.",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
 }

@@ -5,13 +5,44 @@
   "title": "Determining the Orbit of an Asteroid",
   "slug": "determining-orbits-8/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Evaluating the Trend in Impact Probability",
     "link": "/determining-orbits-7/"
   },
   "next": {
-    "title": "Identifying Potentially Hazardous Asteroids",
+    "title": "Defining Potentially Hazardous Asteroids",
     "link": "/identifying-pha/"
   },
   "layout": "TwoCol",
-  "content": "<p>Most often, newly discovered asteroids turn out to not be a threat to hit Earth. But Earth’s geologic record reveals 128 impact craters that are 6 km in diameter or larger (and many more smaller ones), evidence that motivates us to continue to be on the lookout for possible impactors.</p>"
+  "images": [
+    {
+      "mediaPath": "/images/Meteor_Crater_(crop-tight).jpg",
+      "altText": "Best-preserved meteorite crater on Earth",
+      "figText": "Picture of the best-preserved meteorite crater on Earth, located in northern Arizona, United States. This meteorite impact crater measures approximately 3,900 ft (1,200 m) in diameter. Credit: Steve Jurvetson from Menlo Park, USA."
+    }
+  ],
+  "content": "<p>Most often, newly discovered asteroids turn out to not be a threat to hit Earth. But Earth’s geologic record reveals 128 impact craters that are 6 km in diameter or larger (and many more smaller ones), evidence that motivates us to continue to be on the lookout for possible impactors.</p><p>Here is <a href='http://www.passc.net/EarthImpactDatabase/New%20website_05-2018/World.html' target='_blank'>an interactive map</a> of some of the larger Earth impact craters that have been discovered.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "271",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Find the impact crater nearest you. What is its name and location?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "272",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the diameter of the crater? What is its age (how long ago did the impact occur)?"
+        }
+      ]
+    }
+  ]
 }

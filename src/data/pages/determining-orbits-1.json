@@ -2,18 +2,18 @@
   "id": "hazardous08a",
   "investigation": "hazardous-asteroids",
   "order": "08.1",
-  "title": "Determining the Orbit of an Asteroid",
+  "title": "Calculating the Possible Orbits of an Asteroid",
   "slug": "determining-orbits-1/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Detecting an Asteroid",
     "link": "/determining-orbits/"
   },
   "next": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Determining the Probability of Asteroid Impacts",
     "link": "/determining-orbits-1a/"
   },
   "layout": "TwoCol",
-  "content": "<p>When Rubin Observatory first discovers an asteroid, its orbit around the Sun is not well defined. Astronomers can calculate possible different orbits of the asteroid by considering the set of orbits that can fit the measured positions.</p><p>At the right are the possible set of orbits (shown in pink) of the asteroid based on the first two observations.</p>",
+  "content": "<p>When Rubin Observatory first discovers an asteroid, its orbit around the Sun is not well defined. Astronomers can calculate possible different orbits of the asteroid by running computer simulations to determine a set of orbits that can fit the measured positions.</p><p>At the right are the possible set of orbits (shown in pink) of the asteroid based on the first two observations.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -35,13 +35,6 @@
             "interactable": false,
             "isActive": false,
             "position": 0.6
-          },
-          {
-            "id": "obs-3",
-            "label": "#3",
-            "interactable": false,
-            "isActive": false,
-            "position": 0.65
           }
         ]
       }
@@ -55,7 +48,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Look at the possible orbits for this asteroid from different angles. Do you think this asteroid could hit Earth (in other words, do any of the possible orbits for the asteroid cross Earth’s orbit)? Explain your reasoning."
+          "label": "Look at the possible orbits for this asteroid from different angles. Do you think it’s possible that this asteroid could hit Earth? Explain your reasoning."
         }
       ]
     }

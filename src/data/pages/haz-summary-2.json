@@ -2,18 +2,29 @@
   "id": "hazardous25",
   "investigation": "hazardous-asteroids",
   "order": "25",
-  "title": "Putting it all Together",
+  "title": "Calculating the Crater Depth and Diameter",
   "slug": "summary-2/",
   "previous": {
-    "title": "Putting it all Together",
+    "title": "Determining the Mass of an Asteroid",
     "link": "/summary-1/"
   },
   "next": {
-    "title": "Effects of an Asteroid Impact",
+    "title": "Finding the Location of Severe Damage",
     "link": "/summary-3/"
   },
   "layout": "TwoCol",
-  "content": "<p>Input your data to determine the kinetic energy of the asteroid's impact, and the size and depth of the crater that will be formed by this asteroid.</p>",
+  "images": [
+    {
+      "mediaPath": "/images/impact-site-chelyabinsk-meteorite.jpg",
+      "altText": "The Chelyabinsk meteorite",
+      "figText": "The Chelyabinsk meteorite crashed through the ice of Lake Chebarkul on Feb. 15, 2013. This meteorite was around 62 feet, or 19 meters wide (a lot smaller than 140 meters wide). But it released a shock wave equivalent to 500 kilotons of TNT, shattering thousands of windows and injuring more than 1,600 people. Credit: Eduard Kalinin.",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ],
+  "content": "<p>The asteroid’s density and diameter are used to provide the mass of the asteroid.  The mass and velocity of the asteroid are used to determine its kinetic energy.  The kinetic energy of the asteroid will determine the diameter and depth of the crater produced.</p>",
   "tables": [
     {
       "id": "6",
@@ -25,8 +36,8 @@
       "colTitles": ["", "3200 Phaeton"],
       "rowTitles": [
         ["Asteroid Diameter"],
-        ["Asteroid Velocity"],
         ["Asteroid Density"],
+        ["Asteroid Velocity"],
         ["Asteroid Mass"],
         ["Asteroid Kinetic Energy"],
         ["Crater Diameter"],
@@ -34,8 +45,8 @@
       ],
       "rows": [
         [{ "accessor": "diameter", "id": "48" }],
-        [{ "content": "12,900 m/s" }],
         [{ "content": "2,500 kg/m³" }],
+        [{ "content": "12,900 m/s" }],
         [{ "accessor": "mass", "id": "52" }],
         [{ "accessor": "kineticEnergy", "id": "53" }],
         [{ "accessor": "craterDiameter", "id": "53" }],
@@ -50,10 +61,32 @@
           "id": "53",
           "questionType": "ImpactCalculator",
           "title": "Question #1",
-          "label": "Input the diameter, density, and velocity of your asteroid to determine its kinetic energy, and the size and depth of the crater that will be formed by this asteroid:",
+          "label": "Input your asteroid's diameter, density, and velocity to determine the diameter and depth of the crater that will be formed:",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "kineticEnergy"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "531",
+          "questionType": "textArea",
+          "title": "Question #1",
+          "label": "The Palo Verde nuclear power plant (the largest in the US) can produce about 1.08 x 10<sup>16</sup> J (10,800,000,000,000,000 J). Is the kinetic energy of your asteroid greater than, less than or about the same as the energy from the power plant? Give an answer in terms of the number of power plants per asteroid or vice versa.",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "532",
+          "questionType": "textArea",
+          "title": "Question #1",
+          "label": "<p>How does the diameter and depth of your crater compare to the lakes listed below? Explain your answer.</p><p>Crater Lake, United States (8850m wide and 2000m deep)<br />Lake Superior, United States  (257,000m at its widest point, and  406m deep)<br />Lake Victoria, Africa (322,000m at its widest point, 84m Deep)<br />Lake Llanquihue, Chile (19,300m wide, and 317m deep)</p>",
+          "answerAccessor": "text"
         }
       ]
     }

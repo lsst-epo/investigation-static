@@ -2,14 +2,14 @@
   "id": "hazardous12",
   "investigation": "hazardous-asteroids",
   "order": "12",
-  "title": "Determining the Orbit of an Asteroid",
+  "title": "Additional Observations and Orbit Refinement",
   "slug": "determining-orbits-5/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Predicting Where to Observe Next",
     "link": "/determining-orbits-4/"
   },
   "next": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Making a Final Observation",
     "link": "/determining-orbits-5-1/"
   },
   "layout": "TwoCol",
@@ -22,11 +22,35 @@
         "defaultZoom": 0.5,
         "potentialOrbits": true,
         "questionId": "21",
-        "observations":[
-          {"id": "obs-7", "label": "#1","interactable": false, "isActive": false, "position": 0.55},
-          {"id": "obs-6", "label": "#2","interactable": false, "isActive": false, "position": 0.6},
-          {"id": "obs-5", "label": "#3","interactable": false, "isActive": false, "position": 0.65},
-          {"id": "obs-1", "label": "#4","interactable": false, "isActive": false, "position": 0.7}
+        "observations": [
+          {
+            "id": "obs-7",
+            "label": "#1",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.55
+          },
+          {
+            "id": "obs-6",
+            "label": "#2",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.6
+          },
+          {
+            "id": "obs-5",
+            "label": "#3",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.65
+          },
+          {
+            "id": "obs-1",
+            "label": "#4",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.7
+          }
         ]
       }
     }
@@ -39,7 +63,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What do you notice is different about the spread of possible orbit based on four observations, compared to the possible orbits based on three observations?"
+          "label": "What do you notice is different about the spread of possible orbits based on four observations, compared to the possible orbits based on three observations?"
         }
       ]
     }

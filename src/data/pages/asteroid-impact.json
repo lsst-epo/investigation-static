@@ -2,14 +2,14 @@
   "id": "hazardous19",
   "investigation": "hazardous-asteroids",
   "order": "19",
-  "title": "Evaluating the Consequences of an Asteroid Impact",
+  "title": "Predicting the Size of Impact Craters",
   "slug": "asteroid-impact/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Calculating Asteroid Size",
     "link": "/identifying-pha-2/"
   },
   "next": {
-    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "title": "Calculating the Kinetic Energy of an Asteroid",
     "link": "/asteroid-impact-1/"
   },
   "layout": "TwoCol",

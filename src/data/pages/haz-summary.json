@@ -2,18 +2,26 @@
   "id": "hazardous23",
   "investigation": "hazardous-asteroids",
   "order": "23",
-  "title": "Putting it all Together",
+  "title": "Investigating a Newly-Discovered Asteroid",
   "slug": "summary/",
   "previous": {
-    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "title": "Evaluating the Role of Kinetic Energy on Asteroid Impacts",
     "link": "/asteroid-impact-3/"
   },
   "next": {
-    "title": "Putting it all Together",
+    "title": "Determining the Mass of an Asteroid",
     "link": "/summary-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Now that you have become an expert in PHAs, you will have a chance to evaluate an asteroid that was discovered by Rubin Observatory. Use all of the knowledge and tools from this investigation to create an “asteroid characteristics and risk assessment” report for this object.</p>",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
+  "content": "<p>Now that you have become an expert in PHAs, you will have a chance to evaluate an asteroid that was discovered by Rubin Observatory. Use all of the knowledge and tools from this investigation to decide whether or not this asteroid is potentially hazardous and how much damage it would cause.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -32,9 +40,7 @@
       },
       "colTitles": ["", "3200 Phaeton"],
       "rowTitles": [["Asteroid Diameter"]],
-      "rows": [
-        [{ "accessor": "diameter", "id": "48" }]
-      ]
+      "rows": [[{ "accessor": "diameter", "id": "48" }]]
     }
   ],
   "questionsByPage": [
@@ -55,7 +61,7 @@
           "id": "48",
           "questionType": "SizeCalculator",
           "title": "Question #1",
-          "label": "Use the absolute magnitude of your asteroid (as shown in the Orbit Viewer) to calculate its diameter. Assume an albedo of 0.2.",
+          "label": "Use the absolute magnitude (H) of your asteroid (as shown in the Object Info in Orbit Viewer) and the asteroid’s albedo to calculate its diameter (D<sub>a</sub>). Since we don’t know what the albedo of most asteroids are,  assume an albedo of 0.2, which is the typical value for a rocky asteroid (the most common type).",
           "placeholder": "Enter peak magnitude and albedo",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "text"

@@ -2,14 +2,14 @@
   "id": "hazardous21a",
   "investigation": "hazardous-asteroids",
   "order": "21.1",
-  "title": "Evaluating the Consequences of an Asteroid Impact",
+  "title": "Evaluating the Role of Kinetic Energy on Asteroid Impacts",
   "slug": "asteroid-impact-3/",
   "previous": {
-    "title": "Evaluating the Consequences of an Asteroid Impact",
+    "title": "Calculating the Kinetic Energy of an Asteroid",
     "link": "/asteroid-impact-1/"
   },
   "next": {
-    "title": "Pulling it all Together",
+    "title": "Investigating a Newly-Discovered Asteroid",
     "link": "/summary/"
   },
   "layout": "TwoCol",
@@ -60,7 +60,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Which factor has a greater influence on the size of the impact crater (i.e., causes damage over the largest area): the mass or the velocity of an asteroid?"
+          "label": "Which would have a greater influence on the size of the impact crater: doubling the mass or doubling the velocity of an asteroid?"
         }
       ]
     },

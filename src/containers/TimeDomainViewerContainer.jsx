@@ -155,7 +155,7 @@ class TimeDomainViewerContainer extends React.PureComponent {
 }
 
 TimeDomainViewerContainer.defaultProps = {
-  color: chartColors.chart1,
+  color: chartColors.chart2,
 };
 
 TimeDomainViewerContainer.propTypes = {

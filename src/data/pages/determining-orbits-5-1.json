@@ -2,14 +2,14 @@
   "id": "hazardous12a",
   "investigation": "hazardous-asteroids",
   "order": "12.1",
-  "title": "Determining the Orbit of an Asteroid",
+  "title": "Making a Final Observation",
   "slug": "determining-orbits-5-1/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Additional Observations and Orbit Refinement",
     "link": "/determining-orbits-5/"
   },
   "next": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "How New Observations Affect Probability",
     "link": "/determining-orbits-6/"
   },
   "layout": "TwoCol",
@@ -101,7 +101,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Try clicking on locations (A, B, C, D) until you successfully observe the asteroid. Note: The location will turn green if it is the most successful location for your next observation.</p>",
+          "label": "<p>Click on each of the locations (A, B, C, D) Pay attention to which locations turn green and which turn blue.</p>",
           "answerPre": "<span>Selected Asteroid: </span>",
           "answerAccessor": "observation"
         }
@@ -114,7 +114,28 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Was the asteroid at the location you thought it would be?  If it was in a different location, discuss why you think your initial strategy was not successful."
+          "label": "The location that turned green is the best choice for your next observation.  Was this the location you chose? If you chose a different location, explain what was wrong with the reasoning for your choice."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "220",
+          "questionType": "select",
+          "placeholder": "Select",
+          "title": "Question #1",
+          "labelPre": "When making observations to refine the orbit of a newly-discovered asteroid, it’s best to point the telescope",
+          "labelPost": "the set of observations you have successfully made.",
+          "options": [
+            {
+              "value": "as close as possible to",
+              "label": "as close as possible to"
+            },
+            { "value": "as far away from", "label": "as far away from" },
+            { "value": "exactly opposite", "label": "exactly opposite" }
+          ],
+          "answerAccessor": "data"
         }
       ]
     }

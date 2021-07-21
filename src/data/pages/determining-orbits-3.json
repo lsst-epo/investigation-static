@@ -2,18 +2,18 @@
   "id": "hazardous10",
   "investigation": "hazardous-asteroids",
   "order": "10",
-  "title": "Determining the Orbit of an Asteroid",
+  "title": "Changes in Impact Probability",
   "slug": "determining-orbits-3/",
   "previous": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Refining the Possible Orbits of an Asteroid",
     "link": "/determining-orbits-2/"
   },
   "next": {
-    "title": "Determining the Orbit of an Asteroid",
+    "title": "Predicting Where to Observe Next",
     "link": "/determining-orbits-4/"
   },
   "layout": "TwoCol",
-  "content": "<p>By making additional observations of the asteroid’s position, astronomers have ruled out 1000 of the possible 3000 orbits of the asteroid. Of the remaining 2000 possible orbits, 10 orbits show the asteroid hitting Earth.</p>",
+  "content": "<p>By making additional observations of the asteroid’s location, astronomers have ruled out 1000 of the possible 3000 orbits initially calculated. Of the remaining 2000 possible orbits, 10 orbits show the asteroid hitting Earth.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -21,10 +21,28 @@
       "options": {
         "defaultZoom": 0.5,
         "potentialOrbits": true,
-        "observations":[
-          {"id": "obs-1", "label": "#1","interactable": false, "isActive": false, "position": 0.55},
-          {"id": "obs-2", "label": "#2","interactable": false, "isActive": false, "position": 0.6},
-          {"id": "obs-3", "label": "#3","interactable": false, "isActive": false, "position": 0.65}
+        "observations": [
+          {
+            "id": "obs-1",
+            "label": "#1",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.55
+          },
+          {
+            "id": "obs-2",
+            "label": "#2",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.6
+          },
+          {
+            "id": "obs-3",
+            "label": "#3",
+            "interactable": false,
+            "isActive": false,
+            "position": 0.65
+          }
         ]
       }
     }
@@ -37,7 +55,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Calculate the new probability for this asteroid hitting Earth."
+          "label": "What is the new probability for this asteroid hitting Earth?"
         }
       ]
     },
