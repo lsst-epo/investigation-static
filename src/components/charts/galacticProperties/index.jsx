@@ -18,6 +18,7 @@ import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import LegendMultiple from './LegendMultiple.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
+import Trendline from './Trendline.jsx';
 import styles from './galactic-properties.module.scss';
 
 class GalacticProperties extends React.Component {
@@ -93,6 +94,7 @@ class GalacticProperties extends React.Component {
   getXScale() {
     const { width, padding, xDomain, options } = this.props;
     const { domain } = options || {};
+
     return d3ScaleLinear()
       .domain(domain ? domain[0] : xDomain)
       .range([padding, width]);
@@ -287,9 +289,11 @@ class GalacticProperties extends React.Component {
       tooltipUnits,
       tooltipLabels,
       options,
+      xDomain,
+      yDomain,
     } = this.props;
 
-    const { svgShapes, color } = options || {};
+    const { svgShapes, color, domain } = options || {};
 
     const {
       xScale,
@@ -303,6 +307,7 @@ class GalacticProperties extends React.Component {
     } = this.state;
 
     const { multiple } = options || {};
+    const isBrightnessPlot = yValueAccessor === 'brightness';
     const svgClasses = classnames('svg-chart', styles.galacticProperties, {
       loading,
       loaded: !loading,
@@ -417,6 +422,22 @@ class GalacticProperties extends React.Component {
                 />
               )}
             </g>
+            {(yValueAccessor === 'color' || isBrightnessPlot) && (
+              <Trendline
+                text={isBrightnessPlot ? 'Brighter' : 'Redder'}
+                domain={domain || [xDomain, yDomain]}
+                pointUp={isBrightnessPlot}
+                {...{
+                  xScale,
+                  yScale,
+                  height,
+                  width,
+                  padding,
+                  offsetTop,
+                  offsetRight,
+                }}
+              />
+            )}
           </svg>
         </div>
       </>
