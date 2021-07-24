@@ -21,7 +21,7 @@ class QAs extends React.PureComponent {
         {questions.map(question => {
           const { question: q, number } = question;
           const primeQ = q[0];
-          const { id, questionType, qaReview } = primeQ;
+          const { id, questionType, qaReview, showUserAnswer } = primeQ;
           const key = `qa-${id}`;
 
           if (qaReviewPage && !qaReview) return false;
@@ -41,6 +41,7 @@ class QAs extends React.PureComponent {
           }
 
           const answer = answers[id];
+          const prepopulateAnswer = answers[showUserAnswer];
 
           return (
             <QA
@@ -49,6 +50,7 @@ class QAs extends React.PureComponent {
               questionNumber={+number}
               question={primeQ}
               answer={answer}
+              prepopulateAnswer={prepopulateAnswer}
               activeId={activeQuestionId}
               answerHandler={updateAnswer}
               cancelHandler={updateAnswer}

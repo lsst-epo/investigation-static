@@ -128,10 +128,13 @@
       "question": [
         {
           "id": "554",
-          "questionType": "textArea",
+          "questionType": "ImpactDamageCalculator",
           "title": "Question #1",
-          "label": "At what distance would you have to be in order to have a good chance of surviving the impact?",
-          "answerAccessor": "text"
+          "label": "",
+          "placeholder": "Enter values",
+          "showUserAnswer": "55",
+          "label": "At what distance would you have to be in order to have a good chance of surviving the impact?  Input a distance from the impact (r) to estimate the damage observed from that distance.  You may select distances up to 20,000 km (20,000,000 m) away, which is on the other side of Earth opposite the impact.",
+          "answerAccessor": "all"
         }
       ]
     },
@@ -155,18 +158,6 @@
           "title": "Question #1",
           "label": "What earthquake effects would be experienced at this distance?",
           "answerAccessor": "text"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "55",
-          "questionType": "ImpactDamageCalculator",
-          "title": "Question #1",
-          "label": "",
-          "placeholder": "Enter values",
-          "answerAccessor": "all"
         }
       ]
     }
