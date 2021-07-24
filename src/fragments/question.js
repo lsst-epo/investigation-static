@@ -15,6 +15,7 @@ export const questionFragment = graphql`
       answerPost
       answerAccessor
       placeholder
+      showUserAnswer
       options {
         label
         value

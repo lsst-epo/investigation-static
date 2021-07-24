@@ -59,15 +59,16 @@ class QACalculator extends React.PureComponent {
 
   componentDidMount() {
     const { answerable } = this.state;
-    const { question, activeId, answer } = this.props;
+    const { question, activeId, answer, prepopulateAnswer } = this.props;
     const { id } = question;
     const { data } = answer || {};
+    const { data: prepopulateData } = prepopulateAnswer || {};
 
     this.checkAnswerable(answerable, activeId === id);
 
     this.setState(prevState => ({
       ...prevState,
-      value: this.getAnswersFromData(data),
+      value: this.getAnswersFromData({ ...prepopulateData, ...data }),
     }));
   }
 
@@ -83,7 +84,6 @@ class QACalculator extends React.PureComponent {
     const { question } = this.props;
     const { questionType } = question || {};
     const { value } = this.calculator[questionType];
-
     return {
       ...value,
       ...data,
@@ -319,6 +319,7 @@ QACalculator.propTypes = {
   questionNumber: PropTypes.number,
   answerHandler: PropTypes.func,
   answer: PropTypes.object,
+  prepopulateAnswer: PropTypes.object,
 };
 
 export default QACalculator;
