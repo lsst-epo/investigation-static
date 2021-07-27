@@ -1,12 +1,12 @@
 {
-  "id": "hazardous26a",
+  "id": "hazardous29",
   "investigation": "hazardous-asteroids",
-  "order": "26.1",
+  "order": "29",
   "title": "Finding a Safe Location",
   "slug": "summary-4/",
   "previous": {
     "title": "Finding the Location of Severe Damage",
-    "link": "/summary-3/"
+    "link": "/summary-3-1/"
   },
   "next": {
     "title": "Learning More about Asteroid Detection",
@@ -38,7 +38,7 @@
         ["Crater Depth"]
       ],
       "rows": [
-        [{ "accessor": "kineticEnergy", "id": "53" }],
+        [{ "accessor": "kineticEnergy", "id": "52" }],
         [{ "accessor": "craterDiameter", "id": "53" }],
         [{ "accessor": "craterDepth", "id": "53" }]
       ]
@@ -130,7 +130,6 @@
           "id": "554",
           "questionType": "ImpactDamageCalculator",
           "title": "Question #1",
-          "label": "",
           "placeholder": "Enter values",
           "showUserAnswer": "55",
           "label": "At what distance would you have to be in order to have a good chance of surviving the impact?  Input a distance from the impact (r) to estimate the damage observed from that distance.  You may select distances up to 20,000 km (20,000,000 m) away, which is on the other side of Earth opposite the impact.",
