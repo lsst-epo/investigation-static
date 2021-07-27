@@ -1,19 +1,19 @@
 {
-  "id": "hazardous27",
+  "id": "hazardous28",
   "investigation": "hazardous-asteroids",
-  "order": "27",
+  "order": "28",
   "title": "Finding the Location of Severe Damage",
-  "slug": "summary-3/",
+  "slug": "summary-3-1/",
   "previous": {
-    "title": "Calculating the Crater Depth and Diameter",
-    "link": "/summary-2/"
+    "title": "Finding the Location of Severe Damage",
+    "link": "/summary-3/"
   },
   "next": {
-    "title": "Finding the Location of Severe Damage",
-    "link": "/summary-3-1"
+    "title": "Finding a Safe Location",
+    "link": "/summary-4"
   },
   "layout": "TwoCol",
-  "content": "<p>At different distances away from the impact two different types of  impact effects are predicted</p><ul><li><strong>Seismic</strong> energy: Asteroid impacts produce earthquakes. This damage is due to the energy that travels along the surface of the Earth, and is expressed as a <a href='http://rubineducation.org/glossary/richter-magnitude' target='_blank'>Richter magnitude</a>.</li><li><strong>Air blast</strong> pressure: Asteroid impacts produce a shock wave that moves through the air. This damage is due to the <strong>shock wave</strong> hitting structures or objects, and is expressed as a pressure in <a href='http://rubineducation.org/glossary/pascals' target='_blank'>pascals</a> (Pa).</li></ul><p>You may select distances up to 20,000,000 meters away, which is on the other side of Earth opposite the impact.</p>",
+  "content": "<p>If you are too close to the impact, significant seismic activity, incredible windspeeds, and air blast pressures will damage buildings and structures and there will be a nearly total loss of life. This will occur for air blast pressures of 30,000 Pa and above.</p>",
   "tables": [
     {
       "id": "7",
@@ -119,37 +119,37 @@
     {
       "question": [
         {
-          "id": "54",
-          "questionType": "select",
+          "id": "551",
+          "questionType": "ImpactDamageCalculator",
           "title": "Question #1",
-          "label": "How far away from the point of impact would you be if you were standing on the rim of the crater?",
-          "options": [
-            { "value": "The crater diameter", "label": "The crater diameter" },
-            {
-              "value": "Half the crater diameter",
-              "label": "Half the crater diameter"
-            },
-            { "value": "The crater depth", "label": "The crater depth" },
-            {
-              "value": "Half the crater depth",
-              "label": "Half the crater depth"
-            }
-          ],
-          "placeholder": "Select",
-          "answerAccessor": "data"
+          "label": "What is the greatest distance from your impact where this kind of damage and loss of life will be experienced?  Input the kinetic energy of your asteroid, and a distance from the impact (r) to estimate the damage observed from that distance.  You may select distances up to 20,000 km (20,000,000 m) away.",
+          "placeholder": "Enter values",
+          "showUserAnswer": "55",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "all"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "55",
-          "questionType": "ImpactDamageCalculator",
+          "id": "552",
+          "questionType": "text",
           "title": "Question #1",
-          "label": "Input the kinetic energy of your asteroid, and a distance from the impact (r) to estimate the damage observed from that distance.  You may select distances up to 20,000 km (20,000,000 m) away, which is on the other side of Earth opposite the impact.",
-          "placeholder": "Enter values",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "all"
+          "labelPre": "According to the Richter magnitude table, the earthquake produced at this distance would be rated as",
+          "labelPost": ".",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "553",
+          "questionType": "textArea",
+          "title": "Question #1",
+          "label": "What earthquake effects would be experienced at this distance?",
+          "answerAccessor": "text"
         }
       ]
     }

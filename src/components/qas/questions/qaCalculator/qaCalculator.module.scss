@@ -32,8 +32,16 @@
   @include copySecondary;
   color: $basePrimary;
 
+  p {
+    color: $basePrimary !important; /* stylelint-disable-line declaration-no-important */
+  }
+
   &:not(.answerable) {
     color: $neutral20;
+
+    p {
+      color: $neutral20 !important; /* stylelint-disable-line declaration-no-important */
+    }
   }
 }
 

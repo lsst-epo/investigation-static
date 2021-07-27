@@ -48,7 +48,7 @@
         [{ "content": "2,500 kg/m³" }],
         [{ "content": "12,900 m/s" }],
         [{ "accessor": "mass", "id": "52" }],
-        [{ "accessor": "kineticEnergy", "id": "53" }],
+        [{ "accessor": "kineticEnergy", "id": "52" }],
         [{ "accessor": "craterDiameter", "id": "53" }],
         [{ "accessor": "craterDepth", "id": "53" }]
       ]

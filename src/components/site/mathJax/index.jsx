@@ -4,17 +4,17 @@ import classnames from 'classnames';
 import Tex2SVG, { MathJaxProvider } from 'react-hook-mathjax';
 import { mathJaxContainer } from './mathJax.module.scss';
 
-export default function MathJaxComponent({ displayType, laTex }) {
-  const mathJaxOptions = {
-    skipHtmlTags: { '[+]': ['span'] },
-    ignoreHtmlClass: 'mathjax_ignore',
-  };
+export default function MathJaxComponent({ displayType, latex }) {
+  // const mathJaxOptions = {
+  //   loader: { load: ['[tex]/color'] },
+  //   tex: { packages: { '[+]': ['color'] } },
+  // };
+
   return (
     <div
       className={classnames({ [mathJaxContainer]: displayType !== 'inline' })}
     >
-      <MathJaxProvider options={mathJaxOptions} />
-      <Tex2SVG display={displayType} latex={laTex} />
+      <Tex2SVG display={displayType} latex={latex} />
     </div>
   );
 }
@@ -25,5 +25,5 @@ MathJaxComponent.defaultProps = {
 
 MathJaxComponent.propTypes = {
   displayType: PropTypes.string,
-  laTex: PropTypes.string,
+  latex: PropTypes.string,
 };
