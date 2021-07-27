@@ -185,7 +185,7 @@ export const calculateKineticEnergy = ({ mass, velocity }) => {
 export const calculateImpactEnergy = (diameter, velocity, density) => {
   if (!diameter || !velocity || !density) return null;
 
-  return (Math.PI * +density * (+diameter / 2) ** 3 * (+velocity) ** 2) / 12;
+  return (Math.PI * +density * (+diameter) ** 3 * (+velocity) ** 2) / 12;
 };
 
 export const calculateMass = props => {
@@ -302,8 +302,8 @@ export const calculateAsteroidImpact = props => {
 
   const kineticEnergy = calculateImpactEnergy(
     asteroidDiameter,
-    density,
-    velocity
+    velocity,
+    density
   );
   const craterDiameter = calculateCraterDiameter(
     asteroidDiameter,
