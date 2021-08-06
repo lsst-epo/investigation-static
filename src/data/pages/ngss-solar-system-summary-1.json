@@ -1,0 +1,97 @@
+{
+  "id": "ngsssolarsystem29",
+  "investigation": "ngss-solar-system",
+  "order": "29",
+  "title": "Defining Orbital Properties - Orbit Sizes",
+  "slug": "solar-system-summary-1/",
+  "previous": {
+    "title": "Exploring A New Class of Objects",
+    "link": "/solar-system-summary/"
+  },
+  "next": {
+    "title": "Defining Orbital Properties - Eccentricities- 2",
+    "link": "/solar-system-summary-2/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Click on each icon found to the left of the histogram to examine the different orbital properties. If you click above each bar on the histogram, the exact number of objects for the bar will appear. Complete the table below by clicking on each cell and entering a value.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/final_semimajor_axis_hist.json",
+      "options": {
+        "title": "Orbit Sizes",
+        "xAxisLabel": "Orbit Sizes (au)",
+        "xValueAccessor": "semimajor_axis",
+        "yAxisLabel": "Number of Objects",
+        "domain": [[0, 30], null],
+        "bins": 10,
+        "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
+        "tooltipLabels": ["Objects", "Orbit Size (au)"]
+      }
+    }
+  ],
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      },
+      "colTitles": ["Property", "Min", "Max", "Most Common"],
+      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclination º"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "55" },
+          { "accessor": "data", "id": "56" },
+          { "accessor": "data", "id": "57" }
+        ],
+        [
+          { "accessor": "data", "id": "58" },
+          { "accessor": "data", "id": "59" },
+          { "accessor": "data", "id": "60" }
+        ],
+        [
+          { "accessor": "data", "id": "61" },
+          { "accessor": "data", "id": "62" },
+          { "accessor": "data", "id": "63" }
+        ]
+      ],
+      "qaReview": false
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "55",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the minimum orbit size?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "56",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the maximum orbit size?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "57",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is the most common orbit size?"
+        }
+      ]
+    }
+  ]
+}

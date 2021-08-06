@@ -199,6 +199,22 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `);
+  } else if (INVESTIGATION === 'ngss-solar-system') {
+    pages = await graphql(`
+      query {
+        allPagesJson(
+          filter: { investigation: { eq: "ngss-solar-system" } }
+          sort: { fields: [order, investigation], order: ASC }
+        ) {
+          nodes {
+            order
+            id
+            investigation
+            slug
+          }
+        }
+      }
+    `);
   } else {
     pages = await graphql(`
       query {

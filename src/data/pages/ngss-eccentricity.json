@@ -1,0 +1,24 @@
+{
+  "id": "ngsssolarsystem05",
+  "investigation": "ngss-solar-system",
+  "order": "05",
+  "title": "Eccentricity",
+  "slug": "eccentricity/",
+  "previous": {
+    "title": "Semi-Major Axis",
+    "link": "/semi-major-axis/"
+  },
+  "next": {
+    "title": "Inclination",
+    "link": "/inclination/"
+  },
+  "layout": "TwoCol",
+  "content": "<p><a href='https://docs.google.com/document/d/140q4YwEAj--BNtMX8ImmIPVMiteHGOaxgjPOufG3hAk/edit#bookmark=id.z5qa68hlkzlt' target='_blank'>Eccentricity</a> describes how elliptical (i.e., oval shaped) an orbit is. Eccentricity values range from 0 to almost 1. An eccentricity of 0 describes a perfectly circular orbit. The larger the eccentricity, the more elliptical the orbit.</p>",
+  "images": [
+    {
+      "mediaPath": "/images/eccentricity.png",
+      "altText": "Examples of orbital ellipses with different eccentricities.",
+      "figText": "Examples of orbital ellipses with different eccentricities. Modified from <a href='https://earthobservatory.nasa.gov/features/OrbitsCatalog' target='_blank'>NASA illustration</a> by Robert Simmon."
+    }
+  ]
+}

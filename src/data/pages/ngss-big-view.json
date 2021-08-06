@@ -1,0 +1,23 @@
+{
+  "id": "solarsystem07",
+  "investigation": "ngss-solar-system",
+  "order": "07",
+  "title": "The Big View of the Solar System",
+  "slug": "big-view/",
+  "previous": {
+    "title": "Inclination",
+    "link": "/inclination/"
+  },
+  "next": {
+    "title": "Characterizing Near-Earth Objects (NEOs)",
+    "link": "/characterizing-neo/"
+  },
+  "layout": "TwoCol",
+  "images": [
+    {
+      "mediaPath": "/images/big-view.png",
+      "altText": "Big View of the Solar System"
+    }
+  ],
+  "content": "<p>Our observatory will discover millions of new Solar System objects, and will provide an enormous data set that gives us a more comprehensive view of the objects’ distribution. The more we know about the distribution and properties of objects in our Solar System, the more we understand about how it formed.</p><p>Most small Solar System objects we have discovered can be classified into four groups:<ul><li><b>Near-Earth objects</b> (NEOs) - Objects whose orbits intersect or get very close to the orbit of Earth.</li><li><b>Main Belt asteroids</b> (MBAs) - Objects that orbit the Sun between the orbits of Mars (1.5 au) and Jupiter (5.2 au).</li><li><b>Trans-Neptunian objects</b> (TNOs) - Objects that orbit the Sun at or beyond the orbit of Neptune, at a distance of about 30 au and beyond. This area includes the Kuiper Belt and the entire region out to the inner Oort Cloud, which begins at approximately 2000 au from the Sun.</li><li><b>Comets</b> - Icy objects found throughout the Solar System.</li></ul></p>"
+}

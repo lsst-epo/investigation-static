@@ -1,0 +1,158 @@
+{
+  "id": "ngsssolarsystem24",
+  "investigation": "ngss-solar-system",
+  "order": "24",
+  "title": "Classifying Newly Detected Solar System Objects - 3",
+  "slug": "classifying-objects-2/",
+  "previous": {
+    "title": "Classifying Newly Detected Solar System Objects - 2",
+    "link": "/classifying-objects-1/"
+  },
+  "next": {
+    "title": "Exploring A New Class of Objects",
+    "link": "/solar-system-summary/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Use the orbital properties in the table you constructed above to help you determine which group this newly discovered object belongs to.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/test-tno.json",
+      "options": {
+        "defaultZoom": 0.06,
+        "noLabels": false,
+        "qaReview": false
+      }
+    }
+  ],
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "fixed": true,
+      "colTitles": [
+        "Group",
+        "Size of Orbit",
+        "Eccentricity",
+        "Inclination",
+        "Direction of Orbit"
+      ],
+      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "6" },
+          { "accessor": "data", "id": "4" },
+          { "accessor": "data", "id": "5" },
+          { "accessor": "data", "id": "7" }
+        ],
+        [
+          { "accessor": "data", "id": "10" },
+          { "accessor": "data", "id": "8" },
+          { "accessor": "data", "id": "9" },
+          { "accessor": "data", "id": "11" }
+        ],
+        [
+          { "accessor": "data", "id": "14" },
+          { "accessor": "data", "id": "12" },
+          { "accessor": "data", "id": "13" },
+          { "accessor": "data", "id": "15" }
+        ],
+        [
+          { "accessor": "data", "id": "18" },
+          { "accessor": "data", "id": "16" },
+          { "accessor": "data", "id": "17" },
+          { "accessor": "data", "id": "19" }
+        ]
+      ],
+      "qaReview": false
+    },
+    {
+      "id": "2",
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      },
+      "colTitles": ["", "Name", "Type", "Data/Evidence"],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "46" },
+          { "accessor": "data", "id": "47" },
+          { "accessor": "data", "id": "48" }
+        ],
+        [
+          { "accessor": "data", "id": "49" },
+          { "accessor": "data", "id": "50" },
+          { "accessor": "data", "id": "51" }
+        ],
+        [
+          { "accessor": "data", "id": "661" },
+          { "accessor": "data", "id": "67" },
+          { "accessor": "data", "id": "68" }
+        ]
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "661",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is this object's name?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "67",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "What type of object is this?",
+          "options": [
+            {
+              "label": "MBA",
+              "value": "MBA"
+            },
+            {
+              "label": "TNO",
+              "value": "TNO"
+            },
+            {
+              "label": "NEO",
+              "value": "NEO"
+            },
+            {
+              "label": "Comet",
+              "value": "Comet"
+            },
+            {
+              "label": "None of the above",
+              "value": "None of the above"
+            }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "68",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Explain why you chose this type.  What data/evidence supports your choice?"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "id": "ngsssolarsystem22",
+  "investigation": "ngss-solar-system",
+  "order": "22",
+  "title": "Classifying Newly Detected Solar System Objects - 1",
+  "slug": "classifying-objects/",
+  "previous": {
+    "title": "The History of the Solar System",
+    "link": "/nebula-theory/"
+  },
+  "next": {
+    "title": "Classifying Newly Detected Solar System Objects - 2",
+    "link": "/classifying-objects-1/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Many small Solar System objects have been recently discovered by Rubin Observatory. You now have the chance to apply what you have learned to classify three such objects. Your choices for classifying each object are:<ul><li>MBA</li><li>TNO</li><li>NEO</li><li>Comet</li><li>None of the above</li></ul></p>Use the orbital properties in the table you constructed above to help you determine which group this newly discovered object belongs to.",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/test-mba.json",
+      "options": {
+        "defaultZoom": 0.7,
+        "noLabels": false,
+        "qaReview": false
+      }
+    }
+  ],
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "fixed": true,
+      "colTitles": [
+        "Group",
+        "Size of Orbit",
+        "Eccentricity",
+        "Inclination",
+        "Direction of Orbit"
+      ],
+      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "6" },
+          { "accessor": "data", "id": "4" },
+          { "accessor": "data", "id": "5" },
+          { "accessor": "data", "id": "7" }
+        ],
+        [
+          { "accessor": "data", "id": "10" },
+          { "accessor": "data", "id": "8" },
+          { "accessor": "data", "id": "9" },
+          { "accessor": "data", "id": "11" }
+        ],
+        [
+          { "accessor": "data", "id": "14" },
+          { "accessor": "data", "id": "12" },
+          { "accessor": "data", "id": "13" },
+          { "accessor": "data", "id": "15" }
+        ],
+        [
+          { "accessor": "data", "id": "18" },
+          { "accessor": "data", "id": "16" },
+          { "accessor": "data", "id": "17" },
+          { "accessor": "data", "id": "19" }
+        ]
+      ],
+      "qaReview": false
+    },
+    {
+      "id": "2",
+      "layout": {
+        "row": "bottom",
+        "col": "left"
+      },
+      "colTitles": ["", "Name", "Type", "Data/Evidence"],
+      "rowTitles": [["#1"], ["#2"], ["#3"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "46" },
+          { "accessor": "data", "id": "47" },
+          { "accessor": "data", "id": "48" }
+        ],
+        [
+          { "accessor": "data", "id": "49" },
+          { "accessor": "data", "id": "50" },
+          { "accessor": "data", "id": "51" }
+        ],
+        [
+          { "accessor": "data", "id": "661" },
+          { "accessor": "data", "id": "67" },
+          { "accessor": "data", "id": "68" }
+        ]
+      ],
+      "qaReview": false
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "46",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "What is this object's name?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "47",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "What type of object is this?",
+          "options": [
+            {
+              "label": "MBA",
+              "value": "MBA"
+            },
+            {
+              "label": "TNO",
+              "value": "TNO"
+            },
+            {
+              "label": "NEO",
+              "value": "NEO"
+            },
+            {
+              "label": "Comet",
+              "value": "Comet"
+            },
+            {
+              "label": "None of the above",
+              "value": "None of the above"
+            }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "48",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Explain why you chose this type.  What data/evidence supports your choice?"
+        }
+      ]
+    }
+  ]
+}

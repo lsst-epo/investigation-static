@@ -30,3 +30,6 @@
 
 [context."demo-mini"]
   command = "cross-env INVESTIGATION='demo-mini' yarn deploy"
+
+[context."ngss-solar-system"]
+  command = "cross-env INVESTIGATION='ngss-solar-system' yarn deploy"
