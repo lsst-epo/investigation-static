@@ -144,9 +144,10 @@ class Layout extends React.Component {
 
     return (
       <>
-        <SEO title={investigation || 'Investigation'} />
+        <SEO title={investigationTitle || investigation || 'Investigation'} />
         <Header
-          {...{ investigationTitle, logo }}
+          investigationTitle={investigationTitle}
+          logo={investigation !== 'ngss-solar-system' ? logo : null}
           pageNumber={this.getCurrentPageNumber(pages, pageId)}
           totalPages={this.global.totalPages}
           tocVisability={tocIsOpen}

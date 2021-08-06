@@ -74,22 +74,20 @@ class Header extends React.PureComponent {
               `: Page ${pageNumber} of ${totalPages}`}
           </span>
           <div className={styles.headerInner}>
-            <a
-              href="http://rubineducation.org/"
-              className={logo && styles.logoWrapper}
-            >
-              <span className={`${logo && 'screen-reader-only'}`}>
-                Rubin Education
-              </span>
-              {logo && (
+            {logo && (
+              <a
+                href="http://rubineducation.org/"
+                className={styles.logoWrapper}
+              >
+                <span className="screen-reader-only">Rubin Education</span>
                 <img
                   aria-hidden
                   src={logo}
                   alt={investigationTitle}
                   className={styles.siteLogo}
                 />
-              )}
-            </a>
+              </a>
+            )}
           </div>
         </div>
       </Toolbar>

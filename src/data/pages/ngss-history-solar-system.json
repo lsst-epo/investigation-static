@@ -1,0 +1,63 @@
+{
+  "id": "ngsssolarsystem19",
+  "investigation": "ngss-solar-system",
+  "order": "19",
+  "title": "The Formation of the Solar System",
+  "slug": "history-solar-system/",
+  "previous": {
+    "title": "Distributions of Solar System Objects",
+    "link": "/identifying-groups-5/"
+  },
+  "next": {
+    "title": "The History of the Solar System",
+    "link": "/nebula-theory/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>According to the solar nebula theory, a spinning cloud of dust and gas collapsed and the young Sun began to form at the center, while dusty and icy objects began to grow by repeated collisions with each other in a flattened disk surrounding the Sun. The Sun and the disk surrounding it retained the same direction of motion as the spinning cloud that formed the Sun.</p><p>There is significant evidence to support this theory. Observations of star-forming regions reveal similar disks around young stars in other parts of the galaxy. Another piece of evidence that supports the theory is the fact that rocky planets formed close to the Sun (where temperatures were hotter) and icy planets formed at greater distances (where temperatures were much cooler).</p><p>We can also find evidence to support the solar nebula theory by studying the motions of objects within the Solar System. To validate this evidence, view a histogram that show inclinations of all four groups of solar system objects and look for overall patterns in the way objects orbit the Sun. (Remember, any inclination greater than 90 degrees indicates an object that is orbiting backwards.)</p>",
+  "widgets": [
+    {
+      "type": "OrbitalProperties",
+      "source": "/data/neos/all_inclination_hist.json",
+      "options": {
+        "title": "Inclinations",
+        "xAxisLabel": "Inclinations (degrees)",
+        "xValueAccessor": "inclination",
+        "yAxisLabel": "Number of Objects",
+        "domain": [[0, 180], null],
+        "tooltipAccessors": ["countOfTotal", "inclination"],
+        "tooltipLabels": ["Objects", "Inclination (degrees)"]
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "32",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "",
+          "labelPost": "of Solar System objects orbit in the same direction around the Sun.",
+          "options": [
+            { "label": "Nearly all", "value": "Nearly all" },
+            { "label": "Roughly half", "value": "Roughly half" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "33",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "If the direction of an object’s orbit was random, there would be an equal chance that any object would travel around the Sun in either direction. Do the orbits you observe appear to be the result of random chance? If not, what might explain the direction of their orbital motions?"
+        }
+      ]
+    }
+  ]
+}

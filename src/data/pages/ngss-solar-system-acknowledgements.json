@@ -1,0 +1,17 @@
+{
+  "id": "ngsssolarsystem37",
+  "investigation": "ngss-solar-system",
+  "order": "37",
+  "title": "Acknowledgements Page",
+  "slug": "acknowledgements/",
+  "previous": {
+    "title": "Reflect and Discuss",
+    "link": "/solar-system-discuss-report/"
+  },
+  "next": {
+    "title": null,
+    "link": null
+  },
+  "layout": "SingleCol",
+  "content": "<p>This investigation has made use of data and/or services provided by the International Astronomical Union’s Minor Planet Center.</p><p>The team would also like to thank Siegfried Eggl, Henry Hsieh, and Mike Kelley for useful scientific discussions in the development of this investigation.</p>"
+}

@@ -1,7 +1,7 @@
 {
   "name": "investigations",
   "private": true,
-  "description": "Educational Investigation about Supernovae",
+  "description": "Educational Investigation",
   "version": "0.0.1",
   "author": "LSST EPO",
   "dependencies": {

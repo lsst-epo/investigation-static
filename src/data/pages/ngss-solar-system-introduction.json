@@ -1,0 +1,21 @@
+{
+  "id": "ngsssolarsystem00",
+  "investigation": "ngss-solar-system",
+  "order": "00",
+  "title": "Introduction",
+  "slug": "introduction/",
+  "previous": { "title": "", "link": "" },
+  "next": {
+    "title": "Detecting Solar System Objects",
+    "link": "/detecting-objects/"
+  },
+  "layout": "TwoCol",
+  "images": [
+    {
+      "mediaPath": "/images/orbits-of-outer-planets.jpg",
+      "altText": "The evolution of worlds by Lowell",
+      "figText": "Orbits of the outer planets as described in “The Evolution of Worlds,” a book published in the first decade of the 1900s by Percival Lowell."
+    }
+  ],
+  "content": "<p>For hundreds of years we had a simple model for the objects in our Solar System: some large planets and their moons, and occasionally a passing comet. Then came the discovery of the first asteroid, Ceres, in 1801, an indication there was more going on out there than we thought. Sure enough, over the next 200 years about 800,000 small Solar System objects (which includes asteroids, comets, and trans-Neptunian objects) were discovered. At first the rate of discovery was slow, but advances in technology, which have made it possible to detect smaller and more distant objects, have sped up the process.</p><p>Our observatory provides the most powerful observational tool we’ve ever had to study small Solar System objects; the size of the telescope’s mirrors and the sensitivity of its camera combine with the speed that the telescope surveys the night sky to help us see more objects in our Solar System than ever before. Each image covers a large area of the sky, and captures light even from very faint objects, making it possible to measure the motions of millions of small Solar System objects per night. Many of these are brand new discoveries.</p><p>In this investigation, you will explore real data to develop a deeper understanding of how small objects are distributed throughout the Solar System. You will also examine the orbits of some newly detected Solar System objects, in order to classify them. Together, these observations will help us put together the story of how our Solar System formed, and give us insights into what we might find around other stars that have exoplanets.</p><h3>Essential Questions</h3><ul><li>What unique set of orbital properties describe the different small objects in the Solar System?</li><li>What can observations of small objects reveal about the formation and history of the Solar System?</li></ul>"
+}

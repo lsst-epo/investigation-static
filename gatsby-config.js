@@ -5,8 +5,8 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Investigation`,
-    description: `LSST EPO Astronomy Investigation`,
-    author: `@lsst-epo/core`,
+    description: `Astronomy`,
+    author: ``,
   },
   plugins: [
     `gatsby-plugin-layout`,
@@ -69,7 +69,10 @@ module.exports = {
         background_color: `#087f80`,
         theme_color: `#087f80`,
         display: `minimal-ui`,
-        icon: `src/images/Rubin-favicon-32px.png`, // This path is relative to the root of the site.
+        icon:
+          process.env.INVESTIGATION !== `ngss-solar-system`
+            ? `src/images/Rubin-favicon-32px.png`
+            : `src/images/placeholder.jpg`, // This path is relative to the root of the site.
       },
     },
     // {

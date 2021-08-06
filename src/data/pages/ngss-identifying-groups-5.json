@@ -1,0 +1,109 @@
+{
+  "id": "ngsssolarsystem18",
+  "investigation": "ngss-solar-system",
+  "order": "18",
+  "title": "Distributions of Solar System Objects",
+  "slug": "identifying-groups-5/",
+  "previous": {
+    "title": "Comparing Groups of Solar System Objects",
+    "link": "/identifying-groups-4/"
+  },
+  "next": {
+    "title": "The Formation of the Solar System",
+    "link": "/history-solar-system/"
+  },
+  "layout": "TwoCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
+  "content": "<p>Now you will explore a histogram of the number of all small Solar System objects on the y-axis vs. size of orbit on the x-axis.</p><p>Note: the scale of the y-axis changes for each of the histograms.</p><p>Click on each icon found to the left of the histogram to change the group.</p>",
+  "widgets": [
+    {
+      "type": "ChartSwitcher",
+      "widgets": [
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/neo_semimajor_axis_hist.json",
+          "options": {
+            "title": "NEO Orbit Sizes",
+            "xAxisLabel": "NEO Orbit Sizes (au)",
+            "xValueAccessor": "semimajor_axis",
+            "yAxisLabel": "Number of NEOs",
+            "domain": [[0, 100], null],
+            "bins": 20,
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
+            "tooltipLabels": ["NEOs", "Orbit Size (au)"]
+          }
+        },
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/mba_semimajor_axis_hist.json",
+          "options": {
+            "title": "MBA Orbit Sizes",
+            "xAxisLabel": "MBA Orbit Sizes (au)",
+            "xValueAccessor": "semimajor_axis",
+            "yAxisLabel": "Number of MBAs",
+            "domain": [[0, 100], null],
+            "bins": 20,
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
+            "tooltipLabels": ["MBAs", "Orbit Size (au)"]
+          }
+        },
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/tno_semimajor_axis_hist.json",
+          "options": {
+            "title": "TNO Orbit Sizes",
+            "xAxisLabel": "TNO Orbit Sizes (au)",
+            "xValueAccessor": "semimajor_axis",
+            "yAxisLabel": "Number of TNOs",
+            "domain": [[0, 100], null],
+            "bins": 20,
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
+            "tooltipLabels": ["TNOs", "Orbit Size (au)"]
+          }
+        },
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/comets_semimajor_axis_hist.json",
+          "options": {
+            "title": "Comet Orbit Sizes",
+            "xAxisLabel": "Comet Orbit Sizes (au)",
+            "xValueAccessor": "semimajor_axis",
+            "yAxisLabel": "Number of Comets",
+            "domain": [[0, 100], null],
+            "bins": 20,
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
+            "tooltipLabels": ["Comets", "Orbit Size (au)"]
+          }
+        }
+      ]
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "30",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Which group of Solar System objects is the largest in number? ",
+          "options": [
+            { "label": "NEOs", "value": "NEOs" },
+            { "label": "Comets", "value": "Comets" },
+            { "label": "TNOs", "value": "TNOs" },
+            { "label": "MBAs", "value": "MBAs" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    }
+  ]
+}

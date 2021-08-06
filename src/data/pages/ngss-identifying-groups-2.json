@@ -1,0 +1,86 @@
+{
+  "id": "ngsssolarsystem15",
+  "investigation": "ngss-solar-system",
+  "order": "15",
+  "title": "Identifying Groups of Solar System Objects - 3",
+  "slug": "identifying-groups-2/",
+  "previous": {
+    "title": "Identifying Groups of Solar System Objects - 2",
+    "link": "/identifying-groups-1/"
+  },
+  "next": {
+    "title": "Identifying Groups of Solar System Objects - 4",
+    "link": "/identifying-groups-3/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Use the Orbit Viewer to explore this group.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/comets_orbit_50sample_wname2021.json",
+      "options": {
+        "defaultZoom": 0.2,
+        "noLabels": true,
+        "qaReview": false
+      }
+    }
+  ],
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "fixed": true,
+      "colTitles": [
+        "Group",
+        "Size of Orbit",
+        "Eccentricity",
+        "Inclination",
+        "Direction of Orbit"
+      ],
+      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "6" },
+          { "accessor": "data", "id": "4" },
+          { "accessor": "data", "id": "5" },
+          { "accessor": "data", "id": "7" }
+        ],
+        [
+          { "accessor": "data", "id": "10" },
+          { "accessor": "data", "id": "8" },
+          { "accessor": "data", "id": "9" },
+          { "accessor": "data", "id": "11" }
+        ],
+        [
+          { "accessor": "data", "id": "14" },
+          { "accessor": "data", "id": "12" },
+          { "accessor": "data", "id": "13" },
+          { "accessor": "data", "id": "15" }
+        ],
+        [
+          { "accessor": "data", "id": "18" },
+          { "accessor": "data", "id": "16" },
+          { "accessor": "data", "id": "17" },
+          { "accessor": "data", "id": "19" }
+        ]
+      ],
+      "qaReview": false
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "24",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain your reasoning in terms of the unique set of orbital properties that defines this group of objects."
+        }
+      ]
+    }
+  ]
+}
