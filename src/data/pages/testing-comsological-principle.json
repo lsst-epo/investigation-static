@@ -39,7 +39,7 @@
               [0, 200]
             ],
             "svgShapes": ["circle"],
-            "color": "2",
+            "color": "1",
             "icon": "galaxy",
             "qaReview": false
           }
@@ -57,7 +57,7 @@
             "tooltipUnits": ["Billion Ly", "Flux ratio"],
             "tooltipLabels": ["Distance", "Color"],
             "domain": [
-              [0, 14],
+              [0, 16],
               [0, 2]
             ],
             "svgShapes": ["triangle"],

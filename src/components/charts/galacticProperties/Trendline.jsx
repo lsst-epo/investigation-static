@@ -55,7 +55,7 @@ class Trendline extends React.Component {
       <svg>
         <defs>
           <marker
-            id="triangle"
+            id={`triangle-${text}`}
             viewBox="0 0 10 10"
             refX="1"
             refY="5"
@@ -76,7 +76,7 @@ class Trendline extends React.Component {
             strokeWidth={2}
             stroke="#000000"
             strokeDasharray="10"
-            markerEnd="url(#triangle)"
+            markerEnd={`url(#triangle-${text})`}
             transform={this.getLineTransform(start, terminus)}
           />
           <rect

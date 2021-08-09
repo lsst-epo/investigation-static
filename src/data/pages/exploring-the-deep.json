@@ -43,7 +43,7 @@
         "randomSource": true,
         "xValueAccessor": "distance",
         "yValueAccessor": "brightness",
-        "color": "4"
+        "color": "3"
       }
     }
   ],
