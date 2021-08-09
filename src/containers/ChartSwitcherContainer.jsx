@@ -97,11 +97,12 @@ class ChartSwitcherContainer extends React.PureComponent {
                 const { type, options: nestedOptions } = nestedWidget;
                 const key = type + i;
                 const WidgetTag = widgetTags[type];
+                const isActive = activeIndex === i;
 
-                if (!WidgetTag) return null;
+                if (!WidgetTag || !isActive) return null;
 
                 const itemClasses = classnames(style.stackedItem, {
-                  [style.visibilityActive]: activeIndex === i,
+                  [style.visibilityActive]: isActive,
                 });
 
                 return (
