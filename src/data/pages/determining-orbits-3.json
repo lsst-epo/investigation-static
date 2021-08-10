@@ -43,7 +43,8 @@
             "isActive": false,
             "position": 0.65
           }
-        ]
+        ],
+        "qaReview": false
       }
     }
   ],

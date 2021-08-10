@@ -28,7 +28,7 @@
           "id": "57",
           "questionType": "textArea",
           "title": "Question #1",
-          "label": "Of all of the asteroids now listed on SENTRY, which is of most concern to you? List its name and explain all of the factors (year range for impact, number of potential impacts, impact probability, <a href='http://rubineducation.org/glossary/palermo-scale' target='_blank'>Palermo Scale</a>, etc.) you considered in making your decision.",
+          "label": "Of all of the asteroids now listed on SENTRY, which is of most concern to you? List its name and explain all of the factors (year range for impact, number of potential impacts, impact probability, Palermo Scale, etc.) you considered in making your decision.",
           "answerAccessor": "text"
         }
       ]

@@ -13,6 +13,14 @@
     "link": "/determining-orbits-6/"
   },
   "layout": "TwoCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -78,7 +86,8 @@
             "isActive": false,
             "position": 0.25
           }
-        ]
+        ],
+        "qaReview": false
       }
     }
   ],
@@ -101,7 +110,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Click on each of the locations (A, B, C, D) Pay attention to which locations turn green and which turn blue.</p>",
+          "label": "<p>Click on the location of the asteroid you selected.</p>",
           "answerPre": "<span>Selected Asteroid: </span>",
           "answerAccessor": "observation"
         }

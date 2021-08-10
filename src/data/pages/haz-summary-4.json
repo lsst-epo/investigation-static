@@ -13,14 +13,6 @@
     "link": "/learn-more/"
   },
   "layout": "TwoCol",
-  "checkpoints": [
-    {
-      "layout": {
-        "col": "left",
-        "row": "bottom"
-      }
-    }
-  ],
   "content": "<p>If you want to be sure your family has a good chance of surviving the impact from your asteroid, you need to get far enough away so that the air blast pressure is below 7000 Pa.</p>",
   "tables": [
     {
@@ -30,6 +22,7 @@
         "row": "top"
       },
       "fixed": true,
+      "qaReview": false,
       "title": "Asteroid Impact Properties",
       "colTitles": ["Asteroid Name", "3200 Phaeton"],
       "rowTitles": [
@@ -49,7 +42,8 @@
         "col": "right",
         "row": "top"
       },
-      "title": "Asteroid Impact Properties",
+      "qaReview": false,
+      "title": "Seismic Energy and Effects",
       "colTitles": [
         "Richter Magnitude",
         "Earthquake Rating",

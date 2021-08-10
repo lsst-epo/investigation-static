@@ -23,7 +23,8 @@
         "paused": true,
         "noDetails": true,
         "refObjs": ["earth"],
-        "defaultZoom": 1.5
+        "defaultZoom": 1.5,
+        "qaReview": false
       }
     }
   ],

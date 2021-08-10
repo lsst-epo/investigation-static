@@ -23,6 +23,7 @@
       },
       "title": "Asteroid Impact Properties",
       "fixed": true,
+      "qaReview": false,
       "colTitles": ["Asteroid Name", "3200 Phaeton"],
       "rowTitles": [
         ["Asteroid Kinetic Energy"],
@@ -41,7 +42,8 @@
         "col": "right",
         "row": "top"
       },
-      "title": "Asteroid Impact Properties",
+      "qaReview": false,
+      "title": "Seismic Energy and Effects",
       "colTitles": [
         "Richter Magnitude",
         "Earthquake Rating",
