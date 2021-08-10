@@ -1,0 +1,22 @@
+[
+  {
+    "redshift-range": "0.07-0.075",
+    "image": "/images/large-scale/0.07-0.075.png"
+  },
+  {
+    "redshift-range": "0.09-0.095",
+    "image": "/images/large-scale/0.09-0.095.png"
+  },
+  {
+    "redshift-range": "0.26-0.265",
+    "image": "/images/large-scale/0.26-0.265.png"
+  },
+  {
+    "redshift-range": "0.65-0.655",
+    "image": "/images/large-scale/0.65-0.655.png"
+  },
+  {
+    "redshift-range": "0.165-0.17",
+    "image": "/images/large-scale/0.165-0.17.png"
+  }
+]

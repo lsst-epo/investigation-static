@@ -24,7 +24,7 @@
   "widgets": [
     {
       "type": "LargeScaleStructure",
-      "source": "/data/galaxies/eboss_ardis_dataset.json",
+      "source": "/data/galaxies/large-scale-slides.json",
       "options": {
         "qaReview": false
       }
