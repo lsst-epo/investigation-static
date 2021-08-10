@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import API from '../lib/API.js';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
-import LargeScaleStructureSlide from '../components/charts/largeScaleStructure/LargeScaleStructureSlide.jsx';
+import LargeScaleStructure2D from '../components/charts/largeScaleStructure/LargeScaleStructure2D.jsx';
 import {
   navItemText,
   widerDrawerContainer,
@@ -20,7 +20,10 @@ class LargeScaleStructureContainer extends React.PureComponent {
 
     this.state = {
       loading: true,
-      activeIndex: null,
+      intervals: null,
+      dec: null,
+      ra: null,
+      activeIntervalIndex: null,
       navItems: [],
       data: null,
     };
@@ -32,35 +35,50 @@ class LargeScaleStructureContainer extends React.PureComponent {
     } = this.props;
     API.get(source).then(response => {
       const { data } = response;
+      const { intervals, dec, ra, objects } = data || {};
 
       this.setState(prevState => ({
         ...prevState,
         loading: false,
-        data,
-        activeIndex: 0,
-        navItems: this.generateNavItems(data, 0),
+        data: objects,
+        activeIntervalIndex: 0,
+        intervals,
+        dec: {
+          min: dec[0],
+          max: dec[1],
+        },
+        ra: {
+          min: ra[0],
+          max: ra[1],
+        },
+        navItems: this.generateNavItems(intervals, 0),
       }));
     });
   }
 
-  setActiveInterval = activeIndex => {
-    const { data } = this.state;
+  getIntervalVal = (intervals, activeIntervalIndex, index) => {
+    if (!intervals) return '';
+    return intervals[activeIntervalIndex][index];
+  };
+
+  setActiveInterval = activeIntervalIndex => {
+    const { intervals } = this.state;
 
     this.setState(prevState => ({
       ...prevState,
-      activeIndex,
-      navItems: this.generateNavItems(data, activeIndex),
+      activeIntervalIndex,
+      intervals,
+      navItems: this.generateNavItems(intervals, activeIntervalIndex),
     }));
   };
 
-  generateNavItems(data, activeIndex) {
-    return data.map((datum, i) => {
-      const { redshiftRange } = datum;
+  generateNavItems(intervals, activeIntervalIndex) {
+    return intervals.map((interval, i) => {
       return {
-        leftAvatar: <span className={navItemText}>{redshiftRange}</span>,
+        leftAvatar: <span className={navItemText}>{interval.join(' - ')}</span>,
         primaryText: `Redshift Range`,
         className: classnames(navItem, {
-          [linkActive]: activeIndex === i,
+          [linkActive]: activeIntervalIndex === i,
         }),
         onClick: () => this.setActiveInterval(i),
       };
@@ -68,9 +86,17 @@ class LargeScaleStructureContainer extends React.PureComponent {
   }
 
   render() {
-    const { loading, activeIndex, data, navItems } = this.state;
+    const {
+      loading,
+      intervals,
+      activeIntervalIndex,
+      data,
+      navItems,
+      dec,
+      ra,
+    } = this.state;
     const toolbarTitle = `Redshift Range: ${
-      data ? data[activeIndex].redshiftRange : ''
+      intervals ? intervals[activeIntervalIndex].join(' - ') : ''
     }`;
     const navDrawerClasses = classnames(paddedDrawerInnerLeft, {
       [loadingChartState]: loading,
@@ -92,7 +118,12 @@ class LargeScaleStructureContainer extends React.PureComponent {
               scale={3}
             />
           )}
-          {data && <LargeScaleStructureSlide data={data[activeIndex]} />}
+          {data && (
+            <LargeScaleStructure2D
+              data={data[activeIntervalIndex]}
+              {...{ dec, ra }}
+            />
+          )}
         </NavDrawer>
       </>
     );
@@ -101,6 +132,7 @@ class LargeScaleStructureContainer extends React.PureComponent {
 
 LargeScaleStructureContainer.propTypes = {
   widget: PropTypes.object,
+  options: PropTypes.object,
 };
 
 export default LargeScaleStructureContainer;
