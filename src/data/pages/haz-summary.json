@@ -13,21 +13,14 @@
     "link": "/summary-1/"
   },
   "layout": "TwoCol",
-  "checkpoints": [
-    {
-      "layout": {
-        "col": "left",
-        "row": "bottom"
-      }
-    }
-  ],
   "content": "<p>Now that you have become an expert in PHAs, you will have a chance to evaluate an asteroid that was discovered by Rubin Observatory. Use all of the knowledge and tools from this investigation to decide whether or not this asteroid is potentially hazardous and how much damage it would cause.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
       "source": "/data/neos/3200phaeton.json",
       "options": {
-        "detailsSet": "hazardous-asteroids"
+        "detailsSet": "hazardous-asteroids",
+        "qaReview": false
       }
     }
   ],
@@ -38,6 +31,7 @@
         "col": "left",
         "row": "bottom"
       },
+      "qaReview": false,
       "colTitles": ["", "3200 Phaeton"],
       "rowTitles": [["Asteroid Diameter"]],
       "rows": [[{ "accessor": "diameter", "id": "48" }]]

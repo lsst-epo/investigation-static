@@ -20,7 +20,8 @@
       "source": "/data/neos/K17C01P_orb_1-25.json",
       "options": {
         "defaultZoom": 0.5,
-        "potentialOrbits": true
+        "potentialOrbits": true,
+        "qaReview": false
       }
     }
   ],

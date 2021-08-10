@@ -51,7 +51,8 @@
             "isActive": false,
             "position": 0.7
           }
-        ]
+        ],
+        "qaReview": false
       }
     }
   ],

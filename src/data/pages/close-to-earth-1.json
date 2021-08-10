@@ -21,7 +21,8 @@
         "paused": true,
         "pov": "top",
         "noDetails": true,
-        "refObjs": ["earth"]
+        "refObjs": ["earth"],
+        "qaReview": false
       }
     }
   ],
@@ -59,7 +60,7 @@
           "id": "2",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Which of these three asteroids could hit Earth based on the orbit shown in this top-down view representation?",
+          "label": "Which of these three asteroids could hit Earth based on the orbit shown in this top-down view?",
           "options": [
             {
               "label": "Amor",

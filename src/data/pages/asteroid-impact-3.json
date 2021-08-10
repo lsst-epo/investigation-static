@@ -20,6 +20,7 @@
         "col": "right",
         "row": "top"
       },
+      "qaReview": false,
       "rowTitles": [["Mass"], ["Velocity"], ["Kinetic Energy"]],
       "colTitles": ["", "Asteroid #1", "Asteroid #2", "Asteroid #3"],
       "rows": [

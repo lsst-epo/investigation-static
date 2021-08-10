@@ -20,7 +20,8 @@
       "source": "/data/neos/K17C01P_orb_1-50.json",
       "options": {
         "defaultZoom": 0.5,
-        "potentialOrbits": true
+        "potentialOrbits": true,
+        "qaReview": false
       }
     }
   ],
@@ -32,7 +33,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is the probability of this asteroid hitting Earth:"
+          "label": "What is the probability of this asteroid hitting Earth?"
         }
       ]
     },
