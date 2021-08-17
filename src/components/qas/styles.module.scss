@@ -129,4 +129,30 @@
   @media print {
     width: 70%;
   }
+
+  :global .galaxies-selector-container {
+    .svg-container {
+      width: 100%;
+      min-width: 0;
+
+      .svg-chart {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+  }
+
+  :global .galactic-properties-container {
+    .svg-container {
+      width: 100%;
+      min-width: 0;
+      max-width: 400px;
+
+      .svg-chart {
+        width: 100%;
+        min-width: 0;
+        max-width: 400px;
+      }
+    }
+  }
 }

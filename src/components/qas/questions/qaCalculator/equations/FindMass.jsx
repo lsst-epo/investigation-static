@@ -15,7 +15,7 @@ import {
 
 export default function FindMass(props) {
   const { density, mass, diameter } = props;
-  //, velocity, kineticEnergy
+
   function getDensityChar(d) {
     if (!d) {
       return colorize(`\\rho`);

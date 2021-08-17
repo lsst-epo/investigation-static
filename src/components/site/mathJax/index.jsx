@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Tex2SVG, { MathJaxProvider } from 'react-hook-mathjax';
+// import Tex2SVG, { MathJaxProvider } from 'react-hook-mathjax';
+import Tex2SVG from 'react-hook-mathjax';
 import { mathJaxContainer } from './mathJax.module.scss';
 
 export default function MathJaxComponent({ displayType, latex }) {

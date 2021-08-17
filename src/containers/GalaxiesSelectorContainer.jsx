@@ -155,10 +155,10 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     );
 
     return (
-      <div className="container-flex spaced">
+      <div className="container-flex spaced galaxies-selector-container">
         <div className="col padded col-width-50">
           <h2 className="space-bottom">Galaxies Selector</h2>
-          <div className="galaxies-selector-images--container">
+          <div className="galaxies-selector-images-container">
             <GalaxySelector
               className="galaxies-selector"
               data={preSelected ? selectedData : data}

@@ -123,7 +123,7 @@ class GalacticPropertiesContainer extends React.PureComponent {
     } = options || {};
 
     return (
-      <>
+      <div className="galactic-properties-container">
         {!nested && (
           <h2 className="space-bottom">{title || 'Brightness vs. Distance'}</h2>
         )}
@@ -142,7 +142,7 @@ class GalacticPropertiesContainer extends React.PureComponent {
             preSelected,
           }}
         />
-      </>
+      </div>
     );
   }
 }
