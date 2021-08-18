@@ -4,13 +4,14 @@ import { Canvas } from 'react-three-fiber';
 // import * as THREE from 'three';
 import Camera from './Camera.jsx';
 import CameraController from './CameraController.jsx';
+import Sun from './Sun.jsx';
 import Orbitals from './Orbitals.jsx';
 import Controls from './controls/index.jsx';
 import PlaybackSpeed from './PlaybackSpeed.jsx';
 import OrbitalDetails from './OrbitalDetails.jsx';
 
 import { container, orbitalCanvas } from './orbital-viewer.module.scss';
-import chartColors from '../../../assets/stylesheets/_variables.scss';
+// import chartColors from '../../../assets/stylesheets/_variables.scss';
 
 function OrbitalViewer({
   neos,
@@ -43,6 +44,8 @@ function OrbitalViewer({
   const [dayPerVizSec, setDayPerVizSec] = useState(paused ? 0 : speeds[2]);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [reset, setReset] = useState(0);
+  const [zoomLevel, setZoomLevel] = useState(1);
+
   const handleStartStop = () => {
     setPlaying(!playing);
     setStepDirection(1);
@@ -125,13 +128,11 @@ function OrbitalViewer({
               setElapsedTime,
               noLabels,
               reset,
+              zoomLevel,
+              setZoomLevel,
             }}
           />
-          <mesh position={[0, 0, 0]}>
-            <sphereBufferGeometry attach="geometry" args={[15, 16, 8]} />
-            <meshBasicMaterial attach="material" color={chartColors.chart5} />
-            {/* <axesHelper args={[1000, 1000, 1000]} /> */}
-          </mesh>
+          <Sun zoomLevel={zoomLevel} defaultZoom={defaultZoom || 1} />
         </Canvas>
         {!paused && (
           <Controls

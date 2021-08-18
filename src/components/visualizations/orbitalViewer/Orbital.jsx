@@ -17,6 +17,7 @@ import {
   getPosFromArcLength,
   auToMeters,
   unitToAu,
+  getLabelSize,
 } from './orbitalUtilities.js';
 import { label } from './orbital-viewer.module.scss';
 import chartColors from '../../../assets/stylesheets/_variables.scss';
@@ -163,29 +164,13 @@ const Orbital = ({
     });
   }
 
-  function getRadius() {
-    const minSize = 10;
-    const maxSize = 8 / defaultZoom;
-    const scaledRadius = minSize / zoomMod;
-
-    return scaledRadius <= maxSize ? scaledRadius : maxSize;
-  }
-
-  function getLabelSize() {
-    const minSize = 4;
-    const maxSize = 18;
-    const scaledLabelSize = maxSize * (zoomMod / defaultZoom);
-
-    if (scaledLabelSize <= minSize) {
-      return minSize;
-    }
-
-    if (scaledLabelSize >= maxSize) {
-      return maxSize;
-    }
-
-    return scaledLabelSize;
-  }
+  // function getRadius() {
+  //   const minSize = 10;
+  //   const maxSize = 8 / defaultZoom;
+  //   const scaledRadius = minSize / zoomMod;
+  //   // console.log(data);
+  //   return scaledRadius <= maxSize ? scaledRadius : maxSize;
+  // }
 
   // Called once when the component first mounts
   useEffect(() => {
@@ -208,7 +193,7 @@ const Orbital = ({
   useFrame((state, delta) => {
     if (initialized || internalInitialized) updatePoint(!playing, delta);
   });
-
+  // console.log(name || pd, unitToAu(metersToAu(objectRadius || diameter / 2)));
   return (
     <group rotation={rotation}>
       {/* Orbital Path */}
@@ -224,7 +209,7 @@ const Orbital = ({
         <line ref={mesh} geometry={pathLine}>
           <lineBasicMaterial
             attach="material"
-            color={active ? chartColors.chart2 : orbitColor || '#ffffff'}
+            color={active ? '#CEB3DB' : orbitColor || '#ffffff'}
           />
         </line>
         {/* Orbital Object */}
@@ -234,25 +219,25 @@ const Orbital = ({
         >
           {(type === 'planet' || !noLabels || active) && (
             <HTML>
-              <div
+              <button
+                type="button"
                 className={label}
                 style={{
-                  fontSize: getLabelSize(),
+                  fontSize: getLabelSize(zoomMod, defaultZoom),
                 }}
+                onClick={() => selectionCallback(data, 'neo')}
               >
                 {name || pd}
-              </div>
+              </button>
             </HTML>
           )}
           <sphereBufferGeometry
             attach="geometry"
-            args={[type !== 'planet' ? getRadius() : objectRadius, 10, 10]}
+            args={[objectRadius || 2, 10, 10]}
           />
           <meshBasicMaterial
             attach="material"
-            color={
-              active ? chartColors.chart2 : objectColor || chartColors.chart1
-            }
+            color={active ? '#F88B8B' : objectColor || '#CEB3DB'}
           />
         </mesh>
         {devMode && (

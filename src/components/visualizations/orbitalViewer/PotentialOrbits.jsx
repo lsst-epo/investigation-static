@@ -73,7 +73,7 @@ const PotentialOrbits = ({
   return (
     <>
       <lineSegments position={[0, 0, 0]} geometry={potentialsGeometry}>
-        <lineBasicMaterial attach="material" color="pink" />
+        <lineBasicMaterial attach="material" color="#CEB3DB" />
       </lineSegments>
       {observations && data && (
         <Observations

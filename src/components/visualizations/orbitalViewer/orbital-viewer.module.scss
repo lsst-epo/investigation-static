@@ -3,6 +3,7 @@
   height: $tallestSquareWidget;
   min-height: $break40;
   background-color: $black;
+  color-adjust: exact;
 }
 
 .orbital-canvas {
@@ -202,8 +203,14 @@ $offset: 300px;
 }
 
 .label {
-  padding-top: 4px;
-  color: $white;
+  padding: 2px 4px;
+  margin-top: 4px;
+  font-weight: $medium;
+  color: $black;
+  background-color: rgba($white, 0.4);
+  border: 1px solid rgba($white, 0.4);
+  border-radius: 5px;
+  color-adjust: exact;
 }
 
 .obs-mesh {
