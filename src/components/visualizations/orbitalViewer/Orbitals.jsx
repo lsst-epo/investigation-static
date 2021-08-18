@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useThree, useFrame } from 'react-three-fiber';
 import Orbital from './Orbital.jsx';
@@ -23,6 +23,8 @@ function Orbitals({
   setElapsedTime,
   noLabels,
   reset,
+  zoomLevel,
+  setZoomLevel,
 }) {
   function reducer(state) {
     const { remainingInits } = state;
@@ -34,7 +36,7 @@ function Orbitals({
     remainingInits: neos.length,
   });
 
-  const [zoomLevel, setZoomLevel] = useState(1);
+  // const [zoomLevel, setZoomLevel] = useState(1);
 
   function renderRefObjs() {
     const refObjsProperties = (refObjs || ['earth', 'jupiter', 'neptune']).map(
@@ -156,6 +158,8 @@ Orbitals.propTypes = {
   frameOverride: PropTypes.number,
   activeVelocityCallback: PropTypes.func,
   defaultZoom: PropTypes.number,
+  zoomLevel: PropTypes.number,
+  setZoomLevel: PropTypes.func,
   potentialOrbits: PropTypes.bool,
   observations: PropTypes.array,
   refObjs: PropTypes.array,

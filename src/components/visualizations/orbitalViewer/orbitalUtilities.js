@@ -12,7 +12,8 @@ const earth = {
   Principal_desig: 'Earth',
   orbitColor: '#83e570',
   objectColor: '#3cae3F',
-  objectRadius: 15,
+  // objectRadius: 6371000,
+  objectRadius: 4,
 };
 
 const jupiter = {
@@ -24,7 +25,8 @@ const jupiter = {
   Principal_desig: 'Jupiter',
   orbitColor: '#FFB000',
   objectColor: '#FE6100',
-  objectRadius: 15,
+  // objectRadius: 69911000,
+  objectRadius: 7,
 };
 
 const neptune = {
@@ -36,7 +38,8 @@ const neptune = {
   Principal_desig: 'Neptune',
   orbitColor: '#648FFF',
   objectColor: '#785EF0',
-  objectRadius: 15,
+  // objectRadius: 24622000,
+  objectRadius: 6,
 };
 
 export const getRefObjProps = id => {
@@ -96,7 +99,11 @@ export const getMinorAxis = (a, e) => {
 };
 
 export const auToMeters = value => {
-  return 149600000000 * value;
+  return 1.496e11 * value;
+};
+
+export const metersToAu = value => {
+  return value / 1.496e11;
 };
 
 export const degsToRads = i => {
@@ -148,4 +155,20 @@ export const convert2dTo3d = (vector2D, orbitData) => {
       zAxisOfRotation,
       ascendingNode ? degsToRads(ascendingNode) : 0
     );
+};
+
+export const getLabelSize = (zoomLevel, defaultZoom) => {
+  const minSize = 4;
+  const maxSize = 15;
+  const scaledLabelSize = maxSize * (zoomLevel / defaultZoom);
+
+  if (scaledLabelSize <= minSize) {
+    return minSize;
+  }
+
+  if (scaledLabelSize >= maxSize) {
+    return maxSize;
+  }
+
+  return scaledLabelSize;
 };
