@@ -13,8 +13,35 @@
     "link": "/exploring-lsst-data-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Here is your deep field image and plots of the brightness versus distance and redness versus distance for all galaxies in your image that have data.</p><p>Every person in your class has a Rubin Observatory deep field image for a different random area of the sky as viewed from Earth. Compare your image and plots to others from the class to see if the patterns in your data agree with the patterns in their data sets, then the following question:</p>",
+  "contents": [
+    {
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "content": "<p>Here is your deep field image and plots of the brightness versus distance and redness versus distance for all galaxies in your image that have data.</p>"
+    },
+    {
+      "layout": {
+        "row": "middle",
+        "col": "left"
+      },
+      "content": "<p>Every person in your class has a Rubin Observatory deep field image for a different random area of the sky as viewed from Earth. Compare your image and plots to others from the class to see if the patterns in your data agree with the patterns in their data sets, then the following question:</p>"
+    }
+  ],
   "widgets": [
+    {
+      "type": "GalaxiesSelector",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "options": {
+        "preSelected": true,
+        "color": "3",
+        "qaReview": false
+      }
+    },
     {
       "type": "ChartSwitcher",
       "layout": {
@@ -24,7 +51,6 @@
       "widgets": [
         {
           "type": "GalacticProperties",
-          "source": "/data/galaxies/hsc/hsc_sub01.json",
           "options": {
             "title": "Brightness vs. Distance",
             "xAxisLabel": "Distance (Billion Ly)",
@@ -46,7 +72,6 @@
         },
         {
           "type": "GalacticProperties",
-          "source": "/data/galaxies/hsc/hsc_sub01.json",
           "options": {
             "title": "Redness vs. Distance",
             "xAxisLabel": "Distance (Billion Ly)",
