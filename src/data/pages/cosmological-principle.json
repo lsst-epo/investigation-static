@@ -12,7 +12,7 @@
     "title": "Testing the Cosmological Principle",
     "link": "/testing-the-cosmological-principle/"
   },
-  "layout": "SingleCol",
+  "layout": "TwoCol",
   "content": "<p>Astronomers who study the Universe (cosmologists) have made a basic assumption that for any particular time, the Universe appears to look very similar in every direction, and when viewed from any location. These two ideas are part of the <a href='http://rubineducation.org/glossary/cosmological-principle' target='_blank'>cosmological principle</a>.</p><p>The cosmological principle doesn’t imply that the Universe is <em>exactly</em> the same in all directions. Imagine that you are in the middle of a desert. As you look around you in every direction, you see sand, rocks, mountains and maybe some plants. Not every mountain peak looks identical, and some places may have some more plants than others, but it is generally the same landscape. Additionally, a person at a different location in the desert who looks around in all directions would see roughly the same thing that you see when looking in all directions.</p>",
   "images": [
     {
@@ -20,7 +20,8 @@
       "altText": "Feral donkey in the Atacama desert By Diego Delso",
       "figText": "By Diego Delso, <a href='https://creativecommons.org/licenses/by-sa/4.0' title='Creative Commons Attribution-Share Alike 4.0' target='_blank'>CC BY-SA 4.0</a>, <a href='https://commons.wikimedia.org/w/index.php?curid=48561284' target='_blank'>Link</a>",
       "layout": {
-        "row": "middle"
+        "col": "right",
+        "row": "top"
       }
     }
   ]

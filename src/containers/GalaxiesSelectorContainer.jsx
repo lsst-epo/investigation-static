@@ -154,6 +154,25 @@ class GalaxiesSelectorContainer extends React.PureComponent {
       toggleDataPointsVisibility || showUserPlot
     );
 
+    if (!toggleDataPointsVisibility && !showUserPlot) {
+      return (
+        <div className="galaxies-selector-container">
+          <div className="galaxies-selector-images-container">
+            <GalaxySelector
+              className="galaxies-selector"
+              data={preSelected ? selectedData : data}
+              color={color}
+              {...{ selectedData, preSelected, activeGalaxy }}
+              image={{ mediaPath: imagePath, altText: name }}
+              xDomain={imageDomain[0]}
+              yDomain={imageDomain[1]}
+              selectionCallback={this.selectionCallback}
+            />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="container-flex spaced galaxies-selector-container">
         <div className="col padded col-width-50">

@@ -9,6 +9,7 @@ $duskGray: #2b2e34;
 $lightBlue: #bee7f5;
 $mediumBlue: #2979c1; // #00babc fails WCAG AA certification contrast with background
 $darkBlue: #074a9c;
+$brightBlue: #01bbbc;
 $ral5018HR: #087f80; // #058B8C was slightly too light to reach WCAG AA certification with normal-sized text
 $boldRed: #df0039;
 
@@ -30,6 +31,7 @@ $neutral20: #737373;
 $neutral30: #828287;
 $neutral40: #525459;
 $neutral45: #3a3b40;
+$neutral47: #303232;
 $neutral50: #c2c2c2;
 
 $basePrimary: $ral5018HR;
@@ -91,7 +93,7 @@ $prismHexColors: (
 }
 
 // Chart colors
-$chart0: $neutral30;
+$chart0: $neutral47;
 $chart1: $acBlue;
 $chart2: $awYellow;
 $chart3: $awRed;

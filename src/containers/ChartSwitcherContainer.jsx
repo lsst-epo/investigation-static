@@ -66,7 +66,7 @@ class ChartSwitcherContainer extends React.PureComponent {
 
   render() {
     const { navItems, activeIndex } = this.state;
-    const { widget } = this.props;
+    const { widget, answers, updateAnswer } = this.props;
     const { widgets: nestedWidgets } = widget;
     const activeWidget = nestedWidgets[activeIndex];
     const { options: activeOptions } = activeWidget;
@@ -111,6 +111,8 @@ class ChartSwitcherContainer extends React.PureComponent {
                     <WidgetTag
                       type={type}
                       widget={nestedWidget}
+                      answers={answers}
+                      updateAnswer={updateAnswer}
                       options={nestedOptions}
                       nested
                     />
@@ -128,6 +130,8 @@ class ChartSwitcherContainer extends React.PureComponent {
 ChartSwitcherContainer.propTypes = {
   // options: PropTypes.object,
   widget: PropTypes.object,
+  answers: PropTypes.object,
+  updateAnswer: PropTypes.func,
 };
 
 export default ChartSwitcherContainer;

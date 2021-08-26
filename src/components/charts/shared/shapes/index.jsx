@@ -6,6 +6,7 @@ import Circle from './Circle';
 import Square from './Square';
 import Triangle from './Triangle';
 import Diamond from './Diamond';
+import chartColors from '../../../../assets/stylesheets/_variables.scss';
 import { capitalize } from '../../../../lib/utilities.js';
 
 class SvgShape extends React.PureComponent {
@@ -57,7 +58,7 @@ class SvgShape extends React.PureComponent {
       fill,
     } = this.props;
 
-    const fillColor = fill || '#828287';
+    const fillColor = fill || chartColors.chart0;
     const SVGShape = svgShape
       ? this.shapeComponents[capitalize(svgShape)] ||
         this.shapeComponents.Circle
