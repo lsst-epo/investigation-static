@@ -21,8 +21,7 @@
         "col": "left"
       },
       "options": {
-        "preSelected": true,
-        "showUserPlot": "440",
+        "toggleDataPointsVisibility": "440",
         "xValueAccessor": "distance",
         "yValueAccessor": "brightness",
         "color": "3",

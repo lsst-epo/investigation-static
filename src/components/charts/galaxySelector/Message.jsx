@@ -14,7 +14,7 @@ class Message extends React.PureComponent {
     clearTimeout(this.timerFunc);
 
     if (visible) {
-      this.timerFunc = setTimeout(toggler, 2000);
+      this.timerFunc = setTimeout(toggler, 1000);
     }
   }
 
