@@ -21,7 +21,7 @@
   width: 100%;
   max-height: 0;
   overflow: hidden;
-  background-color: $neutral10;
+  background-color: rgba($neutral47, 0.75);
   transition: max-height $timing $durationSlow;
 
   &.open {
@@ -32,7 +32,7 @@
   .message-text {
     @include copyTertiary;
     padding: $minPadding;
-    color: $basePrimary;
+    color: $brightBlue;
     text-align: center;
   }
 }

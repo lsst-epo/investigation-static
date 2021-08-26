@@ -15,7 +15,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>If you imagine the observable Universe as a sphere, you can use the Rubin Observatory data to determine a minimum size for your observable Universe. Look at this graph of the full data set for galaxy brightness vs. distance, and find the distance to the galaxy that is farthest away. This farthest away galaxy defines the minimum current radius of your observable Universe.</p><p>Remember that according to the cosmological principle, the Universe appears the same in all directions. Since your observable Universe has the shape of a sphere, the total width (diameter) of your observable Universe is double the radius defined by the distance to the farthest galaxy.</p>",
+      "content": "<p>If you imagine the observable Universe as a sphere, you can use the Rubin Observatory data to determine a minimum size for your observable Universe. Look at this graph of the full data set for galaxy brightness vs. distance, and find the distance to the galaxy that is farthest away. If you have observed a galaxy at a given distance, you have to be able to see at least that far! This farthest away galaxy defines the minimum current radius of your observable Universe.</p><p>Remember that according to the cosmological principle, the Universe appears the same in all directions. Since your observable Universe has the shape of a sphere, the total width (diameter) of your observable Universe is double the radius defined by the distance to the farthest galaxy.</p>",
       "layout": {
         "row": "top",
         "col": "left"
