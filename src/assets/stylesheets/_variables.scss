@@ -4,13 +4,14 @@
 // Colors
 // --------------------------------------------------------
 //  Brand Colors
-$protonWhite: #ffffff;
-$duskGray: #2b2e34;
+$white: #ffffff;
+$black: #000000;
 $lightBlue: #bee7f5;
-$mediumBlue: #2979c1; // #00babc fails WCAG AA certification contrast with background
+$mediumBlue: #2979c1;
 $darkBlue: #074a9c;
-$brightBlue: #01bbbc;
-$ral5018HR: #087f80; // #058B8C was slightly too light to reach WCAG AA certification with normal-sized text
+$brightGreen: #01bbbc;
+$mediumGreen: #058B8C;
+$ral5018HR: #087f80;
 $boldRed: #df0039;
 
 // Accent Warm Colors
@@ -23,15 +24,11 @@ $acPurple: #583671;
 $acGreen: #3cae3f;
 $acBlue: #1c81a4;
 
-$white: $protonWhite;
-$black: $duskGray;
-
 $neutral10: #f3f3f3;
 $neutral20: #737373;
 $neutral30: #828287;
 $neutral40: #525459;
 $neutral45: #3a3b40;
-$neutral47: #303232;
 $neutral50: #c2c2c2;
 
 $basePrimary: $ral5018HR;
@@ -93,15 +90,17 @@ $prismHexColors: (
 }
 
 // Chart colors
-$chart0: $neutral47;
+$chart0: $black;
 $chart1: $acBlue;
 $chart2: $awYellow;
 $chart3: $awRed;
 $chart4: $acGreen;
 $chart5: $awOrange;
 $chart6: $acPurple;
+$chart7: $mediumGreen;
+$chart8: $brightGreen;
 
-$chartColors: $chart0 $chart6 $chart5 $chart4 $chart3 $chart2 $chart1;
+$chartColors: $chart0 $chart6 $chart5 $chart4 $chart3 $chart2 $chart1 $chart7 $chart8;
 
 :export {
   @for $i from 0 through length($chartColors) - 1 {

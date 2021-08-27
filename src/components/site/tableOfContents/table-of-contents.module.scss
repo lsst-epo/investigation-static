@@ -39,7 +39,7 @@
 
           &:hover .md-list-tile .md-tile-addon--icon svg,
           &.link-active .md-list-tile .md-tile-addon--icon svg {
-            fill: $protonWhite;
+            fill: $white;
           }
         }
 
@@ -49,7 +49,7 @@
 
           .md-text--theme-primary,
           .md-text {
-            color: $protonWhite;
+            color: $white;
           }
         }
 

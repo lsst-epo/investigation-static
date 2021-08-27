@@ -38,7 +38,7 @@
         "multiple": true,
         "showUserPlot": "440",
         "svgShapes": ["circle", "circle"],
-        "color": "3",
+        "color": "7",
         "qaReview": false
       }
     }
