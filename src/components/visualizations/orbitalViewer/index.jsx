@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Canvas } from 'react-three-fiber';
-// import * as THREE from 'three';
 import Camera from './Camera.jsx';
 import CameraController from './CameraController.jsx';
 import Sun from './Sun.jsx';
@@ -9,9 +8,7 @@ import Orbitals from './Orbitals.jsx';
 import Controls from './controls/index.jsx';
 import PlaybackSpeed from './PlaybackSpeed.jsx';
 import OrbitalDetails from './OrbitalDetails.jsx';
-
 import { container, orbitalCanvas } from './orbital-viewer.module.scss';
-// import chartColors from '../../../assets/stylesheets/_variables.scss';
 
 function OrbitalViewer({
   neos,
@@ -28,20 +25,12 @@ function OrbitalViewer({
   refObjs,
   noLabels,
 }) {
-  const speeds = [365.25, 30, 11.574, 1.1574, 0.00001157]; // [realtime, 100,000 X, 1,000,000 X, 2.592e+6 X, 3.154e+7 X]
-  const speedWords = {
-    365.25: '1 yr',
-    30: '30 days',
-    11.574: '12 days',
-    1.1574: '1 day',
-    0.00001157: '1 sec',
-  };
-
+  const speeds = { min: 0.00001157, max: 365.25, initial: 11.574, step: 1 };
   const [playing, setPlaying] = useState(!paused);
   const [activeVelocity, setActiveVelocity] = useState(null);
   const [stepDirection, setStepDirection] = useState(1);
   const [frameOverride, setFrameOverride] = useState(null);
-  const [dayPerVizSec, setDayPerVizSec] = useState(paused ? 0 : speeds[2]);
+  const [dayPerVizSec, setDayPerVizSec] = useState(paused ? 0 : speeds.initial);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [reset, setReset] = useState(0);
   const [zoomLevel, setZoomLevel] = useState(1);
@@ -54,14 +43,14 @@ function OrbitalViewer({
 
   useEffect(() => {
     if (reset > 0) {
-      setDayPerVizSec(speeds[2]);
+      setDayPerVizSec(speeds.initial);
       setStepDirection(1);
       setElapsedTime(0);
     }
   }, [reset]);
 
-  const handleStepSelect = step => {
-    setDayPerVizSec(speeds[step.target.value]);
+  const handleStepSelect = e => {
+    setDayPerVizSec(e.target.value);
   };
 
   const handleReset = () => {
@@ -92,7 +81,7 @@ function OrbitalViewer({
         )}
         {!paused && (
           <PlaybackSpeed
-            {...{ elapsedTime, dayPerVizSec, speeds, speedWords }}
+            {...{ elapsedTime, dayPerVizSec, speeds }}
             sliderOnChangeCallback={handleStepSelect}
           />
         )}
