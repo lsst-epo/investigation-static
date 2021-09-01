@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { formatValue } from '../../../lib/utilities.js';
 import {
@@ -22,9 +22,50 @@ function PlaybackSpeed({
   dayPerVizSec,
   elapsedTime,
   sliderOnChangeCallback,
-  speedWords,
   speeds,
 }) {
+  function formatSpeed(speed) {
+    const years = speed / 365;
+    const justYears = Math.floor(years);
+    const justDays = 365 * (years - justYears);
+    let formattedYears = {};
+    let formattedDays = {};
+
+    if (justYears >= 1) {
+      formattedYears = {
+        number: formatValue(justYears),
+        string: `Year${justYears >= 2 ? 's' : ''}`,
+      };
+    } else {
+      formattedYears = {
+        number: 0,
+        string: 'Years',
+      };
+    }
+
+    if (justDays > 1) {
+      formattedDays = {
+        number: formatValue(justDays),
+        string: `Day${justDays >= 2 ? 's' : ''}`,
+      };
+    } else {
+      formattedDays = {
+        number: 0,
+        string: 'Days',
+      };
+    }
+
+    if (justYears >= 1) {
+      return `${formattedYears.number} ${formattedYears.string}`;
+    }
+
+    if (justDays < 1) {
+      return `1 sec`;
+    }
+
+    return `${formattedDays.number} ${formattedDays.string}`;
+  }
+
   function formatElapsed(type, value) {
     const sign = elapsedTime < 0 ? '-' : '';
     const years = Math.abs(elapsedTime) / 365.256;
@@ -63,13 +104,15 @@ function PlaybackSpeed({
     return null;
   }
 
+  const formattedSpeed = useMemo(() => {
+    return formatSpeed(dayPerVizSec);
+  }, [dayPerVizSec]);
+
   return (
     <>
       <div className={playbackSpeedSliderHeader}>
         <h4 className={playbackSpeedTitle}>Time Step</h4>
-        <div className={playbackSpeedSliderLabel}>
-          1 sec = {speedWords[dayPerVizSec]}
-        </div>
+        <div className={playbackSpeedSliderLabel}>1 sec = {formattedSpeed}</div>
       </div>
       <div className={playbackSpeedSliderLabelTop}>
         1 second
@@ -84,10 +127,10 @@ function PlaybackSpeed({
       <input
         className={playbackSpeedSlider}
         type="range"
-        min="0"
-        max="4"
-        step="1"
-        value={speeds.indexOf(dayPerVizSec)}
+        min={speeds.min}
+        max={speeds.max}
+        step={speeds.step}
+        value={dayPerVizSec}
         onChange={sliderOnChangeCallback}
       />
       <div className={elapsedTimeContainer}>
@@ -115,8 +158,7 @@ function PlaybackSpeed({
 PlaybackSpeed.propTypes = {
   dayPerVizSec: PropTypes.number,
   elapsedTime: PropTypes.number,
-  speedWords: PropTypes.object,
-  speeds: PropTypes.array,
+  speeds: PropTypes.object,
   sliderOnChangeCallback: PropTypes.func,
 };
 

@@ -15,8 +15,8 @@ $offset: 300px;
 
 .playback-speed-slider-header {
   position: absolute;
-  top: 24px;
-  right: 17px;
+  top: 34px;
+  right: 10px;
   z-index: 2;
   width: 110px;
   padding: 5px;
@@ -33,6 +33,7 @@ $offset: 300px;
 
 .playback-speed-slider-label {
   @include labelSecondary;
+  font-size: 12.5px;
 }
 
 .playback-speed-slider-label-bottom, .playback-speed-slider-label-top {
@@ -70,7 +71,7 @@ $offset: 300px;
   border: 2px solid $black;
   border-radius: 10px;
   outline: none;
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   appearance: none;
 
   &:focus {
@@ -99,7 +100,7 @@ $offset: 300px;
 .elapsed-time-container {
   @include labelSecondary;
   position: absolute;
-  right: $minPadding;
+  right: 10px;
   bottom: 100px;
   z-index: 2;
   color: $black;
