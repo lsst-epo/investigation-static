@@ -254,12 +254,12 @@ class TimeDomainViewer extends React.PureComponent {
     });
 
     return (
-      <>
+      <div className="time-domain-viewer-container">
         <Legend
           backgroundColor={color}
           {...{ name, activeAlert, selectedData }}
         />
-        <div className="svg-container supernova-selector-container">
+        <div className="svg-container">
           {loading && (
             <CircularProgress
               id={`${name}-loader`}
@@ -294,7 +294,7 @@ class TimeDomainViewer extends React.PureComponent {
             />
           )}
         </div>
-      </>
+      </div>
     );
   }
 }

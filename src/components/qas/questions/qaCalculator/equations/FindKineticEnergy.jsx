@@ -25,7 +25,7 @@ export default function FindKineticEnergy(props) {
         <span className={denominator}>2</span>
       </span>
       <span> &times; </span>
-      <span className={color}>
+      <span className={`highlight ${color}`}>
         {mass ? (
           <>
             <span dangerouslySetInnerHTML={scientificNotation(mass, 3)} />
@@ -36,7 +36,7 @@ export default function FindKineticEnergy(props) {
         )}
       </span>
       <span> &times; </span>
-      <span className={color}>
+      <span className={`highlight ${color}`}>
         {velocity ? (
           <span>
             {addTheCommas(velocity)}
@@ -48,13 +48,16 @@ export default function FindKineticEnergy(props) {
       </span>
       <span className={exponent}>2</span>
       <span>= </span>
-      <span className={color}>
+      <span className={`highlight ${color}`}>
         {kineticEnergy ? (
           <span>
             <span
               dangerouslySetInnerHTML={scientificNotation(+kineticEnergy, 3)}
             ></span>
-            <QACalculatorIconUnit className={color} unit="kineticEnergy" />
+            <QACalculatorIconUnit
+              className={`highlight ${color}`}
+              unit="kineticEnergy"
+            />
           </span>
         ) : (
           '?'

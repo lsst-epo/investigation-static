@@ -17,7 +17,7 @@ export default function FindImpactDamage(props) {
       <div className={marginTop}>
         <p className="equation">
           <span className={boldText}>Richter Magnitude = </span>
-          <span className={color}>
+          <span className={`highlight ${color}`}>
             {richterMagnitudeAtObserverDistance > 0 ? (
               <span>
                 {addTheCommas(
@@ -33,7 +33,7 @@ export default function FindImpactDamage(props) {
       <div className={marginTop}>
         <p className="equation">
           <span className={boldText}>Air Blast Pressure = </span>
-          <span className={color}>
+          <span className={`highlight ${color}`}>
             {overPressure ? (
               <span>
                 {addTheCommas(toSigFigs(overPressure, 3))}

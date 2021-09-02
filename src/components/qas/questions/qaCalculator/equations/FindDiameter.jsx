@@ -25,22 +25,26 @@ export default function FindDiameter(props) {
         <span className={numerator}>1329</span>
         <span className={denominator}>
           <span className={squareRoot}>
-            <span className={color}>{albedo || 'p'}</span>
+            <span className={`highlight ${color}`}>{albedo || 'p'}</span>
           </span>
         </span>
       </span>
       <span>
         <span> 10 </span>
         <span className={exponent}>
-          -0.2 &times; <span className={color}>{magnitude || 'H'}</span>
+          -0.2 &times;{' '}
+          <span className={`highlight ${color}`}>{magnitude || 'H'}</span>
         </span>
       </span>
       <span>= </span>
-      <span className={color}>
+      <span className={`highlight ${color}`}>
         {diameter && diameter < Infinity ? (
           <span>
             {addTheCommas(formatValue(diameter, 0))}
-            <QACalculatorIconUnit className={color} unit="diameter" />
+            <QACalculatorIconUnit
+              className={`highlight ${color}`}
+              unit="diameter"
+            />
           </span>
         ) : (
           '?'

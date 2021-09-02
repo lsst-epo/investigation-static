@@ -66,9 +66,11 @@ export default function FindMass(props) {
   //   latex={`{\\bf KE_a} = {1 \\over 2} \\times ${m} \\times (${v}) ^ 2 = \\ ${ke}`}
   // />
   return (
-    <MathJax
-      latex={`{\\bf m_a} = ${p} \\  \\times {4 \\over 3} \\times \\pi \\times ({${d} \\  \\over 2}) ^ 3 = \\ ${m}`}
-    />
+    <p className="equation">
+      <MathJax
+        latex={`{\\bf m_a} = ${p} \\  \\times {4 \\over 3} \\times \\pi \\times ({${d} \\  \\over 2}) ^ 3 = \\ ${m}`}
+      />
+    </p>
   );
 }
 

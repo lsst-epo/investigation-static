@@ -16,7 +16,7 @@ function CalculatedMeasurement({ unit, value }) {
     <div className={calculationBlock}>
       <p className="equation">
         <span>{labels[unit] || unit} = </span>
-        <span className={color}>
+        <span className={`highlight ${color}`}>
           {value ? addTheCommas(toSigFigs(value, 3)) : '?'}
         </span>
       </p>
