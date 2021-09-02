@@ -364,8 +364,8 @@ class GalaxySelector extends React.PureComponent {
     });
 
     return (
-      <>
-        <div className="svg-container supernova-selector-container">
+      <div className="supernova-selector-container">
+        <div className="svg-container">
           {loading && (
             <CircularProgress
               id={`${name}-loader`}
@@ -443,7 +443,7 @@ class GalaxySelector extends React.PureComponent {
             </>
           )}
         </div>
-      </>
+      </div>
     );
   }
 }

@@ -60,7 +60,7 @@ export const MassCalculator = {
       defaultValue: 'density',
     },
     {
-      leftIcon: <QACalculatorIcon content="D<sub>a</sub>" />,
+      leftIcon: <QACalculatorIcon content="<span>D<sub>a</sub> =</span>" />,
       rightIcon: <QACalculatorIconUnit unit="diameter" />,
       placeholder: 'diameter',
       defaultValue: 'diameter',

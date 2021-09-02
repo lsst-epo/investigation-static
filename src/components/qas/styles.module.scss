@@ -39,6 +39,18 @@
     :global &:not(.equation) {
       color: $basePrimary !important;
     }
+
+  }
+
+  :global .highlight {
+    color: $black !important;
+  }
+
+  :global .equation {
+    svg path {
+      fill: $black !important;
+      stroke: $black !important;
+    }
   }
 }
 
@@ -128,6 +140,10 @@
 
   @media print {
     width: 70%;
+  }
+
+  :global .time-domain-viewer-container {
+    max-width: 600px;
   }
 
   :global .galaxies-selector-container {

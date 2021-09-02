@@ -16,7 +16,9 @@ export default function FindParsecs(props) {
       <sup>
         <span>
           <span>(</span>
-          <span className={color}>{variable ? preparedVariable : 'DM'}</span>
+          <span className={`highlight ${color}`}>
+            {variable ? preparedVariable : 'DM'}
+          </span>
           <span>+ 5)</span>
         </span>
         <span> / 5</span>

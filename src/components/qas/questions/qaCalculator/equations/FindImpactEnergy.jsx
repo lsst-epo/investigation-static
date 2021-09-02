@@ -19,7 +19,7 @@ export default function FindImpactEnergy(props) {
       <span className={fraction}>
         <span className="numerator">
           <span>&pi; &times; </span>
-          <span className={color}>
+          <span className={`highlight ${color}`}>
             {density ? (
               <span>
                 {addTheCommas(density)}
@@ -30,7 +30,7 @@ export default function FindImpactEnergy(props) {
             )}
           </span>
           <span> &times; </span>
-          <span className={color}>
+          <span className={`highlight ${color}`}>
             {diameter ? (
               <span>
                 {addTheCommas(diameter)}
@@ -44,7 +44,7 @@ export default function FindImpactEnergy(props) {
           </span>
           <span className={exponent}>3</span>
           <span> &times; </span>
-          <span className={color}>
+          <span className={`highlight ${color}`}>
             {velocity ? (
               <span>
                 {addTheCommas(velocity)}
@@ -59,11 +59,14 @@ export default function FindImpactEnergy(props) {
         <span className={denominator}>12</span>
       </span>
       <span> = </span>
-      <span className={color}>
+      <span className={`highlight ${color}`}>
         {kineticEnergy ? (
           <span>
             {addTheCommas(toSigFigs(+kineticEnergy, 3))}
-            <QACalculatorIconUnit className={color} unit="kineticEnergy" />
+            <QACalculatorIconUnit
+              className={`highlight ${color}`}
+              unit="kineticEnergy"
+            />
           </span>
         ) : (
           '?'

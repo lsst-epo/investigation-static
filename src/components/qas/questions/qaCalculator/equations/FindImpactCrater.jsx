@@ -31,15 +31,19 @@ export default function FindImpactCrater(props) {
       <p className={classnames('equation', equation, craterDiameterStyle)}>
         <QACalculatorIcon content="D<sub>c</sub> = " />
         <span>0.0461 &times; </span>
-        <span className={color}>
+        <span className={`highlight ${color}`}>
           {!density ? <span>&#x1D780;</span> : addTheCommas(density)}
           {density && (
-            <QACalculatorIconUnit className={color} tiny unit="density" />
+            <QACalculatorIconUnit
+              className={`highlight ${color}`}
+              tiny
+              unit="density"
+            />
           )}
         </span>
         <sup>1/3</sup>
         <span> &times; </span>
-        <span className={color}>
+        <span className={`highlight ${color}`}>
           {!asteroidDiameter ? (
             <span>
               D<sub>a</sub>
@@ -49,15 +53,23 @@ export default function FindImpactCrater(props) {
           )}
         </span>
         {asteroidDiameter && (
-          <QACalculatorIconUnit className={color} tiny unit="diameter" />
+          <QACalculatorIconUnit
+            className={`highlight ${color}`}
+            tiny
+            unit="diameter"
+          />
         )}
         <sup>0.78</sup>
         <span> &times; </span>
-        <span className={color}>
+        <span className={`highlight ${color}`}>
           {!velocity ? 'v' : addTheCommas(velocity)}
         </span>
         {velocity && (
-          <QACalculatorIconUnit className={color} tiny unit="velocity" />
+          <QACalculatorIconUnit
+            className={`highlight ${color}`}
+            tiny
+            unit="velocity"
+          />
         )}
         <sup>0.44</sup>
         <span> = </span>
@@ -77,18 +89,21 @@ export default function FindImpactCrater(props) {
         <p className={craterDepthStyle}>
           <QACalculatorIcon content="d<sub>c</sub> = " />
           <span className={fraction}>
-            <span className={`numerator ${color}`}>
+            <span className={`highlight numerator ${color}`}>
               {craterDiameter ? (
                 <span>
                   {addTheCommas(toSigFigs(craterDiameter, 3))}
                   <QACalculatorIconUnit
-                    className={color}
+                    className={`highlight ${color}`}
                     tiny
                     unit="craterDiameter"
                   />
                 </span>
               ) : (
-                <QACalculatorIcon className={color} content="D<sub>c</sub>" />
+                <QACalculatorIcon
+                  className={`highlight ${color}`}
+                  content="D<sub>c</sub>"
+                />
               )}
             </span>
             <span className={denominator}>2 &radic; 2</span>

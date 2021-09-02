@@ -247,14 +247,14 @@ class QACalculator extends React.PureComponent {
                     key={`text-input-${id}-${defaultValue}`}
                   >
                     {qaReview && (
-                      <div className={qaReviewBlock}>
+                      <p className={`equation ${qaReviewBlock}`}>
                         <span>{inputLabel}</span>
                         <span>{leftIcon}&nbsp;</span>
                         <span className={answerContent}>
                           {value[defaultValue] || '(No answer provided)'}
                         </span>
                         {value[defaultValue] && <span>{rightIcon}</span>}
-                      </div>
+                      </p>
                     )}
                     {!qaReview && (
                       <TextField
