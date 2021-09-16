@@ -55,7 +55,7 @@
           "id": "52",
           "questionType": "MassCalculator",
           "title": "Question #1",
-          "label": "Input your asteroid’s velocity, density and diameter into the calculator to determine its mass (m<sub>a</sub>) and kinetic energy (KE):",
+          "label": "Input your asteroid’s diameter, density, and velocity into the calculator to determine its mass (m<sub>a</sub>) and kinetic energy (KE):",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "mass"

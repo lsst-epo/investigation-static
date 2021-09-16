@@ -31,7 +31,7 @@
         ["Crater Depth"]
       ],
       "rows": [
-        [{ "accessor": "kineticEnergy", "id": "52" }],
+        [{ "accessor": "kineticEnergy", "id": "53" }],
         [{ "accessor": "craterDiameter", "id": "53" }],
         [{ "accessor": "craterDepth", "id": "53" }]
       ]

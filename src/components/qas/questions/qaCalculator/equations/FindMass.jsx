@@ -12,9 +12,10 @@ import {
   colorize,
   addColorAndUnit,
 } from '../../../../site/mathJax/mathjax.utilities.js';
+import FindKineticEnergy from './FindKineticEnergy.jsx';
 
 export default function FindMass(props) {
-  const { density, mass, diameter } = props;
+  const { density, mass, diameter, velocity, kineticEnergy } = props;
 
   function getDensityChar(d) {
     if (!d) {
@@ -66,11 +67,18 @@ export default function FindMass(props) {
   //   latex={`{\\bf KE_a} = {1 \\over 2} \\times ${m} \\times (${v}) ^ 2 = \\ ${ke}`}
   // />
   return (
-    <p className="equation">
-      <MathJax
-        latex={`{\\bf m_a} = ${p} \\  \\times {4 \\over 3} \\times \\pi \\times ({${d} \\  \\over 2}) ^ 3 = \\ ${m}`}
+    <>
+      <p className="equation">
+        <MathJax
+          latex={`{\\bf m_a} = ${p} \\  \\times {4 \\over 3} \\times \\pi \\times ({${d} \\  \\over 2}) ^ 3 = \\ ${m}`}
+        />
+      </p>
+      <FindKineticEnergy
+        kineticEnergy={kineticEnergy}
+        mass={mass}
+        velocity={velocity}
       />
-    </p>
+    </>
   );
 }
 
@@ -78,4 +86,6 @@ FindMass.propTypes = {
   density: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   mass: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   diameter: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  velocity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  kineticEnergy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

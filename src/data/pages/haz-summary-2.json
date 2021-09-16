@@ -48,7 +48,7 @@
         [{ "content": "2,500 kg/m³" }],
         [{ "content": "12,900 m/s" }],
         [{ "accessor": "mass", "id": "52" }],
-        [{ "accessor": "kineticEnergy", "id": "52" }],
+        [{ "accessor": "kineticEnergy", "id": "53" }],
         [{ "accessor": "craterDiameter", "id": "53" }],
         [{ "accessor": "craterDepth", "id": "53" }]
       ]
@@ -61,7 +61,7 @@
           "id": "53",
           "questionType": "ImpactCalculator",
           "title": "Question #1",
-          "label": "Input your asteroid's diameter, density, and velocity to determine the diameter and depth of the crater that will be formed:",
+          "label": "Input your asteroid's diameter, density, and velocity to determine the kinetic energy of your asteroid's impact, and the the diameter and depth of the crater that will be formed:",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "kineticEnergy"
