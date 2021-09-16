@@ -13,13 +13,14 @@ import {
   denominator,
   exponent,
 } from '../qaCalculator.module.scss';
+import { boldText } from './equations.module.scss';
 
 export default function FindKineticEnergy(props) {
   const { kineticEnergy, mass, velocity } = props;
 
   return (
     <p className={`equation ${equation}`} data-testid="qa-calc-kinetic-energy">
-      <span>KE = </span>
+      <span className={boldText}>KE = </span>
       <span className={fraction}>
         <span className="numerator">1</span>
         <span className={denominator}>2</span>
@@ -54,10 +55,7 @@ export default function FindKineticEnergy(props) {
             <span
               dangerouslySetInnerHTML={scientificNotation(+kineticEnergy, 3)}
             ></span>
-            <QACalculatorIconUnit
-              className={`highlight ${color}`}
-              unit="kineticEnergy"
-            />
+            <QACalculatorIconUnit unit="kineticEnergy" />
           </span>
         ) : (
           '?'

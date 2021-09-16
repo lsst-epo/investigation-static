@@ -1,7 +1,6 @@
 import React from 'react';
 import { QACalculatorIcon, QACalculatorIconUnit } from './qQaCalculatorIcons';
 import FindImpactCrater from './equations/FindImpactCrater';
-import FindImpactEnergy from './equations/FindImpactEnergy';
 import FindDiameter from './equations/FindDiameter';
 import FindKineticEnergy from './equations/FindKineticEnergy';
 import FindMass from './equations/FindMass';
@@ -12,7 +11,6 @@ import {
   calculateKineticEnergy,
   calculateMass,
   calculateAsteroidImpact,
-  calculateImpactEnergy,
   calculateAsteroidImpactDamage,
 } from './qaCalculatorUtilities';
 
@@ -48,10 +46,10 @@ export const MassCalculator = {
   formula: calculateMass,
   inputs: [
     {
-      leftIcon: <QACalculatorIcon content="v =" />,
-      rightIcon: <QACalculatorIconUnit unit="velocity" />,
-      placeholder: 'velocity',
-      defaultValue: 'velocity',
+      leftIcon: <QACalculatorIcon content="<span>D<sub>a</sub> =</span>" />,
+      rightIcon: <QACalculatorIconUnit unit="diameter" />,
+      placeholder: 'diameter',
+      defaultValue: 'diameter',
     },
     {
       leftIcon: <QACalculatorIcon content="&#x1D780; =" />,
@@ -60,10 +58,10 @@ export const MassCalculator = {
       defaultValue: 'density',
     },
     {
-      leftIcon: <QACalculatorIcon content="<span>D<sub>a</sub> =</span>" />,
-      rightIcon: <QACalculatorIconUnit unit="diameter" />,
-      placeholder: 'diameter',
-      defaultValue: 'diameter',
+      leftIcon: <QACalculatorIcon content="v =" />,
+      rightIcon: <QACalculatorIconUnit unit="velocity" />,
+      placeholder: 'velocity',
+      defaultValue: 'velocity',
     },
   ],
 };
@@ -89,38 +87,6 @@ export const KineticEnergyCalculator = {
       rightIcon: <QACalculatorIconUnit unit="velocity" />,
       placeholder: 'velocity',
       defaultValue: 'velocity',
-    },
-  ],
-};
-
-export const ImpactEnergyCalculator = {
-  value: {
-    density: null,
-    velocity: null,
-    diameter: null,
-    kineticEnergy: null,
-  },
-  solutionVariable: 'kineticEnergy',
-  equation: FindImpactEnergy,
-  formula: calculateImpactEnergy,
-  inputs: [
-    {
-      leftIcon: <QACalculatorIcon content="&#x1D780; =" />,
-      rightIcon: <QACalculatorIconUnit unit="density" />,
-      placeholder: 'density',
-      defaultValue: 'density',
-    },
-    {
-      leftIcon: <QACalculatorIcon content="v =" />,
-      rightIcon: <QACalculatorIconUnit unit="velocity" />,
-      placeholder: 'velocity',
-      defaultValue: 'velocity',
-    },
-    {
-      leftIcon: <QACalculatorIcon content="<span>D<sub>a</sub> =</span>" />,
-      rightIcon: <QACalculatorIconUnit unit="diameter" />,
-      placeholder: 'diameter',
-      defaultValue: 'diameter',
     },
   ],
 };

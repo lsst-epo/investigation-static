@@ -8,7 +8,6 @@ import TextField from '../../../site/forms/textField';
 import {
   DistanceCalculator,
   ImpactCalculator,
-  ImpactEnergyCalculator,
   ImpactDamageCalculator,
   KineticEnergyCalculator,
   SizeCalculator,
@@ -45,7 +44,6 @@ class QACalculator extends React.PureComponent {
       SizeCalculator,
       ImpactCalculator,
       MassCalculator,
-      ImpactEnergyCalculator,
       ImpactDamageCalculator,
     };
 
