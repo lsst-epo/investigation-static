@@ -21,7 +21,7 @@
       }
     }
   ],
-  "content": "<p>Once astronomers have determined the possible orbits for a new asteroid,  they check to see which of these orbits lead to the asteroid colliding with Earth. Astronomers are concerned if <i>any</i> of these possible orbits predict the an asteroid impact!</p><p>The probability of impact is calculated by dividing the number of possible orbits that result in the asteroid hitting Earth by the total number of possible orbits. After the first two observations of this asteroid were made, astronomers computed 3000 possible orbits of the asteroid (shown at the right). Of these, 10 orbits cross Earth’s orbit and therefore have the potential for causing an impact with Earth.</p>",
+  "content": "<p>Once astronomers have determined the possible orbits for a new asteroid,  they check to see which of these orbits lead to the asteroid colliding with Earth. Astronomers are concerned if <i>any</i> of these possible orbits predict an asteroid impact!</p><p>The probability of impact is calculated by dividing the number of possible orbits that result in the asteroid hitting Earth by the total number of possible orbits. After the first two observations of this asteroid were made, astronomers computed 3000 possible orbits of the asteroid (shown at the right). Of these, 10 orbits cross Earth’s orbit and therefore have the potential for causing an impact with Earth.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",

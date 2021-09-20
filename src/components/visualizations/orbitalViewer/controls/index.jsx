@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../site/button';
 import ButtonIcon from '../../../site/button/ButtonIcon';
-import Rewind from '../../../site/icons/Rewind';
-import FastForward from '../../../site/icons/FastForward';
+import SkipBackward from '../../../site/icons/SkipBackward';
+import SkipForward from '../../../site/icons/SkipForward';
 import Pause from '../../../site/icons/Pause';
 import Play from '../../../site/icons/Play';
 import Replay from '../../../site/icons/Replay';
@@ -25,10 +25,10 @@ const OrbitViewerControls = ({
       <div className={buttonContainer}>
         <Button
           icon
-          iconEl={<ButtonIcon srText="Step Back" Icon={Rewind} />}
+          iconEl={<ButtonIcon srText="Step Back" Icon={SkipBackward} />}
           onClick={handlePrevious}
         />
-        <span className={buttonLabel}>Skip</span>
+        <span className={buttonLabel}>Skip Backward</span>
       </div>
       <div className={buttonContainer}>
         <Button
@@ -41,10 +41,10 @@ const OrbitViewerControls = ({
       <div className={buttonContainer}>
         <Button
           icon
-          iconEl={<ButtonIcon srText="Step Forward" Icon={FastForward} />}
+          iconEl={<ButtonIcon srText="Step Forward" Icon={SkipForward} />}
           onClick={handleNext}
         />
-        <span className={buttonLabel}>Skip</span>
+        <span className={buttonLabel}>Skip Forward</span>
       </div>
       <div className={buttonContainer}>
         <Button
@@ -52,9 +52,7 @@ const OrbitViewerControls = ({
           iconEl={<ButtonIcon srText="Reset" Icon={Replay} />}
           onClick={handleReset}
         />
-        <span className={buttonLabel}>
-          <span>Reset</span>
-        </span>
+        <span className={buttonLabel}>Reset</span>
       </div>
     </div>
   );

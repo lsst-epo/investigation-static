@@ -64,10 +64,18 @@
       "question": [
         {
           "id": "15",
-          "questionType": "textArea",
-          "answerAccessor": "text",
+          "questionType": "select",
           "title": "Question #1",
-          "label": "Has the probability of impact for this asteroid increased, decreased, or stayed the same as the result of making an additional observation of the asteroid’s location?"
+          "labelPre": "The probability of impact for this asteroid has ",
+          "labelPost": ".",
+          "options": [
+            { "label": "increased", "value": "increased" },
+            { "label": "decreased", "value": "decreased" },
+            { "label": "stayed the same", "value": "stayed the same" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
         }
       ]
     }

@@ -20,7 +20,8 @@
       "source": "/data/neos/2003_QZ30.json",
       "options": {
         "autoplay": true,
-        "toggleDataPointsVisibility": "10"
+        "toggleDataPointsVisibility": "10",
+        "qaReview": false
       }
     }
   ],

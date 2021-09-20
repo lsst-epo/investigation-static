@@ -36,7 +36,7 @@
           "id": "28",
           "questionType": "compoundSelect",
           "compoundQuestion": ["28", "29"],
-          "labelPre": "If Earth were more massive, the gravitational force would exert on nearby asteroids would",
+          "labelPre": "If Earth were more massive, the gravitational force it would exert on nearby asteroids would",
           "labelPost": ",",
           "srLabel": "...",
           "answerAccessor": "select",
@@ -53,7 +53,7 @@
           "id": "29",
           "questionType": "compoundSelect",
           "compoundQuestion": ["28", "29"],
-          "labelPre": "causing the Earth’s MOID to",
+          "labelPre": "causing the potential distance at which Earth might alter an asteroid’s orbit to",
           "labelPost": ".",
           "srLabel": "...",
           "answerAccessor": "select",
@@ -61,7 +61,7 @@
           "options": [
             { "label": "increase", "value": "increase" },
             { "label": "decrease", "value": "decrease" },
-            { "label": "be the same", "value": "be the same" }
+            { "label": "stay the same", "value": "stay the same" }
           ],
           "answerPre": "...",
           "answerPost": "..."

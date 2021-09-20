@@ -124,7 +124,7 @@
           "id": "551",
           "questionType": "ImpactDamageCalculator",
           "title": "Question #1",
-          "label": "What is the greatest distance from your impact where this kind of damage and loss of life will be experienced?  Input the kinetic energy of your asteroid, and a distance from the impact (r) to estimate the damage observed from that distance.  You may select distances up to 20,000 km (20,000,000 m) away.",
+          "label": "What is the greatest distance from your impact where this kind of damage and loss of life will be experienced?  Input the kinetic energy of your asteroid, and a distance from the impact (r) to estimate the damage observed from that distance.  You may select distances up to 20,000 km (20,000,000 m) away. To input a number in scientific notation, such as 1.2 x 10<sup>3</sup> use this form: 1.2e3",
           "placeholder": "Enter values",
           "showUserAnswer": "55",
           "answerPre": "<p>Selected: </p>",
