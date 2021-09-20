@@ -85,7 +85,7 @@
           "id": "532",
           "questionType": "textArea",
           "title": "Question #1",
-          "label": "<p>How does the diameter and depth of your crater compare to the lakes listed below? Explain your answer.</p><ul><li>Crater Lake, United States (8850m wide and 2000m deep)</li><li>Lake Superior, United States  (257,000m at its widest point, and  406m deep)</li><li>Lake Victoria, Africa (322,000m at its widest point, 84m deep)</li><li>Lake Llanquihue, Chile (19,300m wide, and 317m deep)</li></ul>",
+          "label": "<p>How does the diameter and depth of your crater compare to the lakes listed below? Explain your answer.</p><ul><li>Crater Lake, United States (8850m wide and 2000m deep)</li><li>Lake Superior, United States  (257,000m at its widest point, and 406m deep)</li><li>Lake Victoria, Africa (322,000m at its widest point, 84m deep)</li><li>Lake Llanquihue, Chile (19,300m wide, and 317m deep)</li></ul>",
           "answerAccessor": "text"
         }
       ]

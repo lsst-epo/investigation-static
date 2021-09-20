@@ -15,15 +15,14 @@
     justify-content: center;
     width: 55px;
     margin: 0 $minPadding;
+    overflow: visible;
 
     .button-label {
+      margin-top: 3px;
       font-size: 14px;
       color: $white;
       text-align: center;
-
-      span {
-        white-space: nowrap;
-      }
+      white-space: nowrap;
     }
   }
 
@@ -34,6 +33,10 @@
 
       &:hover {
         background-color: $white;
+      }
+
+      svg {
+        fill: $black;
       }
     }
   }

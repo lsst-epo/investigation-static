@@ -19,7 +19,7 @@
         "col": "left",
         "row": "top"
       },
-      "content": "<p>Use the controls at the bottom of the OrbitViewer to watch the motion of asteroid Bennu. Adjust the time display speed (Time Step) by moving the button along the bar at the right.  Press the play/pause button when Bennu is located on the blue orbit of Earth. (If you overshoot you can use the skip backward button.)</p>"
+      "content": "<p>Use the controls at the bottom of the OrbitViewer to watch the motion of asteroid Bennu. Adjust the time display speed (Time Step) by moving the button along the bar at the right.  Press the play/pause button when Bennu is located on the green orbit of Earth. (If you overshoot you can use the skip backward button.)</p>"
     },
     {
       "layout": {

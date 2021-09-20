@@ -57,7 +57,6 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-optimize-svgs',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

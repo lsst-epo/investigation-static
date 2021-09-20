@@ -13,7 +13,7 @@
     "link": "/summary-3-1"
   },
   "layout": "TwoCol",
-  "content": "<p>At different distances away from the impact two different types of  impact effects are predicted</p><ul><li><strong>Seismic</strong> energy: Asteroid impacts produce earthquakes. This damage is due to the energy that travels along the surface of the Earth, and is expressed as a <a href='http://rubineducation.org/glossary/richter-magnitude' target='_blank'>Richter magnitude</a>.</li><li><strong>Air blast</strong> pressure: Asteroid impacts produce a shock wave that moves through the air. This damage is due to the <strong>shock wave</strong> hitting structures or objects, and is expressed as a pressure in <a href='http://rubineducation.org/glossary/pascals' target='_blank'>pascals</a> (Pa).</li></ul><p>You may select distances up to 20,000,000 meters away, which is on the other side of Earth opposite the impact.</p>",
+  "content": "<p>At different distances away from the impact two different types of  impact effects are predicted</p><ul><li><strong>Seismic</strong> energy: Asteroid impacts produce earthquakes. This damage is due to the energy that travels along the surface of the Earth, and is expressed as a <a href='http://rubineducation.org/glossary/richter-magnitude' target='_blank'>Richter magnitude</a>.</li><li><strong>Air blast</strong> pressure: Asteroid impacts produce a shock wave that moves through the air. This damage is due to the shock wave hitting structures or objects, and is expressed as a pressure in <a href='http://rubineducation.org/glossary/pascals' target='_blank'>pascals</a> (Pa).</li></ul><p>You may select distances up to 20,000,000 meters away, which is on the other side of Earth opposite the impact.</p>",
   "tables": [
     {
       "id": "7",
@@ -148,7 +148,7 @@
           "id": "55",
           "questionType": "ImpactDamageCalculator",
           "title": "Question #1",
-          "label": "Input the kinetic energy of your asteroid, and a distance from the impact (r) to estimate the damage observed from that distance.  You may select distances up to 20,000 km (20,000,000 m) away, which is on the other side of Earth opposite the impact.",
+          "label": "Input the kinetic energy of your asteroid, and a distance from the impact (r) to estimate the damage observed from that distance.  You may select distances up to 20,000 km (20,000,000 m) away, which is on the other side of Earth opposite the impact. To input a number in scientific notation, such as 1.2 x 10<sup>3</sup> use this form: 1.2e3",
           "placeholder": "Enter values",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "all"
