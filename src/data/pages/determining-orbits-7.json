@@ -13,6 +13,14 @@
     "link": "/determining-orbits-8/"
   },
   "layout": "TwoCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "content": "<p>After measuring the actual position of the asteroid on many different nights and different locations along its orbit, astronomers can rule out many of the possible orbits. The remaining possible orbits are shown here. Of the 500 remaining orbits, only 2 cross Earth’s orbit and the orbit is considered well-defined.</p>",
   "widgets": [
     {

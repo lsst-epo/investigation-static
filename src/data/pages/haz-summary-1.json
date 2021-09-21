@@ -13,14 +13,6 @@
     "link": "/summary-2/"
   },
   "layout": "TwoCol",
-  "checkpoints": [
-    {
-      "layout": {
-        "col": "left",
-        "row": "bottom"
-      }
-    }
-  ],
   "content": "<p>Now that you have determined if your asteroid is potentially hazardous, the next step is to predict how much damage it could produce if it were to impact Earth. The damage can be mathematically calculated based on the asteroid’s kinetic energy (KE) at the time of impact. To calculate kinetic energy you have to know the incoming velocity (v) of the asteroid in addition to its mass (m):</p><p>KE = ½ mv<sup>2</sup></p><p>Based on where the asteroid is in its orbit around the Sun, scientists can roughly estimate the incoming velocity of the asteroid. The velocity is a combination of the speed of the asteroid and the speed of the Earth at the time when the asteroid enters Earth’s atmosphere. The estimated incoming velocity of your asteroid is displayed in the chart at the right.</p><p>The mass of an asteroid is estimated by using the asteroid’s diameter and creating an asteroid model based on some assumptions about its density and shape. Because we cannot study most asteroids up close, we do not have a good idea of their shape or composition. So even though most asteroids are irregular in shape, we model them as being a sphere, which allows us to calculate the volume for an asteroid by using its diameter (D<sub>a</sub>). Because the composition of the asteroid is not known, we assume it is a rocky asteroid (the most common type) with a density(𝞀) of ~2500 kg/m³. Using these assumptions, we can estimate the mass of the asteroid.</p>",
   "tables": [
     {

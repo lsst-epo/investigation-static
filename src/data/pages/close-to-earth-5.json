@@ -13,6 +13,14 @@
     "link": "/determining-orbits/"
   },
   "layout": "TwoCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "contents": [
     {
       "layout": {

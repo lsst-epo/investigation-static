@@ -2,7 +2,7 @@
     "id": "milkyway2",
     "investigation": "milky-way",
     "order": "2",
-    "title": "Acknowledgements Page",
+    "title": "Acknowledgements",
     "slug": "acknowledgements/",
     "previous": { "title": "Introduction", "link": "/introduction/" },
     "next": {

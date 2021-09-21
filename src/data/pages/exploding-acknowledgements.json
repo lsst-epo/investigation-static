@@ -2,7 +2,7 @@
   "id": "19",
   "investigation": "exploding-stars",
   "order": "24",
-  "title": "Acknowledgements Page",
+  "title": "Acknowledgements",
   "slug": "acknowledgements/",
   "previous": { "title": "Putting it all Together", "link": "/summary/" },
   "next": {

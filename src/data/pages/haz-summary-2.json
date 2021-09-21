@@ -13,6 +13,14 @@
     "link": "/summary-3/"
   },
   "layout": "TwoCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "images": [
     {
       "mediaPath": "/images/impact-site-chelyabinsk-meteorite.jpg",

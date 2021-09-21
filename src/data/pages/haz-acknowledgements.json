@@ -1,14 +1,14 @@
 {
-    "id": "hazardous29",
-    "investigation": "new-hazardous-asteroids-new",
-    "order": "29",
-    "title": "Acknowledgements Page",
+    "id": "hazardous32",
+    "investigation": "hazardous-asteroids",
+    "order": "32",
+    "title": "Acknowledgements",
     "slug": "acknowledgements/",
     "previous": { "title": "Reflect and Discuss", "link": "/reflect-discuss/" },
     "next": {
       "title": null,
       "link": null
     },
-    "layout": "TwoCol",
-    "content": "<p>Acknowledgments go here...</p>"
+    "layout": "SingleCol",
+    "content": "<p>This investigation was created by the Education and Public Outreach program of the Vera C. Rubin Observatory Construction project. In an effort to create and test this investigation prior to the start of Operations, we rely on the data of our scientific colleagues. In particular, this investigation has made use of data and/or services provided by the International Astronomical Union’s Minor Planet Center.  The fits of asteroid orbital parameters was accomplished thanks to OpenOrb. </p><p>The team would also like to thank Travis Rector for useful scientific discussions in the development of this investigation.</p><h2>References</h2><p>Granvik, M., Virtanen, J., Oszkiewicz, D., Muinonen, K. (2009). OpenOrb: Open-source asteroid orbit computation software including statistical ranging. Meteoritics & Planetary Science 44(12), 1853-1861.</p><h2>Funding Support</h2><p>Vera C. Rubin Observatory is a Federal project jointly funded by the National Science Foundation (NSF) and the Department of Energy (DOE) Office of Science, with early construction funding received from private donations through the LSST Corporation. The NSF-funded LSST (now Rubin Observatory) Project Office for construction was established as an operating center under the management of the Association of Universities for Research in Astronomy (AURA). The DOE-funded effort to build the Rubin Observatory LSST Camera (LSSTCam) is managed by SLAC National Accelerator Laboratory (SLAC).</p>"
   }

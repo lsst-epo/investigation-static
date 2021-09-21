@@ -8,7 +8,7 @@
     "title": "Putting it all Together",
     "link": "/summary/"
   },
-  "next": { "title": "Acknowledgements Page", "link": "/acknowledgements/" },
+  "next": { "title": "Acknowledgements", "link": "/acknowledgements/" },
   "layout": "TwoCol",
   "widgets": [
     {

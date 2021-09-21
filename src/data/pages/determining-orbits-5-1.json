@@ -13,14 +13,6 @@
     "link": "/determining-orbits-6/"
   },
   "layout": "TwoCol",
-  "checkpoints": [
-    {
-      "layout": {
-        "col": "left",
-        "row": "bottom"
-      }
-    }
-  ],
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -111,7 +103,7 @@
           "tool": "selection",
           "title": "Question #1",
           "label": "<p>Click on the location of the asteroid you selected.</p>",
-          "answerPre": "<span>Selected Asteroid: </span>",
+          "answerPre": "<span>Selected Observation: </span>",
           "answerAccessor": "observation"
         }
       ]
