@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isNumber from 'lodash/isNumber';
-import { getValue, addTheCommas } from '../../../lib/utilities.js';
+import { getValue, addTheCommas, renderDef } from '../../../lib/utilities.js';
 import Unit from './unit/index.jsx';
 
 class StellarValue extends React.PureComponent {
@@ -19,7 +19,7 @@ class StellarValue extends React.PureComponent {
           // eslint-disable-next-line no-underscore-dangle
           (formatted.__html ? (
             // eslint-disable-next-line react/no-danger
-            <span dangerouslySetInnerHTML={formatted} />
+            <span dangerouslySetInnerHTML={renderDef(formatted)} />
           ) : (
             <span>{formatted}</span>
           ))}

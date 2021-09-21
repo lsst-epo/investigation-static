@@ -6,6 +6,7 @@ import {
   addTheCommas,
   toSigFigs,
   scientificNotation,
+  renderDef,
 } from '../../../../../lib/utilities.js';
 import { QACalculatorIcon, QACalculatorIconUnit } from '../qQaCalculatorIcons';
 import {
@@ -37,7 +38,9 @@ export default function FindImpactCrater(props) {
         <span className={boldText}>KE = </span>
         <span
           className={`highlight ${color}`}
-          dangerouslySetInnerHTML={scientificNotation(+kineticEnergy, 3)}
+          dangerouslySetInnerHTML={renderDef(
+            scientificNotation(+kineticEnergy, 3)
+          )}
         ></span>
         <QACalculatorIconUnit unit="kineticEnergy" />
       </p>
