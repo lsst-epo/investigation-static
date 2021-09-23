@@ -13,6 +13,14 @@
     "link": "/summary/"
   },
   "layout": "TwoCol",
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "contents": [
     {
       "layout": {
