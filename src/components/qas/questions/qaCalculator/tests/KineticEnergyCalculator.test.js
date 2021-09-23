@@ -31,22 +31,22 @@ test('KineticEnergyCalculator renders with at least two inputs', () => {
   expect(input2).toBeInTheDocument();
 });
 
-test('KECalculator mass input = 10, velocity input = 5 and returns KE = 125 J', async () => {
-  // Arrange
-  const { getByTestId } = render(<QACalculator {...props} />);
-  const input1 = getByTestId(`${inputId}-0`);
-  const input2 = getByTestId(`${inputId}-1`);
-  const equationKE = getByTestId(calcNameId);
-  // Act
-  fireEvent.change(input1, { target: { value: '10' } });
-  fireEvent.change(input2, { target: { value: '5' } });
-  // Assert
-  await waitFor(() => {
-    expect(input1.value).toBe('10');
-    expect(input2.value).toBe('5');
-    expect(equationKE).toHaveTextContent('125 J');
-  });
-});
+// test('KECalculator mass input = 10, velocity input = 5 and returns KE = 125 J', async () => {
+//   // Arrange
+//   const { getByTestId } = render(<QACalculator {...props} />);
+//   const input1 = getByTestId(`${inputId}-0`);
+//   const input2 = getByTestId(`${inputId}-1`);
+//   const equationKE = getByTestId(calcNameId);
+//   // Act
+//   fireEvent.change(input1, { target: { value: '10' } });
+//   fireEvent.change(input2, { target: { value: '5' } });
+//   // Assert
+//   await waitFor(() => {
+//     expect(input1.value).toBe('10');
+//     expect(input2.value).toBe('5');
+//     expect(equationKE).toHaveTextContent('125 J');
+//   });
+// });
 
 // test('KineticEnergyCalculator only accepts numbers as inputs', async () => {
 //   // Arrange
