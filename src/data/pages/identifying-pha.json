@@ -49,7 +49,7 @@
           "labelPost": ".",
           "srLabel": "...",
           "answerAccessor": "select",
-          "placeholder": "Select a type",
+          "placeholder": "Select",
           "options": [
             { "label": "increase", "value": "increase" },
             { "label": "decrease", "value": "decrease" },

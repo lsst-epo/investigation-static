@@ -48,7 +48,7 @@
           "labelPost": "than smaller asteroids.",
           "srLabel": "...",
           "answerAccessor": "select",
-          "placeholder": "Select a type",
+          "placeholder": "Select",
           "options": [
             { "label": "dimmer", "value": "dimmer" },
             { "label": "brighter", "value": "brighter" }

@@ -10,7 +10,7 @@
     "link": "/close-to-earth-4/"
   },
   "layout": "TwoCol",
-  "content": "<p>Most asteroids orbit the Sun between the planets Mars and Jupiter, but some have orbits closer to Earth. The diagram at right shows the orbits of three asteroids and the inner planets. In the diagram at right, click on the names of three different asteroids (Amor, Apollo, and Atira) to see their orbits.</p><p>Note: you can scroll to zoom in and out, and right click and drag to change the location of the objects in the window.</p>",
+  "content": "<p>Most asteroids orbit the Sun between the planets Mars and Jupiter, but some have orbits closer to Earth. The diagram at right shows the orbits of three asteroids and the Earth. Click on the names of the asteroids (Amor, Apollo, and Atira) to see their orbits.</p><p>Note: you can scroll to zoom in and out, and right click and drag to change the location of the objects in the window.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
