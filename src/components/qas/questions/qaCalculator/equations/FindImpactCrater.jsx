@@ -6,7 +6,6 @@ import {
   addTheCommas,
   toSigFigs,
   scientificNotation,
-  renderDef,
 } from '../../../../../lib/utilities.js';
 import { QACalculatorIcon, QACalculatorIconUnit } from '../qQaCalculatorIcons';
 import {
@@ -36,13 +35,17 @@ export default function FindImpactCrater(props) {
     <div className={findImpactCraterEquation} data-testid="qa-calc-impact">
       <p>
         <span className={boldText}>KE = </span>
-        <span
-          className={`highlight ${color}`}
-          dangerouslySetInnerHTML={renderDef(
-            scientificNotation(+kineticEnergy, 3)
-          )}
-        ></span>
-        <QACalculatorIconUnit unit="kineticEnergy" />
+        {kineticEnergy ? (
+          <>
+            <span
+              className={`highlight ${color}`}
+              dangerouslySetInnerHTML={scientificNotation(+kineticEnergy, 3)}
+            ></span>
+            <QACalculatorIconUnit unit="kineticEnergy" />
+          </>
+        ) : (
+          <span>?</span>
+        )}
       </p>
       <div>
         <p className={boldText}>Crater Diameter:</p>

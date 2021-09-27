@@ -5,7 +5,6 @@ import { QACalculatorIconUnit } from '../qQaCalculatorIcons.jsx';
 import {
   addTheCommas,
   scientificNotation,
-  renderDef,
 } from '../../../../../lib/utilities.js';
 import {
   equation,
@@ -30,9 +29,7 @@ export default function FindKineticEnergy(props) {
       <span className={`highlight ${color}`}>
         {mass ? (
           <>
-            <span
-              dangerouslySetInnerHTML={renderDef(scientificNotation(mass, 3))}
-            />
+            <span dangerouslySetInnerHTML={scientificNotation(mass, 3)} />
             <QACalculatorIconUnit tiny unit="mass" />
           </>
         ) : (
@@ -54,16 +51,14 @@ export default function FindKineticEnergy(props) {
       <span>= </span>
       <span className={`highlight ${color}`}>
         {kineticEnergy ? (
-          <span>
+          <>
             <span
-              dangerouslySetInnerHTML={renderDef(
-                scientificNotation(+kineticEnergy, 3)
-              )}
+              dangerouslySetInnerHTML={scientificNotation(+kineticEnergy, 3)}
             ></span>
             <QACalculatorIconUnit unit="kineticEnergy" />
-          </span>
+          </>
         ) : (
-          '?'
+          <span>?</span>
         )}
       </span>
     </p>
