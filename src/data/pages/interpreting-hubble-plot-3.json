@@ -2,11 +2,11 @@
   "id": "expand7",
   "investigation": "expanding-universe",
   "order": "07",
-  "title": "Interpreting a Hubble Plot",
+  "title": "Gathering the Data for a Hubble Plot - Galaxy 4",
   "slug": "interpreting-a-hubble-plot-3/",
   "previous": {
     "title": "Interpreting a Hubble Plot",
-    "link": "/interpreting-a-hubble-plot-2/"
+    "link": "/interpreting-a-hubble-plot-1_4/"
   },
   "next": {
     "title": "Determining the Hubble Constant",
@@ -17,8 +17,8 @@
   "widgets": [
     {
       "type": "HubblePlot",
+      "source": "/data/galaxies/galaxy_selector.json",
       "options": {
-        "showUserPlot": "252",
         "preSelected": true,
         "qaReview": false,
         "domain": [[0, 700], [0, 50000]]

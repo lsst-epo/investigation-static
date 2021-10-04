@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import isEmpty from 'lodash/isEmpty';
 import isArray from 'lodash/isArray';
 import API from '../lib/API.js';
@@ -18,20 +19,42 @@ class HubblePlotContainer extends React.PureComponent {
 
   componentDidMount() {
     const {
-      widget: { source },
+      widget: { source, sources },
       options,
       answers,
     } = this.props;
 
-    API.get(source).then(response => {
-      const responseData = isArray(response.data) ? response.data : [];
+    if (source) {
+      API.get(source).then(response => {
+        const responseData = isArray(response.data) ? response.data : [];
 
-      const data = getHubblePlotData(responseData, options, answers);
+        const data = getHubblePlotData(responseData, options, answers);
 
-      this.setState(prevState => ({
-        ...prevState,
-        data,
-      }));
+        this.setState(prevState => ({
+          ...prevState,
+          data,
+        }));
+      });
+    } else if (sources) {
+      axios.all(this.allGets(sources)).then(
+        axios.spread((...responses) => {
+          const data = responses.map(reponse => {
+            const { data: rData } = reponse;
+            return rData;
+          });
+
+          this.setState(prevState => ({
+            ...prevState,
+            data,
+          }));
+        })
+      );
+    }
+  }
+
+  allGets(sources) {
+    return sources.map(source => {
+      return API.get(source);
     });
   }
 

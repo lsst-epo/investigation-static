@@ -13,13 +13,12 @@
   "widgets": [
     {
       "type": "HubblePlot",
-      "source": "/data/galaxies/large_hubble_sample.json",
+      "sources": ["/data/galaxies/large_hubble_sample.json", "/data/galaxies/galaxy_selector.json"],
       "layout": {
         "col": "right",
         "row": "bottom"
       },
       "options": {
-        "showUserPlot": "252",
         "preSelected": true,
         "multiple": true,
         "hubbleConstant": 65.7,
