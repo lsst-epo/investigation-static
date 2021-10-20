@@ -155,6 +155,7 @@ nav {
 
 .hubble-plot-container {
   padding: $minPadding $minPadding $minPadding 80px;
+  overflow: hidden;
 }
 
 .toolbar-buttons {

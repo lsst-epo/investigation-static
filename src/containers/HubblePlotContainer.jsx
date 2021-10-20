@@ -49,6 +49,13 @@ class HubblePlotContainer extends React.PureComponent {
           }));
         })
       );
+    } else {
+      const data = getHubblePlotData([], options, answers);
+
+      this.setState(prevState => ({
+        ...prevState,
+        data,
+      }));
     }
   }
 

@@ -17,8 +17,8 @@
   "widgets": [
     {
       "type": "HubblePlot",
-      "source": "/data/galaxies/galaxy_selector.json",
       "options": {
+        "showUserPlot": "252",
         "userTrendline": "7",
         "required": ["7"],
         "domain": [[0, 700], [0, 50000]],
