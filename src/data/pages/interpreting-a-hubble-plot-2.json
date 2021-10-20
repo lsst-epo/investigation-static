@@ -1,19 +1,18 @@
 {
-  "id": "expand6_4",
+  "id": "expand6_5",
   "investigation": "expanding-universe",
-  "order": "06.4",
-  "title": "Gathering the Data for a Hubble Plot - Galaxy 4",
-  "slug": "interpreting-a-hubble-plot-1_4/",
+  "order": "06.5",
+  "title": "Constructing a Hubble Plot",
+  "slug": "interpreting-a-hubble-plot-2/",
   "previous": {
-    "title": "Gathering the Data for a Hubble Plot - Galaxy 3",
-    "link": "/interpreting-a-hubble-plot-1_3/"
+    "title": "Interpreting a Hubble Plot",
+    "link": "/interpreting-a-hubble-plot-1_4/"
   },
   "next": {
-    "title": "Constructing a Hubble plot",
-    "link": "/interpreting-a-hubble-plot-2/"
+    "title": "Determining the Hubble Constant",
+    "link": "/interpreting-a-hubble-plot-3/"
   },
   "layout": "TwoCol",
-  "content": "",
   "tables": [
     {
       "id": "1",
@@ -46,13 +45,11 @@
   ],
   "widgets": [
     {
-      "type": "GalaxySupernovaSelector",
+      "type": "HubblePlotter",
       "source": "/data/galaxies/galaxy_selector.json",
       "options": {
-        "autoplay": true,
-        "preSelectedId": "ZTF20acxzkkf",
-        "toggleDataPointsVisibility": "353",
-        "qaReview": false
+        "createUserHubblePlot": "252",
+        "domain": [[0, 700], [0, 50000]]
       }
     }
   ],
@@ -60,11 +57,13 @@
     {
       "question": [
         {
-          "id": "353",
+          "id": "252",
           "questionType": "accordion",
+          "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it.</p>",
-          "answerAccessor": "galaxySupernova"
+          "label": "<p>Click on the plot to add a dot at a location that is close to your measured values for each Galaxy. You can adjust the location of a dot by clicking and dragging it to the desired location. You can also zoom on the plot for more accurate point placement.</p>",
+          "answerPre": "",
+          "answerAccessor": "hubblePlot"
         }
       ]
     }
