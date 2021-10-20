@@ -61,7 +61,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Click on the plot to add a dot at a location that is close to your measured values for each Galaxy. You can adjust the location of a dot by clicking and dragging it to the desired location. You can also zoom on the plot for more accurate point placement.</p>",
+          "label": "<p>Click on the plot to add a dot at a location that is close to your measured values for each galaxy. You can adjust the location of a dot by clicking and dragging it to the desired location. You can also zoom on the plot for more accurate point placement.</p>",
           "answerPre": "",
           "answerAccessor": "hubblePlot"
         }
