@@ -29,6 +29,20 @@
 [![Hazardous Asteroids Status](https://api.netlify.com/api/v1/badges/19861625-40ab-44c8-8da0-a51f94878957/deploy-status)](https://app.netlify.com/sites/hazardousasteroids/deploys)
 
 
+# Before You Get Started
+
+If you are developing on an M1 Apple computer the following commands all need to be run with Rosetta 2.  To run a specific command using Rosetta:
+`arch -x86_64 <command>`
+Or to totally switch zsh to Rosetta so that all subsequent commands run in that tab are run by Rosetta:
+`arch -x86_64 zsh --login`
+and then to switch back to M1:
+`arch -arm64 zsh --login`
+
+Check your architecture:
+`arch` or `machine`
+`i486` or `i386` means Intel
+`arm64` or `arm64e` means M1
+
 # Getting Started
 
 We use `nodenv` to manage node versions, as such the target node version can be found in the `.node-version` file in the root of the project.

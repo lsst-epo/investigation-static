@@ -9,6 +9,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import favicon from '../images/favicon.ico';
+import appleIcon from '../images/apple-touch-icon.png';
+import faviconSmall from '../images/favicon-16x16.png';
+import faviconLarge from '../images/Rubin-favicon-32px.png';
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -67,21 +71,27 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link rel="icon" type="image/png" sizes="16x16" href={favicon} />
+      <link rel="apple-touch-icon" sizes="180x180" href={appleIcon} />
+      <link rel="icon" type="image/png" sizes="32x32" href={faviconLarge} />
+      <link rel="icon" type="image/png" sizes="16x16" href={faviconSmall} />
+    </Helmet>
   );
 }
 
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
+  title: `Vera C. Rubin Observatory Educational Investigation`,
+  description: `Rubin formal education investigation`,
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default SEO;
