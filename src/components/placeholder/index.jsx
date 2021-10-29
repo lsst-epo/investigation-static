@@ -1,26 +1,7 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 
-const Image = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "placeholder.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 500) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
-  return (
-    <Img
-      fluid={data.placeholderImage.childImageSharp.fluid}
-      alt="Placeholder"
-    />
-  );
+const Placeholder = () => {
+  return <img src="placeholder.jpg" alt="Placeholder" />;
 };
 
-export default Image;
+export default Placeholder;

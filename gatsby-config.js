@@ -57,23 +57,23 @@ module.exports = {
         },
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#087f80`,
-        theme_color: `#087f80`,
-        display: `minimal-ui`,
-        icon:
-          process.env.INVESTIGATION !== `ngss-solar-system`
-            ? `src/images/Rubin-favicon-32px.png`
-            : `src/images/placeholder.jpg`, // This path is relative to the root of the site.
-      },
-    },
+    // `gatsby-transformer-sharp`,
+    // `gatsby-plugin-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `gatsby-starter-default`,
+    //     short_name: `starter`,
+    //     start_url: `/`,
+    //     background_color: `#087f80`,
+    //     theme_color: `#087f80`,
+    //     display: `minimal-ui`,
+    //     icon:
+    //       process.env.INVESTIGATION !== `ngss-solar-system`
+    //         ? `src/images/Rubin-favicon-32px.png`
+    //         : `src/images/placeholder.jpg`, // This path is relative to the root of the site.
+    //   },
+    // },
     // {
     //   resolve: 'gatsby-source-graphql',
     //   options: {
