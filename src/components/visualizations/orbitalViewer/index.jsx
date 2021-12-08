@@ -50,7 +50,7 @@ function OrbitalViewer({
   }, [reset]);
 
   const handleStepSelect = e => {
-    setDayPerVizSec(e.target.value);
+    setDayPerVizSec(+e.target.value);
   };
 
   const handleReset = () => {

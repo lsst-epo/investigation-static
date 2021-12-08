@@ -13,7 +13,7 @@ const earth = {
   orbitColor: '#83e570',
   objectColor: '#3cae3F',
   // objectRadius: 6371000,
-  objectRadius: 4,
+  objectRadius: 5,
 };
 
 const jupiter = {

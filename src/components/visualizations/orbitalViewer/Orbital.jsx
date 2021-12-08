@@ -233,11 +233,11 @@ const Orbital = ({
           )}
           <sphereBufferGeometry
             attach="geometry"
-            args={[objectRadius || 2, 10, 10]}
+            args={[objectRadius || 4, 10, 10]}
           />
           <meshBasicMaterial
             attach="material"
-            color={active ? '#F88B8B' : objectColor || '#CEB3DB'}
+            color={active ? '#F88B8B' : objectColor || '#01bbbc'}
           />
         </mesh>
         {devMode && (
