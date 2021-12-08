@@ -113,6 +113,37 @@
     {
       "question": [
         {
+          "id": "18",
+          "questionType": "select",
+          "title": "Question #1",
+          "label": "Size of the orbit: ",
+          "options": [
+            {
+              "label": "All of the orbits are within the inner Solar System (between 0.5 - 4 au).",
+              "value": "Within inner Solar System (between 0.5 - 4 au)"
+            },
+            {
+              "label": "All of the orbits are within the inner Solar System (between 1.5 - 5.2 au).",
+              "value": "Within inner Solar System (between 1.5 - 5.2 au)"
+            },
+            {
+              "label": "All of the orbits are located in the outer Solar System beyond the orbit of Jupiter (greater than 5.2 au).",
+              "value": "In the outer Solar System"
+            },
+            {
+              "label": "The orbit sizes span both the inner and outer Solar System.",
+              "value": "Span inner and outer Solar System"
+            }
+          ],
+          "placeholder": "Select best description of comets",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
           "id": "16",
           "questionType": "select",
           "title": "Question #1",
@@ -179,37 +210,6 @@
             {
               "label": "A significant number of objects (more than 10%) orbit the Sun in the opposite direction of Earth’s orbit, i >90 ",
               "value": "More than 10% are opposite direction as Earth’s"
-            }
-          ],
-          "placeholder": "Select best description of comets",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "18",
-          "questionType": "select",
-          "title": "Question #1",
-          "label": "Size of the orbit: ",
-          "options": [
-            {
-              "label": "All of the orbits are within the inner Solar System (between 0.5 - 4 au).",
-              "value": "Within inner Solar System (between 0.5 - 4 au)"
-            },
-            {
-              "label": "All of the orbits are within the inner Solar System (between 1.5 - 5.2 au).",
-              "value": "Within inner Solar System (between 1.5 - 5.2 au)"
-            },
-            {
-              "label": "All of the orbits are located in the outer Solar System beyond the orbit of Jupiter (greater than 5.2 au).",
-              "value": "In the outer Solar System"
-            },
-            {
-              "label": "The orbit sizes span both the inner and outer Solar System.",
-              "value": "Span inner and outer Solar System"
             }
           ],
           "placeholder": "Select best description of comets",
