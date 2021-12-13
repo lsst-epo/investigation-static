@@ -67,6 +67,9 @@ class PageContainer extends React.PureComponent {
     return contents;
   }
 
+  getQuestions = questions =>
+    questions ? [{ questions, layout: { row: 'middle', col: 'left' } }] : null;
+
   getQuestionsWithNumbers = (questionNumbers, questions) => {
     if (!questions || !questionNumbers) return [];
 
@@ -123,6 +126,7 @@ class PageContainer extends React.PureComponent {
       <div className="container-page">
         <Tag
           contents={this.getContents(content, contents)}
+          questions={this.getQuestions(questions)}
           {...{
             id,
             layout,
@@ -136,7 +140,6 @@ class PageContainer extends React.PureComponent {
             videos,
             answers,
             shared,
-            questions,
           }}
         />
         <PageNav

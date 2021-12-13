@@ -10,7 +10,7 @@ import {
   gridCopyBottom,
 } from '../page.module.scss';
 
-class Content extends React.PureComponent {
+class ContentBlock extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -34,9 +34,9 @@ class Content extends React.PureComponent {
   }
 }
 
-Content.propTypes = {
+ContentBlock.propTypes = {
   block: PropTypes.object,
   row: PropTypes.string,
 };
 
-export default Content;
+export default ContentBlock;
