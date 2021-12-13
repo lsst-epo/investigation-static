@@ -6,6 +6,7 @@ import VideoBlock from './VideoBlock';
 import TableBlock from './TableBlock';
 import ContentBlock from './ContentBlock';
 import CheckpointBlock from './CheckpointBlock';
+import QuestionBlock from './QuestionBlock';
 
 class Blocks extends React.PureComponent {
   constructor(props) {
@@ -18,6 +19,7 @@ class Blocks extends React.PureComponent {
       table: TableBlock,
       content: ContentBlock,
       checkpoint: CheckpointBlock,
+      question: QuestionBlock,
     };
   }
 

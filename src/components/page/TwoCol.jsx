@@ -2,13 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import find from 'lodash/find';
-import QAs from '../qas';
 import BlocksLayout from './blocks/BlocksLayout.jsx';
 import Placeholder from '../placeholder';
 import {
   leftColGrid,
   gridTitle,
-  gridQas,
   rightColGrid,
   gridPlaceholder,
 } from './page.module.scss';
@@ -68,6 +66,10 @@ class TwoCol extends React.PureComponent {
         type: 'checkpoint',
         blocks: checkpoints,
       },
+      {
+        type: 'question',
+        blocks: questions,
+      },
     ];
 
     return (
@@ -93,11 +95,6 @@ class TwoCol extends React.PureComponent {
               }}
               {...{ blocksGroups, blockShared }}
             />
-            {questions && (
-              <div className={gridQas}>
-                <QAs {...blockShared} />
-              </div>
-            )}
             {/* Bottom Left */}
             <BlocksLayout
               layout={{

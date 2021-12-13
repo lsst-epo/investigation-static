@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QAs from '../qas';
 import BlocksLayout from './blocks/BlocksLayout.jsx';
 
-import { singleColGrid, gridTitle, gridQas } from './page.module.scss';
+import { singleColGrid, gridTitle } from './page.module.scss';
 
 class Page extends React.PureComponent {
   render() {
@@ -52,6 +51,10 @@ class Page extends React.PureComponent {
         type: 'checkpoint',
         blocks: checkpoints,
       },
+      {
+        type: 'question',
+        blocks: questions,
+      },
     ];
 
     return (
@@ -73,11 +76,6 @@ class Page extends React.PureComponent {
           }}
           {...{ blocksGroups, defaultLayout, blockShared }}
         />
-        {questions && (
-          <div className={gridQas}>
-            <QAs {...blockShared} />
-          </div>
-        )}
         {/* Bottom */}
         <BlocksLayout
           layout={{
