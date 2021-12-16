@@ -122,11 +122,40 @@ class PageContainer extends React.PureComponent {
       questionsByPage,
     };
 
+    const blocksGroups = [
+      {
+        type: 'image',
+        blocks: images,
+      },
+      {
+        type: 'video',
+        blocks: videos,
+      },
+      {
+        type: 'content',
+        blocks: this.getContents(content, contents),
+      },
+      {
+        type: 'widget',
+        blocks: widgets,
+      },
+      {
+        type: 'table',
+        blocks: tables,
+      },
+      {
+        type: 'checkpoint',
+        blocks: checkpoints,
+      },
+      {
+        type: 'question',
+        blocks: this.getQuestions(questions),
+      },
+    ];
+
     return (
       <div className="container-page">
         <Tag
-          contents={this.getContents(content, contents)}
-          questions={this.getQuestions(questions)}
           {...{
             id,
             layout,
@@ -134,12 +163,12 @@ class PageContainer extends React.PureComponent {
             previous,
             next,
             widgets,
-            checkpoints,
             tables,
             images,
             videos,
             answers,
             shared,
+            blocksGroups,
           }}
         />
         <PageNav
