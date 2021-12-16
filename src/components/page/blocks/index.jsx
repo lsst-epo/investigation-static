@@ -23,51 +23,28 @@ class Blocks extends React.PureComponent {
     };
   }
 
-  getLayout(defaultLayout, layout) {
-    if (layout) {
-      const row = layout.row || defaultLayout.row;
-      const col = layout.col || defaultLayout.col;
-
-      return { row, col };
-    }
-
-    return defaultLayout;
-  }
-
   render() {
-    const {
-      getRow,
-      getCol,
-      blocks,
-      blockShared,
-      defaultLayout,
-      type,
-    } = this.props;
+    const { getRow, getCol, blocks, blockShared, type } = this.props;
 
     return blocks.map((block, i) => {
-      const { layout } = block;
-      const { row, col } = this.getLayout(defaultLayout, layout);
+      const BlockTag = this.blockTags[type];
+      const key = `${type}_${i}`;
 
-      if (getCol === col && getRow === row) {
-        const BlockTag = this.blockTags[type];
-        const key = `${type}_${i}`;
-
-        return <BlockTag key={key} {...{ blockShared, block, row, col }} />;
-      }
-      return null;
+      return (
+        <BlockTag
+          key={key}
+          {...{ blockShared, block, row: getRow, col: getCol }}
+        />
+      );
     });
   }
 }
 
-Blocks.defaultProps = {
-  defaultLayout: { col: 'right', row: 'bottom' },
-};
-
 Blocks.propTypes = {
+  key: PropTypes.string,
   type: PropTypes.string,
   blocks: PropTypes.array,
   blockShared: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  defaultLayout: PropTypes.object,
   getRow: PropTypes.string,
   getCol: PropTypes.string,
 };
