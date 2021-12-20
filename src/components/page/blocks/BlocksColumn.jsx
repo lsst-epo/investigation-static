@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Blocks from './index.jsx';
+import Block from './index.jsx';
 
 function BlocksColumn({
-  getCol,
+  col,
   blocksGroups,
   defaultLayout,
   blockShared,
@@ -11,47 +11,46 @@ function BlocksColumn({
 }) {
   const getLayout = layout => {
     if (layout) {
-      const row = layout.row || defaultLayout.row;
-      const col = layout.col || defaultLayout.col;
+      const blockRow = layout.row || defaultLayout.row;
+      const blockCol = layout.col || defaultLayout.col;
 
-      return { row, col };
+      return { row: blockRow, col: blockCol };
     }
 
     return defaultLayout;
   };
 
-  const isInLayout = (layout, getRow) => {
-    const { row, col } = getLayout(layout);
+  const isInLayout = (layout, row) => {
+    const blockLayout = getLayout(layout);
 
-    return getCol === col && getRow === row;
+    return blockLayout.col === col && blockLayout.row === row;
   };
 
-  const getRowBlockGroups = getRow =>
-    blocksGroups
-      .reduce((result, blockGroup) => {
-        if (blockGroup.blocks) {
-          result.push({
-            ...blockGroup,
-            blocks: blockGroup.blocks.filter(block => {
-              return isInLayout(block.layout, getRow);
-            }),
-          });
-        }
+  const getRowBlockGroups = row =>
+    blocksGroups.reduce((result, blocksGroup) => {
+      const { blocks } = blocksGroup;
+      const filteredBlocksGroup = {
+        ...blocksGroup,
+        blocks: blocks.filter(block => isInLayout(block.layout, row)),
+      };
 
-        return result;
-      }, [])
-      .filter(blockGroup => blockGroup.blocks.length > 0);
+      if (filteredBlocksGroup.blocks.length > 0) {
+        result.push(filteredBlocksGroup);
+      }
 
-  return blockRows.map(getRow => {
-    const rowBlockGroups = getRowBlockGroups(getRow);
+      return result;
+    }, []);
+
+  return blockRows.map(row => {
+    const rowBlockGroups = getRowBlockGroups(row);
 
     return rowBlockGroups.map((rowBlockGroup, i) => {
       const { type, blocks } = rowBlockGroup;
-      const key = `${type}-${getRow}-${getCol}-${i}`;
+      const key = `${type}-${row}-${col}-${i}`;
 
       return (
         blocks && (
-          <Blocks {...{ key, blocks, type, blockShared, getRow, getCol }} />
+          <Block key={key} {...{ blocks, type, blockShared, row, col }} />
         )
       );
     });
@@ -59,7 +58,7 @@ function BlocksColumn({
 }
 
 BlocksColumn.propTypes = {
-  getCol: PropTypes.string,
+  col: PropTypes.string,
   blockShared: PropTypes.object,
   blockRows: PropTypes.array,
   blocksGroups: PropTypes.array,

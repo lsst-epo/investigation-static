@@ -61,6 +61,9 @@ class PageContainer extends React.PureComponent {
     return true;
   };
 
+  getBlocksGroups = blocksGroups =>
+    blocksGroups.filter(blocksGroup => blocksGroup.blocks);
+
   getContents(content, contents) {
     if (content && contents) return [{ content }, ...contents];
     if (content) return [{ content, layout: { row: 'middle', col: 'left' } }];
@@ -156,6 +159,7 @@ class PageContainer extends React.PureComponent {
     return (
       <div className="container-page">
         <Tag
+          blocksGroups={this.getBlocksGroups(blocksGroups)}
           {...{
             id,
             layout,
@@ -168,7 +172,6 @@ class PageContainer extends React.PureComponent {
             videos,
             answers,
             shared,
-            blocksGroups,
           }}
         />
         <PageNav
