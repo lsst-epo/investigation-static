@@ -20,7 +20,7 @@ class Page extends React.PureComponent {
       <div className={singleColGrid}>
         <h1 className={`space-bottom section-title ${gridTitle}`}>{title}</h1>
         <BlocksColumn
-          getCol="left"
+          col="left"
           {...{ blocksGroups, defaultLayout, blockShared }}
         />
       </div>

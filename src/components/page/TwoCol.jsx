@@ -47,11 +47,11 @@ class TwoCol extends React.PureComponent {
             <h1 className={`space-bottom section-title ${gridTitle}`}>
               {title}
             </h1>
-            <BlocksColumn getCol="left" {...{ blocksGroups, blockShared }} />
+            <BlocksColumn col="left" {...{ blocksGroups, blockShared }} />
           </div>
         </div>
         <div className={`col padded col-width-50 col-fixed ${rightColGrid}`}>
-          <BlocksColumn getCol="right" {...{ blocksGroups, blockShared }} />
+          <BlocksColumn col="right" {...{ blocksGroups, blockShared }} />
           {this.isPosEmpty({ col: 'right' }, [
             ...(tables || []),
             ...(images || []),
