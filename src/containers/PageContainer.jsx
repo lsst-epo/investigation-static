@@ -166,10 +166,6 @@ class PageContainer extends React.PureComponent {
             title,
             previous,
             next,
-            widgets,
-            tables,
-            images,
-            videos,
             answers,
             shared,
           }}
