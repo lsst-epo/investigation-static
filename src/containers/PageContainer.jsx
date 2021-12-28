@@ -112,6 +112,7 @@ class PageContainer extends React.PureComponent {
       videos,
       tables,
       questionsByPage,
+      reference,
     } = data.allPagesJson.nodes[0];
     const { env } = pageContext || {};
     const Tag = this.layouts[layout || 'default'];
@@ -168,6 +169,7 @@ class PageContainer extends React.PureComponent {
             next,
             answers,
             shared,
+            reference,
           }}
         />
         <PageNav
@@ -220,6 +222,9 @@ export const query = graphql`
         }
         questionsByPage {
           ...Question
+        }
+        reference {
+          ...Reference
         }
       }
     }

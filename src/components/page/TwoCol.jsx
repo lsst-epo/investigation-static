@@ -2,11 +2,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BlocksColumn from './blocks/BlocksColumn.jsx';
+import Reference from '../reference';
 import { leftColGrid, gridTitle, rightColGrid } from './page.module.scss';
 
 class TwoCol extends React.PureComponent {
   render() {
-    const { title, questions, answers, shared, blocksGroups } = this.props;
+    const {
+      title,
+      questions,
+      answers,
+      shared,
+      blocksGroups,
+      reference,
+    } = this.props;
 
     const blockShared = {
       questions,
@@ -25,6 +33,7 @@ class TwoCol extends React.PureComponent {
           </div>
         </div>
         <div className={`col padded col-width-50 col-fixed ${rightColGrid}`}>
+          {reference && <Reference {...{ reference }} />}
           <BlocksColumn col="right" {...{ blocksGroups, blockShared }} />
         </div>
       </div>
@@ -38,6 +47,7 @@ TwoCol.propTypes = {
   questions: PropTypes.array,
   answers: PropTypes.object,
   shared: PropTypes.object,
+  reference: PropTypes.object,
 };
 
 export default TwoCol;

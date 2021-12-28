@@ -19,6 +19,7 @@ import menu from './Menu';
 import more from './More';
 import pause from './Pause';
 import play from './Play';
+import questionMark from './QuestionMark';
 import replay from './Replay';
 import rewind from './Rewind';
 import scatterPlot from './ScatterPlot';
@@ -47,6 +48,7 @@ const icons = {
   more,
   pause,
   play,
+  questionMark,
   replay,
   rewind,
   scatterPlot,

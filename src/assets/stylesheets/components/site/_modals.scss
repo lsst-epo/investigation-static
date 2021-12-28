@@ -1,0 +1,44 @@
+.modal-container {
+  .close-button {
+    svg {
+      fill: $white;
+    }
+  }
+
+  .modal {
+    @include modal;
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: $minPadding;
+      background-color: $basePrimary;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+
+      h1 {
+        margin: 0;
+        font-weight: $bold;
+        color: $white;
+      }
+    }
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      min-height: 20vh;
+      padding: $minPadding;
+      background-color: $white;
+      border-bottom-right-radius: 2rem;
+      border-bottom-left-radius: 2rem;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: auto;
+    }
+  }
+}
