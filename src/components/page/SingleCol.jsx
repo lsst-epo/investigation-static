@@ -44,4 +44,5 @@ Page.propTypes = {
   questions: PropTypes.array,
   answers: PropTypes.object,
   shared: PropTypes.object,
+  reference: PropTypes.object,
 };
