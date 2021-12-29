@@ -1,5 +1,7 @@
 .modal-container {
   .close-button {
+    margin-left: auto;
+
     svg {
       fill: $white;
     }
@@ -8,14 +10,30 @@
   .modal {
     @include modal;
 
+    @each $size, $width in $modal-sizes {
+      &.modal-#{$size} {
+        .modal-dialog {
+          max-width: $width;
+        }
+      }
+    }
+
+    .modal-dialog {
+      width: 100%;
+      max-width: $modal-width;
+      margin: $minPadding;
+      background-color: $white;
+      border-radius: $minPadding;
+    }
+
     .modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: $minPadding;
       background-color: $basePrimary;
-      border-top-left-radius: 2rem;
-      border-top-right-radius: 2rem;
+      border-top-left-radius: $minPadding;
+      border-top-right-radius: $minPadding;
 
       h1 {
         margin: 0;
@@ -28,10 +46,10 @@
       display: flex;
       flex-direction: column;
       min-height: 20vh;
+      max-height: 60vh;
       padding: $minPadding;
-      background-color: $white;
-      border-bottom-right-radius: 2rem;
-      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: $minPadding;
+      border-bottom-left-radius: $minPadding;
     }
 
     footer {

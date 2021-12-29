@@ -237,10 +237,4 @@
   &.is-open {
     display: flex;
   }
-
-  .modal-inner {
-    width: 100%;
-    max-width: 900px;
-    margin: $minPadding;
-  }
 }

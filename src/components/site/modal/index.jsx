@@ -51,23 +51,22 @@ function Modal({
   useOnClickOutside(modalRef, handleClose);
 
   return (
-    <div
-      className={classnames(
-        { 'modal-container': true, 'is-open': isOpen },
-        classes
-      )}
-    >
+    <div className={classnames({ 'modal-container': true, 'is-open': isOpen })}>
       <Button {...openButtonOpts} onClick={handleOpen} />
       <div
         role="dialog"
         aria-modal
         aria-labelledby={labelledbyId}
         aria-describedby={describedbyId}
-        className={classnames('modal', {
-          'is-open': isOpen,
-        })}
+        className={classnames(
+          {
+            modal: true,
+            'is-open': isOpen,
+          },
+          classes
+        )}
       >
-        <div ref={modalRef} className="modal-inner">
+        <div ref={modalRef} className="modal-dialog" role="document">
           <header className="modal-header">
             {title && <h1 className="modal-title">{title}</h1>}
             <Button

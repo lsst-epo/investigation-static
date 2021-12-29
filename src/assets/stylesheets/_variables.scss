@@ -10,7 +10,7 @@ $lightBlue: #bee7f5;
 $mediumBlue: #2979c1;
 $darkBlue: #074a9c;
 $brightGreen: #01bbbc;
-$mediumGreen: #058B8C;
+$mediumGreen: #058b8c;
 $ral5018HR: #087f80;
 $boldRed: #df0039;
 
@@ -35,7 +35,6 @@ $basePrimary: $ral5018HR;
 $baseSecondaryLight: $lightBlue;
 $baseSecondary: $mediumBlue;
 $baseSecondaryDark: $darkBlue;
-
 
 $baseColors: (
   'primary': $basePrimary,
@@ -100,7 +99,8 @@ $chart6: $acPurple;
 $chart7: $mediumGreen;
 $chart8: $brightGreen;
 
-$chartColors: $chart0 $chart6 $chart5 $chart4 $chart3 $chart2 $chart1 $chart7 $chart8;
+$chartColors: $chart0 $chart6 $chart5 $chart4 $chart3 $chart2 $chart1 $chart7
+  $chart8;
 
 :export {
   @for $i from 0 through length($chartColors) - 1 {
@@ -165,7 +165,7 @@ $verticalSpace: $baseLineHeight * 1em;
 $headingWithSpaceHeight: 90px;
 $tallestSquareWidget: calc(
   100vh - #{$pageNavHeight} - #{$siteHeaderHeight} - #{$headingWithSpaceHeight} -
-  #{$minPadding}
+    #{$minPadding}
 );
 
 // $durationFast: 0.1s;
@@ -173,6 +173,13 @@ $duration: 0.2s;
 $durationSlow: 0.4s;
 $durationSuperSlow: 1s;
 $timing: ease;
+
+$modal-width: 500px;
+$modal-sizes: (
+  'sm': 300px,
+  'lg': 800px,
+  'xl': 1140px,
+);
 
 // Font Weights
 // --------------------------------------------------------

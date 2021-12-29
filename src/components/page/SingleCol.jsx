@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BlocksColumn from './blocks/BlocksColumn.jsx';
-
+import Reference from '../reference';
 import { singleColGrid, gridTitle } from './page.module.scss';
 
 class Page extends React.PureComponent {
   render() {
-    const { title, questions, answers, shared, blocksGroups } = this.props;
+    const {
+      title,
+      questions,
+      answers,
+      shared,
+      blocksGroups,
+      reference,
+    } = this.props;
 
     const blockShared = {
       questions,
@@ -18,6 +25,7 @@ class Page extends React.PureComponent {
 
     return (
       <div className={singleColGrid}>
+        {reference && <Reference {...{ reference }} />}
         <h1 className={`space-bottom section-title ${gridTitle}`}>{title}</h1>
         <BlocksColumn
           col="left"

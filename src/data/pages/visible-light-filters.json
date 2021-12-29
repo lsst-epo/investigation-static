@@ -39,15 +39,6 @@
         "col": "right",
         "row": "top"
       }
-    },
-    {
-      "mediaPath": "/images/wavelengths-ranges-small.jpg",
-      "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
-      "layout": {
-        "col": "left",
-        "row": "middle"
-      }
     }
   ],
   "questionsByPage": [
@@ -95,5 +86,19 @@
         }
       ]
     }
-  ]
+  ],
+  "reference": {
+    "title": "Test Modal Title",
+    "images": [
+      {
+        "mediaPath": "/images/wavelengths-ranges-small.jpg",
+        "altText": "Wavelength Ranges of Visible Light",
+        "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+        "layout": {
+          "col": "left",
+          "row": "middle"
+        }
+      }
+    ]
+  }
 }

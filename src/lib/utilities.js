@@ -32,6 +32,9 @@ export const getAnswerData = function(answers, id) {
   return !isEmpty(answer) ? answer.data : null;
 };
 
+export const getBlocksGroups = blocksGroups =>
+  blocksGroups.filter(blocksGroup => blocksGroup.blocks);
+
 export const getCompoundQs = function(questions, i) {
   const question = questions[i];
   const { ids } = question;
@@ -51,6 +54,25 @@ export const getCompoundQs = function(questions, i) {
   }
 
   return qs;
+};
+
+export const getContents = (content, contents) => {
+  if (content && contents) return [{ content }, ...contents];
+  if (content) return [{ content, layout: { row: 'middle', col: 'left' } }];
+  return contents;
+};
+
+export const getQuestions = questions =>
+  questions ? [{ questions, layout: { row: 'middle', col: 'left' } }] : null;
+
+export const getQuestionsWithNumbers = (questionNumbers, questions) => {
+  if (!questions || !questionNumbers) return [];
+
+  questions.forEach((question, index) => {
+    question.number = questionNumbers[index];
+  });
+
+  return questions;
 };
 
 export const checkIds = function(ids, id) {
