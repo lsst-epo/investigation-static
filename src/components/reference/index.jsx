@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getBlocksGroups, getContents } from '../../lib/utilities';
 import Modal from '../site/modal';
 import QuestionMark from '../site/icons/QuestionMark';
+import BlocksColumn from '../page/blocks/BlocksColumn';
 
 function Reference({ reference }) {
-  const { modal } = reference;
-  const { title, content } = modal;
+  const { title, images, content, contents, videos, tables } = reference;
 
   const openButtonOpts = {
     iconEl: <QuestionMark />,
@@ -14,26 +15,44 @@ function Reference({ reference }) {
     swapTheming: true,
   };
 
-  const secondaryCloseButtonOpts = {
-    primary: true,
-    swapTheming: true,
-    flat: true,
-  };
+  const blocksGroups = [
+    {
+      type: 'image',
+      blocks: images,
+    },
+    {
+      type: 'video',
+      blocks: videos,
+    },
+    {
+      type: 'content',
+      blocks: getContents(content, contents),
+    },
+    {
+      type: 'table',
+      blocks: tables,
+    },
+  ];
 
-  const renderContent = modalContent => ({ __html: modalContent });
+  const defaultLayout = { col: 'left', row: 'top' };
 
-  // eslint-disable-next-line react/no-danger
-  const modalContent = <div dangerouslySetInnerHTML={renderContent(content)} />;
+  const children = (
+    <BlocksColumn
+      col="left"
+      {...{ blocksGroups: getBlocksGroups(blocksGroups), defaultLayout }}
+    />
+  );
+
+  const classes = 'modal-lg';
 
   return (
     <div className="reference-container">
       <Modal
         {...{
-          children: modalContent,
-          title,
+          children,
+          classes,
           openButtonOpts,
-          secondaryCloseButton: true,
-          secondaryCloseButtonOpts,
+          title,
         }}
       />
     </div>

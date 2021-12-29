@@ -3,6 +3,12 @@ import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { WithQAing } from './WithQAing';
+import {
+  getBlocksGroups,
+  getContents,
+  getQuestions,
+  getQuestionsWithNumbers,
+} from '../lib/utilities';
 import SingleCol from '../components/page/SingleCol.jsx';
 import TwoCol from '../components/page/TwoCol.jsx';
 import PageNav from '../components/pageNav';
@@ -31,7 +37,7 @@ class PageContainer extends React.PureComponent {
 
     this.setState(prevState => ({
       ...prevState,
-      questions: this.getQuestionsWithNumbers(questionNumbers, questions),
+      questions: getQuestionsWithNumbers(questionNumbers, questions),
     }));
 
     this.dispatch.updatePageId(id);
@@ -59,28 +65,6 @@ class PageContainer extends React.PureComponent {
     }
 
     return true;
-  };
-
-  getBlocksGroups = blocksGroups =>
-    blocksGroups.filter(blocksGroup => blocksGroup.blocks);
-
-  getContents(content, contents) {
-    if (content && contents) return [{ content }, ...contents];
-    if (content) return [{ content, layout: { row: 'middle', col: 'left' } }];
-    return contents;
-  }
-
-  getQuestions = questions =>
-    questions ? [{ questions, layout: { row: 'middle', col: 'left' } }] : null;
-
-  getQuestionsWithNumbers = (questionNumbers, questions) => {
-    if (!questions || !questionNumbers) return [];
-
-    questions.forEach((question, index) => {
-      question.number = questionNumbers[index];
-    });
-
-    return questions;
   };
 
   render() {
@@ -137,7 +121,7 @@ class PageContainer extends React.PureComponent {
       },
       {
         type: 'content',
-        blocks: this.getContents(content, contents),
+        blocks: getContents(content, contents),
       },
       {
         type: 'widget',
@@ -153,14 +137,14 @@ class PageContainer extends React.PureComponent {
       },
       {
         type: 'question',
-        blocks: this.getQuestions(questions),
+        blocks: getQuestions(questions),
       },
     ];
 
     return (
       <div className="container-page">
         <Tag
-          blocksGroups={this.getBlocksGroups(blocksGroups)}
+          blocksGroups={getBlocksGroups(blocksGroups)}
           {...{
             id,
             layout,
