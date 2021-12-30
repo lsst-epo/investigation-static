@@ -10,9 +10,20 @@ export const imagesFragment = graphql`
   }
 `;
 
+export const buttonFragment = graphql`
+  fragment Button on PagesJsonReference {
+    button {
+      icon
+      iconEl
+      text
+    }
+  }
+`;
+
 export const referenceFragment = graphql`
   fragment Reference on PagesJsonReference {
     title
+    ...Button
     ...Images
   }
 `;

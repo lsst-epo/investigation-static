@@ -19,6 +19,7 @@ function Modal({
   secondaryCloseButtonOpts,
   classes,
   title,
+  size,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef(null);
@@ -52,7 +53,9 @@ function Modal({
 
   return (
     <div className={classnames({ 'modal-container': true, 'is-open': isOpen })}>
-      <Button {...openButtonOpts} onClick={handleOpen} />
+      <Button {...openButtonOpts} onClick={handleOpen}>
+        {openButtonOpts.text}
+      </Button>
       <div
         role="dialog"
         aria-modal
@@ -62,6 +65,7 @@ function Modal({
           {
             modal: true,
             'is-open': isOpen,
+            [`modal-${size}`]: size,
           },
           classes
         )}
@@ -110,6 +114,7 @@ Modal.propTypes = {
   closeCallback: PropTypes.func,
   closeKey: PropTypes.string,
   classes: PropTypes.string,
+  size: PropTypes.string,
   title: PropTypes.string,
 };
 
