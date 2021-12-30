@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-md';
-import LinearProgress from 'react-md/lib/Progress/LinearProgress';
+import LinearProgress from '../linearProgress';
 import Button from '../button/index';
 import ButtonIcon from '../button/ButtonIcon';
 import Close from '../icons/Close';

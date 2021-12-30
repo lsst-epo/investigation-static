@@ -8,20 +8,11 @@
 
 .progress-bar-wrapper {
   :global {
-    .md-progress {
+    .progress-linear-container {
       position: absolute;
       bottom: 0;
       padding: 0;
       margin: 0;
-
-      &.md-progress--linear {
-        height: 5px;
-        background: $baseSecondary;
-      }
-
-      .md-progress--linear-active {
-        background: $awOrange;
-      }
     }
   }
 }
