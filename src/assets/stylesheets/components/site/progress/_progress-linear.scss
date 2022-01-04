@@ -1,0 +1,11 @@
+.progress-linear-container {
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: $baseSecondary;
+
+  .progress-linear {
+    height: 100%;
+    background: $awOrange;
+  }
+}
