@@ -127,7 +127,7 @@
               "value": "Within inner Solar System (between 1.5 - 5.2 au)"
             },
             {
-              "label": "All of the orbits are located in the outer Solar System beyond the orbit of Jupiter (greater than 5.2 au).",
+              "label": "The orbit sizes are 30 au or larger, and objects typically orbit beyond Neptune.",
               "value": "In the outer Solar System"
             },
             {
