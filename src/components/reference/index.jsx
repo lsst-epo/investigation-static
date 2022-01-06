@@ -5,7 +5,7 @@ import Modal from '../site/modal';
 import CustomIcon from '../site/icons/CustomIcon';
 import BlocksColumn from '../page/blocks/BlocksColumn';
 
-function Reference({ reference }) {
+function Reference({ reference, blockShared }) {
   const {
     title,
     button,
@@ -75,7 +75,11 @@ function Reference({ reference }) {
       >
         <BlocksColumn
           col="left"
-          {...{ blocksGroups: getBlocksGroups(blocksGroups), defaultLayout }}
+          {...{
+            blocksGroups: getBlocksGroups(blocksGroups),
+            blockShared,
+            defaultLayout,
+          }}
         />
       </Modal>
     </div>
@@ -84,6 +88,7 @@ function Reference({ reference }) {
 
 Reference.propTypes = {
   reference: PropTypes.object,
+  blockShared: PropTypes.object,
 };
 
 export default Reference;

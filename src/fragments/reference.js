@@ -29,10 +29,7 @@ export const tableFragment = graphql`
         row
       }
       colTitles
-      rowTitles
       rows {
-        accessor
-        id
         content
       }
       qaReview
@@ -45,6 +42,6 @@ export const referenceFragment = graphql`
     title
     ...Button
     ...Images
-    content
+    ...Tables
   }
 `;
