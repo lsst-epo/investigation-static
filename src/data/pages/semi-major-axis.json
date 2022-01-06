@@ -13,12 +13,19 @@
     "link": "/eccentricity/"
   },
   "layout": "TwoCol",
-  "content": "<p>By making a series of careful measurements, astronomers can determine the orbit for a newly discovered Solar System object. Three properties used to describe an orbit are used throughout this investigation.</p><p>Orbital size is related to the orbit's <a href='http://rubineducation.org/glossary/semi-major-axis' target='_blank'>semi-major axis</a> (which is defined as half of the longest diameter of the object's orbit). It is measured in <a href='http://rubineducation.org/glossary/astronomical-unit-au' target='_blank'>astronomical units</a> (au). You can also think of the orbit's semi-major axis as its average distance from the Sun.</p>",
+  "content": "<p> By making a series of careful measurements, astronomers can determine the orbit for a newly discovered Solar System object. Three properties used to describe an orbit are used throughout this investigation. </p> <p> <a href='http://rubineducation.org/glossary/orbit-size' target='_blank'>Orbital size</a> is related to the orbit's <a href='http://rubineducation.org/glossary/semi-major-axis' target='_blank' >semi-major axis</a > (which is defined as half of the longest diameter of the object's orbit). It is measured in <a href='http://rubineducation.org/glossary/astronomical-unit-au' target='_blank' >astronomical units</a > (au). You can also think of the orbit's semi-major axis as its average distance from the Sun. </p>",
   "images": [
     {
       "mediaPath": "/images/semi-major-minor-axes.png",
       "altText": "An image indicating the semi-major and semi-minor axis of an ellipse.",
       "figText": "An image indicating the semi-major and semi-minor axis of an ellipse. Credit: Sae1962, Creative Commons 4.0 international."
     }
-  ]
+  ],
+  "reference": {
+    "title": "Planetary Orbital Sizes",
+    "button": {
+      "text": "Planetary Orbital Sizes"
+    },
+    "content": "<table><tbody><tr><td>Planet</td><td>Orbit size (au)</td></tr><tr><td>Mercury</td><td>0.4</td></tr><tr><td>Venus</td><td>0.7</td></tr><tr><td>Earth</td><td>1.0</td></tr><tr><td>Mars</td><td>1.5</td></tr><tr><td>Jupiter</td><td>5.2</td></tr><tr><td>Saturn</td><td>9.5</td></tr><tr><td>Uranus</td><td>19.2</td></tr><tr><td>Neptune</td><td>30.1</td></tr></tbody></table>"
+  }
 }

@@ -18,6 +18,7 @@ function Reference({ reference }) {
 
   const getSingleImageClasses = imageBlocks => {
     if (
+      imageBlocks &&
       imageBlocks.length === 1 &&
       !videos &&
       !tables &&
