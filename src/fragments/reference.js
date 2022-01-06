@@ -20,10 +20,31 @@ export const buttonFragment = graphql`
   }
 `;
 
+export const tableFragment = graphql`
+  fragment Tables on PagesJsonReference {
+    tables {
+      id
+      layout {
+        col
+        row
+      }
+      colTitles
+      rowTitles
+      rows {
+        accessor
+        id
+        content
+      }
+      qaReview
+    }
+  }
+`;
+
 export const referenceFragment = graphql`
   fragment Reference on PagesJsonReference {
     title
     ...Button
     ...Images
+    content
   }
 `;
