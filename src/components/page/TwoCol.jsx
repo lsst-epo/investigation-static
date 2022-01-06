@@ -33,7 +33,7 @@ class TwoCol extends React.PureComponent {
           </div>
         </div>
         <div className={`col padded col-width-50 col-fixed ${rightColGrid}`}>
-          {reference && <Reference {...{ reference }} />}
+          {reference && <Reference {...{ reference, blockShared }} />}
           <BlocksColumn col="right" {...{ blocksGroups, blockShared }} />
         </div>
       </div>

@@ -25,7 +25,7 @@ class Page extends React.PureComponent {
 
     return (
       <div className={singleColGrid}>
-        {reference && <Reference {...{ reference }} />}
+        {reference && <Reference {...{ reference, blockShared }} />}
         <h1 className={`space-bottom section-title ${gridTitle}`}>{title}</h1>
         <BlocksColumn
           col="left"
