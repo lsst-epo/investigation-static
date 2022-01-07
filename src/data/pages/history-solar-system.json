@@ -1,31 +1,36 @@
 {
-  "id": "solarsystem19",
+  "id": "solarsystem18",
   "investigation": "solar-system",
-  "order": "19",
+  "order": "18",
   "title": "The Formation of the Solar System",
   "slug": "history-solar-system/",
   "previous": {
-    "title": "Distributions of Solar System Objects",
-    "link": "/identifying-groups-5/"
+    "title": "Identifying Groups of Solar System Objects - 4",
+    "link": "/identifying-groups-4/"
   },
   "next": {
-    "title": "The History of the Solar System",
-    "link": "/nebula-theory/"
+    "title": "Supporting Evidence for Solar System Formation",
+    "link": "/history-solar-system-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>According to the solar nebula theory, a spinning cloud of dust and gas collapsed and the young Sun began to form at the center, while dusty and icy objects began to grow by repeated collisions with each other in a flattened disk surrounding the Sun. The Sun and the disk surrounding it retained the same direction of motion as the spinning cloud that formed the Sun.</p><p>There is significant evidence to support this theory. Observations of star-forming regions reveal similar disks around young stars in other parts of the galaxy. Another piece of evidence that supports the theory is the fact that rocky planets formed close to the Sun (where temperatures were hotter) and icy planets formed at greater distances (where temperatures were much cooler).</p><p>We can also find evidence to support the solar nebula theory by studying the motions of objects within the Solar System. To validate this evidence, view a histogram that show inclinations of all four groups of solar system objects and look for overall patterns in the way objects orbit the Sun. (Remember, any inclination greater than 90 degrees indicates an object that is orbiting backwards.)</p>",
-  "widgets": [
+  "contents": [
     {
-      "type": "OrbitalProperties",
-      "source": "/data/neos/all_inclination_hist.json",
-      "options": {
-        "title": "Inclinations",
-        "xAxisLabel": "Inclinations (degrees)",
-        "xValueAccessor": "inclination",
-        "yAxisLabel": "Number of Objects",
-        "domain": [[0, 180], null],
-        "tooltipAccessors": ["countOfTotal", "inclination"],
-        "tooltipLabels": ["Objects", "Inclination (degrees)"]
+      "layout": { "col": "left", "row": "top" },
+      "content": "<p>According to the solar nebula theory, a spinning cloud of dust and gas collapsed due to gravity and the young Sun began to form at the center, while dusty and icy objects began to grow by repeated collisions with each other in a flattened disk surrounding the Sun. The Sun, planets, and the disk surrounding it retained the same direction of motion as the spinning cloud that formed the Sun.</p><p>There is significant evidence to support this theory. Observations of star-forming regions reveal similar disks around young stars in other parts of the galaxy. Another piece of evidence that supports the theory is the fact that rocky planets formed close to the Sun (where temperatures were hotter) and icy planets formed at greater distances (where temperatures were much cooler).</p>"
+    },
+    {
+      "layout": { "col": "left", "row": "middle" },
+      "content": "<p>The <a href='http://rubineducation.org/glossary#oort_cloud' target='_blank'>Oort Cloud</a> is a spherical region of icy objects that exists at the outermost edges of the Solar System (extending from a distance of 1000 - 100,000 au), thought to have formed after the collapse of the solar nebula. One idea suggests that gravitational interactions between large planets and small Solar System objects in the early years of the Solar System slung small objects outwards to form the Oort Cloud. Another idea suggests the Sun’s gravity could have plucked some objects from other nearby solar systems.</p>"
+    }
+  ],
+  "images": [
+    {
+      "mediaPath": "/images/stsci-prc15-06a.png",
+      "altText": "Hubble Space Telescope image shows a large, edge-on, gas-and-dust disk encircling the star Beta Pictoris. The light of the central star has been blocked out.",
+      "figText": "This Hubble Space Telescope image shows a large, edge-on, gas-and-dust disk encircling the star Beta Pictoris. The light of the central star has been blocked out. Credits: NASA, ESA, University of Arizona.",
+      "layout": {
+        "col": "left",
+        "row": "middle"
       }
     }
   ],
@@ -34,28 +39,10 @@
       "question": [
         {
           "id": "32",
-          "questionType": "select",
-          "title": "Question #1",
-          "labelPre": "",
-          "labelPost": "of Solar System objects orbit in the same direction around the Sun.",
-          "options": [
-            { "label": "Nearly all", "value": "Nearly all" },
-            { "label": "Roughly half", "value": "Roughly half" }
-          ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "33",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "If the direction of an object’s orbit was random, there would be an equal chance that any object would travel around the Sun in either direction. Do the orbits you observe appear to be the result of random chance? If not, what might explain the direction of their orbital motions?"
+          "label": "Many comets are thought to originate from the Oort Cloud. Explain why these comets might have very inclined orbits compared to other types of Solar System objects."
         }
       ]
     }
