@@ -9,7 +9,7 @@
     "link": "/characterizing-comet/"
   },
   "next": {
-    "title": "Identifying Groups of Solar System Objects - 1",
+    "title": "Distributions of Solar System Objects",
     "link": "/identifying-groups/"
   },
   "layout": "SingleCol",
@@ -62,17 +62,6 @@
       "question": [
         {
           "id": "20",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Which groups of objects have similar properties, and what are the properties they have in common? Provide at least three examples."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "21",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",

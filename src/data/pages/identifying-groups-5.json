@@ -2,106 +2,129 @@
   "id": "solarsystem18",
   "investigation": "solar-system",
   "order": "18",
-  "title": "Distributions of Solar System Objects",
+  "title": "Comparing Groups of Solar System Objects",
   "slug": "identifying-groups-5/",
   "previous": {
-    "title": "Comparing Groups of Solar System Objects",
+    "title": "Identifying Groups of Solar System Objects - 4",
     "link": "/identifying-groups-4/"
   },
   "next": {
     "title": "The Formation of the Solar System",
     "link": "/history-solar-system/"
   },
-  "layout": "TwoCol",
-  "checkpoints": [
+  "layout": "SingleCol",
+  "tables": [
     {
+      "id": "1",
       "layout": {
-        "col": "left",
-        "row": "bottom"
-      }
-    }
-  ],
-  "content": "<p>Now you will explore a histogram of the number of all small Solar System objects on the y-axis vs. size of orbit on the x-axis.</p><p>Note: the scale of the y-axis changes for each of the histograms.</p><p>Click on each icon found to the left of the histogram to change the group.</p>",
-  "widgets": [
-    {
-      "type": "ChartSwitcher",
-      "widgets": [
-        {
-          "type": "OrbitalProperties",
-          "source": "/data/neos/neo_semimajor_axis_hist.json",
-          "options": {
-            "title": "NEO Orbit Sizes",
-            "xAxisLabel": "NEO Orbit Sizes (au)",
-            "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of NEOs",
-            "domain": [[0, 100], null],
-            "bins": 20,
-            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["NEOs", "Orbit Size (au)"]
-          }
-        },
-        {
-          "type": "OrbitalProperties",
-          "source": "/data/neos/mba_semimajor_axis_hist.json",
-          "options": {
-            "title": "MBA Orbit Sizes",
-            "xAxisLabel": "MBA Orbit Sizes (au)",
-            "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of MBAs",
-            "domain": [[0, 100], null],
-            "bins": 20,
-            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["MBAs", "Orbit Size (au)"]
-          }
-        },
-        {
-          "type": "OrbitalProperties",
-          "source": "/data/neos/tno_semimajor_axis_hist.json",
-          "options": {
-            "title": "TNO Orbit Sizes",
-            "xAxisLabel": "TNO Orbit Sizes (au)",
-            "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of TNOs",
-            "domain": [[0, 100], null],
-            "bins": 20,
-            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["TNOs", "Orbit Size (au)"]
-          }
-        },
-        {
-          "type": "OrbitalProperties",
-          "source": "/data/neos/comets_semimajor_axis_hist.json",
-          "options": {
-            "title": "Comet Orbit Sizes",
-            "xAxisLabel": "Comet Orbit Sizes (au)",
-            "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of Comets",
-            "domain": [[0, 100], null],
-            "bins": 20,
-            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["Comets", "Orbit Size (au)"]
-          }
-        }
-      ]
+        "row": "top",
+        "col": "left"
+      },
+      "fixed": true,
+      "colTitles": [
+        "Group",
+        "Size of Orbit",
+        "Eccentricity",
+        "Inclination",
+        "Direction of Orbit"
+      ],
+      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rows": [
+        [
+          { "accessor": "data", "id": "6" },
+          { "accessor": "data", "id": "4" },
+          { "accessor": "data", "id": "5" },
+          { "accessor": "data", "id": "7" }
+        ],
+        [
+          { "accessor": "data", "id": "10" },
+          { "accessor": "data", "id": "8" },
+          { "accessor": "data", "id": "9" },
+          { "accessor": "data", "id": "11" }
+        ],
+        [
+          { "accessor": "data", "id": "14" },
+          { "accessor": "data", "id": "12" },
+          { "accessor": "data", "id": "13" },
+          { "accessor": "data", "id": "15" }
+        ],
+        [
+          { "accessor": "data", "id": "18" },
+          { "accessor": "data", "id": "16" },
+          { "accessor": "data", "id": "17" },
+          { "accessor": "data", "id": "19" }
+        ]
+      ],
+      "qaReview": false
     }
   ],
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "30",
-          "questionType": "select",
+          "id": "126",
+          "questionType": "textArea",
+          "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Which group of Solar System objects is the largest in number? ",
-          "options": [
-            { "label": "NEOs", "value": "NEOs" },
-            { "label": "Comets", "value": "Comets" },
-            { "label": "TNOs", "value": "TNOs" },
-            { "label": "MBAs", "value": "MBAs" }
-          ],
+          "label": "Which of the four groups of Solar System objects have orbits that cross Earth’s orbit?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "26",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Which of the four groups have orbital periods <i>shorter</i> than Jupiter's?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "27",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Which of the four groups have orbital periods <i>longer</i> than Jupiter's?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "28",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["28", "29"],
+          "labelPre": "When an object is closest to the Sun in its orbit, the gravitational force it experiences is the ",
+          "labelPost": ", ",
+          "srLabel": "...",
+          "answerAccessor": "select",
           "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
-          "answerAccessor": "data"
+          "options": [
+            { "label": "greatest", "value": "greatest" },
+            { "label": "least", "value": "least" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
+        },
+        {
+          "id": "29",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["28", "29"],
+          "labelPre": "and its orbital speed at that location is the ",
+          "labelPost": ".",
+          "srLabel": "...",
+          "answerAccessor": "select",
+          "placeholder": "Select a type",
+          "options": [
+            { "label": "fastest", "value": "fastest" },
+            { "label": "slowest", "value": "slowest" }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
         }
       ]
     }
