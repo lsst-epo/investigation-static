@@ -2,83 +2,109 @@
   "id": "solarsystem13",
   "investigation": "solar-system",
   "order": "13",
-  "title": "Identifying Groups of Solar System Objects - 1",
+  "title": "Distributions of Solar System Objects",
   "slug": "identifying-groups/",
   "previous": {
     "title": "Comparing Orbital Properties",
     "link": "/characterizing-orbits-4/"
   },
   "next": {
-    "title": "Identifying Groups of Solar System Objects - 2",
+    "title": "Identifying Groups of Solar System Objects - 1",
     "link": "/identifying-groups-1/"
   },
   "layout": "TwoCol",
-  "content": "<p>Use the Orbit Viewer to explore the orbital characteristics of a representative set of objects from one of the four groups. All of the displayed points and their motions represent real objects. Click and drag to change the angle at which you view the orbits. You can also zoom in and out. Use the buttons in the bottom of the Orbit Viewer to play, pause, or skip forward or backward. Click the Reset zoom and orientation button to return to the original view of these objects. You can change time  for the displayed motion by moving the bead on the Time Step scale located at the right of the Orbit Viewer (to a maximum of 1year/second).</p>",
-  "widgets": [
+  "checkpoints": [
     {
-      "type": "OrbitalViewer",
-      "source": "/data/neos/TNO_orbit_50sample_wname2021.json",
-      "options": {
-        "defaultZoom": 0.03,
-        "noLabels": true,
-        "qaReview": false
+      "layout": {
+        "col": "left",
+        "row": "bottom"
       }
     }
   ],
-  "tables": [
+  "content": "<p>Now you will explore a histogram of the number of all small Solar System objects on the y-axis vs. size of orbit on the x-axis.</p><p>Note: the scale of the y-axis changes for each of the histograms.</p><p>Click on each icon found to the left of the histogram to change the group.</p>",
+  "widgets": [
     {
-      "id": "1",
-      "layout": {
-        "row": "bottom",
-        "col": "left"
-      },
-      "fixed": true,
-      "colTitles": [
-        "Group",
-        "Size of Orbit",
-        "Eccentricity",
-        "Inclination",
-        "Direction of Orbit"
-      ],
-      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
-      "rows": [
-        [
-          { "accessor": "data", "id": "6" },
-          { "accessor": "data", "id": "4" },
-          { "accessor": "data", "id": "5" },
-          { "accessor": "data", "id": "7" }
-        ],
-        [
-          { "accessor": "data", "id": "10" },
-          { "accessor": "data", "id": "8" },
-          { "accessor": "data", "id": "9" },
-          { "accessor": "data", "id": "11" }
-        ],
-        [
-          { "accessor": "data", "id": "14" },
-          { "accessor": "data", "id": "12" },
-          { "accessor": "data", "id": "13" },
-          { "accessor": "data", "id": "15" }
-        ],
-        [
-          { "accessor": "data", "id": "18" },
-          { "accessor": "data", "id": "16" },
-          { "accessor": "data", "id": "17" },
-          { "accessor": "data", "id": "19" }
-        ]
-      ],
-      "qaReview": false
+      "type": "ChartSwitcher",
+      "widgets": [
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/neo_semimajor_axis_hist.json",
+          "options": {
+            "title": "NEO Orbit Sizes",
+            "xAxisLabel": "NEO Orbit Sizes (au)",
+            "xValueAccessor": "semimajor_axis",
+            "yAxisLabel": "Number of NEOs",
+            "domain": [[0, 100], null],
+            "bins": 20,
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
+            "tooltipLabels": ["NEOs", "Orbit Size (au)"]
+          }
+        },
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/mba_semimajor_axis_hist.json",
+          "options": {
+            "title": "MBA Orbit Sizes",
+            "xAxisLabel": "MBA Orbit Sizes (au)",
+            "xValueAccessor": "semimajor_axis",
+            "yAxisLabel": "Number of MBAs",
+            "domain": [[0, 100], null],
+            "bins": 20,
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
+            "tooltipLabels": ["MBAs", "Orbit Size (au)"]
+          }
+        },
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/tno_semimajor_axis_hist.json",
+          "options": {
+            "title": "TNO Orbit Sizes",
+            "xAxisLabel": "TNO Orbit Sizes (au)",
+            "xValueAccessor": "semimajor_axis",
+            "yAxisLabel": "Number of TNOs",
+            "domain": [[0, 100], null],
+            "bins": 20,
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
+            "tooltipLabels": ["TNOs", "Orbit Size (au)"]
+          }
+        },
+        {
+          "type": "OrbitalProperties",
+          "source": "/data/neos/comets_semimajor_axis_hist.json",
+          "options": {
+            "title": "Comet Orbit Sizes",
+            "xAxisLabel": "Comet Orbit Sizes (au)",
+            "xValueAccessor": "semimajor_axis",
+            "yAxisLabel": "Number of Comets",
+            "domain": [[0, 100], null],
+            "bins": 20,
+            "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
+            "tooltipLabels": ["Comets", "Orbit Size (au)"]
+          }
+        }
+      ]
     }
   ],
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "22",
+          "id": "20",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain your reasoning in terms of the unique set of orbital properties that defines this group of objects."
+          "label": "Based on the histogram, rank the total number of small Solar System objects in each group, from most to least:"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "21",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #2",
+          "label": "Rubin Observatory will make thousands of observations of our Solar System over the next decade. Do you think the number of any of these groups will change substantially?  Which one(s), and why?"
         }
       ]
     }

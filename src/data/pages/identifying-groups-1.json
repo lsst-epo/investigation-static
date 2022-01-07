@@ -2,24 +2,24 @@
   "id": "solarsystem14",
   "investigation": "solar-system",
   "order": "14",
-  "title": "Identifying Groups of Solar System Objects - 2",
+  "title": "Identifying Groups of Solar System Objects - 1",
   "slug": "identifying-groups-1/",
   "previous": {
-    "title": "Identifying Groups of Solar System Objects - 1",
+    "title": "Distributions of Solar System Objects",
     "link": "/identifying-groups/"
   },
   "next": {
-    "title": "Identifying Groups of Solar System Objects - 3",
+    "title": "Identifying Groups of Solar System Objects - 2",
     "link": "/identifying-groups-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Use the Orbit Viewer to explore this group.</p>",
+  "content": "<p>Use the Orbit Viewer to explore the orbital characteristics of a representative set of objects from one of the four groups. All of the displayed points and their motions represent real objects. Click and drag to change the angle at which you view the orbits. You can also zoom in and out. Use the buttons in the bottom of the Orbit Viewer to play, pause, or skip forward or backward. Click the Reset zoom and orientation button to return to the original view of these objects. You can change time  for the displayed motion by moving the bead on the Time Step scale located at the right of the Orbit Viewer (to a maximum of 1year/second).</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/MBA_orbit_50sample_wname2021.json",
+      "source": "/data/neos/TNO_orbit_50sample_wname2021.json",
       "options": {
-        "defaultZoom": 0.6,
+        "defaultZoom": 0.03,
         "noLabels": true,
         "qaReview": false
       }
@@ -29,7 +29,7 @@
     {
       "id": "1",
       "layout": {
-        "row": "top",
+        "row": "bottom",
         "col": "left"
       },
       "fixed": true,
@@ -74,7 +74,7 @@
     {
       "question": [
         {
-          "id": "23",
+          "id": "22",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",

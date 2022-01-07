@@ -2,14 +2,14 @@
   "id": "solarsystem16",
   "investigation": "solar-system",
   "order": "16",
-  "title": "Identifying Groups of Solar System Objects - 4",
+  "title": "Identifying Groups of Solar System Objects - 3",
   "slug": "identifying-groups-3/",
   "previous": {
-    "title": "Identifying Groups of Solar System Objects - 3",
+    "title": "Identifying Groups of Solar System Objects - 2",
     "link": "/identifying-groups-2/"
   },
   "next": {
-    "title": "Comparing Groups of Solar System Objects",
+    "title": "Identifying Groups of Solar System Objects - 4",
     "link": "/identifying-groups-4/"
   },
   "layout": "TwoCol",
@@ -17,9 +17,9 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/NEO_orbit_50sample_wname2021.json",
+      "source": "/data/neos/comets_orbit_50sample_wname2021.json",
       "options": {
-        "defaultZoom": 0.8,
+        "defaultZoom": 0.2,
         "noLabels": true,
         "qaReview": false
       }
@@ -74,7 +74,7 @@
     {
       "question": [
         {
-          "id": "25",
+          "id": "24",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
