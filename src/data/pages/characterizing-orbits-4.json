@@ -68,6 +68,17 @@
           "label": "What differences exist between the different groups of objects? Provide at least three examples."
         }
       ]
+    },
+    {
+      "question": [
+        {
+          "id": "20a",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #2",
+          "label": "Which group of objects will experience the greatest change in orbital speed during one orbital period? Explain your reasoning."
+        }
+      ]
     }
   ]
 }
