@@ -13,7 +13,7 @@
     "link": "/nebula-theory/"
   },
   "layout": "TwoCol",
-  "content": "<p>We can also find evidence to support the solar nebula theory by studying the motions of objects within the Solar System. To validate this evidence, view a histogram that show inclinations of all four groups of solar system objects and look for overall patterns in the way objects orbit the Sun. (Remember, any inclination greater than 90 degrees indicates an object that is orbiting backwards.)</p>",
+  "content": "<p>We can also find evidence to support the solar nebula theory by studying the motions of objects within the Solar System. To validate this evidence, view a histogram that shows inclinations of all four groups of Solar System objects and look for overall patterns in the way objects orbit the Sun. (Remember, any inclination greater than 90 degrees indicates an object that is orbiting backwards.)</p>",
   "widgets": [
     {
       "type": "OrbitalProperties",
@@ -37,8 +37,28 @@
           "questionType": "select",
           "title": "Question #1",
           "labelPre": "",
-          "labelPost": "of Solar System objects orbit in the same direction around the Sun.",
+          "labelPost": "of the small Solar System objects have orbits that lie in the orbital plane of the planets.",
           "options": [
+            { "label": "Almost none", "value": "None" },
+            { "label": "Nearly all", "value": "Nearly all" },
+            { "label": "Roughly half", "value": "Roughly half" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "32a",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "",
+          "labelPost": "of the Solar System objects orbit in the opposite direction of the planets around the Sun.",
+          "options": [
+            { "label": "Almost none", "value": "None" },
             { "label": "Nearly all", "value": "Nearly all" },
             { "label": "Roughly half", "value": "Roughly half" }
           ],
@@ -55,7 +75,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "If the direction of an object’s orbit was random, there would be an equal chance that any object would travel around the Sun in either direction. Do the orbits you observe appear to be the result of random chance? If not, what might explain the direction of their orbital motions?"
+          "label": "How do the range of values for the inclination for the small objects of the Solar System support the nebular theory?"
         }
       ]
     }
