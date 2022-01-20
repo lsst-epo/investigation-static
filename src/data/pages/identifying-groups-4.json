@@ -1,25 +1,25 @@
 {
-  "id": "solarsystem16",
+  "id": "solarsystem17",
   "investigation": "solar-system",
-  "order": "16",
-  "title": "Identifying Groups of Solar System Objects - 3",
-  "slug": "identifying-groups-3/",
+  "order": "17",
+  "title": "Identifying Groups of Solar System Objects - 4",
+  "slug": "identifying-groups-4/",
   "previous": {
-    "title": "Identifying Groups of Solar System Objects - 2",
-    "link": "/identifying-groups-2/"
+    "title": "Identifying Groups of Solar System Objects - 3",
+    "link": "/identifying-groups-3/"
   },
   "next": {
-    "title": "Identifying Groups of Solar System Objects - 4",
-    "link": "/identifying-groups-4/"
+    "title": "The Formation of the Solar System",
+    "link": "/history-solar-system/"
   },
   "layout": "TwoCol",
   "content": "<p>Use the Orbit Viewer to explore this group.</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/comets_orbit_50sample_wname2021.json",
+      "source": "/data/neos/NEO_orbit_50sample_wname2021.json",
       "options": {
-        "defaultZoom": 0.2,
+        "defaultZoom": 0.8,
         "noLabels": true,
         "qaReview": false
       }
@@ -74,7 +74,7 @@
     {
       "question": [
         {
-          "id": "24",
+          "id": "25",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
