@@ -2,11 +2,11 @@
   "id": "solarsystem19a",
   "investigation": "solar-system",
   "order": "19.1",
-  "title": "The History of the Solar System",
+  "title": "Gravitational Interactions in the Solar System",
   "slug": "nebula-theory/",
   "previous": {
     "title": "The Formation of the Solar System",
-    "link": "/history-solar-system/"
+    "link": "/history-solar-system-1/"
   },
   "next": {
     "title": "Classifying Newly Detected Solar System Objects",
@@ -76,38 +76,35 @@
       "question": [
         {
           "id": "350",
-          "questionType": "compoundInput",
+          "questionType": "compoundSelect",
           "compoundQuestion": ["350", "351"],
           "labelPre": "In addition to mass, the distance between the two objects is a factor in determining the gravitational force between the objects. Objects that are farther apart will have a ",
           "labelPost": " gravitational force between them",
           "srLabel": "...",
-          "answerAccessor": "text",
-          "placeholder": " ",
+          "answerAccessor": "select",
+          "placeholder": "select",
+          "options": [
+            { "label": "weaker", "value": "weaker" },
+            { "label": "stronger", "value": "stronger" }
+          ],
           "answerPre": "...",
           "answerPost": "..."
         },
         {
           "id": "351",
-          "questionType": "compoundInput",
+          "questionType": "compoundSelect",
           "compoundQuestion": ["350", "351"],
           "labelPre": "and are ",
           "labelPost": " likely to experience a change in their orbits.",
           "srLabel": "...",
-          "answerAccessor": "text",
-          "placeholder": " ",
+          "answerAccessor": "select",
+          "placeholder": "select",
+          "options": [
+            { "label": "more", "value": "more" },
+            { "label": "less", "value": "less" }
+          ],
           "answerPre": "...",
           "answerPost": "..."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "36",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "If an object’s inclination, eccentricity, and direction of motion were to change substantially due to the gravitational interaction during a close encounter, would it be the more massive or less massive of the two objects that changed?"
         }
       ]
     }
