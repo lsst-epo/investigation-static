@@ -79,7 +79,7 @@
           "id": "59",
           "questionType": "textArea",
           "title": "Question #1",
-          "label": "Based on their orbit size, between which two planets are the majority of these new objects located?",
+          "label": "Based on their orbit size, between which two planets are these new objects located?",
           "answerAccessor": "text"
         }
       ]
