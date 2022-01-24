@@ -6,7 +6,7 @@
   "slug": "solar-system-discuss-report/",
   "previous": {
     "title": "Putting it all Together",
-    "link": "/solar-system-summary-5/"
+    "link": "/solar-system-summary-6/"
   },
   "next": {
     "title": "Acknowledgements",
@@ -39,18 +39,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Comets often come very close to the Sun during their orbits. Comets are able to remain icy even after a close trip around the Sun. Explain how this can happen based on what you know about the shape of a comet’s orbit, its changing location in the Solar System during an orbit, and the changes in its orbital speed."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "75",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "We are searching the outer Solar System to discover if there is a large planet out there, which has been referred to as “Planet X.”  Predict and describe the orbital properties of a “Planet X” (its eccentricity, inclination, direction of orbit, and orbital size).  Explain your reasoning."
+          "label": "Comets often come very close to the Sun during their orbits. Comets are able to remain icy even after a close trip around the Sun. Explain how this can happen based on what you know about the changing speed of the comet during its orbit and the amount of time it spends near the Sun."
         }
       ]
     }
