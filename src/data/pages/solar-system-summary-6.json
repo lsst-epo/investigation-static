@@ -5,31 +5,20 @@
   "title": "Putting it all Together",
   "slug": "solar-system-summary-6/",
   "previous": {
-    "title": "Putting it all Together",
-    "link": "/solar-system-summary-5/"
+    "title": "Categorizing your New Discoveries",
+    "link": "/categorizing-new-discoveries/"
   },
   "next": {
     "title": "Reflect and Discuss",
     "link": "/solar-system-discuss-report/"
   },
   "layout": "TwoCol",
-  "widgets": [
-    {
-      "type": "OrbitalViewer",
-      "source": "/data/neos/FINAL_orbit_50sample_wname2021.json",
-      "options": {
-        "defaultZoom": 0.05,
-        "noLabels": true,
-        "qaReview": false
-      }
-    }
-  ],
   "tables": [
     {
       "id": "2",
       "layout": {
         "row": "top",
-        "col": "left"
+        "col": "right"
       },
       "colTitles": ["Property", "Min", "Max", "Most Common"],
       "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclination º"]],
@@ -57,11 +46,44 @@
     {
       "question": [
         {
-          "id": "72",
+          "id": "60",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Now that your team has discovered these objects, you have the opportunity to name the group. What name do you propose and what is the significance or inspiration for your choice?"
+          "label": "Which orbital characteristic(s) makes these objects different from the other four groups of objects you studied earlier? Explain."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "61",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "You are presenting the findings of your science team at an international science conference and are sharing for the first time the name you selected for your newly discovered group of solar system objects. What name do you propose?"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "62",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Provide an explanation that defends why you chose this name."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "63",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Your team is designing its media strategy to bring the greatest awareness to this discovery. How would you communicate your findings?"
         }
       ]
     }
