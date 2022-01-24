@@ -1,0 +1,88 @@
+{
+  "id": "solarsystem33",
+  "investigation": "solar-system",
+  "order": "33",
+  "title": "Categorizing your New Discoveries",
+  "slug": "categorizing-new-discoveries/",
+  "previous": {
+    "title": "Student Team C’s Interpretation",
+    "link": "/orbital-interpretation-2/"
+  },
+  "next": {
+    "title": "Putting it all Together",
+    "link": "/solar-system-summary-6/"
+  },
+  "layout": "TwoCol",
+  "content": "<p>Here is the actual orbit viewer for this new group of objects.</p>",
+  "widgets": [
+    {
+      "type": "OrbitalViewer",
+      "source": "/data/neos/FINAL_orbit_50sample_wname2021.json",
+      "options": {
+        "defaultZoom": 0.05,
+        "noLabels": true,
+        "qaReview": false
+      }
+    }
+  ],
+  "reference": {
+    "title": "Planetary Orbital Sizes",
+    "button": {
+      "text": "Planetary Orbital Sizes"
+    },
+    "tables": [
+      {
+        "id": "1",
+        "layout": {
+          "col": "left",
+          "row": "top"
+        },
+        "title": "Planetary Orbital Sizes",
+        "colTitles": ["Planet", "Orbit Size (au)"],
+        "rows": [
+          [{ "content": "Mercury" }, { "content": "0.4" }],
+          [{ "content": "Venus" }, { "content": "0.7" }],
+          [{ "content": "Earth" }, { "content": "1.0" }],
+          [{ "content": "Mars" }, { "content": "1.5" }],
+          [{ "content": "Jupiter" }, { "content": "5.2" }],
+          [{ "content": "Saturn" }, { "content": "9.5" }],
+          [{ "content": "Uranus" }, { "content": "19.2" }],
+          [{ "content": "Neptune" }, { "content": "30.1" }]
+        ],
+        "qaReview": false
+      }
+    ]
+  },
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "58",
+          "questionType": "select",
+          "title": "Question #1",
+          "labelPre": "Based on the data you have determined for this new group of objects, ",
+          "labelPost": " of them orbit the Sun in the opposite direction of Earth’s orbit.",
+          "options": [
+            { "label": "most", "value": "most" },
+            { "label": "many", "value": "many" },
+            { "label": "few", "value": "few" }
+          ],
+          "placeholder": "Select",
+          "answerPre": "<p>Selected: </p>",
+          "answerAccessor": "data"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "59",
+          "questionType": "textArea",
+          "title": "Question #1",
+          "label": "Based on their orbit size, between which two planets are the majority of these new objects located?",
+          "answerAccessor": "text"
+        }
+      ]
+    }
+  ]
+}
