@@ -1,32 +1,19 @@
 {
-  "id": "solarsystem29",
+  "id": "solarsystem30",
   "investigation": "solar-system",
-  "order": "29",
-  "title": "Student Team A’s Interpretation",
-  "slug": "orbital-interpretation/",
+  "order": "30",
+  "title": "Student Team B’s Interpretation",
+  "slug": "orbital-interpretation-1/",
   "previous": {
-    "title": "Exploring A New Class of Objects",
-    "link": "/solar-system-summary/"
+    "title": "Student Team A’s Interpretation",
+    "link": "/orbital-interpretation/"
   },
   "next": {
-    "title": "Student Team B’s Interpretation",
-    "link": "/orbital-interpretation-1/"
+    "title": "Student Team C’s Interpretation",
+    "link": "/orbital-interpretation-2/"
   },
   "layout": "TwoCol",
   "content": "<p>The drawings at the right were produced by a student team to represent the data from these newly discovered small objects.</p>",
-  "questionsByPage": [
-    {
-      "question": [
-        {
-          "id": "55",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Do you agree or disagree with the orbital characteristics displayed in Student Team A’s drawing at the right? Explain your reasoning."
-        }
-      ]
-    }
-  ],
   "reference": {
     "title": "Planetary Orbital Sizes",
     "button": {
@@ -54,5 +41,18 @@
         "qaReview": false
       }
     ]
-  }
+  },
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "56",
+          "questionType": "text",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "Do you agree or disagree with the orbital characteristics displayed in Student Team B’s drawing at the right? Explain your reasoning."
+        }
+      ]
+    }
+  ]
 }
