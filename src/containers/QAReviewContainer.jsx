@@ -9,11 +9,13 @@ import filter from 'lodash/filter';
 import Card from '../components/site/card';
 import TextField from '../components/site/forms/textField';
 import ObservationsTable from '../components/charts/shared/observationsTables/ObservationsTable';
+import Widget from '../components/widgets/index';
 import QAs from '../components/qas';
 import Button from '../components/site/button/index.js';
 import {
   qaReviewQuestionsContainer,
   qaReviewTableContainer,
+  qaReviewWidgetContainer,
   qaReviewCard,
   qaReviewPage,
 } from '../components/qas/styles.module.scss';
@@ -190,7 +192,7 @@ class QAReviewContainer extends React.PureComponent {
             </h3>
             {pages &&
               pages.map(page => {
-                const { questionsByPage: questions, tables } = page;
+                const { questionsByPage: questions, tables, widgets } = page;
                 const shared = {
                   questions,
                   answers,
@@ -208,6 +210,28 @@ class QAReviewContainer extends React.PureComponent {
                         <QAs {...shared} qaReviewPage />
                       </div>
                     )}
+                    {questions &&
+                      widgets &&
+                      widgets.map(widget => {
+                        const { options, type, widgets: nestedWidgets } =
+                          widget || {};
+                        const { qaReview } = options || {};
+                        const doNotRenderNestedWidgets =
+                          nestedWidgets && nestedWidgets.length === 0;
+
+                        if (!qaReview || doNotRenderNestedWidgets) {
+                          return null;
+                        }
+
+                        return (
+                          <div
+                            key={`widget-${widget.type}`}
+                            className={qaReviewWidgetContainer}
+                          >
+                            <Widget {...{ widget, options, type, ...shared }} />
+                          </div>
+                        );
+                      })}
                     {questions &&
                       tables &&
                       tables.map((table, tableIndex) => (

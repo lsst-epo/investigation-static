@@ -25,7 +25,8 @@
         "yAxisLabel": "Number of Objects",
         "domain": [[0, 180], null],
         "tooltipAccessors": ["countOfTotal", "inclination"],
-        "tooltipLabels": ["Objects", "Inclination (degrees)"]
+        "tooltipLabels": ["Objects", "Inclination (degrees)"],
+        "qaReview": false
       }
     }
   ],

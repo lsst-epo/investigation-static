@@ -82,7 +82,8 @@
             "tooltipLabels": ["Comets", "Orbit Size (au)"]
           }
         }
-      ]
+      ],
+      "options": { "qaReview": false }
     }
   ],
   "questionsByPage": [
