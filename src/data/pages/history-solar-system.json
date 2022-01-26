@@ -20,7 +20,7 @@
     },
     {
       "layout": { "col": "left", "row": "middle" },
-      "content": "<p>The <a href='http://rubineducation.org/glossary#oort_cloud' target='_blank'>Oort Cloud</a> is a spherical region of icy objects that exists at the outermost edges of the Solar System (extending from a distance of 1000 - 100,000 au), thought to have formed after the collapse of the solar nebula. One idea suggests that gravitational interactions between large planets and small Solar System objects in the early years of the Solar System slung small objects outwards to form the Oort Cloud. Another idea suggests the Sun’s gravity could have plucked some objects from other nearby solar systems.</p>"
+      "content": "<p>The <a href='http://rubineducation.org/glossary/oort-cloud' target='_blank'>Oort Cloud</a> is a spherical region of icy objects that exists at the outermost edges of the Solar System (extending from a distance of 1000 - 100,000 au), thought to have formed after the collapse of the solar nebula. One idea suggests that gravitational interactions between large planets and small Solar System objects in the early years of the Solar System slung small objects outwards to form the Oort Cloud. Another idea suggests the Sun’s gravity could have plucked some objects from other nearby solar systems.</p>"
     }
   ],
   "images": [
