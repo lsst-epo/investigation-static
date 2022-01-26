@@ -284,3 +284,13 @@
 .grid-table-middle {
   grid-area: grid-table-middle;
 }
+
+// Reference =================
+.grid-reference-top {
+  margin-bottom: $minPadding;
+}
+
+.grid-reference-middle,
+.grid-reference-bottom {
+  margin-top: $minPadding;
+}

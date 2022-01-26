@@ -40,6 +40,13 @@ export const tableFragment = graphql`
 export const referenceFragment = graphql`
   fragment Reference on PagesJsonReference {
     title
+    layout {
+      col
+      row
+    }
+    options {
+      position
+    }
     ...Button
     ...Images
     ...Tables
