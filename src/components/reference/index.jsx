@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { getBlocksGroups, getContents } from '../../lib/utilities';
 import Modal from '../site/modal';
 import CustomIcon from '../site/icons/CustomIcon';
+// eslint-disable-next-line import/no-cycle
 import BlocksColumn from '../page/blocks/BlocksColumn';
 
 function Reference({ reference, blockShared }) {

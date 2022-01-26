@@ -7,6 +7,7 @@ import TableBlock from './TableBlock';
 import ContentBlock from './ContentBlock';
 import CheckpointBlock from './CheckpointBlock';
 import QuestionBlock from './QuestionBlock';
+import ReferenceBlock from './ReferenceBlock';
 
 function Blocks({ type, blocks, blockShared, row, col }) {
   const blockTags = {
@@ -17,6 +18,7 @@ function Blocks({ type, blocks, blockShared, row, col }) {
     content: ContentBlock,
     checkpoint: CheckpointBlock,
     question: QuestionBlock,
+    reference: ReferenceBlock,
   };
 
   return blocks.map((block, i) => {
