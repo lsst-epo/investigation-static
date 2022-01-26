@@ -1,5 +1,16 @@
 .reference-container {
   display: flex;
-  justify-content: flex-end;
   margin-bottom: $minPadding;
+
+  &-left {
+    justify-content: flex-start;
+  }
+
+  &-right {
+    justify-content: flex-end;
+  }
+
+  &-center {
+    justify-content: center;
+  }
 }

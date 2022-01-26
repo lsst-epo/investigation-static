@@ -7,6 +7,8 @@ import TableBlock from './TableBlock';
 import ContentBlock from './ContentBlock';
 import CheckpointBlock from './CheckpointBlock';
 import QuestionBlock from './QuestionBlock';
+
+// eslint-disable-next-line import/no-cycle
 import ReferenceBlock from './ReferenceBlock';
 
 function Blocks({ type, blocks, blockShared, row, col }) {

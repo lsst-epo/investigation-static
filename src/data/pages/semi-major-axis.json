@@ -23,6 +23,13 @@
   ],
   "reference": [
     {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "options": {
+        "position": "left"
+      },
       "title": "Planetary Orbital Sizes",
       "button": {
         "text": "Planetary Orbital Sizes"
