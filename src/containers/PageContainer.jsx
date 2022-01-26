@@ -139,6 +139,10 @@ class PageContainer extends React.PureComponent {
         type: 'question',
         blocks: getQuestions(questions),
       },
+      {
+        type: 'reference',
+        blocks: reference,
+      },
     ];
 
     return (
@@ -153,7 +157,6 @@ class PageContainer extends React.PureComponent {
             next,
             answers,
             shared,
-            reference,
           }}
         />
         <PageNav

@@ -27,32 +27,34 @@
       ]
     }
   ],
-  "reference": {
-    "title": "Planetary Orbital Sizes",
-    "button": {
-      "text": "Planetary Orbital Sizes"
-    },
-    "tables": [
-      {
-        "id": "1",
-        "layout": {
-          "col": "left",
-          "row": "top"
-        },
-        "title": "Planetary Orbital Sizes",
-        "colTitles": ["Planet", "Orbit Size (au)"],
-        "rows": [
-          [{ "content": "Mercury" }, { "content": "0.4" }],
-          [{ "content": "Venus" }, { "content": "0.7" }],
-          [{ "content": "Earth" }, { "content": "1.0" }],
-          [{ "content": "Mars" }, { "content": "1.5" }],
-          [{ "content": "Jupiter" }, { "content": "5.2" }],
-          [{ "content": "Saturn" }, { "content": "9.5" }],
-          [{ "content": "Uranus" }, { "content": "19.2" }],
-          [{ "content": "Neptune" }, { "content": "30.1" }]
-        ],
-        "qaReview": false
-      }
-    ]
-  }
+  "reference": [
+    {
+      "title": "Planetary Orbital Sizes",
+      "button": {
+        "text": "Planetary Orbital Sizes"
+      },
+      "tables": [
+        {
+          "id": "1",
+          "layout": {
+            "col": "left",
+            "row": "top"
+          },
+          "title": "Planetary Orbital Sizes",
+          "colTitles": ["Planet", "Orbit Size (au)"],
+          "rows": [
+            [{ "content": "Mercury" }, { "content": "0.4" }],
+            [{ "content": "Venus" }, { "content": "0.7" }],
+            [{ "content": "Earth" }, { "content": "1.0" }],
+            [{ "content": "Mars" }, { "content": "1.5" }],
+            [{ "content": "Jupiter" }, { "content": "5.2" }],
+            [{ "content": "Saturn" }, { "content": "9.5" }],
+            [{ "content": "Uranus" }, { "content": "19.2" }],
+            [{ "content": "Neptune" }, { "content": "30.1" }]
+          ],
+          "qaReview": false
+        }
+      ]
+    }
+  ]
 }
