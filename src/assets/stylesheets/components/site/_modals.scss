@@ -48,9 +48,9 @@
       min-height: 20vh;
       max-height: 60vh;
       padding: $minPadding;
+      overflow-y: auto;
       border-bottom-right-radius: $minPadding;
       border-bottom-left-radius: $minPadding;
-      overflow-y: auto;
     }
 
     footer {
