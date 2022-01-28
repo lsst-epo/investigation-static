@@ -32,6 +32,7 @@
       },
       "title": "Planetary Orbital Sizes",
       "button": {
+        "icon": true,
         "text": "Planetary Orbital Sizes"
       },
       "tables": [

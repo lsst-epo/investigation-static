@@ -15,6 +15,7 @@ import dragHandle from './DragHandle';
 import fastForward from './FastForward';
 import galaxy from './Galaxy';
 import indeterminateCheckBox from './IndeterminateCheckBox';
+import lightbulb from './Lightbulb';
 import menu from './Menu';
 import more from './More';
 import pause from './Pause';
@@ -44,6 +45,7 @@ const icons = {
   fastForward,
   galaxy,
   indeterminateCheckBox,
+  lightbulb,
   menu,
   more,
   pause,

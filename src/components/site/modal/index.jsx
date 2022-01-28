@@ -62,15 +62,26 @@ function Modal({
         aria-labelledby={labelledbyId}
         aria-describedby={describedbyId}
         className={classnames(
+          'modal',
           {
-            modal: true,
             'is-open': isOpen,
             [`modal-${size}`]: size,
           },
           classes
         )}
       >
-        <div ref={modalRef} className="modal-dialog" role="document">
+        <div
+          ref={modalRef}
+          className={classnames(
+            'modal-dialog',
+            'animate__animated',
+            'animate__faster',
+            {
+              animate__fadeIn: isOpen,
+            }
+          )}
+          role="document"
+        >
           <header className="modal-header">
             {title && <h1 className="modal-title">{title}</h1>}
             <Button
