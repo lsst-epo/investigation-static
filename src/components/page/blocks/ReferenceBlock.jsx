@@ -27,6 +27,8 @@ function ReferenceBlock({ block, blockShared, row }) {
   } = block;
 
   const { position } = options || 'left';
+  const defaultIcon = 'lightbulb';
+  const iconButton = button.icon && !button.text;
 
   const gridClasses = {
     top: gridReferenceTop,
@@ -53,9 +55,14 @@ function ReferenceBlock({ block, blockShared, row }) {
   };
 
   const openButtonOpts = {
-    iconEl: button.icon ? <CustomIcon name={button.iconEl} /> : null,
-    icon: button.icon,
-    flat: !button.icon,
+    iconEl: button.icon ? (
+      <CustomIcon
+        className="animate__animated animate__wobble animate__delay-1s animate__fast"
+        name={button.iconEl || defaultIcon}
+      />
+    ) : null,
+    icon: iconButton,
+    flat: !iconButton,
     primary: true,
     swapTheming: true,
     text: button.text,
