@@ -5,6 +5,7 @@ import Card from '../../../site/card';
 import QASelect from '../qaSelect';
 import QATextInput from '../qaTextInput';
 import { qaCard, active } from '../../styles.module.scss';
+import QAFillableTable from '../qaFillableTable';
 
 class QACompound extends React.PureComponent {
   constructor(props) {
@@ -13,6 +14,7 @@ class QACompound extends React.PureComponent {
     this.qaTypes = {
       compoundInput: QATextInput,
       compoundSelect: QASelect,
+      fillableTable: QAFillableTable,
     };
 
     this.state = {
@@ -27,6 +29,8 @@ class QACompound extends React.PureComponent {
     }));
   };
 
+  map;
+
   render() {
     const {
       questionNumber,
@@ -34,9 +38,32 @@ class QACompound extends React.PureComponent {
       activeId,
       answers,
       handleAnswerSelect,
+      tables,
     } = this.props;
     const { hasFocus } = this.state;
     const cardClasses = classnames(qaCard, { [active]: hasFocus });
+
+    if (tables) {
+      return tables.map(table => {
+        const { id } = table;
+
+        return (
+          <QAFillableTable
+            key={id}
+            focusCallback={this.updateActive}
+            answerHandler={handleAnswerSelect}
+            handleAnswerSelect={handleAnswerSelect}
+            {...{
+              questions,
+              activeId,
+              answers,
+              questionNumber,
+              table,
+            }}
+          />
+        );
+      });
+    }
 
     return (
       <Card className={cardClasses}>
@@ -77,6 +104,7 @@ QACompound.propTypes = {
   questions: PropTypes.array,
   answers: PropTypes.object,
   activeId: PropTypes.string,
+  tables: PropTypes.array,
 };
 
 export default QACompound;

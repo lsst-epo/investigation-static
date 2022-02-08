@@ -34,7 +34,7 @@ class QuestionBlock extends React.PureComponent {
     return (
       <div className="qas">
         {questions.map(question => {
-          const { question: q, number } = question;
+          const { question: q, number, tables } = question;
           const primeQ = q[0];
           const { id, questionType, qaReview, showUserAnswer } = primeQ;
           const key = `qa-${id}`;
@@ -48,6 +48,7 @@ class QuestionBlock extends React.PureComponent {
                   activeId={activeQuestionId}
                   questionNumber={+number}
                   questions={q}
+                  tables={tables}
                   answers={answers}
                   handleAnswerSelect={updateAnswer}
                 />

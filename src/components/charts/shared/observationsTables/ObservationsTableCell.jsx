@@ -7,23 +7,16 @@ import StellarValue from '../StellarValue';
 import StellarValueRange from '../StellarValueRange';
 
 class ObservationsTableCell extends React.PureComponent {
-  rangifier(answerRange) {
-    if (answerRange.length > 2) return false;
-    if (!answerRange[0] || !answerRange[1]) return false;
-    if (!answerRange[0].data || !answerRange[1].data) return false;
-    if (answerRange[0].data[0] || answerRange[1].data[0]) {
-      return [answerRange[0].data[0], answerRange[1].data[0]];
-    }
-
-    return false;
-  }
-
-  getCellValue(answer, answerRange, accessor) {
-    if (answer && !answerRange) {
+  getCellValue(answer, accessor, type) {
+    if (answer) {
       let value = answer.data;
 
       if (value && accessor === 'data') {
         return <span>{value}</span>;
+      }
+
+      if (accessor === 'range') {
+        return <StellarValueRange type={type} data={answer.data} />;
       }
 
       if (accessor === 'count') {
@@ -37,25 +30,19 @@ class ObservationsTableCell extends React.PureComponent {
       return <StellarValue value={value} type={accessor} />;
     }
 
-    if (!answer && answerRange) {
-      const range = this.rangifier(answerRange);
-
-      return range ? <StellarValueRange data={range} type={accessor} /> : '';
-    }
-
     return '';
   }
 
   render() {
-    const { answer, answerRange, accessor } = this.props;
-    return this.getCellValue(answer, answerRange, accessor);
+    const { answer, accessor, type } = this.props;
+    return this.getCellValue(answer, accessor, type);
   }
 }
 
 ObservationsTableCell.propTypes = {
   answer: PropTypes.object,
-  answerRange: PropTypes.array,
   accessor: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default ObservationsTableCell;

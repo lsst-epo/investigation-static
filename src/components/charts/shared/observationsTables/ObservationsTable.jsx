@@ -7,27 +7,26 @@ import { tableTitle } from './observations-tables.module.scss';
 
 class ObservationsTable extends React.PureComponent {
   getCell(answers, cell) {
-    const { accessor, id, ids, data, content } = cell;
+    const { accessor, id, data, content, type } = cell;
 
     if (content) {
       return <span className="cell-body">{content}</span>;
     }
 
-    if (ids && accessor) {
+    if (id && accessor) {
       return (
         <ObservationsTableCell
-          answerRange={[answers[ids[0]], answers[ids[1]]]}
+          answer={answers[id]}
           accessor={accessor}
+          type={type}
         />
       );
     }
 
-    if (id && accessor) {
-      return <ObservationsTableCell answer={answers[id]} accessor={accessor} />;
-    }
-
     if (data && accessor) {
-      return <ObservationsTableCell answer={data} accessor={accessor} />;
+      return (
+        <ObservationsTableCell answer={data} accessor={accessor} type={type} />
+      );
     }
 
     return cell;
