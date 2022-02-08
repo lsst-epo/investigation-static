@@ -22,5 +22,16 @@ export const questionFragment = graphql`
       }
       qaReview
     }
+    tables {
+      label
+      id
+      fixed
+      colTitles
+      rowTitles
+      rows {
+        accessor
+        id
+      }
+    }
   }
 `;

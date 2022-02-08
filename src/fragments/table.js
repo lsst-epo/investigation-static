@@ -15,6 +15,7 @@ export const tableFragment = graphql`
       accessor
       id
       content
+      type
     }
     qaReview
   }

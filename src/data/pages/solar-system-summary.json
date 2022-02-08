@@ -13,7 +13,81 @@
     "link": "/orbital-interpretation/"
   },
   "layout": "TwoCol",
-  "content": "<p>Your team discovers a new group of small objects that do not seem to fall into any of the four major groups you have investigated so far. Use the histograms to complete the table below.</p>",
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "69a",
+          "questionType": "range",
+          "compoundQuestion": ["69a", "69b", "69c", "69d", "69e", "69f"],
+          "answerAccessor": "range",
+          "title": "Orbit Size - Range"
+        },
+        {
+          "id": "69b",
+          "questionType": "text",
+          "compoundQuestion": ["69a", "69b", "69c", "69d", "69e", "69f"],
+          "answerAccessor": "text",
+          "title": "Orbit Size - Most Common"
+        },
+        {
+          "id": "69c",
+          "questionType": "range",
+          "compoundQuestion": ["69a", "69b", "69c", "69d", "69e", "69f"],
+          "answerAccessor": "range",
+          "title": "Eccentricity - Range"
+        },
+        {
+          "id": "69d",
+          "questionType": "text",
+          "compoundQuestion": ["69a", "69b", "69c", "69d", "69e", "69f"],
+          "answerAccessor": "text",
+          "title": "Eccentricity - Most Common"
+        },
+        {
+          "id": "69e",
+          "questionType": "range",
+          "compoundQuestion": ["69a", "69b", "69c", "69d", "69e", "69f"],
+          "answerAccessor": "range",
+          "title": "Inclination - Range"
+        },
+        {
+          "id": "69f",
+          "questionType": "text",
+          "compoundQuestion": ["69a", "69b", "69c", "69d", "69e", "69f"],
+          "answerAccessor": "text",
+          "title": "Inclination - Most Common"
+        }
+      ],
+      "tables": [
+        {
+          "id": "1",
+          "fixed": true,
+          "colTitles": ["New Group Property", "Range", "Most Common"],
+          "label": "Your team discovers a new group of small objects that do not seem to fall into any of the four major groups you have investigated so far. Use the histograms to complete the table below.",
+          "rowTitles": [
+            ["Orbit Size (au)"],
+            ["Eccentricity"],
+            ["Inclinationº"]
+          ],
+          "rows": [
+            [
+              { "accessor": "text", "id": "69a" },
+              { "accessor": "text", "id": "69b" }
+            ],
+            [
+              { "accessor": "text", "id": "69c" },
+              { "accessor": "text", "id": "69d" }
+            ],
+            [
+              { "accessor": "text", "id": "69e" },
+              { "accessor": "text", "id": "69f" }
+            ]
+          ]
+        }
+      ]
+    }
+  ],
   "widgets": [
     {
       "type": "ChartSwitcher",
@@ -61,7 +135,7 @@
           }
         }
       ],
-      "options": {}
+      "options": { "qaReview": false }
     }
   ]
 }

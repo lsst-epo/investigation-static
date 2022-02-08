@@ -48,6 +48,33 @@
       ]
     }
   ],
+  "tables": [
+    {
+      "id": "1",
+      "layout": {
+        "row": "top",
+        "col": "left"
+      },
+      "fixed": true,
+      "colTitles": ["New Group Property", "Range", "Most Common"],
+      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclinationº"]],
+      "rows": [
+        [
+          { "accessor": "range", "id": "69a" },
+          { "accessor": "data", "id": "69b" }
+        ],
+        [
+          { "accessor": "range", "id": "69c", "type": "eccentricity" },
+          { "accessor": "data", "id": "69d" }
+        ],
+        [
+          { "accessor": "range", "id": "69e", "type": "inclination" },
+          { "accessor": "data", "id": "69f" }
+        ]
+      ],
+      "qaReview": false
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
