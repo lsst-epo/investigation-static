@@ -2,20 +2,34 @@
   "id": "solarsystem30",
   "investigation": "solar-system",
   "order": "30",
-  "title": "Student Team B’s Interpretation",
+  "title": "Student Team B’s Drawing",
   "slug": "orbital-interpretation-1/",
   "previous": {
-    "title": "Student Team A’s Interpretation",
+    "title": "Student Team A’s Drawing",
     "link": "/orbital-interpretation/"
   },
   "next": {
-    "title": "Student Team C’s Interpretation",
+    "title": "Student Team C’s Drawing",
     "link": "/orbital-interpretation-2/"
   },
-  "layout": "TwoCol",
-  "content": "<p>The drawings at the right were produced by a student team to represent the data from these newly discovered small objects.</p>",
+  "layout": "SingleCol",
+  "content": "<p>The drawings above were produced by a student team to represent the data from these newly discovered small objects.</p>",
+  "images": [
+    {
+      "mediaPath": "/images/SS Student team drawings - Team B.png",
+      "altText": "A student illustration of a top and side view of the solar system showing the Sun, Mars, Jupiter, and Neptune with several orbital paths that pass between Jupiter and Neptune with a range of eccentricities and inclinations.",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
   "reference": [
     {
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
       "title": "Planetary Orbital Sizes",
       "button": {
         "icon": true,
@@ -52,7 +66,7 @@
     {
       "id": "1",
       "layout": {
-        "row": "top",
+        "row": "middle",
         "col": "left"
       },
       "fixed": true,
@@ -83,7 +97,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Do you agree or disagree with the orbital characteristics displayed in Student Team B’s drawing at the right? Explain your reasoning."
+          "label": "Do you agree or disagree with the orbital characteristics displayed in Student Team B’s drawing above? Explain your reasoning."
         }
       ]
     }
