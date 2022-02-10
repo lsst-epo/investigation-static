@@ -18,6 +18,7 @@ import {
   auToMeters,
   unitToAu,
   getLabelSize,
+  ORBITAL_COLORS,
 } from './orbitalUtilities.js';
 import { label } from './orbital-viewer.module.scss';
 import chartColors from '../../../assets/stylesheets/_variables.scss';
@@ -209,7 +210,11 @@ const Orbital = ({
         <line ref={mesh} geometry={pathLine}>
           <lineBasicMaterial
             attach="material"
-            color={active ? '#CEB3DB' : orbitColor || '#ffffff'}
+            color={
+              active
+                ? ORBITAL_COLORS.asteroid.orbitHighlight
+                : orbitColor || ORBITAL_COLORS.asteroid.orbitColor
+            }
           />
         </line>
         {/* Orbital Object */}
@@ -237,7 +242,11 @@ const Orbital = ({
           />
           <meshBasicMaterial
             attach="material"
-            color={active ? '#F88B8B' : objectColor || '#01bbbc'}
+            color={
+              active
+                ? ORBITAL_COLORS.asteroid.objectHighlight
+                : objectColor || ORBITAL_COLORS.asteroid.objectColor
+            }
           />
         </mesh>
         {devMode && (

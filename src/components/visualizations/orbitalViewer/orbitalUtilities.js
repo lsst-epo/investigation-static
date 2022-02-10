@@ -3,6 +3,42 @@ import * as THREE from 'three';
 export const AU_TO_VIZ_SCALER = 100;
 export const DAY_PER_VIZ_SEC = 1;
 
+export const ORBITAL_COLORS = {
+  sun: {
+    objectColor: '#f8da86',
+  },
+  mercury: {
+    objectColor: '#dce0e3',
+    orbitColor: '#a6a9ab',
+  },
+  venus: {
+    objectColor: '#cd84ec',
+    orbitColor: '#9c65b4',
+  },
+  earth: {
+    objectColor: '#3f9ef0',
+    orbitColor: '#3079b8',
+  },
+  mars: {
+    objectColor: '#ed4c4c',
+    orbitColor: '#b53a3a',
+  },
+  jupiter: {
+    objectColor: '#f1b571',
+    orbitColor: '#b98b57',
+  },
+  neptune: {
+    objectColor: '#3cae3f',
+    orbitColor: '#29762b',
+  },
+  asteroid: {
+    objectColor: '#b1f2ef',
+    orbitColor: '#6a6e6e',
+    objectHighlight: '#00ffff',
+    orbitHighlight: '#ffffff',
+  },
+};
+
 const earth = {
   a: 1,
   e: 0.01671022,
@@ -10,8 +46,8 @@ const earth = {
   H: -3.9,
   Ref: 'Earth',
   Principal_desig: 'Earth',
-  orbitColor: '#83e570',
-  objectColor: '#3cae3F',
+  orbitColor: ORBITAL_COLORS.earth.orbitColor,
+  objectColor: ORBITAL_COLORS.earth.objectColor,
   // objectRadius: 6371000,
   objectRadius: 5,
 };
@@ -23,8 +59,8 @@ const jupiter = {
   H: -25.9,
   Ref: 'Jupiter',
   Principal_desig: 'Jupiter',
-  orbitColor: '#FFB000',
-  objectColor: '#FE6100',
+  orbitColor: ORBITAL_COLORS.jupiter.orbitColor,
+  objectColor: ORBITAL_COLORS.jupiter.objectColor,
   // objectRadius: 69911000,
   objectRadius: 7,
 };
@@ -36,8 +72,8 @@ const neptune = {
   H: -25.9,
   Ref: 'Neptune',
   Principal_desig: 'Neptune',
-  orbitColor: '#648FFF',
-  objectColor: '#785EF0',
+  orbitColor: ORBITAL_COLORS.neptune.orbitColor,
+  objectColor: ORBITAL_COLORS.neptune.objectColor,
   // objectRadius: 24622000,
   objectRadius: 6,
 };
