@@ -8,17 +8,26 @@ class FillableTableRangeInput extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    const { answer } = props;
-
     this.state = {
-      minValue: answer.data[0] || undefined,
-      maxValue: answer.data[1] || undefined,
+      minValue: undefined,
+      maxValue: undefined,
       hasFocus: false,
       answerable: false,
     };
   }
 
-  updateFocus(focusStatus) {
+  componentDidMount = () => {
+    const { answer } = this.props;
+    const answered = !isEmpty(answer);
+
+    this.setState(prevState => ({
+      ...prevState,
+      minValue: answered ? answer.data[0] : undefined,
+      maxValue: answered ? answer.data[1] : undefined,
+    }));
+  };
+
+  updateFocus = focusStatus => {
     const { question, focusCallback, answerHandler } = this.props;
     const { id } = question;
     const { minValue, maxValue } = this.state;
@@ -38,7 +47,7 @@ class FillableTableRangeInput extends React.PureComponent {
         }
       }
     );
-  }
+  };
 
   handleMinChange = value => {
     const { question, answerHandler } = this.props;
@@ -80,7 +89,7 @@ class FillableTableRangeInput extends React.PureComponent {
     this.updateFocus(true);
   };
 
-  render() {
+  render = () => {
     const { question, answer, activeId } = this.props;
     const { answerable } = this.state;
     const { id, qaReview } = question;
@@ -118,7 +127,7 @@ class FillableTableRangeInput extends React.PureComponent {
         )}
       </>
     );
-  }
+  };
 }
 
 FillableTableRangeInput.propTypes = {
