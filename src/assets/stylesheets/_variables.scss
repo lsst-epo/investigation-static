@@ -13,6 +13,7 @@ $brightGreen: #01bbbc;
 $mediumGreen: #058b8c;
 $ral5018HR: #087f80;
 $boldRed: #df0039;
+$successGreen: #019105;
 
 // Accent Warm Colors
 $awRed: #ed4c4c;
@@ -155,7 +156,9 @@ $break30: 320px;
 // --------------------------------------------------------
 $containerMaxWidth: $break100;
 
-$siteHeaderHeight: 64px;
+$siteProgressHeight: 26px;
+$siteToolbarHeight: 64px;
+$siteHeaderHeight: $siteProgressHeight + $siteToolbarHeight;
 $pageNavHeight: 64px;
 
 $minPadding: 20px;
@@ -165,7 +168,7 @@ $verticalSpace: $baseLineHeight * 1em;
 $headingWithSpaceHeight: 90px;
 $tallestSquareWidget: calc(
   100vh - #{$pageNavHeight} - #{$siteHeaderHeight} - #{$headingWithSpaceHeight} -
-  #{$minPadding}
+    #{$minPadding}
 );
 
 // $durationFast: 0.1s;

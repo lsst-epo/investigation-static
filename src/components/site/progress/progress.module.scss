@@ -2,13 +2,7 @@
   .md-drawer {
     .progress-linear-container {
       width: auto;
-      height: 20px;
-      margin: 0 1em 1em;
-      background: $baseSecondary;
-
-      .progress-linear {
-        background: $awOrange;
-      }
+      margin: 1em;
     }
   }
 }

@@ -1,11 +1,57 @@
 .progress-linear-container {
-  display: block;
+  position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  height: 5px;
-  background: $baseSecondary;
+  height: 2px;
+  background: $neutral30;
 
   .progress-linear {
-    height: 100%;
-    background: $awOrange;
+    height: 8px;
+    background: $successGreen;
+    border-radius: 4px;
+  }
+}
+
+.progress-linear-marker {
+  $progressLinearMarkerWidth: 22px;
+
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $progressLinearMarkerWidth;
+  height: $progressLinearMarkerWidth;
+  font-size: 10px;
+  color: $black;
+  background-color: $white;
+  border: 3px solid $neutral30;
+  border-radius: $progressLinearMarkerWidth / 2;
+  transform: translateX(-($progressLinearMarkerWidth / 2));
+
+  &.hoverable {
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &:hover {
+      transform: translateX(-($progressLinearMarkerWidth / 2)) scale(2);
+
+      .progress-linear-hover-text {
+        opacity: 1;
+      }
+    }
+
+    .progress-linear-hover-text {
+      font-size: 8px;
+      line-height: 1;
+      opacity: 0;
+      transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+
+  &.completed {
+    border-color: $successGreen;
   }
 }

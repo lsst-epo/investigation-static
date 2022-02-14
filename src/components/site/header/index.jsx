@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-md';
-import LinearProgress from '../linearProgress';
 import Button from '../button/index';
 import ButtonIcon from '../button/ButtonIcon';
 import Close from '../icons/Close';
 import Menu from '../icons/Menu';
 
 import styles from './header.module.scss';
+import HeaderProgress from './HeaderProgress';
 
 class Header extends React.PureComponent {
   checkQAProgress(pageId) {
@@ -23,6 +23,7 @@ class Header extends React.PureComponent {
 
   render() {
     const {
+      checkpoints,
       investigationTitle,
       toggleToc,
       tocVisability,
@@ -40,12 +41,6 @@ class Header extends React.PureComponent {
         titleClassName="screen-reader-only"
         className={`${styles.headerPrimary} dont-print`}
       >
-        <div className={styles.progressBarWrapper}>
-          <LinearProgress
-            id="current-page-of-total"
-            value={pageNumber ? (pageNumber / totalPages) * 100 : 0}
-          />
-        </div>
         <div className={styles.innerContainer}>
           {toggleToc && (
             <Button
@@ -90,12 +85,14 @@ class Header extends React.PureComponent {
             )}
           </div>
         </div>
+        <HeaderProgress {...{ checkpoints, pageNumber, totalPages }} />
       </Toolbar>
     );
   }
 }
 
 Header.propTypes = {
+  checkpoints: PropTypes.array,
   investigationTitle: PropTypes.string,
   tocVisability: PropTypes.bool,
   toggleToc: PropTypes.func,

@@ -39,6 +39,18 @@ class Layout extends React.Component {
     this.store.addReducers();
   }
 
+  getCheckpoints = () => {
+    const { pages } = this.state;
+
+    return pages.reduce((checkpoints, page) => {
+      if (page.checkpoints && page.checkpoints.length) {
+        checkpoints.push(page.pageNumber);
+      }
+
+      return checkpoints;
+    }, []);
+  };
+
   getTotalQAs() {
     const { pages } = this.state;
     let total = 0;
@@ -118,6 +130,7 @@ class Layout extends React.Component {
       totalQAsByInvestigation: this.getTotalQAs(),
       totalQAsByPage: this.getTotalQAsByPage(),
       questionNumbersByPage: this.getQuestionNumbersByPage(),
+      checkpoints: this.getCheckpoints(),
     };
   }
 
@@ -135,7 +148,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { pageId } = this.global;
+    const { pageId, checkpoints } = this.global;
     const { tocIsOpen, pages, investigationTitle } = this.state;
     const { children, pageContext } = this.props;
     const { investigation: contextInvestigation, env: envInvestigation } =
@@ -146,6 +159,7 @@ class Layout extends React.Component {
       <>
         <SEO title={investigationTitle || investigation || 'Investigation'} />
         <Header
+          checkpoints={checkpoints}
           investigationTitle={investigationTitle}
           logo={investigation !== 'ngss-solar-system' ? logo : null}
           pageNumber={this.getCurrentPageNumber(pages, pageId)}
@@ -183,6 +197,9 @@ export default props => (
               question {
                 id
               }
+            }
+            checkpoints {
+              ...Checkpoint
             }
           }
         }

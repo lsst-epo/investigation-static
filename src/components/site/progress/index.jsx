@@ -14,8 +14,8 @@ const Progress = ({ className, type, showQuestions, showPages }) => {
     questions: totalQuestions,
   } = totalQAsByInvestigation;
 
-  const pagesProgress = (visitedPages.length / totalPages) * 100;
-  const questionsProgress = (totalAnswered / totalQuestions) * 100;
+  const pagesProgress = Math.round((visitedPages.length / totalPages) * 100);
+  const questionsProgress = Math.round((totalAnswered / totalQuestions) * 100);
 
   const classes = classnames(className, {
     [big]: type === 'big',

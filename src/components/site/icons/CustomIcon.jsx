@@ -10,9 +10,11 @@ import check from './Check';
 import checkBox from './CheckBox';
 import checkBoxOutlineBlank from './CheckBoxOutlineBlank';
 import checkmark from './Checkmark';
+import checkpoint from './Checkpoint';
 import close from './Close';
 import dragHandle from './DragHandle';
 import fastForward from './FastForward';
+import finish from './Finish';
 import galaxy from './Galaxy';
 import indeterminateCheckBox from './IndeterminateCheckBox';
 import lightbulb from './Lightbulb';
@@ -40,9 +42,11 @@ const icons = {
   checkBox,
   checkBoxOutlineBlank,
   checkmark,
+  checkpoint,
   close,
   dragHandle,
   fastForward,
+  finish,
   galaxy,
   indeterminateCheckBox,
   lightbulb,
