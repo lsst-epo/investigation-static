@@ -1,3 +1,5 @@
+$md-toolbar-tablet-height: $siteHeaderHeight;
+
 :global {
   @include react-md-toolbars;
 }
@@ -6,22 +8,12 @@
   display: block;
 }
 
-.progress-bar-wrapper {
-  :global {
-    .progress-linear-container {
-      position: absolute;
-      bottom: 0;
-      padding: 0;
-      margin: 0;
-    }
-  }
-}
-
 .inner-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: $siteToolbarHeight;
   margin: 0 auto;
 }
 

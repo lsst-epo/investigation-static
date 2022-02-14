@@ -20,6 +20,7 @@ class GlobalStore {
       totalQAsByInvestigation: null,
       totalQAsByPage: null,
       questionNumbersByPage: null,
+      checkpoints: [],
       ...initialGlobals,
     };
     const { investigation } = this.emptyState;
