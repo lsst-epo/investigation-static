@@ -13,7 +13,7 @@ class HeaderProgress extends React.PureComponent {
           id="current-page-of-total"
           value={pageNumber ? Math.round((pageNumber / totalPages) * 100) : 0}
         >
-          {checkpoints.length > 0 && (
+          {checkpoints && (
             <div className="header-progress-checkpoints">
               {checkpoints.map(checkpoint => {
                 return (
@@ -26,14 +26,14 @@ class HeaderProgress extends React.PureComponent {
                   </LinearProgressMarker>
                 );
               })}
-              <LinearProgressMarker
-                completed={pageNumber >= totalPages}
-                progress={100}
-              >
-                <CustomIcon name="finish" />
-              </LinearProgressMarker>
             </div>
           )}
+          <LinearProgressMarker
+            completed={pageNumber >= totalPages}
+            progress={100}
+          >
+            <CustomIcon name="finish" />
+          </LinearProgressMarker>
         </LinearProgress>
       </div>
     );
