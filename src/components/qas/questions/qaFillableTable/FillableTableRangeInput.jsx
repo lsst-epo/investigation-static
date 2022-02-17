@@ -105,8 +105,8 @@ class FillableTableRangeInput extends React.PureComponent {
     const answered = !isEmpty(answer);
     return (
       <>
-        {qaReview && <StellarValueRange data={answer.data} />}
         <div className="table-cell-range-input">
+          {qaReview && <StellarValueRange data={answer.data} />}
           {!qaReview && editing && (
             <>
               <TextField
