@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { TextField } from 'react-md';
+import ButtonIcon from '../../../site/button/ButtonIcon';
+import Edit from '../../../site/icons/Edit';
 
 class FillableTableTextInput extends React.PureComponent {
   constructor(props) {
@@ -10,9 +12,19 @@ class FillableTableTextInput extends React.PureComponent {
     this.state = {
       value: undefined,
       hasFocus: false,
-      answerable: false,
+      editing: false,
     };
   }
+
+  componentDidMount = () => {
+    const { answer } = this.props;
+    const answered = !isEmpty(answer);
+
+    this.setState(prevState => ({
+      ...prevState,
+      value: answered ? answer.content : undefined,
+    }));
+  };
 
   updateFocus(focusStatus) {
     const { question, focusCallback, answerHandler } = this.props;
@@ -54,20 +66,37 @@ class FillableTableTextInput extends React.PureComponent {
     this.updateFocus(false);
   };
 
+  handleEdit = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      editing: true,
+    }));
+  };
+
   handleFocus = () => {
     this.updateFocus(true);
   };
 
   render() {
-    const { question, answer, activeId } = this.props;
-    const { answerable } = this.state;
+    const { question, answer } = this.props;
+    const { editing } = this.state;
     const { id, qaReview } = question;
-    const active = activeId === id;
     const answered = !isEmpty(answer);
+
     return (
-      <>
-        {qaReview && <span>{answer.content}</span>}
-        {!qaReview && (
+      <div className="table-cell-text-input">
+        {qaReview && <span>{answer.content || ''}</span>}
+        {!qaReview && !editing && (
+          <button
+            type="button"
+            className="table-cell-input-button"
+            onClick={this.handleEdit}
+          >
+            <span>{answer.content || ''}</span>
+            <ButtonIcon srText="Edit" Icon={Edit} />
+          </button>
+        )}
+        {!qaReview && editing && (
           <TextField
             id={`text-input-${id}`}
             type="text"
@@ -76,16 +105,14 @@ class FillableTableTextInput extends React.PureComponent {
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onChange={this.handleChange}
-            disabled={!(answerable || answered || active)}
           />
         )}
-      </>
+      </div>
     );
   }
 }
 
 FillableTableTextInput.propTypes = {
-  activeId: PropTypes.string,
   question: PropTypes.object,
   focusCallback: PropTypes.func,
   answerHandler: PropTypes.func,
