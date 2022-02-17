@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { TextField } from 'react-md';
+import ButtonIcon from '../../../site/button/ButtonIcon';
+import Edit from '../../../site/icons/Edit';
 import StellarValueRange from '../../../charts/shared/StellarValueRange';
 
 class FillableTableRangeInput extends React.PureComponent {
@@ -12,7 +14,7 @@ class FillableTableRangeInput extends React.PureComponent {
       minValue: undefined,
       maxValue: undefined,
       hasFocus: false,
-      answerable: false,
+      editing: false,
     };
   }
 
@@ -47,6 +49,13 @@ class FillableTableRangeInput extends React.PureComponent {
         }
       }
     );
+  };
+
+  handleEdit = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      editing: true,
+    }));
   };
 
   handleMinChange = value => {
@@ -90,48 +99,56 @@ class FillableTableRangeInput extends React.PureComponent {
   };
 
   render = () => {
-    const { question, answer, activeId } = this.props;
-    const { answerable } = this.state;
+    const { question, answer } = this.props;
+    const { editing } = this.state;
     const { id, qaReview } = question;
-    const active = activeId === id;
     const answered = !isEmpty(answer);
     return (
       <>
         {qaReview && <StellarValueRange data={answer.data} />}
-        {!qaReview && (
-          <div className="table-cell-range-input">
-            <TextField
-              id={`range-input-${id}-min`}
-              type="text"
-              defaultValue={answered ? answer.data[0] : ''}
-              lineDirection="center"
-              onBlur={this.handleBlur}
-              onFocus={this.handleFocus}
-              onChange={this.handleMinChange}
-              disabled={!(answerable || answered || active)}
-              fullWidth={false}
-            />
-            <span>-</span>
-            <TextField
-              id={`range-input-${id}-max`}
-              type="text"
-              defaultValue={answered ? answer.data[1] : ''}
-              lineDirection="center"
-              onBlur={this.handleBlur}
-              onFocus={this.handleFocus}
-              onChange={this.handleMaxChange}
-              disabled={!(answerable || answered || active)}
-              fullWidth={false}
-            />
-          </div>
-        )}
+        <div className="table-cell-range-input">
+          {!qaReview && editing && (
+            <>
+              <TextField
+                id={`range-input-${id}-min`}
+                type="text"
+                defaultValue={answered ? answer.data[0] : ''}
+                lineDirection="center"
+                onBlur={this.handleBlur}
+                onFocus={this.handleFocus}
+                onChange={this.handleMinChange}
+                fullWidth={false}
+              />
+              <span> – </span>
+              <TextField
+                id={`range-input-${id}-max`}
+                type="text"
+                defaultValue={answered ? answer.data[1] : ''}
+                lineDirection="center"
+                onBlur={this.handleBlur}
+                onFocus={this.handleFocus}
+                onChange={this.handleMaxChange}
+                fullWidth={false}
+              />
+            </>
+          )}
+          {!qaReview && !editing && (
+            <button
+              type="button"
+              className="table-cell-input-button"
+              onClick={this.handleEdit}
+            >
+              <StellarValueRange data={answer.data} />
+              <ButtonIcon srText="Edit" Icon={Edit} />
+            </button>
+          )}
+        </div>
       </>
     );
   };
 }
 
 FillableTableRangeInput.propTypes = {
-  activeId: PropTypes.string,
   question: PropTypes.object,
   focusCallback: PropTypes.func,
   answerHandler: PropTypes.func,

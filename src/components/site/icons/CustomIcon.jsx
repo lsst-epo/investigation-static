@@ -13,6 +13,7 @@ import checkmark from './Checkmark';
 import checkpoint from './Checkpoint';
 import close from './Close';
 import dragHandle from './DragHandle';
+import edit from './Edit';
 import fastForward from './FastForward';
 import finish from './Finish';
 import galaxy from './Galaxy';
@@ -45,6 +46,7 @@ const icons = {
   checkpoint,
   close,
   dragHandle,
+  edit,
   fastForward,
   finish,
   galaxy,
