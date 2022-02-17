@@ -138,7 +138,9 @@ class FillableTableRangeInput extends React.PureComponent {
               className="table-cell-input-button"
               onClick={this.handleEdit}
             >
-              <StellarValueRange data={answer.data} />
+              <div>
+                <StellarValueRange data={answer.data} />
+              </div>
               <ButtonIcon srText="Edit" Icon={Edit} />
             </button>
           )}
