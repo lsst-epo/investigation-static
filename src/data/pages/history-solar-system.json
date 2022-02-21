@@ -12,7 +12,7 @@
     "title": "Supporting Evidence for Solar System Formation",
     "link": "/history-solar-system-1/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "contents": [
     {
       "layout": { "col": "left", "row": "top" },
@@ -28,6 +28,15 @@
       "mediaPath": "/images/stsci-prc15-06a.png",
       "altText": "Hubble Space Telescope image shows a large, edge-on, gas-and-dust disk encircling the star Beta Pictoris. The light of the central star has been blocked out.",
       "figText": "This Hubble Space Telescope image shows a large, edge-on, gas-and-dust disk encircling the star Beta Pictoris. The light of the central star has been blocked out. Credits: NASA, ESA, University of Arizona.",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "mediaPath": "/images/Oort Cloud and Kuiper Belt.jpg",
+      "altText": "Illustration of the Solar System, the Kuiper Belt, and the Oort Cloud. This illustration is not to scale.",
+      "figText": "Illustration of the Solar System, the Kuiper Belt, and the Oort Cloud. This illustration is not to scale.",
       "layout": {
         "col": "left",
         "row": "middle"
