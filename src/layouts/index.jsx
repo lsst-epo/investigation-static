@@ -125,6 +125,7 @@ class Layout extends React.Component {
     const { investigation, env: envInvestigation } = pageContext || {};
 
     return {
+      educatorMode: false,
       investigation: investigation || envInvestigation,
       totalPages: this.getTotalPages(),
       totalQAsByInvestigation: this.getTotalQAs(),

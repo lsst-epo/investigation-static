@@ -7,6 +7,7 @@ import find from 'lodash/find';
 import ls from 'local-storage';
 import SEO from '../components/seo';
 import Button from '../components/site/button/index.js';
+import EducatorModeToggle from '../components/site/educatorModeToggle';
 
 @reactn
 class InvestigationsLanding extends React.PureComponent {
@@ -57,6 +58,9 @@ class InvestigationsLanding extends React.PureComponent {
               >
                 Start {envInvestigation.title} Investigation
               </Button>
+            </div>
+            <div className="space-bottom landing-page-toggle">
+              <EducatorModeToggle />
             </div>
             {isAnswers && (
               <>

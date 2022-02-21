@@ -1,0 +1,25 @@
+.landing-page-toggle {
+  max-width: 20rem;
+}
+
+.educator-toggle-container {
+  display: flex;
+
+  .md-switch-container {
+    flex-shrink: 0;
+  }
+}
+
+.educator-passphrase-input {
+  width: 0%;
+  margin-left: 0;
+  transition-delay: 0.25s;
+  transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition-duration: 0.5s;
+  transition-property: width, margin-left;
+
+  &.expanded {
+    width: 100%;
+    margin-left: 0.5rem;
+  }
+}

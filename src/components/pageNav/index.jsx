@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-handler-names */
-import React from 'react';
+import React from 'reactn';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import classnames from 'classnames';
@@ -76,14 +76,16 @@ class PageNav extends React.PureComponent {
   }
 
   renderNavItem(type, item, baseUrl, allQuestionsAnswered = false) {
+    const { educatorMode } = this.global;
     const { link, title } = item;
     const linkIsBlank = link === '' || link === null;
     const isLinkToFirstPage = linkIsBlank && type === 'previous';
     const isLinkToLastPage = linkIsBlank && type === 'next';
     const isPrevOrAllQsA = type === 'previous' || allQuestionsAnswered;
+    const allowProgression = isPrevOrAllQsA || educatorMode;
     const buttonLink = this.getNavLink(type, item, baseUrl);
     const buttonClasses = classnames('outlined', {
-      'is-disabled': !allQuestionsAnswered && type === 'next',
+      'is-disabled': !educatorMode && !allQuestionsAnswered && type === 'next',
       'link-to-first': isLinkToFirstPage,
       'link-to-last': isLinkToLastPage,
     });
@@ -108,10 +110,12 @@ class PageNav extends React.PureComponent {
       <Button
         icon
         className={buttonClasses}
-        to={isPrevOrAllQsA ? buttonLink : null}
-        component={isPrevOrAllQsA ? Link : null}
+        to={allowProgression ? buttonLink : null}
+        component={allowProgression ? Link : null}
         iconEl={this.getButtonIconEl(type, title)}
-        onClick={isPrevOrAllQsA ? null : this.handleShowAllRequiredNotification}
+        onClick={
+          allowProgression ? null : this.handleShowAllRequiredNotification
+        }
         iconBefore={type === 'previous'}
         tooltipLabel={item.title}
         tooltipPosition="top"

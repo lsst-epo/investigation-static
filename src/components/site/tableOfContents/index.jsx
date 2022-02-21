@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import filter from 'lodash/filter';
 import classnames from 'classnames';
-import { Drawer } from 'react-md';
+import { Drawer, ListItemControl } from 'react-md';
 import Check from '../icons/Check';
 import Star from '../icons/Star';
 import Progress from '../progress/index.jsx';
@@ -13,6 +13,7 @@ import {
   heading,
   disabledLink,
 } from './table-of-contents.module.scss';
+import EducatorModeToggle from '../educatorModeToggle';
 
 @reactn
 class TableOfContents extends React.PureComponent {
@@ -21,6 +22,8 @@ class TableOfContents extends React.PureComponent {
     const baseUrl = linkBaseUrl && useBaseUrl ? `/${linkBaseUrl}/` : '/';
     const isActive = this.isActivePage(id);
     const allQsComplete = this.checkQAProgress(id);
+    const { educatorMode } = this.global;
+    const isDisabled = !educatorMode && !allQsComplete && !isActive;
 
     return {
       component: Link,
@@ -29,11 +32,11 @@ class TableOfContents extends React.PureComponent {
       primaryText: `${pageNumber}. ${title}`,
       leftIcon: <Check />,
       active: isActive,
-      disabled: !allQsComplete && !isActive,
+      disabled: isDisabled,
       className: classnames('toc-link', `link--page-id--${id}`, {
         'link-active': isActive,
         'qa-progress--complete': allQsComplete,
-        [disabledLink]: !allQsComplete && !isActive,
+        [disabledLink]: isDisabled,
       }),
     };
   }
@@ -61,7 +64,12 @@ class TableOfContents extends React.PureComponent {
       }),
     };
 
-    navLinks.push(qaReviewLink);
+    const educatorModeToggle = {
+      component: EducatorModeToggle,
+      primaryText: 'Educator Mode Toggle',
+    };
+
+    navLinks.push(qaReviewLink, educatorModeToggle);
     return navLinks;
   }
 
