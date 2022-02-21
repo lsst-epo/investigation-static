@@ -21,6 +21,7 @@ class GlobalStore {
       totalQAsByPage: null,
       questionNumbersByPage: null,
       checkpoints: [],
+      educatorMode: null,
       ...initialGlobals,
     };
     const { investigation } = this.emptyState;
@@ -177,6 +178,13 @@ class GlobalStore {
         ...global,
         activeQuestionId: id,
         activeAnswer,
+      };
+    });
+
+    addReducer('setEducatorMode', (global, dispatch, enabled) => {
+      return {
+        ...global,
+        educatorMode: enabled,
       };
     });
   }
