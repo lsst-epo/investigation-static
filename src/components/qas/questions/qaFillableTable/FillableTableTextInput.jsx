@@ -92,7 +92,7 @@ class FillableTableTextInput extends React.PureComponent {
             className="table-cell-input-button"
             onClick={this.handleEdit}
           >
-            <span>{answer.content || ''}</span>
+            <span>{answered ? answer.content : ''}</span>
             <ButtonIcon srText="Edit" Icon={Edit} />
           </button>
         )}

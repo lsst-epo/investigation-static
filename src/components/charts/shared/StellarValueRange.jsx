@@ -4,14 +4,14 @@ import StellarValue from './StellarValue';
 
 class StellarValueRange extends React.PureComponent {
   render() {
-    const { type, data } = this.props;
+    const { type, data, className } = this.props;
 
     return (
-      <>
+      <div className={className}>
         <StellarValue type={type} value={data[0]} />
         <span> – </span>
         <StellarValue type={type} value={data[1]} />
-      </>
+      </div>
     );
   }
 }
@@ -19,6 +19,7 @@ class StellarValueRange extends React.PureComponent {
 StellarValueRange.propTypes = {
   type: PropTypes.string,
   data: PropTypes.any,
+  className: PropTypes.string,
 };
 
 export default StellarValueRange;
