@@ -33,5 +33,9 @@ export const questionFragment = graphql`
         id
       }
     }
+    layout {
+      col
+      row
+    }
   }
 `;

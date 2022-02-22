@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
 import isNumber from 'lodash/isNumber';
@@ -63,7 +64,15 @@ export const getContents = (content, contents) => {
 };
 
 export const getQuestions = questions =>
-  questions ? [{ questions, layout: { row: 'middle', col: 'left' } }] : null;
+  questions
+    ? questions.map(question => {
+        const defaultQuestionLayout = { row: 'middle', col: 'left' };
+
+        question.layout = question.layout || defaultQuestionLayout;
+
+        return question;
+      })
+    : null;
 
 export const getQuestionsWithNumbers = (questionNumbers, questions) => {
   if (!questions || !questionNumbers) return [];
