@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { TextField } from 'react-md';
@@ -14,6 +14,8 @@ class FillableTableTextInput extends React.PureComponent {
       hasFocus: false,
       editing: false,
     };
+
+    this.inputRef = createRef(null);
   }
 
   componentDidMount = () => {
@@ -47,6 +49,23 @@ class FillableTableTextInput extends React.PureComponent {
     );
   }
 
+  updateEditing = editing => {
+    this.setState(
+      prevState => ({
+        ...prevState,
+        editing,
+      }),
+      this.focusInput
+    );
+  };
+
+  focusInput = () => {
+    const { editing } = this.state;
+    if (editing) {
+      this.inputRef.current.focus();
+    }
+  };
+
   handleChange = value => {
     const { question, answerHandler } = this.props;
     const { id } = question;
@@ -64,13 +83,11 @@ class FillableTableTextInput extends React.PureComponent {
 
   handleBlur = () => {
     this.updateFocus(false);
+    this.updateEditing(false);
   };
 
-  handleEdit = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      editing: true,
-    }));
+  handleEditClick = () => {
+    this.updateEditing(true);
   };
 
   handleFocus = () => {
@@ -90,7 +107,7 @@ class FillableTableTextInput extends React.PureComponent {
           <button
             type="button"
             className="table-cell-input-button"
-            onClick={this.handleEdit}
+            onClick={this.handleEditClick}
           >
             <span>{answered ? answer.content : ''}</span>
             <ButtonIcon srText="Edit" Icon={Edit} />
@@ -105,6 +122,7 @@ class FillableTableTextInput extends React.PureComponent {
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
             onChange={this.handleChange}
+            ref={this.inputRef}
           />
         )}
       </div>

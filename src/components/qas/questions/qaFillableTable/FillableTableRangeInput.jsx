@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { TextField } from 'react-md';
@@ -16,6 +16,9 @@ class FillableTableRangeInput extends React.PureComponent {
       hasFocus: false,
       editing: false,
     };
+
+    this.minRangeRef = createRef(null);
+    this.maxRangeRef = createRef(null);
   }
 
   componentDidMount = () => {
@@ -28,6 +31,8 @@ class FillableTableRangeInput extends React.PureComponent {
       maxValue: answered ? answer.data[1] : undefined,
     }));
   };
+
+  focusTimeout;
 
   updateFocus = focusStatus => {
     const { question, focusCallback, answerHandler } = this.props;
@@ -43,19 +48,45 @@ class FillableTableRangeInput extends React.PureComponent {
         hasFocus: focusStatus,
       }),
       () => {
+        const { hasFocus } = this.state;
         if (focusCallback) {
-          const { hasFocus } = this.state;
           focusCallback(hasFocus);
         }
+
+        clearTimeout(this.focusTimeout);
+
+        this.focusTimeout = setTimeout(() => {
+          if (
+            !hasFocus &&
+            document.activeElement !== this.minRangeRef.current &&
+            document.activeElement !== this.maxRangeRef.current
+          ) {
+            this.updateEditing(false);
+          }
+        });
       }
     );
   };
 
-  handleEdit = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      editing: true,
-    }));
+  updateEditing = editing => {
+    this.setState(
+      prevState => ({
+        ...prevState,
+        editing,
+      }),
+      this.focusInput
+    );
+  };
+
+  focusInput = () => {
+    const { editing } = this.state;
+    if (editing) {
+      this.minRangeRef.current.focus();
+    }
+  };
+
+  handleEditClick = () => {
+    this.updateEditing(true);
   };
 
   handleMinChange = value => {
@@ -104,49 +135,49 @@ class FillableTableRangeInput extends React.PureComponent {
     const { id, qaReview } = question;
     const answered = !isEmpty(answer);
     return (
-      <>
-        <div className="table-cell-range-input">
-          {qaReview && <StellarValueRange data={answer.data} />}
-          {!qaReview && editing && (
-            <>
-              <TextField
-                id={`range-input-${id}-min`}
-                type="text"
-                defaultValue={answered ? answer.data[0] : ''}
-                lineDirection="center"
-                onBlur={this.handleBlur}
-                onFocus={this.handleFocus}
-                onChange={this.handleMinChange}
-                fullWidth={false}
-              />
-              <span> – </span>
-              <TextField
-                id={`range-input-${id}-max`}
-                type="text"
-                defaultValue={answered ? answer.data[1] : ''}
-                lineDirection="center"
-                onBlur={this.handleBlur}
-                onFocus={this.handleFocus}
-                onChange={this.handleMaxChange}
-                fullWidth={false}
-              />
-            </>
-          )}
-          {!qaReview && !editing && (
-            <button
-              type="button"
-              className="table-cell-input-button"
-              onClick={this.handleEdit}
-            >
-              <StellarValueRange
-                className="table-cell-static-range"
-                data={answered ? answer.data : []}
-              />
-              <ButtonIcon srText="Edit" Icon={Edit} />
-            </button>
-          )}
-        </div>
-      </>
+      <div className="table-cell-range-input">
+        {qaReview && <StellarValueRange data={answer.data} />}
+        {!qaReview && editing && (
+          <>
+            <TextField
+              id={`range-input-${id}-min`}
+              type="text"
+              defaultValue={answered ? answer.data[0] : ''}
+              lineDirection="center"
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              onChange={this.handleMinChange}
+              fullWidth={false}
+              ref={this.minRangeRef}
+            />
+            <span> – </span>
+            <TextField
+              id={`range-input-${id}-max`}
+              type="text"
+              defaultValue={answered ? answer.data[1] : ''}
+              lineDirection="center"
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              onChange={this.handleMaxChange}
+              fullWidth={false}
+              ref={this.maxRangeRef}
+            />
+          </>
+        )}
+        {!qaReview && !editing && (
+          <button
+            type="button"
+            className="table-cell-input-button"
+            onClick={this.handleEditClick}
+          >
+            <StellarValueRange
+              className="table-cell-static-range"
+              data={answered ? answer.data : []}
+            />
+            <ButtonIcon srText="Edit" Icon={Edit} />
+          </button>
+        )}
+      </div>
     );
   };
 }
