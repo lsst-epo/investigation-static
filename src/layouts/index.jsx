@@ -51,6 +51,25 @@ class Layout extends React.Component {
     }, []);
   };
 
+  getSections = () => {
+    const { pages } = this.state;
+    const sections = {};
+
+    pages.forEach(page => {
+      const { pageNumber } = page;
+      let { sectionId } = page;
+      sectionId = sectionId || 0;
+
+      if (sections[sectionId]) {
+        sections[sectionId].push(pageNumber);
+      } else {
+        sections[sectionId] = [pageNumber];
+      }
+    });
+
+    return sections;
+  };
+
   getTotalQAs() {
     const { pages } = this.state;
     let total = 0;
@@ -132,6 +151,7 @@ class Layout extends React.Component {
       totalQAsByPage: this.getTotalQAsByPage(),
       questionNumbersByPage: this.getQuestionNumbersByPage(),
       checkpoints: this.getCheckpoints(),
+      sections: this.getSections(),
     };
   }
 
@@ -187,13 +207,14 @@ export default props => (
   <StaticQuery
     query={graphql`
       query MyQuery {
-        allPagesJson(sort: { fields: order, order: ASC }) {
+        allPagesJson(sort: { fields: [sectionId, order], order: [ASC, ASC] }) {
           nodes {
             title
             slug
             id
             investigation
             order
+            sectionId
             questionsByPage {
               question {
                 id

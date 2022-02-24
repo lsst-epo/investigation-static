@@ -1,6 +1,7 @@
 {
   "id": "solarsystem10",
   "investigation": "solar-system",
+  "sectionId": "1",
   "order": "10",
   "title": "Characterizing Trans-Neptunian Objects (TNOs)",
   "slug": "characterizing-tno/",

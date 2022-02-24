@@ -1,6 +1,7 @@
 {
   "id": "solarsystem07",
   "investigation": "solar-system",
+  "sectionId": "1",
   "order": "07",
   "title": "The Big View of the Solar System",
   "slug": "big-view/",

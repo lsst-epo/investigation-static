@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React from 'reactn';
 import CustomIcon from '../icons/CustomIcon';
 import LinearProgress from '../linearProgress';
 import LinearProgressMarker from '../linearProgress/LinearProgressMarker';
 
 class HeaderProgress extends React.PureComponent {
   render = () => {
+    const { sections } = this.global;
     const { checkpoints, pageNumber, totalPages } = this.props;
+    console.log({ pageNumber });
+    console.log({ sections });
     return (
       <div className="header-progress-wrapper">
         <LinearProgress

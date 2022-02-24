@@ -1,6 +1,7 @@
 {
   "id": "solarsystem13",
   "investigation": "solar-system",
+  "sectionId": "2",
   "order": "13",
   "title": "Distributions of Solar System Objects",
   "slug": "identifying-groups/",
