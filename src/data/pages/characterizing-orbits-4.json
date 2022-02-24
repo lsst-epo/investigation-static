@@ -1,6 +1,7 @@
 {
   "id": "solarsystem12",
   "investigation": "solar-system",
+  "sectionId": "1",
   "order": "12",
   "title": "Comparing Orbital Properties",
   "slug": "characterizing-orbits-4/",

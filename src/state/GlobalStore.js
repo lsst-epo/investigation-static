@@ -22,6 +22,7 @@ class GlobalStore {
       questionNumbersByPage: null,
       checkpoints: [],
       educatorMode: null,
+      sections: [],
       ...initialGlobals,
     };
     const { investigation } = this.emptyState;

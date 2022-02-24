@@ -1,6 +1,7 @@
 {
   "id": "solarsystem11",
   "investigation": "solar-system",
+  "sectionId": "1",
   "order": "11",
   "title": "Characterizing Comets",
   "slug": "characterizing-comet/",

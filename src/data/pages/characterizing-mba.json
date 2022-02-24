@@ -1,6 +1,7 @@
 {
   "id": "solarsystem09",
   "investigation": "solar-system",
+  "sectionId": "1",
   "order": "09",
   "title": "Characterizing Main Belt Asteroids (MBAs)",
   "slug": "characterizing-mba/",

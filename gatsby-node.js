@@ -156,12 +156,13 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "solar-system" } }
-          sort: { fields: [order, investigation], order: ASC }
+          sort: { fields: [sectionId, order, investigation], order: ASC }
         ) {
           nodes {
             order
             id
             investigation
+            sectionId
             slug
           }
         }

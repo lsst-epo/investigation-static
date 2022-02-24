@@ -1,6 +1,7 @@
 {
   "id": "solarsystem06",
   "investigation": "solar-system",
+  "sectionId": "1",
   "order": "06",
   "title": "Inclination",
   "slug": "inclination/",
