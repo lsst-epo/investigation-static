@@ -102,7 +102,7 @@ class FillableTableTextInput extends React.PureComponent {
 
     return (
       <div className="table-cell-text-input">
-        {qaReview && <span>{answer.content || ''}</span>}
+        {qaReview && <span>{answered ? answer.content : ''}</span>}
         {!qaReview && !editing && (
           <button
             type="button"
