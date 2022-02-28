@@ -6,7 +6,11 @@
   "rules": {
     "function-calc-no-unspaced-operator": true,
     "shorthand-property-no-redundant-values": true,
-    "declaration-block-no-redundant-longhand-properties": true,
+    "declaration-block-no-redundant-longhand-properties": [
+      true, {
+        "ignoreShorthands":["transition"]
+      }
+    ],
     "comment-no-empty": true,
     "max-nesting-depth": 5,
     "number-max-precision": 3,
