@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'reactn';
 import classnames from 'classnames';
 import { SelectionControl, TextField } from 'react-md';

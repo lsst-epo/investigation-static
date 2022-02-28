@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import filter from 'lodash/filter';
 import classnames from 'classnames';
-import { Drawer, ListItemControl } from 'react-md';
+import { Drawer } from 'react-md';
 import Check from '../icons/Check';
 import Star from '../icons/Star';
 import Progress from '../progress/index.jsx';
