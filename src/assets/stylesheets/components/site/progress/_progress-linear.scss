@@ -1,3 +1,5 @@
+$progressLinearMarkerWidth: 22px;
+
 .progress-linear-container {
   position: relative;
   display: flex;
@@ -14,8 +16,6 @@
 }
 
 .progress-linear-marker {
-  $progressLinearMarkerWidth: 22px;
-
   position: absolute;
   left: 0;
   z-index: 1;

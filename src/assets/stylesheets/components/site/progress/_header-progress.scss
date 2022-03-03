@@ -7,6 +7,52 @@
   height: $siteProgressHeight;
   padding: 0 $minPadding;
   background-color: rgb(245, 245, 245);
+
+  .progress-linear-container {
+    &:not(:first-of-type) {
+      margin-left: $progressLinearMarkerWidth;
+    }
+
+    &:nth-of-type(5n + 2) {
+      .progress-linear {
+        background: #cf4040;
+      }
+
+      .progress-linear-marker.completed {
+        border-color: #cf4040;
+      }
+    }
+
+    &:nth-of-type(5n + 3) {
+      .progress-linear {
+        background: #006da8;
+      }
+
+      .progress-linear-marker.completed {
+        border-color: #006da8;
+      }
+    }
+
+    &:nth-of-type(5n + 4) {
+      .progress-linear {
+        background: #a260cd;
+      }
+
+      .progress-linear-marker.completed {
+        border-color: #a260cd;
+      }
+    }
+
+    &:nth-of-type(5n + 5) {
+      .progress-linear {
+        background: #009fa1;
+      }
+
+      .progress-linear-marker.completed {
+        border-color: #009fa1;
+      }
+    }
+  }
 }
 
 .header-progress-checkpoints {

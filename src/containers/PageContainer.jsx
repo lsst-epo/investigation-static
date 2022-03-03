@@ -11,6 +11,7 @@ import {
 } from '../lib/utilities';
 import SingleCol from '../components/page/SingleCol.jsx';
 import TwoCol from '../components/page/TwoCol.jsx';
+import SectionBreak from '../components/page/sectionBreak';
 import PageNav from '../components/pageNav';
 
 @reactn
@@ -22,6 +23,7 @@ class PageContainer extends React.PureComponent {
       default: SingleCol,
       TwoCol,
       SingleCol,
+      SectionBreak,
     };
 
     this.state = {

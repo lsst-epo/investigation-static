@@ -53,7 +53,7 @@ class Layout extends React.Component {
 
   getSections = () => {
     const { pages } = this.state;
-    const sections = {};
+    const sections = [];
 
     pages.forEach(page => {
       const { pageNumber } = page;
@@ -169,7 +169,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { pageId, checkpoints } = this.global;
+    const { pageId, sections, totalPages } = this.global;
     const { tocIsOpen, pages, investigationTitle } = this.state;
     const { children, pageContext } = this.props;
     const { investigation: contextInvestigation, env: envInvestigation } =
@@ -180,13 +180,11 @@ class Layout extends React.Component {
       <>
         <SEO title={investigationTitle || investigation || 'Investigation'} />
         <Header
-          checkpoints={checkpoints}
-          investigationTitle={investigationTitle}
           logo={investigation !== 'ngss-solar-system' ? logo : null}
           pageNumber={this.getCurrentPageNumber(pages, pageId)}
-          totalPages={this.global.totalPages}
           tocVisability={tocIsOpen}
           toggleToc={investigation && this.toggleToc}
+          {...{ sections, investigationTitle, totalPages }}
         />
         {investigation && (
           <TableOfContents

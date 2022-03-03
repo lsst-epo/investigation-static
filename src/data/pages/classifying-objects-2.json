@@ -1,7 +1,7 @@
 {
   "id": "solarsystem24",
   "investigation": "solar-system",
-  "sectionId": "3",
+  "sectionId": "1",
   "order": "24",
   "title": "Classifying Newly Detected Solar System Objects - 3",
   "slug": "classifying-objects-2/",
@@ -10,8 +10,8 @@
     "link": "/classifying-objects-1/"
   },
   "next": {
-    "title": "Exploring A New Class of Objects",
-    "link": "/solar-system-summary/"
+    "title": "Progress Update",
+    "link": "/section-3/"
   },
   "layout": "TwoCol",
   "content": "<p>Use the orbital properties in the table you constructed above to help you determine which group this newly discovered object belongs to.</p>",

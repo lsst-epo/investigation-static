@@ -2,8 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LinearProgressMarker from './LinearProgressMarker';
 
-const LinearProgress = ({ min, max, value, id, labelledById, children }) => (
-  <div className="progress-linear-container" id={id}>
+const LinearProgress = ({
+  min,
+  max,
+  value,
+  displayValue,
+  id,
+  labelledById,
+  children,
+  style,
+}) => (
+  <div className="progress-linear-container" id={id} style={style}>
     <div
       className="progress-linear"
       role="progressbar"
@@ -13,9 +22,12 @@ const LinearProgress = ({ min, max, value, id, labelledById, children }) => (
       aria-labelledby={labelledById}
       style={{ width: `${value}%` }}
     ></div>
-    <LinearProgressMarker completed hoverable progress={value}>
-      <span className="progress-linear-hover-text">{`${value}%`}</span>
-    </LinearProgressMarker>
+    {value !== null && (
+      <LinearProgressMarker completed hoverable progress={value}>
+        <span className="progress-linear-hover-text">{`${displayValue ||
+          value}%`}</span>
+      </LinearProgressMarker>
+    )}
     {children}
   </div>
 );
@@ -24,9 +36,11 @@ LinearProgress.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
   value: PropTypes.number,
+  displayValue: PropTypes.number,
   id: PropTypes.string,
   labelledById: PropTypes.string,
   children: PropTypes.node,
+  style: PropTypes.object,
 };
 
 LinearProgress.defaultProps = {
