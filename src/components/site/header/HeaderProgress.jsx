@@ -1,43 +1,61 @@
 import PropTypes from 'prop-types';
-import React from 'reactn';
+import React from 'react';
+import last from 'lodash/last';
 import CustomIcon from '../icons/CustomIcon';
 import LinearProgress from '../linearProgress';
 import LinearProgressMarker from '../linearProgress/LinearProgressMarker';
 
 class HeaderProgress extends React.PureComponent {
+  getDisplayValue = (currentPage, totalPages) =>
+    currentPage ? Math.round((currentPage / totalPages) * 100) : 0;
+
+  getProgressValue = (currentPage, section) => {
+    const firstSectionPage = section[0];
+    const lastSectionPage = last(section);
+    const sectionRange = lastSectionPage - firstSectionPage;
+
+    if (currentPage < firstSectionPage) return null;
+    if (currentPage >= lastSectionPage) return 100;
+
+    return Math.round(((currentPage - firstSectionPage) / sectionRange) * 100);
+  };
+
   render = () => {
-    const { sections } = this.global;
-    const { checkpoints, pageNumber, totalPages } = this.props;
-    console.log({ pageNumber });
-    console.log({ sections });
+    const { pageNumber, totalPages, sections } = this.props;
+
     return (
       <div className="header-progress-wrapper">
-        <LinearProgress
-          id="current-page-of-total"
-          value={pageNumber ? Math.round((pageNumber / totalPages) * 100) : 0}
-        >
-          {checkpoints && (
-            <div className="header-progress-checkpoints">
-              {checkpoints.map(checkpoint => {
-                return (
+        {sections &&
+          sections.map((section, i) => {
+            const key = `section-${i}`;
+            const lastPage = last(section);
+
+            return (
+              <LinearProgress
+                key={key}
+                value={this.getProgressValue(pageNumber, section)}
+                displayValue={this.getDisplayValue(pageNumber, totalPages)}
+                style={{ width: `${(section.length / totalPages) * 100}%` }}
+              >
+                {lastPage !== totalPages && (
                   <LinearProgressMarker
-                    key={checkpoint}
-                    completed={pageNumber >= checkpoint}
-                    progress={Math.round((checkpoint / totalPages) * 100)}
+                    completed={pageNumber >= lastPage}
+                    progress={100}
                   >
                     <CustomIcon name="checkpoint" />
                   </LinearProgressMarker>
-                );
-              })}
-            </div>
-          )}
-          <LinearProgressMarker
-            completed={pageNumber >= totalPages}
-            progress={100}
-          >
-            <CustomIcon name="finish" />
-          </LinearProgressMarker>
-        </LinearProgress>
+                )}
+                {lastPage === totalPages && (
+                  <LinearProgressMarker
+                    completed={pageNumber >= totalPages}
+                    progress={100}
+                  >
+                    <CustomIcon name="finish" />
+                  </LinearProgressMarker>
+                )}
+              </LinearProgress>
+            );
+          })}
       </div>
     );
   };
@@ -46,7 +64,7 @@ class HeaderProgress extends React.PureComponent {
 HeaderProgress.propTypes = {
   pageNumber: PropTypes.number,
   totalPages: PropTypes.number,
-  checkpoints: PropTypes.array,
+  sections: PropTypes.array,
 };
 
 export default HeaderProgress;

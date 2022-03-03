@@ -23,13 +23,13 @@ class Header extends React.PureComponent {
 
   render() {
     const {
-      checkpoints,
       investigationTitle,
       toggleToc,
       tocVisability,
       logo,
       pageNumber,
       totalPages,
+      sections,
     } = this.props;
 
     return (
@@ -85,14 +85,16 @@ class Header extends React.PureComponent {
             )}
           </div>
         </div>
-        <HeaderProgress {...{ checkpoints, pageNumber, totalPages }} />
+        {pageNumber && (
+          <HeaderProgress {...{ pageNumber, totalPages, sections }} />
+        )}
       </Toolbar>
     );
   }
 }
 
 Header.propTypes = {
-  checkpoints: PropTypes.array,
+  sections: PropTypes.array,
   investigationTitle: PropTypes.string,
   tocVisability: PropTypes.bool,
   toggleToc: PropTypes.func,
