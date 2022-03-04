@@ -39,10 +39,12 @@ class HeaderProgress extends React.PureComponent {
               >
                 {lastPage !== totalPages && (
                   <LinearProgressMarker
+                    filled
                     completed={pageNumber >= lastPage}
                     progress={100}
+                    style={{ zIndex: pageNumber === lastPage ? -1 : 1 }}
                   >
-                    <CustomIcon name="checkpoint" />
+                    {pageNumber < lastPage && <CustomIcon name="checkpoint" />}
                   </LinearProgressMarker>
                 )}
                 {lastPage === totalPages && (

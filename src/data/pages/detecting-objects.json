@@ -2,7 +2,7 @@
   "id": "solarsystem02",
   "investigation": "solar-system",
   "sectionId": "0",
-  "order": "02",
+  "order": "01",
   "title": "Detecting Solar System Objects",
   "slug": "detecting-objects/",
   "previous": { "title": "Introduction", "link": "/introduction/" },

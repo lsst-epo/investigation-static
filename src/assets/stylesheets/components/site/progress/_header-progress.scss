@@ -18,8 +18,13 @@
         background: #cf4040;
       }
 
-      .progress-linear-marker.completed {
-        border-color: #cf4040;
+      .progress-linear-marker {
+        &.completed {
+          &.filled {
+            background-color: #cf4040;
+          }
+          border-color: #cf4040;
+        }
       }
     }
 
@@ -28,8 +33,13 @@
         background: #006da8;
       }
 
-      .progress-linear-marker.completed {
-        border-color: #006da8;
+      .progress-linear-marker {
+        &.completed {
+          &.filled {
+            background-color: #006da8;
+          }
+          border-color: #006da8;
+        }
       }
     }
 
@@ -38,8 +48,13 @@
         background: #a260cd;
       }
 
-      .progress-linear-marker.completed {
-        border-color: #a260cd;
+      .progress-linear-marker {
+        &.completed {
+          &.filled {
+            background-color: #a260cd;
+          }
+          border-color: #a260cd;
+        }
       }
     }
 
@@ -48,8 +63,13 @@
         background: #009fa1;
       }
 
-      .progress-linear-marker.completed {
-        border-color: #009fa1;
+      .progress-linear-marker {
+        &.completed {
+          &.filled {
+            background-color: #009fa1;
+          }
+          border-color: #009fa1;
+        }
       }
     }
   }

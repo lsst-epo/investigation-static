@@ -2,7 +2,7 @@
   "id": "solarsystem12",
   "investigation": "solar-system",
   "sectionId": "0",
-  "order": "12",
+  "order": "10",
   "title": "Comparing Orbital Properties",
   "slug": "characterizing-orbits-4/",
   "previous": {
@@ -10,8 +10,8 @@
     "link": "/characterizing-comet/"
   },
   "next": {
-    "title": "Progress Update",
-    "link": "/section-2/"
+    "title": "Distributions of Solar System Objects",
+    "link": "/identifying-groups/"
   },
   "layout": "SingleCol",
   "tables": [
