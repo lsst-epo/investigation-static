@@ -1,17 +1,17 @@
 {
   "id": "solarsystem13",
   "investigation": "solar-system",
-  "sectionId": "1",
-  "order": "13",
+  "sectionId": "0",
+  "order": "11",
   "title": "Distributions of Solar System Objects",
   "slug": "identifying-groups/",
   "previous": {
-    "title": "Progress Update",
-    "link": "/section-2/"
+    "title": "Comparing Orbital Properties",
+    "link": "/characterizing-orbits-4/"
   },
   "next": {
-    "title": "Identifying Groups of Solar System Objects - 1",
-    "link": "/identifying-groups-1/"
+    "title": "Progress Update",
+    "link": "/section-1/"
   },
   "layout": "TwoCol",
   "checkpoints": [

@@ -2,12 +2,12 @@
   "id": "solarsystem14",
   "investigation": "solar-system",
   "sectionId": "1",
-  "order": "14",
+  "order": "00",
   "title": "Identifying Groups of Solar System Objects - 1",
   "slug": "identifying-groups-1/",
   "previous": {
-    "title": "Distributions of Solar System Objects",
-    "link": "/identifying-groups/"
+    "title": "Progress Update",
+    "link": "/section-1/"
   },
   "next": {
     "title": "Identifying Groups of Solar System Objects - 2",

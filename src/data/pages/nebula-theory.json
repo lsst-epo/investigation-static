@@ -2,7 +2,7 @@
   "id": "solarsystem19a",
   "investigation": "solar-system",
   "sectionId": "1",
-  "order": "19.1",
+  "order": "05",
   "title": "Gravitational Interactions in the Solar System",
   "slug": "nebula-theory/",
   "previous": {
@@ -10,8 +10,8 @@
     "link": "/history-solar-system-1/"
   },
   "next": {
-    "title": "Classifying Newly Detected Solar System Objects",
-    "link": "/classifying-objects/"
+    "title": "Progress Update",
+    "link": "/section-2/"
   },
   "layout": "TwoCol",
   "checkpoints": [

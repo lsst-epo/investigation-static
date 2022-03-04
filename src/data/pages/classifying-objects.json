@@ -1,13 +1,13 @@
 {
   "id": "solarsystem22",
   "investigation": "solar-system",
-  "sectionId": "1",
+  "sectionId": "2",
   "order": "22",
   "title": "Classifying Newly Detected Solar System Objects - 1",
   "slug": "classifying-objects/",
   "previous": {
-    "title": "The History of the Solar System",
-    "link": "/nebula-theory/"
+    "title": "Progress Update",
+    "link": "/section-2/"
   },
   "next": {
     "title": "Classifying Newly Detected Solar System Objects - 2",

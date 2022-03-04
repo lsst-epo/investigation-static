@@ -31,6 +31,10 @@ $progressLinearMarkerWidth: 22px;
   border-radius: $progressLinearMarkerWidth / 2;
   transform: translateX(-($progressLinearMarkerWidth / 2));
 
+  &.filled {
+    background-color: $neutral30;
+  }
+
   &.hoverable {
     cursor: pointer;
     transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -53,5 +57,9 @@ $progressLinearMarkerWidth: 22px;
 
   &.completed {
     border-color: $successGreen;
+
+    &.filled {
+      background-color: $successGreen;
+    }
   }
 }
