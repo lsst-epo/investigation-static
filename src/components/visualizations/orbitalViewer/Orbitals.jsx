@@ -39,11 +39,10 @@ function Orbitals({
   // const [zoomLevel, setZoomLevel] = useState(1);
 
   function renderRefObjs() {
-    const refObjsProperties = (refObjs || ['earth', 'jupiter', 'neptune']).map(
-      refObjId => {
-        return getRefObjProps(refObjId);
-      }
-    );
+    const refObjsProperties = (
+      refObjs || ['earth', 'jupiter', 'mars', 'neptune']
+    ).map(getRefObjProps);
+
     return refObjsProperties.map(planet => {
       const {
         orbitColor,
