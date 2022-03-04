@@ -52,6 +52,18 @@ const earth = {
   objectRadius: 5,
 };
 
+const mars = {
+  a: 1.52366231,
+  e: 0.09341233,
+  i: 1.85061,
+  H: -1.52,
+  Ref: 'Mars',
+  Principal_desig: 'Mars',
+  orbitColor: ORBITAL_COLORS.mars.orbitColor,
+  objectColor: ORBITAL_COLORS.mars.objectColor,
+  objectRadius: 4,
+};
+
 const jupiter = {
   a: 5.2028,
   e: 0.048,
@@ -83,6 +95,7 @@ export const getRefObjProps = id => {
     {
       neptune,
       earth,
+      mars,
       jupiter,
     }[id] || null
   );
