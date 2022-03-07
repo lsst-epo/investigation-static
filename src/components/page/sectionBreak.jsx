@@ -13,7 +13,7 @@ class SectionBreak extends React.PureComponent {
         <ImageLoader
           src={sectionBreakImagePath}
           alt="Animated image of fireworks"
-          className="image-responsive"
+          responsive
         />
         <h1>{title}</h1>
         {blocksGroups.map((rowBlockGroup, i) => {
