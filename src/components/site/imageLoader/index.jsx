@@ -28,11 +28,12 @@ class ImageLoader extends React.PureComponent {
   };
 
   render() {
-    const { src, alt, className } = this.props;
+    const { src, alt, responsive } = this.props;
     const { loaded } = this.state;
-    const classes = classnames(className, loaderImage, {
+    const classes = classnames(loaderImage, {
       [imageLoaded]: loaded,
       [imageNotLoaded]: !loaded,
+      'image-responsive': responsive,
     });
 
     return (
@@ -58,7 +59,7 @@ class ImageLoader extends React.PureComponent {
 ImageLoader.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
-  className: PropTypes.string,
+  responsive: PropTypes.bool,
 };
 
 export default ImageLoader;
