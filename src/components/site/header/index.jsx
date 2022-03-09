@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-md';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import Button from '../button/index';
 import ButtonIcon from '../button/ButtonIcon';
 import Close from '../icons/Close';
@@ -56,17 +57,32 @@ class Header extends React.PureComponent {
               }
               onClick={toggleToc}
             >
-              <span role="presentation">Table Of Contents</span>
-              <span className="screen-reader-only">{`${
-                tocVisability ? 'Close' : 'Open'
-              } Table of Contents`}</span>
+              <span role="presentation">
+                <Trans>interface::locations.table_of_contents</Trans>
+              </span>
+              <span className="screen-reader-only">
+                {tocVisability ? (
+                  <Trans>interface::header.toc_close</Trans>
+                ) : (
+                  <Trans>interface::header.toc_open</Trans>
+                )}
+              </span>
             </Button>
           )}
           <span className={styles.investigationTitle}>
-            {investigationTitle}
-            {pageNumber &&
-              totalPages &&
-              `: Page ${pageNumber} of ${totalPages}`}
+            <Trans
+              values={{
+                investigation: investigationTitle,
+                pageCount:
+                  pageNumber && totalPages
+                    ? '$t(interface::header.page_count, {"current": {{currentPage}}, "total": {{totalPages}}})'
+                    : '',
+                currentPage: pageNumber,
+                totalPages,
+              }}
+            >
+              interface::header.title
+            </Trans>
           </span>
           <div className={styles.headerInner}>
             {logo && (

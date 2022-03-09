@@ -1,6 +1,7 @@
 import React from 'react';
 import reactn from 'reactn';
 import { Link } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import PropTypes from 'prop-types';
 import filter from 'lodash/filter';
 import classnames from 'classnames';
@@ -51,9 +52,9 @@ class TableOfContents extends React.PureComponent {
 
     const qaReviewLink = {
       component: Link,
-      label: 'Review Your Answers',
+      label: <Trans>interface::actions.review_your_answers</Trans>,
       to: baseUrl + 'qa-review/',
-      primaryText: 'Review Your Answers',
+      primaryText: <Trans>interface::actions.review_your_answers</Trans>,
       leftIcon: <Star />,
       active: true,
       disabled: false,
@@ -98,10 +99,12 @@ class TableOfContents extends React.PureComponent {
           <>
             <Progress type="small" />
             <hr className="md-divider" />
-            <h4 className={heading}>Table of Contents</h4>
+            <h4 className={heading}>
+              <Trans>interface::locations.table_of_contents</Trans>
+            </h4>
           </>
         }
-        aria-label="Table of Contents"
+        aria-label={<Trans>interface::locations.table_of_contents</Trans>}
         type={TEMPORARY}
         className={tableOfContents}
         visible={visible}

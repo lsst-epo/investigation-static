@@ -1,0 +1,55 @@
+{
+  "locations": {
+    "home": "Home",
+    "table_of_contents": "Table of Contents"
+  },
+  "actions": {
+    "review_your_answers": "Review your answers",
+    "clear_answers": "Clear all saved answers",
+    "go_to_investigation": "Go to {{investigation}} investigation",
+    "print_answers": "Print your answers"
+  },
+  "errors": {
+    "passphrase": {
+      "mismatch": "Incorrect passphrase"
+    }
+  },
+  "formfields": {
+    "passphrase": {
+      "placeholder": "Passphrase"
+    },
+    "name": {
+      "placeholder": "Name",
+      "label": "Please enter your name"
+    }
+  },
+  "notifications": {
+    "answer_all_qa": "Please answer all questions before continuing to the next page."
+  },
+  "table_of_contents": {
+    "progress": {
+      "pages_visited": "Pages visited",
+      "questions_answered": "Questions answered"
+    }
+  },
+  "header": {
+    "title": "{{investigation}}{{pageCount}}",
+    "page_count": ": Page {{current}} of {{total}}",
+    "toc_open": "Open Table of Contents",
+    "toc_close": "Close Table of Contents"
+  },
+  "landing": {
+    "welcome": "Welcome to the {{investigation}} Investigation",
+    "start": "Start {{investigation}} Investigation",
+    "already_started": "It looks like you've started this investigation before."
+  },
+  "educator_mode": {
+    "title": "Educator Mode"
+  },
+  "qa_review": {
+    "welcome": "Great job! Let's review your answers for the {{investigation}} Investigation.",
+    "subtitle": "{{investigation}} Investigation: Questions & Answers",
+    "name": "Name: {{name}}",
+    "date": "Date: {{val, datetime}}"
+  }
+}

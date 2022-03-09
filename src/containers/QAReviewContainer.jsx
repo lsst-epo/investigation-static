@@ -4,6 +4,7 @@ import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
+import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
 import find from 'lodash/find';
 import filter from 'lodash/filter';
 import Card from '../components/site/card';
@@ -158,7 +159,7 @@ class QAReviewContainer extends React.PureComponent {
 
   render() {
     const { answers, name } = this.global;
-    const { pageContext } = this.props;
+    const { pageContext, t } = this.props;
     const { investigations } = pageContext;
     const { envInvestigation, pages } = this.state;
 
@@ -167,16 +168,17 @@ class QAReviewContainer extends React.PureComponent {
         {envInvestigation ? (
           <>
             <h2 className="space-bottom heading-primary dont-print">
-              Great job! Let&apos;s review your answers for the{' '}
-              {envInvestigation.title} Investigation.
+              <Trans values={{ investigation: envInvestigation.title }}>
+                interface::qa_review.welcome
+              </Trans>
             </h2>
             <Card className={`dont-print ${qaReviewCard}`}>
               <TextField
                 id="name-input"
                 type="text"
-                label="Please enter your name"
+                label={t('interface::formfields.name.label')}
                 defaultValue={name}
-                placeholder="Name"
+                placeholder={t('interface::formfields.name.placeholder')}
                 onChange={this.handleName}
               />
             </Card>
@@ -185,10 +187,36 @@ class QAReviewContainer extends React.PureComponent {
             <br />
             <h3 className="space-bottom">
               <div className="space-bottom">
-                {envInvestigation.title} Investigation: Questions & Answers
+                <Trans values={{ investigation: envInvestigation.title }}>
+                  interface::qa_review.subtitle
+                </Trans>
               </div>
-              <div>Name: {name}</div>
-              <div className="print-only">Date: {new Date().toString()}</div>
+              <div>
+                <Trans values={{ investigation: name }}>
+                  interface::qa_review.name
+                </Trans>
+              </div>
+              <div className="print-only">
+                <Trans
+                  values={{
+                    val: new Date(),
+                    formatParams: {
+                      val: {
+                        weekday: 'short',
+                        month: 'short',
+                        year: 'numeric',
+                        day: 'numeric',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        second: 'numeric',
+                        timeZoneName: 'short',
+                      },
+                    },
+                  }}
+                >
+                  interface::qa_review.date
+                </Trans>
+              </div>
             </h3>
             {pages &&
               pages.map(page => {
@@ -248,7 +276,7 @@ class QAReviewContainer extends React.PureComponent {
             <div className="container-flex spaced dont-print">
               <div className="col">
                 <Button flat secondary swapTheming onClick={this.handlePrint}>
-                  Print Your Answers
+                  <Trans>interface::actions.print_answers</Trans>
                 </Button>
               </div>
             </div>
@@ -259,7 +287,9 @@ class QAReviewContainer extends React.PureComponent {
             return (
               <div key={id}>
                 <Link to={`/${id}/introduction/`}>
-                  Go to {title} Investigation
+                  <Trans values={{ investigation: title }}>
+                    interface::landing.go_to_investigation
+                  </Trans>
                 </Link>
               </div>
             );
@@ -270,15 +300,25 @@ class QAReviewContainer extends React.PureComponent {
   }
 }
 
-export default QAReviewContainer;
+export default withTranslation()(QAReviewContainer);
 
 QAReviewContainer.propTypes = {
   pageContext: PropTypes.object,
   data: PropTypes.object,
+  t: PropTypes.func,
 };
 
 export const query = graphql`
-  query QAReviewQuery {
+  query QAReviewQuery($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     allPagesJson(sort: { fields: order, order: ASC }) {
       nodes {
         ...PageMeta

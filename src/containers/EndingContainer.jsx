@@ -2,7 +2,7 @@
 import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import find from 'lodash/find';
 import ls from 'local-storage';
 import SEO from '../components/seo';
@@ -183,6 +183,20 @@ class LastPage extends React.PureComponent {
 }
 
 export default LastPage;
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
 
 LastPage.propTypes = {
   pageContext: PropTypes.object,
