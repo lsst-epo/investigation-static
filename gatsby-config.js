@@ -18,6 +18,32 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `locale`,
+        path: `${__dirname}/src/data/locales`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`,
+        languages: [`en`, `es`],
+        defaultLanguage: `en`,
+        langKeyDefault: 'en',
+        useLangKeyLayout: false,
+        i18nextOptions: {
+          debug: true,
+          interpolation: {
+            skipOnVariables: false,
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          keySeparator: '.',
+          nsSeparator: '::',
+        },
+      },
+    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -57,70 +83,5 @@ module.exports = {
         },
       },
     },
-    // `gatsby-transformer-sharp`,
-    // `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `#087f80`,
-    //     theme_color: `#087f80`,
-    //     display: `minimal-ui`,
-    //     icon:
-    //       process.env.INVESTIGATION !== `ngss-solar-system`
-    //         ? `src/images/Rubin-favicon-32px.png`
-    //         : `src/images/placeholder.jpg`, // This path is relative to the root of the site.
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-source-graphql',
-    //   options: {
-    //     typeName: 'CraftGraphQL',
-    //     fieldName: 'craft',
-    //     // Url to query from
-    //     url: 'http://craft-test.test/api',
-    //     // HTTP headers
-    //     headers: {
-    //       // Learn about environment variables: https://gatsby.dev/env-vars
-    //       Authorization: `bearer ${process.env.GRAPHQL_TOKEN}`,
-    //     },
-    //     // Additional options to pass to node-fetch
-    //     fetchOptions: {},
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-source-graphql',
-    //   options: {
-    //     // This type will contain remote schema Query type
-    //     typeName: 'CraftQL',
-    //     // This is the field under which it's accessible
-    //     fieldName: 'craftql',
-    //     // URL to query from
-    //     url: 'http://craft-test.test/api-craftql',
-    //     // HTTP headers
-    //     headers: {
-    //       Authorization: `bearer ${process.env.CRAFTQL_TOKEN}`,
-    //     },
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-plugin-react-axe',
-    //   options: {
-    //     // Integrate react-axe in production. This defaults to false.
-    //     showInProduction: false,
-
-    //     // Options to pass to axe-core.
-    //     // See: https://github.com/dequelabs/axe-core/blob/master/doc/API.md#api-name-axeconfigure
-    //     axeOptions: {
-    //       // Your axe-core options.
-    //     },
-    //     axeContext: undefined,
-    //   },
-    // },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };

@@ -2,6 +2,7 @@
 import React from 'reactn';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import classnames from 'classnames';
 import Button from '../site/button';
 import ButtonIcon from '../site/button/ButtonIcon';
@@ -62,14 +63,16 @@ class PageNav extends React.PureComponent {
 
   getButtonIconEl(type, title) {
     const { allQuestionsAnswered } = this.props;
+    const homeText = <Trans>interface::locations.home</Trans>;
+    const allQasRequiredText = (
+      <Trans>interface::notifications.answer_all_qa</Trans>
+    );
     if (type === 'previous') {
-      return <ButtonIcon srText={title || 'Home'} Icon={ArrowLeft} />;
+      return <ButtonIcon srText={title || homeText} Icon={ArrowLeft} />;
     }
     return (
       <ButtonIcon
-        srText={
-          allQuestionsAnswered ? title || 'Home' : 'All Answers Are Required'
-        }
+        srText={allQuestionsAnswered ? title || homeText : allQasRequiredText}
         Icon={ArrowRight}
       />
     );
@@ -101,7 +104,7 @@ class PageNav extends React.PureComponent {
           tooltipLabel={item.title}
           tooltipPosition="top"
         >
-          Review your Answers
+          <Trans>interface::actions.review_your_answers</Trans>
         </Button>
       );
     }
@@ -135,7 +138,9 @@ class PageNav extends React.PureComponent {
           handleClose={this.handleHideAllRequiredNotification}
           icon="StopIcon"
         >
-          <p>Please answer all questions before continuing to the next page.</p>
+          <p>
+            <Trans>interface::notifications.answer_all_qa</Trans>
+          </p>
         </Notification>
         <div className={styles.pageNavigation}>
           <nav role="navigation" className={styles.navSecondary}>

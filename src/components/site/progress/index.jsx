@@ -1,5 +1,6 @@
 import React, { useGlobal } from 'reactn';
 import PropTypes from 'prop-types';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import classnames from 'classnames';
 import LinearProgress from '../linearProgress';
 
@@ -27,7 +28,7 @@ const Progress = ({ className, type, showQuestions, showPages }) => {
       {showPages && (
         <div className={classes}>
           <div id="pagesBarLabel" className={headerTitle}>
-            Pages Visited
+            <Trans>interface::table_of_contents.progress.pages_visited</Trans>
           </div>
           <LinearProgress
             id="pages-bar"
@@ -39,7 +40,9 @@ const Progress = ({ className, type, showQuestions, showPages }) => {
       {showQuestions && (
         <div className={classes}>
           <div id="questionsBarId" className={headerTitle}>
-            Questions Answered
+            <Trans>
+              interface::table_of_contents.progress.questions_answered
+            </Trans>
           </div>
           <LinearProgress
             id="questions-bar"

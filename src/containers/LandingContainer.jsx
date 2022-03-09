@@ -2,7 +2,8 @@
 import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
+import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
 import find from 'lodash/find';
 import ls from 'local-storage';
 import SEO from '../components/seo';
@@ -35,18 +36,20 @@ class InvestigationsLanding extends React.PureComponent {
   };
 
   render() {
-    const { pageContext } = this.props;
+    const { pageContext, t } = this.props;
     const { investigations } = pageContext;
     const { envInvestigation } = this.state;
     const isAnswers = Object.keys(this.global.answers).length > 0;
 
     return (
       <>
-        <SEO title="Home" />
+        <SEO title={t('interface::locations.home')} />
         {envInvestigation ? (
           <>
             <p className="copy-primary space-bottom">
-              Welcome to the {envInvestigation.title} Investigation.
+              <Trans values={{ investigation: envInvestigation.title }}>
+                interface::landing.welcome
+              </Trans>
             </p>
             <div className="space-bottom">
               <Button
@@ -56,7 +59,9 @@ class InvestigationsLanding extends React.PureComponent {
                 to="/introduction/"
                 component={Link}
               >
-                Start {envInvestigation.title} Investigation
+                <Trans values={{ investigation: envInvestigation.title }}>
+                  interface::landing.start
+                </Trans>
               </Button>
             </div>
             <div className="space-bottom landing-page-toggle">
@@ -68,7 +73,7 @@ class InvestigationsLanding extends React.PureComponent {
                 <br />
                 <div className="space-bottom">
                   <p className="copy-primary space-bottom">
-                    It looks like you&apos;ve started this investigation before.
+                    <Trans>interface::landing.already_started</Trans>
                   </p>
                   <div className="space-bottom">
                     <Button
@@ -78,7 +83,7 @@ class InvestigationsLanding extends React.PureComponent {
                       to="/qa-review/"
                       component={Link}
                     >
-                      Review Your Answers
+                      <Trans>interface::actions.review_your_answers</Trans>
                     </Button>
                   </div>
                   <Button
@@ -88,7 +93,7 @@ class InvestigationsLanding extends React.PureComponent {
                     onClick={this.dispatch.empty}
                     style={{ backgroundColor: '#df0039' }}
                   >
-                    Clear all saved answers
+                    <Trans>interface::actions.clear_answers</Trans>
                   </Button>
                 </div>
               </>
@@ -100,7 +105,9 @@ class InvestigationsLanding extends React.PureComponent {
             return (
               <div key={id}>
                 <Link to={`/${id}/introduction/`}>
-                  Go to {title} Investigation
+                  <Trans values={{ investigation: title }}>
+                    interface::landing.go_to_investigation
+                  </Trans>
                 </Link>
               </div>
             );
@@ -111,8 +118,23 @@ class InvestigationsLanding extends React.PureComponent {
   }
 }
 
-export default InvestigationsLanding;
+export default withTranslation()(InvestigationsLanding);
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
 
 InvestigationsLanding.propTypes = {
   pageContext: PropTypes.object,
+  t: PropTypes.func,
 };

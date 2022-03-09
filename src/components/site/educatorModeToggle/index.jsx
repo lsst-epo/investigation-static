@@ -1,4 +1,6 @@
 import React from 'reactn';
+import PropTypes from 'prop-types';
+import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
 import classnames from 'classnames';
 import { SelectionControl, TextField } from 'react-md';
 
@@ -37,6 +39,7 @@ class EducatorModeToggle extends React.PureComponent {
   };
 
   render = () => {
+    const { t } = this.props;
     const { educatorMode } = this.global;
     const { passphraseError, passphraseInput } = this.state;
 
@@ -49,18 +52,18 @@ class EducatorModeToggle extends React.PureComponent {
             expanded: !educatorMode,
           })}
           error={passphraseError}
-          errorText="Incorrect passphrase"
+          errorText={<Trans>interface::errors.passphrase.mismatch</Trans>}
           fullWidth={false}
           onChange={this.handlePassphraseChange}
           defaultValue={passphraseInput}
-          placeholder="Passphrase"
+          placeholder={t('interface::formfields.passphrase.placeholder')}
         />
         <SelectionControl
           defaultChecked={false}
           id="educatorModeToggle"
           name="educatorModeToggle"
           type="switch"
-          label="Educator mode"
+          label={<Trans>interface::educator_mode.title</Trans>}
           checked={educatorMode}
           onChange={this.handleEducatorModeChange}
         />
@@ -69,4 +72,8 @@ class EducatorModeToggle extends React.PureComponent {
   };
 }
 
-export default EducatorModeToggle;
+EducatorModeToggle.propTypes = {
+  t: PropTypes.func,
+};
+
+export default withTranslation()(EducatorModeToggle);
