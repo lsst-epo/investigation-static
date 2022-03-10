@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import classnames from 'classnames';
 import { useKeyDownEvent, useOnClickOutside } from '../../../hooks/listeners';
 import useFocusTrap from '../../../hooks/useFocusTrap';
@@ -95,7 +96,7 @@ function Modal({
             {secondaryCloseButton && (
               <footer>
                 <Button {...secondaryCloseButtonOpts} onClick={handleClose}>
-                  Close
+                  <Trans>interface::actions.close</Trans>
                 </Button>
               </footer>
             )}

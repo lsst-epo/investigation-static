@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import {
   legend,
   neoName,
@@ -20,7 +21,9 @@ class Legend extends React.PureComponent {
         {activeAlert && selectedData && (
           <ul className={details}>
             <li className={detail}>
-              <div className={title}>observation date</div>
+              <div className={title}>
+                <Trans>widgets::time_viewer.observation_date</Trans>
+              </div>
               <div className={copy}>
                 {date} {start}
               </div>

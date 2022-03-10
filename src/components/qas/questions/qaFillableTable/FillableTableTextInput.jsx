@@ -2,6 +2,7 @@ import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import { TextField } from 'react-md';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import ButtonIcon from '../../../site/button/ButtonIcon';
 import Edit from '../../../site/icons/Edit';
 
@@ -95,7 +96,7 @@ class FillableTableTextInput extends React.PureComponent {
   };
 
   render() {
-    const { question, answer } = this.props;
+    const { question, answer, t } = this.props;
     const { editing } = this.state;
     const { id, qaReview } = question;
     const answered = !isEmpty(answer);
@@ -110,7 +111,7 @@ class FillableTableTextInput extends React.PureComponent {
             onClick={this.handleEditClick}
           >
             <span>{answered ? answer.content : ''}</span>
-            <ButtonIcon srText="Edit" Icon={Edit} />
+            <ButtonIcon srText={t('actions.edit')} Icon={Edit} />
           </button>
         )}
         {!qaReview && editing && (
@@ -135,6 +136,7 @@ FillableTableTextInput.propTypes = {
   focusCallback: PropTypes.func,
   answerHandler: PropTypes.func,
   answer: PropTypes.object,
+  t: PropTypes.func,
 };
 
-export default FillableTableTextInput;
+export default withTranslation('interface')(FillableTableTextInput);

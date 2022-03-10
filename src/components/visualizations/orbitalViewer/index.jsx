@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Canvas } from 'react-three-fiber';
 import Camera from './Camera.jsx';
 import CameraController from './CameraController.jsx';
@@ -69,6 +70,8 @@ function OrbitalViewer({
     setFrameOverride(frameOverride + 1);
   };
 
+  const { t } = useTranslation();
+
   return (
     <>
       <div className={container}>
@@ -119,9 +122,14 @@ function OrbitalViewer({
               reset,
               zoomLevel,
               setZoomLevel,
+              t,
             }}
           />
-          <Sun zoomLevel={zoomLevel} defaultZoom={defaultZoom || 1} />
+          <Sun
+            zoomLevel={zoomLevel}
+            defaultZoom={defaultZoom || 1}
+            {...{ t }}
+          />
         </Canvas>
         {!paused && (
           <Controls

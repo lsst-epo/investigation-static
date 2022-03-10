@@ -25,6 +25,7 @@ function Orbitals({
   reset,
   zoomLevel,
   setZoomLevel,
+  t,
 }) {
   function reducer(state) {
     const { remainingInits } = state;
@@ -71,6 +72,7 @@ function Orbitals({
             objectColor,
             objectRadius,
             reset,
+            t,
           }}
         />
       );
@@ -110,6 +112,7 @@ function Orbitals({
             activeVelocityCallback,
             observations,
             activeObs,
+            t,
           }}
           initCallback={dispatch}
         />
@@ -136,6 +139,7 @@ function Orbitals({
                 activeVelocityCallback,
                 noLabels,
                 reset,
+                t,
               }}
               initCallback={dispatch}
             />
@@ -166,6 +170,7 @@ Orbitals.propTypes = {
   setElapsedTime: PropTypes.func,
   noLabels: PropTypes.bool,
   reset: PropTypes.number,
+  t: PropTypes.func,
 };
 
 export default Orbitals;

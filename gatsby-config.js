@@ -34,7 +34,7 @@ module.exports = {
         langKeyDefault: 'en',
         useLangKeyLayout: false,
         i18nextOptions: {
-          debug: true,
+          debug: false,
           interpolation: {
             skipOnVariables: false,
             escapeValue: false, // not needed for react as it escapes by default
