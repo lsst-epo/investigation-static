@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import QAExpansionList from './questions/qaExpansionList/index.jsx';
 import QATextInput from './questions/qaTextInput/index.jsx';
 import QASelect from './questions/qaSelect/index.jsx';
@@ -39,12 +40,18 @@ class QA extends React.PureComponent {
         <QuestionComponent {...this.props} handleAnswerSelect={answerHandler} />
       ) : (
         <div>
-          Question Placeholder: {questionType} Question Type does not Exist
+          <Trans values={questionType}>qas.question_placeholder</Trans>
         </div>
       );
     }
 
-    return <div>Question Placeholder</div>;
+    return (
+      <div>
+        <Trans tOptions={{ context: 'no-type' }}>
+          qas.question_placeholder
+        </Trans>
+      </div>
+    );
   }
 
   render() {

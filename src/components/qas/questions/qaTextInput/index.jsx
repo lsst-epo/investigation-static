@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
 import classnames from 'classnames';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import TextField from '../../../site/forms/textField';
 import Card from '../../../site/card';
 import ConditionalWrapper from '../../../ConditionalWrapper';
@@ -91,6 +92,7 @@ class TextInput extends React.PureComponent {
       questionNumber,
       answer,
       activeId,
+      t,
     } = this.props;
     const { hasFocus, answerable } = this.state;
     const {
@@ -163,7 +165,7 @@ class TextInput extends React.PureComponent {
                 [qaStyles.qaReviewBlockInput]: !labelPre && !labelPost,
               })}
             >
-              {answered ? answer.content : 'Answer Not Provided'}
+              {answered ? answer.content : t('errors.qas.answer_not_provided')}
             </span>
           </span>
         )}
@@ -177,7 +179,7 @@ class TextInput extends React.PureComponent {
                 className={qaStyles.labelWithNumber}
                 dangerouslySetInnerHTML={renderDef(
                   updatedLabel ||
-                    `Complete this statement by filling in the blank: ${labelPre}, blank, ${labelPost}`
+                    t('qas.text_input.label', { labelPre, labelPost })
                 )}
               />
             }
@@ -213,6 +215,7 @@ TextInput.propTypes = {
   answerHandler: PropTypes.func,
   answer: PropTypes.object,
   ids: PropTypes.array,
+  t: PropTypes.func,
 };
 
-export default TextInput;
+export default withTranslation('interface')(TextInput);
