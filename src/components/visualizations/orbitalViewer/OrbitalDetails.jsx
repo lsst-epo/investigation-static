@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import classnames from 'classnames';
 import Unit from '../../charts/shared/unit/index.jsx';
 import Table from '../../site/forms/table/index.jsx';
@@ -13,6 +14,7 @@ import {
 import Button from '../../site/button/index.js';
 
 function OrbitalDetails({ data, velocity, type }) {
+  const { t } = useTranslation('widgets');
   const { H, a, i, e, name, Principal_desig: pd, Earth_moid: moid } =
     data || {};
   const [active, setActive] = useState(false);
@@ -35,19 +37,34 @@ function OrbitalDetails({ data, velocity, type }) {
   function getRows() {
     if (type === 'hazardous-asteroids') {
       return [
-        ['Scientific Name', name || pd || ''],
-        ['Absolute Magnitude', renderValueWithUnits(H, 'magnitude', false)],
-        ['Earth MOID', renderValueWithUnits(moid, 'moid', true)],
+        [t('orbit_viewer.details_table.scientific_name'), name || pd || ''],
+        [
+          t('orbit_viewer.details_table.absolute_magnitude'),
+          renderValueWithUnits(H, 'magnitude', false),
+        ],
+        [
+          t('orbit_viewer.details_table.earth_moid'),
+          renderValueWithUnits(moid, 'moid', true),
+        ],
       ];
     }
 
     return [
-      ['Scientific Name', name || pd || ''],
-      ['Orbit Size', renderValueWithUnits(a, 'semimajor_axis', true)],
-      ['Eccentricity', renderValueWithUnits(e, 'eccentricity', false)],
-      ['Inclination', renderValueWithUnits(i, 'inclination', true)],
+      [t('orbit_viewer.details_table.scientific_name'), name || pd || ''],
       [
-        'Orbital Speed',
+        t('orbit_viewer.details_table.orbit_size'),
+        renderValueWithUnits(a, 'semimajor_axis', true),
+      ],
+      [
+        t('orbit_viewer.details_table.eccentricity'),
+        renderValueWithUnits(e, 'eccentricity', false),
+      ],
+      [
+        t('orbit_viewer.details_table.inclination'),
+        renderValueWithUnits(i, 'inclination', true),
+      ],
+      [
+        t('orbit_viewer.details_table.orbital_speed'),
         renderValueWithUnits(toSigFigs(velocity, 3), 'velocity', true),
       ],
     ];
@@ -61,7 +78,7 @@ function OrbitalDetails({ data, velocity, type }) {
         disabled={!data}
         onClick={() => setActive(!active)}
       >
-        {active ? 'Hide' : 'Object'} info
+        {t('orbit_viewer.details', { context: active ? 'hide' : 'show' })}
       </Button>
       <div
         className={classnames(details, {

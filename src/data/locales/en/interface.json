@@ -1,13 +1,22 @@
 {
   "locations": {
     "home": "Home",
-    "table_of_contents": "Table of Contents"
+    "table_of_contents": "Table of Contents",
+    "checkpoint": "Checkpoint"
   },
   "actions": {
     "review_your_answers": "Review your answers",
     "clear_answers": "Clear all saved answers",
     "go_to_investigation": "Go to {{investigation}} investigation",
-    "print_answers": "Print your answers"
+    "print_answers": "Print your answers",
+    "close": "Close",
+    "pause": "Pause",
+    "play": "Play",
+    "reset": "Reset",
+    "play_or_pause": "Play/Pause",
+    "skip_backward": "Skip Backward",
+    "skip_forward": "Skip Forward",
+    "edit": "Edit"
   },
   "errors": {
     "passphrase": {
@@ -51,5 +60,8 @@
     "subtitle": "{{investigation}} Investigation: Questions & Answers",
     "name": "Name: {{name}}",
     "date": "Date: {{val, datetime}}"
+  },
+  "section_break": {
+    "banner_alt": "Animated image of fireworks"
   }
 }

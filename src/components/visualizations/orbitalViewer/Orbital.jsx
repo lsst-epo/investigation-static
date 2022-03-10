@@ -45,6 +45,7 @@ const Orbital = ({
   type,
   noLabels,
   reset,
+  t,
 }) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
@@ -56,6 +57,7 @@ const Orbital = ({
     Node: ascendingNode,
     Peri: peri,
     Principal_desig: pd,
+    Translated_desig_key: translationKey,
     name,
   } = data || {};
 
@@ -232,7 +234,7 @@ const Orbital = ({
                 }}
                 onClick={() => selectionCallback(data, 'neo')}
               >
-                {name || pd}
+                {translationKey ? t(translationKey) : name || pd}
               </button>
             </HTML>
           )}
@@ -354,6 +356,7 @@ Orbital.propTypes = {
   type: PropTypes.string,
   noLabels: PropTypes.bool,
   reset: PropTypes.number,
+  t: PropTypes.func,
 };
 
 export default Orbital;

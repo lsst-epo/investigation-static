@@ -5,7 +5,7 @@ import { getLabelSize, ORBITAL_COLORS } from './orbitalUtilities.js';
 
 import { label } from './orbital-viewer.module.scss';
 
-function Sun({ defaultZoom, zoomLevel }) {
+function Sun({ defaultZoom, zoomLevel, t }) {
   return (
     <mesh position={[0, 0, 0]}>
       <sphereBufferGeometry attach="geometry" args={[9, 16, 8]} />
@@ -20,7 +20,7 @@ function Sun({ defaultZoom, zoomLevel }) {
             fontSize: getLabelSize(zoomLevel, defaultZoom),
           }}
         >
-          Sun
+          {t('astronomy::sun')}
         </div>
       </HTML>
     </mesh>
@@ -30,6 +30,7 @@ function Sun({ defaultZoom, zoomLevel }) {
 Sun.propTypes = {
   zoomLevel: PropTypes.number,
   defaultZoom: PropTypes.number,
+  t: PropTypes.func,
 };
 
 export default Sun;

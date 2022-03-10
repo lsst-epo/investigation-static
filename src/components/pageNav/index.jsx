@@ -2,7 +2,7 @@
 import React from 'reactn';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
 import classnames from 'classnames';
 import Button from '../site/button';
 import ButtonIcon from '../site/button/ButtonIcon';
@@ -62,11 +62,9 @@ class PageNav extends React.PureComponent {
   }
 
   getButtonIconEl(type, title) {
-    const { allQuestionsAnswered } = this.props;
-    const homeText = <Trans>interface::locations.home</Trans>;
-    const allQasRequiredText = (
-      <Trans>interface::notifications.answer_all_qa</Trans>
-    );
+    const { allQuestionsAnswered, t } = this.props;
+    const homeText = t('interface::locations.home');
+    const allQasRequiredText = t('interface::notifications.answer_all_qa');
     if (type === 'previous') {
       return <ButtonIcon srText={title || homeText} Icon={ArrowLeft} />;
     }
@@ -154,11 +152,12 @@ class PageNav extends React.PureComponent {
   }
 }
 
-export default PageNav;
+export default withTranslation()(PageNav);
 
 PageNav.propTypes = {
   allQuestionsAnswered: PropTypes.bool,
   baseUrl: PropTypes.string,
   previous: PropTypes.object,
   next: PropTypes.object,
+  t: PropTypes.func,
 };
