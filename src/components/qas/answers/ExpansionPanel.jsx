@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import Button from 'react-md/lib/Buttons/Button';
 import FormattedAnswer from './FormattedAnswer';
 import { qaReviewBlock } from '../styles.module.scss';
@@ -27,7 +28,7 @@ class AnswerExpansionPanel extends React.PureComponent {
             secondary
             className="outlined mini edit-button"
           >
-            Change Answer
+            <Trans>interface::actions.change_answer</Trans>
           </Button>
         )}
         <p

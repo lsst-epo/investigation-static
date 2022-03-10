@@ -16,9 +16,14 @@
     "play_or_pause": "Play/Pause",
     "skip_backward": "Skip Backward",
     "skip_forward": "Skip Forward",
-    "edit": "Edit"
+    "edit": "Edit",
+    "change_answer": "Change answer"
   },
   "errors": {
+    "qas": {
+      "answer_not_provided": "Answer not provided",
+      "answer_not_selected": "(nothing selected)"
+    },
     "passphrase": {
       "mismatch": "Incorrect passphrase"
     }
@@ -63,5 +68,12 @@
   },
   "section_break": {
     "banner_alt": "Animated image of fireworks"
+  },
+  "qas": {
+    "question_placeholder": "Question Placeholder: {{questionType}} Question Type does not Exist",
+    "question_placeholder_no-type": "Question placeholder",
+    "text_input": {
+      "label": "Complete this statement by filling in the blank: {{labelPre}}, blank, {{labelPost}}"
+    }
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import { DropdownMenu, SelectionControl } from 'react-md';
 import { checkIds } from '../../../../lib/utilities.js';
 import ConditionalWrapper from '../../../ConditionalWrapper';
@@ -116,6 +117,7 @@ class QAMultiSelect extends React.PureComponent {
       question,
       activeId,
       answer,
+      t,
     } = this.props;
     const {
       id,
@@ -165,7 +167,8 @@ class QAMultiSelect extends React.PureComponent {
           {qaReview && (
             <span className={qaStyles.qaReviewBlock}>
               <span className={qaStyles.answerContentSelect}>
-                {selectedOptions.join(', ') || '(none selected)'}
+                {selectedOptions.join(', ') ||
+                  t('errors.qas.answer_not_selected')}
               </span>
             </span>
           )}
@@ -223,6 +226,7 @@ QAMultiSelect.propTypes = {
   ids: PropTypes.array,
   focusCallback: PropTypes.func,
   saveHandler: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default QAMultiSelect;
+export default withTranslation('interface')(QAMultiSelect);

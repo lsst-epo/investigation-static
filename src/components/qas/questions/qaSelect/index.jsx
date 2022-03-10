@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import { checkIds } from '../../../../lib/utilities.js';
 import ConditionalWrapper from '../../../ConditionalWrapper';
 import Card from '../../../site/card';
@@ -85,6 +86,7 @@ class QASelect extends React.PureComponent {
       questionNumber,
       activeId,
       answer,
+      t,
     } = this.props;
     const {
       id,
@@ -163,7 +165,7 @@ class QASelect extends React.PureComponent {
               >
                 {answered
                   ? answer.content || answer.data
-                  : '(nothing selected)'}
+                  : t('errors.qas.answer_not_selected')}
               </div>
             </div>
           )}
@@ -206,6 +208,7 @@ QASelect.propTypes = {
   activeId: PropTypes.string,
   ids: PropTypes.array,
   focusCallback: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default QASelect;
+export default withTranslation('interface')(QASelect);
