@@ -64,23 +64,21 @@
         "row": "bottom",
         "col": "right"
       },
-      "colTitles": ["Property", "Min", "Max", "Most Common"],
-      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclination º"]],
+      "fixed": true,
+      "colTitles": ["New Group Property", "Range", "Most Common"],
+      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclinationº"]],
       "rows": [
         [
-          { "accessor": "data", "id": "55" },
-          { "accessor": "data", "id": "56" },
-          { "accessor": "data", "id": "57" }
+          { "accessor": "range", "id": "69a" },
+          { "accessor": "data", "id": "69b" }
         ],
         [
-          { "accessor": "data", "id": "58" },
-          { "accessor": "data", "id": "59" },
-          { "accessor": "data", "id": "60" }
+          { "accessor": "range", "id": "69c", "type": "eccentricity" },
+          { "accessor": "data", "id": "69d" }
         ],
         [
-          { "accessor": "data", "id": "61" },
-          { "accessor": "data", "id": "62" },
-          { "accessor": "data", "id": "63" }
+          { "accessor": "range", "id": "69e", "type": "inclination" },
+          { "accessor": "data", "id": "69f" }
         ]
       ],
       "qaReview": false
