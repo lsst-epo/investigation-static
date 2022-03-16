@@ -131,11 +131,11 @@
             },
             {
               "label": "The orbit sizes are 30 au or larger, and objects typically orbit beyond Neptune.",
-              "value": "In the outer Solar System"
+              "value": "In the outer Solar System (30 au or larger)"
             },
             {
-              "label": "The orbit sizes span both the inner and outer Solar System.",
-              "value": "Span inner and outer Solar System"
+              "label": "The orbit sizes span both the inner and outer Solar System, beyond 30 au.",
+              "value": "Span inner and outer Solar System (beyond 30 au)"
             }
           ],
           "placeholder": "Select best description of NEOs",
@@ -154,11 +154,11 @@
           "options": [
             {
               "label": "Most orbits are similar to the shape of Earth’s orbit  (0.0 - 0.3)",
-              "value": "Similar to Earth’s"
+              "value": "Similar to Earth’s (0.0 - 0.3)"
             },
             {
               "label": "Most orbits are noticeably more elliptical than the shape of Earth’s orbit (greater than 0.3)",
-              "value": "More elliptical than Earth’s"
+              "value": "More elliptical than Earth’s (greater than 0.3)"
             },
             {
               "label": "There is an equal distribution across all shapes of orbits",
@@ -181,11 +181,11 @@
           "options": [
             {
               "label": "Most orbits are similar to the tilt of Earth’s orbital plane (0-20°).",
-              "value": "Similar to Earth’s"
+              "value": "Similar to Earth’s (0-20°)"
             },
             {
               "label": "Most orbits are tilted compared to Earth’s orbital plane (more than 20°).",
-              "value": "More tilted than Earth's"
+              "value": "More tilted than Earth's (more than 20°)"
             },
             {
               "label": "There is an equal distribution across all tilts of the orbits.",
@@ -211,8 +211,8 @@
               "value": "Same direction as Earth’s"
             },
             {
-              "label": "More than 10% of the objects orbit the Sun in the opposite direction of Earth’s orbit, (i >90°).",
-              "value": "Opposite direction as Earth’s"
+              "label": "More than 10% of the objects orbit the Sun in the opposite direction of Earth’s orbit (i >90°).",
+              "value": "Opposite direction as Earth’s (i >90°)"
             }
           ],
           "placeholder": "Select best description of NEOs",

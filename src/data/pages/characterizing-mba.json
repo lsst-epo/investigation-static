@@ -129,11 +129,11 @@
             },
             {
               "label": "The orbit sizes are 30 au or larger, and objects typically orbit beyond Neptune.",
-              "value": "In the outer Solar System"
+              "value": "In the outer Solar System (30 au or larger)"
             },
             {
-              "label": "The orbit sizes span both the inner and outer Solar System.",
-              "value": "Span inner and outer Solar System"
+              "label": "The orbit sizes span both the inner and outer Solar System, beyond 30 au.",
+              "value": "Span inner and outer Solar System (beyond 30 au)"
             }
           ],
           "placeholder": "Select best description of MBAs",
@@ -152,14 +152,14 @@
           "options": [
             {
               "label": "Most orbits are similar to the shape of Earth’s orbit  (0.0 - 0.3)",
-              "value": "Similar to Earth’s"
+              "value": "Similar to Earth’s (0.0 - 0.3)"
             },
             {
               "label": "Most orbits are noticeably more elliptical than the shape of Earth’s orbit (greater than 0.3)",
-              "value": "More elliptical than Earth’s"
+              "value": "More elliptical than Earth’s (greater than 0.3)"
             },
             {
-              "label": "There is a wide range in the shapes of the orbits",
+              "label": "There is an equal distribution across all shapes of orbits",
               "value": "Wide range of shapes"
             }
           ],
@@ -178,15 +178,15 @@
           "label": "Inclination: ",
           "options": [
             {
-              "label": "Most orbits are similar to Earth’s orbital plane  (0-20 degrees)",
-              "value": "Similar to Earth’s"
+              "label": "Most orbits are similar to the tilt of Earth’s orbital plane (0-20°).",
+              "value": "Similar to Earth’s (0-20°)"
             },
             {
-              "label": "Most orbits are considerably tilted compared to Earth’s orbital plane (more than 20 degrees)",
-              "value": "More tilted than Earth's"
+              "label": "Most orbits are tilted compared to Earth’s orbital plane (more than 20°).",
+              "value": "More tilted than Earth's (more than 20°)"
             },
             {
-              "label": "There is a wide range in the tilt of the orbits",
+              "label": "There is an equal distribution across all tilts of the orbits.",
               "value": "Wide range in tilts"
             }
           ],
@@ -205,12 +205,12 @@
           "label": "Direction of the orbit (remember, an inclination greater than 90° indicates that the object orbits the Sun opposite the direction of Earth’s orbit): ",
           "options": [
             {
-              "label": "Most objects orbit the Sun in the same direction of Earth’s orbit.",
+              "label": "Almost all objects orbit the Sun in the same direction as Earth’s orbit.",
               "value": "Same direction as Earth’s"
             },
             {
-              "label": "A significant number of objects (more than 10%) orbit the Sun in the opposite direction of Earth’s orbit, i >90 ",
-              "value": "Opposite direction as Earth’s"
+              "label": "More than 10% of the objects orbit the Sun in the opposite direction of Earth’s orbit (i >90°).",
+              "value": "Opposite direction as Earth’s (i >90°)"
             }
           ],
           "placeholder": "Select best description of MBAs",
