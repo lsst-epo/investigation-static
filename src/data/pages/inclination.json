@@ -13,13 +13,13 @@
     "title": "The Big View of the Solar System",
     "link": "/big-view/"
   },
-  "layout": "SingleCol",
+  "layout": "TwoCol",
   "content": "<p><a href='http://rubineducation.org/glossary/inclination' target='_blank'>Inclination</a> (i) is the angle at which the object’s orbital plane (yellow) is tilted, relative to Earth’s orbital plane (grey) around the Sun. A value of 0° means that the object's orbit is parallel with Earth’s orbit. A value of 90° means that the object's orbit is tilted at a right angle to Earth’s orbit. If an object has an orbit with inclination greater than 90°, it will be orbiting in a direction opposite to Earth’s orbital direction.</p>",
   "videos": [
     {
-      "mediaPath": "20220221 Inclination animated graphic.mp4",
+      "mediaPath": "20220321 Inclination animated graphic.mp4",
       "altText": "Examples of orbital ellipses with different inclinations.",
-      "figText": "",
+      "figText": "Examples of orbital ellipses with different inclinations. Credit: Rubin Observatory",
       "options": {
         "autoPlay": true,
         "showControls": false,
