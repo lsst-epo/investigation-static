@@ -122,11 +122,8 @@ class QAReviewContainer extends React.PureComponent {
     return rw;
   }
 
-  getOrderedPages(pages, id, investigation) {
-    return filter(pages, ['investigation', id || investigation]).sort(
-      (a, b) => a.order - b.order
-    );
-  }
+  getOrderedPages = (pages, id, investigation) =>
+    filter(pages, ['investigation', id || investigation]);
 
   reviewifyPages(pages) {
     return pages.map(page => {
@@ -319,7 +316,7 @@ export const query = graphql`
         }
       }
     }
-    allPagesJson(sort: { fields: order, order: ASC }) {
+    allPagesJson(sort: { fields: [sectionId, order], order: [ASC, ASC] }) {
       nodes {
         ...PageMeta
         tables {
