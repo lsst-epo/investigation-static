@@ -30,7 +30,7 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/SS Student team drawings - Team A.png",
+      "mediaPath": "/images/SS Student team drawings - Team A.svg",
       "altText": "A student illustration of a top and side view of the solar system showing the Sun, Mars, Jupiter, and Neptune with several orbital paths that pass between Jupiter and Neptune with a range of eccentricities and similar inclinations.",
       "layout": {
         "col": "left",
