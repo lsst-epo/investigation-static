@@ -213,6 +213,7 @@ export default props => (
             investigation
             order
             sectionId
+            layout
             questionsByPage {
               question {
                 id

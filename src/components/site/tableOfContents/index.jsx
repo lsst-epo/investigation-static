@@ -1,6 +1,6 @@
 import React from 'react';
 import reactn from 'reactn';
-import { Trans, Link } from 'gatsby-plugin-react-i18next';
+import { Link, withTranslation } from 'gatsby-plugin-react-i18next';
 import PropTypes from 'prop-types';
 import filter from 'lodash/filter';
 import classnames from 'classnames';
@@ -17,19 +17,36 @@ import EducatorModeToggle from '../educatorModeToggle';
 
 @reactn
 class TableOfContents extends React.PureComponent {
+  getNavLabel = (title, layout, sectionId) => {
+    const { t } = this.props;
+
+    return layout === 'SectionBreak'
+      ? t('table_of_contents.section_break', { sectionNumber: sectionId })
+      : title;
+  };
+
   getNavLink(link, useBaseUrl) {
-    const { title, pageNumber, id, investigation: linkBaseUrl, slug } = link;
+    const {
+      title,
+      pageNumber,
+      id,
+      investigation: linkBaseUrl,
+      slug,
+      layout,
+      sectionId,
+    } = link;
     const baseUrl = linkBaseUrl && useBaseUrl ? `/${linkBaseUrl}/` : '/';
     const isActive = this.isActivePage(id);
     const allQsComplete = this.checkQAProgress(id);
     const { educatorMode } = this.global;
     const isDisabled = !educatorMode && !allQsComplete && !isActive;
+    const label = this.getNavLabel(title, layout, sectionId);
 
     return {
       component: Link,
-      label: title,
+      label,
       to: baseUrl + slug,
-      primaryText: `${pageNumber}. ${title}`,
+      primaryText: `${pageNumber}. ${label}`,
       leftIcon: <Check />,
       active: isActive,
       disabled: isDisabled,
@@ -42,6 +59,7 @@ class TableOfContents extends React.PureComponent {
   }
 
   getNavLinks(pages, investigation, useBaseUrl) {
+    const { t } = this.props;
     const navLinks = [
       ...filter(pages, page => page.investigation === investigation).map(page =>
         this.getNavLink(page, useBaseUrl)
@@ -51,9 +69,9 @@ class TableOfContents extends React.PureComponent {
 
     const qaReviewLink = {
       component: Link,
-      label: <Trans>interface::actions.review_your_answers</Trans>,
+      label: t('actions.review_your_answers'),
       to: baseUrl + 'qa-review/',
-      primaryText: <Trans>interface::actions.review_your_answers</Trans>,
+      primaryText: t('actions.review_your_answers'),
       leftIcon: <Star />,
       active: true,
       disabled: false,
@@ -90,7 +108,7 @@ class TableOfContents extends React.PureComponent {
 
   render() {
     const { TEMPORARY } = Drawer.DrawerTypes;
-    const { visible, pages, investigation, isAll } = this.props;
+    const { visible, pages, investigation, isAll, t } = this.props;
 
     return (
       <Drawer
@@ -98,12 +116,10 @@ class TableOfContents extends React.PureComponent {
           <>
             <Progress type="small" />
             <hr className="md-divider" />
-            <h4 className={heading}>
-              <Trans>interface::locations.table_of_contents</Trans>
-            </h4>
+            <h4 className={heading}>{t('locations.table_of_contents')}</h4>
           </>
         }
-        aria-label={<Trans>interface::locations.table_of_contents</Trans>}
+        aria-label={t('locations.table_of_contents')}
         type={TEMPORARY}
         className={tableOfContents}
         visible={visible}
@@ -121,6 +137,7 @@ TableOfContents.propTypes = {
   toggleToc: PropTypes.func.isRequired,
   pages: PropTypes.array,
   investigation: PropTypes.string,
+  t: PropTypes.func,
 };
 
-export default TableOfContents;
+export default withTranslation('interface')(TableOfContents);
