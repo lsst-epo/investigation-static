@@ -1,6 +1,5 @@
 import React from 'reactn';
-import PropTypes from 'prop-types';
-import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
+import { Translation } from 'gatsby-plugin-react-i18next';
 import classnames from 'classnames';
 import { SelectionControl, TextField } from 'react-md';
 
@@ -39,41 +38,40 @@ class EducatorModeToggle extends React.PureComponent {
   };
 
   render = () => {
-    const { t } = this.props;
     const { educatorMode } = this.global;
     const { passphraseError, passphraseInput } = this.state;
 
     return (
-      <div className="educator-toggle-container">
-        <TextField
-          id="educatorModePassphrase"
-          name="educatorModePassphrase"
-          className={classnames('educator-passphrase-input', {
-            expanded: !educatorMode,
-          })}
-          error={passphraseError}
-          errorText={<Trans>interface::errors.passphrase.mismatch</Trans>}
-          fullWidth={false}
-          onChange={this.handlePassphraseChange}
-          defaultValue={passphraseInput}
-          placeholder={t('interface::formfields.passphrase.placeholder')}
-        />
-        <SelectionControl
-          defaultChecked={false}
-          id="educatorModeToggle"
-          name="educatorModeToggle"
-          type="switch"
-          label={<Trans>interface::educator_mode.title</Trans>}
-          checked={educatorMode}
-          onChange={this.handleEducatorModeChange}
-        />
-      </div>
+      <Translation ns={['interface']}>
+        {t => (
+          <div className="educator-toggle-container">
+            <TextField
+              id="educatorModePassphrase"
+              name="educatorModePassphrase"
+              className={classnames('educator-passphrase-input', {
+                expanded: !educatorMode,
+              })}
+              error={passphraseError}
+              errorText={t('errors.passphrase.mismatch')}
+              fullWidth={false}
+              onChange={this.handlePassphraseChange}
+              defaultValue={passphraseInput}
+              placeholder={t('formfields.passphrase.placeholder')}
+            />
+            <SelectionControl
+              defaultChecked={false}
+              id="educatorModeToggle"
+              name="educatorModeToggle"
+              type="switch"
+              label={t('educator_mode.title')}
+              checked={educatorMode}
+              onChange={this.handleEducatorModeChange}
+            />
+          </div>
+        )}
+      </Translation>
     );
   };
 }
 
-EducatorModeToggle.propTypes = {
-  t: PropTypes.func,
-};
-
-export default withTranslation()(EducatorModeToggle);
+export default EducatorModeToggle;

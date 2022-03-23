@@ -6,7 +6,7 @@ import Block from './blocks/index';
 
 class SectionBreak extends React.PureComponent {
   render() {
-    const { title, blocksGroups, shared: blockShared, t } = this.props;
+    const { blocksGroups, shared: blockShared, t } = this.props;
     const sectionBreakImagePath = '/images/section_break_celebration.gif';
 
     return (
@@ -16,7 +16,7 @@ class SectionBreak extends React.PureComponent {
           alt={t('interface::section_break.banner_alt')}
           responsive
         />
-        <h1>{title}</h1>
+        <h1>{t('interface::section_break.title')}</h1>
         {blocksGroups.map((rowBlockGroup, i) => {
           const { type, blocks } = rowBlockGroup;
           const key = `${type}-${i}`;

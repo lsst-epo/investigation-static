@@ -41,6 +41,7 @@
     "answer_all_qa": "Please answer all questions before continuing to the next page."
   },
   "table_of_contents": {
+    "section_break": "End of Section {{sectionNumber}}",
     "progress": {
       "pages_visited": "Pages visited",
       "questions_answered": "Questions answered"
@@ -67,7 +68,8 @@
     "date": "Date: {{val, datetime}}"
   },
   "section_break": {
-    "banner_alt": "Animated image of fireworks"
+    "banner_alt": "Animated image of fireworks",
+    "title": "Congratulations!"
   },
   "qas": {
     "question_placeholder": "Question Placeholder: {{questionType}} Question Type does not Exist",
