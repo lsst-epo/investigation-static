@@ -1,7 +1,7 @@
 {
   "id": "solarsystem02",
   "investigation": "solar-system",
-  "sectionId": "0",
+  "sectionId": "1",
   "order": "01",
   "title": "Detecting Solar System Objects",
   "slug": "detecting-objects/",
