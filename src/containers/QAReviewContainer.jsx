@@ -3,8 +3,8 @@
 import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
-import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
+import { graphql } from 'gatsby';
+import { Trans, withTranslation, Link } from 'gatsby-plugin-react-i18next';
 import find from 'lodash/find';
 import filter from 'lodash/filter';
 import Card from '../components/site/card';
@@ -306,8 +306,8 @@ QAReviewContainer.propTypes = {
 };
 
 export const query = graphql`
-  query QAReviewQuery($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+  query QAReviewQuery {
+    locales: allLocale {
       edges {
         node {
           ns

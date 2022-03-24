@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-handler-names */
 import React from 'reactn';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, withTranslation, Link } from 'gatsby-plugin-react-i18next';
 import classnames from 'classnames';
 import Button from '../site/button';
 import ButtonIcon from '../site/button/ButtonIcon';

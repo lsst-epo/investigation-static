@@ -1,7 +1,6 @@
 import React from 'react';
 import reactn from 'reactn';
-import { Link } from 'gatsby';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans, Link } from 'gatsby-plugin-react-i18next';
 import PropTypes from 'prop-types';
 import filter from 'lodash/filter';
 import classnames from 'classnames';
