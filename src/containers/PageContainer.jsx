@@ -185,8 +185,8 @@ PageContainer.propTypes = {
 };
 
 export const query = graphql`
-  query PageQuery($id: String!, $investigation: String, $language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+  query PageQuery($id: String!, $investigation: String) {
+    locales: allLocale {
       edges {
         node {
           ns

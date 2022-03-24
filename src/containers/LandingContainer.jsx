@@ -2,8 +2,8 @@
 import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
-import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
+import { graphql } from 'gatsby';
+import { Trans, withTranslation, Link } from 'gatsby-plugin-react-i18next';
 import find from 'lodash/find';
 import ls from 'local-storage';
 import SEO from '../components/seo';
@@ -121,8 +121,8 @@ class InvestigationsLanding extends React.PureComponent {
 export default withTranslation()(InvestigationsLanding);
 
 export const query = graphql`
-  query($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+  query {
+    locales: allLocale {
       edges {
         node {
           ns

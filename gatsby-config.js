@@ -29,12 +29,13 @@ module.exports = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: `locale`,
-        languages: [`en`, `es`],
-        defaultLanguage: `en`,
-        langKeyDefault: 'en',
+        languages: ['en', 'es'],
+        defaultLanguage: 'en',
         useLangKeyLayout: false,
+        prefixDefault: false,
         i18nextOptions: {
           debug: false,
+          fallbackLng: 'en',
           interpolation: {
             skipOnVariables: false,
             escapeValue: false, // not needed for react as it escapes by default
