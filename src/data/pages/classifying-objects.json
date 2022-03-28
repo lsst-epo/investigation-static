@@ -18,8 +18,9 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/test-mba.json",
+      "source": "/data/neos/MBA_orbit_50sample_wname2021.json",
       "options": {
+        "randomSource": true,
         "defaultZoom": 0.7,
         "noLabels": false,
         "qaReview": false

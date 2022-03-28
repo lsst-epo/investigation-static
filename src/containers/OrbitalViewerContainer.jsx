@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { randomIntFromInterval } from '../lib/utilities.js';
 import API from '../lib/API.js';
 import ConditionalWrapper from '../components/ConditionalWrapper';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
@@ -31,11 +32,12 @@ class OrbitalViewerContainer extends React.PureComponent {
   componentDidMount() {
     const { widget, options } = this.props;
     const { source } = widget;
-    const { multiple, showUserPlot } = options || {};
+    const { multiple, showUserPlot, randomSource } = options || {};
 
     if (source) {
       API.get(source).then(response => {
-        const { data } = response;
+        console.log({ response });
+        const data = this.getOrbitData(response, randomSource);
         const activeNavIndex = multiple ? 0 : null;
         const neos = multiple ? data[activeNavIndex].data : data;
 
@@ -73,6 +75,14 @@ class OrbitalViewerContainer extends React.PureComponent {
       }));
     }
   }
+
+  getOrbitData = (response, randomSource) => {
+    const { data } = response;
+
+    return randomSource
+      ? [data[randomIntFromInterval(0, data.length - 1)]]
+      : data;
+  };
 
   getObservationAnswerData() {
     const { options, answers } = this.props;
