@@ -1,10 +1,11 @@
 import React from 'react';
 import reactn from 'reactn';
-import { Link, withTranslation } from 'gatsby-plugin-react-i18next';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import PropTypes from 'prop-types';
 import filter from 'lodash/filter';
 import classnames from 'classnames';
 import { Drawer } from 'react-md';
+import Link from '../link';
 import Check from '../icons/Check';
 import Star from '../icons/Star';
 import Progress from '../progress/index.jsx';
