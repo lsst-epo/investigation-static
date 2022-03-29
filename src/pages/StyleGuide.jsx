@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby-plugin-react-i18next';
 import Card from 'react-md/lib/Cards/Card';
 import CardTitle from 'react-md/lib/Cards/CardTitle';
 import CardBody from 'react-md/lib/Cards/CardText';
@@ -15,6 +14,7 @@ import ExpansionPanel from 'react-md/lib/ExpansionPanels/ExpansionPanel';
 import DialogContainer from 'react-md/lib/Dialogs/DialogContainer';
 import Select from '../components/site/forms/select';
 import CaretDown from '../components/site/icons/CaretDown';
+import Link from '../components/site/link';
 import '../components/site/forms/table/table.module.scss';
 
 class StyleGuide extends React.PureComponent {

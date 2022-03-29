@@ -72,3 +72,6 @@ yarn-error.log
 
 #custom bash script for relasing changes from master across multiple branches
 updateall
+
+# Local Netlify folder
+.netlify
