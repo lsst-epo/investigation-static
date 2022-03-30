@@ -1,7 +1,7 @@
 {
   "id": "solarsystem18",
   "investigation": "solar-system",
-  "sectionId": "2",
+  "sectionOrder": 1,
   "order": "03",
   "title": "The Formation of the Solar System",
   "slug": "history-solar-system/",
