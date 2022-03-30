@@ -56,7 +56,7 @@ class Layout extends React.Component {
     const { investigations } = this.props;
     const investigation = find(investigations, { id });
     const defaultSection = [{ sectionName: 'default', pages: [] }];
-    let { sections = defaultSection } = investigation;
+    let { sections } = investigation;
 
     if (!sections || sections.length === 0) {
       sections = defaultSection;
