@@ -17,11 +17,13 @@ import EducatorModeToggle from '../educatorModeToggle';
 
 @reactn
 class TableOfContents extends React.PureComponent {
-  getNavLabel = (title, layout, sectionId) => {
+  getNavLabel = (title, layout, sectionOrder) => {
     const { t } = this.props;
+    const { sections } = this.global;
+    const { sectionName } = sections[sectionOrder];
 
     return layout === 'SectionBreak'
-      ? t('table_of_contents.section_break', { sectionNumber: sectionId })
+      ? t('table_of_contents.section_break', { sectionName })
       : title;
   };
 
@@ -33,14 +35,14 @@ class TableOfContents extends React.PureComponent {
       investigation: linkBaseUrl,
       slug,
       layout,
-      sectionId,
+      sectionOrder,
     } = link;
     const baseUrl = linkBaseUrl && useBaseUrl ? `/${linkBaseUrl}/` : '/';
     const isActive = this.isActivePage(id);
     const allQsComplete = this.checkQAProgress(id);
     const { educatorMode } = this.global;
     const isDisabled = !educatorMode && !allQsComplete && !isActive;
-    const label = this.getNavLabel(title, layout, sectionId);
+    const label = this.getNavLabel(title, layout, sectionOrder || 0);
 
     return {
       component: Link,

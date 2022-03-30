@@ -45,6 +45,9 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           id
           title
+          sections {
+            sectionName
+          }
         }
       }
     }
@@ -60,10 +63,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "exploding-stars" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation
@@ -77,10 +80,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "window-stars" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation
@@ -94,10 +97,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "window-stars" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation
@@ -111,10 +114,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "coloring-universe" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation
@@ -128,10 +131,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "expanding-universe" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation
@@ -145,10 +148,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "observable-universe" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation
@@ -162,13 +165,13 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "solar-system" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
             order
             id
             investigation
-            sectionId
+            sectionOrder
             slug
           }
         }
@@ -179,10 +182,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "hazardous-asteroids" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation
@@ -196,10 +199,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "demo-mini" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation
@@ -213,10 +216,10 @@ exports.createPages = async ({ graphql, actions }) => {
       query {
         allPagesJson(
           filter: { investigation: { eq: "ngss-solar-system" } }
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation
@@ -229,10 +232,10 @@ exports.createPages = async ({ graphql, actions }) => {
     pages = await graphql(`
       query {
         allPagesJson(
-          sort: { fields: [sectionId, order, investigation], order: ASC }
+          sort: { fields: [sectionOrder, order, investigation], order: ASC }
         ) {
           nodes {
-            sectionId
+            sectionOrder
             order
             id
             investigation

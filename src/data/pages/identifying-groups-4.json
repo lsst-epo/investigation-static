@@ -1,7 +1,7 @@
 {
   "id": "solarsystem17",
   "investigation": "solar-system",
-  "sectionId": "2",
+  "sectionOrder": 1,
   "order": "02",
   "title": "Identifying Groups of Solar System Objects - 4",
   "slug": "identifying-groups-4/",

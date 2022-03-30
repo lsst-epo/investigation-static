@@ -1,7 +1,7 @@
 {
   "id": "solarsystem05",
   "investigation": "solar-system",
-  "sectionId": "1",
+  "sectionOrder": 0,
   "order": "03",
   "title": "Eccentricity",
   "slug": "eccentricity/",

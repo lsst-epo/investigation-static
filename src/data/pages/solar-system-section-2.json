@@ -1,7 +1,7 @@
 {
   "id": "solarsystem-3-0",
   "investigation": "solar-system",
-  "sectionId": "2",
+  "sectionOrder": 1,
   "order": "06",
   "title": "Progress Update",
   "slug": "section-2/",

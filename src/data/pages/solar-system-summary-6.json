@@ -1,7 +1,7 @@
 {
   "id": "solarsystem34",
   "investigation": "solar-system",
-  "sectionId": "3",
+  "sectionOrder": 2,
   "order": "34",
   "title": "Putting it all Together",
   "slug": "solar-system-summary-6/",
