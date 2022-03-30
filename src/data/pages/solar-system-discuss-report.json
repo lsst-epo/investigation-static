@@ -1,7 +1,7 @@
 {
   "id": "solarsystem36",
   "investigation": "solar-system",
-  "sectionId": "3",
+  "sectionOrder": 2,
   "order": "36",
   "title": "Reflect and Discuss",
   "slug": "solar-system-discuss-report/",

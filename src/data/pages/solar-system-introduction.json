@@ -1,7 +1,7 @@
 {
   "id": "solarsystem00",
   "investigation": "solar-system",
-  "sectionId": "1",
+  "sectionOrder": 0,
   "order": "00",
   "title": "Introduction",
   "slug": "introduction/",
