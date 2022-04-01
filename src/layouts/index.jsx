@@ -2,9 +2,7 @@ import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
-import flattenDeep from 'lodash/flattenDeep';
-import find from 'lodash/find';
-import filter from 'lodash/filter';
+import { filter, find, flattenDeep, defaultTo } from 'lodash';
 import GlobalStore from '../state/GlobalStore';
 import SEO from '../components/seo';
 import Header from '../components/site/header';
@@ -56,11 +54,7 @@ class Layout extends React.Component {
     const { investigations } = this.props;
     const investigation = find(investigations, { id });
     const defaultSection = [{ sectionName: 'default', pages: [] }];
-    let { sections } = investigation;
-
-    if (!sections || sections.length === 0) {
-      sections = defaultSection;
-    }
+    const sections = defaultTo(investigation.sections, defaultSection);
 
     pages.forEach(page => {
       const { pageNumber } = page;
