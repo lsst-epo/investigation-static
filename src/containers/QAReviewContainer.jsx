@@ -317,7 +317,7 @@ export const query = graphql`
         }
       }
     }
-    allPagesJson(sort: { fields: [sectionId, order], order: [ASC, ASC] }) {
+    allPagesJson(sort: { fields: [sectionOrder, order], order: [ASC, ASC] }) {
       nodes {
         ...PageMeta
         tables {

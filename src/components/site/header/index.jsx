@@ -8,7 +8,7 @@ import Close from '../icons/Close';
 import Menu from '../icons/Menu';
 
 import styles from './header.module.scss';
-import HeaderProgress from './HeaderProgress';
+import HeaderProgressContainer from '../../../containers/HeaderProgressContainer';
 
 class Header extends React.PureComponent {
   checkQAProgress(pageId) {
@@ -102,7 +102,7 @@ class Header extends React.PureComponent {
           </div>
         </div>
         {pageNumber && (
-          <HeaderProgress {...{ pageNumber, totalPages, sections }} />
+          <HeaderProgressContainer {...{ pageNumber, totalPages, sections }} />
         )}
       </Toolbar>
     );

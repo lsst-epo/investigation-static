@@ -1,7 +1,7 @@
 {
   "id": "solarsystem04",
   "investigation": "solar-system",
-  "sectionId": "1",
+  "sectionOrder": 0,
   "order": "02",
   "title": "Semi-Major Axis",
   "slug": "semi-major-axis/",

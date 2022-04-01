@@ -41,7 +41,7 @@
     "answer_all_qa": "Please answer all questions before continuing to the next page."
   },
   "table_of_contents": {
-    "section_break": "End of Section {{sectionNumber}}",
+    "section_break": "End of Section {{sectionName}}",
     "progress": {
       "pages_visited": "Pages visited",
       "questions_answered": "Questions answered"

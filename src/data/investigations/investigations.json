@@ -13,7 +13,12 @@
   },
   {
     "title": "Surveying the Solar System",
-    "id": "solar-system"
+    "id": "solar-system",
+    "sections": [
+      { "sectionName": "1" },
+      { "sectionName": "2" },
+      { "sectionName": "3" }
+    ]
   },
   {
     "title": "Hazardous Asteroids",

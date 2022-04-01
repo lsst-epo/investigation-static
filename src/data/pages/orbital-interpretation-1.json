@@ -1,7 +1,7 @@
 {
   "id": "solarsystem30",
   "investigation": "solar-system",
-  "sectionId": "3",
+  "sectionOrder": 2,
   "order": "30",
   "title": "Student Team B’s Drawing",
   "slug": "orbital-interpretation-1/",

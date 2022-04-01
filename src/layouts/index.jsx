@@ -2,9 +2,7 @@ import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
-import flattenDeep from 'lodash/flattenDeep';
-import find from 'lodash/find';
-import filter from 'lodash/filter';
+import { filter, find, flattenDeep, defaultTo } from 'lodash';
 import GlobalStore from '../state/GlobalStore';
 import SEO from '../components/seo';
 import Header from '../components/site/header';
@@ -51,19 +49,23 @@ class Layout extends React.Component {
     }, []);
   };
 
-  getSections = () => {
+  getSections = id => {
     const { pages } = this.state;
-    const sections = [];
+    const { investigations } = this.props;
+    const investigation = find(investigations, { id });
+    const defaultSection = [{ sectionName: 'default', pages: [] }];
+    const sections = defaultTo(investigation.sections, defaultSection);
 
     pages.forEach(page => {
       const { pageNumber } = page;
-      let { sectionId } = page;
-      sectionId = sectionId || 0;
+      let { sectionOrder } = page;
 
-      if (sections[sectionId]) {
-        sections[sectionId].push(pageNumber);
+      sectionOrder = sectionOrder || 0;
+
+      if (sections[sectionOrder] && sections[sectionOrder].pages) {
+        sections[sectionOrder].pages.push(pageNumber);
       } else {
-        sections[sectionId] = [pageNumber];
+        sections[sectionOrder].pages = [pageNumber];
       }
     });
 
@@ -142,16 +144,17 @@ class Layout extends React.Component {
   getInitialGlobals() {
     const { pageContext } = this.props;
     const { investigation, env: envInvestigation } = pageContext || {};
+    const id = investigation || envInvestigation;
 
     return {
       educatorMode: false,
-      investigation: investigation || envInvestigation,
+      investigation: id,
       totalPages: this.getTotalPages(),
       totalQAsByInvestigation: this.getTotalQAs(),
       totalQAsByPage: this.getTotalQAsByPage(),
       questionNumbersByPage: this.getQuestionNumbersByPage(),
       checkpoints: this.getCheckpoints(),
-      sections: this.getSections(),
+      sections: this.getSections(id),
     };
   }
 
@@ -205,14 +208,16 @@ export default props => (
   <StaticQuery
     query={graphql`
       query MyQuery {
-        allPagesJson(sort: { fields: [sectionId, order], order: [ASC, ASC] }) {
+        allPagesJson(
+          sort: { fields: [sectionOrder, order], order: [ASC, ASC] }
+        ) {
           nodes {
             title
             slug
             id
             investigation
             order
-            sectionId
+            sectionOrder
             layout
             questionsByPage {
               question {
@@ -228,6 +233,9 @@ export default props => (
           nodes {
             id
             title
+            sections {
+              sectionName
+            }
           }
         }
       }

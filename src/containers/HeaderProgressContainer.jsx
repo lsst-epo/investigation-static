@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import last from 'lodash/last';
-import CustomIcon from '../icons/CustomIcon';
-import LinearProgress from '../linearProgress';
-import LinearProgressMarker from '../linearProgress/LinearProgressMarker';
+import CustomIcon from '../components/site/icons/CustomIcon';
+import LinearProgress from '../components/site/linearProgress';
+import LinearProgressMarker from '../components/site/linearProgress/LinearProgressMarker';
 
-class HeaderProgress extends React.PureComponent {
+class HeaderProgressContainer extends React.PureComponent {
   getDisplayValue = (currentPage, totalPages) =>
     currentPage ? Math.round((currentPage / totalPages) * 100) : 0;
 
-  getProgressValue = (currentPage, section) => {
-    const firstSectionPage = section[0];
-    const lastSectionPage = last(section);
+  getProgressValue = (currentPage, pages) => {
+    const firstSectionPage = pages[0];
+    const lastSectionPage = last(pages);
     const sectionRange = lastSectionPage - firstSectionPage;
 
     if (currentPage < firstSectionPage) return null;
@@ -26,16 +26,17 @@ class HeaderProgress extends React.PureComponent {
     return (
       <div className="header-progress-wrapper">
         {sections &&
-          sections.map((section, i) => {
-            const key = `section-${i}`;
-            const lastPage = last(section);
+          sections.map(section => {
+            const { sectionName, pages } = section;
+            const key = `section-${sectionName}`;
+            const lastPage = last(pages);
 
             return (
               <LinearProgress
                 key={key}
-                value={this.getProgressValue(pageNumber, section)}
+                value={this.getProgressValue(pageNumber, pages)}
                 displayValue={this.getDisplayValue(pageNumber, totalPages)}
-                style={{ width: `${(section.length / totalPages) * 100}%` }}
+                style={{ width: `${(pages.length / totalPages) * 100}%` }}
               >
                 {lastPage !== totalPages && (
                   <LinearProgressMarker
@@ -63,10 +64,10 @@ class HeaderProgress extends React.PureComponent {
   };
 }
 
-HeaderProgress.propTypes = {
+HeaderProgressContainer.propTypes = {
   pageNumber: PropTypes.number,
   totalPages: PropTypes.number,
   sections: PropTypes.array,
 };
 
-export default HeaderProgress;
+export default HeaderProgressContainer;
