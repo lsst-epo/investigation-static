@@ -57,8 +57,6 @@ class Layout extends React.Component {
     const sections =
       get(investigation, 'sections', defaultSection) || defaultSection;
 
-    console.log({ sections });
-
     pages.forEach(page => {
       const { pageNumber } = page;
       let { sectionOrder } = page;
