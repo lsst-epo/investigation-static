@@ -1,4 +1,5 @@
 import React from 'react';
+import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { randomIntFromInterval } from '../lib/utilities.js';
@@ -18,6 +19,7 @@ import {
   paddedDrawerInner,
 } from '../components/visualizations/orbitalViewer/orbital-viewer.module.scss';
 
+@reactn
 class OrbitalViewerContainer extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -36,8 +38,7 @@ class OrbitalViewerContainer extends React.PureComponent {
 
     if (source) {
       API.get(source).then(response => {
-        console.log({ response });
-        const data = this.getOrbitData(response, randomSource);
+        const data = this.getSetOrbitData(response, randomSource);
         const activeNavIndex = multiple ? 0 : null;
         const neos = multiple ? data[activeNavIndex].data : data;
 
@@ -76,12 +77,25 @@ class OrbitalViewerContainer extends React.PureComponent {
     }
   }
 
-  getOrbitData = (response, randomSource) => {
+  getSetOrbitData = (response, randomSource) => {
     const { data } = response;
+    const { answers, updateAnswer } = this.props;
+    const { pageId } = this.global;
 
-    return randomSource
-      ? [data[randomIntFromInterval(0, data.length - 1)]]
-      : data;
+    if (randomSource) {
+      const orbitalSourceKey = `orbitViewer${pageId}Source`;
+
+      const savedRandomSource = answers[orbitalSourceKey];
+
+      if (savedRandomSource) {
+        return savedRandomSource.data;
+      }
+      const source = [data[randomIntFromInterval(0, data.length - 1)]];
+      updateAnswer(orbitalSourceKey, source);
+      return source;
+    }
+
+    return data;
   };
 
   getObservationAnswerData() {

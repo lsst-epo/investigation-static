@@ -18,8 +18,9 @@
   "widgets": [
     {
       "type": "OrbitalViewer",
-      "source": "/data/neos/test-distant.json",
+      "source": "/data/neos/comets_orbit_50sample_wname2021.json",
       "options": {
+        "randomSource": true,
         "defaultZoom": 0.25,
         "noLabels": false,
         "qaReview": false
