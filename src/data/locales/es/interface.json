@@ -1,5 +1,9 @@
 {
   "locations": {
     "table_of_contents": "Tabla de contenido"
+  },
+  "language_toggle": {
+    "legend": "Localizar el contenido del sitio",
+    "espanol_site_name": "Español"
   }
 }

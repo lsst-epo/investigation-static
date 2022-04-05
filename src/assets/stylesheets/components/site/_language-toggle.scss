@@ -1,0 +1,18 @@
+.language-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.language-toggle-label {
+  padding-inline-end: 1.75em;
+}
+
+@media only screen and (min-width: $break100) {
+  .language-toggle-label {
+    display: none;
+  }
+}
