@@ -77,5 +77,10 @@
     "text_input": {
       "label": "Complete this statement by filling in the blank: {{labelPre}}, blank, {{labelPost}}"
     }
+  },
+  "language_toggle": {
+    "legend": "Localize site content",
+    "label": "Language",
+    "espanol_site_name": "Spanish"
   }
 }

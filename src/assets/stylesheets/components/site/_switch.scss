@@ -1,0 +1,69 @@
+$switchWidth: 74px;
+$switchHeight: 39px;
+$toggleMargin: 3px;
+$toggleSize: $switchHeight - $toggleMargin * 2;
+
+.switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: $switchWidth;
+  height: $switchHeight;
+  padding: $toggleMargin;
+  overflow: hidden;
+  background-color: $turquoise50;
+  border: 0 solid $turquoise50;
+  border-radius: 20px;
+
+  &[aria-checked='true'] {
+    .switch-labels {
+      > .switch-label-left {
+        color: $turquoise90;
+      }
+
+      > .switch-label-right {
+        color: $white;
+      }
+    }
+
+    .switch-toggle {
+      transform: translateX($switchWidth - $toggleSize - $toggleMargin * 2);
+    }
+  }
+
+  .switch-labels {
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+
+    > .switch-label {
+      width: 50%;
+      height: 100%;
+      font-size: 0.727em;
+      font-weight: 700;
+      line-height: $switchHeight;
+      transition: color 0.3s ease-in-out;
+    }
+
+    > .switch-label-left {
+      color: $white;
+    }
+
+    > .switch-label-right {
+      color: $turquoise90;
+    }
+  }
+
+  .switch-toggle {
+    width: $toggleSize;
+    height: $toggleSize;
+    background: $turquoise90;
+    border: 0 solid $turquoise85;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+  }
+}

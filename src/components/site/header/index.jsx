@@ -9,6 +9,7 @@ import Menu from '../icons/Menu';
 
 import styles from './header.module.scss';
 import HeaderProgressContainer from '../../../containers/HeaderProgressContainer';
+import LanguageToggleContainer from '../../../containers/LanguageToggleContainer';
 
 class Header extends React.PureComponent {
   checkQAProgress(pageId) {
@@ -85,6 +86,7 @@ class Header extends React.PureComponent {
             </Trans>
           </span>
           <div className={styles.headerInner}>
+            <LanguageToggleContainer />
             {logo && (
               <a
                 href="http://rubineducation.org/"
