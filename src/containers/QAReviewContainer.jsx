@@ -190,9 +190,7 @@ class QAReviewContainer extends React.PureComponent {
                 </Trans>
               </div>
               <div>
-                <Trans values={{ investigation: name }}>
-                  interface::qa_review.name
-                </Trans>
+                <Trans values={{ name }}>interface::qa_review.name</Trans>
               </div>
               <div className="print-only">
                 <Trans

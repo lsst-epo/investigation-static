@@ -1,4 +1,5 @@
 import React from 'react';
+import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import isArray from 'lodash/isArray';
 // import axios from 'axios';
@@ -8,6 +9,7 @@ import { getSelectedGalaxies } from '../components/charts/galaxySelector/galaxyS
 import GalaxySelector from '../components/charts/galaxySelector/index.jsx';
 import GalacticProperties from '../components/charts/galacticProperties/index.jsx';
 
+@reactn
 class GalaxiesSelectorContainer extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -39,17 +41,15 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     const {
       widget: { source, sources },
       options,
-      answers,
     } = this.props;
+    const { savedSources } = this.global;
     const { randomSource } = options || {};
-    const randomGalaxiesAnswer = answers[this.aId];
+    const randomGalaxiesAnswer = savedSources[this.aId];
 
     if (source) {
       this.getSetData(source);
     } else if (randomGalaxiesAnswer) {
-      const { data: sourcePath } = randomGalaxiesAnswer;
-
-      this.getSetData(sourcePath);
+      this.getSetData(randomGalaxiesAnswer);
     } else if (sources && randomSource) {
       const randomSourcePath =
         sources[randomIntFromInterval(0, sources.length - 1)];
@@ -58,15 +58,16 @@ class GalaxiesSelectorContainer extends React.PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { updateAnswer, options, answers } = this.props;
+    const { savedSources } = this.global;
+    const { options } = this.props;
     const { randomSource } = options || {};
 
     const { sourcePath } = this.state;
     const newSource = prevState.sourcePath !== sourcePath && !!sourcePath;
-    const randomGalaxiesAnswer = answers[this.aId];
+    const randomGalaxiesAnswer = savedSources[this.aId];
 
     if (newSource && randomSource && !randomGalaxiesAnswer) {
-      updateAnswer(this.aId, sourcePath);
+      this.dispatch.saveSource(this.aId, sourcePath);
     }
   }
 

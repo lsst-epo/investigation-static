@@ -23,6 +23,7 @@ class GlobalStore {
       checkpoints: [],
       educatorMode: null,
       sections: [],
+      savedSources: {},
       ...initialGlobals,
     };
     const { investigation } = this.emptyState;
@@ -186,6 +187,19 @@ class GlobalStore {
       return {
         ...global,
         educatorMode: enabled,
+      };
+    });
+
+    addReducer('saveSource', (global, dispatch, id, source) => {
+      const { savedSources: prevSavedSources } = global;
+      const savedSources = {
+        ...prevSavedSources,
+        [id]: source,
+      };
+
+      return {
+        ...global,
+        savedSources,
       };
     });
   }
