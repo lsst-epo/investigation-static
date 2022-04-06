@@ -14,7 +14,7 @@
     "link": "/identifying-groups-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Use the Orbit Viewer to explore the orbital characteristics of a representative set of objects from one of the four groups. All of the displayed points and their motions represent real objects. Click and drag to change the angle at which you view the orbits. You can also zoom in and out. Use the buttons in the bottom of the Orbit Viewer to play, pause, or skip forward or backward. Click the Reset zoom and orientation button to return to the original view of these objects. You can change time  for the displayed motion by moving the bead on the Time Step scale located at the right of the Orbit Viewer (to a maximum of 1year/second).</p>",
+  "content": "<p>Use the Orbit Viewer to explore the orbital characteristics of a representative set of objects from one of the four groups. All of the displayed points and their motions represent real objects. Click and drag to change the angle at which you view the orbits. You can also zoom in and out. Use the buttons in the bottom of the Orbit Viewer to play, pause, or skip forward or backward. Click the reset zoom and orientation button to return to the original view of these objects. You can change time  for the displayed motion by moving the bead on the Time Step scale located at the right of the Orbit Viewer (to a maximum of 1year/second).</p>",
   "widgets": [
     {
       "type": "OrbitalViewer",

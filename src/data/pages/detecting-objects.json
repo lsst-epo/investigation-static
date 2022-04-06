@@ -42,7 +42,7 @@
           "id": "1",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Calculate the time it takes each object to move from its first to last position. (The times are displayed in the upper right corner of each image). Is the amount of time it takes for the two objects to move across the sky approximately the same?",
+          "label": "Calculate the time it takes each object to move from its first to last position. (The times are displayed in the upper right corner of each image.) Is the amount of time it takes for the two objects to move across the sky approximately the same?",
           "options": [
             { "label": "yes", "value": "yes" },
             { "label": "no", "value": "no" }

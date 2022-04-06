@@ -2,6 +2,7 @@ import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import { randomIntFromInterval } from '../lib/utilities.js';
 import API from '../lib/API.js';
 import ConditionalWrapper from '../components/ConditionalWrapper';
@@ -79,19 +80,19 @@ class OrbitalViewerContainer extends React.PureComponent {
 
   getSetOrbitData = (response, randomSource) => {
     const { data } = response;
-    const { answers, updateAnswer } = this.props;
-    const { pageId } = this.global;
 
     if (randomSource) {
+      const { pageId, savedSources } = this.global;
       const orbitalSourceKey = `orbitViewer${pageId}Source`;
 
-      const savedRandomSource = answers[orbitalSourceKey];
+      const savedRandomSource = savedSources[orbitalSourceKey];
 
       if (savedRandomSource) {
-        return savedRandomSource.data;
+        return savedRandomSource;
       }
+
       const source = [data[randomIntFromInterval(0, data.length - 1)]];
-      updateAnswer(orbitalSourceKey, source);
+      this.dispatch.saveSource(orbitalSourceKey, source);
       return source;
     }
 
@@ -186,7 +187,9 @@ class OrbitalViewerContainer extends React.PureComponent {
     return (
       <>
         {!multiple && (
-          <h2 className="space-bottom">{title || 'Orbit Viewer'}</h2>
+          <h2 className="space-bottom">
+            {title || <Trans>widgets::orbit_viewer.title</Trans>}
+          </h2>
         )}
 
         <ConditionalWrapper

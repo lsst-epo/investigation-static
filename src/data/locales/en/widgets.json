@@ -3,6 +3,7 @@
     "observation_date": "Observation date"
   },
   "orbit_viewer": {
+    "title": "Orbit Viewer",
     "details_hide": "Hide info",
     "details_show": "Object info",
     "details_table": {
@@ -22,12 +23,12 @@
       "time_equivalence_verbose": "{{firstTime}} is {{secondTime}}",
       "interval": {
         "secWithCount": "{{count}} sec",
-        "day_one": "Day",
-        "day_other": "Days",
-        "year_one": "Year",
-        "year_other": "Years",
-        "yearWithCount_one": "{{count}} year",
-        "yearWithCount_other": "{{count}} years"
+        "day": "Day",
+        "day_plural": "Days",
+        "year": "Year",
+        "year_plural": "Years",
+        "yearWithCount": "{{count}} year",
+        "yearWithCount_plural": "{{count}} years"
       }
     },
     "bodies": {
