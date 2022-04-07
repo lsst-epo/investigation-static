@@ -1,4 +1,5 @@
 import React from 'react';
+import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import isArray from 'lodash/isArray';
@@ -7,6 +8,7 @@ import { randomIntFromInterval } from '../lib/utilities.js';
 import GalacticProperties from '../components/charts/galacticProperties/index.jsx';
 // import { getSelectedGalaxies } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
 
+@reactn
 class GalacticPropertiesContainer extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -20,12 +22,12 @@ class GalacticPropertiesContainer extends React.PureComponent {
     const {
       widget: { source, sources },
       options,
-      updateAnswer,
       answers,
     } = this.props;
+    const { savedSources } = this.global;
     const { randomSource, showUserPlot, multiple } = options || {};
     const randoGalsAnsId = 'randomGalaxies';
-    const randomGalaxiesAnswer = (answers || {})[randoGalsAnsId];
+    const randomGalaxiesAnswer = (savedSources || {})[randoGalsAnsId];
     const userPlotAnswer = (answers || {})[showUserPlot];
     const userPlot = userPlotAnswer ? userPlotAnswer.data : [];
 
@@ -64,15 +66,13 @@ class GalacticPropertiesContainer extends React.PureComponent {
     } else if (source) {
       this.getSetData(source);
     } else if (randomGalaxiesAnswer) {
-      const { data: sourcePath } = randomGalaxiesAnswer;
-
-      this.getSetData(sourcePath);
+      this.getSetData(randomGalaxiesAnswer);
     } else if (sources && randomSource) {
       const randomSourcePath =
         sources[randomIntFromInterval(0, sources.length - 1)];
 
       this.getSetData(randomSourcePath);
-      updateAnswer(randoGalsAnsId, randomSourcePath);
+      this.dispatch.saveSource(randoGalsAnsId, randomSourcePath);
     }
   }
 
@@ -152,7 +152,6 @@ GalacticPropertiesContainer.propTypes = {
   options: PropTypes.object,
   widget: PropTypes.object,
   answers: PropTypes.object,
-  updateAnswer: PropTypes.func,
   nested: PropTypes.bool,
 };
 
