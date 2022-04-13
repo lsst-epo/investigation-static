@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
 import Icon from '../components/site/icons/CustomIcon';
 import ConditionalWrapper from '../components/ConditionalWrapper';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
@@ -35,7 +36,7 @@ class ChartSwitcherContainer extends React.PureComponent {
   }
 
   generateNavItems(activeIndex) {
-    const { widget } = this.props;
+    const { widget, t } = this.props;
     const { widgets: nestedWidgets } = widget;
 
     return nestedWidgets.map((nestedWidget, i) => {
@@ -48,10 +49,12 @@ class ChartSwitcherContainer extends React.PureComponent {
         leftAvatar: (
           <span>
             <Icon name={icon || 'barChart'} />
-            <span className="screen-reader-only">{label}</span>
+            <span className="screen-reader-only">
+              <Trans>{label}</Trans>
+            </span>
           </span>
         ),
-        primaryText: label,
+        primaryText: t(label),
         className: classnames({
           [style.navItem]: !color,
           [style.activeItem]: isActive,
@@ -66,7 +69,7 @@ class ChartSwitcherContainer extends React.PureComponent {
 
   render() {
     const { navItems, activeIndex } = this.state;
-    const { widget, answers, updateAnswer } = this.props;
+    const { widget, answers, updateAnswer, t } = this.props;
     const { widgets: nestedWidgets } = widget;
     const activeWidget = nestedWidgets[activeIndex];
     const { options: activeOptions } = activeWidget;
@@ -82,7 +85,7 @@ class ChartSwitcherContainer extends React.PureComponent {
               <NavDrawer
                 interactableToolbar
                 navItems={navItems}
-                toolbarTitle={title}
+                toolbarTitle={t(title)}
               >
                 {children}
               </NavDrawer>
@@ -107,7 +110,11 @@ class ChartSwitcherContainer extends React.PureComponent {
 
                 return (
                   <div key={key} className={itemClasses}>
-                    {!twoOrMoreNestedWidgets && <h2>{title}</h2>}
+                    {!twoOrMoreNestedWidgets && (
+                      <h2>
+                        <Trans>{title}</Trans>
+                      </h2>
+                    )}
                     <WidgetTag
                       type={type}
                       widget={nestedWidget}
@@ -128,10 +135,10 @@ class ChartSwitcherContainer extends React.PureComponent {
 }
 
 ChartSwitcherContainer.propTypes = {
-  // options: PropTypes.object,
   widget: PropTypes.object,
   answers: PropTypes.object,
   updateAnswer: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default ChartSwitcherContainer;
+export default withTranslation()(ChartSwitcherContainer);

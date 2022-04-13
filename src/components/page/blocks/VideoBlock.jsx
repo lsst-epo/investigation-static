@@ -1,8 +1,7 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
-import { renderDef } from '../../../lib/utilities.js';
+import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
 
 import {
   gridVideo,
@@ -59,14 +58,14 @@ class VideoBlock extends React.PureComponent {
   };
 
   render() {
-    const { block, row } = this.props;
+    const { block, row, t } = this.props;
     const { errorOnLoad } = this.state;
     const { mediaPath, figText, altText, options } = block;
     const { showControls, volume, autoPlay, loop } = options || {};
     const config = {
       file: {
         attributes: {
-          alt: altText,
+          alt: t(altText),
         },
       },
     };
@@ -92,12 +91,16 @@ class VideoBlock extends React.PureComponent {
           />
         </div>
         {figText && (
-          <figcaption dangerouslySetInnerHTML={renderDef(figText)}></figcaption>
+          <figcaption>
+            <Trans>{figText}</Trans>
+          </figcaption>
         )}
       </figure>
     ) : (
       <div>
-        <h3>Error loading video...</h3>
+        <h3>
+          <Trans>interface::errors.loading.video</Trans>
+        </h3>
       </div>
     );
   }
@@ -117,6 +120,7 @@ VideoBlock.defaultProps = {
 VideoBlock.propTypes = {
   block: PropTypes.object,
   row: PropTypes.string,
+  t: PropTypes.func,
 };
 
-export default VideoBlock;
+export default withTranslation()(VideoBlock);

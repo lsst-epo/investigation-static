@@ -1,9 +1,8 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
 import ImageLoader from '../../site/imageLoader/index.jsx';
-import { renderDef } from '../../../lib/utilities.js';
 
 import {
   gridImage,
@@ -24,14 +23,16 @@ class ImageBlock extends React.PureComponent {
   }
 
   render() {
-    const { block: image, row } = this.props;
+    const { block: image, row, t } = this.props;
     const { mediaPath, figText, altText, classes } = image;
 
     return (
       <figure className={classnames(gridImage, this.gridClasses[row], classes)}>
-        <ImageLoader src={mediaPath} alt={altText || ''} />
+        <ImageLoader src={mediaPath} alt={t(altText) || ''} />
         {figText && (
-          <figcaption dangerouslySetInnerHTML={renderDef(figText)}></figcaption>
+          <figcaption>
+            <Trans>{figText}</Trans>
+          </figcaption>
         )}
       </figure>
     );
@@ -41,6 +42,7 @@ class ImageBlock extends React.PureComponent {
 ImageBlock.propTypes = {
   block: PropTypes.object,
   row: PropTypes.string,
+  t: PropTypes.func,
 };
 
-export default ImageBlock;
+export default withTranslation()(ImageBlock);

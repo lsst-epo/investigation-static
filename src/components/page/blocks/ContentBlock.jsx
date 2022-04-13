@@ -1,7 +1,8 @@
-/* eslint-disable react/no-danger */
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { renderDef } from '../../../lib/utilities';
+import { Trans } from 'gatsby-plugin-react-i18next';
 
 import {
   gridCopy,
@@ -24,12 +25,26 @@ class ContentBlock extends React.PureComponent {
   render() {
     const { block, row } = this.props;
     const { content } = block || {};
+    const transComponents = {
+      p: <p />,
+      h1: <h1 />,
+      h2: <h2 />,
+      h3: <h3 />,
+      h4: <h4 />,
+      ul: <ul />,
+      li: <li />,
+      dl: <dl />,
+      dt: <dt />,
+      dd: <dd />,
+      a: <a />,
+      br: <br />,
+      b: <b />,
+    };
 
     return (
-      <div
-        className={`${gridCopy} ${this.gridClasses[row || 'top']}`}
-        dangerouslySetInnerHTML={renderDef(content)}
-      />
+      <div className={`${gridCopy} ${this.gridClasses[row || 'top']}`}>
+        <Trans components={transComponents}>{content}</Trans>
+      </div>
     );
   }
 }

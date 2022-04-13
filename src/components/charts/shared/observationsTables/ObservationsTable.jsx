@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cloneDeep from 'lodash/cloneDeep';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import Table from '../../../site/forms/table/index.jsx';
 import ObservationsTableCell from './ObservationsTableCell';
 import { tableTitle } from './observations-tables.module.scss';
@@ -10,7 +11,11 @@ class ObservationsTable extends React.PureComponent {
     const { accessor, id, data, content, type } = cell;
 
     if (content) {
-      return <span className="cell-body">{content}</span>;
+      return (
+        <span className="cell-body">
+          <Trans>{content}</Trans>
+        </span>
+      );
     }
 
     if (id && accessor) {
@@ -59,7 +64,11 @@ class ObservationsTable extends React.PureComponent {
 
     return (
       <>
-        {title && <h2 className={`${tableTitle} space-bottom`}>{title}</h2>}
+        {title && (
+          <h2 className={`${tableTitle} space-bottom`}>
+            <Trans>{title}</Trans>
+          </h2>
+        )}
         <Table
           className="observations-table"
           colTitles={colTitles}

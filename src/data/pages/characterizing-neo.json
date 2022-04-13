@@ -25,12 +25,17 @@
       "fixed": true,
       "colTitles": [
         "Group",
-        "Size of Orbit",
-        "Eccentricity",
-        "Inclination",
-        "Direction of Orbit"
+        "astronomy::orbital_properties.size_of_orbit",
+        "astronomy::orbital_properties.eccentricity",
+        "astronomy::orbital_properties.inclination",
+        "astronomy::orbital_properties.direction_of_orbit"
       ],
-      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rowTitles": [
+        ["astronomy::orbital_bodies.neo_abbrev_plural"],
+        ["astronomy::orbital_bodies.mba_abbrev_plural"],
+        ["astronomy::orbital_bodies.tno_abbrev_plural"],
+        ["astronomy::orbital_bodies.comet_plural"]
+      ],
       "rows": [
         [
           { "accessor": "data", "id": "6" },
@@ -68,14 +73,17 @@
           "type": "OrbitalProperties",
           "source": "/data/neos/neo_semimajor_axis_hist.json",
           "options": {
-            "title": "NEO Orbit Sizes",
-            "xAxisLabel": "Orbit Sizes (au)",
+            "title": "solar-system::widgets.solarsystem08.orbital_properties.0.title",
+            "xAxisLabel": "astronomy::orbital_properties.size_of_orbit_with_unit",
             "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of NEOs",
+            "yAxisLabel": "astronomy::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
             "domain": [[0, 10], []],
             "bins": 20,
             "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["NEOs", "Orbit Size (au)"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.neo_abbrev_plural",
+              "astronomy::orbital_properties.size_of_orbit_with_unit"
+            ]
           }
         },
         {
@@ -83,13 +91,16 @@
           "source": "/data/neos/neo_eccentricity_hist.json",
           "options": {
             "title": "NEO Eccentricities",
-            "xAxisLabel": "Eccentricities",
+            "xAxisLabel": "astronomy::orbital_properties.eccentricity_plural",
             "xValueAccessor": "eccentricity",
-            "yAxisLabel": "Number of NEOs",
+            "yAxisLabel": "astronomy::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
             "domain": [[0, 1], []],
             "bins": 10,
             "tooltipAccessors": ["countOfTotal", "eccentricity"],
-            "tooltipLabels": ["NEOs", "Eccentricity"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.neo_abbrev_plural",
+              "astronomy::orbital_properties.eccentricity"
+            ]
           }
         },
         {
@@ -99,11 +110,14 @@
             "title": "NEO Inclinations",
             "xAxisLabel": "Inclinations (degrees)",
             "xValueAccessor": "inclination",
-            "yAxisLabel": "Number of NEOs",
+            "yAxisLabel": "astronomy::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
             "domain": [[0, 180], null],
             "bins": 9,
             "tooltipAccessors": ["countOfTotal", "inclination"],
-            "tooltipLabels": ["NEOs", "Inclination (degrees)"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.neo_abbrev_plural",
+              "astronomy::orbital_properties.inclination_unit"
+            ]
           }
         }
       ],
@@ -119,26 +133,26 @@
           "id": "6",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Size of the orbit: ",
+          "label": "solar-system::questions.6.label",
           "options": [
             {
-              "label": "All of the orbits are within the inner Solar System (between 0.5 - 4 au).",
-              "value": "Within inner Solar System (between 0.5 - 4 au)"
+              "label": "solar-systems::questions.6.options.0.label",
+              "value": "solar-systems::questions.6.options.0.value"
             },
             {
-              "label": "All of the orbits are within the inner Solar System (between 1.5 - 5.2 au).",
-              "value": "Within inner Solar System (between 1.5 - 5.2 au)"
+              "label": "solar-systems::questions.6.options.1.label",
+              "value": "solar-systems::questions.6.options.1.value"
             },
             {
-              "label": "The orbit sizes are 30 au or larger, and objects typically orbit beyond Neptune.",
-              "value": "In the outer Solar System (30 au or larger)"
+              "label": "solar-systems::questions.6.options.2.label",
+              "value": "solar-systems::questions.6.options.2.value"
             },
             {
-              "label": "The orbit sizes span both the inner and outer Solar System, beyond 30 au.",
-              "value": "Span inner and outer Solar System (beyond 30 au)"
+              "label": "solar-systems::questions.6.options.3.label",
+              "value": "solar-systems::questions.6.options.3.value"
             }
           ],
-          "placeholder": "Select best description of NEOs",
+          "placeholder": "solar-system::questions.6.placeholder",
           "answerPre": "<p>Selected: </p>",
           "answerAccessor": "data"
         }

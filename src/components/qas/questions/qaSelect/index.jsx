@@ -127,11 +127,13 @@ class QASelect extends React.PureComponent {
 
     const hasQANumber = questionNumber && firstQuestion;
     const updatedLabel =
-      hasQANumber && label && !labelPre ? `${questionNumber}. ${label}` : label;
+      hasQANumber && label && !labelPre
+        ? `${questionNumber}. ${t(label)}`
+        : t(label);
     const updatedLabelPre =
       hasQANumber && !label && labelPre
-        ? `${questionNumber}. ${labelPre}`
-        : labelPre;
+        ? `${questionNumber}. ${t(labelPre)}`
+        : t(labelPre);
     const onlyQaNumber =
       hasQANumber && !labelPre && !label && labelPost
         ? `${questionNumber}. `
@@ -187,7 +189,7 @@ class QASelect extends React.PureComponent {
             />
           )}
           {labelPost && (
-            <span className={labelPostClasses}>&nbsp;{labelPost}&nbsp;</span>
+            <span className={labelPostClasses}>&nbsp;{t(labelPost)}&nbsp;</span>
           )}
         </div>
       </ConditionalWrapper>

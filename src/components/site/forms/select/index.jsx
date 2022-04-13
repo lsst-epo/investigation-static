@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import styles from './select.module.scss';
 
 class Select extends React.PureComponent {
@@ -19,6 +20,7 @@ class Select extends React.PureComponent {
       disabled,
       showLabel,
       inline,
+      t,
     } = this.props;
 
     const classes = classnames(styles.select, className, {
@@ -27,23 +29,23 @@ class Select extends React.PureComponent {
 
     return (
       <div className={classes}>
-        {showLabel && <label htmlFor={`select-${id}`}>{label}</label>}
+        {showLabel && <label htmlFor={`select-${id}`}>{t(label)}</label>}
         <div className={styles.selectWrapper}>
           <select
             data-testid="select"
             id={`select-${id}`}
-            name={name}
+            name={t(name)}
             value={value}
             onBlur={handleBlur}
             onChange={handleChange}
             onFocus={handleFocus}
-            aria-label={label}
+            aria-label={t(label)}
             disabled={disabled || false}
             multiple={false}
           >
             {placeholder && (
               <option key="placeholder-option" value="DEFAULT" disabled>
-                {placeholder}
+                {t(placeholder)}
               </option>
             )}
             {options.map((option, i) => {
@@ -53,16 +55,16 @@ class Select extends React.PureComponent {
                   <option
                     key={option.id || `option-${i}`}
                     value={option.value}
-                    label={option.label}
+                    label={t(option.label)}
                   >
-                    {option.label}
+                    {t(option.label)}
                   </option>
                 );
               }
 
               return (
-                <option key={option} value={option} label={option}>
-                  {option}
+                <option key={option} value={option} label={t(option)}>
+                  {t(option)}
                 </option>
               );
             })}
@@ -88,6 +90,7 @@ Select.propTypes = {
   disabled: PropTypes.bool,
   showLabel: PropTypes.bool,
   inline: PropTypes.bool,
+  t: PropTypes.func,
 };
 
-export default Select;
+export default withTranslation()(Select);

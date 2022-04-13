@@ -1,9 +1,33 @@
 {
-  "locations": {
-    "table_of_contents": "Tabla de contenido"
+  "actions": {
+    "review_your_answers": "Revisa tus respuestas",
+    "clear_answers": "Borrar todas las respuestas guardadas",
+    "select": "Seleccionar"
+  },
+  "educator_mode": {
+    "title": "Modo Educador"
+  },
+  "header": {
+    "page_count": ": Página {{current}} de {{total}}"
+  },
+  "landing": {
+    "welcome": "Bienvenida a la investigación {{investigation}}",
+    "start": "Comenzar la investigación {{investigation}}",
+    "already_started": "Parece que has comenzado esta investigación antes."
   },
   "language_toggle": {
     "legend": "Localizar el contenido del sitio",
     "espanol_site_name": "Español"
+  },
+  "locations": {
+    "table_of_contents": "Tabla de contenido"
+  },
+  "qas": {
+    "options": {
+      "yes": "sí"
+    }
+  },
+  "utilities": {
+    "count_of_total": "{{count}} de {{total}}"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "sun": "Sol",
+  "planets": {
+    "mercury": "Mercurio",
+    "earth": "Tierra",
+    "mars": "Marte",
+    "jupiter": "Júpiter",
+    "saturn": "Saturno",
+    "uranus": "Urano",
+    "neptune": "Neptuno"
+  },
+  "orbital_bodies": {
+    "planet": "Planeta",
+    "comet": "Cometa",
+    "comet_plural": "Cometas"
+  },
+  "orbital_properties": {
+    "inclination": "Inclinación",
+    "inclination_unit_symbol": "Inclinaciónº",
+    "eccentricity": "Excentricidad",
+    "size_of_orbit": "Tamaño de la órbita",
+    "size_of_orbit_with_unit": "Tamaño de la órbita (ua)",
+    "direction_of_orbit": "Dirección de la órbita"
+  }
+}

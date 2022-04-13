@@ -3,7 +3,7 @@
   "investigation": "solar-system",
   "sectionOrder": 0,
   "order": "04",
-  "title": "Inclination",
+  "title": "solar-system::pages.solarsystem06.title",
   "slug": "inclination/",
   "previous": {
     "title": "Eccentricity",
@@ -18,8 +18,8 @@
   "videos": [
     {
       "mediaPath": "20220321 Inclination animated graphic.mp4",
-      "altText": "Examples of orbital ellipses with different inclinations.",
-      "figText": "Examples of orbital ellipses with different inclinations. Credit: Rubin Observatory",
+      "altText": "solar-system::videos.solarsystem06.altText",
+      "figText": "solar-system::videos.solarsystem06.figText",
       "options": {
         "autoPlay": true,
         "showControls": false,

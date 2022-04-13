@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import BlocksColumn from './blocks/BlocksColumn.jsx';
 import { leftColGrid, gridTitle, rightColGrid } from './page.module.scss';
 
@@ -19,7 +20,7 @@ class TwoCol extends React.PureComponent {
         <div className="col padded col-width-50">
           <div className={leftColGrid}>
             <h1 className={`space-bottom section-title ${gridTitle}`}>
-              {title}
+              <Trans>{title}</Trans>
             </h1>
             <BlocksColumn col="left" {...{ blocksGroups, blockShared }} />
           </div>

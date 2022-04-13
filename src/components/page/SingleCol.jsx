@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import BlocksColumn from './blocks/BlocksColumn.jsx';
 import { singleColGrid, gridTitle } from './page.module.scss';
 
@@ -17,7 +18,9 @@ class Page extends React.PureComponent {
 
     return (
       <div className={singleColGrid}>
-        <h1 className={`space-bottom section-title ${gridTitle}`}>{title}</h1>
+        <h1 className={`space-bottom section-title ${gridTitle}`}>
+          <Trans>{title}</Trans>
+        </h1>
         <BlocksColumn
           col="left"
           {...{ blocksGroups, defaultLayout, blockShared }}

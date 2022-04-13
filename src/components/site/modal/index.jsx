@@ -55,7 +55,7 @@ function Modal({
   return (
     <div className={classnames({ 'modal-container': true, 'is-open': isOpen })}>
       <Button {...openButtonOpts} onClick={handleOpen}>
-        {openButtonOpts.text}
+        <Trans>{openButtonOpts.text}</Trans>
       </Button>
       <div
         role="dialog"
@@ -84,7 +84,11 @@ function Modal({
           role="document"
         >
           <header className="modal-header">
-            {title && <h1 className="modal-title">{title}</h1>}
+            {title && (
+              <h1 className="modal-title">
+                <Trans>{title}</Trans>
+              </h1>
+            )}
             <Button
               {...closeButtonOpts}
               onClick={handleClose}

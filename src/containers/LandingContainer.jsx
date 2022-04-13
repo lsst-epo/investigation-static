@@ -40,6 +40,7 @@ class InvestigationsLanding extends React.PureComponent {
     const { pageContext, t } = this.props;
     const { investigations } = pageContext;
     const { envInvestigation } = this.state;
+    const investigationTitle = t(`${envInvestigation.id}::title`);
     const isAnswers = Object.keys(this.global.answers).length > 0;
 
     return (
@@ -48,7 +49,7 @@ class InvestigationsLanding extends React.PureComponent {
         {envInvestigation ? (
           <>
             <p className="copy-primary space-bottom">
-              <Trans values={{ investigation: envInvestigation.title }}>
+              <Trans values={{ investigation: investigationTitle }}>
                 interface::landing.welcome
               </Trans>
             </p>
@@ -60,7 +61,7 @@ class InvestigationsLanding extends React.PureComponent {
                 to="/introduction/"
                 component={Link}
               >
-                <Trans values={{ investigation: envInvestigation.title }}>
+                <Trans values={{ investigation: investigationTitle }}>
                   interface::landing.start
                 </Trans>
               </Button>

@@ -25,7 +25,7 @@ class TableOfContents extends React.PureComponent {
 
     return layout === 'SectionBreak'
       ? t('table_of_contents.section_break', { sectionName })
-      : title;
+      : t(title);
   };
 
   getNavLink(link, useBaseUrl) {

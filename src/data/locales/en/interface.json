@@ -17,7 +17,8 @@
     "skip_backward": "Skip Backward",
     "skip_forward": "Skip Forward",
     "edit": "Edit",
-    "change_answer": "Change answer"
+    "change_answer": "Change answer",
+    "select": "Select"
   },
   "errors": {
     "qas": {
@@ -26,6 +27,9 @@
     },
     "passphrase": {
       "mismatch": "Incorrect passphrase"
+    },
+    "loading": {
+      "video": "Error loading video..."
     }
   },
   "formfields": {
@@ -74,13 +78,25 @@
   "qas": {
     "question_placeholder": "Question Placeholder: {{questionType}} Question Type does not Exist",
     "question_placeholder_no-type": "Question placeholder",
+    "answer_pre": "<p>Selected </p>",
     "text_input": {
       "label": "Complete this statement by filling in the blank: {{labelPre}}, blank, {{labelPost}}"
+    },
+    "options": {
+      "yes": "yes",
+      "no": "no",
+      "closer": "closer to",
+      "farther": "farther from",
+      "long": "long",
+      "short": "short"
     }
   },
   "language_toggle": {
     "legend": "Localize site content",
     "label": "Language",
     "espanol_site_name": "Spanish"
+  },
+  "utilities": {
+    "count_of_total": "{{count}} of {{total}}"
   }
 }
