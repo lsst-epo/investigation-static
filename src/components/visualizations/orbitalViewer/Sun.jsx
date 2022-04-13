@@ -20,7 +20,7 @@ function Sun({ defaultZoom, zoomLevel, t }) {
             fontSize: getLabelSize(zoomLevel, defaultZoom),
           }}
         >
-          {t('astronomy::sun')}
+          {t('astronomy::orbital_bodies.sun')}
         </div>
       </HTML>
     </mesh>

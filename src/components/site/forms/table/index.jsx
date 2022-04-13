@@ -6,6 +6,7 @@ import TableHeader from 'react-md/lib//DataTables/TableHeader';
 import TableBody from 'react-md/lib//DataTables/TableBody';
 import TableRow from 'react-md/lib//DataTables/TableRow';
 import TableColumn from 'react-md/lib//DataTables/TableColumn';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import styles from './table.module.scss';
 
 class Table extends React.PureComponent {
@@ -35,7 +36,7 @@ class Table extends React.PureComponent {
                         width: fixed ? `${100 / colTitles.length})%` : 'auto',
                       }}
                     >
-                      {title}
+                      <Trans>{title}</Trans>
                     </TableColumn>
                   );
                 })}
@@ -56,7 +57,7 @@ class Table extends React.PureComponent {
                           'row-title': includeRowTitles && j === 0,
                         })}
                       >
-                        {col}
+                        <Trans>{col}</Trans>
                       </TableColumn>
                     );
                   })}

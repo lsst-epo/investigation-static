@@ -45,6 +45,7 @@ class PageNav extends React.PureComponent {
   };
 
   getNavLink(type, item, baseUrl) {
+    const { t } = this.props;
     const { link } = item;
     const linkIsBlank = link === '' || link === null;
     const isLinkToFirstPage = linkIsBlank && type === 'previous';
@@ -58,7 +59,7 @@ class PageNav extends React.PureComponent {
       return `${baseUrl}/qa-review/`;
     }
 
-    return `${baseUrl}${link}`;
+    return `${baseUrl}${t(link)}`;
   }
 
   getButtonIconEl(type, title) {
@@ -66,17 +67,20 @@ class PageNav extends React.PureComponent {
     const homeText = t('interface::locations.home');
     const allQasRequiredText = t('interface::notifications.answer_all_qa');
     if (type === 'previous') {
-      return <ButtonIcon srText={title || homeText} Icon={ArrowLeft} />;
+      return <ButtonIcon srText={t(title) || homeText} Icon={ArrowLeft} />;
     }
     return (
       <ButtonIcon
-        srText={allQuestionsAnswered ? title || homeText : allQasRequiredText}
+        srText={
+          allQuestionsAnswered ? t(title) || homeText : allQasRequiredText
+        }
         Icon={ArrowRight}
       />
     );
   }
 
   renderNavItem(type, item, baseUrl, allQuestionsAnswered = false) {
+    const { t } = this.props;
     const { educatorMode } = this.global;
     const { link, title } = item;
     const linkIsBlank = link === '' || link === null;
@@ -99,7 +103,7 @@ class PageNav extends React.PureComponent {
           className={buttonClasses}
           to={buttonLink}
           component={Link}
-          tooltipLabel={item.title}
+          tooltipLabel={t(title)}
           tooltipPosition="top"
         >
           <Trans>interface::actions.review_your_answers</Trans>
@@ -118,7 +122,7 @@ class PageNav extends React.PureComponent {
           allowProgression ? null : this.handleShowAllRequiredNotification
         }
         iconBefore={type === 'previous'}
-        tooltipLabel={item.title}
+        tooltipLabel={t(title)}
         tooltipPosition="top"
       />
     );

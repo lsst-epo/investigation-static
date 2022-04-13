@@ -126,11 +126,13 @@ class TextInput extends React.PureComponent {
 
     const hasQANumber = questionNumber && firstQuestion;
     const updatedLabel =
-      hasQANumber && label && !labelPre ? `${questionNumber}. ${label}` : label;
+      hasQANumber && label && !labelPre
+        ? `${questionNumber}. ${t(label)}`
+        : t(label);
     const updatedLabelPre =
       hasQANumber && !label && labelPre
-        ? `${questionNumber}. ${labelPre}`
-        : labelPre;
+        ? `${questionNumber}. ${t(labelPre)}`
+        : t(labelPre);
     const onlyQaNumber =
       hasQANumber && !labelPre && !label && labelPost
         ? `${questionNumber}. `
@@ -185,7 +187,7 @@ class TextInput extends React.PureComponent {
             }
             lineDirection="center"
             fullWidth={!(labelPre || labelPost)}
-            placeholder={placeholder}
+            placeholder={t(placeholder)}
             {...rows}
             defaultValue={answered ? answer.content : ''}
             onBlur={this.handleBlur}

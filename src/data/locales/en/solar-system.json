@@ -1,0 +1,91 @@
+{
+  "title": "Surveying the Solar System",
+  "pages": {
+    "solarsystem00": {
+      "title": "Introduction",
+      "link": "/introduction/"
+    },
+    "solarsystem02": {
+      "title": "Detecting Solar System Objects",
+      "link": "/detecting-objects/"
+    },
+    "solarsystem04": {
+      "title": "Semi-Major Axis",
+      "link": "/semi-major-axis/"
+    },
+    "solarsystem06": {
+      "title": "Inclination",
+      "link": "/inclination/"
+    }
+  },
+  "content": {
+    "solarsystem00": "<p>For hundreds of years we had a simple model for the objects in our Solar System: some large planets and their moons, and occasionally a passing comet. Then came the discovery of the first asteroid, Ceres, in 1801, an indication there was more going on out there than we thought. Sure enough, over the next 200 years about 800,000 small Solar System objects (which includes asteroids, comets, and trans-Neptunian objects) were discovered. At first the rate of discovery was slow, but advances in technology, which have made it possible to detect smaller and more distant objects, have sped up the process. </p> <p> Vera C. Rubin Observatory provides the most powerful observational tool we’ve ever had to study small Solar System objects; the size of the telescope’s mirrors and the sensitivity of its camera combine with the speed that the telescope surveys the night sky to help us see more objects in our Solar System than ever before. Each image taken by Rubin Observatory covers a large area of the sky, and captures light even from very faint objects, making it possible to measure the motions of millions of small Solar System objects per night. Many of these are brand new discoveries. </p> <p> In this investigation, you will explore real data from Rubin Observatory to develop a deeper understanding of how small objects are distributed throughout the Solar System. You will also examine the orbits of some newly detected Solar System objects, in order to classify them. Together, these observations will help us put together the story of how our Solar System formed, and give us insights into what we might find around other stars that have exoplanets. </p> <h3>Essential Questions</h3> <ul> <li> How do gravitational interactions affect the motion and orbital properties of small objects in the Solar System? </li> <li> What can observations of small objects reveal about the formation and history of the Solar System? </li> </ul>",
+    "solarsystem-1-break": "<p>You’ve identified the orbital properties of the four main groups of small Solar System objects.</p><p>Next, you will use these characteristics to classify four unknown objects and learn how the orbits of small bodies provide evidence for the formation of the Solar System.</p>",
+    "solarsystem-2-break": "<p>You’ve classified the four unknown objects, and learned how gravitational interactions of small objects and their inclinations provide evidence for the formation of the Solar System.</p><p>Next you will investigate data from a new group of Solar System objects and decide how you would communicate this new discovery.</p>"
+  },
+  "images": {
+    "solarsystem00": {
+      "0": {
+        "altText": "The evolution of worlds by Lowell",
+        "figText": "Orbits of the outer planets as described in “The Evolution of Worlds,” a book published in the first decade of the 1900s by Percival Lowell."
+      }
+    }
+  },
+  "reference": {
+    "planetary_orbital_sizes": {
+      "title": "Planetary Orbital Sizes"
+    }
+  },
+  "videos": {
+    "solarsystem06": {
+      "altText": "Examples of orbital ellipses with different inclinations.",
+      "figText": "Examples of orbital ellipses with different inclinations. Credit: Rubin Observatory"
+    }
+  },
+  "questions": {
+    "1": {
+      "label": "Calculate the time it takes each object to move from its first to last position. (The times are displayed in the upper right corner of each image.) Is the amount of time it takes for the two objects to move across the sky approximately the same?"
+    },
+    "2": {
+      "label_pre": "The object that takes a longer time to move across the field of view is ",
+      "label_post": " the Sun, "
+    },
+    "6": {
+      "label": "Size of the orbit: ",
+      "placeholder": "Select best description of NEOs",
+      "options": {
+        "0": {
+          "label": "All of the orbits are within the inner Solar System (between 0.5 - 4 au).",
+          "value": "Within inner Solar System (between 0.5 - 4 au)"
+        },
+        "1": {
+          "label": "All of the orbits are within the inner Solar System (between 1.5 - 5.2 au).",
+          "value": "Within inner Solar System (between 1.5 - 5.2 au)"
+        },
+        "2": {
+          "label": "The orbit sizes are 30 au or larger, and objects typically orbit beyond Neptune.",
+          "value": "In the outer Solar System (30 au or larger)"
+        },
+        "3": {
+          "label": "The orbit sizes span both the inner and outer Solar System, beyond 30 au.",
+          "value": "Span inner and outer Solar System (beyond 30 au)"
+        }
+      }
+    },
+    "22": {
+      "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain your reasoning in terms of the unique set of orbital properties that defines this group of objects."
+    }
+  },
+  "widgets": {
+    "solarsystem08": {
+      "orbital_properties": {
+        "0": {
+          "title": "NEO Orbit Sizes",
+          "labels": {
+            "y_axis": "Number of NEOs"
+          }
+        }
+      }
+    }
+  }
+}

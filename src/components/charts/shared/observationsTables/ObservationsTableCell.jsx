@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isArray from 'lodash/isArray';
 import isPlainObject from 'lodash/isPlainObject';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import { getMean } from '../../../../lib/utilities';
 import StellarValue from '../StellarValue';
 import StellarValueRange from '../StellarValueRange';
@@ -12,7 +13,11 @@ class ObservationsTableCell extends React.PureComponent {
       let value = answer.data;
 
       if (value && accessor === 'data') {
-        return <span>{value}</span>;
+        return (
+          <span>
+            <Trans>{value}</Trans>
+          </span>
+        );
       }
 
       if (accessor === 'range') {

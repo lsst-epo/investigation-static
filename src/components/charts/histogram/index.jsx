@@ -14,6 +14,7 @@ import {
 } from 'd3-scale';
 import 'd3-transition';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import Unit from '../shared/unit/index.jsx';
 import NavDrawer from '../shared/navDrawer/index.jsx';
 import ConditionalWrapper from '../../ConditionalWrapper';
@@ -359,6 +360,7 @@ class Histogram extends React.PureComponent {
       tooltipUnits,
       tooltipLabels,
       multiple,
+      t,
     } = this.props;
 
     const {
@@ -466,23 +468,11 @@ class Histogram extends React.PureComponent {
                   graphHeight={height}
                   padding={padding}
                 />
-                {/* {meanData && valueAccessor && (
-                  <MeanBar
-                    data={meanData}
-                    bins={data}
-                    valueAccessor={valueAccessor}
-                    yScale={yScale}
-                    graphWidth={width}
-                    offsetTop={offsetTop}
-                    offsetRight={offsetRight}
-                    padding={padding}
-                  />
-                )} */}
               </>
             )}
             {xScale && multiple && (
               <XAxis
-                label={xAxisLabel || this.getLabel(valueAccessor)}
+                label={t(xAxisLabel) || this.getLabel(valueAccessor)}
                 height={height}
                 width={width}
                 padding={padding}
@@ -494,7 +484,7 @@ class Histogram extends React.PureComponent {
             )}
             {xScale && !multiple && (
               <XAxis
-                label={xAxisLabel || this.getLabel(valueAccessor)}
+                label={t(xAxisLabel) || this.getLabel(valueAccessor)}
                 height={height}
                 width={width}
                 padding={padding}
@@ -506,7 +496,7 @@ class Histogram extends React.PureComponent {
             )}
             {yScale && multiple && (
               <YAxis
-                label={yAxisLabel}
+                label={t(yAxisLabel)}
                 height={height}
                 padding={padding}
                 offsetTop={offsetTop}
@@ -515,7 +505,7 @@ class Histogram extends React.PureComponent {
             )}
             {yScale && !multiple && (
               <YAxis
-                label={yAxisLabel}
+                label={t(yAxisLabel)}
                 height={height}
                 padding={padding}
                 offsetTop={offsetTop}
@@ -557,6 +547,7 @@ Histogram.propTypes = {
   tooltipLabels: PropTypes.array,
   tooltipUnits: PropTypes.array,
   multiple: PropTypes.bool,
+  t: PropTypes.func,
 };
 
-export default Histogram;
+export default withTranslation()(Histogram);

@@ -14,5 +14,5 @@
     "link": "/classifying-objects/"
   },
   "layout": "SectionBreak",
-  "content": "<p>You’ve successfully classified the four unknown objects, and learned how gravitational interactions of small objects and their inclinations provide evidence for the formation of the Solar System.</p><p>Next you will investigate data from a new group of Solar System objects and decide how you would communicate this new discovery.</p>"
+  "content": "solar-system::content.solarsystem-2-break"
 }

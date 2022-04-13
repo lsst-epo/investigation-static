@@ -2,6 +2,7 @@ import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
+import { Translation } from 'gatsby-plugin-react-i18next';
 import { filter, find, flattenDeep, get } from 'lodash';
 import GlobalStore from '../state/GlobalStore';
 import SEO from '../components/seo';
@@ -181,26 +182,38 @@ class Layout extends React.Component {
     const investigation = contextInvestigation || envInvestigation;
 
     return (
-      <>
-        <SEO title={investigationTitle || investigation || 'Investigation'} />
-        <Header
-          logo={investigation !== 'ngss-solar-system' ? logo : null}
-          pageNumber={this.getCurrentPageNumber(pages, pageId)}
-          tocVisability={tocIsOpen}
-          toggleToc={investigation && this.toggleToc}
-          {...{ sections, investigationTitle, totalPages }}
-        />
-        {investigation && (
-          <TableOfContents
-            visible={tocIsOpen}
-            toggleToc={this.toggleToc}
-            investigation={investigation}
-            isAll={!envInvestigation || envInvestigation === 'all'}
-            pages={pages}
-          />
+      <Translation>
+        {t => (
+          <>
+            <SEO
+              title={
+                t(`${investigation}::title`) ||
+                investigationTitle ||
+                investigation ||
+                'Investigation'
+              }
+            />
+            <Header
+              logo={investigation !== 'ngss-solar-system' ? logo : null}
+              pageNumber={this.getCurrentPageNumber(pages, pageId)}
+              tocVisability={tocIsOpen}
+              toggleToc={investigation && this.toggleToc}
+              investigationTitle={t(`${investigation}::title`)}
+              {...{ sections, totalPages }}
+            />
+            {investigation && (
+              <TableOfContents
+                visible={tocIsOpen}
+                toggleToc={this.toggleToc}
+                investigation={investigation}
+                isAll={!envInvestigation || envInvestigation === 'all'}
+                pages={pages}
+              />
+            )}
+            <main className={styles.container}>{children}</main>
+          </>
         )}
-        <main className={styles.container}>{children}</main>
-      </>
+      </Translation>
     );
   }
 }

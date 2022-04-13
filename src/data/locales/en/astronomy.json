@@ -1,5 +1,4 @@
 {
-  "sun": "Sun",
   "planets": {
     "mercury": "Mercury",
     "venus": "Venus",
@@ -9,5 +8,33 @@
     "saturn": "Saturn",
     "uranus": "Uranus",
     "neptune": "Neptune"
+  },
+  "orbital_bodies": {
+    "sun": "Sun",
+    "planet": "Planet",
+    "tno": "Trans-Neptunian object",
+    "tno_plural": "Trans-Neptunian objects",
+    "tno_abbrev": "TNO",
+    "tno_abbrev_plural": "TNOs",
+    "mba": "Main Belt asteroid",
+    "mba_plural": "Main Belt asteroids",
+    "mba_abbrev": "MBA",
+    "mba_abbrev_plural": "MBAs",
+    "neo": "Near-Earth object",
+    "neo_plural": "Near-Earth objects",
+    "neo_abbrev": "NEO",
+    "neo_abbrev_plural": "NEOs",
+    "comet": "Comet",
+    "comet_plural": "Comets"
+  },
+  "orbital_properties": {
+    "inclination": "Inclination",
+    "inclination_unit": "Inclination (degrees)",
+    "inclination_unit_symbol": "Inclinationº",
+    "eccentricity": "Eccentricity",
+    "eccentricity_plural": "Eccentricities",
+    "size_of_orbit": "Size of Orbit",
+    "size_of_orbit_with_unit": "Size of Orbit (au)",
+    "direction_of_orbit": "Direction of Orbit"
   }
 }

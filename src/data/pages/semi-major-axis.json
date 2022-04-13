@@ -3,18 +3,18 @@
   "investigation": "solar-system",
   "sectionOrder": 0,
   "order": "02",
-  "title": "Semi-Major Axis",
+  "title": "solar-system::pages.solarsystem04.title",
   "slug": "semi-major-axis/",
   "previous": {
-    "title": "Detecting Solar System Objects",
-    "link": "/detecting-objects/"
+    "title": "solar-system::pages.solarsystem02.title",
+    "link": "solar-system::pages.solarsystem02.link"
   },
   "next": {
     "title": "Eccentricity",
     "link": "/eccentricity/"
   },
   "layout": "TwoCol",
-  "content": "<p> By making a series of careful measurements, astronomers can determine the orbit for a newly discovered Solar System object. Three properties used to describe an orbit are used throughout this investigation. </p> <p> <a href='http://rubineducation.org/glossary/orbit-size' target='_blank'>Orbital size</a> is related to the orbit's <a href='http://rubineducation.org/glossary/semi-major-axis' target='_blank' >semi-major axis</a > (which is defined as half of the longest diameter of the object's orbit). It is measured in <a href='http://rubineducation.org/glossary/astronomical-unit-au' target='_blank' >astronomical units</a > (au). You can also think of the orbit's semi-major axis as its average distance from the Sun. </p>",
+  "content": "<p> By making a series of careful measurements, astronomers can determine the orbit for a newly discovered Solar System object. Three properties used to describe an orbit are used throughout this investigation. </p> <p> <a href='http://rubineducation.org/glossary/orbit-size' target='_blank'>Orbital size</a> is related to the orbit's <a href='http://rubineducation.org/glossary/semi-major-axis' target='_blank'>semi-major axis</a> (which is defined as half of the longest diameter of the object's orbit). It is measured in <a href='http://rubineducation.org/glossary/astronomical-unit-au' target='_blank' >astronomical units</a> (au). You can also think of the orbit's semi-major axis as its average distance from the Sun. </p>",
   "images": [
     {
       "mediaPath": "/images/semi-major-minor-axes.png",
@@ -31,10 +31,10 @@
       "options": {
         "position": "left"
       },
-      "title": "Planetary Orbital Sizes",
+      "title": "solar-system::reference.planetary_orbital_sizes.title",
       "button": {
         "icon": true,
-        "text": "Planetary Orbital Sizes"
+        "text": "solar-system::reference.planetary_orbital_sizes.title"
       },
       "tables": [
         {
@@ -43,17 +43,20 @@
             "col": "left",
             "row": "top"
           },
-          "title": "Planetary Orbital Sizes",
-          "colTitles": ["Planet", "Orbit Size (au)"],
+          "title": "solar-system::reference.planetary_orbital_sizes.title",
+          "colTitles": [
+            "astronomy::orbital_bodies.planet",
+            "astronomy::orbital_properties.size_of_orbit_with_unit"
+          ],
           "rows": [
-            [{ "content": "Mercury" }, { "content": "0.4" }],
-            [{ "content": "Venus" }, { "content": "0.7" }],
-            [{ "content": "Earth" }, { "content": "1.0" }],
-            [{ "content": "Mars" }, { "content": "1.5" }],
-            [{ "content": "Jupiter" }, { "content": "5.2" }],
-            [{ "content": "Saturn" }, { "content": "9.5" }],
-            [{ "content": "Uranus" }, { "content": "19.2" }],
-            [{ "content": "Neptune" }, { "content": "30.1" }]
+            [{ "content": "astronomy::planets.mercury" }, { "content": "0.4" }],
+            [{ "content": "astronomy::planets.venus" }, { "content": "0.7" }],
+            [{ "content": "astronomy::planets.earth" }, { "content": "1.0" }],
+            [{ "content": "astronomy::planets.mars" }, { "content": "1.5" }],
+            [{ "content": "astronomy::planets.jupiter" }, { "content": "5.2" }],
+            [{ "content": "astronomy::planets.saturn" }, { "content": "9.5" }],
+            [{ "content": "astronomy::planets.uranus" }, { "content": "19.2" }],
+            [{ "content": "astronomy::planets.neptune" }, { "content": "30.1" }]
           ],
           "qaReview": false
         }

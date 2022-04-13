@@ -68,8 +68,8 @@
           "label": "Your team discovers a new group of small objects that do not seem to fall into any of the four major groups you have investigated so far. Use the histograms to complete the table below.",
           "rowTitles": [
             ["Orbit Size (au)"],
-            ["Eccentricity"],
-            ["Inclinationº"]
+            ["astronomy::orbital_properties.eccentricity"],
+            ["astronomy::orbital_properties.inclination_unit_symbol"]
           ],
           "rows": [
             [

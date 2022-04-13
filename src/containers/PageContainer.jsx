@@ -154,11 +154,11 @@ class PageContainer extends React.PureComponent {
           {...{
             id,
             layout,
-            title,
             previous,
             next,
             answers,
             shared,
+            title,
           }}
         />
         <PageNav

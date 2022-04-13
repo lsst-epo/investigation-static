@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select } from 'd3-selection';
 import isEmpty from 'lodash/isEmpty';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import 'd3-transition';
-import { capitalize, extentFromSet, getValue } from '../../../lib/utilities.js';
+import { capitalize, extentFromSet } from '../../../lib/utilities.js';
 import Unit from './unit/index.jsx';
+import TranslatedValue from '../../site/utilities/TranslatedValue/index.jsx';
 
 class Tooltip extends React.PureComponent {
   constructor(props) {
@@ -85,9 +87,13 @@ class Tooltip extends React.PureComponent {
   renderValue(accessor, data, unit) {
     return (
       <>
-        <span>{getValue(accessor, data)}</span>
+        <span>
+          <TranslatedValue {...{ accessor, data }} />
+        </span>
         {unit ? (
-          <span className="unit">&nbsp;({unit})</span>
+          <span className="unit">
+            &nbsp;(<Trans>{unit}</Trans>)
+          </span>
         ) : (
           <Unit type={accessor} />
         )}
@@ -128,7 +134,7 @@ class Tooltip extends React.PureComponent {
     return (
       <div className="value-row" key={accessor}>
         {!isCount && !isCountOfTotal && (
-          <span>{label || capitalize(accessor)}: </span>
+          <span>{<Trans>{label}</Trans> || capitalize(accessor)}: </span>
         )}
         {content}
       </div>

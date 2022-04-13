@@ -1,0 +1,21 @@
+{
+  "title": "Encuesta del Sistema Solar",
+  "pages": {
+    "solarsystem00": { "title": "Introducción" },
+    "solarsystem06": {
+      "title": "Inclinación"
+    }
+  },
+  "widgets": {
+    "solarsystem08": {
+      "orbital_properties": {
+        "0": {
+          "title": "Tamaños de órbita NEO",
+          "labels": {
+            "y_axis": "Número de NEO"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { spread, all } from 'axios';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import API from '../lib/API.js';
 import OrbitalProperties from '../components/charts/orbitalProperties/index.jsx';
 
@@ -69,7 +70,11 @@ class OrbitalPropertiesContainer extends React.PureComponent {
 
     return (
       <>
-        {!nested && title && <h2 className="space-bottom">{title}</h2>}
+        {!nested && title && (
+          <h2 className="space-bottom">
+            <Trans>{title}</Trans>
+          </h2>
+        )}
         <OrbitalProperties
           {...{
             data,
