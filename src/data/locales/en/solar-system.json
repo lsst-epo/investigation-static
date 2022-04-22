@@ -13,22 +13,196 @@
       "title": "Semi-Major Axis",
       "link": "/semi-major-axis/"
     },
+    "solarsystem05": {
+      "title": "Eccentricity",
+      "link": "/eccentricity/"
+    },
     "solarsystem06": {
       "title": "Inclination",
       "link": "/inclination/"
+    },
+    "solarsystem07": {
+      "title": "The Big View of the Solar System",
+      "link": "/big-view/"
+    },
+    "solarsystem08": {
+      "title": "Characterizing Near-Earth Objects (NEOs)",
+      "link": "/characterizing-neo/"
+    },
+    "solarsystem09": {
+      "title": "Characterizing Main Belt Asteroids (MBAs)",
+      "link": "/characterizing-mba/"
+    },
+    "solarsystem10": {
+      "title": "Characterizing Trans-Neptunian Objects (TNOs)",
+      "link": "/characterizing-tno/"
+    },
+    "solarsystem11": {
+      "title": "Characterizing Comets",
+      "link": "/characterizing-comet/"
+    },
+    "solarsystem12": {
+      "title": "Comparing Orbital Properties",
+      "link": "/characterizing-orbits-4/"
+    },
+    "solarsystem13": {
+      "title": "Distributions of Solar System Objects",
+      "link": "/identifying-groups/"
+    },
+    "solar-system-1-break": {
+      "title": "Progress Update",
+      "link": "/section-1/"
+    },
+    "solarsystem14": {
+      "title": "Identifying Groups of Solar System Objects - 1",
+      "link": "/identifying-groups-1/"
+    },
+    "solarsystem15": {
+      "title": "Identifying Groups of Solar System Objects - 2",
+      "link": "/identifying-groups-2/"
+    },
+    "solarsystem16": {
+      "title": "Identifying Groups of Solar System Objects - 3",
+      "link": "/identifying-groups-3/"
+    },
+    "solarsystem17": {
+      "title": "Identifying Groups of Solar System Objects - 4",
+      "link": "/identifying-groups-4/"
+    },
+    "solarsystem18": {
+      "title": "The Formation of the Solar System",
+      "link": "/history-solar-system/"
+    },
+    "solarsystem19": {
+      "title": "Supporting Evidence for Solar System Formation",
+      "link": "/history-solar-system-1/"
+    },
+    "solarsystem19a": {
+      "title": "Gravitational Interactions in the Solar System",
+      "link": "/nebula-theory/"
+    },
+    "solar-system-2-break": {
+      "title": "Progress Update",
+      "link": "/section-2/"
+    },
+    "solarsystem22": {
+      "title": "Classifying Newly Detected Solar System Objects",
+      "link": "/classifying-objects/"
+    },
+    "solarsystem23": {
+      "title": "Classifying Newly Detected Solar System Objects - 2",
+      "link": "/classifying-objects-1/"
+    },
+    "solarsystem24": {
+      "title": "Classifying Newly Detected Solar System Objects - 3",
+      "link": "/classifying-objects-2/"
+    },
+    "solarsystem28": {
+      "title": "Exploring A New Class of Objects",
+      "link": "/solar-system-summary/"
+    },
+    "solarsystem29": {
+      "title": "Student Team A’s Drawing",
+      "link": "/orbital-interpretation/"
+    },
+    "solarsystem30": {
+      "title": "Student Team B’s Drawing",
+      "link": "/orbital-interpretation-1/"
+    },
+    "solarsystem31": {
+      "title": "Student Team C’s Drawing",
+      "link": "/orbital-interpretation-2/"
+    },
+    "solarsystem33": {
+      "title": "Categorizing your New Discoveries",
+      "link": "/categorizing-new-discoveries/"
+    },
+    "solarsystem34": {
+      "title": "Putting it all Together",
+      "link": "/solar-system-summary-6/"
+    },
+    "solarsystem36": {
+      "title": "Reflect and Discuss",
+      "link": "/solar-system-discuss-report/"
+    },
+    "solarsystem37": {
+      "title": "Acknowledgements",
+      "link": "/acknowledgements/"
     }
   },
   "content": {
     "solarsystem00": "<p>For hundreds of years we had a simple model for the objects in our Solar System: some large planets and their moons, and occasionally a passing comet. Then came the discovery of the first asteroid, Ceres, in 1801, an indication there was more going on out there than we thought. Sure enough, over the next 200 years about 800,000 small Solar System objects (which includes asteroids, comets, and trans-Neptunian objects) were discovered. At first the rate of discovery was slow, but advances in technology, which have made it possible to detect smaller and more distant objects, have sped up the process. </p> <p> Vera C. Rubin Observatory provides the most powerful observational tool we’ve ever had to study small Solar System objects; the size of the telescope’s mirrors and the sensitivity of its camera combine with the speed that the telescope surveys the night sky to help us see more objects in our Solar System than ever before. Each image taken by Rubin Observatory covers a large area of the sky, and captures light even from very faint objects, making it possible to measure the motions of millions of small Solar System objects per night. Many of these are brand new discoveries. </p> <p> In this investigation, you will explore real data from Rubin Observatory to develop a deeper understanding of how small objects are distributed throughout the Solar System. You will also examine the orbits of some newly detected Solar System objects, in order to classify them. Together, these observations will help us put together the story of how our Solar System formed, and give us insights into what we might find around other stars that have exoplanets. </p> <h3>Essential Questions</h3> <ul> <li> How do gravitational interactions affect the motion and orbital properties of small objects in the Solar System? </li> <li> What can observations of small objects reveal about the formation and history of the Solar System? </li> </ul>",
+    "solarsystem02": "<p>Each night, the Rubin Observatory LSST camera takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an <a href='http://rubineducation.org/glossary/alert' target='_blank'>alert</a> is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves through the star field. Both images cover the same area of the sky (same field of view).</p>",
+    "solarsystem04": "<p> By making a series of careful measurements, astronomers can determine the orbit for a newly discovered Solar System object. Three properties used to describe an orbit are used throughout this investigation. </p> <p> <a href='http://rubineducation.org/glossary/orbit-size' target='_blank'>Orbital size</a> is related to the orbit's <a href='http://rubineducation.org/glossary/semi-major-axis' target='_blank'>semi-major axis</a> (which is defined as half of the longest diameter of the object's orbit). It is measured in <a href='http://rubineducation.org/glossary/astronomical-unit-au' target='_blank' >astronomical units</a> (au). You can also think of the orbit's semi-major axis as its average distance from the Sun. </p>",
+    "solarsystem05": "<p><a href='http://rubineducation.org/glossary/eccentricity' target='_blank'>Eccentricity</a> describes how elliptical (i.e., oval shaped) an orbit is. Eccentricity values range from 0 to almost 1. An eccentricity of 0 describes a perfectly circular orbit. The larger the eccentricity, the more elliptical the orbit.</p>",
+    "solarsystem06": "<p><a href='http://rubineducation.org/glossary/inclination' target='_blank'>Inclination</a> (i) is the angle at which the object’s orbital plane (yellow) is tilted, relative to Earth’s orbital plane (blue) around the Sun. A value of 0° means that the object's orbit is parallel with Earth’s orbit. A value of 90° means that the object's orbit is tilted at a right angle to Earth’s orbit. If an object has an orbit with inclination greater than 90°, it will be orbiting in a direction opposite to Earth’s orbital direction.</p>",
+    "solarsystem07": "<p>Rubin Observatory will discover millions of new Solar System objects, and will provide an enormous data set that gives us a more comprehensive view of the objects’ distribution. The more we know about the distribution and properties of objects in our Solar System, the more we understand about how it formed.</p><p>Most small Solar System objects we have discovered can be classified into four groups:</p><ul><li><b>Near-Earth objects</b> (NEOs) - Objects whose orbits intersect or get very close to the orbit of Earth.</li><li><b>Main Belt asteroids</b> (MBAs) - Objects that orbit the Sun between the orbits of Mars (1.5 au) and Jupiter (5.2 au).</li><li><b>Trans-Neptunian objects</b> (TNOs) - Objects with an orbital size of 30 au or larger. Typically TNOs orbit beyond Neptune, however some may periodically come closer to the Sun than Neptune.</li><li><b>Comets</b> - Icy objects found throughout the Solar System. When orbiting close to the Sun, they develop a head and a tail formed by escaping gas and dust.</li></ul>",
+    "solarsystem08": "<p>To better understand the differences between the four groups, you will analyze orbital data for each group. The first group you will examine are the near-Earth objects (NEOs). NEOs are objects with orbits that intersect or get very close to the orbit of Earth.</p><p>Click on each icon found to the left of the histogram to examine the different orbital properties of NEOs. If you place your mouse above each bar on the histogram, the exact number of objects for the bar will appear. Some of the bars are so small that you might not notice them without looking carefully!</p><p>Decide which of the statements provided below best describes the orbital properties of NEOs.</p><p>NEOs are asteroids or comets whose orbit intersects or gets very close to the orbit of Earth.</p>",
+    "solarsystem09": "<p>MBAs are objects that orbit the Sun between the orbits of Mars (1.5 au) and Jupiter (5.2 au).</p><p>Decide which of the statements provided below best describes the orbital properties of MBAs.</p>",
+    "solarsystem10": "<p>TNOs are objects that orbit the Sun at or beyond the orbit of Neptune, at a distance of about 30 au and beyond. This area includes the Kuiper Belt and the entire region out to the inner Oort Cloud, which begins at approximately 2000 au from the Sun.</p><p>Decide which of the statements provided below best describes the orbital properties of TNOs.</p>",
+    "solarsystem11": "<p>Comets are icy objects found throughout the Solar System.</p><p>Decide which of the statements provided below best describes the orbital properties of comets.</p>",
+    "solarsystem13": "<p>Now you will explore a histogram of the number of all small Solar System objects on the y-axis vs. size of orbit on the x-axis.</p><p>Note: the scale of the y-axis changes for each of the histograms.</p><p>Click on each icon found to the left of the histogram to change the group.</p>",
+    "solarsystem14": "<p>Use the Orbit Viewer to explore the orbital characteristics of a representative set of objects from one of the four groups. All of the displayed points and their motions represent real objects. Click and drag to change the angle at which you view the orbits. You can also zoom in and out. Use the buttons in the bottom of the Orbit Viewer to play, pause, or skip forward or backward. Click the reset zoom and orientation button to return to the original view of these objects. You can change time  for the displayed motion by moving the bead on the Time Step scale located at the right of the Orbit Viewer (to a maximum of 1year/second).</p>",
+    "solarsystem15": "<p>Use the Orbit Viewer to explore this group.</p>",
+    "solarsystem18": {
+      "0": "<p>According to the solar nebula theory, a spinning cloud of dust and gas collapsed due to gravity and the young Sun began to form at the center, while dusty and icy objects began to grow by repeated collisions with each other in a flattened disk surrounding the Sun. The Sun, planets, and the disk surrounding it retained the same direction of motion as the spinning cloud that formed the Sun.</p><p>There is significant evidence to support this theory. Observations of star-forming regions reveal similar disks around young stars in other parts of the galaxy. Another piece of evidence that supports the theory is the fact that rocky planets formed close to the Sun (where temperatures were hotter) and icy planets formed at greater distances (where temperatures were much cooler).</p>",
+      "1": "<p>The <a href='http://rubineducation.org/glossary/oort-cloud' target='_blank'>Oort Cloud</a> is a spherical region of icy objects that exists at the outermost edges of the Solar System (extending from a distance of 1000 - 100,000 au), thought to have formed after the collapse of the solar nebula. One idea suggests that gravitational interactions between large planets and small Solar System objects in the early years of the Solar System slung small objects outwards to form the Oort Cloud. Another idea suggests the Sun’s gravity could have plucked some objects from other nearby solar systems.</p>"
+    },
+    "solarsystem19": "<p>We can also find evidence to support the solar nebula theory by studying the motions of objects within the Solar System. To validate this evidence, view a histogram that shows inclinations of all four groups of Solar System objects and look for overall patterns in the way objects orbit the Sun. (Remember, any inclination greater than 90 degrees indicates an object that is orbiting backwards.)</p>",
+    "solarsystem19a": {
+      "0": "<p>Although the majority of small Solar System objects have orbital characteristics that support the solar nebula theory, a small fraction of them have very eccentric or highly inclined orbits, and some even orbit the Sun in the opposite direction as the planets.</p><p>We can apply Newton’s laws and gravity to help explain these observations: </p>",
+      "1": "<p>From the early days of the Solar System to the present time, there have been many such interactions between objects and as a result, the orbits of some small objects in the Solar System are still changing.</p>"
+    },
+    "solarsystem22": "<p>Many small Solar System objects have been recently discovered by Rubin Observatory. You now have the chance to apply what you have learned to classify three such objects. Your choices for classifying each object are:</p><ul><li>MBA</li><li>TNO</li><li>NEO</li><li>Comet</li><li>None of the above</li></ul><p>Use the orbital properties in the table you constructed above to help you determine which group this newly discovered object belongs to.</p>",
+    "solarsystem23": "<p>Use the orbital properties in the table you constructed above to help you determine which group this newly discovered object belongs to.</p>",
+    "solarsystem29": "<p>The drawings above were produced by a student team to represent the data from these newly discovered small objects.</p>",
+    "solarsystem33": "<p>Here is the actual orbit viewer for this new group of objects.</p>",
+    "solarsystem37": "<p> This investigation was created by the Education and Public Outreach program of the Vera C. Rubin Observatory Construction project. In an effort to create and test this investigation prior to the start of Operations, we rely on the data of our scientific colleagues. In particular, this investigation has made use of data and/or services provided by the International Astronomical Union’s Minor Planet Center. </p> <p>We thank the following instructors who volunteered to pilot test this investigation: <ul> <li>Chris Bolhuis, Hudsonville High School, Hudsonville, MI</li> <li>Alice Few, Pierce College Ft. Steilacoom, Lakewood, WA and Tacoma Community College, Tacoma, WA</li> <li>Scott Hildreth, Chabot College, Hayward, CA</li> <li>Joe Muise, St. Thomas More Collegiate, Burnaby, British Columbia</li> <li>Denine Voegeli, Plainview-Elgin-Millville Jr. High School, Elgin, MN</li> </ul> </p> <p> The team would also like to thank Siegfried Eggl, Henry Hsieh, and Mike Kelley for useful scientific discussions in the development of this investigation. </p> <h2>Funding Support</h2> <p> Vera C. Rubin Observatory is a Federal project jointly funded by the National Science Foundation (NSF) and the Department of Energy (DOE) Office of Science, with early construction funding received from private donations through the LSST Corporation. The NSF-funded LSST (now Rubin Observatory) Project Office for construction was established as an operating center under the management of the Association of Universities for Research in Astronomy (AURA). The DOE-funded effort to build the Rubin Observatory LSST Camera (LSSTCam) is managed by SLAC National Accelerator Laboratory (SLAC). </p>",
     "solarsystem-1-break": "<p>You’ve identified the orbital properties of the four main groups of small Solar System objects.</p><p>Next, you will use these characteristics to classify four unknown objects and learn how the orbits of small bodies provide evidence for the formation of the Solar System.</p>",
     "solarsystem-2-break": "<p>You’ve classified the four unknown objects, and learned how gravitational interactions of small objects and their inclinations provide evidence for the formation of the Solar System.</p><p>Next you will investigate data from a new group of Solar System objects and decide how you would communicate this new discovery.</p>"
   },
   "images": {
     "solarsystem00": {
+      "altText": "The evolution of worlds by Lowell",
+      "figText": "Orbits of the outer planets as described in “The Evolution of Worlds,” a book published in the first decade of the 1900s by Percival Lowell."
+    },
+    "solarsystem04": {
+      "altText": "An image indicating the semi-major and semi-minor axis of an ellipse.",
+      "figText": "An image indicating the semi-major and semi-minor axis of an ellipse. Credit: Rubin Observatory."
+    },
+    "solarsystem05": {
+      "altText": "Examples of orbital ellipses with different eccentricities.",
+      "figText": "Examples of orbital ellipses with different eccentricities. Credit: Rubin Observatory"
+    },
+    "solarsystem07": {
+      "altText": "Big View of the Solar System",
+      "figText": "Credit: Rubin Observatory"
+    },
+    "solarsystem18": {
       "0": {
-        "altText": "The evolution of worlds by Lowell",
-        "figText": "Orbits of the outer planets as described in “The Evolution of Worlds,” a book published in the first decade of the 1900s by Percival Lowell."
+        "altText": "Hubble Space Telescope image shows a large, edge-on, gas-and-dust disk encircling the star Beta Pictoris. The light of the central star has been blocked out.",
+        "figText": "This Hubble Space Telescope image shows a large, edge-on, gas-and-dust disk encircling the star Beta Pictoris. The light of the central star has been blocked out. Credits: NASA, ESA, University of Arizona."
+      },
+      "1": {
+        "altText": "Illustration of the Solar System, the Kuiper Belt, and the Oort Cloud. This illustration is not to scale.",
+        "figText": "The Oort Cloud is a spherical shell of icy objects occupying the outermost regions the Solar System. (Drawing not to scale.) Credit: Rubin Observatory"
       }
+    },
+    "solarsystem19a": {
+      "altText": "Interactions between objects",
+      "figText": "How orbits of small Solar System objects can change. Credit: Rubin Observatory"
+    },
+    "solarsystem29": {
+      "altText": "A student illustration of a top and side view of the solar system showing the Sun, Mars, Jupiter, and Neptune with several orbital paths that pass between Jupiter and Neptune with a range of eccentricities and similar inclinations."
+    },
+    "solarsystem30": {
+      "altText": "A student illustration of a top and side view of the solar system showing the Sun, Mars, Jupiter, and Neptune with several orbital paths that pass between Jupiter and Neptune with a range of eccentricities and inclinations."
+    },
+    "solarsystem31": {
+      "altText": "A student illustration of a top and side view of the solar system showing the Sun, Mars, Jupiter, and Neptune with several orbital paths that pass mostly between  with a range of eccentricities and inclinations."
+    },
+    "solarsystem36": {
+      "altText": "Reflect and Discuss"
     }
   },
   "reference": {
@@ -49,6 +223,40 @@
     "2": {
       "label_pre": "The object that takes a longer time to move across the field of view is ",
       "label_post": " the Sun, "
+    },
+    "4": {
+      "label": "Eccentricity: ",
+      "options": {
+        "0": {
+          "label": "Most orbits are similar to the shape of Earth’s orbit  (0.0 - 0.3)",
+          "value": "Similar to Earth’s (0.0 - 0.3)"
+        },
+        "1": {
+          "label": "Most orbits are noticeably more elliptical than the shape of Earth’s orbit (greater than 0.3)",
+          "value": "More elliptical than Earth’s (greater than 0.3)"
+        },
+        "2": {
+          "label": "There is an equal distribution across all shapes of orbits",
+          "value": "Wide range of shapes"
+        }
+      }
+    },
+    "5": {
+      "label": "Inclination: ",
+      "options": {
+        "0": {
+          "label": "Most orbits are similar to the tilt of Earth’s orbital plane (0-20°).",
+          "value": "Similar to Earth’s (0-20°)"
+        },
+        "1": {
+          "label": "Most orbits are tilted compared to Earth’s orbital plane (more than 20°).",
+          "value": "More tilted than Earth's (more than 20°)"
+        },
+        "2": {
+          "label": "There is an equal distribution across all tilts of the orbits.",
+          "value": "Wide range in tilts"
+        }
+      }
     },
     "6": {
       "label": "Size of the orbit: ",
@@ -72,8 +280,112 @@
         }
       }
     },
+    "7": {
+      "label": "Direction of the orbit (remember, an inclination greater than 90° indicates that the object orbits the Sun opposite the direction of Earth’s orbit): ",
+      "options": {
+        "0": {
+          "label": "Almost all objects orbit the Sun in the same direction as Earth’s orbit.",
+          "value": "Same direction as Earth’s"
+        },
+        "1": {
+          "label": "More than 10% of the objects orbit the Sun in the opposite direction of Earth’s orbit (i >90°).",
+          "value": "Opposite direction as Earth’s (i >90°)"
+        }
+      }
+    },
+    "8": {
+      "placeholder": "Select best description of MBAs"
+    },
+    "12": {
+      "placeholder": "Select best description of TNOs"
+    },
+    "16": {
+      "placeholder": "Select best description of comets"
+    },
+    "20": {
+      "label": "What differences exist between the different groups of objects? Provide at least three examples."
+    },
+    "20a": {
+      "label": "Which group of objects will experience the greatest change in orbital speed during one orbital period? Explain your reasoning."
+    },
+    "200": {
+      "label": "Based on the histogram, rank the total number of small Solar System objects in each group, from most to least:"
+    },
+    "21": {
+      "label": "Rubin Observatory will make thousands of observations of our Solar System over the next decade. Do you think the number of any of these groups will change substantially?  Which one(s), and why?"
+    },
     "22": {
       "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain your reasoning in terms of the unique set of orbital properties that defines this group of objects."
+    },
+    "23": {
+      "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain your reasoning in terms of the unique set of orbital properties that defines this group of objects."
+    },
+    "31": {
+      "label": "Many comets are thought to originate from the Oort Cloud. Explain why these comets might have very inclined orbits compared to other types of Solar System objects."
+    },
+    "32": {
+      "labelPost": "of the small Solar System objects have orbits that lie in the orbital plane of the planets."
+    },
+    "32a": {
+      "labelPost": "of the Solar System objects orbit in the opposite direction of the planets around the Sun."
+    },
+    "33": {
+      "label": "How do the range of values for the inclination for the small objects of the Solar System support the nebular theory?"
+    },
+    "34": {
+      "label": "Imagine a close encounter in space between two objects, one with a large mass, and one with a small mass. As the objects approach each other, the gravitational forces they exert on each other must be equal according to Newton’s Third Law. Which object would experience a greater acceleration (change in its direction and speed)? Hint: think about Newton’s Second Law (force = mass X acceleration).",
+      "options": {
+        "0": "The more massive object would have its direction and speed affected more",
+        "1": "The less massive object would have its direction and speed affected more",
+        "2": "Both objects would experience the same change in direction and speed"
+      }
+    },
+    "350": {
+      "labelPre": "In addition to mass, the distance between the two objects is a factor in determining the gravitational force between the objects. Objects that are farther apart will have a ",
+      "labelPost": " gravitational force between them"
+    },
+    "351": {
+      "labelPre": "and are ",
+      "labelPost": " likely to experience a change in their orbits."
+    },
+    "46": { "label": "What is this object's name?" },
+    "47": { "label": "What type of object is this?" },
+    "48": {
+      "label": "Explain why you chose this type.  What data/evidence supports your choice?"
+    },
+    "55": {
+      "label": "Do you agree or disagree with the orbital characteristics displayed in Student Team A’s drawing above? Explain your reasoning."
+    },
+    "56": {
+      "label": "Do you agree or disagree with the orbital characteristics displayed in Student Team B’s drawing above? Explain your reasoning."
+    },
+    "57": {
+      "label": "Do you agree or disagree with the orbital characteristics displayed in Student Team C’s drawing above? Explain your reasoning."
+    },
+    "58": {
+      "labelPre": "Based on the data you have determined for this new group of objects, ",
+      "labelPost": " of them orbit the Sun in the opposite direction of Earth’s orbit."
+    },
+    "59": {
+      "label": "Based on their orbit size, between which two planets are these new objects located?"
+    },
+    "80": {
+      "label": "Which orbital characteristic(s) makes these objects different from the other four groups of objects you studied earlier? Explain."
+    },
+    "81": {
+      "label": "You are presenting the findings of your science team at an international science conference and are sharing for the first time the name you selected for your newly discovered group of solar system objects. What name do you propose?"
+    },
+    "82": {
+      "label": "Provide an explanation that defends why you chose this name."
+    },
+    "83": {
+      "label": "Your team is designing its media strategy to bring the greatest awareness to this discovery. How would you communicate your findings?"
+    },
+    "73": {
+      "label": "The asteroid `Oumuamua and comet Borisov were discovered while they were passing through our Solar System, but each came from different solar systems. Based on what you have learned about gravitational interactions, provide an explanation for how these objects were able to leave their solar systems."
+    },
+    "74": {
+      "label": "Comets often come very close to the Sun during their orbits. Comets are able to remain icy even after a close trip around the Sun. Explain how this can happen based on what you know about the changing speed of the comet during its orbit and the amount of time it spends near the Sun."
     }
   },
   "widgets": {
@@ -84,8 +396,112 @@
           "labels": {
             "y_axis": "Number of NEOs"
           }
+        },
+        "1": {
+          "title": "NEO Eccentricities"
+        },
+        "2": {
+          "title": "NEO Inclinations"
         }
       }
+    },
+    "solarsystem09": {
+      "orbital_properties": {
+        "0": {
+          "title": "MBA Orbit Sizes",
+          "labels": {
+            "y_axis": "Number of MBAs"
+          }
+        },
+        "1": {
+          "title": "MBA Eccentricities"
+        },
+        "2": {
+          "title": "MBA Inclinations"
+        }
+      }
+    },
+    "solarsystem10": {
+      "orbital_properties": {
+        "0": {
+          "title": "TNO Orbit Sizes",
+          "labels": {
+            "y_axis": "Number of TNOs"
+          }
+        },
+        "1": {
+          "title": "TNO Eccentricities"
+        },
+        "2": {
+          "title": "TNO Inclinations"
+        }
+      }
+    },
+
+    "solarsystem11": {
+      "orbital_properties": {
+        "0": {
+          "title": "Comet Orbit Sizes",
+          "labels": {
+            "y_axis": "Number of comets"
+          }
+        },
+        "1": {
+          "title": "Comet Eccentricities"
+        },
+        "2": {
+          "title": "Comet Inclinations"
+        }
+      }
+    },
+    "solarsystem13": {
+      "orbital_properties": {
+        "0": {
+          "labels": {
+            "x_axis": "NEO Orbit Sizes (au)"
+          }
+        },
+        "1": {
+          "labels": {
+            "x_axis": "MBA Orbit Sizes (au)"
+          }
+        },
+        "2": {
+          "labels": {
+            "x_axis": "TNO Orbit Sizes (au)"
+          }
+        },
+        "3": {
+          "labels": {
+            "x_axis": "Comet Orbit Sizes (au)"
+          }
+        }
+      }
+    },
+    "solarsystem19": {
+      "orbital_properties": {
+        "labels": {
+          "y_axis": "Number of Objects",
+          "tooltip": "Objects"
+        }
+      }
+    }
+  },
+  "tables": {
+    "2": {
+      "colTitles": {
+        "0": "Name",
+        "1": "Type",
+        "2": "Data/Evidence"
+      }
+    },
+    "newGroupProperties": {
+      "colTitles": {
+        "0": "New Group Property",
+        "1": "Range",
+        "2": "Most Common"
+      },
+      "label": "Your team discovers a new group of small objects that do not seem to fall into any of the four major groups you have investigated so far. Use the histograms to complete the table below."
     }
   }
 }

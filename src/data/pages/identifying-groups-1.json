@@ -3,18 +3,18 @@
   "investigation": "solar-system",
   "sectionOrder": 1,
   "order": "00",
-  "title": "Identifying Groups of Solar System Objects - 1",
+  "title": "solar-system::pages.solarsystem14.title",
   "slug": "identifying-groups-1/",
   "previous": {
-    "title": "Progress Update",
-    "link": "/section-1/"
+    "title": "solar-system::pages.solar-system-1-break.title",
+    "link": "solar-system::pages.solar-system-1-break.link"
   },
   "next": {
-    "title": "Identifying Groups of Solar System Objects - 2",
-    "link": "/identifying-groups-2/"
+    "title": "solar-system::pages.solarsystem15.title",
+    "link": "solar-system::pages.solarsystem15.link"
   },
   "layout": "TwoCol",
-  "content": "<p>Use the Orbit Viewer to explore the orbital characteristics of a representative set of objects from one of the four groups. All of the displayed points and their motions represent real objects. Click and drag to change the angle at which you view the orbits. You can also zoom in and out. Use the buttons in the bottom of the Orbit Viewer to play, pause, or skip forward or backward. Click the reset zoom and orientation button to return to the original view of these objects. You can change time  for the displayed motion by moving the bead on the Time Step scale located at the right of the Orbit Viewer (to a maximum of 1year/second).</p>",
+  "content": "solar-system::content.solarsystem14",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -35,13 +35,18 @@
       },
       "fixed": true,
       "colTitles": [
-        "Group",
-        "Size of Orbit",
-        "Eccentricity",
-        "Inclination",
-        "Direction of Orbit"
+        "astronomy::orbital_properties.group",
+        "astronomy::orbital_properties.size_of_orbit",
+        "astronomy::orbital_properties.eccentricity",
+        "astronomy::orbital_properties.inclination",
+        "astronomy::orbital_properties.direction_of_orbit"
       ],
-      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rowTitles": [
+        ["astronomy::orbital_bodies.neo_abbrev_plural"],
+        ["astronomy::orbital_bodies.mba_abbrev_plural"],
+        ["astronomy::orbital_bodies.tno_abbrev_plural"],
+        ["astronomy::orbital_bodies.comet_plural"]
+      ],
       "rows": [
         [
           { "accessor": "data", "id": "6" },

@@ -14,8 +14,8 @@
   "images": [
     {
       "mediaPath": "/images/orbits-of-outer-planets.jpg",
-      "altText": "solar-system::images.solarsystem00.0.altText",
-      "figText": "solar-system::images.solarsystem00.0.figText"
+      "altText": "solar-system::images.solarsystem00.altText",
+      "figText": "solar-system::images.solarsystem00.figText"
     }
   ],
   "content": "solar-system::content.solarsystem00"

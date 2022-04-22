@@ -3,18 +3,18 @@
   "investigation": "solar-system",
   "sectionOrder": 1,
   "order": "02",
-  "title": "Identifying Groups of Solar System Objects - 3",
+  "title": "solar-system::pages.solarsystem16.title",
   "slug": "identifying-groups-3/",
   "previous": {
-    "title": "Identifying Groups of Solar System Objects - 2",
-    "link": "/identifying-groups-2/"
+    "title": "solar-system::pages.solarsystem15.title",
+    "link": "solar-system::pages.solarsystem15.link"
   },
   "next": {
-    "title": "Identifying Groups of Solar System Objects - 4",
-    "link": "/identifying-groups-4/"
+    "title": "solar-system::pages.solarsystem17.title",
+    "link": "solar-system::pages.solarsystem17.link"
   },
   "layout": "TwoCol",
-  "content": "<p>Use the Orbit Viewer to explore this group.</p>",
+  "content": "solar-system::content.solarsystem15",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -35,13 +35,18 @@
       },
       "fixed": true,
       "colTitles": [
-        "Group",
-        "Size of Orbit",
-        "Eccentricity",
-        "Inclination",
-        "Direction of Orbit"
+        "astronomy::orbital_properties.group",
+        "astronomy::orbital_properties.size_of_orbit",
+        "astronomy::orbital_properties.eccentricity",
+        "astronomy::orbital_properties.inclination",
+        "astronomy::orbital_properties.direction_of_orbit"
       ],
-      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rowTitles": [
+        ["astronomy::orbital_bodies.neo_abbrev_plural"],
+        ["astronomy::orbital_bodies.mba_abbrev_plural"],
+        ["astronomy::orbital_bodies.tno_abbrev_plural"],
+        ["astronomy::orbital_bodies.comet_plural"]
+      ],
       "rows": [
         [
           { "accessor": "data", "id": "6" },
@@ -79,7 +84,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Refer to your table of observations from the previous section.  Which of the four groups do you think this is? Explain your reasoning in terms of the unique set of orbital properties that defines this group of objects."
+          "label": "solar-system::questions.22.label"
         }
       ]
     }

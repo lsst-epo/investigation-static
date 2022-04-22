@@ -3,15 +3,15 @@
   "investigation": "solar-system",
   "sectionOrder": 2,
   "order": "28",
-  "title": "Exploring a New Class of Objects",
+  "title": "solar-system::pages.solarsystem28.title",
   "slug": "solar-system-summary/",
   "previous": {
-    "title": "Classifying Newly Detected Solar System Objects - 3",
-    "link": "/classifying-objects-2/"
+    "title": "solar-system::pages.solarsystem24.title",
+    "link": "solar-system::pages.solarsystem24.link"
   },
   "next": {
-    "title": "Student Team A’s Drawing",
-    "link": "/orbital-interpretation/"
+    "title": "solar-system::pages.solarsystem29.title",
+    "link": "solar-system::pages.solarsystem29.link"
   },
   "layout": "TwoCol",
   "questionsByPage": [
@@ -62,12 +62,16 @@
       ],
       "tables": [
         {
-          "id": "1",
+          "id": "newGroupProperties",
           "fixed": true,
-          "colTitles": ["New Group Property", "Range", "Most Common"],
-          "label": "Your team discovers a new group of small objects that do not seem to fall into any of the four major groups you have investigated so far. Use the histograms to complete the table below.",
+          "colTitles": [
+            "solar-system::tables.newGroupProperties.colTitles.0",
+            "solar-system::tables.newGroupProperties.colTitles.1",
+            "solar-system::tables.newGroupProperties.colTitles.2"
+          ],
+          "label": "solar-system::tables.newGroupProperties.label",
           "rowTitles": [
-            ["Orbit Size (au)"],
+            ["astronomy::orbital_properties.orbit_size_with_unit"],
             ["astronomy::orbital_properties.eccentricity"],
             ["astronomy::orbital_properties.inclination_unit_symbol"]
           ],
@@ -97,42 +101,51 @@
           "type": "OrbitalProperties",
           "source": "/data/neos/final_semimajor_axis_hist.json",
           "options": {
-            "title": "Orbit Sizes",
-            "xAxisLabel": "Orbit Sizes (au)",
+            "title": "astronomy::orbital_properties.orbit_size_plural",
+            "xAxisLabel": "astronomy::orbital_properties.orbit_size_with_unit_plural",
             "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of Objects",
+            "yAxisLabel": "solar-system::widgets.solarsystem19.orbital_properties.labels.y_axis",
             "domain": [[0, 30], null],
             "bins": 10,
             "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["Objects", "Orbit Size (au)"]
+            "tooltipLabels": [
+              "solar-system::widgets.solarsystem19.orbital_properties.labels.tooltip",
+              "astronomy::orbital_properties.orbit_size_with_unit"
+            ]
           }
         },
         {
           "type": "OrbitalProperties",
           "source": "/data/neos/final_eccentricity_hist.json",
           "options": {
-            "title": "Eccentricities",
-            "xAxisLabel": "Eccentricities",
-            "yAxisLabel": "Number of Objects",
+            "title": "astronomy::orbital_properties.eccentricity_plural",
+            "xAxisLabel": "astronomy::orbital_properties.eccentricity_plural",
+            "yAxisLabel": "solar-system::widgets.solarsystem19.orbital_properties.labels.y_axis",
             "xValueAccessor": "eccentricity",
             "domain": [[0, 1], null],
             "bins": 20,
             "tooltipAccessors": ["countOfTotal", "eccentricity"],
-            "tooltipLabels": ["Objects", "Eccentricity"]
+            "tooltipLabels": [
+              "solar-system::widgets.solarsystem19.orbital_properties.labels.tooltip",
+              "astronomy::orbital_properties.eccentricity"
+            ]
           }
         },
         {
           "type": "OrbitalProperties",
           "source": "/data/neos/final_inclination_hist.json",
           "options": {
-            "title": "Inclinations",
-            "xAxisLabel": "Inclinations (degrees)",
-            "yAxisLabel": "Number of Objects",
+            "title": "astronomy::orbital_properties.inclination_plural",
+            "xAxisLabel": "astronomy::orbital_properties.inclination_unit_plural",
+            "yAxisLabel": "solar-system::widgets.solarsystem19.orbital_properties.labels.y_axis",
             "xValueAccessor": "inclination",
             "domain": [[0, 180], []],
             "bins": 18,
             "tooltipAccessors": ["countOfTotal", "inclination"],
-            "tooltipLabels": ["Objects", "Inclination (degrees)"]
+            "tooltipLabels": [
+              "solar-system::widgets.solarsystem19.orbital_properties.labels.tooltip",
+              "astronomy::orbital_properties.inclination_unit"
+            ]
           }
         }
       ],

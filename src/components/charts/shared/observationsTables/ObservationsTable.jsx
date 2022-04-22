@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cloneDeep from 'lodash/cloneDeep';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
 import Table from '../../../site/forms/table/index.jsx';
 import ObservationsTableCell from './ObservationsTableCell';
 import { tableTitle } from './observations-tables.module.scss';
@@ -34,7 +33,7 @@ class ObservationsTable extends React.PureComponent {
       );
     }
 
-    return cell;
+    return <Trans>{cell}</Trans>;
   }
 
   createEmptyRows(length) {
@@ -47,9 +46,15 @@ class ObservationsTable extends React.PureComponent {
     return rows;
   }
 
-  getRows(answers, colTitles, rowTitles, cells) {
+  getColTitles = colTitles => {
+    const { t } = this.props;
+
+    return colTitles.map(t);
+  };
+
+  getRows(answers, rowTitles, cells) {
     const rows = rowTitles
-      ? cloneDeep(rowTitles)
+      ? rowTitles.map(this.translateCells)
       : this.createEmptyRows(cells.length);
     for (let j = 0; j < rows.length; j += 1) {
       cells[j].forEach(cell => {
@@ -58,6 +63,12 @@ class ObservationsTable extends React.PureComponent {
     }
     return rows;
   }
+
+  translateCells = cells => {
+    const { t } = this.props;
+
+    return cells.map(t);
+  };
 
   render() {
     const { title, answers, rows, colTitles, rowTitles, fixed } = this.props;
@@ -71,9 +82,9 @@ class ObservationsTable extends React.PureComponent {
         )}
         <Table
           className="observations-table"
-          colTitles={colTitles}
+          colTitles={this.translateCells(colTitles)}
           includeRowTitles={!!rowTitles}
-          rows={this.getRows(answers, colTitles, rowTitles, rows)}
+          rows={this.getRows(answers, rowTitles, rows)}
           fixed={fixed}
         />
       </>
@@ -88,6 +99,7 @@ ObservationsTable.propTypes = {
   colTitles: PropTypes.array,
   rowTitles: PropTypes.array,
   fixed: PropTypes.bool,
+  t: PropTypes.func,
 };
 
-export default ObservationsTable;
+export default withTranslation()(ObservationsTable);

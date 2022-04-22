@@ -3,15 +3,15 @@
   "investigation": "solar-system",
   "sectionOrder": 2,
   "order": "34",
-  "title": "Putting it all Together",
+  "title": "solar-system::pages.solarsystem34.title",
   "slug": "solar-system-summary-6/",
   "previous": {
-    "title": "Categorizing your New Discoveries",
-    "link": "/categorizing-new-discoveries/"
+    "title": "solar-system::pages.solarsystem33.title",
+    "link": "solar-system::pages.solarsystem33.link"
   },
   "next": {
-    "title": "Reflect and Discuss",
-    "link": "/solar-system-discuss-report/"
+    "title": "solar-system::pages.solarsystem36.title",
+    "link": "solar-system::pages.solarsystem36.link"
   },
   "layout": "TwoCol",
   "tables": [
@@ -23,13 +23,18 @@
       },
       "fixed": true,
       "colTitles": [
-        "Group",
-        "Size of Orbit",
-        "Eccentricity",
-        "Inclination",
-        "Direction of Orbit"
+        "astronomy::orbital_properties.group",
+        "astronomy::orbital_properties.size_of_orbit",
+        "astronomy::orbital_properties.eccentricity",
+        "astronomy::orbital_properties.inclination",
+        "astronomy::orbital_properties.direction_of_orbit"
       ],
-      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rowTitles": [
+        ["astronomy::orbital_bodies.neo_abbrev_plural"],
+        ["astronomy::orbital_bodies.mba_abbrev_plural"],
+        ["astronomy::orbital_bodies.tno_abbrev_plural"],
+        ["astronomy::orbital_bodies.comet_plural"]
+      ],
       "rows": [
         [
           { "accessor": "data", "id": "6" },
@@ -59,14 +64,22 @@
       "qaReview": false
     },
     {
-      "id": "2",
+      "id": "newGroupProperties",
       "layout": {
         "row": "bottom",
         "col": "right"
       },
       "fixed": true,
-      "colTitles": ["New Group Property", "Range", "Most Common"],
-      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclinationº"]],
+      "colTitles": [
+        "solar-system::tables.newGroupProperties.colTitles.0",
+        "solar-system::tables.newGroupProperties.colTitles.1",
+        "solar-system::tables.newGroupProperties.colTitles.2"
+      ],
+      "rowTitles": [
+        ["astronomy::orbital_properties.orbit_size_with_unit"],
+        ["astronomy::orbital_properties.eccentricity"],
+        ["astronomy::orbital_properties.inclination_unit_symbol"]
+      ],
       "rows": [
         [
           { "accessor": "range", "id": "69a" },
@@ -92,7 +105,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Which orbital characteristic(s) makes these objects different from the other four groups of objects you studied earlier? Explain."
+          "label": "solar-system::questions.80.label"
         }
       ]
     },
@@ -103,7 +116,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "You are presenting the findings of your science team at an international science conference and are sharing for the first time the name you selected for your newly discovered group of solar system objects. What name do you propose?"
+          "label": "solar-system::questions.81.label"
         }
       ]
     },
@@ -114,7 +127,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Provide an explanation that defends why you chose this name."
+          "label": "solar-system::questions.82.label"
         }
       ]
     },
@@ -125,7 +138,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Your team is designing its media strategy to bring the greatest awareness to this discovery. How would you communicate your findings?"
+          "label": "solar-system::questions.83.label"
         }
       ]
     }

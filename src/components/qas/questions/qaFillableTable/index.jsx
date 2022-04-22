@@ -2,8 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import cloneDeep from 'lodash/cloneDeep';
 import { Card } from 'react-md';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import { renderDef } from '../../../../lib/utilities.js';
 import ConditionalWrapper from '../../../ConditionalWrapper';
 import Table from '../../../site/forms/table';
@@ -58,7 +58,7 @@ class QAFillableTable extends React.PureComponent {
 
   getRows = (cells, rowTitles, questions, answers) => {
     const rows = rowTitles
-      ? cloneDeep(rowTitles)
+      ? rowTitles.map(this.translateCells)
       : this.createEmptyRows(cells.length);
     for (let j = 0; j < rows.length; j += 1) {
       cells[j].forEach(cell => {
@@ -68,8 +68,14 @@ class QAFillableTable extends React.PureComponent {
     return rows;
   };
 
+  translateCells = cells => {
+    const { t } = this.props;
+
+    return cells.map(t);
+  };
+
   render() {
-    const { questions, answers, table, questionNumber } = this.props;
+    const { questions, answers, table, questionNumber, t } = this.props;
     const { rows, colTitles, rowTitles, fixed, label } = table;
     const qaReview = questions.some(question => question.qaReview);
 
@@ -82,7 +88,7 @@ class QAFillableTable extends React.PureComponent {
     });
 
     const updatedLabel =
-      questionNumber && label ? `${questionNumber}. ${label}` : label;
+      questionNumber && label ? `${questionNumber}. ${t(label)}` : t(label);
 
     const mappedQuestions = questions.reduce((result, question) => {
       const { id } = question;
@@ -103,7 +109,7 @@ class QAFillableTable extends React.PureComponent {
             dangerouslySetInnerHTML={renderDef(updatedLabel)}
           />
           <Table
-            colTitles={colTitles}
+            colTitles={this.translateCells(colTitles)}
             includeRowTitles={!!rowTitles}
             fixed={fixed}
             rows={this.getRows(rows, rowTitles, mappedQuestions, answers)}
@@ -123,6 +129,7 @@ QAFillableTable.propTypes = {
   answerHandler: PropTypes.func,
   answers: PropTypes.object,
   table: PropTypes.object,
+  t: PropTypes.func,
 };
 
-export default QAFillableTable;
+export default withTranslation()(QAFillableTable);

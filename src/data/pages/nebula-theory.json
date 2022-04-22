@@ -3,15 +3,15 @@
   "investigation": "solar-system",
   "sectionOrder": 1,
   "order": "06",
-  "title": "Gravitational Interactions in the Solar System",
+  "title": "solar-system::pages.solarsystem19a.title",
   "slug": "nebula-theory/",
   "previous": {
-    "title": "The Formation of the Solar System",
-    "link": "/history-solar-system-1/"
+    "title": "solar-system::pages.solarsystem19.title",
+    "link": "solar-system::pages.solarsystem19.link"
   },
   "next": {
-    "title": "Progress Update",
-    "link": "/section-2/"
+    "title": "solar-system::pages.solar-system-2-break.title",
+    "link": "solar-system::pages.solar-system-2-break.link"
   },
   "layout": "TwoCol",
   "checkpoints": [
@@ -25,8 +25,8 @@
   "images": [
     {
       "mediaPath": "/images/interactions.png",
-      "altText": "Interactions between objects",
-      "figText": "How orbits of small Solar System objects can change. Credit: Rubin Observatory"
+      "altText": "solar-system::images.solarsystem19a.altText",
+      "figText": "solar-system::images.solarsystem19a.figText"
     }
   ],
   "contents": [
@@ -35,14 +35,14 @@
         "col": "left",
         "row": "top"
       },
-      "content": "<p>Although the majority of small Solar System objects have orbital characteristics that support the solar nebula theory, a small fraction of them have very eccentric or highly inclined orbits, and some even orbit the Sun in the opposite direction as the planets.</p><p>We can apply Newton’s laws and gravity to help explain these observations: </p>"
+      "content": "solar-system::content.solarsystem19a.0"
     },
     {
       "layout": {
         "col": "left",
         "row": "bottom"
       },
-      "content": "<p>From the early days of the Solar System to the present time, there have been many such interactions between objects and as a result, the orbits of some small objects in the Solar System are still changing.</p>"
+      "content": "solar-system::content.solarsystem19a.1"
     }
   ],
   "questionsByPage": [
@@ -52,23 +52,23 @@
           "id": "34",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Imagine a close encounter in space between two objects, one with a large mass, and one with a small mass. As the objects approach each other, the gravitational forces they exert on each other must be equal according to Newton’s Third Law. Which object would experience a greater acceleration (change in its direction and speed)? Hint: think about Newton’s Second Law (force = mass X acceleration).",
+          "label": "solar-system::questions.34.label",
           "options": [
             {
-              "label": "The more massive object would have its direction and speed affected more",
-              "value": "The more massive object would have its direction and speed affected more"
+              "label": "solar-system::questions.34.options.0",
+              "value": "solar-system::questions.34.options.0"
             },
             {
-              "label": "The less massive object would have its direction and speed affected more",
-              "value": "The less massive object would have its direction and speed affected more"
+              "label": "solar-system::questions.34.options.1",
+              "value": "solar-system::questions.34.options.1"
             },
             {
-              "label": "Both objects would experience the same change in direction and speed",
-              "value": "Both objects would experience the same change in direction and speed"
+              "label": "solar-system::questions.34.options.2",
+              "value": "solar-system::questions.34.options.2"
             }
           ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "interface::actions.select",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -79,14 +79,20 @@
           "id": "350",
           "questionType": "compoundSelect",
           "compoundQuestion": ["350", "351"],
-          "labelPre": "In addition to mass, the distance between the two objects is a factor in determining the gravitational force between the objects. Objects that are farther apart will have a ",
-          "labelPost": " gravitational force between them",
+          "labelPre": "solar-system::questions.350.labelPre",
+          "labelPost": "solar-system::questions.350.labelPost",
           "srLabel": "...",
           "answerAccessor": "select",
-          "placeholder": "select",
+          "placeholder": "interface::actions.select",
           "options": [
-            { "label": "weaker", "value": "weaker" },
-            { "label": "stronger", "value": "stronger" }
+            {
+              "label": "interface::qas.options.weaker",
+              "value": "interface::qas.options.weaker"
+            },
+            {
+              "label": "interface::qas.options.stronger",
+              "value": "interface::qas.options.stronger"
+            }
           ],
           "answerPre": "...",
           "answerPost": "..."
@@ -95,14 +101,20 @@
           "id": "351",
           "questionType": "compoundSelect",
           "compoundQuestion": ["350", "351"],
-          "labelPre": "and are ",
-          "labelPost": " likely to experience a change in their orbits.",
+          "labelPre": "solar-system::questions.351.labelPre",
+          "labelPost": "solar-system::questions.351.labelPost",
           "srLabel": "...",
           "answerAccessor": "select",
-          "placeholder": "select",
+          "placeholder": "interface::actions.select",
           "options": [
-            { "label": "more", "value": "more" },
-            { "label": "less", "value": "less" }
+            {
+              "label": "interface::qas.options.more",
+              "value": "interface::qas.options.more"
+            },
+            {
+              "label": "interface::qas.options.less",
+              "value": "interface::qas.options.less"
+            }
           ],
           "answerPre": "...",
           "answerPost": "..."

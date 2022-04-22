@@ -3,18 +3,18 @@
   "investigation": "solar-system",
   "sectionOrder": 0,
   "order": "09",
-  "title": "Characterizing Comets",
+  "title": "solar-system::pages.solarsystem11.title",
   "slug": "characterizing-comet/",
   "previous": {
-    "title": "Characterizing Trans-Neptunian Objects (TNOs)",
-    "link": "/characterizing-tno/"
+    "title": "solar-system::pages.solarsystem10.title",
+    "link": "solar-system::pages.solarsystem10.link"
   },
   "next": {
-    "title": "Comparing Orbital Properties",
-    "link": "/characterizing-orbits-4/"
+    "title": "solar-system::pages.solarsystem12.title",
+    "link": "solar-system::pages.solarsystem12.link"
   },
   "layout": "TwoCol",
-  "content": "<p>Comets are icy objects found throughout the Solar System.</p><p>Decide which of the statements provided below best describes the orbital properties of comets.</p>",
+  "content": "solar-system::content.solarsystem11",
   "tables": [
     {
       "id": "1",
@@ -24,13 +24,18 @@
       },
       "fixed": true,
       "colTitles": [
-        "Group",
-        "Size of Orbit",
-        "Eccentricity",
-        "Inclination",
-        "Direction of Orbit"
+        "astronomy::orbital_properties.group",
+        "astronomy::orbital_properties.size_of_orbit",
+        "astronomy::orbital_properties.eccentricity",
+        "astronomy::orbital_properties.inclination",
+        "astronomy::orbital_properties.direction_of_orbit"
       ],
-      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rowTitles": [
+        ["astronomy::orbital_bodies.neo_abbrev_plural"],
+        ["astronomy::orbital_bodies.mba_abbrev_plural"],
+        ["astronomy::orbital_bodies.tno_abbrev_plural"],
+        ["astronomy::orbital_bodies.comet_plural"]
+      ],
       "rows": [
         [
           { "accessor": "data", "id": "6" },
@@ -68,42 +73,51 @@
           "type": "OrbitalProperties",
           "source": "/data/neos/comets_semimajor_axis_hist.json",
           "options": {
-            "title": "Comet Orbit Sizes",
-            "xAxisLabel": "Orbit Sizes (au)",
+            "title": "solar-system::widgets.solarsystem11.orbital_properties.0.title",
+            "xAxisLabel": "astronomy::orbital_properties.size_of_orbit_with_unit",
             "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of comets",
+            "yAxisLabel": "solar-system::widgets.solarsystem11.orbital_properties.0.labels.y_axis",
             "domain": [[0, 100], []],
             "bins": 20,
             "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["Comets", "Orbit Size (au)"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.comet_plural",
+              "astronomy::orbital_properties.size_of_orbit_with_unit"
+            ]
           }
         },
         {
           "type": "OrbitalProperties",
           "source": "/data/neos/comets_eccentricity_hist.json",
           "options": {
-            "title": "Comet Eccentricities",
-            "xAxisLabel": "Eccentricities",
+            "title": "solar-system::widgets.solarsystem11.orbital_properties.1.title",
+            "xAxisLabel": "astronomy::orbital_properties.eccentricity_plural",
             "xValueAccessor": "eccentricity",
-            "yAxisLabel": "Number of comets",
+            "yAxisLabel": "solar-system::widgets.solarsystem11.orbital_properties.0.labels.y_axis",
             "domain": [[0, 1], []],
             "bins": 10,
             "tooltipAccessors": ["countOfTotal", "eccentricity"],
-            "tooltipLabels": ["Comets", "Eccentricity"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.comet_plural",
+              "astronomy::orbital_properties.eccentricity"
+            ]
           }
         },
         {
           "type": "OrbitalProperties",
           "source": "/data/neos/comets_inclination_hist.json",
           "options": {
-            "title": "Comet Inclinations",
-            "xAxisLabel": "Inclinations (degrees)",
+            "title": "solar-system::widgets.solarsystem11.orbital_properties.1.title",
+            "xAxisLabel": "astronomy::orbital_properties.inclination_unit",
             "xValueAccessor": "inclination",
-            "yAxisLabel": "Number of comets",
+            "yAxisLabel": "solar-system::widgets.solarsystem11.orbital_properties.0.labels.y_axis",
             "domain": [[0, 180], []],
             "bins": 9,
             "tooltipAccessors": ["countOfTotal", "inclination"],
-            "tooltipLabels": ["Comets", "Inclination (degrees)"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.comet_plural",
+              "astronomy::orbital_properties.inclination_unit"
+            ]
           }
         }
       ],
@@ -117,27 +131,27 @@
           "id": "18",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Size of the orbit: ",
+          "label": "solar-system::questions.6.label",
           "options": [
             {
-              "label": "All of the orbits are within the inner Solar System (between 0.5 - 4 au).",
-              "value": "Within inner Solar System (between 0.5 - 4 au)"
+              "label": "solar-system::questions.6.options.0.label",
+              "value": "solar-system::questions.6.options.0.value"
             },
             {
-              "label": "All of the orbits are within the inner Solar System (between 1.5 - 5.2 au).",
-              "value": "Within inner Solar System (between 1.5 - 5.2 au)"
+              "label": "solar-system::questions.6.options.1.label",
+              "value": "solar-system::questions.6.options.1.value"
             },
             {
-              "label": "The orbit sizes are 30 au or larger, and objects typically orbit beyond Neptune.",
-              "value": "In the outer Solar System (30 au or larger)"
+              "label": "solar-system::questions.6.options.2.label",
+              "value": "solar-system::questions.6.options.2.value"
             },
             {
-              "label": "The orbit sizes span both the inner and outer Solar System, beyond 30 au.",
-              "value": "Span inner and outer Solar System (beyond 30 au)"
+              "label": "solar-system::questions.6.options.3.label",
+              "value": "solar-system::questions.6.options.3.value"
             }
           ],
-          "placeholder": "Select best description of comets",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "solar-system::questions.16.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -148,23 +162,23 @@
           "id": "16",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Eccentricity: ",
+          "label": "solar-system::questions.4.label",
           "options": [
             {
-              "label": "Most orbits are similar to the shape of Earth’s orbit  (0.0 - 0.3)",
-              "value": "Similar to Earth’s (0.0 - 0.3)"
+              "label": "solar-system::questions.4.options.0.label",
+              "value": "solar-system::questions.4.options.0.value"
             },
             {
-              "label": "Most orbits are noticeably more elliptical than the shape of Earth’s orbit (greater than 0.3)",
-              "value": "More elliptical than Earth’s (greater than 0.3)"
+              "label": "solar-system::questions.4.options.1.label",
+              "value": "solar-system::questions.4.options.1.value"
             },
             {
-              "label": "There is an equal distribution across all shapes of orbits",
-              "value": "Wide range of shapes"
+              "label": "solar-system::questions.4.options.2.label",
+              "value": "solar-system::questions.4.options.2.value"
             }
           ],
-          "placeholder": "Select best description of comets",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "solar-system::questions.16.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -175,23 +189,23 @@
           "id": "17",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Inclination: ",
+          "label": "solar-system::questions.5.label",
           "options": [
             {
-              "label": "Most orbits are similar to the tilt of Earth’s orbital plane (0-20°).",
-              "value": "Similar to Earth’s (0-20°)"
+              "label": "solar-system::questions.5.options.0.label",
+              "value": "solar-system::questions.5.options.0.value"
             },
             {
-              "label": "Most orbits are tilted compared to Earth’s orbital plane (more than 20°).",
-              "value": "More tilted than Earth's (more than 20°)"
+              "label": "solar-system::questions.5.options.1.label",
+              "value": "solar-system::questions.5.options.1.value"
             },
             {
-              "label": "There is an equal distribution across all tilts of the orbits.",
-              "value": "Wide range in tilts"
+              "label": "solar-system::questions.5.options.2.label",
+              "value": "solar-system::questions.5.options.2.value"
             }
           ],
-          "placeholder": "Select best description of comets",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "solar-system::questions.16.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -202,19 +216,19 @@
           "id": "19",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Direction of the orbit (remember, an inclination greater than 90° indicates that the object orbits the Sun opposite the direction of Earth’s orbit): ",
+          "label": "solar-system::questions.7.label",
           "options": [
             {
-              "label": "Almost all objects orbit the Sun in the same direction as Earth’s orbit.",
-              "value": "Same direction as Earth’s"
+              "label": "solar-system::questions.7.options.0.label",
+              "value": "solar-system::questions.7.options.0.value"
             },
             {
-              "label": "More than 10% of the objects orbit the Sun in the opposite direction of Earth’s orbit (i >90°).",
-              "value": "Opposite direction as Earth’s (i >90°)"
+              "label": "solar-system::questions.7.options.1.label",
+              "value": "solar-system::questions.7.options.1.value"
             }
           ],
-          "placeholder": "Select best description of comets",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "solar-system::questions.16.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]

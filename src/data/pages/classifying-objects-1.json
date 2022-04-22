@@ -3,18 +3,18 @@
   "investigation": "solar-system",
   "sectionOrder": 2,
   "order": "23",
-  "title": "Classifying Newly Detected Solar System Objects - 2",
+  "title": "solar-system::pages.solarsystem23.title",
   "slug": "classifying-objects-1/",
   "previous": {
-    "title": "Classifying Newly Detected Solar System Objects - 1",
-    "link": "/classifying-objects/"
+    "title": "solar-system::pages.solarsystem22.title",
+    "link": "solar-system::pages.solarsystem22.link"
   },
   "next": {
-    "title": "Classifying Newly Detected Solar System Objects - 3",
-    "link": "/classifying-objects-2/"
+    "title": "solar-system::pages.solarsystem24.title",
+    "link": "solar-system::pages.solarsystem24.link"
   },
   "layout": "TwoCol",
-  "content": "Use the orbital properties in the table you constructed above to help you determine which group this newly discovered object belongs to.",
+  "content": "solar-system::content.solarsystem23",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -36,13 +36,18 @@
       },
       "fixed": true,
       "colTitles": [
-        "Group",
-        "Size of Orbit",
-        "Eccentricity",
-        "Inclination",
-        "Direction of Orbit"
+        "astronomy::orbital_properties.group",
+        "astronomy::orbital_properties.size_of_orbit",
+        "astronomy::orbital_properties.eccentricity",
+        "astronomy::orbital_properties.inclination",
+        "astronomy::orbital_properties.direction_of_orbit"
       ],
-      "rowTitles": [["NEOs"], ["MBAs"], ["TNOs"], ["Comets"]],
+      "rowTitles": [
+        ["astronomy::orbital_bodies.neo_abbrev_plural"],
+        ["astronomy::orbital_bodies.mba_abbrev_plural"],
+        ["astronomy::orbital_bodies.tno_abbrev_plural"],
+        ["astronomy::orbital_bodies.comet_plural"]
+      ],
       "rows": [
         [
           { "accessor": "data", "id": "6" },
@@ -77,7 +82,12 @@
         "row": "bottom",
         "col": "left"
       },
-      "colTitles": ["", "Name", "Type", "Data/Evidence"],
+      "colTitles": [
+        "",
+        "solar-system::tables.2.colTitles.0",
+        "solar-system::tables.2.colTitles.1",
+        "solar-system::tables.2.colTitles.2"
+      ],
       "rowTitles": [["#1"], ["#2"], ["#3"]],
       "rows": [
         [
@@ -107,7 +117,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "What is this object's name?"
+          "label": "solar-system::questions.46.label"
         }
       ]
     },
@@ -117,31 +127,31 @@
           "id": "50",
           "questionType": "select",
           "title": "Question #1",
-          "label": "What type of object is this?",
+          "label": "solar-system::questions.47.label",
           "options": [
             {
-              "label": "MBA",
-              "value": "MBA"
+              "label": "astronomy::orbital_bodies.mba_abbrev",
+              "value": "astronomy::orbital_bodies.mba_abbrev"
             },
             {
-              "label": "TNO",
-              "value": "TNO"
+              "label": "astronomy::orbital_bodies.tno_abbrev",
+              "value": "astronomy::orbital_bodies.tno_abbrev"
             },
             {
-              "label": "NEO",
-              "value": "NEO"
+              "label": "astronomy::orbital_bodies.neo_abbrev",
+              "value": "astronomy::orbital_bodies.neo_abbrev"
             },
             {
-              "label": "Comet",
-              "value": "Comet"
+              "label": "astronomy::orbital_bodies.comet",
+              "value": "astronomy::orbital_bodies.comet"
             },
             {
-              "label": "None of the above",
-              "value": "None of the above"
+              "label": "interface::qas.options.none_of_the_above",
+              "value": "interface::qas.options.none_of_the_above"
             }
           ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "interface::actions.select",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -153,7 +163,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Explain why you chose this type.  What data/evidence supports your choice?"
+          "label": "solar-system::questions.48.label"
         }
       ]
     }

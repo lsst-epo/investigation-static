@@ -3,15 +3,15 @@
   "investigation": "solar-system",
   "sectionOrder": 0,
   "order": "11",
-  "title": "Distributions of Solar System Objects",
+  "title": "solar-system::pages.solarsystem13.title",
   "slug": "identifying-groups/",
   "previous": {
-    "title": "Comparing Orbital Properties",
-    "link": "/characterizing-orbits-4/"
+    "title": "solar-system::pages.solarsystem12.title",
+    "link": "solar-system::pages.solarsystem12.link"
   },
   "next": {
-    "title": "Progress Update",
-    "link": "/section-1/"
+    "title": "solar-system::pages.solar-system-1-break.title",
+    "link": "solar-system::pages.solar-system-1-break.link"
   },
   "layout": "TwoCol",
   "checkpoints": [
@@ -22,7 +22,7 @@
       }
     }
   ],
-  "content": "<p>Now you will explore a histogram of the number of all small Solar System objects on the y-axis vs. size of orbit on the x-axis.</p><p>Note: the scale of the y-axis changes for each of the histograms.</p><p>Click on each icon found to the left of the histogram to change the group.</p>",
+  "content": "solar-system::content.solarsystem13",
   "widgets": [
     {
       "type": "ChartSwitcher",
@@ -31,56 +31,68 @@
           "type": "OrbitalProperties",
           "source": "/data/neos/neo_semimajor_axis_hist.json",
           "options": {
-            "title": "NEO Orbit Sizes",
-            "xAxisLabel": "NEO Orbit Sizes (au)",
+            "title": "solar-system::widgets.solarsystem08.orbital_properties.0.title",
+            "xAxisLabel": "solar-system::widgets.solarsystem13.orbital_properties.0.labels.x_axis",
             "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of NEOs",
+            "yAxisLabel": "solar-system::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
             "domain": [[0, 100], null],
             "bins": 20,
             "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["NEOs", "Orbit Size (au)"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.neo_abbrev_plural",
+              "astronomy::orbital_properties.size_of_orbit_with_unit"
+            ]
           }
         },
         {
           "type": "OrbitalProperties",
           "source": "/data/neos/mba_semimajor_axis_hist.json",
           "options": {
-            "title": "MBA Orbit Sizes",
-            "xAxisLabel": "MBA Orbit Sizes (au)",
+            "title": "solar-system::widgets.solarsystem09.orbital_properties.0.title",
+            "xAxisLabel": "solar-system::widgets.solarsystem13.orbital_properties.1.labels.x_axis",
             "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of MBAs",
+            "yAxisLabel": "solar-system::widgets.solarsystem09.orbital_properties.0.labels.y_axis",
             "domain": [[0, 100], null],
             "bins": 20,
             "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["MBAs", "Orbit Size (au)"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.mba_abbrev_plural",
+              "astronomy::orbital_properties.size_of_orbit_with_unit"
+            ]
           }
         },
         {
           "type": "OrbitalProperties",
           "source": "/data/neos/tno_semimajor_axis_hist.json",
           "options": {
-            "title": "TNO Orbit Sizes",
-            "xAxisLabel": "TNO Orbit Sizes (au)",
+            "title": "solar-system::widgets.solarsystem10.orbital_properties.0.title",
+            "xAxisLabel": "solar-system::widgets.solarsystem13.orbital_properties.2.labels.x_axis",
             "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of TNOs",
+            "yAxisLabel": "solar-system::widgets.solarsystem10.orbital_properties.0.labels.y_axis",
             "domain": [[0, 100], null],
             "bins": 20,
             "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["TNOs", "Orbit Size (au)"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.tno_abbrev_plural",
+              "astronomy::orbital_properties.size_of_orbit_with_unit"
+            ]
           }
         },
         {
           "type": "OrbitalProperties",
           "source": "/data/neos/comets_semimajor_axis_hist.json",
           "options": {
-            "title": "Comet Orbit Sizes",
-            "xAxisLabel": "Comet Orbit Sizes (au)",
+            "title": "solar-system::widgets.solarsystem11.orbital_properties.0.title",
+            "xAxisLabel": "solar-system::widgets.solarsystem13.orbital_properties.3.labels.x_axis",
             "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "Number of Comets",
+            "yAxisLabel": "solar-system::widgets.solarsystem11.orbital_properties.0.labels.y_axis",
             "domain": [[0, 100], null],
             "bins": 20,
             "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
-            "tooltipLabels": ["Comets", "Orbit Size (au)"]
+            "tooltipLabels": [
+              "astronomy::orbital_bodies.comet_plural",
+              "astronomy::orbital_properties.size_of_orbit_with_unit"
+            ]
           }
         }
       ],
@@ -95,7 +107,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Based on the histogram, rank the total number of small Solar System objects in each group, from most to least:"
+          "label": "solar-system::questions.200.label"
         }
       ]
     },
@@ -106,7 +118,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #2",
-          "label": "Rubin Observatory will make thousands of observations of our Solar System over the next decade. Do you think the number of any of these groups will change substantially?  Which one(s), and why?"
+          "label": "solar-system::questions.21.label"
         }
       ]
     }

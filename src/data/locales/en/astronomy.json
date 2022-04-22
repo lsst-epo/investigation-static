@@ -29,12 +29,19 @@
   },
   "orbital_properties": {
     "inclination": "Inclination",
+    "inclination_plural": "Inclinations",
     "inclination_unit": "Inclination (degrees)",
+    "inclination_unit_plural": "Inclinations (degrees)",
     "inclination_unit_symbol": "Inclinationº",
     "eccentricity": "Eccentricity",
     "eccentricity_plural": "Eccentricities",
     "size_of_orbit": "Size of Orbit",
     "size_of_orbit_with_unit": "Size of Orbit (au)",
-    "direction_of_orbit": "Direction of Orbit"
+    "orbit_size": "Orbit size",
+    "orbit_size_plural": "Orbit sizes",
+    "orbit_size_with_unit": "Orbit size (au)",
+    "orbit_size_with_unit_plural": "Orbit sizes (au)",
+    "direction_of_orbit": "Direction of Orbit",
+    "group": "Group"
   }
 }

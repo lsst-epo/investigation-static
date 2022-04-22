@@ -3,30 +3,33 @@
   "investigation": "solar-system",
   "sectionOrder": 1,
   "order": "05",
-  "title": "Supporting Evidence for Solar System Formation",
+  "title": "solar-system::pages.solarsystem19.title",
   "slug": "history-solar-system-1/",
   "previous": {
-    "title": "The Formation of the Solar System",
-    "link": "/history-solar-system/"
+    "title": "solar-system::pages.solarsystem18.title",
+    "link": "solar-system::pages.solarsystem18.link"
   },
   "next": {
-    "title": "Gravitational Interactions in the Solar System",
-    "link": "/nebula-theory/"
+    "title": "solar-system::pages.solarsystem19a.title",
+    "link": "solar-system::pages.solarsystem19a.link"
   },
   "layout": "TwoCol",
-  "content": "<p>We can also find evidence to support the solar nebula theory by studying the motions of objects within the Solar System. To validate this evidence, view a histogram that shows inclinations of all four groups of Solar System objects and look for overall patterns in the way objects orbit the Sun. (Remember, any inclination greater than 90 degrees indicates an object that is orbiting backwards.)</p>",
+  "content": "solar-system::content.solarsystem19",
   "widgets": [
     {
       "type": "OrbitalProperties",
       "source": "/data/neos/all_inclination_hist.json",
       "options": {
-        "title": "Inclinations",
-        "xAxisLabel": "Inclinations (degrees)",
+        "title": "astronomy::orbital_properties.inclination_plural",
+        "xAxisLabel": "astronomy::orbital_properties.inclination_unit",
         "xValueAccessor": "inclination",
-        "yAxisLabel": "Number of Objects",
+        "yAxisLabel": "solar-system::widgets.solarsystem19.orbital_properties.labels.y_axis",
         "domain": [[0, 180], null],
         "tooltipAccessors": ["countOfTotal", "inclination"],
-        "tooltipLabels": ["Objects", "Inclination (degrees)"],
+        "tooltipLabels": [
+          "solar-system::widgets.solarsystem19.orbital_properties.labels.tooltip",
+          "astronomy::orbital_properties.inclination_unit_plural"
+        ],
         "qaReview": false
       }
     }
@@ -39,14 +42,23 @@
           "questionType": "select",
           "title": "Question #1",
           "labelPre": "",
-          "labelPost": "of the small Solar System objects have orbits that lie in the orbital plane of the planets.",
+          "labelPost": "solar-system::questions.32.labelPost",
           "options": [
-            { "label": "Almost none", "value": "None" },
-            { "label": "Nearly all", "value": "Nearly all" },
-            { "label": "Roughly half", "value": "Roughly half" }
+            {
+              "label": "interface::qas.options.almost_none",
+              "value": "interface::qas.options.almost_none"
+            },
+            {
+              "label": "interface::qas.options.nearly_all",
+              "value": "interface::qas.options.nearly_all"
+            },
+            {
+              "label": "interface::qas.options.roughly_half",
+              "value": "interface::qas.options.roughly_half"
+            }
           ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "interface::actions.select",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -58,14 +70,23 @@
           "questionType": "select",
           "title": "Question #1",
           "labelPre": "",
-          "labelPost": "of the Solar System objects orbit in the opposite direction of the planets around the Sun.",
+          "labelPost": "solar-system::questions.32a.labelPost",
           "options": [
-            { "label": "Almost none", "value": "None" },
-            { "label": "Nearly all", "value": "Nearly all" },
-            { "label": "Roughly half", "value": "Roughly half" }
+            {
+              "label": "interface::qas.options.almost_none",
+              "value": "interface::qas.options.almost_none"
+            },
+            {
+              "label": "interface::qas.options.nearly_all",
+              "value": "interface::qas.options.nearly_all"
+            },
+            {
+              "label": "interface::qas.options.roughly_half",
+              "value": "interface::qas.options.roughly_half"
+            }
           ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "interface::actions.select",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -77,7 +98,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "How do the range of values for the inclination for the small objects of the Solar System support the nebular theory?"
+          "label": "solar-system::questions.33.label"
         }
       ]
     }

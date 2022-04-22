@@ -3,21 +3,21 @@
   "investigation": "solar-system",
   "sectionOrder": 2,
   "order": "36",
-  "title": "Reflect and Discuss",
+  "title": "solar-system::pages.solarsystem36.title",
   "slug": "solar-system-discuss-report/",
   "previous": {
-    "title": "Putting it all Together",
-    "link": "/solar-system-summary-6/"
+    "title": "solar-system::pages.solarsystem34.title",
+    "link": "solar-system::pages.solarsystem34.link"
   },
   "next": {
-    "title": "Acknowledgements",
-    "link": "/acknowledgements/"
+    "title": "solar-system::pages.solarsystem37.title",
+    "link": "solar-system::pages.solarsystem37.link"
   },
   "layout": "TwoCol",
   "images": [
     {
       "mediaPath": "/images/thought-bubbles.png",
-      "altText": "Reflect and Discuss",
+      "altText": "solar-system::images.solarsystem36.altText",
       "figText": ""
     }
   ],
@@ -29,7 +29,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "The asteroid `Oumuamua and comet Borisov were discovered while they were passing through our Solar System, but each came from different solar systems. Based on what you have learned about gravitational interactions, provide an explanation for how these objects were able to leave their solar systems."
+          "label": "solar-system::questions.73.label"
         }
       ]
     },
@@ -40,7 +40,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Comets often come very close to the Sun during their orbits. Comets are able to remain icy even after a close trip around the Sun. Explain how this can happen based on what you know about the changing speed of the comet during its orbit and the amount of time it spends near the Sun."
+          "label": "solar-system::questions.74.label"
         }
       ]
     }

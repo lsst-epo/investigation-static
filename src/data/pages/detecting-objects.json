@@ -20,7 +20,7 @@
         "col": "left",
         "row": "top"
       },
-      "content": "<p>Each night, the Rubin Observatory LSST camera takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an <a href='http://rubineducation.org/glossary/alert' target='_blank'>alert</a> is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves through the star field. Both images cover the same area of the sky (same field of view).</p>"
+      "content": "solar-system::content.solarsystem02"
     }
   ],
   "widgets": [
@@ -47,8 +47,14 @@
           "title": "Question #1",
           "label": "solar-system::questions.1.label",
           "options": [
-            { "label": "interface::qas.options.yes", "value": "yes" },
-            { "label": "interface::qas.options.no", "value": "no" }
+            {
+              "label": "interface::qas.options.yes",
+              "value": "interface::qas.options.yes"
+            },
+            {
+              "label": "interface::qas.options.no",
+              "value": "interface::qas.options.no"
+            }
           ],
           "placeholder": "interface::actions.select",
           "answerPre": "interface::qas.answer_pre",
@@ -68,8 +74,14 @@
           "answerAccessor": "select",
           "placeholder": "interface::actions.select",
           "options": [
-            { "label": "interface::qas.options.closer", "value": "closer" },
-            { "label": "interface::qas.options.farther", "value": "farther" }
+            {
+              "label": "interface::qas.options.closer",
+              "value": "interface::qas.options.closer"
+            },
+            {
+              "label": "interface::qas.options.farther",
+              "value": "interface::qas.options.farther"
+            }
           ],
           "answerPre": "...",
           "answerPost": "..."
@@ -82,10 +94,16 @@
           "labelPost": " orbital period.",
           "srLabel": "...",
           "answerAccessor": "select",
-          "placeholder": "Select a type",
+          "placeholder": "interface::actions.select_type",
           "options": [
-            { "label": "interface::qas.options.long", "value": "long" },
-            { "label": "interface::qas.options.short", "value": "short" }
+            {
+              "label": "interface::qas.options.long",
+              "value": "interface::qas.options.long"
+            },
+            {
+              "label": "interface::qas.options.short",
+              "value": "interface::qas.options.short"
+            }
           ],
           "answerPre": "...",
           "answerPost": "..."

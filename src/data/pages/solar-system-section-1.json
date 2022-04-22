@@ -3,15 +3,15 @@
   "investigation": "solar-system",
   "sectionOrder": 0,
   "order": "12",
-  "title": "Progress Update",
+  "title": "solar-system::pages.solar-system-1-break.title",
   "slug": "section-1/",
   "previous": {
-    "title": "Distributions of Solar System Objects",
-    "link": "/identifying-groups/"
+    "title": "solar-system::pages.solarsystem13.title",
+    "link": "solar-system::pages.solarsystem13.link"
   },
   "next": {
-    "title": "Identifying Groups of Solar System Objects - 1",
-    "link": "/identifying-groups-1/"
+    "title": "solar-system::pages.solarsystem14.title",
+    "link": "solar-system::pages.solarsystem14.link"
   },
   "layout": "SectionBreak",
   "content": "solar-system::content.solarsystem-1-break"

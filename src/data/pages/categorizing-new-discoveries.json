@@ -3,18 +3,18 @@
   "investigation": "solar-system",
   "sectionOrder": 2,
   "order": "33",
-  "title": "Categorizing your New Discoveries",
+  "title": "solar-system::pages.solarsystem33.title",
   "slug": "categorizing-new-discoveries/",
   "previous": {
-    "title": "Student Team C’s Interpretation",
-    "link": "/orbital-interpretation-2/"
+    "title": "solar-system::pages.solarsystem31.title",
+    "link": "solar-system::pages.solarsystem31.link"
   },
   "next": {
-    "title": "Putting it all Together",
-    "link": "/solar-system-summary-6/"
+    "title": "solar-system::pages.solarsystem34.title",
+    "link": "solar-system::pages.solarsystem34.link"
   },
   "layout": "TwoCol",
-  "content": "<p>Here is the actual orbit viewer for this new group of objects.</p>",
+  "content": "solar-system::content.solarsystem33",
   "widgets": [
     {
       "type": "OrbitalViewer",
@@ -28,14 +28,22 @@
   ],
   "tables": [
     {
-      "id": "1",
+      "id": "newGroupProperties",
       "layout": {
         "row": "bottom",
         "col": "left"
       },
       "fixed": true,
-      "colTitles": ["New Group Property", "Range", "Most Common"],
-      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclinationº"]],
+      "colTitles": [
+        "solar-system::tables.newGroupProperties.colTitles.0",
+        "solar-system::tables.newGroupProperties.colTitles.1",
+        "solar-system::tables.newGroupProperties.colTitles.2"
+      ],
+      "rowTitles": [
+        ["astronomy::orbital_properties.orbit_size_with_unit"],
+        ["astronomy::orbital_properties.eccentricity"],
+        ["astronomy::orbital_properties.inclination_unit_symbol"]
+      ],
       "rows": [
         [
           { "accessor": "range", "id": "69a" },
@@ -55,14 +63,17 @@
   ],
   "reference": [
     {
-      "title": "Planetary Orbital Sizes",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "title": "solar-system::reference.planetary_orbital_sizes.title",
       "button": {
         "icon": true,
-        "text": "Planetary Orbital Sizes"
+        "text": "solar-system::reference.planetary_orbital_sizes.title"
       },
-      "layout": {
-        "row": "bottom",
-        "col": "left"
+      "options": {
+        "position": "right"
       },
       "tables": [
         {
@@ -71,17 +82,20 @@
             "col": "left",
             "row": "top"
           },
-          "title": "Planetary Orbital Sizes",
-          "colTitles": ["Planet", "Orbit Size (au)"],
+          "title": "solar-system::reference.planetary_orbital_sizes.title",
+          "colTitles": [
+            "astronomy::orbital_bodies.planet",
+            "astronomy::orbital_properties.orbit_size_with_unit"
+          ],
           "rows": [
-            [{ "content": "Mercury" }, { "content": "0.4" }],
-            [{ "content": "Venus" }, { "content": "0.7" }],
-            [{ "content": "Earth" }, { "content": "1.0" }],
-            [{ "content": "Mars" }, { "content": "1.5" }],
-            [{ "content": "Jupiter" }, { "content": "5.2" }],
-            [{ "content": "Saturn" }, { "content": "9.5" }],
-            [{ "content": "Uranus" }, { "content": "19.2" }],
-            [{ "content": "Neptune" }, { "content": "30.1" }]
+            [{ "content": "astronomy::planets.mercury" }, { "content": "0.4" }],
+            [{ "content": "astronomy::planets.venus" }, { "content": "0.7" }],
+            [{ "content": "astronomy::planets.earth" }, { "content": "1.0" }],
+            [{ "content": "astronomy::planets.mars" }, { "content": "1.5" }],
+            [{ "content": "astronomy::planets.jupiter" }, { "content": "5.2" }],
+            [{ "content": "astronomy::planets.saturn" }, { "content": "9.5" }],
+            [{ "content": "astronomy::planets.uranus" }, { "content": "19.2" }],
+            [{ "content": "astronomy::planets.neptune" }, { "content": "30.1" }]
           ],
           "qaReview": false
         }
@@ -95,15 +109,24 @@
           "id": "58",
           "questionType": "select",
           "title": "Question #1",
-          "labelPre": "Based on the data you have determined for this new group of objects, ",
-          "labelPost": " of them orbit the Sun in the opposite direction of Earth’s orbit.",
+          "labelPre": "solar-system::questions.58.labelPre",
+          "labelPost": "solar-system::questions.58.labelPost",
           "options": [
-            { "label": "most", "value": "most" },
-            { "label": "many", "value": "many" },
-            { "label": "few", "value": "few" }
+            {
+              "label": "interface::qas.options.most",
+              "value": "interface::qas.options.most"
+            },
+            {
+              "label": "interface::qas.options.many",
+              "value": "interface::qas.options.many"
+            },
+            {
+              "label": "interface::qas.options.few",
+              "value": "interface::qas.options.few"
+            }
           ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "interface::actions.select",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -114,7 +137,7 @@
           "id": "59",
           "questionType": "textArea",
           "title": "Question #1",
-          "label": "Based on their orbit size, between which two planets are these new objects located?",
+          "label": "solar-system::questions.59.label",
           "answerAccessor": "text"
         }
       ]
