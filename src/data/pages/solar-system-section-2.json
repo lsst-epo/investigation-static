@@ -1,17 +1,17 @@
 {
-  "id": "solarsystem-3-0",
+  "id": "solar-system-2-break",
   "investigation": "solar-system",
   "sectionOrder": 1,
   "order": "07",
-  "title": "Progress Update",
+  "title": "solar-system::pages.solarsystem19a.title",
   "slug": "section-2/",
   "previous": {
-    "title": "Gravitational Interactions in the Solar System",
-    "link": "/nebula-theory/"
+    "title": "solar-system::pages.solarsystem19a.title",
+    "link": "solar-system::pages.solarsystem19a.link"
   },
   "next": {
-    "title": "Classifying Newly Detected Solar System Objects",
-    "link": "/classifying-objects/"
+    "title": "solar-system::pages.solarsystem22.title",
+    "link": "solar-system::pages.solarsystem22.link"
   },
   "layout": "SectionBreak",
   "content": "solar-system::content.solarsystem-2-break"

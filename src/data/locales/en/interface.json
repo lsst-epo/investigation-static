@@ -18,7 +18,8 @@
     "skip_forward": "Skip Forward",
     "edit": "Edit",
     "change_answer": "Change answer",
-    "select": "Select"
+    "select": "Select",
+    "select_type": "Select a type"
   },
   "errors": {
     "qas": {
@@ -88,7 +89,18 @@
       "closer": "closer to",
       "farther": "farther from",
       "long": "long",
-      "short": "short"
+      "short": "short",
+      "almost_none": "Almost none",
+      "nearly_all": "Nearly all",
+      "roughly_half": "Roughly half",
+      "weaker": "weaker",
+      "stronger": "stronger",
+      "more": "more",
+      "less": "less",
+      "most": "most",
+      "many": "many",
+      "few": "few",
+      "none_of_the_above": "None of the above"
     }
   },
   "language_toggle": {

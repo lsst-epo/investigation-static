@@ -3,18 +3,18 @@
   "investigation": "solar-system",
   "sectionOrder": 0,
   "order": "06",
-  "title": "Characterizing Near-Earth Objects (NEOs)",
+  "title": "solar-system::pages.solarsystem08.title",
   "slug": "characterizing-neo/",
   "previous": {
-    "title": "The Big View of the Solar System",
-    "link": "/big-view/"
+    "title": "solar-system::pages.solarsystem07.title",
+    "link": "solar-system::pages.solarsystem07.link"
   },
   "next": {
-    "title": "Characterizing Main Belt Asteroids (MBAs)",
-    "link": "/characterizing-mba/"
+    "title": "solar-system::pages.solarsystem09.title",
+    "link": "solar-system::pages.solarsystem09.link"
   },
   "layout": "TwoCol",
-  "content": "<p>To better understand the differences between the four groups, you will analyze orbital data for each group. The first group you will examine are the near-Earth objects (NEOs). NEOs are objects with orbits that intersect or get very close to the orbit of Earth.</p><p>Click on each icon found to the left of the histogram to examine the different orbital properties of NEOs. If you place your mouse above each bar on the histogram, the exact number of objects for the bar will appear. Some of the bars are so small that you might not notice them without looking carefully!</p><p>Decide which of the statements provided below best describes the orbital properties of NEOs.</p><p>NEOs are asteroids or comets whose orbit intersects or gets very close to the orbit of Earth.</p>",
+  "content": "solar-system::content.solarsystem08",
   "tables": [
     {
       "id": "1",
@@ -24,7 +24,7 @@
       },
       "fixed": true,
       "colTitles": [
-        "Group",
+        "astronomy::orbital_properties.group",
         "astronomy::orbital_properties.size_of_orbit",
         "astronomy::orbital_properties.eccentricity",
         "astronomy::orbital_properties.inclination",
@@ -76,7 +76,7 @@
             "title": "solar-system::widgets.solarsystem08.orbital_properties.0.title",
             "xAxisLabel": "astronomy::orbital_properties.size_of_orbit_with_unit",
             "xValueAccessor": "semimajor_axis",
-            "yAxisLabel": "astronomy::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
+            "yAxisLabel": "solar-system::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
             "domain": [[0, 10], []],
             "bins": 20,
             "tooltipAccessors": ["countOfTotal", "semimajor_axis"],
@@ -90,10 +90,10 @@
           "type": "OrbitalProperties",
           "source": "/data/neos/neo_eccentricity_hist.json",
           "options": {
-            "title": "NEO Eccentricities",
+            "title": "solar-system::widgets.solarsystem08.orbital_properties.1.title",
             "xAxisLabel": "astronomy::orbital_properties.eccentricity_plural",
             "xValueAccessor": "eccentricity",
-            "yAxisLabel": "astronomy::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
+            "yAxisLabel": "solar-system::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
             "domain": [[0, 1], []],
             "bins": 10,
             "tooltipAccessors": ["countOfTotal", "eccentricity"],
@@ -107,10 +107,10 @@
           "type": "OrbitalProperties",
           "source": "/data/neos/neo_inclination_hist.json",
           "options": {
-            "title": "NEO Inclinations",
-            "xAxisLabel": "Inclinations (degrees)",
+            "title": "solar-system::widgets.solarsystem08.orbital_properties.2.title",
+            "xAxisLabel": "astronomy::orbital_properties.inclination_unit",
             "xValueAccessor": "inclination",
-            "yAxisLabel": "astronomy::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
+            "yAxisLabel": "solar-system::widgets.solarsystem08.orbital_properties.0.labels.y_axis",
             "domain": [[0, 180], null],
             "bins": 9,
             "tooltipAccessors": ["countOfTotal", "inclination"],
@@ -136,24 +136,24 @@
           "label": "solar-system::questions.6.label",
           "options": [
             {
-              "label": "solar-systems::questions.6.options.0.label",
-              "value": "solar-systems::questions.6.options.0.value"
+              "label": "solar-system::questions.6.options.0.label",
+              "value": "solar-system::questions.6.options.0.value"
             },
             {
-              "label": "solar-systems::questions.6.options.1.label",
-              "value": "solar-systems::questions.6.options.1.value"
+              "label": "solar-system::questions.6.options.1.label",
+              "value": "solar-system::questions.6.options.1.value"
             },
             {
-              "label": "solar-systems::questions.6.options.2.label",
-              "value": "solar-systems::questions.6.options.2.value"
+              "label": "solar-system::questions.6.options.2.label",
+              "value": "solar-system::questions.6.options.2.value"
             },
             {
-              "label": "solar-systems::questions.6.options.3.label",
-              "value": "solar-systems::questions.6.options.3.value"
+              "label": "solar-system::questions.6.options.3.label",
+              "value": "solar-system::questions.6.options.3.value"
             }
           ],
           "placeholder": "solar-system::questions.6.placeholder",
-          "answerPre": "<p>Selected: </p>",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -164,23 +164,23 @@
           "id": "4",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Eccentricity: ",
+          "label": "solar-system::questions.4.label",
           "options": [
             {
-              "label": "Most orbits are similar to the shape of Earth’s orbit  (0.0 - 0.3)",
-              "value": "Similar to Earth’s (0.0 - 0.3)"
+              "label": "solar-system::questions.4.options.0.label",
+              "value": "solar-system::questions.4.options.0.value"
             },
             {
-              "label": "Most orbits are noticeably more elliptical than the shape of Earth’s orbit (greater than 0.3)",
-              "value": "More elliptical than Earth’s (greater than 0.3)"
+              "label": "solar-system::questions.4.options.1.label",
+              "value": "solar-system::questions.4.options.1.value"
             },
             {
-              "label": "There is an equal distribution across all shapes of orbits",
-              "value": "Wide range of shapes"
+              "label": "solar-system::questions.4.options.2.label",
+              "value": "solar-system::questions.4.options.2.value"
             }
           ],
-          "placeholder": "Select best description of NEOs",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "solar-system::questions.6.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -191,23 +191,23 @@
           "id": "5",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Inclination: ",
+          "label": "solar-system::questions.5.label",
           "options": [
             {
-              "label": "Most orbits are similar to the tilt of Earth’s orbital plane (0-20°).",
-              "value": "Similar to Earth’s (0-20°)"
+              "label": "solar-system::questions.5.options.0.label",
+              "value": "solar-system::questions.5.options.0.value"
             },
             {
-              "label": "Most orbits are tilted compared to Earth’s orbital plane (more than 20°).",
-              "value": "More tilted than Earth's (more than 20°)"
+              "label": "solar-system::questions.5.options.1.label",
+              "value": "solar-system::questions.5.options.1.value"
             },
             {
-              "label": "There is an equal distribution across all tilts of the orbits.",
-              "value": "Wide range in tilts"
+              "label": "solar-system::questions.5.options.2.label",
+              "value": "solar-system::questions.5.options.2.value"
             }
           ],
-          "placeholder": "Select best description of NEOs",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "solar-system::questions.6.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -218,19 +218,19 @@
           "id": "7",
           "questionType": "select",
           "title": "Question #1",
-          "label": "Direction of the orbit (remember, an inclination greater than 90° indicates that the object orbits the Sun opposite the direction of Earth’s orbit): ",
+          "label": "solar-system::questions.7.label",
           "options": [
             {
-              "label": "Almost all objects orbit the Sun in the same direction as Earth’s orbit.",
-              "value": "Same direction as Earth’s"
+              "label": "solar-system::questions.7.options.0.label",
+              "value": "solar-system::questions.7.options.0.value"
             },
             {
-              "label": "More than 10% of the objects orbit the Sun in the opposite direction of Earth’s orbit (i >90°).",
-              "value": "Opposite direction as Earth’s (i >90°)"
+              "label": "solar-system::questions.7.options.1.label",
+              "value": "solar-system::questions.7.options.1.value"
             }
           ],
-          "placeholder": "Select best description of NEOs",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "solar-system::questions.6.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]

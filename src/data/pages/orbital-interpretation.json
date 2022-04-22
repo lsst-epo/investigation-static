@@ -3,18 +3,18 @@
   "investigation": "solar-system",
   "sectionOrder": 2,
   "order": "29",
-  "title": "Student Team A’s Drawing",
+  "title": "solar-system::pages.solarsystem29.title",
   "slug": "orbital-interpretation/",
   "previous": {
-    "title": "Exploring A New Class of Objects",
-    "link": "/solar-system-summary/"
+    "title": "solar-system::pages.solarsystem28.title",
+    "link": "solar-system::pages.solarsystem28.link"
   },
   "next": {
-    "title": "Student Team B’s Drawing",
-    "link": "/orbital-interpretation-1/"
+    "title": "solar-system::pages.solarsystem30.title",
+    "link": "solar-system::pages.solarsystem30.link"
   },
   "layout": "SingleCol",
-  "content": "<p>The drawings above were produced by a student team to represent the data from these newly discovered small objects.</p>",
+  "content": "solar-system::content.solarsystem29",
   "questionsByPage": [
     {
       "question": [
@@ -23,7 +23,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Do you agree or disagree with the orbital characteristics displayed in Student Team A’s drawing above? Explain your reasoning."
+          "label": "solar-system::questions.55.label"
         }
       ]
     }
@@ -31,7 +31,7 @@
   "images": [
     {
       "mediaPath": "/images/SS Student team drawings - Team A.svg",
-      "altText": "A student illustration of a top and side view of the solar system showing the Sun, Mars, Jupiter, and Neptune with several orbital paths that pass between Jupiter and Neptune with a range of eccentricities and similar inclinations.",
+      "altText": "solar-system::images.solarsystem29.altText",
       "layout": {
         "col": "left",
         "row": "top"
@@ -40,14 +40,22 @@
   ],
   "tables": [
     {
-      "id": "1",
+      "id": "newGroupProperties",
       "layout": {
         "row": "middle",
         "col": "left"
       },
       "fixed": true,
-      "colTitles": ["New Group Property", "Range", "Most Common"],
-      "rowTitles": [["Orbit Size (au)"], ["Eccentricity"], ["Inclinationº"]],
+      "colTitles": [
+        "solar-system::tables.newGroupProperties.colTitles.0",
+        "solar-system::tables.newGroupProperties.colTitles.1",
+        "solar-system::tables.newGroupProperties.colTitles.2"
+      ],
+      "rowTitles": [
+        ["astronomy::orbital_properties.orbit_size_with_unit"],
+        ["astronomy::orbital_properties.eccentricity"],
+        ["astronomy::orbital_properties.inclination_unit_symbol"]
+      ],
       "rows": [
         [
           { "accessor": "range", "id": "69a" },
@@ -71,10 +79,10 @@
         "col": "left",
         "row": "top"
       },
-      "title": "Planetary Orbital Sizes",
+      "title": "solar-system::reference.planetary_orbital_sizes.title",
       "button": {
         "icon": true,
-        "text": "Planetary Orbital Sizes"
+        "text": "solar-system::reference.planetary_orbital_sizes.title"
       },
       "options": {
         "position": "right"
@@ -86,17 +94,20 @@
             "col": "left",
             "row": "top"
           },
-          "title": "Planetary Orbital Sizes",
-          "colTitles": ["Planet", "Orbit Size (au)"],
+          "title": "solar-system::reference.planetary_orbital_sizes.title",
+          "colTitles": [
+            "astronomy::orbital_bodies.planet",
+            "astronomy::orbital_properties.orbit_size_with_unit"
+          ],
           "rows": [
-            [{ "content": "Mercury" }, { "content": "0.4" }],
-            [{ "content": "Venus" }, { "content": "0.7" }],
-            [{ "content": "Earth" }, { "content": "1.0" }],
-            [{ "content": "Mars" }, { "content": "1.5" }],
-            [{ "content": "Jupiter" }, { "content": "5.2" }],
-            [{ "content": "Saturn" }, { "content": "9.5" }],
-            [{ "content": "Uranus" }, { "content": "19.2" }],
-            [{ "content": "Neptune" }, { "content": "30.1" }]
+            [{ "content": "astronomy::planets.mercury" }, { "content": "0.4" }],
+            [{ "content": "astronomy::planets.venus" }, { "content": "0.7" }],
+            [{ "content": "astronomy::planets.earth" }, { "content": "1.0" }],
+            [{ "content": "astronomy::planets.mars" }, { "content": "1.5" }],
+            [{ "content": "astronomy::planets.jupiter" }, { "content": "5.2" }],
+            [{ "content": "astronomy::planets.saturn" }, { "content": "9.5" }],
+            [{ "content": "astronomy::planets.uranus" }, { "content": "19.2" }],
+            [{ "content": "astronomy::planets.neptune" }, { "content": "30.1" }]
           ],
           "qaReview": false
         }

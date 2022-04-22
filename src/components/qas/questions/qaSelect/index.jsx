@@ -78,6 +78,17 @@ class QASelect extends React.PureComponent {
     }
   };
 
+  translateOptions = options => {
+    const { t } = this.props;
+
+    return options.map(option => {
+      return {
+        label: t(option.label),
+        value: t(option.value),
+      };
+    });
+  };
+
   render() {
     const {
       ids,
@@ -102,6 +113,7 @@ class QASelect extends React.PureComponent {
 
     const active = ids ? checkIds(ids, activeId) : activeId === id;
     const { hasFocus, answerable } = this.state;
+    const translatedOptions = this.translateOptions(options);
     const answered = !isEmpty(answer);
     const cardClasses = classnames(qaStyles.qaCard, {
       [qaStyles.active]: hasFocus,
@@ -175,14 +187,14 @@ class QASelect extends React.PureComponent {
             <Select
               id={`qa-select-${id}`}
               className={selectClasses}
-              options={options}
+              options={translatedOptions}
               label={updatedLabel || srLabel || placeholder}
-              name={label || srLabel || placeholder}
+              name={t(label) || srLabel || placeholder}
               value={answered ? answer.content || answer.data : 'DEFAULT'}
               handleBlur={this.handler}
               handleChange={this.handler}
               handleFocus={this.handler}
-              placeholder={placeholder}
+              placeholder={t(placeholder)}
               disabled={!(answerable || answered || active)}
               showLabel={!!label}
               inline={!!labelPre || !!labelPost}

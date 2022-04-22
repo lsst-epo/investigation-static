@@ -3,23 +3,23 @@
   "investigation": "solar-system",
   "sectionOrder": 0,
   "order": "03",
-  "title": "Eccentricity",
+  "title": "solar-system::pages.solarsystem05.title",
   "slug": "eccentricity/",
   "previous": {
-    "title": "Semi-Major Axis",
-    "link": "/semi-major-axis/"
+    "title": "solar-system::pages.solarsystem04.title",
+    "link": "solar-system::pages.solarsystem04.link"
   },
   "next": {
-    "title": "Inclination",
-    "link": "/inclination/"
+    "title": "solar-system::pages.solarsystem06.title",
+    "link": "solar-system::pages.solarsystem06.link"
   },
   "layout": "TwoCol",
-  "content": "<p><a href='http://rubineducation.org/glossary/eccentricity' target='_blank'>Eccentricity</a> describes how elliptical (i.e., oval shaped) an orbit is. Eccentricity values range from 0 to almost 1. An eccentricity of 0 describes a perfectly circular orbit. The larger the eccentricity, the more elliptical the orbit.</p>",
+  "content": "solar-system::content.solarsystem05",
   "images": [
     {
       "mediaPath": "/images/20220203 Orbital characteristics.gif",
-      "altText": "Examples of orbital ellipses with different eccentricities.",
-      "figText": "Examples of orbital ellipses with different eccentricities. Credit: Rubin Observatory"
+      "altText": "solar-system::images.solarsystem05.altText",
+      "figText": "solar-system::images.solarsystem05.figText"
     }
   ]
 }

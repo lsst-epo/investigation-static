@@ -3,32 +3,32 @@
   "investigation": "solar-system",
   "sectionOrder": 1,
   "order": "04",
-  "title": "The Formation of the Solar System",
+  "title": "solar-system::pages.solarsystem18.title",
   "slug": "history-solar-system/",
   "previous": {
-    "title": "Identifying Groups of Solar System Objects - 4",
-    "link": "/identifying-groups-4/"
+    "title": "solar-system::pages.solarsystem17.title",
+    "link": "solar-system::pages.solarsystem17.link"
   },
   "next": {
-    "title": "Supporting Evidence for Solar System Formation",
-    "link": "/history-solar-system-1/"
+    "title": "solar-system::pages.solarsystem19.title",
+    "link": "solar-system::pages.solarsystem19.link"
   },
   "layout": "TwoCol",
   "contents": [
     {
       "layout": { "col": "left", "row": "top" },
-      "content": "<p>According to the solar nebula theory, a spinning cloud of dust and gas collapsed due to gravity and the young Sun began to form at the center, while dusty and icy objects began to grow by repeated collisions with each other in a flattened disk surrounding the Sun. The Sun, planets, and the disk surrounding it retained the same direction of motion as the spinning cloud that formed the Sun.</p><p>There is significant evidence to support this theory. Observations of star-forming regions reveal similar disks around young stars in other parts of the galaxy. Another piece of evidence that supports the theory is the fact that rocky planets formed close to the Sun (where temperatures were hotter) and icy planets formed at greater distances (where temperatures were much cooler).</p>"
+      "content": "solar-system::content.solarsystem18.0"
     },
     {
       "layout": { "col": "right", "row": "top" },
-      "content": "<p>The <a href='http://rubineducation.org/glossary/oort-cloud' target='_blank'>Oort Cloud</a> is a spherical region of icy objects that exists at the outermost edges of the Solar System (extending from a distance of 1000 - 100,000 au), thought to have formed after the collapse of the solar nebula. One idea suggests that gravitational interactions between large planets and small Solar System objects in the early years of the Solar System slung small objects outwards to form the Oort Cloud. Another idea suggests the Sun’s gravity could have plucked some objects from other nearby solar systems.</p>"
+      "content": "solar-system::content.solarsystem18.1"
     }
   ],
   "images": [
     {
       "mediaPath": "/images/stsci-prc15-06a.png",
-      "altText": "Hubble Space Telescope image shows a large, edge-on, gas-and-dust disk encircling the star Beta Pictoris. The light of the central star has been blocked out.",
-      "figText": "This Hubble Space Telescope image shows a large, edge-on, gas-and-dust disk encircling the star Beta Pictoris. The light of the central star has been blocked out. Credits: NASA, ESA, University of Arizona.",
+      "altText": "solar-system::images.solarsystem18.0.altText",
+      "figText": "solar-system::images.solarsystem18.0.figText",
       "layout": {
         "col": "left",
         "row": "top"
@@ -36,8 +36,8 @@
     },
     {
       "mediaPath": "/images/Oort Cloud and Kuiper Belt.jpg",
-      "altText": "Illustration of the Solar System, the Kuiper Belt, and the Oort Cloud. This illustration is not to scale.",
-      "figText": "The Oort Cloud is a spherical shell of icy objects occupying the outermost regions the Solar System. (Drawing not to scale.) Credit: Rubin Observatory",
+      "altText": "solar-system::images.solarsystem18.1.altText",
+      "figText": "solar-system::images.solarsystem18.1.figText",
       "layout": {
         "col": "right",
         "row": "top"
@@ -52,7 +52,7 @@
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Many comets are thought to originate from the Oort Cloud. Explain why these comets might have very inclined orbits compared to other types of Solar System objects."
+          "label": "solar-system::questions.31.label"
         }
       ],
       "layout": {
