@@ -111,7 +111,7 @@ class InvestigationsLanding extends React.PureComponent {
               <div key={id}>
                 <Link to={`/${id}/introduction/`}>
                   <Trans values={{ investigation: title }}>
-                    interface::landing.go_to_investigation
+                    interface::actions.go_to_investigation
                   </Trans>
                 </Link>
               </div>
