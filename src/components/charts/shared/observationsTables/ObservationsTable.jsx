@@ -67,7 +67,7 @@ class ObservationsTable extends React.PureComponent {
   translateCells = cells => {
     const { t } = this.props;
 
-    return cells.map(t);
+    return cells ? cells.map(t) : cells;
   };
 
   render() {
