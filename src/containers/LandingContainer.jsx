@@ -10,6 +10,7 @@ import Link from '../components/site/link';
 import SEO from '../components/seo';
 import Button from '../components/site/button/index.js';
 import EducatorModeToggle from '../components/site/educatorModeToggle';
+import Debug from '../components/site/debug';
 
 @reactn
 class InvestigationsLanding extends React.PureComponent {
@@ -90,19 +91,20 @@ class InvestigationsLanding extends React.PureComponent {
                     >
                       <Trans>interface::actions.review_your_answers</Trans>
                     </Button>
+                    <Button
+                      flat
+                      primary
+                      swapTheming
+                      onClick={this.dispatch.empty}
+                      style={{ backgroundColor: '#df0039' }}
+                    >
+                      <Trans>interface::actions.clear_answers</Trans>
+                    </Button>
                   </div>
-                  <Button
-                    flat
-                    primary
-                    swapTheming
-                    onClick={this.dispatch.empty}
-                    style={{ backgroundColor: '#df0039' }}
-                  >
-                    <Trans>interface::actions.clear_answers</Trans>
-                  </Button>
                 </div>
               </>
             )}
+            <Button flat primary component={Debug} />
           </>
         ) : (
           investigations.map(investigation => {
