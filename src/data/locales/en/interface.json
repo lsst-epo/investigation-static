@@ -5,6 +5,7 @@
     "checkpoint": "Checkpoint"
   },
   "actions": {
+    "debug": "Debug",
     "review_your_answers": "Review your answers",
     "clear_answers": "Clear all saved answers",
     "go_to_investigation": "Go to {{investigation}} investigation",
