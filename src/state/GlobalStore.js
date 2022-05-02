@@ -1,4 +1,4 @@
-import { addCallback, addReducer, setGlobal } from 'reactn';
+import { addCallback, addReducer, setGlobal, resetGlobal } from 'reactn';
 import ls from 'local-storage';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
@@ -20,7 +20,6 @@ class GlobalStore {
       totalQAsByInvestigation: null,
       totalQAsByPage: null,
       questionNumbersByPage: null,
-      checkpoints: [],
       educatorMode: null,
       sections: [],
       savedSources: {},
@@ -28,7 +27,6 @@ class GlobalStore {
     };
     const { investigation } = this.emptyState;
 
-    // const existingState = this.emptyState;
     const existingState = ls(investigation) || this.emptyState;
 
     setGlobal(existingState);
@@ -43,6 +41,10 @@ class GlobalStore {
 
   addReducers() {
     addReducer('empty', () => {
+      resetGlobal();
+      this.addCallbacks();
+      this.addReducers();
+
       return this.emptyState;
     });
 
@@ -52,14 +54,6 @@ class GlobalStore {
         name,
       };
     });
-
-    // addReducer(
-    //   'updateGlobalFromInvestigation',
-    //   (global, dispatch, investigationId) => {
-    //     console.log(investigationId, ls(investigationId) || this.emptyState);
-    //     return ls(investigationId) || this.emptyState;
-    //   }
-    // );
 
     addReducer('updatePageId', (global, dispatch, pageId) => {
       const {
