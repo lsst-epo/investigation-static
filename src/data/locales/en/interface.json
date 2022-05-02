@@ -5,7 +5,6 @@
     "checkpoint": "Checkpoint"
   },
   "actions": {
-    "debug": "Debug",
     "review_your_answers": "Review your answers",
     "clear_answers": "Clear all saved answers",
     "go_to_investigation": "Go to {{investigation}} investigation",
@@ -21,6 +20,10 @@
     "change_answer": "Change answer",
     "select": "Select",
     "select_type": "Select a type"
+  },
+  "debug": {
+    "title": "Experiencing issues?",
+    "instructions": "If your application is experiencing issues that cannot be solved by clearing saved answers, <1>download this debug log</1> and attach it in an email to our developers at <3>education@lsst.org</3>."
   },
   "errors": {
     "qas": {
