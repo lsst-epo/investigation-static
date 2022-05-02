@@ -38,18 +38,6 @@ class Layout extends React.Component {
     this.store.addReducers();
   }
 
-  getCheckpoints = () => {
-    const { pages } = this.state;
-
-    return pages.reduce((checkpoints, page) => {
-      if (page.checkpoints && page.checkpoints.length) {
-        checkpoints.push(page.pageNumber);
-      }
-
-      return checkpoints;
-    }, []);
-  };
-
   getSections = id => {
     const { pages } = this.state;
     const { investigations } = this.props;
@@ -155,7 +143,6 @@ class Layout extends React.Component {
       totalQAsByInvestigation: this.getTotalQAs(),
       totalQAsByPage: this.getTotalQAsByPage(),
       questionNumbersByPage: this.getQuestionNumbersByPage(),
-      checkpoints: this.getCheckpoints(),
       sections: this.getSections(id),
     };
   }
