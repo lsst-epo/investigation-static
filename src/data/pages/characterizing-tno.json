@@ -107,7 +107,7 @@
           "type": "OrbitalProperties",
           "source": "/data/neos/tno_inclination_hist.json",
           "options": {
-            "title": "solar-system::widgets.solarsystem10.orbital_properties.1.title",
+            "title": "solar-system::widgets.solarsystem10.orbital_properties.2.title",
             "xAxisLabel": "astronomy::orbital_properties.inclination_unit",
             "xValueAccessor": "inclination",
             "yAxisLabel": "solar-system::widgets.solarsystem10.orbital_properties.0.labels.y_axis",
