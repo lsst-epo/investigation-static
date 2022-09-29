@@ -1,7 +1,7 @@
 {
-  "sun": "Sol",
   "planets": {
     "mercury": "Mercurio",
+    "venus": "Venus",
     "earth": "Tierra",
     "mars": "Marte",
     "jupiter": "Júpiter",
@@ -10,16 +10,38 @@
     "neptune": "Neptuno"
   },
   "orbital_bodies": {
+    "sun": "Sol",
     "planet": "Planeta",
+    "tno": "Objeto Transneptuniano (TNO)",
+    "tno_plural": "Objetos Transneptunianos (TNOs)",
+    "tno_abbrev": "TNO",
+    "tno_abbrev_plural": "TNOs",
+    "mba": "Asteroide del Cinturón Principal",
+    "mba_plural": "Asteroides del Cinturón Principal (MBA)",
+    "mba_abbrev": "MBA",
+    "mba_abbrev_plural": "MBA",
+    "neo": "Objeto Cercano a la Tierra",
+    "neo_plural": "Objetos Cercanos a la Tierra (NEOs)",
+    "neo_abbrev": "NEO",
+    "neo_abbrev_plural": "NEOs",
     "comet": "Cometa",
     "comet_plural": "Cometas"
   },
   "orbital_properties": {
     "inclination": "Inclinación",
+    "inclination_plural": "Inclinaciones",
+    "inclination_unit": "Inclinación (grados)",
+    "inclination_unit_plural": "Inclinaciones (grados)",
     "inclination_unit_symbol": "Inclinaciónº",
     "eccentricity": "Excentricidad",
+    "eccentricity_plural": "Excentricidades",
     "size_of_orbit": "Tamaño de la órbita",
-    "size_of_orbit_with_unit": "Tamaño de la órbita (ua)",
-    "direction_of_orbit": "Dirección de la órbita"
+    "size_of_orbit_with_unit": "Tamaño de la órbita (au)",
+    "orbit_size": "Tamaño orbital",
+    "orbit_size_plural": "Tamaños orbitales",
+    "orbit_size_with_unit": "Tamaño orbital (au)",
+    "orbit_size_with_unit_plural": "Tamaños orbitales (au)",
+    "direction_of_orbit": "Dirección de órbita",
+    "group": "Grupo"
   }
 }

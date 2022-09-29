@@ -1,0 +1,38 @@
+{
+  "time_viewer": {
+    "observation_date": "Fecha de observación"
+  },
+  "orbit_viewer": {
+    "title": "Visualizador de órbitas",
+    "details_hide": "Ocultar información",
+    "details_show": "Información del objeto",
+    "details_table": {
+      "scientific_name": "Nombre científico",
+      "absolute_magnitude": "Magnitud absoluta",
+      "earth_moid": "MOID de la Tierra",
+      "orbit_size": "Tamaño orbital",
+      "eccentricity": "Excentricidad",
+      "inclination": "Inclinación",
+      "orbital_speed": "Velocidad orbital"
+    },
+    "playback": {
+      "time_step": "Paso de tiempo",
+      "elapsed_time": "Tiempo transcurrido",
+      "normal_time": "Tiempo normal",
+      "time_equivalence": "{{firstTime}} = {{secondTime}}",
+      "time_equivalence_verbose": "{{firstTime}} es {{secondTime}}",
+      "interval": {
+        "secWithCount": "{{count}} seg",
+        "day": "Día",
+        "day_plural": "Días",
+        "year": "Año",
+        "year_plural": "Años",
+        "yearWithCount": "{{count}} año",
+        "yearWithCount_plural": "{{count}} años"
+      }
+    },
+    "bodies": {
+      "sun": "Sol"
+    }
+  }
+}
