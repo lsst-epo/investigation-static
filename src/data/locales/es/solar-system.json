@@ -1,21 +1,475 @@
 {
-  "title": "Encuesta del Sistema Solar",
+  "title": "Estudiando el Sistema Solar",
   "pages": {
-    "solarsystem00": { "title": "Introducción" },
+    "solarsystem00": {
+      "title": "Introducción"
+    },
+    "solarsystem02": {
+      "title": "Detección de objetos del Sistema Solar"
+    },
+    "solarsystem04": {
+      "title": "Semieje mayor"
+    },
+    "solarsystem05": {
+      "title": "Excentricidad"
+    },
     "solarsystem06": {
       "title": "Inclinación"
+    },
+    "solarsystem07": {
+      "title": "La gran vista del Sistema Solar"
+    },
+    "solarsystem08": {
+      "title": "Caracterización de Objetos Cercanos a la Tierra (NEO)"
+    },
+    "solarsystem09": {
+      "title": "Caracterización de Asteroides del Cinturón Principal (MBA)"
+    },
+    "solarsystem10": {
+      "title": "Caracterización de Objetos Transneptunianos (TNO)"
+    },
+    "solarsystem11": {
+      "title": "Caracterización de cometas"
+    },
+    "solarsystem12": {
+      "title": "Comparación de propiedades orbitales"
+    },
+    "solarsystem13": {
+      "title": "Distribuciones de los objetos del Sistema Solar"
+    },
+    "solar-system-1-break": {
+      "title": "Actualización de progreso"
+    },
+    "solarsystem14": {
+      "title": "Identificación de grupos de objetos del Sistema Solar - 1"
+    },
+    "solarsystem15": {
+      "title": "Identificación de grupos de objetos del Sistema Solar - 2"
+    },
+    "solarsystem16": {
+      "title": "Identificación de grupos de objetos del Sistema Solar - 3"
+    },
+    "solarsystem17": {
+      "title": "Identificación de grupos de objetos del Sistema Solar - 4"
+    },
+    "solarsystem18": {
+      "title": "La formación del Sistema Solar"
+    },
+    "solarsystem19": {
+      "title": "Evidencia de apoyo para la formación del Sistema Solar"
+    },
+    "solarsystem19a": {
+      "title": "Interacciones gravitacionales en el Sistema Solar"
+    },
+    "solar-system-2-break": {
+      "title": "Actualización de progreso"
+    },
+    "solarsystem22": {
+      "title": "Clasificación de objetos del Sistema Solar recién detectados"
+    },
+    "solarsystem23": {
+      "title": "Clasificación de objetos del Sistema Solar recién detectados - 2"
+    },
+    "solarsystem24": {
+      "title": "Clasificación de objetos del Sistema Solar recién detectados - 3"
+    },
+    "solarsystem28": {
+      "title": "Explorando una nueva clase de objetos"
+    },
+    "solarsystem29": {
+      "title": "Dibujo del Equipo de Estudiantes A"
+    },
+    "solarsystem30": {
+      "title": "Dibujo del Equipo de Estudiantes B"
+    },
+    "solarsystem31": {
+      "title": "Dibujo del Equipo de Estudiantes C"
+    },
+    "solarsystem33": {
+      "title": "Categorización de sus nuevos descubrimientos"
+    },
+    "solarsystem34": {
+      "title": "Resumiendo Todo"
+    },
+    "solarsystem36": {
+      "title": "Reflexionar y discutir"
+    },
+    "solarsystem37": {
+      "title": "Agradecimientos"
+    }
+  },
+  "content": {
+    "solarsystem00": "<p>Durante cientos de años, tuvimos un modelo simple para los objetos de nuestro Sistema Solar: algunos planetas grandes y sus lunas, y ocasionalmente un cometa que pasaba. Posteriormente, vino el descubrimiento del primer asteroide, Ceres, en 1801, un indicio de que estaban sucediendo más eventos allá afuera de los que pensábamos. En efecto, durante los siguientes 200 años se descubrieron alrededor de 800.000 cuerpos menores del Sistema Solar (que incluyen asteroides, cometas y objetos transneptunianos). Al principio, el ritmo de descubrimiento fue lento, pero los avances tecnológicos, que han hecho posible detectar objetos más pequeños y distantes, han acelerado el proceso.</p> <p>El Observatorio Vera C. Rubin proporciona la herramienta de observación más poderosa que hemos tenido para estudiar cuerpos menores del Sistema Solar; el tamaño de los espejos del telescopio y la sensibilidad de su cámara se combinan con la velocidad a la que el telescopio examina el cielo nocturno para ayudarnos a ver más objetos en nuestro Sistema Solar que nunca. Cada imagen tomada por el Observatorio Rubin cubre una gran área del cielo y captura la luz incluso de objetos muy débiles, lo que posibilita medir los movimientos de millones de cuerpos menores del Sistema Solar cada noche. Muchos de estos son nuevos descubrimientos. </p> <p>En esta investigación, explorará datos reales del Observatorio Rubin para desarrollar una comprensión más profunda de cómo se distribuyen los cuerpos menores en todo el Sistema Solar. Además, examinará las órbitas de algunos objetos del Sistema Solar recientemente detectados, para poder clasificarlos. Juntas, estas observaciones nos ayudarán a armar la historia de cómo se formó nuestro Sistema Solar y nos darán una idea de lo que podríamos encontrar alrededor de otras estrellas que tienen exoplanetas. </p> <h3>Preguntas esenciales</h3> <ul> <li> ¿Cómo afectan las interacciones gravitatorias el movimiento y las propiedades orbitales de los cuerpos menores en el Sistema Solar? </li> <li> ¿Qué pueden revelar las observaciones de cuerpos menores sobre la formación y la historia del Sistema Solar? </li> </ul>",
+    "solarsystem02": "<p>Cada noche, la cámara LSST del Observatorio Rubin toma dos imágenes del mismo campo de estrellas, con al menos treinta minutos de diferencia. Las imágenes se comparan con un software de computadora, y si algo se ha movido, se genera una <a href='http://rubineducation.org/glossary/alert' target='_blank'>alerta</a> automáticamente y los datos se envían al <a target='_blank' href='https://www.minorplanetcenter.net/about'>Centro de Planetas Menores (CPM) de la UAI.</a>En cuestión de horas, el CPM determina una órbita preliminar para el objeto. </p><p> Aquí hay algunas observaciones de muestra de objetos en movimiento del Sistema Solar. Observe cómo cada objeto se mueve a través del campo de estrellas. Ambas imágenes cubren la misma área del cielo (mismo campo de visión).</p>",
+    "solarsystem04": "<p>Al realizar una serie de mediciones cuidadosas, los astrónomos pueden determinar la órbita de un objeto del Sistema Solar recién descubierto. A lo largo de esta investigación, se utilizan tres propiedades que se usan para describir una órbita.</p> <p> <a href='http://rubineducation.org/glossary/orbit-size' target='_blank'>El tamaño orbital</a> está relacionado con el <a href='http://rubineducation.org/glossary/semi-major-axis' target='_blank'>semieje mayor</a> de la órbita (que se define como la mitad del diámetro más largo de la órbita del objeto). Se mide en <a href='http://rubineducation.org/glossary/astronomical-unit-au' target='_blank' >unidades astronómicas</a> (au). También puede pensar en el semieje mayor de la órbita como su distancia promedio al Sol</p>",
+    "solarsystem05": "<p><a href='http://rubineducation.org/glossary/eccentricity' target='_blank'>La excentricidad</a> describe cuán elíptica (es decir, de forma ovalada) es una órbita. Los valores de excentricidad oscilan entre 0 y casi 1. Una excentricidad de 0 describe una órbita perfectamente circular. Cuanto mayor es la excentricidad, más elíptica es la órbita.</p>",
+    "solarsystem06": "<p><a href='http://rubineducation.org/glossary/inclination' target='_blank'>La inclinación</a> (i) es el ángulo en el que se inclina el plano orbital del objeto (amarillo), en relación con el plano orbital de la Tierra (azul) alrededor del Sol. Un valor de 0° significa que la órbita del objeto es paralela a la órbita de la Tierra. Un valor de 90° significa que la órbita del objeto está inclinada en ángulo recto con respecto a la órbita de la Tierra. Si un objeto tiene una órbita con una inclinación superior a 90°, estará orbitando en una dirección opuesta a la dirección orbital de la Tierra.</p>",
+    "solarsystem07": "<p>El Observatorio Rubin descubrirá millones de nuevos objetos del Sistema Solar y proporcionará un enorme conjunto de datos que nos brinda una visión más completa de la distribución de los objetos. Cuanto más sepamos sobre la distribución y las propiedades de los objetos en nuestro Sistema Solar, más entenderemos sobre cómo se formó.</p><p>La mayoría de los cuerpos menores del Sistema Solar que hemos descubierto se pueden clasificar en cuatro grupos:</p><ul><li><b>Objetos Cercanos a la Tierra</b> (por sus siglas en inglés NEO): objetos cuyas órbitas se cruzan o se acercan mucho a la órbita de la Tierra.</li><li><b>Asteroides del Cinturón Principal</b> (por sus siglas en inglés MBA): objetos que orbitan alrededor del Sol entre las órbitas de Marte (1,5 ua) y Júpiter (5,2 ua).</li><li><b>Objetos transneptunianos</b> por sus siglas en inglés TNO): objetos con un tamaño orbital de 30 ua o más. Por lo general, los TNO orbitan más allá de Neptuno, sin embargo, algunos pueden acercarse periódicamente más al Sol que a Neptuno.</li><li><b>Cometas</b> - objetos helados que se encuentran en todo el Sistema Solar. Cuando orbitan cerca del Sol, desarrollan una cabeza y una cola formadas por el escape de gas y polvo.</li></ul>",
+    "solarsystem08": "<p>Para comprender mejor las diferencias entre los cuatro grupos, usted analizará los datos orbitales de cada grupo. El primer grupo que examinará son los objetos cercanos a la Tierra (NEO). Los NEO son objetos con órbitas que se cruzan o se acercan mucho a la órbita de la Tierra.</p><p>Haga clic en cada ícono que se encuentra a la izquierda del histograma para examinar las diferentes propiedades orbitales de los NEO. Si sitúa su mouse sobre cada barra en el histograma, aparecerá el número exacto de objetos de la barra. ¡Algunas de las barras son tan pequeñas que es posible que no las note sin mirar con atención!</p><p>Decida cuál de las afirmaciones proporcionadas a continuación describe mejor las propiedades orbitales de los NEO.</p><p>Los NEO son asteroides o cometas cuya órbita se cruza o se acerca mucho a la órbita de la Tierra.</p>",
+    "solarsystem09": "<p>Los MBA son objetos que orbitan el Sol entre las órbitas de Marte (1,5 ua) y Júpiter (5,2 ua).</p><p> Decida cuál de las afirmaciones proporcionadas a continuación describe mejor las propiedades orbitales de los MBA.</p>",
+    "solarsystem10": "<p>Los TNO son objetos que orbitan el Sol en la órbita de Neptuno o más allá, a una distancia de aproximadamente 30 ua y más. Esta área incluye el Cinturón de Kuiper y toda la región hasta la Nube de Oort interna, que comienza aproximadamente a 2000 ua del Sol.</p><p> Decida cuál de las afirmaciones proporcionadas a continuación describe mejor las propiedades orbitales de los TNO.</p>",
+    "solarsystem11": "<p>Los cometas son objetos helados que se encuentran en todo el Sistema Solar.</p><p>Decida cuál de las siguientes afirmaciones describe mejor las propiedades orbitales de los cometas.</p>",
+    "solarsystem13": "<p>Ahora explorará un histograma del número de todos los cuerpos menores del Sistema Solar en el eje y en comparación al tamaño orbital en el eje x.</p><p>Nota: la escala del eje y cambia en cada uno de los histogramas.</p><p>Haga clic en cada icono que se encuentra a la izquierda del histograma para cambiar el grupo.</p>",
+    "solarsystem14": "<p>Utilice el Visualizador de órbitas para explorar las características orbitales de un conjunto representativo de objetos de uno de los cuatro grupos. Todos los puntos mostrados y sus movimientos representan objetos reales. Haga clic y arrastre para cambiar el ángulo en el que ve las órbitas. Además, puede acercar y alejar. Use los botones en la parte inferior del Visualizador de órbitas para reproducir, pausar o saltar hacia adelante o hacia atrás. Haga clic en el botón restablecer zoom y orientación para volver a la vista original de estos objetos. Puede cambiar el tiempo del movimiento que se muestra moviendo la barra en la escala Time Step ubicada a la derecha del Visualizador de órbitas (hasta un máximo de 1 año/segundo).</p>",
+    "solarsystem15": "<p>Utilice el Visualizador de órbitas para explorar este grupo.</p>",
+    "solarsystem18": {
+      "0": "<p>De acuerdo con la teoría de la nebulosa solar, una nube giratoria de polvo y gas colapsó debido a la gravedad y el joven Sol comenzó a formarse en el centro, mientras que objetos polvorientos y helados comenzaron a crecer por repetidas colisiones entre sí en un disco aplanado que rodeaba al Sol. El Sol, los planetas y el disco que lo rodea retuvieron la misma dirección de movimiento que la nube giratoria que formó el Sol.</p><p>Existe evidencia significativa para apoyar esta teoría. Las observaciones de las regiones de formación estelar revelan discos similares alrededor de estrellas jóvenes en otras partes de la galaxia. Otra evidencia que respalda la teoría es el hecho de que los planetas rocosos se formaron cerca del Sol (donde las temperaturas eran más altas) y los planetas helados se formaron a mayores distancias (donde las temperaturas eran mucho más frías).</p>",
+      "1": "<p>La <a href='http://rubineducation.org/glossary/oort-cloud' target='_blank'>Nube de Oort</a> es una región esférica de objetos helados que existe en los bordes más exteriores del Sistema Solar (que se extiende desde una distancia de 1.000 a 100.000 ua), que se cree se formó después del colapso de la nebulosa solar. Una teoría sugiere que las interacciones gravitatorias entre los planetas grandes y los cuerpos menores del Sistema Solar, en los primeros años de este último, lanzaron pequeños cuerpos hacia afuera para formar la Nube de Oort. Otra teoría sugiere que la gravedad del Sol podría haber arrancado algunos objetos de otros sistemas solares cercanos.</p>"
+    },
+    "solarsystem19": "<p>Podemos también encontrar evidencia para apoyar la teoría de la nebulosa solar al estudiar los movimientos de los objetos dentro del Sistema Solar. Para validar esta evidencia, vea un histograma que muestra las inclinaciones de los cuatro grupos de objetos del Sistema Solar y busque patrones generales en la forma en que los objetos orbitan alrededor del Sol. (Recuerde, cualquier inclinación superior a 90 grados indica un objeto que está orbitando hacia atrás).</p>",
+    "solarsystem19a": {
+      "0": "<p>Aunque la mayoría de los cuerpos menores del Sistema Solar tienen características orbitales que respaldan la teoría de la nebulosa solar, una pequeña fracción de ellos tiene órbitas muy excéntricas o muy inclinadas, y algunos incluso orbitan alrededor del Sol en dirección opuesta a los planetas.</p><p>Podemos aplicar las leyes de Newton y la gravedad para ayudar a explicar estas observaciones:</p>",
+      "1": "<p>Desde los primeros días del Sistema Solar hasta la actualidad, ha habido muchas interacciones de este tipo entre objetos y, como resultado, las órbitas de algunos cuerpos menores en el Sistema Solar todavía están cambiando.</p>"
+    },
+    "solarsystem22": "<p>Muchos cuerpos menores del Sistema Solar han sido descubiertos recientemente por el Observatorio Rubin. Ahora, tiene la oportunidad de aplicar lo que ha aprendido para clasificar tres de esos objetos. Sus opciones para clasificar cada objeto son:</p><ul><li>MBA</li><li>TNO</li><li>NEO</li><li>Cometa</li><li>Ninguno de los anteriores</li></ul><p>Use las propiedades orbitales en la tabla que construyó arriba para ayudarse a determinar a qué grupo pertenece este objeto recién descubierto.</p>",
+    "solarsystem23": "<p>Use las propiedades orbitales en la tabla que construyó arriba para ayudarse a determinar a qué grupo pertenece este objeto recién descubierto.</p>",
+    "solarsystem29": "<p>Los dibujos de arriba fueron producidos por un equipo de estudiantes para representar los datos de estos pequeños cuerpos recién descubiertos.</p>",
+    "solarsystem33": "<p>Aquí está el Visualizador de órbitas real para este nuevo grupo de objetos.</p>",
+    "solarsystem37": "<p>Esta investigación fue creada por el programa de Educación y Difusión Pública del proyecto de Construcción del Observatorio Vera C. Rubin. En un esfuerzo por crear y probar esta investigación antes del inicio de las Operaciones, confiamos en los datos de nuestros colegas científicos. En particular, esta investigación ha hecho uso de datos y/o servicios proporcionados por el Centro de Planetas Menores de la Unión Astronómica Internacional. </p> <p> Agradecemos a los siguientes instructores que se ofrecieron como voluntarios para realizar la prueba piloto de esta investigación:<ul> <li>Chris Bolhuis, Hudsonville High School, Hudsonville, MI</li> <li>Alice Few, Pierce College Ft. Steilacoom, Lakewood, WA y Tacoma Community College, Tacoma, WA</li> <li>Scott Hildreth, Chabot College, Hayward, CA</li> <li>Joe Muise, St. Thomas More Collegiate, Burnaby, British Columbia</li> <li>Denine Voegeli, Plainview-Elgin-Millville Jr. High School, Elgin, MN</li> </ul> </p> <p>El equipo también quisiera agradecer a Siegfried Eggl, Henry Hsieh y Mike Kelley por sus útiles discusiones científicas en el desarrollo de esta investigación. </p> <h2>Apoyo financiero</h2> <p>El Observatorio Vera C. Rubin es un proyecto federal financiado conjuntamente por la Fundación Nacional de Ciencias (por sus siglas en inglés NSF) y la Oficina de Ciencias del Departamento de Energía (por sus siglas en inglés DOE), con fondos previos de construcción recibidos de donaciones privadas a través de la Corporación LSST. La Oficina de Proyectos de construcción LSST (ahora Observatorio Rubin) financiada por la NSF se estableció como un centro operativo bajo la administración de la Asociación de Universidades para la Investigación en Astronomía (por sus siglas en inglés AURA). El esfuerzo financiado por el DOE para construir la Cámara LSST del Observatorio Rubin (LSSTCam) es administrado por el Laboratorio Nacional de Aceleradores SLAC (por sus siglas previas en inglés SLAC).</p>",
+    "solarsystem-1-break": "<p>Ha identificado las propiedades orbitales de los cuatro grupos principales de cuerpos menores del Sistema Solar.</p><p> A continuación, usará estas características para clasificar cuatro objetos desconocidos y aprenderá cómo las órbitas de los cuerpos menores brindan evidencia de la formación del Sistema Solar.</p>",
+    "solarsystem-2-break": "<p>Ha clasificado los cuatro objetos desconocidos y ha aprendido cómo las interacciones gravitatorias de los objetos pequeños y sus inclinaciones proporcionan evidencia de la formación del Sistema Solar.</p><p>A continuación, usted investigará los datos de un nuevo grupo de objetos del Sistema Solar y decidirá cómo comunicaría este nuevo descubrimiento.</p>"
+  },
+  "images": {
+    "solarsystem00": {
+      "altText": "La evolución de los mundos por Lowell",
+      "figText": "Órbitas de los planetas exteriores como se describe en “La Evolución de los Mundos”, un libro publicado en la primera década de 1900 por Percival Lowell."
+    },
+    "solarsystem04": {
+      "altText": "Imagen que indica el semieje mayor y el semieje menor de una elipsis.",
+      "figText": "Imagen que indica el semieje mayor y el semieje menor de una elipsis. Crédito: Observatorio Rubin."
+    },
+    "solarsystem05": {
+      "altText": "Ejemplos de elipsis orbitales con diferentes excentricidades.",
+      "figText": "Ejemplos de elipsis orbitales con diferentes excentricidades. Crédito: Observatorio Rubin"
+    },
+    "solarsystem07": {
+      "altText": "La gran Visión del Sistema Solar",
+      "figText": "Crédito: Observatorio Rubin"
+    },
+    "solarsystem18": {
+      "0": {
+        "altText": "Esta imagen del telescopio espacial Hubble muestra un gran disco de gas y polvo que rodea la estrella Beta Pictoris. La luz de la estrella central ha sido bloqueada.",
+        "figText": "Esta imagen del telescopio espacial Hubble muestra un gran disco de gas y polvo que rodea la estrella Beta Pictoris. La luz de la estrella central ha sido bloqueada. Crédito: NASA, ESA, Universidad de Arizona."
+      },
+      "1": {
+        "altText": "Ilustración del Sistema Solar, el Cinturón de Kuiper y la Nube de Oort. Esta ilustración no está a escala.",
+        "figText": "La Nube de Oort es una envoltura esférica de objetos helados que ocupan las regiones más externas del Sistema Solar. (Dibujo no a escala.) Crédito: Observatorio Rubin"
+      }
+    },
+    "solarsystem19a": {
+      "altText": "Interacciones entre objetos",
+      "figText": "Cambios en la órbita de cuerpos menores del Sistema Solar. Crédito: Observatorio Rubin"
+    },
+    "solarsystem29": {
+      "altText": "Ilustración de un estudiante de una vista superior y lateral del Sistema Solar que muestra el Sol, Marte, Júpiter y Neptuno con varias trayectorias orbitales que pasan entre Júpiter y Neptuno con un rango de excentricidades e inclinaciones similares."
+    },
+    "solarsystem30": {
+      "altText": "Ilustración de un estudiante de una vista superior y lateral del Sistema Solar que muestra el Sol, Marte, Júpiter y Neptuno con varias trayectorias orbitales que pasan entre Júpiter y Neptuno con un rango de excentricidades e inclinaciones."
+    },
+    "solarsystem31": {
+      "altText": "Ilustración de un estudiante de una vista superior y lateral del Sistema Solar que muestra el Sol, Marte, Júpiter y Neptuno con varias trayectorias orbitales que pasan mayormente entre  con un rango de excentricidades e inclinaciones."
+    },
+    "solarsystem36": {
+      "altText": "Reflexionar y discutir"
+    }
+  },
+  "reference": {
+    "planetary_orbital_sizes": {
+      "title": "Tamaños orbitales planetarios"
+    }
+  },
+  "videos": {
+    "solarsystem06": {
+      "altText": "Ejemplos de elipses orbitales con diferentes inclinaciones.",
+      "figText": "Ejemplos de elipses orbitales con diferentes inclinaciones. Crédito: Observatorio Rubin"
+    }
+  },
+  "questions": {
+    "1": {
+      "label": "Estime el tiempo que le toma a cada objeto moverse desde la primera a la última posición. (Los tiempos se muestran en la esquina superior derecha de cada imagen). ¿La cantidad de tiempo que tardan los dos objetos en moverse por el cielo es aproximadamente la misma?"
+    },
+    "2": {
+      "label_pre": "El objeto que tarda más tiempo en moverse por el campo de visión está",
+      "label_post": "el Sol, "
+    },
+    "4": {
+      "label": "Excentricidad:",
+      "options": {
+        "0": {
+          "label": "La mayoría de las órbitas son similares a la forma de la órbita de la Tierra (0,0 - 0,3)",
+          "value": "Similar a la de la Tierra (0,0 – 0,3)"
+        },
+        "1": {
+          "label": "La mayoría de las órbitas son notablemente más elípticas que la forma de la órbita de la Tierra (más de 0,3)",
+          "value": "Más elíptica que la de la Tierra (más de 0,3)"
+        },
+        "2": {
+          "label": "Hay una distribución igual en todas las formas de órbitas",
+          "value": "Gran rango de formas"
+        }
+      }
+    },
+    "5": {
+      "label": "Inclinación:",
+      "options": {
+        "0": {
+          "label": "La mayoría de las órbitas son similares a la inclinación del plano orbital de la Tierra (0-20°).",
+          "value": "Similares a la de la Tierra (0-20°)"
+        },
+        "1": {
+          "label": "La mayoría de las órbitas están inclinadas en comparación con el plano orbital de la Tierra (más de 20°).",
+          "value": "Más inclinadas que la de la Tierra (más de 20°)"
+        },
+        "2": {
+          "label": "Hay una distribución equitativa en todas las inclinaciones de las órbitas.",
+          "value": "Gran rango de inclinaciones"
+        }
+      }
+    },
+    "6": {
+      "label": "Tamaño orbital:",
+      "placeholder": "Seleccione la mejor descripción de los NEO",
+      "options": {
+        "0": {
+          "label": "Todas las órbitas están dentro del Sistema Solar interior (entre 0,5 y 4 ua).",
+          "value": "dentro del Sistema Solar interior (entre 0,5 y 4 ua)"
+        },
+        "1": {
+          "label": "Todas las órbitas están dentro del Sistema Solar interior (entre 1,5 y 5,2 ua).",
+          "value": "dentro del Sistema Solar interior (entre 1,5 y 5,2 ua)"
+        },
+        "2": {
+          "label": "Los tamaños orbitales son de 30 ua o más, y los objetos normalmente orbitan más allá de Neptuno.",
+          "value": "En el Sistema Solar exterior (30 ua o más)"
+        },
+        "3": {
+          "label": "Los tamaños orbitales abarcan tanto el Sistema Solar interior como el exterior, más allá de las 30 ua.",
+          "value": "Abarcan tanto el Sistema Solar interior como el exterior, más allá de las 30 ua)"
+        }
+      }
+    },
+    "7": {
+      "label": "Dirección de la órbita (recuerde, una inclinación mayor a 90° indica que el objeto orbita el Sol en dirección opuesta a la órbita de la Tierra):",
+      "options": {
+        "0": {
+          "label": "Casi todos los objetos orbitan el Sol en la misma dirección que la órbita de la Tierra.",
+          "value": "Misma dirección que la de la Tierra"
+        },
+        "1": {
+          "label": "Más del 10% de los objetos orbitan el Sol en dirección opuesta a la órbita de la Tierra (i >90°).",
+          "value": "En dirección opuesta a la de la Tierra (i >90°)"
+        }
+      }
+    },
+    "8": {
+      "placeholder": "Seleccione la mejor descripción de los MBA"
+    },
+    "12": {
+      "placeholder": "Seleccione la mejor descripción de los TNO"
+    },
+    "16": {
+      "placeholder": "Seleccione la mejor descripción de los cometas"
+    },
+    "20": {
+      "label": "¿Qué diferencias existen entre los distintos grupos de objetos? Proporcione al menos tres ejemplos."
+    },
+    "20a": {
+      "label": "¿Qué grupo de objetos experimentará el mayor cambio en la velocidad orbital durante un período orbital? Explique su razonamiento."
+    },
+    "200": {
+      "label": "Con base en el histograma, clasifique el número total de cuerpos menores del Sistema Solar en cada grupo, de mayor a menor:"
+    },
+    "21": {
+      "label": "El Observatorio Rubin realizará miles de observaciones de nuestro Sistema Solar durante la próxima década. ¿Cree que el número de alguno de estos grupos cambiará sustancialmente? ¿Cuál(es) y por qué?"
+    },
+    "22": {
+      "label": "Consulte su tabla de observaciones de la sección anterior. ¿Cuál de los cuatro grupos cree que es este? Explique su razonamiento en términos del conjunto único de propiedades orbitales que define a este grupo de objetos."
+    },
+    "23": {
+      "label": "Consulte su tabla de observaciones de la sección anterior. ¿Cuál de los cuatro grupos cree que es este? Explique su razonamiento en términos del conjunto único de propiedades orbitales que define a este grupo de objetos."
+    },
+    "31": {
+      "label": "Se cree que muchos cometas se originan en la Nube de Oort. Explique por qué estos cometas pueden tener órbitas muy inclinadas en comparación con otros tipos de objetos del Sistema Solar."
+    },
+    "32": {
+      "labelPost": "de los cuerpos menores del Sistema Solar tienen órbitas que se encuentran en el plano orbital de los planetas."
+    },
+    "32a": {
+      "labelPost": "de los objetos del Sistema Solar orbitan en dirección opuesta a los planetas alrededor del Sol."
+    },
+    "33": {
+      "label": "¿Cómo apoya el rango de valores para la inclinación de los cuerpos menores del Sistema Solar a la teoría nebular?"
+    },
+    "34": {
+      "label": "Imagine un encuentro cercano en el espacio entre dos objetos, uno con una gran masa y otro con una masa pequeña. A medida que los objetos se acercan, las fuerzas gravitatorias que ejercen entre sí deben ser iguales de acuerdo con la Tercera Ley de Newton. ¿Qué objeto experimentaría una mayor aceleración (cambio en su dirección y velocidad)? Pista: piense en la Segunda Ley de Newton (fuerza = masa X aceleración).",
+      "options": {
+        "0": "El objeto más masivo tendría su dirección y velocidad más afectadas",
+        "1": "El objeto menos masivo tendría su dirección y velocidad más afectadas",
+        "2": "Ambos objetos experimentarían el mismo cambio de dirección y velocidad."
+      }
+    },
+    "350": {
+      "labelPre": "Además de la masa, la distancia entre los dos objetos es un factor para determinar la fuerza gravitatoria entre los objetos. Los objetos que están más separados tendrán una",
+      "labelPost": "fuerza gravitatoria entre ellos"
+    },
+    "351": {
+      "labelPre": "y es",
+      "labelPost": "probable que experimenten un cambio en sus órbitas."
+    },
+    "46": { "label": "¿Cuál es el nombre del objeto?" },
+    "47": { "label": "¿Qué tipo de objeto es este?" },
+    "48": {
+      "label": "Explique por qué eligió este tipo. ¿Qué datos/evidencias respaldan su elección?"
+    },
+    "55": {
+      "label": "¿Está de acuerdo o en desacuerdo con las características orbitales que se muestran en el dibujo anterior del equipo de estudiantes A? Explique su razonamiento."
+    },
+    "56": {
+      "label": "¿Está de acuerdo o en desacuerdo con las características orbitales que se muestran en el dibujo anterior del equipo de estudiantes B? Explique su razonamiento."
+    },
+    "57": {
+      "label": "¿Está de acuerdo o en desacuerdo con las características orbitales que se muestran en el dibujo anterior del equipo de estudiantes C? Explique su razonamiento."
+    },
+    "58": {
+      "labelPre": "Según los datos que ha determinado para este nuevo grupo de objetos,",
+      "labelPost": "de ellos orbitan el Sol en dirección opuesta a la órbita de la Tierra."
+    },
+    "59": {
+      "label": "Según el tamaño de su órbita, ¿entre qué planetas se encuentran estos nuevos objetos?"
+    },
+    "80": {
+      "label": "¿Qué característica(s) orbital(es) hace(n) que estos objetos sean diferentes de los otros cuatro grupos de objetos que estudió anteriormente? Explique."
+    },
+    "81": {
+      "label": "Está presentando los hallazgos de su equipo científico en una conferencia científica internacional y está compartiendo por primera vez el nombre que seleccionó para su grupo recién descubierto de objetos del Sistema Solar. ¿Qué nombre propone?"
+    },
+    "82": {
+      "label": "Proporcione una explicación que defienda por qué eligió este nombre."
+    },
+    "83": {
+      "label": "Su equipo está diseñando su estrategia de medios para generar la mayor conciencia sobre este descubrimiento. ¿Cómo comunicaría sus hallazgos?"
+    },
+    "73": {
+      "label": "El asteroide `Oumuamua y el cometa Borisov fueron descubiertos mientras pasaban por nuestro Sistema Solar, pero cada uno procedía de diferentes sistemas solares. Basándose en lo que ha aprendido sobre las interacciones gravitatorias, proporcione una explicación sobre cómo estos objetos pudieron abandonar sus sistemas solares."
+    },
+    "74": {
+      "label": "Los cometas a menudo se acercan mucho al Sol durante sus órbitas. Los cometas pueden permanecer helados incluso después de un paso cercano al Sol. Explique cómo puede suceder esto según lo que sabe sobre la velocidad cambiante del cometa durante su órbita y la cantidad de tiempo que permanece cerca del Sol."
     }
   },
   "widgets": {
     "solarsystem08": {
       "orbital_properties": {
         "0": {
-          "title": "Tamaños de órbita NEO",
+          "title": "Tamaños Orbitales de los NEO",
           "labels": {
             "y_axis": "Número de NEO"
           }
+        },
+        "1": {
+          "title": "Excentricidades de los NEO"
+        },
+        "2": {
+          "title": "Inclinaciones de los NEO"
         }
       }
+    },
+    "solarsystem09": {
+      "orbital_properties": {
+        "0": {
+          "title": "Tamaños orbitales de los MBA",
+          "labels": {
+            "y_axis": "Número de MBA"
+          }
+        },
+        "1": {
+          "title": "Excentricidades de los MBA"
+        },
+        "2": {
+          "title": "Inclinaciones de los MBA"
+        }
+      }
+    },
+    "solarsystem10": {
+      "orbital_properties": {
+        "0": {
+          "title": "Tamaños orbitales de los TNO",
+          "labels": {
+            "y_axis": "Número de TNO"
+          }
+        },
+        "1": {
+          "title": "Excentricidades de los TNO"
+        },
+        "2": {
+          "title": "Inclinaciones de los TNO"
+        }
+      }
+    },
+
+    "solarsystem11": {
+      "orbital_properties": {
+        "0": {
+          "title": "Tamaños orbitales del cometa",
+          "labels": {
+            "y_axis": "Número de cometas"
+          }
+        },
+        "1": {
+          "title": "Excentricidades del cometa"
+        },
+        "2": {
+          "title": "Inclinaciones del cometa"
+        }
+      }
+    },
+    "solarsystem13": {
+      "orbital_properties": {
+        "0": {
+          "labels": {
+            "x_axis": "Tamaños orbitales de los NEO (au)"
+          }
+        },
+        "1": {
+          "labels": {
+            "x_axis": "Tamaños orbitales de los MBA (au)"
+          }
+        },
+        "2": {
+          "labels": {
+            "x_axis": "Tamaños orbitales de los TNO (au)"
+          }
+        },
+        "3": {
+          "labels": {
+            "x_axis": "Tamaños orbitales del cometa (au)"
+          }
+        }
+      }
+    },
+    "solarsystem19": {
+      "orbital_properties": {
+        "labels": {
+          "y_axis": "Número de objetos",
+          "tooltip": "Objetos"
+        }
+      }
+    }
+  },
+  "tables": {
+    "2": {
+      "colTitles": {
+        "0": "Nombre",
+        "1": "Tipo",
+        "2": "Datos/Evidencia"
+      }
+    },
+    "newGroupProperties": {
+      "colTitles": {
+        "0": "Propiedad de nuevo grupo",
+        "1": "Rango",
+        "2": "Más común"
+      },
+      "label": "Su equipo descubre un nuevo grupo de cuerpos menores que no parecen pertenecer a ninguno de los cuatro grupos principales que ha investigado hasta ahora. Use los histogramas para completar la siguiente tabla."
     }
   }
 }

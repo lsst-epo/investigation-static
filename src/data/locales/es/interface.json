@@ -1,33 +1,119 @@
 {
+  "locations": {
+    "home": "Principal",
+    "table_of_contents": "Índice",
+    "checkpoint": "Punto de control"
+  },
   "actions": {
-    "review_your_answers": "Revisa tus respuestas",
+    "review_your_answers": "Revise sus respuestas",
     "clear_answers": "Borrar todas las respuestas guardadas",
-    "select": "Seleccionar"
+    "go_to_investigation": "Ir a investigación {{investigation}}",
+    "print_answers": "Imprima sus respuestas",
+    "close": "Cerrar",
+    "pause": "Pausar",
+    "play": "Reproducir",
+    "reset": "Reiniciar",
+    "play_or_pause": "Reproducir/Pausar",
+    "skip_backward": "Saltar hacia adelante",
+    "skip_forward": "Saltar hacia atrás",
+    "edit": "Editar",
+    "change_answer": "Cambiar respuesta",
+    "select": "Seleccionar",
+    "select_type": "Seleccionar un tipo"
+  },
+  "debug": {
+    "title": "¿Tiene problemas?",
+    "instructions": "Si su formulario tiene problemas que no pueden resolverse al borrar las respuestas guardadas <1>descargue este registro de depuración</1> y adjúntelo en un correo a nuestros desarrolladores a <3>education@lsst.org</3>."
+  },
+  "errors": {
+    "qas": {
+      "answer_not_provided": "Respuesta no proporcionada",
+      "answer_not_selected": "(nada seleccionado)"
+    },
+    "passphrase": {
+      "mismatch": "Contraseña incorrecta"
+    },
+    "loading": {
+      "video": "Error al cargar el video..."
+    }
+  },
+  "formfields": {
+    "passphrase": {
+      "placeholder": "Contraseña"
+    },
+    "name": {
+      "placeholder": "Nombre",
+      "label": "Por favor, escriba su nombre"
+    }
+  },
+  "notifications": {
+    "answer_all_qa": "Por favor, responda todas las preguntas antes de continuar a la página siguiente."
+  },
+  "table_of_contents": {
+    "section_break": "Fin de la sección {{sectionName}}",
+    "progress": {
+      "pages_visited": "Páginas visitadas",
+      "questions_answered": "Preguntas respondidas"
+    }
+  },
+  "header": {
+    "title": "{{investigation}}{{pageCount}}",
+    "page_count": ": Página {{current}} de {{total}}",
+    "toc_open": "Abrir índice",
+    "toc_close": "Cerrar índice"
+  },
+  "landing": {
+    "welcome": "Bienvenido a la investigación {{investigation}}",
+    "start": "Comenzar investigación {{investigation}}",
+    "already_started": "Parece que ya ha comenzado esta investigación anteriormente."
   },
   "educator_mode": {
     "title": "Modo Educador"
   },
-  "header": {
-    "page_count": ": Página {{current}} de {{total}}"
+  "qa_review": {
+    "welcome": "¡Buen trabajo! Revisemos sus respuestas para la Investigación {{investigation}}.",
+    "subtitle": "Investigación {{investigation}}: Preguntas & Respuestas",
+    "name": "Nombre: {{name}}",
+    "date": "Fecha: {{val, datetime}}"
   },
-  "landing": {
-    "welcome": "Bienvenida a la investigación {{investigation}}",
-    "start": "Comenzar la investigación {{investigation}}",
-    "already_started": "Parece que has comenzado esta investigación antes."
+  "section_break": {
+    "banner_alt": "Imagen animada de fuegos artificiales",
+    "title": "¡Felicidades!"
+  },
+  "qas": {
+    "question_placeholder": "Marcador de pregunta: {{questionType}} Tipo de pregunta no existe",
+    "question_placeholder_no-type": "Marcador de pregunta",
+    "answer_pre": "<p>Seleccionado</p>",
+    "text_input": {
+      "label": "Complete este enunciado rellenando los espacios en blanco{{labelPre}}, vacío, {{labelPost}}"
+    },
+    "options": {
+      "yes": "sí",
+      "no": "no",
+      "closer": "más cerca de",
+      "farther": "más lejos de",
+      "long": "largo",
+      "short": "corto",
+      "almost_none": "Casi ninguno",
+      "nearly_all": "Casi todos",
+      "roughly_half": "Aproximadamente la mitad",
+      "weaker": "más débil",
+      "stronger": "más fuerte",
+      "more": "más",
+      "less": "menos",
+      "most": "la mayoría",
+      "many": "muchos",
+      "few": "pocos",
+      "none_of_the_above": "Ninguna de las anteriores"
+    }
   },
   "language_toggle": {
     "legend": "Localizar el contenido del sitio",
+    "label": "Idioma",
     "espanol_site_name": "Español"
-  },
-  "locations": {
-    "table_of_contents": "Tabla de contenido"
-  },
-  "qas": {
-    "options": {
-      "yes": "sí"
-    }
   },
   "utilities": {
     "count_of_total": "{{count}} de {{total}}"
   }
 }
+
