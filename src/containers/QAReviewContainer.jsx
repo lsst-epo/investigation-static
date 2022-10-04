@@ -21,6 +21,7 @@ import {
   qaReviewCard,
   qaReviewPage,
 } from '../components/qas/styles.module.scss';
+import ExportAnswers from '../components/site/exportAnswers';
 
 @reactn
 class QAReviewContainer extends React.PureComponent {
@@ -274,6 +275,7 @@ class QAReviewContainer extends React.PureComponent {
                 <Button flat secondary swapTheming onClick={this.handlePrint}>
                   <Trans>interface::actions.print_answers</Trans>
                 </Button>
+                {pages && <ExportAnswers {...{ name, pages, answers }} />}
               </div>
             </div>
           </>
