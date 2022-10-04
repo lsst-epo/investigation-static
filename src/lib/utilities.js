@@ -398,3 +398,15 @@ export const isRequiredAnswered = function(reqQIds, answers) {
 
   return allAnswered.length === reqQIds.length;
 };
+
+export const downloadFile = (file, name, type = 'text/plain') => {
+  const blob = new Blob([file], { type });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.setAttribute('href', url);
+  a.setAttribute('download', name);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};

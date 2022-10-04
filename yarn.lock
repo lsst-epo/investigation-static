@@ -4330,6 +4330,11 @@ decompress-response@^3.3.0:
   dependencies:
     mimic-response "^1.0.0"
 
+deeks@2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/deeks/-/deeks-2.5.1.tgz#c4e18a00cac3f8ff95a306463db8f533c879f436"
+  integrity sha512-fqrBeUz7f1UqaXDRzVB5RG2EfPk15HJRrb2pMZj8mLlSTtz4tRPsK5leFOskoHFPuyZ6+7aRM9j657fvXLkJ7Q==
+
 deep-equal@^1.0.1, deep-equal@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.1.1.tgz#b5c98c942ceffaf7cb051e24e1434a25a2e6076a"
@@ -4575,6 +4580,11 @@ dns-txt@^2.0.2:
   integrity sha1-uR2Ab10nGI5Ks+fRB9iBocxGQrY=
   dependencies:
     buffer-indexof "^1.0.0"
+
+doc-path@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/doc-path/-/doc-path-3.0.2.tgz#a7df9d58eadce28a2ddd4eda5aa392628fd75b6d"
+  integrity sha512-VRlA2OKSjTbHWj6wmSanxJ338fE/YN8pqmZ0FIWK5JWkIJMFRc4KmD35JtOrnjvVG0WrzOtDDNHx1lN1tkb+lA==
 
 doctrine@1.5.0:
   version "1.5.0"
@@ -8343,6 +8353,14 @@ jsesc@~0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
+
+json-2-csv@^3.17.2:
+  version "3.17.2"
+  resolved "https://registry.yarnpkg.com/json-2-csv/-/json-2-csv-3.17.2.tgz#dc213a36c853cea68ee015c37c6f36bc09742a30"
+  integrity sha512-Cmds9bIMxhqdYX1dx9AGXE0vLetTj1if0w2rpa2Zykn3f1tiD2535nLgrvJG8BbkCq1++qQwCCzvPjeSl6BCJQ==
+  dependencies:
+    deeks "2.5.1"
+    doc-path "3.0.2"
 
 json-buffer@3.0.0:
   version "3.0.0"
