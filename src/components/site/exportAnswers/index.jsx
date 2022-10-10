@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { json2csv } from 'json-2-csv';
+import xlsx from 'json-as-xlsx';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { downloadFile } from '../../../lib/utilities';
 import Button from '../button';
 
 const ExportAnswers = ({ name, pages, answers }) => {
@@ -16,45 +15,53 @@ const ExportAnswers = ({ name, pages, answers }) => {
     return questionType === 'range' ? `${data[0]}-${data[1]}` : content;
   };
 
-  const parseCSV = () => {
-    const csvData = [{ Name: name, 'Question Number': ' ', Answer: ' ' }];
-    pages
-      .filter(page => page.questionsByPage)
-      .forEach(page => {
-        const { questionsByPage: questions } = page;
+  const getContentRow = questions => {
+    const content = {
+      name,
+      answers: {},
+    };
 
-        const rows = questions.map(question => {
-          const { question: q, number } = question;
-          const Answer = q.map(getAnswer).join(', ');
+    questions.forEach(parentQuestion => {
+      const { number, question } = parentQuestion;
+      content.answers[number] = question.map(getAnswer).join(', ');
+    });
 
-          return {
-            Name: ' ',
-            'Question Number': +number,
-            Answer,
-          };
-        });
-
-        csvData.push(...rows);
-      });
-
-    return csvData;
+    return [content];
   };
 
-  const downloadCSV = (err, csv) => {
-    if (err) throw err;
+  const getQuestionColumns = questions =>
+    questions.map(question => ({
+      label: `Question ${question.number}`,
+      value: `answers.${question.number}`,
+    }));
 
-    const filename = `${name} ${new Date().toLocaleDateString(undefined, {
-      dateStyle: 'short',
-    })}.csv`;
-    downloadFile(csv, filename, 'text/csv');
+  const buildXlsx = questions => {
+    const nameColumn = { label: 'Student', value: 'name' };
+
+    const worksheet = {
+      sheet: 'Answers',
+      columns: [nameColumn, ...getQuestionColumns(questions)],
+      content: getContentRow(questions),
+    };
+
+    return [worksheet];
   };
 
   const handleDownload = () => {
-    const data = parseCSV();
+    const questions = pages
+      .filter(page => page.questionsByPage)
+      .map(page => page.questionsByPage)
+      .flat();
 
-    json2csv(data, downloadCSV, {
-      emptyFieldValue: t('errors.qas.answer_not_provided'),
-    });
+    const data = buildXlsx(questions);
+
+    const settings = {
+      fileName: `${name} ${new Date().toLocaleDateString(undefined, {
+        dateStyle: 'short',
+      })}`,
+    };
+
+    xlsx(data, settings);
   };
 
   return (
