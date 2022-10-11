@@ -1,7 +1,7 @@
 {
-  "id": "expand10",
+  "id": "expand12",
   "investigation": "expanding-universe",
-  "order": "10",
+  "order": "12",
   "title": "Testing the Hubble-Lemaître Law from Another Place in the Universe",
   "slug": "testing-law/",
   "previous": {
@@ -9,8 +9,8 @@
     "link": "/interpreting-a-hubble-plot-5/"
   },
   "next": {
-    "title": "The Universe through Time",
-    "link": "/universe-through-time/"
+    "title": "Using evidence to support your ideas",
+    "link": "/using-evidence/"
   },
   "content": "<p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the <a href='http://rubineducation.org/glossary/hubble-lemaitre-law-formerly-hubbles-law' target='_blank'>Hubble-Lemaitre Law</a>. But does this law apply only from our perspective in the Milky Way, or from other places in the Universe as well?</p><p>We will begin by viewing the data for five galaxies observed from the Milky Way Galaxy.</p><p>Select a galaxy from the menu by clicking on one of the star icons (on the left side of the Hubble plot) to see what the Hubble plots would look like for astronomers in each of the five galaxies.</p><p>Rotate and zoom the tool on the right to help visualize the relative positions of galaxies in space. Note: <i>this does not imply that the Universe is rotating or expanding.</i></p>",
   "widgets": [

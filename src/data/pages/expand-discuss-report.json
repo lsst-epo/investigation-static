@@ -1,7 +1,7 @@
 {
-  "id": "expand15",
+  "id": "expand17",
   "investigation": "expanding-universe",
-  "order": "15",
+  "order": "17",
   "title": "Reflect and Discuss",
   "slug": "discuss-report/",
   "previous": {
@@ -13,7 +13,10 @@
   "widgets": [
     {
       "type": "HubblePlot",
-      "sources": ["/data/galaxies/large_hubble_sample.json", "/data/galaxies/galaxy_selector.json"],
+      "sources": [
+        "/data/galaxies/large_hubble_sample.json",
+        "/data/galaxies/galaxy_selector.json"
+      ],
       "layout": {
         "col": "right",
         "row": "bottom"

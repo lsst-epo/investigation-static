@@ -1,12 +1,12 @@
 {
-  "id": "expand11",
+  "id": "expand14",
   "investigation": "expanding-universe",
-  "order": "11",
+  "order": "14",
   "title": "The Universe through Time",
   "slug": "universe-through-time/",
   "previous": {
-    "title": "Testing the Hubble-Lemaitre Law",
-    "link": "/testing-law/"
+    "title": "Using evidence to support your ideas",
+    "link": "/using-evidence/"
   },
   "next": {
     "title": "The Changing Hubble Constant",

@@ -1,7 +1,7 @@
 {
-  "id": "expand6_5",
+  "id": "expand8",
   "investigation": "expanding-universe",
-  "order": "06.5",
+  "order": "08",
   "title": "Constructing a Hubble Plot",
   "slug": "interpreting-a-hubble-plot-2/",
   "previous": {
@@ -49,7 +49,10 @@
       "source": "/data/galaxies/galaxy_selector.json",
       "options": {
         "createUserHubblePlot": "252",
-        "domain": [[0, 700], [0, 50000]]
+        "domain": [
+          [0, 700],
+          [0, 50000]
+        ]
       }
     }
   ],
