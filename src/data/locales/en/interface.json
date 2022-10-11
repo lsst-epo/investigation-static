@@ -80,6 +80,7 @@
       "worksheet_title": "Answers",
       "columns": {
         "student": "Student",
+        "investigation": "Investigation",
         "question": "Question {{number}}"
       }
     }
