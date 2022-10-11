@@ -1,18 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import xlsx from 'json-as-xlsx';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
+import { getContent } from '../../../lib/answers';
 import Button from '../button';
 
 const ExportAnswers = ({ name, pages, answers }) => {
   const { t } = useTranslation();
 
-  const getAnswer = question => {
-    const { id, questionType } = question;
-    const answer = answers[id];
-    const { content, data } = answer || {};
+  const getTable = table => {
+    const { rows, rowTitles, colTitles } = table;
 
-    return questionType === 'range' ? `${data[0]}-${data[1]}` : content;
+    const flattenedTable = rows.reduce((currentRow, cells, rowIndex) => {
+      const flattenedRow = cells.reduce(
+        (flattenedCells, currentCell, cellIndex) => {
+          const { id } = currentCell;
+          const { data } = answers[id];
+
+          const cell = `${t(colTitles[cellIndex + 1])}: ${
+            Array.isArray(data) ? data.join('-') : data
+          } `;
+
+          return flattenedCells + cell;
+        },
+        `${t(rowTitles[rowIndex])} `
+      );
+
+      return currentRow + flattenedRow;
+    }, '');
+
+    return flattenedTable;
+  };
+
+  const getAnswer = question => {
+    const { id, answerAccessor, answerPre, answerPost } = question;
+    const { data } = answers[id];
+
+    let content = getContent(answerAccessor, data, true);
+
+    if (answerPre) {
+      content = t(answerPre) + content;
+    }
+
+    if (answerPost) {
+      content += t(answerPost);
+    }
+
+    if (typeof content === 'string') {
+      content = content.replace(/(<([^>]+)>)/gi, '');
+    }
+
+    return content;
   };
 
   const getContentRow = questions => {
@@ -22,8 +60,12 @@ const ExportAnswers = ({ name, pages, answers }) => {
     };
 
     questions.forEach(parentQuestion => {
-      const { number, question } = parentQuestion;
-      content.answers[number] = question.map(getAnswer).join(', ');
+      const { number, question, tables } = parentQuestion;
+      if (tables && tables.length > 0) {
+        content.answers[number] = getTable(tables[0]);
+      } else {
+        content.answers[number] = question.map(getAnswer).join(', ');
+      }
     });
 
     return [content];
@@ -31,15 +73,20 @@ const ExportAnswers = ({ name, pages, answers }) => {
 
   const getQuestionColumns = questions =>
     questions.map(question => ({
-      label: `Question ${question.number}`,
+      label: t('interface::qa_review.export.columns.question', {
+        number: question.number,
+      }),
       value: `answers.${question.number}`,
     }));
 
   const buildXlsx = questions => {
-    const nameColumn = { label: 'Student', value: 'name' };
+    const nameColumn = {
+      label: t('interface::qa_review.export.columns.student'),
+      value: 'name',
+    };
 
     const worksheet = {
-      sheet: 'Answers',
+      sheet: t('interface::qa_review.export.worksheet_title'),
       columns: [nameColumn, ...getQuestionColumns(questions)],
       content: getContentRow(questions),
     };
@@ -66,7 +113,7 @@ const ExportAnswers = ({ name, pages, answers }) => {
 
   return (
     <Button flat secondary swapTheming onClick={handleDownload}>
-      Download answers
+      <Trans>interface::actions.download_answers</Trans>
     </Button>
   );
 };

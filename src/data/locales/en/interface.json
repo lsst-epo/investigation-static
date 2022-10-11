@@ -9,6 +9,7 @@
     "clear_answers": "Clear all saved answers",
     "go_to_investigation": "Go to {{investigation}} investigation",
     "print_answers": "Print your answers",
+    "download_answers": "Download answers",
     "close": "Close",
     "pause": "Pause",
     "play": "Play",
@@ -74,7 +75,14 @@
     "welcome": "Great job! Let's review your answers for the {{investigation}} Investigation.",
     "subtitle": "{{investigation}} Investigation: Questions & Answers",
     "name": "Name: {{name}}",
-    "date": "Date: {{val, datetime}}"
+    "date": "Date: {{val, datetime}}",
+    "export": {
+      "worksheet_title": "Answers",
+      "columns": {
+        "student": "Student",
+        "question": "Question {{number}}"
+      }
+    }
   },
   "section_break": {
     "banner_alt": "Animated image of fireworks",
