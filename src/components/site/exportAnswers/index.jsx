@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useGlobal } from 'reactn';
 import PropTypes from 'prop-types';
 import xlsx from 'json-as-xlsx';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
@@ -6,6 +6,8 @@ import { getContent } from '../../../lib/answers';
 import Button from '../button';
 
 const ExportAnswers = ({ name, pages, answers }) => {
+  const [global] = useGlobal();
+  const { investigation } = global;
   const { t } = useTranslation();
 
   const getTable = table => {
@@ -34,7 +36,7 @@ const ExportAnswers = ({ name, pages, answers }) => {
 
   const getAnswer = question => {
     const { id, answerAccessor, answerPre, answerPost } = question;
-    const { data } = answers[id];
+    const { data } = answers[id] || {};
 
     let content = getContent(answerAccessor, data, true);
 
@@ -56,6 +58,7 @@ const ExportAnswers = ({ name, pages, answers }) => {
   const getContentRow = questions => {
     const content = {
       name,
+      investigation: t(`${investigation}::title`),
       answers: {},
     };
 
@@ -80,14 +83,20 @@ const ExportAnswers = ({ name, pages, answers }) => {
     }));
 
   const buildXlsx = questions => {
-    const nameColumn = {
-      label: t('interface::qa_review.export.columns.student'),
-      value: 'name',
-    };
+    const meta = [
+      {
+        label: t('interface::qa_review.export.columns.investigation'),
+        value: 'investigation',
+      },
+      {
+        label: t('interface::qa_review.export.columns.student'),
+        value: 'name',
+      },
+    ];
 
     const worksheet = {
       sheet: t('interface::qa_review.export.worksheet_title'),
-      columns: [nameColumn, ...getQuestionColumns(questions)],
+      columns: [...meta, ...getQuestionColumns(questions)],
       content: getContentRow(questions),
     };
 
