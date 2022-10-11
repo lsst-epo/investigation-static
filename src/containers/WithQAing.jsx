@@ -1,10 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'reactn';
 import PropTypes from 'prop-types';
-import includes from 'lodash/includes';
-import isObject from 'lodash/isObject';
 import filter from 'lodash/filter';
 import flattenDeep from 'lodash/flattenDeep';
+import { answerAccessorGets } from '../lib/answers';
 import { qById, getActiveQ } from '../components/qas/qasUtilities.js';
 
 export const WithQAing = ComposedComponent => {
@@ -13,9 +12,7 @@ export const WithQAing = ComposedComponent => {
       super(props);
 
       this.answerAccessorGets = {
-        text: this.getTextContent,
-        select: this.getSelectContent,
-        'multi-select': this.getMultiSelectContent,
+        ...answerAccessorGets,
         count: this.getCountContent,
         'light-curve-template': this.getTemplateContent,
         colorTool: this.getColorToolContent,
@@ -26,12 +23,9 @@ export const WithQAing = ComposedComponent => {
         volume: this.getVolumeContent,
         mass: this.getMassContent,
         galaxy: this.getGalaxyContent,
-        galaxySupernova: this.getGalaxySupernovaContent,
         coloringGalaxy: this.getColoringGalaxyContent,
         neo: this.getNeoContent,
         galaxies: this.getGalaxiesContent,
-        supernova: this.getSupernovaContent,
-        hubblePlot: this.getHubblePlotContent,
         observation: this.getObservationContent,
       };
     }
@@ -67,17 +61,8 @@ export const WithQAing = ComposedComponent => {
       this.setActiveQuestion(activeQ ? activeQ.id : null);
     };
 
-    // Methods related to updating answers
-    getSelectContent(data) {
-      return isObject(data) ? 'DEFAULT' : data;
-    }
-
     getCompoundInputContent(data) {
       return data;
-    }
-
-    getMultiSelectContent(data) {
-      return data.length ? data.join(', ') : 'None Select';
     }
 
     getTemplateContent(data) {
@@ -112,15 +97,6 @@ export const WithQAing = ComposedComponent => {
       return data.length;
     }
 
-    getTextContent(data) {
-      const content = data || '';
-      return isObject(content) ? '' : content;
-    }
-
-    getRangeContent(data, answerAccessor) {
-      return data[0] ? data[0][answerAccessor] : 'None Selected';
-    }
-
     getGalaxyContent(data) {
       const selectedObjects = flattenDeep(
         Object.keys(data).map(galaxyKey => {
@@ -144,15 +120,6 @@ export const WithQAing = ComposedComponent => {
       }`;
     }
 
-    getGalaxySupernovaContent(data) {
-      const galaxyText = data.velocity ? 'Galaxy' : '';
-      const supernovaText = data.distance ? 'Supernova' : '';
-      const foundText = data.velocity || data.distance ? ' found!' : '';
-      const andText = data.velocity && data.distance ? ' and ' : '';
-
-      return `${galaxyText}${andText}${supernovaText}${foundText}`;
-    }
-
     getColoringGalaxyContent(data) {
       const selectedObjects = flattenDeep(
         Object.keys(data).map(galaxyKey => {
@@ -167,40 +134,11 @@ export const WithQAing = ComposedComponent => {
       }`;
     }
 
-    getHubblePlotContent(data) {
-      const filteredData = filter(data, d => {
-        const { distance, velocity } = d;
-        return distance && velocity;
-      });
-
-      if (!filteredData) {
-        return 'No points plotted';
-      }
-
-      const numPts = filteredData.length;
-
-      return `${numPts} ${numPts > 1 ? 'points' : 'point'} plotted`;
-    }
-
     getGalaxiesContent(data) {
       const numGalaxies = Object.keys(data).length;
       return `${numGalaxies} ${
         numGalaxies > 1 ? 'galaxies' : 'galaxy'
       } selected`;
-    }
-
-    getSupernovaContent(data) {
-      const selectedObjects = flattenDeep(
-        Object.keys(data).map(galaxyKey => {
-          return data[galaxyKey].map(obj => {
-            const { id, name } = obj;
-
-            return { [id]: name };
-          });
-        })
-      );
-
-      return selectedObjects[0].supernova;
     }
 
     getColorToolContent(data) {
@@ -219,11 +157,7 @@ export const WithQAing = ComposedComponent => {
       const contentFunc = this.answerAccessorGets[answerAccessor];
 
       if (contentFunc) {
-        return contentFunc(data) || data;
-      }
-
-      if (includes(answerAccessor, 'range')) {
-        return this.getRangeContent(data, answerAccessor);
+        return contentFunc(data, answerAccessor) || data;
       }
 
       return data;
