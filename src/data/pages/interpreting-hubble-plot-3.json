@@ -1,7 +1,7 @@
 {
-  "id": "expand7",
+  "id": "expand9",
   "investigation": "expanding-universe",
-  "order": "07",
+  "order": "09",
   "title": "Interpreting a Hubble Plot",
   "slug": "interpreting-a-hubble-plot-3/",
   "previous": {
@@ -21,7 +21,10 @@
         "showUserPlot": "252",
         "preSelected": true,
         "qaReview": false,
-        "domain": [[0, 700], [0, 50000]]
+        "domain": [
+          [0, 700],
+          [0, 50000]
+        ]
       }
     }
   ],

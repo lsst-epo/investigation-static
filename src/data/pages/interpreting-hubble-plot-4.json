@@ -1,7 +1,7 @@
 {
-  "id": "expand8",
+  "id": "expand10",
   "investigation": "expanding-universe",
-  "order": "08",
+  "order": "10",
   "title": "Determining the Hubble Constant",
   "slug": "interpreting-a-hubble-plot-4/",
   "previous": {
@@ -20,7 +20,10 @@
       "options": {
         "showUserPlot": "252",
         "userTrendline": "7",
-        "domain": [[0, 700], [0, 50000]]
+        "domain": [
+          [0, 700],
+          [0, 50000]
+        ]
       }
     }
   ],

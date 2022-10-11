@@ -1,12 +1,12 @@
 {
-  "id": "expand4",
+  "id": "expand2",
   "investigation": "expanding-universe",
-  "order": "04",
-  "title": "Using Supernovae to Measure Distance",
+  "order": "02",
+  "title": "Using Supernovae to Measure Galaxy Distance",
   "slug": "acquiring-the-data/",
   "previous": {
-    "title": "Diverse Ideas Lead to New Solutions",
-    "link": "/introduction-1/"
+    "title": "Introduction",
+    "link": "/introduction/"
   },
   "next": {
     "title": "Identifying a Supernova",
