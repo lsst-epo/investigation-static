@@ -11,13 +11,13 @@ const ExportAnswers = ({ name, pages, answers }) => {
   const { t } = useTranslation();
 
   const getTable = table => {
-    const { rows, rowTitles, colTitles } = table;
+    const { rows, rowTitles, colTitles } = table || {};
 
     const flattenedTable = rows.reduce((currentRow, cells, rowIndex) => {
       const flattenedRow = cells.reduce(
         (flattenedCells, currentCell, cellIndex) => {
           const { id } = currentCell;
-          const { data } = answers[id];
+          const { data } = answers[id] || {};
 
           const cell = `${t(colTitles[cellIndex + 1])}: ${
             Array.isArray(data) ? data.join('-') : data
@@ -38,18 +38,18 @@ const ExportAnswers = ({ name, pages, answers }) => {
     const { id, answerAccessor, answerPre, answerPost } = question;
     const { data } = answers[id] || {};
 
-    let content = getContent(answerAccessor, data, true);
+    let content = getContent(answerAccessor, t(data), true);
 
     if (answerPre) {
-      content = t(answerPre) + content;
+      content = `${t(answerPre)} ${content}`;
     }
 
     if (answerPost) {
-      content += t(answerPost);
+      content += ` ${t(answerPost)}`;
     }
 
     if (typeof content === 'string') {
-      content = content.replace(/(<([^>]+)>)/gi, '');
+      content = content.replace(/(<([^>]+)>)/gi, '').replace(/\s{2,}/g, ' ');
     }
 
     return content;
@@ -63,7 +63,7 @@ const ExportAnswers = ({ name, pages, answers }) => {
     };
 
     questions.forEach(parentQuestion => {
-      const { number, question, tables } = parentQuestion;
+      const { number, question, tables } = parentQuestion || {};
       if (tables && tables.length > 0) {
         content.answers[number] = getTable(tables[0]);
       } else {
