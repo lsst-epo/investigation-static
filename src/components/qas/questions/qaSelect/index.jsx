@@ -82,9 +82,10 @@ class QASelect extends React.PureComponent {
     const { t } = this.props;
 
     return options.map(option => {
+      const { label, value } = option;
       return {
-        label: t(option.label),
-        value: t(option.value),
+        label: t(label),
+        value,
       };
     });
   };
@@ -178,8 +179,8 @@ class QASelect extends React.PureComponent {
                 })}
               >
                 {answered
-                  ? answer.content || answer.data
-                  : t('errors.qas.answer_not_selected')}
+                  ? t(answer.content) || t(answer.data)
+                  : t('interface::errors.qas.answer_not_selected')}
               </div>
             </div>
           )}
@@ -225,4 +226,4 @@ QASelect.propTypes = {
   t: PropTypes.func,
 };
 
-export default withTranslation('interface')(QASelect);
+export default withTranslation()(QASelect);
