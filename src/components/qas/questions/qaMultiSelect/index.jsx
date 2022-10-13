@@ -90,19 +90,22 @@ class QAMultiSelect extends React.PureComponent {
   };
 
   getMultiSelectOptions = options => {
+    const { t } = this.props;
     const { selectedOptions } = this.state;
     return options.map(option => {
+      const { label, value } = option;
+      const translatedLabel = t(label);
       return (
         <SelectionControl
-          key={`${option.label}_${option.value}`}
-          id={`qa-multi-select-${option.value}`}
+          key={`${translatedLabel}_${value}`}
+          id={`qa-multi-select-${value}`}
           checkedCheckboxIcon={<CheckBox />}
           uncheckedCheckboxIcon={<CheckBoxOutlineBlank />}
           name="selectedOptions[]"
-          label={option.label}
+          label={translatedLabel}
           type="checkbox"
-          defaultChecked={selectedOptions.indexOf(option.value) > -1}
-          value={option.value}
+          defaultChecked={selectedOptions.indexOf(value) > -1}
+          value={value}
           onClick={this.handleStoredOptions}
         />
       );
@@ -167,8 +170,8 @@ class QAMultiSelect extends React.PureComponent {
           {qaReview && (
             <span className={qaStyles.qaReviewBlock}>
               <span className={qaStyles.answerContentSelect}>
-                {selectedOptions.join(', ') ||
-                  t('errors.qas.answer_not_selected')}
+                {selectedOptions.map(t).join(', ') ||
+                  t('interface::errors.qas.answer_not_selected')}
               </span>
             </span>
           )}
@@ -229,4 +232,4 @@ QAMultiSelect.propTypes = {
   t: PropTypes.func,
 };
 
-export default withTranslation('interface')(QAMultiSelect);
+export default withTranslation()(QAMultiSelect);
