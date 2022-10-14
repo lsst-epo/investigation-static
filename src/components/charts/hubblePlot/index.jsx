@@ -24,6 +24,7 @@ import AxisGrid from './AxisGrid.jsx';
 import XAxis from './XAxis.jsx';
 import YAxis from './YAxis.jsx';
 import Tooltip from '../shared/Tooltip.jsx';
+import SliderVertical from '../../site/sliderVertical/index.jsx';
 import {
   hubblePlot,
   hubblePlotContainer,
@@ -31,6 +32,7 @@ import {
   cursorPoint,
   invisible,
   message,
+  hubblePlotZoom,
 } from './hubble-plot.module.scss';
 
 class HubblePlot extends React.Component {
@@ -45,6 +47,7 @@ class HubblePlot extends React.Component {
       padding,
       offsetTop,
       offsetRight,
+      minZoom,
     } = props;
     const { domain } = options || {};
 
@@ -71,12 +74,14 @@ class HubblePlot extends React.Component {
         padding,
         offsetTop
       ),
+      currentScale: minZoom,
       hubbleConstant: null,
       activeDataIndex: null,
     };
 
     this.svgEl = React.createRef();
     this.svgContainer = React.createRef();
+    this.globalZoom = React.createRef();
   }
 
   componentDidMount() {
@@ -131,6 +136,7 @@ class HubblePlot extends React.Component {
       yScale: transformEvent.rescaleY(
         this.getYScale(domain ? domain[1] : yDomain, height, padding, offsetTop)
       ),
+      currentScale: transformEvent.k,
     }));
   }
 
@@ -411,6 +417,8 @@ class HubblePlot extends React.Component {
       offsetTop,
       offsetRight,
       options,
+      minZoom,
+      maxZoom,
     } = this.props;
     const { preSelected, createUserHubblePlot, userTrendline, qaReview } =
       options || {};
@@ -444,19 +452,19 @@ class HubblePlot extends React.Component {
         }
       });
 
-      const zoom = d3Zoom()
+      this.globalZoom = d3Zoom()
         .translateExtent([
           [padding, offsetTop],
           [width - offsetRight, height - padding],
         ])
-        .scaleExtent([1, 5])
+        .scaleExtent([minZoom, maxZoom])
         .extent([
           [padding, offsetTop],
           [width - offsetRight, height - padding],
         ])
         .on('zoom', this.onZoom);
 
-      $hubblePlot.call(zoom).on('mousedown.zoom', null);
+      $hubblePlot.call(this.globalZoom).on('mousedown.zoom', null);
 
       $hubblePlot.on('mousemove', () => {
         if (this.showGhost()) {
@@ -545,6 +553,13 @@ class HubblePlot extends React.Component {
     this.addEventListeners();
   }
 
+  onSliderChange = event => {
+    if (event) {
+      const $hubblePlot = d3Select(this.svgEl.current);
+      $hubblePlot.call(this.globalZoom.scaleTo, event.target.value);
+    }
+  };
+
   showGhost() {
     const { xValueAccessor, yValueAccessor, activeGalaxy, data } = this.props;
     const activePlotted = find(data, { name: activeGalaxy.name }) || {};
@@ -578,6 +593,8 @@ class HubblePlot extends React.Component {
       trendlineInteractable,
       color,
       isVisible,
+      minZoom,
+      maxZoom,
     } = this.props;
 
     const {
@@ -592,6 +609,7 @@ class HubblePlot extends React.Component {
       mousePosX,
       mousePosY,
       draggedPoint,
+      currentScale,
     } = this.state;
 
     const { userTrendline, multiple } = options || {};
@@ -610,6 +628,14 @@ class HubblePlot extends React.Component {
         className={`svg-container ${hubblePlotContainer}`}
         data-testid="hubble-plot"
       >
+        <SliderVertical
+          className={hubblePlotZoom}
+          min={minZoom}
+          max={maxZoom}
+          step={(maxZoom - minZoom) / 100}
+          value={currentScale}
+          changeCallback={this.onSliderChange}
+        />
         {loading && (
           <CircularProgress
             id={`${name}-loader`}
@@ -757,6 +783,8 @@ HubblePlot.defaultProps = {
   offsetRight: 0,
   xDomain: [0, 300],
   yDomain: [0, 18000],
+  minZoom: 1,
+  maxZoom: 5,
   xValueAccessor: 'distance',
   yValueAccessor: 'velocity',
   xAxisLabel: 'Distance (Mpc)',
@@ -784,6 +812,8 @@ HubblePlot.propTypes = {
   yAxisLabel: PropTypes.string,
   xDomain: PropTypes.array,
   yDomain: PropTypes.array,
+  minZoom: PropTypes.number,
+  maxZoom: PropTypes.number,
   preSelected: PropTypes.bool,
   hubbleConstant: PropTypes.number,
   name: PropTypes.string,

@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { formatValue } from '../../../lib/utilities.js';
+import SliderVertical from '../../site/sliderVertical/index.jsx';
 import {
   playbackSpeedTitle,
   playbackSpeedSliderHeader,
@@ -112,14 +113,13 @@ function PlaybackSpeed({
       <div className={playbackSpeedSliderLabelBottom}>
         {t('orbit_viewer.playback.normal_time')}
       </div>
-      <input
+      <SliderVertical
         className={playbackSpeedSlider}
-        type="range"
         min={speeds.min}
         max={speeds.max}
         step={speeds.step}
         value={dayPerVizSec}
-        onChange={sliderOnChangeCallback}
+        changeCallback={sliderOnChangeCallback}
       />
       <div className={elapsedTimeContainer}>
         <div className={elapsedTimeTitle}>
