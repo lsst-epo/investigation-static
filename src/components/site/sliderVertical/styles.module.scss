@@ -1,0 +1,35 @@
+$offset: 300px;
+
+.vertical-slider {
+  z-index: 2;
+  height: $minPadding;
+  cursor: pointer;
+  background: transparentize($white, 0.2);
+  border: 2px solid $black;
+  border-radius: 10px;
+  outline: none;
+  transform: rotate(-90deg);
+  appearance: none;
+
+  &:focus {
+    cursor: pointer;
+  }
+}
+
+.vertical-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: $minPadding + 8px;
+  height: $minPadding + 8px;
+  background: $basePrimary;
+  border: 1px solid $black;
+  border-radius: 50%;
+}
+
+.vertical-slider::-moz-range-thumb {
+  appearance: none;
+  width: $minPadding + 8px;
+  height: $minPadding + 8px;
+  background: $basePrimary;
+  border: 1px solid $black;
+  border-radius: 50%;
+}

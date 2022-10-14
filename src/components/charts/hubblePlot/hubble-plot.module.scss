@@ -164,3 +164,12 @@ nav {
     }
   }
 }
+
+.hubble-plot-zoom {
+  $width: 40%;
+  position: absolute;
+  right: $minPadding;
+  bottom: $width * 1.33;
+  width: $width;
+  transform-origin: right;
+}
