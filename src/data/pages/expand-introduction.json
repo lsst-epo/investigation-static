@@ -1,6 +1,7 @@
 {
   "id": "expand1",
   "investigation": "expanding-universe",
+  "sectionOrder": 0,
   "order": "01",
   "title": "Introduction",
   "slug": "introduction/",

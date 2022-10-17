@@ -1,7 +1,7 @@
 {
-  "id": "expand11",
+  "id": "expand12",
   "investigation": "expanding-universe",
-  "order": "11",
+  "order": "12",
   "title": "Interpreting the Hubble Constant",
   "slug": "interpreting-a-hubble-plot-5/",
   "previous": {
@@ -26,14 +26,6 @@
           [0, 50000]
         ],
         "qaReview": false
-      }
-    }
-  ],
-  "checkpoints": [
-    {
-      "layout": {
-        "col": "left",
-        "row": "bottom"
       }
     }
   ],

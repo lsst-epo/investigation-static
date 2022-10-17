@@ -1,7 +1,8 @@
 {
-  "id": "expand6",
+  "id": "expand7",
   "investigation": "expanding-universe",
-  "order": "06",
+  "sectionOrder": 0,
+  "order": "07",
   "title": "Gathering the Data for a Hubble Plot - Galaxy 3",
   "slug": "interpreting-a-hubble-plot-1_3/",
   "previous": {
@@ -22,7 +23,7 @@
         "row": "bottom"
       },
       "rowTitles": [["Galaxy #1"], ["Galaxy #2"], ["Galaxy #3"], ["Galaxy #4"]],
-      "colTitles": ["", "Galaxy Velocity", "Supernova Distance"],
+      "colTitles": ["", "Velocity", "Distance"],
       "rows": [
         [
           { "accessor": "velocity", "id": "350" },
