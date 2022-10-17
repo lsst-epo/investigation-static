@@ -5,7 +5,8 @@
   },
   {
     "title": "Expanding Universe",
-    "id": "expanding-universe"
+    "id": "expanding-universe",
+    "sections": [{ "sectionName": "1" }]
   },
   {
     "title": "Exploring the Observable Universe",

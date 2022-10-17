@@ -1,7 +1,8 @@
 {
-  "id": "expand9",
+  "id": "expand10",
   "investigation": "expanding-universe",
-  "order": "09",
+  "sectionOrder": 0,
+  "order": "10",
   "title": "Interpreting a Hubble Plot",
   "slug": "interpreting-a-hubble-plot-3/",
   "previous": {
@@ -13,7 +14,22 @@
     "link": "/interpreting-a-hubble-plot-4/"
   },
   "layout": "TwoCol",
-  "content": "<p>Use your Hubble plot to answer the questions.</p>",
+  "contents": [
+    {
+      "content": "<p>Use your Hubble plot to answer the questions.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    },
+    {
+      "content": "<p>It's important to note that when we observe galaxies that appear to be moving away from us, we are not observing the actual movement of galaxies through space. A useful way to think about why galaxies appear to move away from each other is to think of galaxies fixed to a certain point in space, and that space is expanding. This causes galaxies to become farther apart from one another.</p><p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law.</p>",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "HubblePlot",
@@ -32,9 +48,48 @@
     {
       "question": [
         {
+          "id": "1",
+          "questionType": "text",
+          "label": "We are observing these galaxies from Earth’s location within the Milky Way Galaxy. Where would you put a dot on this plot to indicate the location of the Milky Way Galaxy?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
           "id": "2",
           "questionType": "text",
-          "label": "Based on your data, how many of the galaxies are moving away from Earth?",
+          "label": "Based on your data, how many of the galaxies appear to be moving away from the Milky Way Galaxy?",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "3",
+          "questionType": "select",
+          "labelPre": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
+          "labelPost": "  than nearby galaxies.",
+          "srLabel": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
+          "answerAccessor": "select",
+          "placeholder": "Select a speed",
+          "options": [
+            { "label": "slower", "value": "slower" },
+            { "label": "faster", "value": "faster" }
+          ],
+          "answerPre": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
+          "answerPost": " than nearby galaxies."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "4",
+          "questionType": "text",
+          "label": "Does this mean that nearby galaxies are going to catch up to farther away galaxies? Explain using the data on your plot.",
           "answerAccessor": "text"
         }
       ]
@@ -43,37 +98,37 @@
       "question": [
         {
           "id": "5",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["5", "6"],
-          "labelPre": "Far away galaxies are moving away from Earth ",
-          "labelPost": "  than nearby galaxies.",
-          "srLabel": "Far away galaxies are moving away from Earth ",
-          "answerAccessor": "select",
-          "placeholder": "Select a speed",
-          "options": [
-            { "label": "slower", "value": "slower" },
-            { "label": "faster", "value": "faster" }
-          ],
-          "answerPre": "Far away galaxies are moving away from Earth  ",
-          "answerPost": " than nearby galaxies."
-        },
+          "questionType": "text",
+          "label": "Does this mean that the distance between galaxies is staying the same, getting larger, or getting smaller with time? Explain.",
+          "answerAccessor": "text"
+        }
+      ]
+    },
+    {
+      "question": [
         {
           "id": "6",
-          "questionType": "compoundSelect",
-          "compoundQuestion": ["5", "6"],
+          "questionType": "select",
           "labelPre": "This means that the Universe is ",
-          "labelPost": " .",
-          "srLabel": "...",
+          "labelPost": ".",
           "answerAccessor": "select",
           "placeholder": "Select a size",
           "options": [
-            { "label": "expanding (getting larger)", "value": "greater" },
-            { "label": "contracting (getting smaller)", "value": "smaller" }
+            { "label": "expanding (getting larger)", "value": "expanding" },
+            { "label": "contracting (getting smaller)", "value": "contracting" }
           ],
-          "answerPre": " ",
+          "answerPre": "This means that the Universe is ",
           "answerPost": "."
         }
       ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
     }
   ]
 }

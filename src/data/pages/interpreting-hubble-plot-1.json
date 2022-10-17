@@ -1,19 +1,20 @@
 {
-  "id": "expand4",
+  "id": "expand5",
   "investigation": "expanding-universe",
-  "order": "04",
+  "sectionOrder": 0,
+  "order": "05",
   "title": "Gathering the Data for a Hubble Plot - Galaxy 1",
   "slug": "interpreting-a-hubble-plot-1/",
   "previous": {
-    "title": "Identifying a Supernova",
-    "link": "/acquiring-the-data-1/"
+    "title": "Using Redshifts to Determine Galaxy Recessional Velocities",
+    "link": "/using-redshifts/"
   },
   "next": {
     "title": "Gathering the Data for a Hubble Plot - Galaxy 2",
     "link": "/interpreting-a-hubble-plot-1_2/"
   },
   "layout": "TwoCol",
-  "content": "<p>You will begin by investigating four images of galaxies that contain supernovae,  discovered by Rubin Observatory. While the supernova can be used to find the distance to the galaxy, the brightness of the galaxy image (measured over a range of wavelengths) can be used to determine the galaxy’s redshift, which can be then used to calculate the recessional velocity of the galaxy.</p><p>The distances to the Type Ia supernovae and recessional velocities of the galaxies have already been determined. Your job is to find the supernovae and galaxy in each image. Later in this investigation you will use the data for your four galaxies to create a Hubble plot.</p><p>The distances to supernovae are measured in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because each supernova is in a galaxy, the distances to the supernova and the galaxy are the same. The recessional velocities of the galaxies are measured in kilometers per second (km/s).</p>",
+  "content": "<p>You will begin by investigating four images of galaxies that contain supernovae. Your job is to identify the location of the galaxy and its companion supernova in each image.</p> <p>The distances to the Type Ia supernovae and their host galaxies, have already been determined. Supernova distances are measured in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because each supernova is in a galaxy, the distances to the supernova and the galaxy are the same. Clicking on the supernova will add the corresponding distance to the table.</p> <p>The recessional velocities of these galaxies have been determined by using photometric redshift. Galaxy recessional velocities are measured in kilometers per second (km/s). Clicking on the galaxy will add the corresponding distance to the table. </p><p>Later in this investigation you will use the data for your four galaxies to create a Hubble plot.</p> ",
   "tables": [
     {
       "id": "1",
@@ -22,7 +23,7 @@
         "row": "bottom"
       },
       "rowTitles": [["Galaxy #1"], ["Galaxy #2"], ["Galaxy #3"], ["Galaxy #4"]],
-      "colTitles": ["", "Galaxy Velocity", "Supernova Distance"],
+      "colTitles": ["", "Velocity", "Distance"],
       "rows": [
         [
           { "accessor": "velocity", "id": "350" },
@@ -63,7 +64,7 @@
           "id": "350",
           "questionType": "accordion",
           "title": "Question #1",
-          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it.  Your data for the supernova and the galaxy will appear in the chart. Repeat this process for each galaxy in the following pages.</p>",
+          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Your data for galaxy distance and velocity will automatically appear in the chart table. Repeat this process for each galaxy in the following pages.</p>",
           "answerAccessor": "galaxySupernova"
         }
       ]

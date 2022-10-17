@@ -1,7 +1,8 @@
 {
-  "id": "expand8",
+  "id": "expand9",
   "investigation": "expanding-universe",
-  "order": "08",
+  "sectionOrder": 0,
+  "order": "09",
   "title": "Constructing a Hubble Plot",
   "slug": "interpreting-a-hubble-plot-2/",
   "previous": {
@@ -21,7 +22,7 @@
         "row": "bottom"
       },
       "rowTitles": [["Galaxy #1"], ["Galaxy #2"], ["Galaxy #3"], ["Galaxy #4"]],
-      "colTitles": ["", "Galaxy Velocity", "Supernova Distance"],
+      "colTitles": ["", "Velocity", "Distance"],
       "rows": [
         [
           { "accessor": "velocity", "id": "350" },
@@ -64,7 +65,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Click on the plot to add a dot at a location that is close to your measured values for each galaxy. You can adjust the location of a dot by clicking and dragging it to the desired location. You can also zoom on the plot for more accurate point placement. To do so, first place the cursor where you want to reposition or place the point, then zoom.</p>",
+          "label": "<p>For each galaxy, click on the plot to add a point with values close to the galaxy’s distance and velocity. You can move a point by clicking and dragging it on the plot. You can also zoom on the plot for more accurate point placement. To do so, first place the cursor where you want to reposition or place the point, then zoom.</p>",
           "answerPre": "",
           "answerAccessor": "hubblePlot"
         }
