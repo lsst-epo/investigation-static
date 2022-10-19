@@ -6,13 +6,6 @@ import Point from './Point.jsx';
 import { notActive, invisible } from './hubble-plot.module.scss';
 
 class Points extends React.PureComponent {
-  classify(name) {
-    name
-      .toLowerCase()
-      .split(' ')
-      .join('-');
-  }
-
   render() {
     const {
       data,

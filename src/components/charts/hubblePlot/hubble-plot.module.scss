@@ -173,3 +173,54 @@ nav {
   width: $width;
   transform-origin: right;
 }
+
+.nudge-container {
+  $base: 20px;
+  position: absolute;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  width: $base * 3;
+  height: $base * 3;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+
+  .nudge {
+    width: $base;
+    height: $base;
+    padding: 0;
+    margin: 0;
+    pointer-events: auto;
+
+    + .nudge {
+      margin: 0;
+    }
+  }
+
+  .nudge-up,
+  .nudge-down {
+    grid-column: 2;
+    transform: rotate(90deg);
+  }
+
+  .nudge-right,
+  .nudge-left {
+    grid-row: 2;
+  }
+
+  .nudge-right {
+    grid-column: 3;
+  }
+
+  .nudge-left {
+    grid-column: 1;
+  }
+
+  .nudge-up {
+    grid-row: 1;
+  }
+
+  .nudge-down {
+    grid-row: 3;
+  }
+}
