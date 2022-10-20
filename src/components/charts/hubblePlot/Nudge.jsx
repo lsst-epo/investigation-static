@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Button from '../../site/button';
@@ -84,24 +84,24 @@ const Nudge = ({
     setPressing(false);
   };
 
-  const onKeyDown = event => {
+  const onKeyDown = useCallback(event => {
     const { key } = event;
 
     if (datum && key.includes('Arrow')) {
       arrowDownCallback(key);
     }
-  };
+  });
 
   const setEventHandlers = () => {
     const { current: element } = arrowsRef;
-    element.addEventListener('keydown', onKeyDown);
-    element.addEventListener('keyup', arrowUpCallback);
+    element.addEventListener('keydown', onKeyDown, { passive: false });
+    element.addEventListener('keyup', arrowUpCallback, { passive: true });
   };
 
   const removeEventHandlers = () => {
     const { current: element } = arrowsRef;
-    element.removeEventListener('keydown', onKeyDown);
-    element.removeEventListener('keyup', arrowUpCallback);
+    element.removeEventListener('keydown', onKeyDown, { passive: false });
+    element.removeEventListener('keyup', arrowUpCallback, { passive: true });
   };
 
   return (
