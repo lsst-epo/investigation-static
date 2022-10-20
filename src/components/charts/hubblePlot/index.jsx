@@ -193,7 +193,7 @@ class HubblePlot extends React.Component {
 
     const newState = {
       tooltipPosX: pointPos[0],
-      tooltipPosY: pointPos[1],
+      tooltipPosY: pointPos[1] - 10,
       showTooltip: true,
       showNudge: true,
       selectedData: arrayify(d),
@@ -299,9 +299,9 @@ class HubblePlot extends React.Component {
       prevState => ({
         ...prevState,
         tooltipPosX: startX,
-        tooltipPosY: startY,
-        showTooltip: true,
-        showNudge: true,
+        tooltipPosY: startY - 10,
+        showTooltip: false,
+        showNudge: false,
         hoveredData: null,
         selectedData: isActivePoint ? null : arrayify(d),
       }),
@@ -355,7 +355,7 @@ class HubblePlot extends React.Component {
           mousePosY: null,
           selectedData: arrayify(updatedDatum),
           tooltipPosX: endX,
-          tooltipPosY: endY,
+          tooltipPosY: endY - 10,
           showTooltip: true,
           showNudge: true,
         }),
@@ -388,20 +388,20 @@ class HubblePlot extends React.Component {
       ...prevState,
       hoveredData: arrayify(d),
       tooltipPosX: pointPos[0],
-      tooltipPosY: pointPos[1],
+      tooltipPosY: pointPos[1] - 10,
       showTooltip: true,
     }));
   };
 
   // mouseout/blur handler for point
   onMouseOut = () => {
-    const { selectedData } = this.state;
+    const { selectedData, draggedPoint } = this.state;
     // remove hover style on point but don't hide tooltip
     this.setState(prevState => ({
       ...prevState,
       hoveredData: null,
       showTooltip: !!selectedData,
-      showNudge: !!selectedData,
+      showNudge: !!selectedData && !draggedPoint,
     }));
   };
 
@@ -539,8 +539,13 @@ class HubblePlot extends React.Component {
     } else if (!preSelected && createUserHubblePlot) {
       $hubblePlot.on('click', () => {
         const pointData = d3Select(d3Event.target).datum();
+        const isHtmlClick = d3Event.path.some(
+          element =>
+            element.nodeName &&
+            element.nodeName.toLowerCase().includes('foreign')
+        );
 
-        if (!pointData && createUserHubblePlot) {
+        if (!pointData && !isHtmlClick && createUserHubblePlot) {
           this.toggleUserPoint();
         }
       });
@@ -555,7 +560,7 @@ class HubblePlot extends React.Component {
           [padding, offsetTop],
           [width - offsetRight, height - padding],
         ])
-        .on('zoom', this.onZoom);
+        .on('zoom', this.onZoom, { passive: false });
 
       $hubblePlot.call(this.globalZoom).on('mousedown.zoom', null);
 
@@ -607,7 +612,13 @@ class HubblePlot extends React.Component {
   }
 
   updatePoints() {
-    const { data, preSelected, options } = this.props;
+    const {
+      data,
+      preSelected,
+      options,
+      xValueAccessor,
+      yValueAccessor,
+    } = this.props;
     const { loading } = this.state;
     const { multiple } = options || {};
 
@@ -632,6 +643,14 @@ class HubblePlot extends React.Component {
         loading: false,
       }));
     } else {
+      const isDataCleared = !data.some(
+        d => d[xValueAccessor] || d[yValueAccessor]
+      );
+
+      if (isDataCleared) {
+        this.clearSelection();
+      }
+
       $hubblePlot.selectAll('.data-point').data(data);
 
       this.setState(prevState => ({
@@ -644,7 +663,6 @@ class HubblePlot extends React.Component {
   // bind data to elements and add styles and attributes
   updateHubblePlot() {
     this.updatePoints();
-
     this.addEventListeners();
   }
 
@@ -717,8 +735,6 @@ class HubblePlot extends React.Component {
     });
 
     const calcHeight = height - padding;
-    const { offsetWidth } = this.svgContainer.current || {};
-    const chartScale = (offsetWidth || 0) / width;
 
     return (
       <div
@@ -749,20 +765,6 @@ class HubblePlot extends React.Component {
           show={showTooltip}
           accessors={tooltipAccessors}
           labels={tooltipLabels}
-        />
-        <Nudge
-          show={showNudge}
-          mouseDownCallback={this.nudgeSelection}
-          mouseUpCallback={this.resetNudge}
-          data={selectedData || hoveredData}
-          {...{
-            xScale,
-            yScale,
-            xValueAccessor,
-            yValueAccessor,
-            chartScale,
-            offsetTop,
-          }}
         />
         {!isVisible && (
           <div className={message}>
@@ -815,6 +817,19 @@ class HubblePlot extends React.Component {
             {...{
               height,
               padding,
+              offsetTop,
+            }}
+          />
+          <Nudge
+            show={showNudge}
+            arrowDownCallback={this.nudgeSelection}
+            arrowUpCallback={this.resetNudge}
+            data={selectedData || hoveredData}
+            {...{
+              xScale,
+              yScale,
+              xValueAccessor,
+              yValueAccessor,
               offsetTop,
             }}
           />
