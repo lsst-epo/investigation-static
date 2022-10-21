@@ -1,7 +1,8 @@
 {
-  "id": "expand18",
+  "id": "expand19",
   "investigation": "expanding-universe",
-  "order": "18",
+  "sectionOrder": 1,
+  "order": "19",
   "title": "Reflect and Discuss",
   "slug": "discuss-report/",
   "previous": {

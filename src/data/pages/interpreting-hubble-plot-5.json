@@ -1,19 +1,20 @@
 {
-  "id": "expand12",
+  "id": "expand13",
   "investigation": "expanding-universe",
-  "order": "12",
-  "title": "Interpreting the Hubble Constant",
+  "sectionOrder": 1,
+  "order": "13",
+  "title": "Interpreting the Rate of Expansion",
   "slug": "interpreting-a-hubble-plot-5/",
   "previous": {
     "title": "Determining the Hubble Constant",
     "link": "/interpreting-a-hubble-plot-4/"
   },
   "next": {
-    "title": "Testing the Hubble-Lemaitre Law",
+    "title": "Testing the Expansion of the Universe from Other Galaxies",
     "link": "/testing-law/"
   },
   "layout": "TwoCol",
-  "content": "<p>The steepness of the slope  of a Hubble plot corresponds with the rate of expansion of the Universe. A steeper slope indicates a faster rate of expansion.</p>",
+  "content": "<p>The steepness of the slope  of a Hubble plot corresponds with the rate of expansion of the Universe. A steeper slope indicates a faster rate of expansion. Therefore, a larger value for the Hubble Constant will correspond with a faster expansion rate for the Universe.</p>",
   "widgets": [
     {
       "type": "HubblePlot",
@@ -35,7 +36,7 @@
         {
           "id": "8",
           "questionType": "text",
-          "label": "If scientists make observations that establish the Hubble Constant to be 90 (km/s)/Mpc, would that indicate the Universe is expanding faster or slower than your data suggest?",
+          "label": "If scientists make observations that establish the Hubble Constant to be 57 (km/s)/Mpc, would that indicate the Universe is expanding faster or slower than your data suggest?",
           "answerAccessor": "text"
         }
       ]

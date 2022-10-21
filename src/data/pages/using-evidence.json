@@ -1,11 +1,12 @@
 {
-  "id": "expand14",
+  "id": "expand15",
   "investigation": "expanding-universe",
-  "order": "14",
+  "sectionOrder": 1,
+  "order": "15",
   "title": "Using evidence to support your ideas",
   "slug": "using-evidence/",
   "previous": {
-    "title": "Testing the Hubble-Lemaître Law from Another Place in the Universe",
+    "title": "Testing the Expansion of the Universe from Other Galaxies",
     "link": "/testing-law/"
   },
   "next": {
