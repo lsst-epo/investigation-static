@@ -1,7 +1,8 @@
 {
-  "id": "expand16",
+  "id": "expand17",
   "investigation": "expanding-universe",
-  "order": "16",
+  "sectionOrder": 1,
+  "order": "17",
   "title": "The Changing Hubble Constant",
   "slug": "lsst-hubble-plot/",
   "previous": {

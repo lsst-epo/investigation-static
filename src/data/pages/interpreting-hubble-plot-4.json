@@ -1,19 +1,20 @@
 {
-  "id": "expand11",
+  "id": "expand12",
   "investigation": "expanding-universe",
-  "order": "11",
-  "title": "Determining the Hubble Constant",
+  "sectionOrder": 1,
+  "order": "12",
+  "title": "Determining the Rate of Expansion",
   "slug": "interpreting-a-hubble-plot-4/",
   "previous": {
-    "title": "Interpreting a Hubble Plot",
-    "link": "/interpreting-a-hubble-plot-3/"
+    "title": "Progress Update",
+    "link": "/section-1/"
   },
   "next": {
-    "title": "Interpreting the Hubble Constant",
+    "title": "Interpreting the Rate of Expansion",
     "link": "/interpreting-a-hubble-plot-5/"
   },
   "layout": "TwoCol",
-  "content": "<p>Click and drag on the graph to add a trendline to your Hubble plot.  Place your trendline where you feel it best fits your data. The slope of this trendline is known as the Hubble Constant.</p>",
+  "content": "<p>Click and drag on the plot to add a trendline that best fits your data. The slope of this trendline is known as the Hubble Constant, which indicates the rate of expansion for the Universe.</p>",
   "widgets": [
     {
       "type": "HubblePlot",

@@ -1,7 +1,8 @@
 {
-  "id": "expand15",
+  "id": "expand16",
   "investigation": "expanding-universe",
-  "order": "15",
+  "sectionOrder": 1,
+  "order": "16",
   "title": "The Universe through Time",
   "slug": "universe-through-time/",
   "previous": {

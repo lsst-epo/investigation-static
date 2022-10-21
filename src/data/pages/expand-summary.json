@@ -1,7 +1,8 @@
 {
-  "id": "expand17",
+  "id": "expand18",
   "investigation": "expanding-universe",
-  "order": "17",
+  "sectionOrder": 1,
+  "order": "18",
   "title": "Putting it all Together",
   "slug": "summary/",
   "previous": {
