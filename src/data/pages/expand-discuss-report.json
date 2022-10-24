@@ -1,15 +1,19 @@
 {
-  "id": "expand19",
+  "id": "expand20",
   "investigation": "expanding-universe",
-  "sectionOrder": 1,
-  "order": "19",
+  "sectionOrder": 3,
+  "order": "20",
   "title": "Reflect and Discuss",
   "slug": "discuss-report/",
   "previous": {
+    "title": "Progress Update",
+    "link": "/section-3/"
+  },
+  "next": {
     "title": "Putting it all Together",
     "link": "/summary/"
   },
-  "next": { "title": "Acknowledgements", "link": "/acknowledgements/" },
+
   "layout": "TwoCol",
   "widgets": [
     {
@@ -25,7 +29,8 @@
       "options": {
         "preSelected": true,
         "multiple": true,
-        "hubbleConstant": 65.7,
+        "userTrendline": "7",
+        "required": ["7"],
         "domain": [
           [0, 5000],
           [0, 175000]

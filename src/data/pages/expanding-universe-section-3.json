@@ -1,0 +1,18 @@
+{
+  "id": "expanding-universe-3-break",
+  "investigation": "expanding-universe",
+  "sectionOrder": 2,
+  "order": "19",
+  "title": "Progress Update",
+  "slug": "section-3/",
+  "previous": {
+    "title": "The Changing Hubble Constant",
+    "link": "/lsst-hubble-plot/"
+  },
+  "next": {
+    "title": "Putting it all Together",
+    "link": "/summary/"
+  },
+  "layout": "SectionBreak",
+  "content": "<p>You’ve made the connection that observations of distant galaxies reveal what the Universe was like a long time ago, and discovered that the expansion rate of the Universe has increased over time.</p><p>Next, you will summarize all that you have learned and draw connections to how your observations provide supporting evidence for the Big Bang theory.</p>"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "expanding-universe-2-break",
+  "investigation": "expanding-universe",
+  "sectionOrder": 1,
+  "order": "15",
+  "title": "Progress Update",
+  "slug": "section-2/",
+  "previous": {
+    "title": "Testing the Expansion of the Universe from Other Galaxies",
+    "link": "/testing-law/"
+  },
+  "next": {
+    "title": "Using evidence to support your ideas",
+    "link": "/using-evidence/"
+  },
+  "layout": "SectionBreak",
+  "content": "<p>You’ve measured an expansion rate for the Universe from your data, and verified that all locations observe the Universe to be expanding in exactly the same way, leading to the conclusion that the Universe does not have a center.</p><p>Next, you will explore a larger dataset of galaxies and determine if the expansion rate has changed over time.</p>"
+}

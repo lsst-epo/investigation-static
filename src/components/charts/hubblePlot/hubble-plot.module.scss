@@ -36,10 +36,9 @@
 .galaxy-point {
   /* stylelint-disable-next-line declaration-no-important */
   outline: none !important;
-  fill: $chart0;
+  fill: $neutral40;
   stroke-width: 2;
   transition: stroke $timing $duration, opacity $timing $duration;
-
 }
 
 :global {
