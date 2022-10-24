@@ -48,7 +48,7 @@
     {
       "question": [
         {
-          "id": "1",
+          "id": "ptdzo4",
           "questionType": "text",
           "label": "We are observing these galaxies from Earth’s location within the Milky Way Galaxy. Where would you put a dot on this plot to indicate the location of the Milky Way Galaxy?",
           "answerAccessor": "text"
@@ -58,7 +58,7 @@
     {
       "question": [
         {
-          "id": "2",
+          "id": "u1k70n",
           "questionType": "text",
           "label": "Based on your data, how many of the galaxies appear to be moving away from the Milky Way Galaxy?",
           "answerAccessor": "text"
@@ -68,7 +68,7 @@
     {
       "question": [
         {
-          "id": "3",
+          "id": "J2O3iY",
           "questionType": "select",
           "labelPre": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
           "labelPost": "  than nearby galaxies.",
@@ -87,7 +87,7 @@
     {
       "question": [
         {
-          "id": "4",
+          "id": "wG2DXn",
           "questionType": "text",
           "label": "Does this mean that nearby galaxies are going to catch up to farther away galaxies? Explain using the data on your plot.",
           "answerAccessor": "text"
@@ -97,7 +97,7 @@
     {
       "question": [
         {
-          "id": "5",
+          "id": "hiS7kV",
           "questionType": "text",
           "label": "Does this mean that the distance between galaxies is staying the same, getting larger, or getting smaller with time? Explain.",
           "answerAccessor": "text"
@@ -107,7 +107,7 @@
     {
       "question": [
         {
-          "id": "6",
+          "id": "zPtxBU",
           "questionType": "select",
           "labelPre": "This means that the Universe is ",
           "labelPost": ".",

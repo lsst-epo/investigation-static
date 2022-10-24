@@ -1,13 +1,13 @@
 {
-  "id": "expand15",
+  "id": "expand16",
   "investigation": "expanding-universe",
-  "sectionOrder": 1,
-  "order": "15",
+  "sectionOrder": 2,
+  "order": "16",
   "title": "Using evidence to support your ideas",
   "slug": "using-evidence/",
   "previous": {
-    "title": "Testing the Expansion of the Universe from Other Galaxies",
-    "link": "/testing-law/"
+    "title": "Progress Update",
+    "link": "/section-2/"
   },
   "next": {
     "title": "The Universe through Time",

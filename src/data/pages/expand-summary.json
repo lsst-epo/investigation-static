@@ -1,18 +1,12 @@
 {
-  "id": "expand18",
+  "id": "expand21",
   "investigation": "expanding-universe",
-  "sectionOrder": 1,
-  "order": "18",
+  "sectionOrder": 3,
+  "order": "21",
   "title": "Putting it all Together",
   "slug": "summary/",
-  "previous": {
-    "title": "The Changing Hubble Constant",
-    "link": "/lsst-hubble-plot/"
-  },
-  "next": {
-    "title": "Reflect and Discuss",
-    "link": "/discuss-report/"
-  },
+  "previous": { "title": "Reflect and Discuss", "link": "/discuss-report/" },
+  "next": { "title": "Acknowledgements", "link": "/acknowledgements/" },
   "layout": "SingleCol",
   "questionsByPage": [
     {

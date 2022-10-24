@@ -6,7 +6,12 @@
   {
     "title": "Expanding Universe",
     "id": "expanding-universe",
-    "sections": [{ "sectionName": "1" }, { "sectionName": "2" }]
+    "sections": [
+      { "sectionName": "1" },
+      { "sectionName": "2" },
+      { "sectionName": "3" },
+      { "sectionName": "4" }
+    ]
   },
   {
     "title": "Exploring the Observable Universe",
