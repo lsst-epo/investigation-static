@@ -726,7 +726,7 @@ class HubblePlot extends React.Component {
       currentScale,
     } = this.state;
 
-    const { userTrendline, multiple } = options || {};
+    const { userTrendline, multiple, createUserHubblePlot } = options || {};
 
     const svgClasses = classnames('svg-chart', hubblePlot, {
       'hide-plot': !isVisible,
@@ -742,14 +742,16 @@ class HubblePlot extends React.Component {
         className={`svg-container ${hubblePlotContainer}`}
         data-testid="hubble-plot"
       >
-        <SliderVertical
-          className={hubblePlotZoom}
-          min={minZoom}
-          max={maxZoom}
-          step={(maxZoom - minZoom) / 100}
-          value={currentScale}
-          changeCallback={this.onSliderChange}
-        />
+        {createUserHubblePlot && (
+          <SliderVertical
+            className={hubblePlotZoom}
+            min={minZoom}
+            max={maxZoom}
+            step={(maxZoom - minZoom) / 100}
+            value={currentScale}
+            changeCallback={this.onSliderChange}
+          />
+        )}
         {loading && (
           <CircularProgress
             id={`${name}-loader`}
@@ -820,19 +822,21 @@ class HubblePlot extends React.Component {
               offsetTop,
             }}
           />
-          <Nudge
-            show={showNudge}
-            arrowDownCallback={this.nudgeSelection}
-            arrowUpCallback={this.resetNudge}
-            data={selectedData || hoveredData}
-            {...{
-              xScale,
-              yScale,
-              xValueAccessor,
-              yValueAccessor,
-              offsetTop,
-            }}
-          />
+          {createUserHubblePlot && (
+            <Nudge
+              show={showNudge}
+              arrowDownCallback={this.nudgeSelection}
+              arrowUpCallback={this.resetNudge}
+              data={selectedData || hoveredData}
+              {...{
+                xScale,
+                yScale,
+                xValueAccessor,
+                yValueAccessor,
+                offsetTop,
+              }}
+            />
+          )}
           <g>
             <g clipPath="url('#clip')">
               <CursorPoint
