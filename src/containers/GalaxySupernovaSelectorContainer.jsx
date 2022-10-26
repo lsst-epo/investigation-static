@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'reactn';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import filter from 'lodash/filter';
 import API from '../lib/API.js';
-import { colorize } from '../lib/utilities.js';
+import { colorize, randomIntFromInterval } from '../lib/utilities.js';
 import GalaxySelector from '../components/charts/galaxySelector';
 import {
   getSelectedData,
@@ -40,11 +40,17 @@ class GalaxySupernovaSelectorContainer extends React.PureComponent {
       });
 
       const { options } = this.props;
-      const { preSelectedId } = options || {};
+      const { preSelectedId, randomSource } = options || {};
 
-      const selectedGalaxy =
-        (preSelectedId ? filter(data, { id: preSelectedId })[0] : data[0]) ||
-        {};
+      let selectedGalaxy;
+
+      if (preSelectedId) {
+        selectedGalaxy = this.getGalaxyById(data, preSelectedId);
+      } else if (randomSource) {
+        selectedGalaxy = this.getSetGalaxyData(data);
+      } else {
+        selectedGalaxy = data[0];
+      }
 
       const { alerts } = selectedGalaxy;
 
@@ -74,6 +80,36 @@ class GalaxySupernovaSelectorContainer extends React.PureComponent {
       this.updateSelectedData(activeGalaxy, answers, selectorQId);
     }
   }
+
+  getSetGalaxyData = data => {
+    const { pageId, savedSources } = this.global;
+    const sourceKeyRoot = 'galaxySupernovaSource';
+    const randomSourceKey = `${sourceKeyRoot}-${pageId}`;
+
+    const { [randomSourceKey]: savedRandomSourceId } = savedSources;
+
+    if (savedRandomSourceId) {
+      return this.getGalaxyById(data, savedRandomSourceId);
+    }
+    const usedSourceKeys = Object.keys(savedSources).filter(source =>
+      source.includes(sourceKeyRoot)
+    );
+
+    const usedSourceIds = usedSourceKeys.map(key => savedSources[key]);
+    let availableSources = data.filter(d => !usedSourceIds.includes(d.id));
+
+    if (availableSources.length === 0) {
+      availableSources = data;
+    }
+    const source =
+      availableSources[randomIntFromInterval(0, availableSources.length - 1)];
+
+    this.dispatch.saveSource(randomSourceKey, source.id);
+
+    return source;
+  };
+
+  getGalaxyById = (data, id) => filter(data, { id })[0];
 
   updateSelectedData(activeGalaxy, answers, qId) {
     this.setState(prevState => ({
