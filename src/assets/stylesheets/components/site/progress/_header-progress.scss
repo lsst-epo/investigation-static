@@ -15,15 +15,15 @@
 
     &:nth-of-type(5n + 2) {
       .progress-linear {
-        background: #cf4040;
+        background: $turquoise85;
       }
 
       .progress-linear-marker {
         &.completed {
           &.filled {
-            background-color: #cf4040;
+            background-color: $turquoise85;
           }
-          border-color: #cf4040;
+          border-color: $turquoise85;
         }
       }
     }
@@ -60,15 +60,15 @@
 
     &:nth-of-type(5n + 5) {
       .progress-linear {
-        background: #009fa1;
+        background: $turquoise55;
       }
 
       .progress-linear-marker {
         &.completed {
           &.filled {
-            background-color: #009fa1;
+            background-color: $turquoise55;
           }
-          border-color: #009fa1;
+          border-color: $turquoise55;
         }
       }
     }

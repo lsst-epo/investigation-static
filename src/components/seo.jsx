@@ -9,10 +9,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import favicon from '../images/favicon.ico';
-import appleIcon from '../images/apple-touch-icon.png';
-import faviconSmall from '../images/favicon-16x16.png';
-import faviconLarge from '../images/Rubin-favicon-32px.png';
+import favicon from '../images/favicon/favicon.ico';
+import favicon16 from '../images/favicon/favicon-16x16.png';
+import favicon32 from '../images/favicon/favicon-32x32.png';
+import appleIcon from '../images/favicon/apple-touch-icon.png';
+import safariPinnedTab from '../images/favicon/safari-pinned-tab.svg';
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -72,10 +73,13 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
-      <link rel="icon" type="image/png" sizes="16x16" href={favicon} />
+      <link rel="icon" type="image/png" sizes="48x48" href={favicon} />
       <link rel="apple-touch-icon" sizes="180x180" href={appleIcon} />
-      <link rel="icon" type="image/png" sizes="32x32" href={faviconLarge} />
-      <link rel="icon" type="image/png" sizes="16x16" href={faviconSmall} />
+      <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+      <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
+      <link rel="mask-icon" href={safariPinnedTab} color="#5bbad5" />
+      <meta name="msapplication-TileColor" content="#058BBC" />
+      <meta name="theme-color" content="#058BBC" />
     </Helmet>
   );
 }

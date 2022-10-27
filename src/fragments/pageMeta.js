@@ -7,6 +7,7 @@ export const pageMetaFragment = graphql`
     layout
     slug
     title
+    sectionOrder
     order
     content
     next {

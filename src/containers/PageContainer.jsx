@@ -99,6 +99,7 @@ class PageContainer extends React.PureComponent {
       tables,
       questionsByPage,
       reference,
+      sectionOrder: section = 0,
     } = data.allPagesJson.nodes[0];
     const { env } = pageContext || {};
     const Tag = this.layouts[layout || 'default'];
@@ -110,6 +111,7 @@ class PageContainer extends React.PureComponent {
       setActiveQuestion,
       activeQuestionId,
       questionsByPage,
+      section,
     };
 
     const blocksGroups = [
