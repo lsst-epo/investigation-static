@@ -77,6 +77,7 @@
     "date": "Fecha: {{val, datetime}}"
   },
   "section_break": {
+    "final_image": "section_break_final_es.gif",
     "banner_alt": "Imagen animada de fuegos artificiales",
     "title": "¡Felicidades!"
   },
@@ -116,4 +117,3 @@
     "count_of_total": "{{count}} de {{total}}"
   }
 }
-
