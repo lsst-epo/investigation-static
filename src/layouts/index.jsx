@@ -48,7 +48,9 @@ class Layout extends React.Component {
 
     pages.forEach(page => {
       const { pageNumber } = page;
-      const { sectionOrder = 0 } = page;
+      let { sectionOrder } = page;
+
+      sectionOrder = sectionOrder || 0;
 
       if (sections[sectionOrder] && sections[sectionOrder].pages) {
         sections[sectionOrder].pages.push(pageNumber);
