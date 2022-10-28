@@ -411,7 +411,9 @@ export const downloadFile = (file, name, type = 'text/plain') => {
   URL.revokeObjectURL(url);
 };
 
+export const isBrowser = () => typeof window !== 'undefined';
+
 export const isSafari =
-  navigator &&
+  isBrowser() &&
   navigator.userAgent.indexOf('Safari') !== -1 &&
   navigator.userAgent.indexOf('Chrome') === -1;

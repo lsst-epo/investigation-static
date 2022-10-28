@@ -2,14 +2,13 @@
 import React, { useGlobal } from 'reactn';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import ls from 'local-storage';
+import { isBrowser } from '../../../lib/utilities';
 
 const Debug = () => {
   const getFileName = () => `debug-${new Date().getTime()}.txt`;
 
   const hashKeys = keys =>
     keys.reduce((hash, char) => 0 | (31 * hash + char.charCodeAt(0)), 0);
-
-  const isBrowser = () => typeof window !== 'undefined';
 
   const getDownloadLink = () => {
     if (isBrowser()) {
