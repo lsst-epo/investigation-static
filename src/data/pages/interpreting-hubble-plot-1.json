@@ -14,7 +14,7 @@
     "link": "/interpreting-a-hubble-plot-1_2/"
   },
   "layout": "TwoCol",
-  "content": "<p>You will begin by investigating four images of galaxies that contain supernovae. Your job is to identify the location of the galaxy and its companion supernova in each image.</p> <p>The distances to the Type Ia supernovae and their host galaxies, have already been determined. Supernova distances are measured in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because each supernova is in a galaxy, the distances to the supernova and the galaxy are the same. Clicking on the supernova will add the corresponding distance to the table.</p> <p>The recessional velocities of these galaxies have been determined by using photometric redshift. Galaxy recessional velocities are measured in kilometers per second (km/s). Clicking on the galaxy will add the corresponding distance to the table. </p><p>Later in this investigation you will use the data for your four galaxies to create a Hubble plot.</p> ",
+  "content": "<p>You will begin by investigating four images of galaxies that contain supernovae. Your job is to identify the location of the galaxy and its companion supernova in each image.</p> <p>The distances to the Type Ia supernovae and their host galaxies have already been determined. Supernova distances are measured in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because each supernova is in a galaxy, the distances to the supernova and the galaxy are the same. Clicking on the supernova will add the corresponding distance to the table.</p> <p>The recessional velocities of these galaxies have been determined by using photometric redshift. Galaxy recessional velocities are measured in kilometers per second (km/s). Clicking on the galaxy will add the corresponding distance to the table. </p><p>Later in this investigation you will use the data for your four galaxies to create a Hubble plot.</p> ",
   "tables": [
     {
       "id": "1",
@@ -64,7 +64,7 @@
           "id": "350",
           "questionType": "accordion",
           "title": "Question #1",
-          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Your data for galaxy distance and velocity will automatically appear in the chart table. Repeat this process for each galaxy in the following pages.</p>",
+          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Your data for galaxy distance and velocity will automatically appear in the table. Repeat this process for each galaxy in the following pages.</p>",
           "answerAccessor": "galaxySupernova"
         }
       ]

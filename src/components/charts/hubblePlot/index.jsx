@@ -16,7 +16,7 @@ import { zoom as d3Zoom } from 'd3-zoom';
 import 'd3-transition';
 import { drag as d3Drag } from 'd3-drag';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
-import { arrayify } from '../../../lib/utilities.js';
+import { arrayify, isSafari } from '../../../lib/utilities.js';
 import Trendline from './Trendline.jsx';
 import Points from './Points';
 import CursorPoint from './CursorPoint.jsx';
@@ -539,7 +539,8 @@ class HubblePlot extends React.Component {
     } else if (!preSelected && createUserHubblePlot) {
       $hubblePlot.on('click', () => {
         const pointData = d3Select(d3Event.target).datum();
-        const isHtmlClick = d3Event.path.some(
+        const path = d3Event.path || d3Event.composedPath();
+        const isHtmlClick = path.some(
           element =>
             element.nodeName &&
             element.nodeName.toLowerCase().includes('foreign')
@@ -822,7 +823,7 @@ class HubblePlot extends React.Component {
               offsetTop,
             }}
           />
-          {createUserHubblePlot && (
+          {createUserHubblePlot && !isSafari && (
             <Nudge
               show={showNudge}
               arrowDownCallback={this.nudgeSelection}
