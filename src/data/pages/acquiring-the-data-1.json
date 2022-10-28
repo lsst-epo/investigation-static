@@ -14,7 +14,7 @@
     "link": "/using-redshifts/"
   },
   "layout": "TwoCol",
-  "content": "<p>Using Rubin data, astronomers will be able to measure the distance to the supernovae and determine the redshift of its host galaxy.</p><p>Because supernovae often appear where no star was previously visible, they can be spotted by comparing images of the host galaxy taken at different times.</p><p>The images on this page show a supernova discovered in a galaxy. Can you find it? When you spot the supernova, click on it. If you have identified it correctly, a circle will appear around it.</p>",
+  "content": "<p>Using Rubin data, astronomers will be able to measure the distance to the supernova and determine the redshift of its host galaxy.</p><p>Because supernovae often appear where no star was previously visible, they can be spotted by comparing images of the host galaxy taken at different times.</p><p>The images on this page show a supernova discovered in a galaxy. Can you find it? When you spot the supernova, click on it. If you have identified it correctly, a circle will appear around it.</p>",
   "widgets": [
     {
       "type": "SupernovaSelectorWithLightCurve",

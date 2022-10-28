@@ -410,3 +410,7 @@ export const downloadFile = (file, name, type = 'text/plain') => {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 };
+
+export const isSafari =
+  navigator.userAgent.indexOf('Safari') !== -1 &&
+  navigator.userAgent.indexOf('Chrome') === -1;

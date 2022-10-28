@@ -41,7 +41,7 @@
           "id": "SPKuvL",
           "questionType": "textArea",
           "title": "Question #1",
-          "labelPre": "Measuring the peak luminosity of a Type 1a supernova allows us to calculate the",
+          "labelPre": "Measuring the peak luminosity of a Type Ia supernova allows us to calculate the",
           "labelPost": "of its host galaxy.",
           "answerAccessor": "text"
         }
