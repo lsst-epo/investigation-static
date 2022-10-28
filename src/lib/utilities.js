@@ -412,5 +412,6 @@ export const downloadFile = (file, name, type = 'text/plain') => {
 };
 
 export const isSafari =
+  navigator &&
   navigator.userAgent.indexOf('Safari') !== -1 &&
   navigator.userAgent.indexOf('Chrome') === -1;
