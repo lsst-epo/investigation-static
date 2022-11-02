@@ -50,7 +50,7 @@
         {
           "id": "ptdzo4",
           "questionType": "text",
-          "label": "We are observing these galaxies from Earth’s location within the Milky Way Galaxy. Where would you put a dot on this plot to indicate the location of the Milky Way Galaxy?",
+          "label": "We are observing these galaxies from Earth’s location within the Milky Way Galaxy. Where would you put a point on this plot to indicate the location of the Milky Way Galaxy?",
           "answerAccessor": "text"
         }
       ]
@@ -79,7 +79,7 @@
             { "label": "slower", "value": "slower" },
             { "label": "faster", "value": "faster" }
           ],
-          "answerPre": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
+          "answerPre": "Far away galaxies appear to be moving away from the Milky Way Galaxy ",
           "answerPost": " than nearby galaxies."
         }
       ]
