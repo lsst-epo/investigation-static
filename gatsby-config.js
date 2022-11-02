@@ -47,6 +47,8 @@ module.exports = {
             transKeepBasicHtmlNodesFor: [
               'br',
               'strong',
+              'em',
+              'cite',
               'i',
               'p',
               'h1',
