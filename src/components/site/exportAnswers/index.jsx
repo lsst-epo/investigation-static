@@ -38,7 +38,11 @@ const ExportAnswers = ({ name, pages, answers }) => {
     const { id, answerAccessor, answerPre, answerPost } = question;
     const { data } = answers[id] || {};
 
-    let content = getContent(answerAccessor, t(data), true);
+    let content = getContent(
+      answerAccessor,
+      typeof data === 'string' ? t(data) : data,
+      true
+    );
 
     if (answerPre) {
       content = `${t(answerPre)} ${content}`;
