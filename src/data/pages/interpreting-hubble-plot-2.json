@@ -65,7 +65,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>For each galaxy, click on the plot to add a point with values close to the galaxy’s distance and velocity. You can move a point by clicking and dragging it on the plot. You can also zoom on the plot for more accurate point placement. To do so, first place the cursor where you want to reposition or place the point, then zoom.</p>",
+          "label": "<p>For each galaxy, click on the plot to add a point with values close to the galaxy’s distance and velocity.  You can move a point by clicking and dragging it or by using the keyboard arrows. You can also zoom on the plot for more accurate point placement. To zoom, first place the cursor over the point, or the place where you want to reposition it, then scroll using your mouse or trackpad.</p>",
           "answerPre": "",
           "answerAccessor": "hubblePlot"
         }
