@@ -3,16 +3,16 @@
   "investigation": "expanding-universe",
   "sectionOrder": 0,
   "order": "11",
-  "title": "Progress Update",
+  "title": "expanding-universe-1-break",
   "slug": "section-1/",
   "previous": {
-    "title": "Interpreting a Hubble Plot",
-    "link": "/interpreting-a-hubble-plot-3/"
+    "title": "expanding-universe::pages.expand10.title",
+    "link": "expanding-universe::pages.expand10.link"
   },
   "next": {
-    "title": "Determining the Rate of Expansion",
-    "link": "/interpreting-a-hubble-plot-4/"
+    "title": "expanding-universe::pages.expand12.title",
+    "link": "expanding-universe::pages.expand12.link"
   },
   "layout": "SectionBreak",
-  "content": "<p>You’ve observed that all galaxies appear to be moving away, with more distant galaxies moving faster, indicating that the Universe is expanding.</p><p>Next, you will investigate how fast the Universe is expanding. Then you will observe how the Universe expands when viewed from different locations.</p>"
+  "content": "expanding-universe::content.expanding-universe-1-break"
 }

@@ -3,27 +3,27 @@
   "investigation": "expanding-universe",
   "sectionOrder": 0,
   "order": "10",
-  "title": "Interpreting a Hubble Plot",
+  "title": "expanding-universe::pages.expand10.title",
   "slug": "interpreting-a-hubble-plot-3/",
   "previous": {
-    "title": "Constructing a Hubble Plot",
-    "link": "/interpreting-a-hubble-plot-2/"
+    "title": "expanding-universe::pages.expand9.title",
+    "link": "expanding-universe::pages.expand9.link"
   },
   "next": {
-    "title": "Progress Update",
-    "link": "/section-1/"
+    "title": "expanding-universe::pages.expanding-universe-1-break.title",
+    "link": "expanding-universe::pages.expanding-universe-1-break.link"
   },
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Use your Hubble plot to answer the questions.</p>",
+      "content": "expanding-universe::content.expand10.0",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<p>It's important to note that when we observe galaxies that appear to be moving away from us, we are not observing the actual movement of galaxies through space. A useful way to think about why galaxies appear to move away from each other is to think of galaxies fixed to a certain point in space, and that space is expanding. This causes galaxies to become farther apart from one another.</p><p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law.</p>",
+      "content": "expanding-universe::content.expand10.1",
       "layout": {
         "col": "left",
         "row": "bottom"
@@ -50,7 +50,7 @@
         {
           "id": "ptdzo4",
           "questionType": "text",
-          "label": "We are observing these galaxies from Earth’s location within the Milky Way Galaxy. Where would you put a point on this plot to indicate the location of the Milky Way Galaxy?",
+          "label": "expanding-universe::questions.ptdzo4.label",
           "answerAccessor": "text"
         }
       ]
@@ -60,7 +60,7 @@
         {
           "id": "u1k70n",
           "questionType": "text",
-          "label": "Based on your data, how many of the galaxies appear to be moving away from the Milky Way Galaxy?",
+          "label": "expanding-universe::questions.u1k70n.label",
           "answerAccessor": "text"
         }
       ]
@@ -70,17 +70,23 @@
         {
           "id": "J2O3iY",
           "questionType": "select",
-          "labelPre": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
-          "labelPost": "  than nearby galaxies.",
-          "srLabel": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
+          "labelPre": "expanding-universe::questions.J2O3iY.labelPre",
+          "labelPost": "expanding-universe::questions.J2O3iY.labelPost",
+          "srLabel": "expanding-universe::questions.J2O3iY.srLabel",
           "answerAccessor": "select",
-          "placeholder": "Select a speed",
+          "placeholder": "expanding-universe::questions.J2O3iY.placeholder",
           "options": [
-            { "label": "slower", "value": "slower" },
-            { "label": "faster", "value": "faster" }
+            {
+              "label": "expanding-universe::questions.J2O3iY.options.0",
+              "value": "slower"
+            },
+            {
+              "label": "expanding-universe::questions.J2O3iY.options.1",
+              "value": "faster"
+            }
           ],
-          "answerPre": "Far away galaxies appear to be moving away from the Milky Way Galaxy ",
-          "answerPost": " than nearby galaxies."
+          "answerPre": "expanding-universe::questions.J2O3iY.answerPre",
+          "answerPost": "expanding-universe::questions.J2O3iY.answerPost"
         }
       ]
     },
@@ -89,7 +95,7 @@
         {
           "id": "wG2DXn",
           "questionType": "text",
-          "label": "Does this mean that nearby galaxies are going to catch up to farther away galaxies? Explain using the data on your plot.",
+          "label": "expanding-universe::questions.wG2DXn.label",
           "answerAccessor": "text"
         }
       ]
@@ -99,7 +105,7 @@
         {
           "id": "hiS7kV",
           "questionType": "text",
-          "label": "Does this mean that the distance between galaxies is staying the same, getting larger, or getting smaller with time? Explain.",
+          "label": "expanding-universe::questions.hiS7kV.label",
           "answerAccessor": "text"
         }
       ]
@@ -109,15 +115,21 @@
         {
           "id": "zPtxBU",
           "questionType": "select",
-          "labelPre": "This means that the Universe is ",
+          "labelPre": "expanding-universe::questions.zPtxBU.labelPre",
           "labelPost": ".",
           "answerAccessor": "select",
-          "placeholder": "Select a size",
+          "placeholder": "expanding-universe::questions.zPtxBU.placeholder",
           "options": [
-            { "label": "expanding (getting larger)", "value": "expanding" },
-            { "label": "contracting (getting smaller)", "value": "contracting" }
+            {
+              "label": "expanding-universe::questions.zPtxBU.options.0",
+              "value": "expanding"
+            },
+            {
+              "label": "expanding-universe::questions.zPtxBU.options.1",
+              "value": "contracting"
+            }
           ],
-          "answerPre": "This means that the Universe is ",
+          "answerPre": "expanding-universe::questions.zPtxBU.answerPre",
           "answerPost": "."
         }
       ]

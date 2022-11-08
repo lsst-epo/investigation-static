@@ -22,7 +22,7 @@ const TranslatedValue = ({ accessor, data }) => {
   return (
     <>
       {{ countOfTotal: getCountOutOfTotal() }[accessor] ||
-        getValue(accessor, data)}
+        t(getValue(accessor, data))}
     </>
   );
 };

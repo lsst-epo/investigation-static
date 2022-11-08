@@ -1,4 +1,8 @@
 {
+  "terms": {
+    "galaxy": "Galaxy",
+    "milky_way": "Milky Way"
+  },
   "planets": {
     "mercury": "Mercury",
     "venus": "Venus",
@@ -43,5 +47,9 @@
     "orbit_size_with_unit_plural": "Orbit sizes (au)",
     "direction_of_orbit": "Direction of Orbit",
     "group": "Group"
+  },
+  "galactic_properties": {
+    "distance": "Distance",
+    "velocity": "Velocity"
   }
 }

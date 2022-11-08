@@ -3,23 +3,23 @@
   "investigation": "expanding-universe",
   "sectionOrder": 0,
   "order": "04",
-  "title": "Using Redshifts to Determine Galaxy Recessional Velocities",
+  "title": "expanding-universe::pages.expand4.title",
   "slug": "using-redshifts/",
   "previous": {
-    "title": "Identifying a Supernova",
-    "link": "/acquiring-the-data-1/"
+    "title": "expanding-universe::pages.expand3.title",
+    "link": "expanding-universe::pages.expand3.link"
   },
   "next": {
-    "title": "Gathering the Data for a Hubble Plot - Galaxy 1",
-    "link": "/interpreting-a-hubble-plot-1/"
+    "title": "expanding-universe::pages.expand5.title",
+    "link": "expanding-universe::pages.expand5.link"
   },
   "layout": "TwoCol",
-  "content": "<p>Rubin Observatory measures the brightness of a galaxy through multiple filters over a range of wavelengths. The galaxy's light through different filters is then compared to a set of models to determine how much the galaxy's light has been shifted to longer wavelengths, or redshifted. This technique produces a redshift value that is referred to as <a href='http://rubineducation.org/glossary/photometric-redshift' target='_blank'>photometric redshift</a> (Z). A mathematical relationship is then used to calculate the recessional velocity (v) of the galaxy from its photometric redshift (Z). The larger the galaxy’s photometric redshift, the faster the galaxy appears to be moving away from us.</p><p>Using this technique, Rubin Observatory will make a dramatic increase in the amount of redshift data for faint galaxies beyond what has previously been collected.</p>",
+  "content": "expanding-universe::content.expand4",
   "images": [
     {
       "mediaPath": "/images/expanding-universe/photo-z.png",
-      "altText": "Graphic showing different galaxies at different distances from the Milky Way galaxy",
-      "figText": "Measuring the photometric redshifts (Z) of galaxies from our location in the Milky Way Galaxy (MWG) allows us to calculate the recessional velocities (v) for distant galaxies. Credit: Rubin Observatory"
+      "altText": "expanding-universe::images.expand4.altText",
+      "figText": "expanding-universe::images.expand4.figText"
     }
   ],
   "questionsByPage": [
@@ -29,8 +29,8 @@
           "id": "9wvB2h",
           "questionType": "textArea",
           "title": "Question #1",
-          "labelPre": "The photometric redshift technique is used to determine the",
-          "labelPost": "of a galaxy.",
+          "labelPre": "expanding-universe::questions.9wvB2h.labelPre",
+          "labelPost": "expanding-universe::questions.9wvB2h.labelPost",
           "answerAccessor": "text"
         }
       ]
@@ -41,8 +41,8 @@
           "id": "SPKuvL",
           "questionType": "textArea",
           "title": "Question #1",
-          "labelPre": "Measuring the peak luminosity of a Type Ia supernova allows us to calculate the",
-          "labelPost": "of its host galaxy.",
+          "labelPre": "expanding-universe::questions.SPKuvL.labelPre",
+          "labelPost": "expanding-universe::questions.SPKuvL.labelPost",
           "answerAccessor": "text"
         }
       ]

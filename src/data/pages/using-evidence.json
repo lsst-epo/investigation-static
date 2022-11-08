@@ -3,23 +3,23 @@
   "investigation": "expanding-universe",
   "sectionOrder": 2,
   "order": "16",
-  "title": "Using Evidence to Support Your Ideas",
+  "title": "expanding-universe::pages.expand16.title",
   "slug": "using-evidence/",
   "previous": {
-    "title": "Progress Update",
-    "link": "/section-2/"
+    "title": "expanding-universe::pages.expanding-universe-2-break.title",
+    "link": "expanding-universe::pages.expanding-universe-2-break.link"
   },
   "next": {
-    "title": "The Universe through Time",
-    "link": "/universe-through-time/"
+    "title": "expanding-universe::pages.expand17.title",
+    "link": "expanding-universe::pages.expand17.link"
   },
   "layout": "TwoCol",
-  "content": "<p>It might be tempting to imagine that Earth is the center of the Universe if you don’t consider the perspective of observers in other galaxies.</p><p>Throughout most of human history, the center of the Universe was thought to be Earth. Aristarchus of Samos in the 3rd Century BC challenged this idea by proposing that Earth orbited the Sun, which placed the Sun at the center of the Universe. However, his ideas were not accepted by the scientists of the time. In 1543, Polish astronomer Nicholas Copernicus wrote <i>On the Revolutions</i> of the Heavenly Spheres, which again proposed that the Sun is the center of the Universe. His idea was also rejected by the scientific community. It wasn’t until Galileo Galilei, an Italian astronomer who made the first observations of the Sun and planets with his telescope, was the first to produce evidence proving that Earth was not at the center of the Universe.</p><p>Often breakthroughs in understanding, such as there being no center to the Universe, come as a result of challenging the popular theories or beliefs of the time. </p>",
+  "content": "",
   "images": [
     {
-      "mediaPath": "/images/expanding-universe/using-evidence-en.png",
-      "altText": "A person with more evidence thinks differently than one group with less evidence.",
-      "figText": "Adding new evidence can change commonly-held opinions or ideas. Credit: Rubin Observatory"
+      "mediaPath": "expanding-universe::images.expand16.mediaPath",
+      "altText": "expanding-universe::images.expand16.altText",
+      "figText": "expanding-universe::images.expand16.figText"
     }
   ],
   "questionsByPage": [
@@ -30,7 +30,7 @@
           "questionType": "textArea",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Describe a time when you (or someone you know) had an idea or opinion that went against what is commonly accepted by most people. What evidence did you use to try to convince others to consider your idea or opinion?</p>",
+          "label": "expanding-universe::questions.321.label",
           "answerAccessor": "text"
         }
       ]

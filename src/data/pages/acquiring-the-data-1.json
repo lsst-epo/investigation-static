@@ -3,18 +3,18 @@
   "investigation": "expanding-universe",
   "sectionOrder": 0,
   "order": "03",
-  "title": "Identifying a Supernova",
+  "title": "expanding-universe::pages.expand3.title",
   "slug": "acquiring-the-data-1/",
   "previous": {
-    "title": "Using Supernovae to Measure Distance",
-    "link": "/acquiring-the-data/"
+    "title": "expanding-universe::pages.expand2.title",
+    "link": "expanding-universe::pages.expand2.link"
   },
   "next": {
-    "title": "Using Redshifts to Determine Galaxy Recessional Velocities",
-    "link": "/using-redshifts/"
+    "title": "expanding-universe::pages.expand4.title",
+    "link": "expanding-universe::pages.expand4.link"
   },
   "layout": "TwoCol",
-  "content": "<p>Using Rubin data, astronomers will be able to measure the distance to the supernova and determine the redshift of its host galaxy.</p><p>Because supernovae often appear where no star was previously visible, they can be spotted by comparing images of the host galaxy taken at different times.</p><p>The images on this page show a supernova discovered in a galaxy. Can you find it? When you spot the supernova, click on it. If you have identified it correctly, a circle will appear around it.</p>",
+  "content": "expanding-universe::content.expand3",
   "widgets": [
     {
       "type": "SupernovaSelectorWithLightCurve",
@@ -35,8 +35,8 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>Click on a point on the Image to select the supernova</p>",
-          "answerPre": "<span>Selected Supernova: </span>",
+          "label": "expanding-universe::questions.1.label",
+          "answerPre": "expanding-universe::questions.1.answerPre",
           "answerAccessor": "supernova"
         }
       ]

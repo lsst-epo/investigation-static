@@ -1,6 +1,29 @@
 {
+  "supernova_selector_with_light_curve": {
+    "title": "Supernova Images",
+    "title_secondary": "Light Curve",
+    "messages": {
+      "found": "You found it!",
+      "correct": "Correct!",
+      "incorrect": "Try again."
+    },
+    "blinker": {
+      "altText": "Cutout for alert {{alertId}}"
+    }
+  },
   "time_viewer": {
     "observation_date": "Observation date"
+  },
+  "elapsed_time": {
+    "title": "Elapsed Time",
+    "interval": {
+      "hour": "Hour",
+      "hour_plural": "Hours",
+      "day": "Day",
+      "day_plural": "Days",
+      "year": "Year",
+      "year_plural": "Years"
+    }
   },
   "orbit_viewer": {
     "title": "Orbit Viewer",
@@ -17,16 +40,11 @@
     },
     "playback": {
       "time_step": "Time Step",
-      "elapsed_time": "Elapsed Time",
       "normal_time": "Normal Time",
       "time_equivalence": "{{firstTime}} = {{secondTime}}",
       "time_equivalence_verbose": "{{firstTime}} is {{secondTime}}",
       "interval": {
         "secWithCount": "{{count}} sec",
-        "day": "Day",
-        "day_plural": "Days",
-        "year": "Year",
-        "year_plural": "Years",
         "yearWithCount": "{{count}} year",
         "yearWithCount_plural": "{{count}} years"
       }
@@ -34,5 +52,26 @@
     "bodies": {
       "sun": "Sun"
     }
+  },
+  "hubble_plotter": {
+    "title": "Hubble Plot",
+    "galaxy_name_fallback": "Active Galaxy",
+    "labels": {
+      "x_axis_fallback": "Distance (Mpc)",
+      "y_axis_fallback": "Velocity (km/s)",
+      "trendline": "slope = {{slope}}"
+    }
+  },
+  "galaxy_selector": {
+    "actions": {
+      "previous": "Previous Galaxy",
+      "next": "Next Galaxy"
+    }
+  },
+  "galaxy_scrambler": {
+    "title": "Galaxy Scrambler"
+  },
+  "galaxies_position": {
+    "title": "Relative Positions of Galaxies in Space"
   }
 }

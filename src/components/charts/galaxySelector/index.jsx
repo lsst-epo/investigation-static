@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import { select as d3Select, event as d3Event } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import 'd3-transition';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import CircularProgress from 'react-md/lib/Progress/CircularProgress';
 import { arrayify } from '../../../lib/utilities.js';
 import { getAlertFromImageId } from './galaxySelectorUtilities.js';
@@ -66,7 +67,6 @@ class GalaxySelector extends React.PureComponent {
       yDomain,
     } = this.props;
     const { playing } = this.state;
-    // const isNewData = prevProps.data !== data;
     const isNewActiveGalaxy = prevProps.activeGalaxy !== activeGalaxy;
     const isNewSelectedData = prevProps.selectedData !== selectedData;
 
@@ -123,7 +123,7 @@ class GalaxySelector extends React.PureComponent {
 
   toggleSelection(d) {
     const { selectedData: oldData } = this.state;
-    const { selectionCallback, preSelected } = this.props;
+    const { selectionCallback, preSelected, t } = this.props;
 
     if (!find(oldData, d) && !!d && !preSelected) {
       const selectedData = !oldData ? [d] : [...oldData, d];
@@ -132,7 +132,9 @@ class GalaxySelector extends React.PureComponent {
         prevState => ({
           ...prevState,
           selectedData,
-          messageResponse: 'You found it!',
+          messageResponse: t(
+            'widgets::supernova_selector_with_light_curve.messages.found'
+          ),
           messageVisible: true,
         }),
         () => {
@@ -146,7 +148,9 @@ class GalaxySelector extends React.PureComponent {
       this.setState(
         prevState => ({
           ...prevState,
-          messageResponse: 'Correct!',
+          messageResponse: t(
+            'widgets::supernova_selector_with_light_curve.messages.correct'
+          ),
           messageVisible: false,
         }),
         () => {
@@ -160,7 +164,9 @@ class GalaxySelector extends React.PureComponent {
       this.setState(
         prevState => ({
           ...prevState,
-          messageResponse: 'Try again.',
+          messageResponse: t(
+            'widgets::supernova_selector_with_light_curve.messages.incorrect'
+          ),
           messageVisible: true,
         }),
         () => {
@@ -483,6 +489,7 @@ GalaxySelector.propTypes = {
   loop: PropTypes.bool,
   selectionCallback: PropTypes.func,
   blinkCallback: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default GalaxySelector;
+export default withTranslation()(GalaxySelector);

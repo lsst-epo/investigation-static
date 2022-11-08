@@ -4,6 +4,7 @@ import 'echarts-gl';
 import filter from 'lodash/filter';
 import ReactEcharts from 'echarts-for-react';
 import partition from 'lodash/partition';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import { chart } from './galaxies-position-3D.module.scss';
 
 const nodeSize = 10;
@@ -48,8 +49,9 @@ class GalaxiesPosition3D extends React.PureComponent {
   }
 
   dataObjsToArray(data) {
+    const { t } = this.props;
     return data.map(datum => {
-      return [datum.x, datum.y, datum.z, datum.label, datum.color];
+      return [datum.x, datum.y, datum.z, t(datum.label), datum.color];
     });
   }
 
@@ -152,6 +154,7 @@ class GalaxiesPosition3D extends React.PureComponent {
 GalaxiesPosition3D.propTypes = {
   data: PropTypes.array,
   activeGalaxy: PropTypes.object,
+  t: PropTypes.func,
 };
 
-export default GalaxiesPosition3D;
+export default withTranslation()(GalaxiesPosition3D);

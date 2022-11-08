@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import Button from '../../site/button';
 import { toolbarButtons } from './galaxy-selector.module.scss';
 
@@ -10,7 +11,7 @@ class GalaxySelectorNav extends React.PureComponent {
     return (
       <div className="container-flex middle centered">
         <Button raised onClick={handlePrevGalaxy} className={toolbarButtons}>
-          Previous Galaxy
+          <Trans>widgets::galaxy_selector.actions.previous</Trans>
         </Button>
         <Button
           primary
@@ -18,7 +19,7 @@ class GalaxySelectorNav extends React.PureComponent {
           onClick={handleNextGalaxy}
           className={toolbarButtons}
         >
-          Next Galaxy
+          <Trans>widgets::galaxy_selector.actions.next</Trans>
         </Button>
       </div>
     );

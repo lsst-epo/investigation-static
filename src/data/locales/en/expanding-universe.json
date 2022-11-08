@@ -1,3 +1,267 @@
 {
-  "title": "Expanding Universe"
+  "title": "Expanding Universe",
+  "pages": {
+    "expand1": {
+      "title": "Introduction",
+      "link": "/introduction/"
+    },
+    "expand2": {
+      "title": "Using Supernovae to Measure Galaxy Distance",
+      "link": "/acquiring-the-data/"
+    },
+    "expand3": {
+      "title": "Identifying a Supernova",
+      "link": "/acquiring-the-data-1/"
+    },
+    "expand4": {
+      "title": "Using Redshifts to Determine Galaxy Recessional Velocities",
+      "link": "/using-redshifts/"
+    },
+    "expand5": {
+      "title": "Gathering the Data for a Hubble Plot - Galaxy 1",
+      "link": "/interpreting-a-hubble-plot-1/"
+    },
+    "expand6": {
+      "title": "Gathering the Data for a Hubble Plot - Galaxy 2",
+      "link": "/interpreting-a-hubble-plot-1_2/"
+    },
+    "expand7": {
+      "title": "Gathering the Data for a Hubble Plot - Galaxy 3",
+      "link": "/interpreting-a-hubble-plot-1_3/"
+    },
+    "expand8": {
+      "title": "Gathering the Data for a Hubble Plot - Galaxy 4",
+      "link": "/interpreting-a-hubble-plot-1_4/"
+    },
+    "expand9": {
+      "title": "Constructing a Hubble plot",
+      "link": "/interpreting-a-hubble-plot-2/"
+    },
+    "expand10": {
+      "title": "Determining the Hubble Constant",
+      "link": "/interpreting-a-hubble-plot-3/"
+    },
+    "expanding-universe-1-break": {
+      "title": "Progress Update",
+      "link": "/section-1/"
+    },
+    "expand12": {
+      "title": "Determining the Rate of Expansion",
+      "link": "/interpreting-a-hubble-plot-4/"
+    },
+    "expand13": {
+      "title": "Interpreting the Rate of Expansion",
+      "link": "/interpreting-a-hubble-plot-5/"
+    },
+    "expand14": {
+      "title": "Testing the Expansion of the Universe from Other Galaxies",
+      "link": "/testing-law/"
+    },
+    "expanding-universe-2-break": {
+      "title": "Progress Update",
+      "link": "/section-2/"
+    },
+    "expand16": {
+      "title": "Using evidence to support your ideas",
+      "link": "/using-evidence/"
+    },
+    "expand17": {
+      "title": "The Universe through Time",
+      "link": "/universe-through-time/"
+    },
+    "expand18": {
+      "title": "The Changing Hubble Constant",
+      "link": "/lsst-hubble-plot/"
+    }
+  },
+  "content": {
+    "expand1": "<p> Have you ever wondered about the Universe? How did it begin? Has it changed over time? What will happen in the future? If you have, you’re not alone! For centuries scientists have been trying to answer these kinds of questions. </p> <p> About one hundred years ago, astronomer <a target='_blank' href='https://www.physicsoftheuniverse.com/scientists_hubble.html' >Edwin Hubble</a> measured the distance to stars in the Andromeda Galaxy using a technique pioneered by <a target='_blank' href='https://www.aavso.org/henrietta-leavitt-%E2%80%93-celebrating-forgotten-astronomer' >Henrietta Leavitt</a>. Hubble was surprised to discover that the Andromeda Galaxy was much farther away than all the stars and gas clouds in our galaxy, the Milky Way. His discovery made us realize that the Universe is much larger than we previously thought! </p> <p> But Hubble’s second discovery was even more revealing. Here’s the backstory: </p> <p> <a target='_blank' href='https://blog.history.in.gov/vesto-slipher-uncovering-the-cosmos/' >Vesto Slipher</a> had previously measured <a href='http://rubineducation.org/glossary/redshift' target='_blank' >redshifts</a> to some galaxies and discovered almost all of these galaxies appeared to be moving away from Earth at astonishing speeds. (We refer to the speeds that galaxies appear to be moving away from Earth as <a href='http://rubineducation.org/glossary/recessional-velocity' target='_blank' >recessional velocities</a>.) </p> <p> Hubble and his assistant <a target='_blank' href='https://www.lindahall.org/about/news/scientist-of-the-day/milton-humason' >Milton Humason</a> began to study more galaxies using Slipher’s technique to determine their speeds, and Leavitt’s technique to measure galaxy distances. He then plotted the galaxy velocities vs. their distances. This type of graph is now known as a <a href='http://rubineducation.org/glossary/hubble-plot' target='_blank' >Hubble plot</a>. At the right is the plot of Hubble’s original data. </p> <p> This plot illustrates that (with a few exceptions) nearby galaxies appear to be moving away from us at speeds much slower than more distant galaxies. Hubble’s observations provided strong evidence that the Universe is expanding, confirming the earlier theoretical models proposed by <a target='_blank' href='https://www.physicsoftheuniverse.com/scientists_einstein.html' >Albert Einstein</a> and <a target='_blank' href='https://www.physicsoftheuniverse.com/scientists_lemaitre.html' >Georges Lemaitre</a>. </p> <p> When Hubble first made his plot, he only had data for galaxies relatively close to Earth. We can now observe galaxies at great distances from Earth. </p> <p> Vera C. Rubin Observatory will detect more galaxies than those seen by all previous telescopes. These observations will provide a more refined Hubble plot by adding many more data points, especially from very dim and distant galaxies. </p> <h3>Essential Questions</h3> <ul> <li>How do we know that the Universe is expanding?</li> <li> What do observations of the expansion of the Universe tell us about our location in the Universe? </li> <li>How do we know that the expansion of the Universe is accelerating?</li> <li> How does the observed expansion of the Universe support the Big Bang Theory? </li> </ul>",
+    "expand2": "<p>In order to construct a Hubble plot, you need two pieces of information about each galaxy: its distance from Earth, and its recessional velocity (the speed at which it’s moving away from Earth).</p><p>One of the most difficult challenges for astronomers is to determine distances to faraway objects like galaxies. One way to measure the distance to a galaxy is to look for a certain type of supernova (an exploded star) called a Type Ia (pronounced “type one-a”) supernova that is located within the galaxy. Type Ia supernovae are useful because they can all be standardized to determine their true peak <a target='_blank' href='http://rubineducation.org/glossary/luminosity' target='_blank'>luminosity</a> no matter where they occur in the Universe. You can then use the peak luminosity to calculate the distance to the supernova. If you can measure the distance to a Type Ia supernova, then you also know the distance to the galaxy it resides in.</p><p>This picture shows a supernova that exploded in the galaxy M51. Notice that it is bright compared to the other stars in the galaxy, and even brighter than the core of the galaxy itself.</p><p>Supernovae are rare events. A supernova explodes in a large galaxy once every 50 years, but with Rubin Observatory’s ability to monitor billions of galaxies, we can find 1000 supernovae every night!</p>",
+    "expand3": "<p>Using Rubin data, astronomers will be able to measure the distance to the supernova and determine the redshift of its host galaxy.</p><p>Because supernovae often appear where no star was previously visible, they can be spotted by comparing images of the host galaxy taken at different times.</p><p>The images on this page show a supernova discovered in a galaxy. Can you find it? When you spot the supernova, click on it. If you have identified it correctly, a circle will appear around it.</p>",
+    "expand4": "<p>Rubin Observatory measures the brightness of a galaxy through multiple filters over a range of wavelengths. The galaxy's light through different filters is then compared to a set of models to determine how much the galaxy's light has been shifted to longer wavelengths, or redshifted. This technique produces a redshift value that is referred to as <a href='http://rubineducation.org/glossary/photometric-redshift' target='_blank'>photometric redshift</a> (Z). A mathematical relationship is then used to calculate the recessional velocity (v) of the galaxy from its photometric redshift (Z). The larger the galaxy’s photometric redshift, the faster the galaxy appears to be moving away from us.</p><p>Using this technique, Rubin Observatory will make a dramatic increase in the amount of redshift data for faint galaxies beyond what has previously been collected.</p>",
+    "expand5": "<p>You will begin by investigating four images of galaxies that contain supernovae. Your job is to identify the location of the galaxy and its companion supernova in each image.</p> <p>The distances to the Type Ia supernovae and their host galaxies have already been determined. Supernova distances are measured in megaparsecs (Mpc). One megaparsec corresponds to a distance of roughly 3.3 million light years. Remember, because each supernova is in a galaxy, the distances to the supernova and the galaxy are the same. Clicking on the supernova will add the corresponding distance to the table.</p> <p>The recessional velocities of these galaxies have been determined by using photometric redshift. Galaxy recessional velocities are measured in kilometers per second (km/s). Clicking on the galaxy will add the corresponding distance to the table. </p><p>Later in this investigation you will use the data for your four galaxies to create a Hubble plot.</p>",
+    "expand10": {
+      "0": "<p>Use your Hubble plot to answer the questions.</p>",
+      "1": "<p>It's important to note that when we observe galaxies that appear to be moving away from us, we are not observing the actual movement of galaxies through space. A useful way to think about why galaxies appear to move away from each other is to think of galaxies fixed to a certain point in space, and that space is expanding. This causes galaxies to become farther apart from one another.</p><p>The relationship you have been exploring between a galaxy’s recessional velocity and its distance is known as the Hubble-Lemaitre Law.</p>"
+    },
+    "expanding-universe-1-break": "<p>You’ve observed that all galaxies appear to be moving away, with more distant galaxies moving faster, indicating that the Universe is expanding.</p><p>Next, you will investigate how fast the Universe is expanding. Then you will observe how the Universe expands when viewed from different locations.</p>",
+    "expand12": "<p>Click and drag on the plot to add a trendline that best fits your data. The slope of this trendline is known as the Hubble Constant, which indicates the rate of expansion for the Universe.</p>",
+    "expand13": "<p>The steepness of the slope  of a Hubble plot corresponds with the rate of expansion of the Universe. A steeper slope indicates a faster rate of expansion. Therefore, a larger value for the Hubble Constant will correspond with a faster expansion rate for the Universe.</p>",
+    "expand14": "<p>Your observations from our location in the Milky Way Galaxy show that the Universe is expanding. Will observers in other galaxies also detect expansion in the same way?</p><p>We will begin by viewing new data for five galaxies observed from the Milky Way Galaxy.</p><p>Select a galaxy from the menu by clicking on one of the star icons (on the left side of the Hubble plot) to see what the Hubble plots would look like for astronomers in each of the five galaxies.</p><p>Rotate and zoom the tool on the right to help visualize the relative positions of galaxies in space. Note: <i>this does not imply that the Universe is rotating or expanding.</i></p>",
+    "expanding-universe-2-break": "<p>You’ve measured an expansion rate for the Universe from your data, and verified that all locations observe the Universe to be expanding in exactly the same way, leading to the conclusion that the Universe does not have a center.</p><p>Next, you will explore a larger dataset of galaxies and determine if the expansion rate has changed over time.</p>",
+    "expand16": "<p>It might be tempting to imagine that Earth is the center of the Universe if you don’t consider the perspective of observers in other galaxies.</p><p>Throughout most of human history, the center of the Universe was thought to be Earth. Aristarchus of Samos in the 3rd Century BC challenged this idea by proposing that Earth orbited the Sun, which placed the Sun at the center of the Universe. However, his ideas were not accepted by the scientists of the time. In 1543, Polish astronomer Nicholas Copernicus wrote <i>On the Revolutions</i> of the Heavenly Spheres, which again proposed that the Sun is the center of the Universe. His idea was also rejected by the scientific community. It wasn’t until Galileo Galilei, an Italian astronomer who made the first observations of the Sun and planets with his telescope, was the first to produce evidence proving that Earth was not at the center of the Universe.</p><p>Often breakthroughs in understanding, such as there being no center to the Universe, come as a result of challenging the popular theories or beliefs of the time. </p>",
+    "expand17": "<p>The Hubble plot can be used to provide an indirect measure for how the Universe has changed over time. When we observe objects in the Universe, we must take into account that the light we receive has traveled vast distances over a long period of time. As a result, we are actually seeing these objects not as they are now, but as they were in the past.</p>"
+  },
+  "images": {
+    "expand1": {
+      "altText": "Velocity-Distance Relation among Extra-Galactic Nebulae. Radial velocities, corrected for solar motion, are plotted against distances estimated from involved stars and mean luminosities of nebulae in a cluster. The black discs and full line represent the solution for solar motion using the nebulae individually; the circles and broken line represent the solution combining the nebulae into groups; the cross represents the mean velocity corresponding to the mean distance of 22 nebulae whose distances could not be estimated individually.",
+      "figText": "The original “Velocity-Distance Relation among Extra-Galactic Nebulae,” created by Edwin Hubble and published in the Proceedings of the National Academy of Sciences, March 15, 1929 15 (3) 168-173; https://doi.org/10.1073/pnas.15.3.168."
+    },
+    "expand2": {
+      "altText": "SN2005cs in M15",
+      "figText": "SN2005cs, the supernova discovered in 2005 exploding in the spiral arms of M51 —also known as the Whirlpool Galaxy.  Credit & Copyright: R. Jay Gabany"
+    },
+    "expand4": {
+      "altText": "Graphic showing different galaxies at different distances from the Milky Way galaxy",
+      "figText": "Measuring the photometric redshifts (Z) of galaxies from our location in the Milky Way Galaxy (MWG) allows us to calculate the recessional velocities (v) for distant galaxies. Credit: Rubin Observatory"
+    },
+    "expand16": {
+      "mediaPath": "/images/expanding-universe/using-evidence-en.png",
+      "altText": "A person with more evidence thinks differently than one group with less evidence.",
+      "figText": "Adding new evidence can change commonly-held opinions or ideas. Credit: Rubin Observatory"
+    },
+    "expand17": {
+      "mediaPath": "/images/p10-en.jpg",
+      "altText": "Universe through time",
+      "figText": "A graphical representation of how the Universe has changed through time. Credit: Rubin Observatory"
+    }
+  },
+  "videos": {},
+  "questions": {
+    "1": {
+      "label": "<p>Click on a point on the Image to select the supernova</p>",
+      "answerPre": "<span>Selected Supernova: </span>"
+    },
+    "9wvB2h": {
+      "labelPre": "The photometric redshift technique is used to determine the",
+      "labelPost": "of a galaxy."
+    },
+    "SPKuvL": {
+      "labelPre": "Measuring the peak luminosity of a Type Ia supernova allows us to calculate the",
+      "labelPost": "of its host galaxy."
+    },
+    "350": {
+      "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Your data for galaxy distance and velocity will automatically appear in the table. Repeat this process for each galaxy in the following pages.</p>"
+    },
+    "351": {
+      "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Repeat this process for each galaxy in the following pages.</p>"
+    },
+    "352": {
+      "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Repeat this process for the galaxy on the next page.</p>"
+    },
+    "353": {
+      "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it.</p>"
+    },
+    "252": {
+      "label": "<p>For each galaxy, click on the plot to add a point with values close to the galaxy’s distance and velocity.  You can move a point by clicking and dragging it or by using the keyboard arrows. You can also zoom on the plot for more accurate point placement. To zoom, first place the cursor over the point, or the place where you want to reposition it, then scroll using your mouse or trackpad.</p>"
+    },
+    "ptdzo4": {
+      "label": "We are observing these galaxies from Earth’s location within the Milky Way Galaxy. Where would you put a point on this plot to indicate the location of the Milky Way Galaxy?"
+    },
+    "u1k70n": {
+      "label": "Based on your data, how many of the galaxies appear to be moving away from the Milky Way Galaxy?"
+    },
+    "J2O3iY": {
+      "labelPre": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
+      "labelPost": "  than nearby galaxies.",
+      "srLabel": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
+      "placeholder": "Select a speed",
+      "options": {
+        "0": "slower",
+        "1": "faster"
+      },
+      "answerPre": "Far away galaxies appear to be moving away from the Milky Way Galaxy ",
+      "answerPost": " than nearby galaxies."
+    },
+    "wG2DXn": {
+      "label": "Does this mean that nearby galaxies are going to catch up to farther away galaxies? Explain using the data on your plot."
+    },
+    "hiS7kV": {
+      "label": "Does this mean that the distance between galaxies is staying the same, getting larger, or getting smaller with time? Explain."
+    },
+    "zPtxBU": {
+      "labelPre": "This means that the Universe is ",
+      "placeholder": "Select a size",
+      "options": {
+        "0": "expanding (getting larger)",
+        "1": "contracting (getting smaller)"
+      },
+      "answerPre": "This means that the Universe is "
+    },
+    "7": {
+      "label": "<p>Click and drag anywhere on the Hubble plot to add a trendline</p>",
+      "answerPre": "<span>Hubble Constant: </span>"
+    },
+    "7_1": {
+      "label": "<p>Scientists currently estimate the Hubble Constant to be between 67.7 and 74.0 (km/s)/Mpc. How does your value of the Hubble Constant compare to these values?</p>"
+    },
+    "8": {
+      "label": "If scientists make observations that establish the Hubble Constant to be 57 (km/s)/Mpc, would that indicate the Universe is expanding faster or slower than your data suggest?"
+    },
+    "9": {
+      "label": "In the Hubble plot, the data from galaxy observations all fall along a straight line. Are the galaxies actually positioned in space along a straight line?",
+      "placeholder": "Select yes/no"
+    },
+    "10": {
+      "placeholder": "Select the best description",
+      "label": "If alien astronomers living in Galaxy #2 were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
+      "options": {
+        "0": "next to the origin",
+        "1": "next to the Milky Way Galaxy",
+        "2": "the third dot from the origin",
+        "3": "at the origin"
+      }
+    },
+    "11": {
+      "label": "Is the relationship between the distance of a galaxy and the velocity of a galaxy the same or different than what you observed from the Milky Way Galaxy? Explain."
+    },
+    "12": {
+      "label": "How does the Hubble Constant for the observations made by the alien astronomers in Galaxy #2 compare to the Hubble Constant you measured from Earth (in the Milky Way Galaxy)?"
+    },
+    "13": {
+      "label": "Does this mean that the alien astronomers and Earth astronomers are observing the Universe expanding at the same rate or at different rates? If different, who observes the Universe expanding faster?"
+    },
+    "14": {
+      "label": "Do your observations suggest that astronomers at all locations in the Universe would observe that all galaxies are moving away from them?"
+    },
+    "16": {
+      "label": "What do the above observations imply about the center of the Universe?",
+      "placeholder": "Select the best description",
+      "options": {
+        "0": "the Universe is centered on the Milky Way Galaxy",
+        "1": "the Universe is centered on some other single location",
+        "2": "all locations observe the Universe to be expanding in the same way and therefore there is no center"
+      }
+    },
+    "321": {
+      "label": "<p>Describe a time when you (or someone you know) had an idea or opinion that went against what is commonly accepted by most people. What evidence did you use to try to convince others to consider your idea or opinion?</p>"
+    },
+    "17": {
+      "labelPre": "The galaxy farthest from us provides information from a time that is ",
+      "labelPost": " in the history of the Universe.",
+      "options": {
+        "0": "more recent",
+        "1": "long ago"
+      }
+    },
+    "18": {
+      "label": "Was the Universe smaller or larger a long time ago?"
+    },
+    "19": {
+      "label": "Are the galaxies getting closer together or farther apart as the Universe gets older?"
+    }
+  },
+  "widgets": {
+    "hubble_plotter": {
+      "galaxies": {
+        "0": { "name": "Galaxy #1" },
+        "1": { "name": "Galaxy #2" },
+        "2": { "name": "Galaxy #3" },
+        "3": { "name": "Galaxy #4" },
+        "4": { "name": "Galaxy #5" },
+        "5": { "name": "Galaxy #6" }
+      }
+    }
+  },
+  "tables": {
+    "1": {
+      "rowTitles": {
+        "0": "Galaxy #1",
+        "1": "Galaxy #2",
+        "2": "Galaxy #3",
+        "3": "Galaxy #4"
+      },
+      "colTitles": { "0": "Velocity", "1": "Distance" }
+    }
+  }
 }
