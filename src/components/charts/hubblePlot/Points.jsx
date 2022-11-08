@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import find from 'lodash/find';
 import classnames from 'classnames';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import Point from './Point.jsx';
 import { notActive, invisible } from './hubble-plot.module.scss';
 
@@ -19,6 +20,7 @@ class Points extends React.PureComponent {
       offsetTop,
       colorize,
       draggedPoint,
+      t,
     } = this.props;
 
     return (
@@ -48,7 +50,7 @@ class Points extends React.PureComponent {
               hovered={hovered}
               x={xScale(x)}
               y={yScale(y) + offsetTop}
-              label={label}
+              label={t(label)}
             />
           );
         })}
@@ -69,6 +71,7 @@ Points.propTypes = {
   offsetTop: PropTypes.number,
   colorize: PropTypes.bool,
   draggedPoint: PropTypes.object,
+  t: PropTypes.func,
 };
 
-export default Points;
+export default withTranslation()(Points);

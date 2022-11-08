@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
+import { Translation } from 'gatsby-plugin-react-i18next';
 import API from '../lib/API.js';
 import {
   getSelectedData,
@@ -206,101 +207,116 @@ class SupernovaSelectorWithLightCurveContainer extends React.PureComponent {
     const selectedData = getSelectedData(activeGalaxy, answers, selectorQId);
 
     return (
-      <div className="container-flex spaced">
-        {data && showSelector && (
-          <div className={showLightCurve ? 'col padded col-width-50' : 'col'}>
-            <h2 className="space-bottom">Supernova Images</h2>
-            <ConditionalWrapper
-              condition={data ? data.length > 1 : false}
-              wrapper={children => (
-                <NavDrawer
-                  interactableToolbar
-                  navItems={navItems}
-                  toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
+      <Translation>
+        {t => (
+          <div className="container-flex spaced">
+            {data && showSelector && (
+              <div
+                className={showLightCurve ? 'col padded col-width-50' : 'col'}
+              >
+                <h2 className="space-bottom">
+                  {t('widgets::supernova_selector_with_light_curve.title')}
+                </h2>
+                <ConditionalWrapper
+                  condition={data ? data.length > 1 : false}
+                  wrapper={children => (
+                    <NavDrawer
+                      interactableToolbar
+                      navItems={navItems}
+                      toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
+                    >
+                      {children}
+                    </NavDrawer>
+                  )}
                 >
-                  {children}
-                </NavDrawer>
-              )}
-            >
-              <SupernovaSelector
-                className={`supernova-selector-${name}`}
-                autoplay={autoplay && !selectedData}
-                loop={loop}
-                {...{ selectedData, activeGalaxy, preSelected }}
-                data={getSupernovaPointData(activeGalaxy)}
-                alerts={activeGalaxy ? activeGalaxy.alerts : []}
-                images={activeGalaxy ? activeGalaxy.images : []}
-                selectionCallback={this.supernovaSelectionCallback}
-                blinkCallback={this.onAlertChange}
-                activeImageId={activeAlert ? activeAlert.image_id : null}
-                activeImageIndex={getActiveImageIndex(
-                  activeGalaxy,
-                  activeAlert,
-                  activeImageIndex
-                )}
-              />
-            </ConditionalWrapper>
+                  <SupernovaSelector
+                    className={`supernova-selector-${name}`}
+                    autoplay={autoplay && !selectedData}
+                    loop={loop}
+                    {...{ selectedData, activeGalaxy, preSelected }}
+                    data={getSupernovaPointData(activeGalaxy)}
+                    alerts={activeGalaxy ? activeGalaxy.alerts : []}
+                    images={activeGalaxy ? activeGalaxy.images : []}
+                    selectionCallback={this.supernovaSelectionCallback}
+                    blinkCallback={this.onAlertChange}
+                    activeImageId={activeAlert ? activeAlert.image_id : null}
+                    activeImageIndex={getActiveImageIndex(
+                      activeGalaxy,
+                      activeAlert,
+                      activeImageIndex
+                    )}
+                  />
+                </ConditionalWrapper>
+              </div>
+            )}
+            {(data || alerts) && showLightCurve && (
+              <div className={showSelector ? 'col padded col-width-50' : 'col'}>
+                <h2 className="space-bottom">
+                  {t(
+                    'widgets::supernova_selector_with_light_curve.title_secondary'
+                  )}
+                </h2>
+                <ConditionalWrapper
+                  condition={data && !multiple ? data.length > 1 : false}
+                  wrapper={children => (
+                    <NavDrawer
+                      cardClasses={container}
+                      interactableToolbar
+                      navItems={navItems}
+                      toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
+                      contentClasses={paddedDrawerInner}
+                    >
+                      {children}
+                    </NavDrawer>
+                  )}
+                >
+                  <LightCurve
+                    className={`light-curve-${name} ${band}-band`}
+                    data={multiple ? data : alerts}
+                    {...{
+                      name,
+                      band,
+                      templatesData,
+                      peakMagAnswerId,
+                      templateAnswerId,
+                      activeAnswer,
+                      activeQuestionId,
+                      multiple,
+                      xDomain,
+                      yDomain,
+                    }}
+                    pointColor={activeGalaxy ? activeGalaxy.color : '#BEE7F5'}
+                    legend={legend ? this.createLegend(data) : null}
+                    activeAlertId={
+                      activeAlert ? activeAlert.alert_id.toString() : null
+                    }
+                    interactableTemplates={
+                      !!activeQuestionId &&
+                      activeQuestionId === templateAnswerId
+                    }
+                    interactablePeakMag={
+                      !!activeQuestionId && peakMagAnswerId === activeQuestionId
+                    }
+                    pointsAreVisible={
+                      selectorQId ? !isEmpty(answers[selectorQId]) : true
+                    }
+                    templates={lightCurveTemplates}
+                    activePeakMag={{ peakMagX: x, peakMagY: y }}
+                    activeTemplate={type}
+                    templateTransform={transform}
+                    activeData={
+                      activeAlert && showSelector ? [activeAlert] : null
+                    }
+                    dataSelectionCallback={this.lightCurveSelectionCallback}
+                    templateZoomCallback={updateAnswer}
+                    peakMagCallback={updateAnswer}
+                  />
+                </ConditionalWrapper>
+              </div>
+            )}
           </div>
         )}
-        {(data || alerts) && showLightCurve && (
-          <div className={showSelector ? 'col padded col-width-50' : 'col'}>
-            <h2 className="space-bottom">Light Curve</h2>
-            <ConditionalWrapper
-              condition={data && !multiple ? data.length > 1 : false}
-              wrapper={children => (
-                <NavDrawer
-                  cardClasses={container}
-                  interactableToolbar
-                  navItems={navItems}
-                  toolbarTitle={activeGalaxy ? activeGalaxy.name : null}
-                  contentClasses={paddedDrawerInner}
-                >
-                  {children}
-                </NavDrawer>
-              )}
-            >
-              <LightCurve
-                className={`light-curve-${name} ${band}-band`}
-                data={multiple ? data : alerts}
-                {...{
-                  name,
-                  band,
-                  templatesData,
-                  peakMagAnswerId,
-                  templateAnswerId,
-                  activeAnswer,
-                  activeQuestionId,
-                  multiple,
-                  xDomain,
-                  yDomain,
-                }}
-                pointColor={activeGalaxy ? activeGalaxy.color : '#BEE7F5'}
-                legend={legend ? this.createLegend(data) : null}
-                activeAlertId={
-                  activeAlert ? activeAlert.alert_id.toString() : null
-                }
-                interactableTemplates={
-                  !!activeQuestionId && activeQuestionId === templateAnswerId
-                }
-                interactablePeakMag={
-                  !!activeQuestionId && peakMagAnswerId === activeQuestionId
-                }
-                pointsAreVisible={
-                  selectorQId ? !isEmpty(answers[selectorQId]) : true
-                }
-                templates={lightCurveTemplates}
-                activePeakMag={{ peakMagX: x, peakMagY: y }}
-                activeTemplate={type}
-                templateTransform={transform}
-                activeData={activeAlert && showSelector ? [activeAlert] : null}
-                dataSelectionCallback={this.lightCurveSelectionCallback}
-                templateZoomCallback={updateAnswer}
-                peakMagCallback={updateAnswer}
-              />
-            </ConditionalWrapper>
-          </div>
-        )}
-      </div>
+      </Translation>
     );
   }
 }

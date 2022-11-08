@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import find from 'lodash/find';
 import classnames from 'classnames';
+import { withTranslation, Trans } from 'gatsby-plugin-react-i18next';
 import API from '../lib/API.js';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
 import StarAvatar from '../components/charts/shared/navDrawer/StarAvatar.jsx';
@@ -66,6 +67,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
   };
 
   generateNavItems(scrambles, activeScramble) {
+    const { t } = this.props;
     return scrambles.map((scramble, i) => {
       const { name } = scramble;
 
@@ -73,7 +75,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
         leftAvatar: (
           <StarAvatar classes={`color-${i + 1}-fill`} content={name} />
         ),
-        primaryText: name,
+        primaryText: t(name),
         className: classnames(scrambleItem, `scramble-item-${i + 1}`, {
           'link-active': activeScramble.name === scramble.name,
         }),
@@ -84,7 +86,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
 
   render() {
     const { data, navItems, activeScramble, activeGalaxy } = this.state;
-    const { options } = this.props;
+    const { options, t } = this.props;
     const { hubbleConstant } = options || {};
 
     return (
@@ -95,12 +97,16 @@ class GalaxyScramblerContainer extends React.PureComponent {
           contentClasses={paddedDrawerInner}
           navItems={navItems}
           toolbarTitle={
-            activeScramble ? `${activeScramble.name}` : 'Galaxy Scrambler'
+            activeScramble
+              ? t(activeScramble.name)
+              : t('widgets::galaxy_scrambler.title')
           }
         >
           <div className="container-flex spaced">
             <div className="col padded col-width-50">
-              <h2 className={widgetTitle}>Hubble plot</h2>
+              <h2 className={widgetTitle}>
+                <Trans>widgets::hubble_plotter.title</Trans>
+              </h2>
               <HubblePlot
                 className="hubble-plot"
                 {...{
@@ -112,7 +118,7 @@ class GalaxyScramblerContainer extends React.PureComponent {
             </div>
             <div className="col padded col-width-50">
               <h2 className={widgetTitle}>
-                Relative Positions of Galaxies in Space
+                <Trans>widgets::galaxies_position.title</Trans>
               </h2>
               <GalaxiesPosition3D
                 className="galaxies-position"
@@ -134,6 +140,7 @@ GalaxyScramblerContainer.propTypes = {
   activeQuestionId: PropTypes.string,
   activeAnswer: PropTypes.object,
   updateAnswer: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default GalaxyScramblerContainer;
+export default withTranslation()(GalaxyScramblerContainer);

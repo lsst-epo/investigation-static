@@ -3,23 +3,23 @@
   "investigation": "expanding-universe",
   "sectionOrder": 2,
   "order": "17",
-  "title": "The Universe through Time",
+  "title": "expanding-universe::pages.expand17.title",
   "slug": "universe-through-time/",
   "previous": {
-    "title": "Using evidence to support your ideas",
-    "link": "/using-evidence/"
+    "title": "expanding-universe::pages.expand16.title",
+    "link": "expanding-universe::pages.expand16.link"
   },
   "next": {
-    "title": "The Changing Hubble Constant",
-    "link": "/lsst-hubble-plot/"
+    "title": "expanding-universe::pages.expand18.title",
+    "link": "expanding-universe::pages.expand18.link"
   },
   "layout": "TwoCol",
-  "content": "<p>The Hubble plot can be used to provide an indirect measure for how the Universe has changed over time. When we observe objects in the Universe, we must take into account that the light we receive has traveled vast distances over a long period of time. As a result, we are actually seeing these objects not as they are now, but as they were in the past.</p>",
+  "content": "",
   "images": [
     {
-      "mediaPath": "/images/p10.jpg",
-      "altText": "Universe through time",
-      "figText": "A graphical representation of how the Universe has changed through time. Credit: Rubin Observatory"
+      "mediaPath": "expanding-universe::images.expand17.mediaPath",
+      "altText": "expanding-universe::images.expand17.altText",
+      "figText": "expanding-universe::images.expand17.figText"
     }
   ],
   "questionsByPage": [
@@ -29,14 +29,20 @@
           "id": "17",
           "questionType": "select",
           "title": "Question #1",
-          "labelPre": "The galaxy farthest from us provides information from a time that is ",
-          "labelPost": " in the history of the Universe.",
+          "labelPre": "expanding-universe::questions.17.labelPre",
+          "labelPost": "expanding-universe::questions.17.labelPost",
           "options": [
-            { "label": "more recent", "value": "more recent" },
-            { "label": "long ago", "value": "long ago" }
+            {
+              "label": "expanding-universe::questions.17.options.0",
+              "value": "more recent"
+            },
+            {
+              "label": "expanding-universe::questions.17.options.1",
+              "value": "long ago"
+            }
           ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "interface::actions.select",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -46,7 +52,7 @@
         {
           "id": "18",
           "questionType": "text",
-          "label": "Was the Universe smaller or larger a long time ago?",
+          "label": "expanding-universe::questions.18.label",
           "answerAccessor": "text"
         }
       ]
@@ -56,7 +62,7 @@
         {
           "id": "19",
           "questionType": "text",
-          "label": "Are the galaxies getting closer together or farther apart as the Universe gets older?",
+          "label": "expanding-universe::questions.19.label",
           "answerAccessor": "text"
         }
       ]

@@ -3,15 +3,15 @@
   "investigation": "expanding-universe",
   "sectionOrder": 0,
   "order": "09",
-  "title": "Constructing a Hubble Plot",
+  "title": "expanding-universe::pages.expand9.title",
   "slug": "interpreting-a-hubble-plot-2/",
   "previous": {
-    "title": "Interpreting a Hubble Plot",
-    "link": "/interpreting-a-hubble-plot-1_4/"
+    "title": "expanding-universe::pages.expand8.title",
+    "link": "expanding-universe::pages.expand8.link"
   },
   "next": {
-    "title": "Determining the Hubble Constant",
-    "link": "/interpreting-a-hubble-plot-3/"
+    "title": "expanding-universe::pages.expand10.title",
+    "link": "expanding-universe::pages.expand10.link"
   },
   "layout": "TwoCol",
   "tables": [
@@ -21,8 +21,17 @@
         "col": "left",
         "row": "bottom"
       },
-      "rowTitles": [["Galaxy #1"], ["Galaxy #2"], ["Galaxy #3"], ["Galaxy #4"]],
-      "colTitles": ["", "Velocity", "Distance"],
+      "rowTitles": [
+        ["expanding-universe::tables.1.rowTitles.0"],
+        ["expanding-universe::tables.1.rowTitles.1"],
+        ["expanding-universe::tables.1.rowTitles.2"],
+        ["expanding-universe::tables.1.rowTitles.3"]
+      ],
+      "colTitles": [
+        "",
+        "expanding-universe::tables.1.colTitles.0",
+        "expanding-universe::tables.1.colTitles.1"
+      ],
       "rows": [
         [
           { "accessor": "velocity", "id": "350" },
@@ -65,7 +74,7 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #1",
-          "label": "<p>For each galaxy, click on the plot to add a point with values close to the galaxy’s distance and velocity.  You can move a point by clicking and dragging it or by using the keyboard arrows. You can also zoom on the plot for more accurate point placement. To zoom, first place the cursor over the point, or the place where you want to reposition it, then scroll using your mouse or trackpad.</p>",
+          "label": "expanding-universe::questions.252.label",
           "answerPre": "",
           "answerAccessor": "hubblePlot"
         }

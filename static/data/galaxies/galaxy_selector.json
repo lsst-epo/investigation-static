@@ -1,7 +1,7 @@
 [
   {
     "id": "ZTF19abqmpsr",
-    "name": "Galaxy #1",
+    "name": "expanding-universe::widgets.hubble_plotter.galaxies.0.name",
     "band": "r",
     "Dec": 18.74361216,
     "RA": 45.08449499,
@@ -106,7 +106,7 @@
   },
   {
     "id": "ZTF20acuxpwz",
-    "name": "Galaxy #2",
+    "name": "expanding-universe::widgets.hubble_plotter.galaxies.1.name",
     "band": "r",
     "Dec": 18.74361216,
     "RA": 45.08449499,
@@ -155,7 +155,7 @@
   },
   {
     "id": "ZTF20acymtcs",
-    "name": "Galaxy #3",
+    "name": "expanding-universe::widgets.hubble_plotter.galaxies.2.name",
     "band": "r",
     "Dec": 18.74361216,
     "RA": 45.08449499,
@@ -204,7 +204,7 @@
   },
   {
     "id": "ZTF20acxzkkf",
-    "name": "Galaxy #4",
+    "name": "expanding-universe::widgets.hubble_plotter.galaxies.3.name",
     "band": "g",
     "Dec": 18.74361216,
     "RA": 45.08449499,

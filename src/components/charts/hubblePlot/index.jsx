@@ -15,6 +15,7 @@ import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import { zoom as d3Zoom } from 'd3-zoom';
 import 'd3-transition';
 import { drag as d3Drag } from 'd3-drag';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import CircularProgress from 'react-md/lib//Progress/CircularProgress';
 import { arrayify, isSafari } from '../../../lib/utilities.js';
 import Trendline from './Trendline.jsx';
@@ -709,6 +710,7 @@ class HubblePlot extends React.Component {
       isVisible,
       minZoom,
       maxZoom,
+      t,
     } = this.props;
 
     const {
@@ -804,7 +806,7 @@ class HubblePlot extends React.Component {
             }}
           />
           <XAxis
-            label={xAxisLabel}
+            label={t(xAxisLabel)}
             scale={xScale}
             {...{
               height,
@@ -815,7 +817,7 @@ class HubblePlot extends React.Component {
             }}
           />
           <YAxis
-            label={yAxisLabel}
+            label={t(yAxisLabel)}
             scale={yScale}
             {...{
               height,
@@ -920,10 +922,14 @@ HubblePlot.defaultProps = {
   maxZoom: 5,
   xValueAccessor: 'distance',
   yValueAccessor: 'velocity',
-  xAxisLabel: 'Distance (Mpc)',
-  yAxisLabel: 'Velocity (km/s)',
+  xAxisLabel: 'widgets::hubble_plotter.labels.x_axis_fallback',
+  yAxisLabel: 'widgets::hubble_plotter.labels.y_axis_fallback',
   tooltipAccessors: ['name', 'distance', 'velocity'],
-  tooltipLabels: ['Galaxy', 'Distance', 'Velocity'],
+  tooltipLabels: [
+    'astronomy::terms.galaxy',
+    'astronomy::galactic_properties.distance',
+    'astronomy::galactic_properties.velocity',
+  ],
   isVisible: true,
 };
 
@@ -955,6 +961,7 @@ HubblePlot.propTypes = {
   userTrendlineCallback: PropTypes.func,
   trendlineInteractable: PropTypes.bool,
   color: PropTypes.string,
+  t: PropTypes.func,
 };
 
-export default HubblePlot;
+export default withTranslation()(HubblePlot);

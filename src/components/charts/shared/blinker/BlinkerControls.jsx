@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import Button from '../../../site/button';
 import ButtonIcon from '../../../site/button/ButtonIcon';
 import Rewind from '../../../site/icons/Rewind';
@@ -14,6 +15,7 @@ const BlinkerControls = ({
   handleStartStop,
   handleNext,
   handlePrevious,
+  t,
 }) => {
   const StartStopTag = playing ? Pause : Play;
 
@@ -21,17 +23,23 @@ const BlinkerControls = ({
     <div className={controls} data-testid="blinker-controls">
       <Button
         icon
-        iconEl={<ButtonIcon srText="Backward" Icon={Rewind} />}
+        iconEl={
+          <ButtonIcon srText={t('actions.skip_backward')} Icon={Rewind} />
+        }
         onClick={handlePrevious}
       />
       <Button
         icon
-        iconEl={<ButtonIcon srText="Start/Stop" Icon={StartStopTag} />}
+        iconEl={
+          <ButtonIcon srText={t('actions.play_or_pause')} Icon={StartStopTag} />
+        }
         onClick={handleStartStop}
       />
       <Button
         icon
-        iconEl={<ButtonIcon srText="Forward" Icon={FastForward} />}
+        iconEl={
+          <ButtonIcon srText={t('actions.skip_forward')} Icon={FastForward} />
+        }
         onClick={handleNext}
       />
     </div>
@@ -43,6 +51,7 @@ BlinkerControls.propTypes = {
   handleStartStop: PropTypes.func,
   handleNext: PropTypes.func,
   handlePrevious: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default BlinkerControls;
+export default withTranslation()(BlinkerControls);

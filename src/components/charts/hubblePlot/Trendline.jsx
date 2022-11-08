@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { select as d3Select, mouse as d3mouse } from 'd3-selection';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import { formatValue, getElDims } from '../../../lib/utilities.js';
 
 class Trendline extends React.Component {
@@ -194,7 +195,11 @@ class Trendline extends React.Component {
             )}
             {textPos && (
               <text ref={this.label} x={textPos[0]} y={textPos[1]}>
-                slope = {formatValue(slope || hubbleConstant, 1)}
+                <Trans
+                  values={{ slope: formatValue(slope || hubbleConstant, 1) }}
+                >
+                  widgets::hubble_plotter.labels.trendline
+                </Trans>
               </text>
             )}
           </g>

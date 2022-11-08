@@ -3,21 +3,17 @@
   "investigation": "expanding-universe",
   "sectionOrder": 1,
   "order": "14",
-  "title": "Testing the Expansion of the Universe from Other Galaxies",
+  "title": "expanding-universe::pages.expand14.title",
   "slug": "testing-law/",
   "previous": {
-    "title": "Interpreting the Rate of Expansion",
-    "link": "/interpreting-a-hubble-plot-5/"
+    "title": "expanding-universe::pages.expand13.title",
+    "link": "expanding-universe::pages.expand13.link"
   },
   "next": {
-    "title": "Progress Update",
-    "link": "/section-2/"
+    "title": "expanding-universe::pages.expanding-universe-2-break.title",
+    "link": "expanding-universe::pages.expanding-universe-2-break.link"
   },
-  "contents": [
-    {
-      "content": "<p>Your observations from our location in the Milky Way Galaxy show that the Universe is expanding. Will observers in other galaxies also detect expansion in the same way?</p><p>We will begin by viewing new data for five galaxies observed from the Milky Way Galaxy.</p><p>Select a galaxy from the menu by clicking on one of the star icons (on the left side of the Hubble plot) to see what the Hubble plots would look like for astronomers in each of the five galaxies.</p><p>Rotate and zoom the tool on the right to help visualize the relative positions of galaxies in space. Note: <i>this does not imply that the Universe is rotating or expanding.</i></p>"
-    }
-  ],
+  "content": "expanding-universe::content.expand14",
   "widgets": [
     {
       "type": "GalaxyScrambler",
@@ -48,19 +44,19 @@
           "id": "9",
           "questionType": "select",
           "title": "Question #1",
-          "label": "In the Hubble plot, the data from galaxy observations all fall along a straight line. Are the galaxies actually positioned in space along a straight line?",
+          "label": "expanding-universe::questions.9.label",
           "options": [
             {
-              "label": "Yes",
+              "label": "interface::qas.options.yes",
               "value": "yes"
             },
             {
-              "label": "No",
+              "label": "interface::qas.options.no",
               "value": "no"
             }
           ],
-          "placeholder": "Select yes/no",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "expanding-universe::questions.9.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -71,21 +67,27 @@
           "id": "10",
           "questionType": "select",
           "title": "Question #1",
-          "label": "If alien astronomers living in Galaxy #2 were to view a Hubble plot from their position in the Universe, where would their galaxy appear on the plot?",
+          "label": "expanding-universe::questions.10.label",
           "options": [
-            { "label": "next to the origin", "value": "next to the origin" },
             {
-              "label": "next to the Milky Way Galaxy",
+              "label": "expanding-universe::questions.10.options.0",
+              "value": "next to the origin"
+            },
+            {
+              "label": "expanding-universe::questions.10.options.1",
               "value": "next to the Milky Way Galaxy"
             },
             {
-              "label": "the third dot from the origin",
+              "label": "expanding-universe::questions.10.options.2",
               "value": "the third dot from the origin"
             },
-            { "label": "at the origin", "value": "at the origin" }
+            {
+              "label": "expanding-universe::questions.10.options.3",
+              "value": "at the origin"
+            }
           ],
-          "placeholder": "Select the best description",
-          "answerPre": "<>Selected: </>",
+          "placeholder": "expanding-universe::questions.10.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -95,7 +97,7 @@
         {
           "id": "11",
           "questionType": "textArea",
-          "label": "Is the relationship between the distance of a galaxy and the velocity of a galaxy the same or different than what you observed from the Milky Way Galaxy? Explain.",
+          "label": "expanding-universe::questions.11.label",
           "answerAccessor": "text"
         }
       ]
@@ -105,7 +107,7 @@
         {
           "id": "12",
           "questionType": "textArea",
-          "label": "How does the Hubble Constant for the observations made by the alien astronomers in Galaxy #2 compare to the Hubble Constant you measured from Earth (in the Milky Way Galaxy)?",
+          "label": "expanding-universe::questions.12.label",
           "answerAccessor": "text"
         }
       ]
@@ -115,7 +117,7 @@
         {
           "id": "13",
           "questionType": "textArea",
-          "label": "Does this mean that the alien astronomers and Earth astronomers are observing the Universe expanding at the same rate or at different rates? If different, who observes the Universe expanding faster?",
+          "label": "expanding-universe::questions.13.label",
           "answerAccessor": "text"
         }
       ]
@@ -125,7 +127,7 @@
         {
           "id": "14",
           "questionType": "textArea",
-          "label": "Do your observations suggest that astronomers at all locations in the Universe would observe that all galaxies are moving away from them?",
+          "label": "expanding-universe::questions.14.label",
           "answerAccessor": "text"
         }
       ]
@@ -136,23 +138,23 @@
           "id": "16",
           "questionType": "select",
           "title": "Question #1",
-          "label": "What do the above observations imply about the center of the Universe?",
+          "label": "expanding-universe::questions.16.label",
           "options": [
             {
-              "label": "the Universe is centered on the Milky Way Galaxy",
+              "label": "expanding-universe::questions.16.options.0",
               "value": "the Universe is centered on the Milky Way Galaxy"
             },
             {
-              "label": "the Universe is centered on some other single location",
+              "label": "expanding-universe::questions.16.options.1",
               "value": "the Universe is centered on some other single location"
             },
             {
-              "label": "all locations observe the Universe to be expanding in the same way and therefore there is no center",
+              "label": "expanding-universe::questions.16.options.2",
               "value": "all locations observe the Universe to be expanding in the same way and therefore there is no center"
             }
           ],
-          "placeholder": "Select the best description",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "expanding-universe::questions.16.placeholder",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]

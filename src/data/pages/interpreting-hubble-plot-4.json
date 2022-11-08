@@ -3,18 +3,18 @@
   "investigation": "expanding-universe",
   "sectionOrder": 1,
   "order": "12",
-  "title": "Determining the Rate of Expansion",
+  "title": "expanding-universe::pages.expand12.title",
   "slug": "interpreting-a-hubble-plot-4/",
   "previous": {
-    "title": "Progress Update",
-    "link": "/section-1/"
+    "title": "expanding-universe::pages.expanding-universe-1-break.title",
+    "link": "expanding-universe::pages.expanding-universe-1-break.link"
   },
   "next": {
-    "title": "Interpreting the Rate of Expansion",
-    "link": "/interpreting-a-hubble-plot-5/"
+    "title": "expanding-universe::pages.expand13.title",
+    "link": "expanding-universe::pages.expand13.link"
   },
   "layout": "TwoCol",
-  "content": "<p>Click and drag on the plot to add a trendline that best fits your data. The slope of this trendline is known as the Hubble Constant, which indicates the rate of expansion for the Universe.</p>",
+  "content": "expanding-universe::content.expand12",
   "widgets": [
     {
       "type": "HubblePlot",
@@ -36,8 +36,8 @@
           "questionType": "accordion",
           "tool": "selection",
           "title": "Question #7",
-          "label": "<p>Click and drag anywhere on the Hubble plot to add a trendline</p>",
-          "answerPre": "<span>Hubble Constant: </span>",
+          "label": "expanding-universe::questions.7.label",
+          "answerPre": "expanding-universe::questions.7.answerPre",
           "answerAccessor": "hubbleConstant"
         }
       ]
@@ -49,7 +49,7 @@
           "questionType": "text",
           "tool": "selection",
           "title": "Question #7.1",
-          "label": "<p>Scientists currently estimate the Hubble Constant to be between 67.7 and 74.0 (km/s)/Mpc. How does your value of the Hubble Constant compare to these values?</p>",
+          "label": "expanding-universe::questions.7_1.label",
           "answerAccessor": "text"
         }
       ]

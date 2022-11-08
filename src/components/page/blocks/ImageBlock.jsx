@@ -28,7 +28,7 @@ class ImageBlock extends React.PureComponent {
 
     return (
       <figure className={classnames(gridImage, this.gridClasses[row], classes)}>
-        <ImageLoader src={mediaPath} alt={t(altText) || ''} />
+        <ImageLoader src={t(mediaPath)} alt={t(altText) || ''} />
         {figText && (
           <figcaption>
             <Trans>{figText}</Trans>

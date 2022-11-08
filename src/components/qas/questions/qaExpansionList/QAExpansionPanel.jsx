@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import Question from 'react-md/lib/ExpansionPanels/ExpansionPanel';
 import Answer from '../../answers/ExpansionPanel';
 import { renderDef } from '../../../../lib/utilities.js';
@@ -22,6 +23,7 @@ class QAExpansionPanel extends React.PureComponent {
       cancelHandler,
       saveHandler,
       editHandler,
+      t,
     } = this.props;
     const {
       answerPre,
@@ -47,7 +49,9 @@ class QAExpansionPanel extends React.PureComponent {
       [qaReviewLabel]: qaReview,
     });
 
-    const updatedLabel = `<span class="${questionLabelClassess}">${questionNumber}. ${label}</span>`;
+    const updatedLabel = `<span class="${questionLabelClassess}">${questionNumber}. ${t(
+      label
+    )}</span>`;
 
     return (
       <Question
@@ -68,8 +72,8 @@ class QAExpansionPanel extends React.PureComponent {
         {answered && (
           <Answer
             id={answer.id}
-            pre={answerPre}
-            post={answerPost}
+            pre={t(answerPre)}
+            post={t(answerPost)}
             content={answer.content ? answer.content : answer.data}
             accessor={answerAccessor}
             showEditButton={!active && answered}
@@ -93,6 +97,7 @@ QAExpansionPanel.propTypes = {
   cancelHandler: PropTypes.func,
   saveHandler: PropTypes.func,
   editHandler: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default QAExpansionPanel;
+export default withTranslation()(QAExpansionPanel);

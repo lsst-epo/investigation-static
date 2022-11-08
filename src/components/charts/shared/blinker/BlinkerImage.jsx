@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { activeImage, blinkerImage } from './blinker.module.scss';
 
 const BlinkerImage = ({ image, active, alertId, loadCallback }) => {
+  const { t } = useTranslation('widgets');
   const imageClasses = classnames(blinkerImage, {
     [activeImage]: active,
   });
@@ -11,7 +13,9 @@ const BlinkerImage = ({ image, active, alertId, loadCallback }) => {
   return (
     <img
       className={imageClasses}
-      alt={`Cutout for alert ${alertId}`}
+      alt={t('supernova_selector_with_light_curve.blinker.altText', {
+        alertId,
+      })}
       src={image}
       onLoad={loadCallback}
     />

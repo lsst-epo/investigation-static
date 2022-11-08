@@ -37,12 +37,12 @@ function PlaybackSpeed({
 
     formattedYears = {
       number: formatValue(justYears),
-      string: t('orbit_viewer.playback.interval.year', { count: justYears }),
+      string: t('elapsed_time.interval.year', { count: justYears }),
     };
 
     formattedDays = {
       number: formatValue(justDays),
-      string: t('orbit_viewer.playback.interval.day', { count: justDays }),
+      string: t('elapsed_time.interval.day', { count: justDays }),
     };
 
     if (justYears >= 1) {
@@ -66,12 +66,12 @@ function PlaybackSpeed({
 
     formattedYears = {
       number: formatValue(isNegative ? -justYears : justYears),
-      string: t('orbit_viewer.playback.interval.year', { count: justYears }),
+      string: t('elapsed_time.interval.year', { count: justYears }),
     };
 
     formattedDays = {
       number: formatValue(isNegative ? -justDays : justDays),
-      string: t('orbit_viewer.playback.interval.day', { count: justDays }),
+      string: t('elapsed_time.interval.year', { count: justDays }),
     };
 
     if (type === 'days') return formattedDays[value];
@@ -122,9 +122,7 @@ function PlaybackSpeed({
         changeCallback={sliderOnChangeCallback}
       />
       <div className={elapsedTimeContainer}>
-        <div className={elapsedTimeTitle}>
-          {t('orbit_viewer.playback.elapsed_time')}
-        </div>
+        <div className={elapsedTimeTitle}>{t('elapsed_time.title')}</div>
         <div className={elapsedTimeInner}>
           <div className={elapsedTimeBlock}>
             <div className={elapsedVal}>{formatElapsed('years', 'number')}</div>

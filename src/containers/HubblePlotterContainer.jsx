@@ -4,6 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import isArray from 'lodash/isArray';
 import findIndex from 'lodash/findIndex';
 import classnames from 'classnames';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import API from '../lib/API.js';
 import Navigation from '../components/charts/galaxySelector/Nav.jsx';
 import NavDrawer from '../components/charts/shared/navDrawer/index.jsx';
@@ -129,6 +130,7 @@ class HubblePlotterContainer extends React.PureComponent {
     const {
       answers,
       options: { toggleDataPointsVisibility: qId },
+      t,
     } = this.props;
     const answer = answers[qId];
     const answerData = !isEmpty(answer) ? answer.data : {};
@@ -149,7 +151,7 @@ class HubblePlotterContainer extends React.PureComponent {
             content={name}
           />
         ),
-        primaryText: name,
+        primaryText: t(name),
         className: classnames(navStyle[`colorizedNavItem${i + 1}`], {
           [navStyle.inactive]: !active,
           [navStyle.active]: active,
@@ -188,13 +190,14 @@ class HubblePlotterContainer extends React.PureComponent {
 
   render() {
     const { data, activeGalaxy, activeGalaxyIndex, plottedData } = this.state;
-
-    const { options } = this.props;
+    const { options, t } = this.props;
     const { qaReview } = options || {};
 
     return (
       <>
-        <h2 className="space-bottom heading-primary">Hubble Plot</h2>
+        <h2 className="space-bottom heading-primary">
+          {t('widgets::hubble_plotter.title')}
+        </h2>
         {data && (
           <ConditionalWrapper
             condition={!qaReview}
@@ -207,7 +210,9 @@ class HubblePlotterContainer extends React.PureComponent {
                 drawerClasses={styles.galaxyDrawer}
                 navItems={this.generateNavItems(data)}
                 toolbarTitle={
-                  activeGalaxy ? activeGalaxy.name : 'Galaxy Selector'
+                  activeGalaxy
+                    ? t(activeGalaxy.name)
+                    : t('widgets::hubble_plotter.galaxy_name_fallback')
                 }
                 toolbarActions={
                   <Navigation
@@ -247,6 +252,7 @@ HubblePlotterContainer.propTypes = {
   answers: PropTypes.object,
   activeQuestionId: PropTypes.string,
   updateAnswer: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default HubblePlotterContainer;
+export default withTranslation()(HubblePlotterContainer);

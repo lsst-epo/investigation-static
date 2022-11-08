@@ -1,13 +1,13 @@
 [
   {
     "id": "MW",
-    "name": "Milky Way",
+    "name": "astronomy::terms.milky_way",
     "color": "#a3bb0d",
     "data": [
       {
-        "name": "Milky Way",
+        "name": "astronomy::terms.milky_way",
         "id": "MW",
-        "label": "Milky Way",
+        "label": "astronomy::terms.milky_way",
         "color": "#a3bb0d",
         "redshift": 0.0,
         "distance": 0.0,
@@ -17,7 +17,7 @@
         "z": 0.0
       },
       {
-        "name": "Galaxy #1",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.0.name.name",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.017460998578026438,
@@ -28,7 +28,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Galaxy #2",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.1.name",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.0510100004154595,
@@ -39,7 +39,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "Galaxy #3",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.2.name",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.15434000264721354,
@@ -50,7 +50,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "Galaxy #4",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.3.name",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.18710000071334348,
@@ -61,7 +61,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "Galaxy #5",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.4.name",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.2509999995498257,
@@ -74,14 +74,14 @@
     ]
   },
   {
-    "name": "Galaxy #1",
+    "name": "expanding-universe::widgets.hubble_plotter.galaxies.0.name",
     "id": "Gal1",
     "color": "#1ab579",
     "data": [
       {
-        "name": "Milky Way",
+        "name": "astronomy::terms.milky_way",
         "id": "MW",
-        "label": "Milky Way",
+        "label": "astronomy::terms.milky_way",
         "color": "#a3bb0d",
         "redshift": 0.017460998578026438,
         "distance": 75.23006676341754,
@@ -91,9 +91,9 @@
         "z": 0.0
       },
       {
-        "name": "Galaxy #1",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.0.name",
         "id": "Gal1",
-        "label": "Galaxy #1",
+        "label": "expanding-universe::widgets.hubble_plotter.galaxies.0.name",
         "color": "#1ab579",
         "redshift": 0.0,
         "distance": 0.0,
@@ -103,7 +103,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Galaxy #2",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.1.name",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.0613910838414253,
@@ -114,7 +114,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "Galaxy #3",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.2.name",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.14775923305753288,
@@ -125,7 +125,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "Galaxy #4",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.3.name",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.17704817067161657,
@@ -136,7 +136,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "Galaxy #5",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.4.name",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.2356790053991114,
@@ -149,15 +149,15 @@
     ]
   },
   {
-    "name": "Galaxy #2",
+    "name": "expanding-universe::widgets.hubble_plotter.galaxies.1.name",
     "id": "Gal2",
     "color": "#8e3efe",
     "data": [
       {
-        "name": "Milky Way",
+        "name": "astronomy::terms.milky_way",
         "id": "MW",
         "color": "#a3bb0d",
-        "label": "Milky Way",
+        "label": "astronomy::terms.milky_way",
         "redshift": 0.0510100004154595,
         "distance": 218.1594157123135,
         "velocity": 14913.179648988058,
@@ -166,7 +166,7 @@
         "z": 0.0
       },
       {
-        "name": "Galaxy #1",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.0.name",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.0613910838414253,
@@ -177,9 +177,9 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Galaxy #2",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.1.name",
         "id": "Gal2",
-        "label": "Galaxy #2",
+        "label": "expanding-universe::widgets.hubble_plotter.galaxies.1.name",
         "color": "#8e3efe",
         "redshift": 0.0,
         "distance": 0.0,
@@ -189,7 +189,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "Galaxy #3",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.2.name",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.12791316944140987,
@@ -200,7 +200,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "Galaxy #4",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.3.name",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.16984799489596916,
@@ -211,7 +211,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "Galaxy #5",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.4.name",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.248554861551478,
@@ -224,14 +224,14 @@
     ]
   },
   {
-    "name": "Galaxy #3",
+    "name": "expanding-universe::widgets.hubble_plotter.galaxies.2.name",
     "id": "Gal3",
     "color": "#c82960",
     "data": [
       {
-        "name": "Milky Way",
+        "name": "astronomy::terms.milky_way",
         "id": "MW",
-        "label": "Milky Way",
+        "label": "astronomy::terms.milky_way",
         "color": "#a3bb0d",
         "redshift": 0.15434000264721354,
         "distance": 644.6591859152835,
@@ -241,7 +241,7 @@
         "z": 0.0
       },
       {
-        "name": "Galaxy #1",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.0.name",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.14775923305753288,
@@ -252,7 +252,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Galaxy #2",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.1.name",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.12791316944140987,
@@ -263,9 +263,9 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "Galaxy #3",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.2.name",
         "id": "Gal3",
-        "label": "Galaxy #3",
+        "label": "expanding-universe::widgets.hubble_plotter.galaxies.2.name",
         "color": "#c82960",
         "redshift": 0.0,
         "distance": 0.0,
@@ -275,7 +275,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "Galaxy #4",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.3.name",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.05458799133987719,
@@ -286,7 +286,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "Galaxy #5",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.4.name",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.1365819319086266,
@@ -299,14 +299,14 @@
     ]
   },
   {
-    "name": "Galaxy #4",
+    "name": "expanding-universe::widgets.hubble_plotter.galaxies.3.name",
     "id": "Gal4",
     "color": "#eb7c39",
     "data": [
       {
-        "name": "Milky Way",
+        "name": "astronomy::terms.milky_way",
         "id": "MW",
-        "label": "Milky Way",
+        "label": "astronomy::terms.milky_way",
         "color": "#a3bb0d",
         "redshift": 0.18710000071334348,
         "distance": 775.4574862563011,
@@ -316,7 +316,7 @@
         "z": 0.0
       },
       {
-        "name": "Galaxy #1",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.0.name",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.17704817067161657,
@@ -327,7 +327,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Galaxy #2",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.1.name",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.16984799489596916,
@@ -338,7 +338,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "Galaxy #3",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.2.name",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.05458799133987719,
@@ -349,9 +349,9 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "Galaxy #4",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.3.name",
         "id": "Gal4",
-        "label": "Galaxy #4",
+        "label": "expanding-universe::widgets.hubble_plotter.galaxies.3.name",
         "color": "#eb7c39",
         "redshift": 0.0,
         "distance": 0.0,
@@ -361,7 +361,7 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "Galaxy #5",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.4.name",
         "id": "Gal5",
         "color": "#fed828",
         "redshift": 0.11198617000021581,
@@ -374,14 +374,14 @@
     ]
   },
   {
-    "name": "Galaxy #5",
+    "name": "expanding-universe::widgets.hubble_plotter.galaxies.4.name",
     "id": "Gal5",
     "color": "#fed828",
     "data": [
       {
-        "name": "Milky Way",
+        "name": "astronomy::terms.milky_way",
         "id": "MW",
-        "label": "Milky Way",
+        "label": "astronomy::terms.milky_way",
         "color": "#a3bb0d",
         "redshift": 0.2509999995498257,
         "distance": 1024.3679434415365,
@@ -391,7 +391,7 @@
         "z": 0.0
       },
       {
-        "name": "Galaxy #1",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.0.name",
         "id": "Gal1",
         "color": "#1ab579",
         "redshift": 0.2356790053991114,
@@ -402,7 +402,7 @@
         "z": -0.207457901716895
       },
       {
-        "name": "Galaxy #2",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.1.name",
         "id": "Gal2",
         "color": "#8e3efe",
         "redshift": 0.248554861551478,
@@ -413,7 +413,7 @@
         "z": 0.6164061081949579
       },
       {
-        "name": "Galaxy #3",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.2.name",
         "id": "Gal3",
         "color": "#c82960",
         "redshift": 0.1365819319086266,
@@ -424,7 +424,7 @@
         "z": 0.3046144351481605
       },
       {
-        "name": "Galaxy #4",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.3.name",
         "id": "Gal4",
         "color": "#eb7c39",
         "redshift": 0.11198617000021581,
@@ -435,9 +435,9 @@
         "z": -0.1540615183107103
       },
       {
-        "name": "Galaxy #5",
+        "name": "expanding-universe::widgets.hubble_plotter.galaxies.4.name",
         "id": "Gal5",
-        "label": "Galaxy #5",
+        "label": "expanding-universe::widgets.hubble_plotter.galaxies.4.name",
         "color": "#fed828",
         "redshift": 0.0,
         "distance": 0.0,

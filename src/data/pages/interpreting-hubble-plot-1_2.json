@@ -3,18 +3,17 @@
   "investigation": "expanding-universe",
   "sectionOrder": 0,
   "order": "06",
-  "title": "Gathering the Data for a Hubble Plot - Galaxy 2",
+  "title": "expanding-universe::pages.expand6.title",
   "slug": "interpreting-a-hubble-plot-1_2/",
   "previous": {
-    "title": "Gathering the Data for a Hubble Plot - Galaxy 1",
-    "link": "/interpreting-a-hubble-plot-1/"
+    "title": "expanding-universe::pages.expand5.title",
+    "link": "expanding-universe::pages.expand5.link"
   },
   "next": {
-    "title": "Gathering the Data for a Hubble Plot - Galaxy 3",
-    "link": "/interpreting-a-hubble-plot-1_3/"
+    "title": "expanding-universe::pages.expand7.title",
+    "link": "expanding-universe::pages.expand7.link"
   },
   "layout": "TwoCol",
-  "content": "",
   "tables": [
     {
       "id": "1",
@@ -22,8 +21,17 @@
         "col": "left",
         "row": "bottom"
       },
-      "rowTitles": [["Galaxy #1"], ["Galaxy #2"], ["Galaxy #3"], ["Galaxy #4"]],
-      "colTitles": ["", "Velocity", "Distance"],
+      "rowTitles": [
+        ["expanding-universe::tables.1.rowTitles.0"],
+        ["expanding-universe::tables.1.rowTitles.1"],
+        ["expanding-universe::tables.1.rowTitles.2"],
+        ["expanding-universe::tables.1.rowTitles.3"]
+      ],
+      "colTitles": [
+        "",
+        "expanding-universe::tables.1.colTitles.0",
+        "expanding-universe::tables.1.colTitles.1"
+      ],
       "rows": [
         [
           { "accessor": "velocity", "id": "350" },
@@ -64,7 +72,7 @@
           "id": "351",
           "questionType": "accordion",
           "title": "Question #1",
-          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Repeat this process for each galaxy in the following pages.</p>",
+          "label": "expanding-universe::questions.351.label",
           "answerAccessor": "galaxySupernova"
         }
       ]

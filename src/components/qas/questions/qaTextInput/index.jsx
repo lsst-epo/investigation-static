@@ -197,7 +197,7 @@ class TextInput extends React.PureComponent {
           />
         )}
         {labelPost && (
-          <span className={labelClasses}>&nbsp;{labelPost}&nbsp;</span>
+          <span className={labelClasses}>&nbsp;{t(labelPost)}&nbsp;</span>
         )}
       </ConditionalWrapper>
     );

@@ -3,15 +3,15 @@
   "investigation": "expanding-universe",
   "sectionOrder": 0,
   "order": "07",
-  "title": "Gathering the Data for a Hubble Plot - Galaxy 3",
+  "title": "expanding-universe::pages.expand7.title",
   "slug": "interpreting-a-hubble-plot-1_3/",
   "previous": {
-    "title": "Gathering the Data for a Hubble Plot - Galaxy 2",
-    "link": "/interpreting-a-hubble-plot-1_2/"
+    "title": "expanding-universe::pages.expand6.title",
+    "link": "expanding-universe::pages.expand6.link"
   },
   "next": {
-    "title": "Gathering the Data for a Hubble Plot - Galaxy 4",
-    "link": "/interpreting-a-hubble-plot-1_4/"
+    "title": "expanding-universe::pages.expand8.title",
+    "link": "expanding-universe::pages.expand8.link"
   },
   "layout": "TwoCol",
   "content": "",
@@ -22,8 +22,17 @@
         "col": "left",
         "row": "bottom"
       },
-      "rowTitles": [["Galaxy #1"], ["Galaxy #2"], ["Galaxy #3"], ["Galaxy #4"]],
-      "colTitles": ["", "Velocity", "Distance"],
+      "rowTitles": [
+        ["expanding-universe::tables.1.rowTitles.0"],
+        ["expanding-universe::tables.1.rowTitles.1"],
+        ["expanding-universe::tables.1.rowTitles.2"],
+        ["expanding-universe::tables.1.rowTitles.3"]
+      ],
+      "colTitles": [
+        "",
+        "expanding-universe::tables.1.colTitles.0",
+        "expanding-universe::tables.1.colTitles.1"
+      ],
       "rows": [
         [
           { "accessor": "velocity", "id": "350" },
@@ -64,7 +73,7 @@
           "id": "352",
           "questionType": "accordion",
           "title": "Question #1",
-          "label": "<p>Identify the supernova by clicking on it. A colored circle should appear when you have correctly located it. Then identify the center of the galaxy by clicking on it. Another colored circle should appear when you have correctly located it. Repeat this process for the galaxy on the next page.</p>",
+          "label": "expanding-universe::questions.352.label",
           "answerAccessor": "galaxySupernova"
         }
       ]
