@@ -41,10 +41,6 @@
       "title": "Determining the Hubble Constant",
       "link": "/interpreting-a-hubble-plot-3/"
     },
-    "expanding-universe-1-break": {
-      "title": "Progress Update",
-      "link": "/section-1/"
-    },
     "expand12": {
       "title": "Determining the Rate of Expansion",
       "link": "/interpreting-a-hubble-plot-4/"
@@ -57,10 +53,6 @@
       "title": "Testing the Expansion of the Universe from Other Galaxies",
       "link": "/testing-law/"
     },
-    "expanding-universe-2-break": {
-      "title": "Progress Update",
-      "link": "/section-2/"
-    },
     "expand16": {
       "title": "Using evidence to support your ideas",
       "link": "/using-evidence/"
@@ -72,6 +64,27 @@
     "expand18": {
       "title": "The Changing Hubble Constant",
       "link": "/lsst-hubble-plot/"
+    },
+    "expand20": {
+      "title": "Reflect and Discuss",
+      "link": "/discuss-report/"
+    },
+    "expand21": {
+      "title": "Putting it all Together",
+      "link": "/summary/"
+    },
+    "expand22": { "title": "Acknowledgements", "link": "/acknowledgements/" },
+    "expanding-universe-1-break": {
+      "title": "Progress Update",
+      "link": "/section-1/"
+    },
+    "expanding-universe-2-break": {
+      "title": "Progress Update",
+      "link": "/section-2/"
+    },
+    "expanding-universe-3-break": {
+      "title": "Progress Update",
+      "link": "/section-3/"
     }
   },
   "content": {
@@ -90,7 +103,13 @@
     "expand14": "<p>Your observations from our location in the Milky Way Galaxy show that the Universe is expanding. Will observers in other galaxies also detect expansion in the same way?</p><p>We will begin by viewing new data for five galaxies observed from the Milky Way Galaxy.</p><p>Select a galaxy from the menu by clicking on one of the star icons (on the left side of the Hubble plot) to see what the Hubble plots would look like for astronomers in each of the five galaxies.</p><p>Rotate and zoom the tool on the right to help visualize the relative positions of galaxies in space. Note: <i>this does not imply that the Universe is rotating or expanding.</i></p>",
     "expanding-universe-2-break": "<p>You’ve measured an expansion rate for the Universe from your data, and verified that all locations observe the Universe to be expanding in exactly the same way, leading to the conclusion that the Universe does not have a center.</p><p>Next, you will explore a larger dataset of galaxies and determine if the expansion rate has changed over time.</p>",
     "expand16": "<p>It might be tempting to imagine that Earth is the center of the Universe if you don’t consider the perspective of observers in other galaxies.</p><p>Throughout most of human history, the center of the Universe was thought to be Earth. Aristarchus of Samos in the 3rd Century BC challenged this idea by proposing that Earth orbited the Sun, which placed the Sun at the center of the Universe. However, his ideas were not accepted by the scientists of the time. In 1543, Polish astronomer Nicholas Copernicus wrote <i>On the Revolutions</i> of the Heavenly Spheres, which again proposed that the Sun is the center of the Universe. His idea was also rejected by the scientific community. It wasn’t until Galileo Galilei, an Italian astronomer who made the first observations of the Sun and planets with his telescope, was the first to produce evidence proving that Earth was not at the center of the Universe.</p><p>Often breakthroughs in understanding, such as there being no center to the Universe, come as a result of challenging the popular theories or beliefs of the time. </p>",
-    "expand17": "<p>The Hubble plot can be used to provide an indirect measure for how the Universe has changed over time. When we observe objects in the Universe, we must take into account that the light we receive has traveled vast distances over a long period of time. As a result, we are actually seeing these objects not as they are now, but as they were in the past.</p>"
+    "expand17": "<p>The Hubble plot can be used to provide an indirect measure for how the Universe has changed over time. When we observe objects in the Universe, we must take into account that the light we receive has traveled vast distances over a long period of time. As a result, we are actually seeing these objects not as they are now, but as they were in the past.</p>",
+    "expand18": {
+      "0": "<p>Your Hubble plot was made from observations of a small sample of nearby galaxies. Rubin Observatory will detect millions of supernovae in host galaxies that are much farther away and dimmer than the galaxies you have investigated so far. This plot shows the galaxies you plotted (as colored points), and data for over a thousand supernovae and galaxies (as grey points) detected by Rubin Observatory.</p><p>Notice not all the data points fit onto the trendline.</p>",
+      "1": "<p>Observations of distant galaxies are leading to new insights about the Universe: The expansion rate of the Universe has changed over time. Many cosmologists attribute this change to the role of dark energy. Astronomers are actively engaged in new research to better understand the nature of dark energy. There are still many more secrets of the Universe to discover.</p>"
+    },
+    "expand22": "<p> This investigation was created by the Education and Public Outreach program of the Vera C. Rubin Observatory Construction project. In an effort to create and test this investigation prior to the start of Operations, we rely on the data of our scientific colleagues. In particular, this investigation was made possible thanks to data from the Zwicky Transient Facility and services provided by the alert stream broker ANTARES. We have also made use of the python library Astropy, a community-developed core Python package for astronomy. </p> <p>We thank the following instructors who volunteered to pilot test this investigation: </p> <ul> <li>Melinda Armeanu, Founders Classical Academy of Corinth, Corinth, TX</li> <li>Michele T. Bannister, Benjamin Lowe, Nicole J. Tan, and Ryan Ridden-Harper, University of Canterbury, Christchurch, New Zealand | Aotearoa</li> <li>Jackie Ehrlich, Niles North High School, Skokie, IL</li> <li>Lancelot Kao, City College of San Francisco, San Francisco, CA</li> <li>Elizabeth Ramseyer and Emily Reeves,  Niles West High School, Skokie, IL</li> <li>Diane Ripollone, Cardinal Gibbons High School, Raleigh, NC</li> </ul> <p>The team would also like to thank Keith Bechtol for useful scientific discussions in the development of this investigation.</p> <h3>References</h3> <ul> <li> Astropy Collaboration et al. 2018, AJ, 156, 3, doi: <a href='https://iopscience.iop.org/article/10.3847/1538-3881/aabc4f' >10.3847/1538-3881/aabc4f</a> </li> <li> Betoule, M. et al. 2014, A&A, 568, A22, doi: <a href='https://ui.adsabs.harvard.edu/link_gateway/2014A&A...568A..22B/doi:10.1051/0004-6361/201423413' >10.1051/0004-6361/201423413</a> </li> <li> Jones, D. O. et al. 2018, ApJ, 857, 51, doi: <a href='https://ui.adsabs.harvard.edu/link_gateway/2018ApJ...857...51J/doi:10.3847/1538-4357/aab6b1' >10.3847/1538-4357/aab6b1</a> </li> </ul> <h3>Funding Support</h3> <p> Vera C. Rubin Observatory is a Federal project jointly funded by the National Science Foundation (NSF) and the Department of Energy (DOE) Office of Science, with early construction funding received from private donations through the LSST Corporation. The NSF-funded LSST (now Rubin Observatory) Project Office for construction was established as an operating center under the management of the Association of Universities for Research in Astronomy (AURA). The DOE-funded effort to build the Rubin Observatory LSST Camera (LSSTCam) is managed by SLAC National Accelerator Laboratory (SLAC). </p> <p> Data is based on observations obtained with the Samuel Oschin 48-inch Telescope at the Palomar Observatory as part of the Zwicky Transient Facility project. ZTF is supported by the National Science Foundation and a collaboration including Caltech, IPAC, the Weizmann Institute for Science, the Oskar Klein Center at Stockholm University, the University of Maryland, the University of Washington, Deutsches Elektronen-Synchrotron and Humboldt University, Los Alamos National Laboratories, the TANGO Consortium of Taiwan, the University of Wisconsin at Milwaukee, and Lawrence Berkeley National Laboratories. Operations are conducted by COO, IPAC, and UW. </p> <p> The ANTARES project has been supported by the National Science Foundation through a cooperative agreement with the Association of University for Research in Astronomy (AURA) for the operation of NOAO, through an NSF INSPIRE grant to the University of Arizona (CISE AST-1344024, PI: R. Snodgrass), and through a grant from the Heising-Simons Foundation. </p>",
+    "expanding-universe-3-break": "<p>You’ve made the connection that observations of distant galaxies reveal what the Universe was like a long time ago, and discovered that the expansion rate of the Universe has increased over time.</p><p>Next, you will summarize all that you have learned and draw connections to how your observations provide supporting evidence for the Big Bang theory.</p>"
   },
   "images": {
     "expand1": {
@@ -239,6 +258,99 @@
     },
     "19": {
       "label": "Are the galaxies getting closer together or farther apart as the Universe gets older?"
+    },
+    "20": {
+      "label": "Do your data (colored points) agree with the Rubin Observatory data (grey points) for nearby galaxies regarding the expansion of the Universe? Explain."
+    },
+    "21": {
+      "labelPre": "For the more distant galaxies, the data ",
+      "labelPost": " fit the trendline.",
+      "options": {
+        "0": "do",
+        "1": "do not"
+      }
+    },
+    "22": {
+      "labelPre": "The region on the plot where the data do not fit the trendline corresponds to ",
+      "labelPost": " in the history of the Universe.",
+      "options": {
+        "0": "a long time ago",
+        "1": "more recent times"
+      }
+    },
+    "23": {
+      "labelPre": "The slope of the Hubble plot for galaxies that are far away is ",
+      "labelPost": " than the slope for nearby galaxies.",
+      "options": { "0": "flatter", "1": "steeper" }
+    },
+    "24": {
+      "label": "A long time ago, was the Universe expanding faster or slower than it is now? Explain your reasoning."
+    },
+    "25": {
+      "label": "Would you have been able to determine that the expansion rate of the Universe is changing with time if you had only your data from nearby galaxies?  Explain why or why not."
+    },
+    "26": {
+      "label": "How do the data from this investigation provide supporting evidence for the Big Bang Theory? Explain what aspects of the Big Bang Theory are addressed and how they are supported."
+    },
+    "27": {
+      "labelPre": "(Choose the two variables that best complete this sentence) To construct a Hubble Plot you need to determine the ",
+      "labelPost": " of galaxies.",
+      "options": {
+        "0": "color",
+        "1": "brightness",
+        "2": "distance",
+        "3": "recessional velocity",
+        "4": "age"
+      }
+    },
+    "28": {
+      "labelPre": "We observe the light from distant galaxies to be ",
+      "options": { "0": "redshifted", "1": "blueshifted" }
+    },
+    "29": {
+      "labelPre": " indicating that these galaxies are all moving ",
+      "labelPost": " us,",
+      "options": { "0": "toward", "1": "away from" }
+    },
+    "30": {
+      "labelPre": " and that the Universe is ",
+      "options": { "0": "expanding", "1": "contracting" }
+    },
+    "33": {
+      "labelPre": "The light we receive from distant objects tells us what the Universe was like ",
+      "options": { "0": "a long time ago", "1": "close to our time" }
+    },
+    "34": {
+      "labelPre": " while the light we receive from nearby objects tells us what the Universe was like ",
+      "options": { "0": "a long time ago", "1": "from more recent times" }
+    },
+    "35": {
+      "labelPre": "The slope of a Hubble plot is ",
+      "labelPost": "for data from very distant objects compared to nearby objects.",
+      "options": { "0": "steeper", "1": "flatter" }
+    },
+    "36": {
+      "labelPre": "Since the expansion rate of the Universe determined by observing distant objects is ",
+      "labelPost": "than the expansion rate determined by observing nearby objects, ",
+      "options": { "0": "faster", "1": "slower" }
+    },
+    "37": {
+      "labelPre": " the expansion rate of the Universe is",
+      "labelPost": " as time goes on.",
+      "options": { "0": "speeding up", "1": "slowing down" }
+    },
+    "39": {
+      "labelPre": "A Universe that is slowly expanding would have a Hubble plot with a slope that is ",
+      "options": { "0": "steeper", "1": "flatter" }
+    },
+    "40": {
+      "labelPre": "The Hubble plot for an observer in a different galaxy would also indicate that all galaxies are moving ",
+      "labelPost": " them.",
+      "options": { "0": "towards", "1": "away from" }
+    },
+    "41": {
+      "labelPre": "Observations of the expansion of the Universe from different locations reveal that the Universe ",
+      "options": { "0": "does not have a center", "1": "has an edge" }
     }
   },
   "widgets": {

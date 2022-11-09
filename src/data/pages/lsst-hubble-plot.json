@@ -3,15 +3,15 @@
   "investigation": "expanding-universe",
   "sectionOrder": 2,
   "order": "18",
-  "title": "The Changing Hubble Constant",
+  "title": "expanding-universe::pages.expand18.title",
   "slug": "lsst-hubble-plot/",
   "previous": {
-    "title": "The Universe through Time",
-    "link": "/universe-through-time/"
+    "title": "expanding-universe::pages.expand17.title",
+    "link": "expanding-universe::pages.expand17.link"
   },
   "next": {
-    "title": "Progress Update",
-    "link": "/section-3/"
+    "title": "expanding-universe::pages.expanding-universe-3-break.title",
+    "link": "expanding-universe::pages.expanding-universe-3-break.link"
   },
   "layout": "TwoCol",
   "checkpoints": [
@@ -28,14 +28,14 @@
         "col": "left",
         "row": "top"
       },
-      "content": "<p>Your Hubble plot was made from observations of a small sample of nearby galaxies. Rubin Observatory will detect millions of supernovae in host galaxies that are much farther away and dimmer than the galaxies you have investigated so far. This plot shows the galaxies you plotted (as colored points), and data for over a thousand supernovae and galaxies (as grey points) detected by Rubin Observatory.</p><p>Notice not all the data points fit onto the trendline.</p>"
+      "content": "expanding-universe::content.expand18.0"
     },
     {
       "layout": {
         "col": "left",
         "row": "bottom"
       },
-      "content": "<p>Observations of distant galaxies are leading to new insights about the Universe: The expansion rate of the Universe has changed over time. Many cosmologists attribute this change to the role of dark energy. Astronomers are actively engaged in new research to better understand the nature of dark energy. There are still many more secrets of the Universe to discover.</p>"
+      "content": "expanding-universe::content.expand18.1"
     }
   ],
   "widgets": [
@@ -65,7 +65,7 @@
         {
           "id": "20",
           "questionType": "textArea",
-          "label": "Do your data (colored points) agree with the Rubin Observatory data (grey points) for nearby galaxies regarding the expansion of the Universe? Explain.",
+          "label": "expanding-universe::questions.20.label",
           "answerAccessor": "text"
         }
       ]
@@ -76,20 +76,20 @@
           "id": "21",
           "questionType": "select",
           "title": "Question #1",
-          "labelPre": "For the more distant galaxies, the data ",
-          "labelPost": " fit the trendline.",
+          "labelPre": "expanding-universe::questions.21.labelPre",
+          "labelPost": "expanding-universe::questions.21.labelPost",
           "options": [
             {
-              "label": "do",
+              "label": "expanding-universe::questions.21.options.0",
               "value": "do"
             },
             {
-              "label": "do not",
+              "label": "expanding-universe::questions.21.options.1",
               "value": "do not"
             }
           ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "interface::qas.placeholders.select",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -99,19 +99,19 @@
         {
           "id": "22",
           "questionType": "select",
-          "labelPre": "The region on the plot where the data do not fit the trendline corresponds to ",
-          "labelPost": " in the history of the Universe.",
+          "labelPre": "expanding-universe::questions.22.labelPre",
+          "labelPost": "expanding-universe::questions.22.labelPost",
           "options": [
             {
-              "label": "a long time ago",
+              "label": "expanding-universe::questions.22.options.0",
               "value": "a long time ago"
             },
             {
-              "label": "more recent times",
+              "label": "expanding-universe::questions.22.options.1",
               "value": "more recent times"
             }
           ],
-          "placeholder": "Select",
+          "placeholder": "interface::qas.placeholders.select",
           "answerAccessor": "data"
         }
       ]
@@ -122,14 +122,20 @@
           "id": "23",
           "questionType": "select",
           "title": "Question #1",
-          "labelPre": "The slope of the Hubble plot for galaxies that are far away is ",
-          "labelPost": " than the slope for nearby galaxies.",
+          "labelPre": "expanding-universe::questions.23.labelPre",
+          "labelPost": "expanding-universe::questions.23.labelPost",
           "options": [
-            { "label": "flatter", "value": "flatter" },
-            { "label": "steeper", "value": "steeper" }
+            {
+              "label": "expanding-universe::questions.23.options.0",
+              "value": "flatter"
+            },
+            {
+              "label": "expanding-universe::questions.23.options.1",
+              "value": "steeper"
+            }
           ],
-          "placeholder": "Select",
-          "answerPre": "<p>Selected: </p>",
+          "placeholder": "interface::qas.placeholders.select",
+          "answerPre": "interface::qas.answer_pre",
           "answerAccessor": "data"
         }
       ]
@@ -139,7 +145,7 @@
         {
           "id": "24",
           "questionType": "textArea",
-          "label": "A long time ago, was the Universe expanding faster or slower than it is now? Explain your reasoning.",
+          "label": "expanding-universe::questions.24.label",
           "answerAccessor": "text"
         }
       ]
