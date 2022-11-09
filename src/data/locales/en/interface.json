@@ -97,6 +97,9 @@
     "text_input": {
       "label": "Complete this statement by filling in the blank: {{labelPre}}, blank, {{labelPost}}"
     },
+    "placeholders": {
+      "select": "Select"
+    },
     "options": {
       "yes": "yes",
       "no": "no",

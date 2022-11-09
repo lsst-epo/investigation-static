@@ -3,17 +3,16 @@
   "investigation": "expanding-universe",
   "sectionOrder": 3,
   "order": "20",
-  "title": "Reflect and Discuss",
+  "title": "expanding-universe::pages.expand20.title",
   "slug": "discuss-report/",
   "previous": {
-    "title": "Progress Update",
-    "link": "/section-3/"
+    "title": "expanding-universe::pages.expanding-universe-3-break.title",
+    "link": "expanding-universe::pages.expanding-universe-3-break.link"
   },
   "next": {
-    "title": "Putting it all Together",
-    "link": "/summary/"
+    "title": "expanding-universe::pages.expand21.title",
+    "link": "expanding-universe::pages.expand21.link"
   },
-
   "layout": "TwoCol",
   "widgets": [
     {
@@ -45,7 +44,7 @@
         {
           "id": "25",
           "questionType": "textArea",
-          "label": "Would you have been able to determine that the expansion rate of the Universe is changing with time if you had only your data from nearby galaxies?  Explain why or why not.",
+          "label": "expanding-universe::questions.25.label",
           "answerAccessor": "text"
         }
       ]
@@ -55,7 +54,7 @@
         {
           "id": "26",
           "questionType": "textArea",
-          "label": "How do the data from this investigation provide supporting evidence for the Big Bang Theory? Explain what aspects of the Big Bang Theory are addressed and how they are supported.",
+          "label": "expanding-universe::questions.26.label",
           "answerAccessor": "text"
         }
       ]

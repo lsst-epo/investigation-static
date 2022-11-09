@@ -34,7 +34,7 @@ module.exports = {
         useLangKeyLayout: false,
         prefixDefault: false,
         i18nextOptions: {
-          debug: true,
+          debug: false,
           fallbackLng: 'en',
           interpolation: {
             skipOnVariables: false,

@@ -3,16 +3,16 @@
   "investigation": "expanding-universe",
   "sectionOrder": 3,
   "order": "22",
-  "title": "Acknowledgements",
+  "title": "expanding-universe::pages.expand22.title",
   "slug": "acknowledgements/",
   "previous": {
-    "title": "Putting it all Together",
-    "link": "/summary/"
+    "title": "expanding-universe::pages.expand21.title",
+    "link": "expanding-universe::pages.expand21.link"
   },
   "next": {
     "title": null,
     "link": null
   },
   "layout": "SingleCol",
-  "content": "<p> This investigation was created by the Education and Public Outreach program of the Vera C. Rubin Observatory Construction project. In an effort to create and test this investigation prior to the start of Operations, we rely on the data of our scientific colleagues. In particular, this investigation was made possible thanks to data from the Zwicky Transient Facility and services provided by the alert stream broker ANTARES. We have also made use of the python library Astropy, a community-developed core Python package for astronomy. </p> <p>We thank the following instructors who volunteered to pilot test this investigation: </p> <ul> <li>Melinda Armeanu, Founders Classical Academy of Corinth, Corinth, TX</li> <li>Michele T. Bannister, Benjamin Lowe, Nicole J. Tan, and Ryan Ridden-Harper, University of Canterbury, Christchurch, New Zealand | Aotearoa</li> <li>Jackie Ehrlich, Niles North High School, Skokie, IL</li> <li>Lancelot Kao, City College of San Francisco, San Francisco, CA</li> <li>Elizabeth Ramseyer and Emily Reeves,  Niles West High School, Skokie, IL</li> <li>Diane Ripollone, Cardinal Gibbons High School, Raleigh, NC</li> </ul> <p>The team would also like to thank Keith Bechtol for useful scientific discussions in the development of this investigation.</p> <h3>References</h3> <ul> <li> Astropy Collaboration et al. 2018, AJ, 156, 3, doi: <a href='https://iopscience.iop.org/article/10.3847/1538-3881/aabc4f' >10.3847/1538-3881/aabc4f</a> </li> <li> Betoule, M. et al. 2014, A&A, 568, A22, doi: <a href='https://ui.adsabs.harvard.edu/link_gateway/2014A&A...568A..22B/doi:10.1051/0004-6361/201423413' >10.1051/0004-6361/201423413</a> </li> <li> Jones, D. O. et al. 2018, ApJ, 857, 51, doi: <a href='https://ui.adsabs.harvard.edu/link_gateway/2018ApJ...857...51J/doi:10.3847/1538-4357/aab6b1' >10.3847/1538-4357/aab6b1</a> </li> </ul> <h3>Funding Support</h3> <p> Vera C. Rubin Observatory is a Federal project jointly funded by the National Science Foundation (NSF) and the Department of Energy (DOE) Office of Science, with early construction funding received from private donations through the LSST Corporation. The NSF-funded LSST (now Rubin Observatory) Project Office for construction was established as an operating center under the management of the Association of Universities for Research in Astronomy (AURA). The DOE-funded effort to build the Rubin Observatory LSST Camera (LSSTCam) is managed by SLAC National Accelerator Laboratory (SLAC). </p> <p> Data is based on observations obtained with the Samuel Oschin 48-inch Telescope at the Palomar Observatory as part of the Zwicky Transient Facility project. ZTF is supported by the National Science Foundation and a collaboration including Caltech, IPAC, the Weizmann Institute for Science, the Oskar Klein Center at Stockholm University, the University of Maryland, the University of Washington, Deutsches Elektronen-Synchrotron and Humboldt University, Los Alamos National Laboratories, the TANGO Consortium of Taiwan, the University of Wisconsin at Milwaukee, and Lawrence Berkeley National Laboratories. Operations are conducted by COO, IPAC, and UW. </p> <p> The ANTARES project has been supported by the National Science Foundation through a cooperative agreement with the Association of University for Research in Astronomy (AURA) for the operation of NOAO, through an NSF INSPIRE grant to the University of Arizona (CISE AST-1344024, PI: R. Snodgrass), and through a grant from the Heising-Simons Foundation. </p>"
+  "content": "expanding-universe::content.expand22"
 }

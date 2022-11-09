@@ -152,7 +152,7 @@ class QAMultiSelect extends React.PureComponent {
       [qaStyles.qaReviewLabelPost]: qaReview,
     });
 
-    const labelToUse = !isEmpty(labelPre) ? labelPre : label;
+    const labelToUse = t(!isEmpty(labelPre) ? labelPre : label);
     const updatedLabelPre =
       questionNumber && firstQuestion
         ? `${questionNumber}. ${labelToUse}`
@@ -207,7 +207,7 @@ class QAMultiSelect extends React.PureComponent {
             </DropdownMenu>
           )}
           {labelPost && (
-            <span className={labelPostClasses}>&nbsp;{labelPost}&nbsp;</span>
+            <span className={labelPostClasses}>&nbsp;{t(labelPost)}&nbsp;</span>
           )}
         </div>
       </ConditionalWrapper>
