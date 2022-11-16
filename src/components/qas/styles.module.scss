@@ -20,6 +20,10 @@
 }
 
 .label-with-number {
+  b,
+  strong {
+    color: inherit;
+  }
   p:first-child() {
     display: inline;
   }
@@ -39,7 +43,6 @@
     :global &:not(.equation) {
       color: $basePrimary !important;
     }
-
   }
 
   :global .highlight {
