@@ -58,6 +58,16 @@
           "answerAccessor": "text"
         }
       ]
+    },
+    {
+      "question": [
+        {
+          "id": "qoEv2j",
+          "questionType": "textArea",
+          "label": "expanding-universe::questions.qoEv2j.label",
+          "answerAccessor": "text"
+        }
+      ]
     }
   ]
 }
