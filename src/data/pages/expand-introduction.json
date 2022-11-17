@@ -18,5 +18,17 @@
       "altText": "expanding-universe::images.expand1.altText",
       "figText": "expanding-universe::images.expand1.figText"
     }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "zLMJA7",
+          "questionType": "textArea",
+          "label": "expanding-universe::questions.zLMJA7.label",
+          "answerAccessor": "text"
+        }
+      ]
+    }
   ]
 }
