@@ -25,33 +25,33 @@ test('Blinker renders with required props', () => {
 
 test('Blinker calls callback when Start/Stop is clicked', () => {
   // Arrange
-  const { getByText } = render(
+  const { getByTestId } = render(
     <Blinker handleStartStop={testHandler} {...testProps} />
   );
   // Act
-  fireEvent.click(getByText('Start/Stop'));
+  fireEvent.click(getByTestId('blinker-start-stop'));
   // Assert
   expect(testHandler).toHaveBeenCalled();
 });
 
 test('Blinker calls callback when Forward is clicked', () => {
   // Arrange
-  const { getByText } = render(
+  const { getByTestId } = render(
     <Blinker handleNext={testHandler} {...testProps} />
   );
   // Act
-  fireEvent.click(getByText('Forward'));
+  fireEvent.click(getByTestId('blinker-forward'));
   // Assert
   expect(testHandler).toHaveBeenCalled();
 });
 
 test('Blinker calls callback when Backward is clicked', () => {
   // Arrange
-  const { getByText } = render(
+  const { getByTestId } = render(
     <Blinker handlePrevious={testHandler} {...testProps} />
   );
   // Act
-  fireEvent.click(getByText('Backward'));
+  fireEvent.click(getByTestId('blinker-rewind'));
   // Assert
   expect(testHandler).toHaveBeenCalled();
 });

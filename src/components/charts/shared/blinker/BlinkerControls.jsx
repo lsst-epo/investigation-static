@@ -22,6 +22,7 @@ const BlinkerControls = ({
   return (
     <div className={controls} data-testid="blinker-controls">
       <Button
+        data-testid="blinker-rewind"
         icon
         iconEl={
           <ButtonIcon srText={t('actions.skip_backward')} Icon={Rewind} />
@@ -29,6 +30,7 @@ const BlinkerControls = ({
         onClick={handlePrevious}
       />
       <Button
+        data-testid="blinker-start-stop"
         icon
         iconEl={
           <ButtonIcon srText={t('actions.play_or_pause')} Icon={StartStopTag} />
@@ -36,6 +38,7 @@ const BlinkerControls = ({
         onClick={handleStartStop}
       />
       <Button
+        data-testid="blinker-forward"
         icon
         iconEl={
           <ButtonIcon srText={t('actions.skip_forward')} Icon={FastForward} />
