@@ -171,9 +171,9 @@
       "label": "Based on your data, how many of the galaxies appear to be moving away from the Milky Way Galaxy?"
     },
     "J2O3iY": {
-      "labelPre": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
+      "labelPre": "Far away galaxies appear to be moving away from the Milky Way Galaxy ",
       "labelPost": "  than nearby galaxies.",
-      "srLabel": "Far away galaxies appear to be moving away from the Milk Way Galaxy ",
+      "srLabel": "Far away galaxies appear to be moving away from the Milky Way Galaxy ",
       "placeholder": "Select a speed",
       "options": {
         "0": "slower",

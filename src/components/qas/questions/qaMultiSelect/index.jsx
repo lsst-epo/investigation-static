@@ -202,7 +202,7 @@ class QAMultiSelect extends React.PureComponent {
                   { [styles.fullWidthSelect]: !isEmpty(label) }
                 )}
               >
-                {selectedOptions.join(', ') || placeholder}
+                {selectedOptions.join(', ') || t(placeholder)}
               </span>
             </DropdownMenu>
           )}
