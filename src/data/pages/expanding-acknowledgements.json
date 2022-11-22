@@ -1,18 +1,18 @@
 {
-  "id": "expand22",
+  "id": "expand23",
   "investigation": "expanding-universe",
   "sectionOrder": 3,
-  "order": "22",
-  "title": "expanding-universe::pages.expand22.title",
+  "order": "23",
+  "title": "expanding-universe::pages.expand23.title",
   "slug": "acknowledgements/",
   "previous": {
-    "title": "expanding-universe::pages.expand21.title",
-    "link": "expanding-universe::pages.expand21.link"
+    "title": "expanding-universe::pages.expanding-universe-4-break.title",
+    "link": "expanding-universe::pages.expanding-universe-4-break.link"
   },
   "next": {
     "title": null,
     "link": null
   },
   "layout": "SingleCol",
-  "content": "expanding-universe::content.expand22"
+  "content": "expanding-universe::content.expand23"
 }
