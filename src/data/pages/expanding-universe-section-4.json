@@ -1,0 +1,17 @@
+{
+  "id": "expanding-universe-4-break",
+  "investigation": "expanding-universe",
+  "sectionOrder": 3,
+  "order": "22",
+  "title": "expanding-universe::pages.expanding-universe-4-break.title",
+  "slug": "section-4/",
+  "previous": {
+    "title": "expanding-universe::pages.expand21.title",
+    "link": "expanding-universe::pages.expand21.link"
+  },
+  "next": {
+    "title": "expanding-universe::pages.expand23.title",
+    "link": "expanding-universe::pages.expand23.link"
+  },
+  "layout": "SectionBreak"
+}
