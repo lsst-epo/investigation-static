@@ -1,5 +1,5 @@
-import { addCallback, addReducer, setGlobal, resetGlobal } from 'reactn';
-import ls from 'local-storage';
+import { addCallback, addReducer, setGlobal } from 'reactn';
+import ls, { remove } from 'local-storage';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
 
@@ -23,11 +23,16 @@ class GlobalStore {
       educatorMode: null,
       sections: [],
       savedSources: {},
+      fromLocal: false,
       ...initialGlobals,
     };
     const { investigation } = this.emptyState;
 
-    const existingState = ls(investigation) || this.emptyState;
+    const hasLocalState = !!ls(investigation);
+
+    const existingState = hasLocalState
+      ? { ...ls(investigation), fromLocal: true }
+      : this.emptyState;
 
     setGlobal(existingState);
   }
@@ -40,12 +45,11 @@ class GlobalStore {
   }
 
   addReducers() {
-    addReducer('empty', () => {
-      resetGlobal();
-      this.addCallbacks();
-      this.addReducers();
+    addReducer('empty', global => {
+      const { investigation } = global;
+      remove(investigation);
 
-      return this.emptyState;
+      return { ...this.emptyState, fromLocal: false };
     });
 
     addReducer('updateName', (global, dispatch, name) => {
