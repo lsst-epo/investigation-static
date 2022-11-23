@@ -9,7 +9,7 @@ class SectionBreak extends React.PureComponent {
     const { blocksGroups, shared: blockShared, t } = this.props;
     const { section } = blockShared;
     const { sections } = this.global;
-    const isFinalBreak = section === sections.length - 2;
+    const isFinalBreak = section === sections.length - 1;
     const sectionBreakImgRoot = '/images/section_break/';
     const sectionBreakFileName = isFinalBreak
       ? t('interface::section_break.final_image')
@@ -23,7 +23,7 @@ class SectionBreak extends React.PureComponent {
           alt={t('interface::section_break.banner_alt')}
           responsive
         />
-        <h1>{t('interface::section_break.title')}</h1>
+        {isFinalBreak ? null : <h1>{t('interface::section_break.title')}</h1>}
         {blocksGroups.map((rowBlockGroup, i) => {
           const { type, blocks } = rowBlockGroup;
           const key = `${type}-${i}`;
