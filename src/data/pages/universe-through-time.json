@@ -14,7 +14,7 @@
     "link": "expanding-universe::pages.expand18.link"
   },
   "layout": "TwoCol",
-  "content": "",
+  "content": "expanding-universe::pages.expand17.content",
   "images": [
     {
       "mediaPath": "expanding-universe::images.expand17.mediaPath",
