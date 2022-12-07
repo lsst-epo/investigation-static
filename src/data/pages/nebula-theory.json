@@ -24,7 +24,7 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/interactions.png",
+      "mediaPath": "solar-system::images.solarsystem19a.mediaPath",
       "altText": "solar-system::images.solarsystem19a.altText",
       "figText": "solar-system::images.solarsystem19a.figText"
     }

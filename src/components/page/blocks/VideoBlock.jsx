@@ -79,7 +79,7 @@ class VideoBlock extends React.PureComponent {
           <ReactPlayer
             className={gridVideoReactPlayer}
             config={config}
-            url={`/videos/${mediaPath}`}
+            url={`/videos/${t(mediaPath)}`}
             width="100%"
             height="100%"
             controls={showControls}

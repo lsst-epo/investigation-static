@@ -17,7 +17,7 @@
   "content": "solar-system::content.solarsystem06",
   "videos": [
     {
-      "mediaPath": "20220321 Inclination animated graphic.mp4",
+      "mediaPath": "solar-system::videos.solarsystem06.mediaPath",
       "altText": "solar-system::videos.solarsystem06.altText",
       "figText": "solar-system::videos.solarsystem06.figText",
       "options": {

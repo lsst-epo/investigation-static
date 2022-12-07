@@ -17,7 +17,7 @@
   "content": "solar-system::content.solarsystem05",
   "images": [
     {
-      "mediaPath": "/images/20220203 Orbital characteristics.gif",
+      "mediaPath": "solar-system::images.solarsystem05.mediaPath",
       "altText": "solar-system::images.solarsystem05.altText",
       "figText": "solar-system::images.solarsystem05.figText"
     }

@@ -17,7 +17,7 @@
   "content": "solar-system::content.solarsystem29",
   "images": [
     {
-      "mediaPath": "/images/SS Student team drawings - Team C.svg",
+      "mediaPath": "solar-system::images.solarsystem31.mediaPath",
       "altText": "solar-system::images.solarsystem31.altText",
       "layout": {
         "col": "left",

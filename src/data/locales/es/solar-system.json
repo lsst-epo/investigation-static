@@ -135,14 +135,17 @@
       "figText": "Órbitas de los planetas exteriores como se describe en “La Evolución de los Mundos”, un libro publicado en la primera década de 1900 por Percival Lowell."
     },
     "solarsystem04": {
+      "mediaPath": "/images/solar-system/semi-major-minor-axes-es.png",
       "altText": "Imagen que indica el semieje mayor y el semieje menor de una elipsis.",
       "figText": "Imagen que indica el semieje mayor y el semieje menor de una elipsis. Crédito: Observatorio Rubin."
     },
     "solarsystem05": {
+      "mediaPath": "/images/solar-system/orbital-characteristics-es.gif",
       "altText": "Ejemplos de elipsis orbitales con diferentes excentricidades.",
       "figText": "Ejemplos de elipsis orbitales con diferentes excentricidades. Crédito: Observatorio Rubin"
     },
     "solarsystem07": {
+      "mediaPath": "/images/solar-system/big-view-es.png",
       "altText": "La gran Visión del Sistema Solar",
       "figText": "Crédito: Observatorio Rubin"
     },
@@ -157,16 +160,20 @@
       }
     },
     "solarsystem19a": {
+      "mediaPath": "/images/solar-system/interactions-es.png",
       "altText": "Interacciones entre objetos",
       "figText": "Cambios en la órbita de cuerpos menores del Sistema Solar. Crédito: Observatorio Rubin"
     },
     "solarsystem29": {
+      "mediaPath": "/images/solar-system/student-drawing-A-es.png",
       "altText": "Ilustración de un estudiante de una vista superior y lateral del Sistema Solar que muestra el Sol, Marte, Júpiter y Neptuno con varias trayectorias orbitales que pasan entre Júpiter y Neptuno con un rango de excentricidades e inclinaciones similares."
     },
     "solarsystem30": {
+      "mediaPath": "/images/solar-system/student-drawing-B-es.png",
       "altText": "Ilustración de un estudiante de una vista superior y lateral del Sistema Solar que muestra el Sol, Marte, Júpiter y Neptuno con varias trayectorias orbitales que pasan entre Júpiter y Neptuno con un rango de excentricidades e inclinaciones."
     },
     "solarsystem31": {
+      "mediaPath": "/images/solar-system/student-drawing-C-es.png",
       "altText": "Ilustración de un estudiante de una vista superior y lateral del Sistema Solar que muestra el Sol, Marte, Júpiter y Neptuno con varias trayectorias orbitales que pasan mayormente entre  con un rango de excentricidades e inclinaciones."
     },
     "solarsystem36": {
@@ -180,6 +187,7 @@
   },
   "videos": {
     "solarsystem06": {
+      "mediaPath": "solar-system/inclination-animated-graphic-es.mp4",
       "altText": "Ejemplos de elipses orbitales con diferentes inclinaciones.",
       "figText": "Ejemplos de elipses orbitales con diferentes inclinaciones. Crédito: Observatorio Rubin"
     }
