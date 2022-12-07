@@ -167,14 +167,17 @@
       "figText": "Orbits of the outer planets as described in “The Evolution of Worlds,” a book published in the first decade of the 1900s by Percival Lowell."
     },
     "solarsystem04": {
+      "mediaPath": "/images/solar-system/semi-major-minor-axes-en.png",
       "altText": "An image indicating the semi-major and semi-minor axis of an ellipse.",
       "figText": "An image indicating the semi-major and semi-minor axis of an ellipse. Credit: Rubin Observatory."
     },
     "solarsystem05": {
+      "mediaPath": "/images/solar-system/orbital-characteristics-en.gif",
       "altText": "Examples of orbital ellipses with different eccentricities.",
       "figText": "Examples of orbital ellipses with different eccentricities. Credit: Rubin Observatory"
     },
     "solarsystem07": {
+      "mediaPath": "/images/solar-system/big-view-en.png",
       "altText": "Big View of the Solar System",
       "figText": "Credit: Rubin Observatory"
     },
@@ -189,16 +192,20 @@
       }
     },
     "solarsystem19a": {
+      "mediaPath": "/images/solar-system/interactions-en.png",
       "altText": "Interactions between objects",
       "figText": "How orbits of small Solar System objects can change. Credit: Rubin Observatory"
     },
     "solarsystem29": {
+      "mediaPath": "/images/solar-system/student-drawing-A-en.svg",
       "altText": "A student illustration of a top and side view of the solar system showing the Sun, Mars, Jupiter, and Neptune with several orbital paths that pass between Jupiter and Neptune with a range of eccentricities and similar inclinations."
     },
     "solarsystem30": {
+      "mediaPath": "/images/solar-system/student-drawing-B-en.svg",
       "altText": "A student illustration of a top and side view of the solar system showing the Sun, Mars, Jupiter, and Neptune with several orbital paths that pass between Jupiter and Neptune with a range of eccentricities and inclinations."
     },
     "solarsystem31": {
+      "mediaPath": "/images/solar-system/student-drawing-C-en.svg",
       "altText": "A student illustration of a top and side view of the solar system showing the Sun, Mars, Jupiter, and Neptune with several orbital paths that pass mostly between  with a range of eccentricities and inclinations."
     },
     "solarsystem36": {
@@ -212,6 +219,7 @@
   },
   "videos": {
     "solarsystem06": {
+      "mediaPath": "solar-system/inclination-animated-graphic-en.mp4",
       "altText": "Examples of orbital ellipses with different inclinations.",
       "figText": "Examples of orbital ellipses with different inclinations. Credit: Rubin Observatory"
     }

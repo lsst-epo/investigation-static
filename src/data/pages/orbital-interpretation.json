@@ -30,7 +30,7 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/SS Student team drawings - Team A.svg",
+      "mediaPath": "solar-system::images.solarsystem29.mediaPath",
       "altText": "solar-system::images.solarsystem29.altText",
       "layout": {
         "col": "left",

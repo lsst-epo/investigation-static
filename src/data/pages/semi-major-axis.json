@@ -17,7 +17,7 @@
   "content": "solar-system::content.solarsystem04",
   "images": [
     {
-      "mediaPath": "/images/semi-major-minor-axes.png",
+      "mediaPath": "solar-system::images.solarsystem04.mediaPath",
       "altText": "solar-system::images.solarsystem04.altText",
       "figText": "solar-system::images.solarsystem04.figText"
     }

@@ -16,7 +16,7 @@
   "layout": "TwoCol",
   "images": [
     {
-      "mediaPath": "/images/big-view.png",
+      "mediaPath": "solar-system::images.solarsystem07.mediaPath",
       "altText": "solar-system::images.solarsystem07.altText",
       "figText": "solar-system::images.solarsystem07.figText"
     }
