@@ -12,9 +12,6 @@ class GlobalStore {
       pageId: null,
       activeQuestionId: null,
       activeGraphData: null,
-      clusterA: [],
-      clusterB: [],
-      userDefinedRegions: [],
       totalPages: null,
       visitedPages: [],
       totalQAsByInvestigation: null,
@@ -23,16 +20,14 @@ class GlobalStore {
       educatorMode: null,
       sections: [],
       savedSources: {},
-      fromLocal: false,
+      fresh: true,
       ...initialGlobals,
     };
     const { investigation } = this.emptyState;
 
     const hasLocalState = !!ls(investigation);
 
-    const existingState = hasLocalState
-      ? { ...ls(investigation), fromLocal: true }
-      : this.emptyState;
+    const existingState = hasLocalState ? ls(investigation) : this.emptyState;
 
     setGlobal(existingState);
   }
@@ -49,12 +44,13 @@ class GlobalStore {
       const { investigation } = global;
       remove(investigation);
 
-      return { ...this.emptyState, fromLocal: false };
+      return { ...this.emptyState, fresh: true };
     });
 
     addReducer('updateName', (global, dispatch, name) => {
       return {
         ...global,
+        fresh: false,
         name,
       };
     });
@@ -97,6 +93,7 @@ class GlobalStore {
             progress,
           },
         },
+        fresh: false,
       };
     });
 
@@ -122,6 +119,7 @@ class GlobalStore {
               progress,
             },
           },
+          fresh: false,
         };
       }
     );
@@ -135,6 +133,7 @@ class GlobalStore {
           ...prevTotals,
           answers: Object.keys(answers).length,
         },
+        fresh: false,
       };
     });
 
@@ -154,6 +153,7 @@ class GlobalStore {
         ...dispatch.updateProgressByPage(pageId, id, true),
         ...dispatch.updateAnswerTotals(answers),
         answers,
+        fresh: false,
       };
     });
 
@@ -168,6 +168,7 @@ class GlobalStore {
         ...dispatch.updateProgressByPage(pageId, id, false),
         ...dispatch.updateAnswerTotals(answers),
         answers,
+        fresh: false,
       };
     });
 
@@ -178,6 +179,7 @@ class GlobalStore {
         ...global,
         activeQuestionId: id,
         activeAnswer,
+        fresh: false,
       };
     });
 
@@ -185,6 +187,7 @@ class GlobalStore {
       return {
         ...global,
         educatorMode: enabled,
+        fresh: false,
       };
     });
 
@@ -198,6 +201,7 @@ class GlobalStore {
       return {
         ...global,
         savedSources,
+        fresh: false,
       };
     });
   }
