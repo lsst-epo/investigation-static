@@ -42,7 +42,7 @@ class InvestigationsLanding extends React.PureComponent {
     const { investigations } = pageContext;
     const { envInvestigation } = this.state;
     const isAnswers = Object.keys(this.global.answers).length > 0;
-    const { fromLocal } = this.global;
+    const { fresh } = this.global;
 
     return (
       <>
@@ -105,16 +105,18 @@ class InvestigationsLanding extends React.PureComponent {
                 </div>
               </>
             ) : (
-              fromLocal && (
-                <Button
-                  flat
-                  primary
-                  swapTheming
-                  onClick={this.dispatch.empty}
-                  style={{ backgroundColor: '#df0039' }}
-                >
-                  <Trans>interface::actions.clear_answers</Trans>
-                </Button>
+              !fresh && (
+                <div className="space-bottom">
+                  <Button
+                    flat
+                    primary
+                    swapTheming
+                    onClick={this.dispatch.empty}
+                    style={{ backgroundColor: '#df0039' }}
+                  >
+                    <Trans>interface::actions.reset</Trans>
+                  </Button>
+                </div>
               )
             )}
             <Button flat primary component={Debug} />
