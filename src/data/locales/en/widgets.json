@@ -46,7 +46,11 @@
       "interval": {
         "secWithCount": "{{count}} sec",
         "yearWithCount": "{{count}} year",
-        "yearWithCount_plural": "{{count}} years"
+        "yearWithCount_plural": "{{count}} years",
+        "day": "Day",
+        "day_plural": "Days",
+        "year": "Year",
+        "year_plural": "Years"
       }
     },
     "bodies": {
@@ -62,11 +66,18 @@
       "trendline": "slope = {{slope}}"
     }
   },
+  "hubble_plot": {
+    "title": "Hubble Plot"
+  },
   "galaxy_selector": {
+    "title": "Galaxy Selector",
     "actions": {
       "previous": "Previous Galaxy",
       "next": "Next Galaxy"
     }
+  },
+  "galaxy_supernova_selector": {
+    "title": "Galaxy & Supernova Selector"
   },
   "galaxy_scrambler": {
     "title": "Galaxy Scrambler"

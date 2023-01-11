@@ -1,7 +1,8 @@
 {
   "terms": {
     "galaxy": "Galaxy",
-    "milky_way": "Milky Way"
+    "milky_way": "Milky Way",
+    "supernova": "Supernova"
   },
   "planets": {
     "mercury": "Mercury",

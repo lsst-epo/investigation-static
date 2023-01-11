@@ -1,4 +1,9 @@
 {
+  "terms": {
+    "galaxy": "Galaxia",
+    "milky_way": "Vía Láctea",
+    "supernova": "Supernova"
+  },
   "planets": {
     "mercury": "Mercurio",
     "venus": "Venus",
@@ -43,5 +48,9 @@
     "orbit_size_with_unit_plural": "Tamaños orbitales (au)",
     "direction_of_orbit": "Dirección de órbita",
     "group": "Grupo"
+  },
+  "galactic_properties": {
+    "distance": "Distancia",
+    "velocity": "Velocidad"
   }
 }

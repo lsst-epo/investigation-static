@@ -1,0 +1,392 @@
+{
+  "title": "Universo en expansión",
+  "pages": {
+    "expand1": {
+      "title": "Introducción",
+      "link": "/introduction/"
+    },
+    "expand2": {
+      "title": "Utilizando las Supernovas para Medir la Distancia de las Galaxias",
+      "link": "/acquiring-the-data/"
+    },
+    "expand3": {
+      "title": "Identificar una Supernova",
+      "link": "/acquiring-the-data-1/"
+    },
+    "expand4": {
+      "title": "Utilizando los Redshifts para Determinar la Velocidad de Recesión de las Galaxias",
+      "link": "/using-redshifts/"
+    },
+    "expand5": {
+      "title": "Recopilación de Datos para un Diagrama de Hubble - Galaxia 1",
+      "link": "/interpreting-a-hubble-plot-1/"
+    },
+    "expand6": {
+      "title": "Recopilación de Datos para un Diagrama de Hubble - Galaxia 2",
+      "link": "/interpreting-a-hubble-plot-1_2/"
+    },
+    "expand7": {
+      "title": "Recopilación de Datos para un Diagrama de Hubble - Galaxia 3",
+      "link": "/interpreting-a-hubble-plot-1_3/"
+    },
+    "expand8": {
+      "title": "Recopilación de Datos para un Diagrama de Hubble - Galaxia 4",
+      "link": "/interpreting-a-hubble-plot-1_4/"
+    },
+    "expand9": {
+      "title": "Construyendo un Diagrama de Hubble",
+      "link": "/interpreting-a-hubble-plot-2/"
+    },
+    "expand10": {
+      "title": "Determinando la Constante de Hubble",
+      "link": "/interpreting-a-hubble-plot-3/"
+    },
+    "expand12": {
+      "title": "Determinando la Velocidad de Expansión",
+      "link": "/interpreting-a-hubble-plot-4/"
+    },
+    "expand13": {
+      "title": "Interpretando la Velocidad de Expansión",
+      "link": "/interpreting-a-hubble-plot-5/"
+    },
+    "expand14": {
+      "title": "Probando la Expansión del Universo desde otras Galaxias",
+      "link": "/testing-law/"
+    },
+    "expand16": {
+      "title": "Usando la Evidencia para Apoyar tus Ideas",
+      "link": "/using-evidence/"
+    },
+    "expand17": {
+      "title": "El Universo a través del Tiempo",
+      "link": "/universe-through-time/"
+    },
+    "expand18": {
+      "title": "La Cambiante Constante de Hubble",
+      "link": "/lsst-hubble-plot/"
+    },
+    "expand20": {
+      "title": "Reflexionar y Discutir",
+      "link": "/discuss-report/"
+    },
+    "expand21": {
+      "title": "Juntando todo",
+      "link": "/summary/"
+    },
+    "expand23": {
+      "title": "Agradecimientos",
+      "link": "/acknowledgements/"
+    },
+    "expanding-universe-1-break": {
+      "title": "Actualización de Progreso",
+      "link": "/section-1/"
+    },
+    "expanding-universe-2-break": {
+      "title": "Actualización de Progreso",
+      "link": "/section-2/"
+    },
+    "expanding-universe-3-break": {
+      "title": "Actualización de Progreso",
+      "link": "/section-3/"
+    },
+    "expanding-universe-4-break": {
+      "title": "Actualización de Progreso",
+      "link": "/section-4/"
+    }
+  },
+  "content": {
+    "expand1": "<p>¿Alguna vez te has preguntado cosas sobre el Universo? ¿Cómo empezó? ¿Ha cambiado con el tiempo? ¿Qué ocurrirá en el futuro? Si es así, ¡no estás solo(a)! Durante siglos los científicos han intentado responder a este tipo de preguntas.</p> <p>Hace unos cien años atrás, el astrónomo <a href='https://www.physicsoftheuniverse.com/scientists_hubble.html' target='_blank' rel='noopener'>Edwin Hubble</a> midió la distancia a las estrellas de la Galaxia Andrómeda utilizando una técnica iniciada por <a href='https://www.aavso.org/henrietta-leavitt-%E2%80%93-celebrating-forgotten-astronomer' target='_blank' rel='noopener'>Henrietta Leavitt</a>. Hubble se sorprendió al descubrir que la Galaxia Andrómeda estaba mucho más lejos que todas las estrellas y nubes de gas en nuestra galaxia, la Vía Láctea. ¡Su descubrimiento nos hizo darnos cuenta de que el Universo es mucho más grande de lo que pensábamos!</p> <p>Pero el segundo descubrimiento de Hubble fue aún más revelador. Esta es la historia:</p> <p><a href='https://blog.history.in.gov/vesto-slipher-uncovering-the-cosmos/' target='_blank' rel='noopener'>Vesto Slipher</a> había medido previamente <a href='https://rubinobs.org/es/for-educators/glossary/redshift' target='_blank' rel='noopener'>los redshifts o corrimientos al rojo</a> de algunas galaxias y descubrió que casi todas estas galaxias parecían estar alejándose de la Tierra a velocidades extraordinarias. (las velocidades en las que las galaxias parecen estar alejándose de la Tierra las conocemos como <a href='https://rubinobs.org/es/for-educators/glossary/recessional-velocity' target='_blank' rel='noopener'>velocidades de recesión</a>.)</p> <p>Hubble y su asistente <a href='https://www.lindahall.org/about/news/scientist-of-the-day/milton-humason' target='_blank' rel='noopener'>Milton Humason</a> comenzaron a estudiar más galaxias utilizando la técnica de Slipher para determinar sus velocidades, y la técnica de Leavitt para medir las distancias de las galaxias. Luego, trazó las velocidades de las galaxias versus sus distancias. Este tipo de diagrama se conoce ahora como <a href='https://rubinobs.org/es/for-educators/glossary/hubble-plot' target='_blank' rel='noopener'>Diagrama de Hubble</a>. A la derecha está el gráfico de los datos originales de Hubble.</p> <p>Las observaciones de Hubble proporcionaron pruebas fehacientes de que el Universo está en expansión, confirmando los modelos teóricos anteriores propuestos por <a href='https://www.physicsoftheuniverse.com/scientists_einstein.html' target='_blank' rel='noopener'>Albert Einstein</a> y <a href='https://www.physicsoftheuniverse.com/scientists_lemaitre.html' target='_blank' rel='noopener'>Georges Lemaître</a>. Cuando Hubble realizó su primer trazado, sólo disponía de datos de galaxias relativamente cercanas a la Tierra. Ahora podemos observar galaxias a grandes distancias de la Tierra.</p> <p>El Observatorio Vera C. Rubin producirá una cantidad sin precedentes de nuevos datos de galaxias muy tenues y distantes. Estas observaciones proporcionarán un diagrama de Hubble más refinado al añadir muchos más puntos de datos, ayudándonos a modelar mejor la expansión del Universo a lo largo del tiempo.</p>",
+    "expand2": "<p>Para construir un diagrama de Hubble, se necesitan dos datos sobre cada galaxia: su distancia a la Tierra y su velocidad de recesión (la velocidad a la que se aleja de la Tierra).</p><p>Uno de los retos más difíciles para los astrónomos es determinar las distancias a objetos lejanos como las galaxias. Una forma de medir la distancia a una galaxia es buscar un determinado tipo de supernova (una estrella que explota) llamada supernova de tipo Ia (se pronuncia “tipo uno-a“) que se encuentre dentro de la galaxia. Las supernovas de tipo Ia son útiles porque todas ellas pueden estandarizarse para determinar su verdadero punto máximo <a target='_blank' href='https://rubinobs.org/es/for-educators/glossary/luminosity' target='_blank'>de luminosidad</a> sin importar en qué parte del Universo se produzcan. A partir de la luminosidad máxima se puede calcular la distancia a la supernova. Si se puede medir la distancia a una supernova de tipo Ia, también se puede conocer la distancia a la galaxia en la que se encuentra.</p><p>Esta imagen muestra una supernova que explotó en la galaxia M51. Observa que es brillante en comparación con las demás estrellas de la galaxia, e incluso más brillante que el núcleo de la propia galaxia.</p><p>Las supernovas son fenómenos poco frecuentes. Una supernova explota en una galaxia grande una vez cada 50 años, pero gracias a la capacidad del Observatorio Rubin para monitorear miles de millones de galaxias, ¡podemos encontrar 1.000 supernovas cada noche!</p>",
+    "expand3": "<p>Con los datos de Rubin, los astrónomos podrán medir la distancia a la supernova y determinar el corrimiento al rojo de su galaxia anfitriona.</p><p>Como las supernovas suelen aparecer en lugares donde antes no se veía ninguna estrella, pueden detectarse comparando imágenes de la galaxia anfitriona tomadas en distintos tiempos.</p><p>Las imágenes de esta página muestran una supernova descubierta en una galaxia. ¿Puedes encontrarla? Cuando localices la supernova, haz clic sobre ella. Si la has identificado correctamente, aparecerá un círculo a su alrededor.</p>",
+    "expand4": "<p>El Observatorio Rubin mide el brillo de una galaxia a través de múltiples filtros en un rango de longitudes de onda. A continuación, la luz de la galaxia a través de los distintos filtros se compara con un conjunto de modelos para determinar cuánto se ha desplazado la luz de la galaxia hacia longitudes de onda más largas, es decir, hacia el rojo. Esta técnica produce un valor de desplazamiento al rojo que se denomina <a href='https://rubinobs.org/es/for-educators/glossary/photometric-redshift' target='_blank'>corrimiento al rojo fotométrico</a> (Z). Luego, se utiliza una relación matemática para calcular la velocidad de recesión (v) de la galaxia a partir de su corrimiento al rojo fotométrico (Z). Cuanto mayor es el corrimiento al rojo fotométrico de la galaxia, más rápido parece alejarse de nosotros.</p><p>Con esta técnica, el Observatorio Rubin aumentará drásticamente la cantidad de datos sobre corrimientos al rojo de galaxias tenues, por encima de lo que se había recopilado hasta ahora.</p>",
+    "expand5": "<p>Comenzarás investigando cuatro imágenes de galaxias que contienen supernovas. Tu trabajo consiste en identificar la ubicación de la galaxia y su supernova compañera en cada imagen.</p> <p>Ya se han determinado las distancias a las supernovas de tipo Ia y a sus galaxias anfitrionas. Las distancias de las supernovas se miden en megaparsecs (Mpc). Un megaparsec corresponde a una distancia de aproximadamente 3,3 millones de años luz. Recuerda que, dado que cada supernova se encuentra en una galaxia, las distancias a la supernova y a la galaxia son las mismas. Al hacer clic en la supernova se añadirá la distancia correspondiente a la tabla.</p> <p>Las velocidades de recesión de estas galaxias se han determinado utilizando el corrimiento al rojo fotométrico. Las velocidades de recesión de las galaxias se miden en kilómetros por segundo (km/s). Al hacer clic en la galaxia se añadirá la distancia correspondiente a la tabla. </p><p>Más adelante en esta investigación utilizarás los datos de tus cuatro galaxias para crear un diagrama de Hubble.</p>",
+    "expand10": {
+      "0": "<p>Utiliza tu diagrama de Hubble para responder a las preguntas.</p>",
+      "1": "<p>Es importante señalar que cuando observamos galaxias que parecen alejarse de nosotros, no estamos observando el movimiento real de las galaxias a través del espacio. Una forma útil de pensar por qué las galaxias parecen alejarse unas de otras es pensar que las galaxias están fijas en un punto determinado del espacio y que éste se está expandiendo. Esto hace que las galaxias se alejen mutuamente.</p><p>La relación que has estado explorando entre la velocidad de recesión de una galaxia y su distancia se conoce como Ley de Hubble-Lemaître.</p>"
+    },
+    "expanding-universe-1-break": "<p>Con esto has observado que todas las galaxias parecen alejarse, y que las más distantes se mueven más rápido, lo que indica que el Universo se está expandiendo.</p><p>A continuación, investigarás a qué velocidad se expande el Universo. Luego observarás cómo se expande el Universo visto desde diferentes lugares.</p>",
+    "expand12": "<p>Haz clic y arrastra sobre el gráfico para añadir la línea de tendencia que mejor se ajuste a tus datos. La pendiente de esta línea de tendencia se conoce como Constante de Hubble, que indica la velocidad de expansión del Universo.</p>",
+    "expand13": "<p>La inclinación de la pendiente de un diagrama de Hubble corresponde a la velocidad de expansión del Universo. Una pendiente más pronunciada indica un ritmo de expansión más rápido. Por lo tanto, un valor mayor de la Constante de Hubble corresponderá a un ritmo de expansión más rápido del Universo.</p>",
+    "expand14": "<p>Tus observaciones desde nuestra ubicación en la Vía Láctea muestran que el Universo se está expandiendo. Los observadores de otras galaxias, ¿detectarán también la expansión del mismo modo?</p><p>Comenzaremos viendo los nuevos datos de cinco galaxias observadas desde la Vía Láctea.</p><p>Selecciona una galaxia del menú haciendo clic en uno de los iconos de estrella (a la izquierda del diagrama de Hubble) para ver cómo serían los diagramas de Hubble para los astrónomos en cada una de las cinco galaxias.</p><p>Gira y haz zoom a la herramienta de la derecha para visualizar las posiciones relativas de las galaxias en el espacio. Nota: <i>esto no implica que el Universo esté rotando o expandiéndose.</i></p>",
+    "expanding-universe-2-break": "<p>Acabas de medir una tasa de expansión para el Universo a partir de tus datos, y has verificado que todas las localizaciones observan que el Universo se expande exactamente de la misma manera, lo que lleva a la conclusión de que el Universo no tiene un centro.</p><p>A continuación, explorarás un conjunto de datos más amplio de galaxias y determinarás si la velocidad de expansión ha cambiado con el tiempo.</p>",
+    "expand16": "<p> Puede ser tentador imaginar que la Tierra es el centro del Universo si no se tiene en cuenta la perspectiva de los observadores en otras galaxias. </p> <p> Durante la mayor parte de la historia de la humanidad se pensó que la Tierra era el centro del Universo. En el siglo III a.C., Aristarco de Samos cuestionó esta idea al proponer que la Tierra orbitaba alrededor del Sol, lo que situaba a éste en el centro del Universo. Sin embargo, sus ideas no fueron aceptadas por los científicos de la época. En 1543, el astrónomo polaco Nicolás Copérnico escribió <i>Sobre las Revoluciones</i> de las Orbes Celestes, que volvía a proponer que el Sol era el centro del Universo. Su idea también fue rechazada por la comunidad científica hasta que el astrónomo italiano Galileo Galilei presentó pruebas telescópicas que demostraban que la Tierra no estaba en el centro del Universo. </p> <p> Los continuos avances en el conocimiento, como la inexistencia de un centro en el Universo, son el resultado de cuestionar las teorías o creencias populares de la época. </p>",
+    "expand17": "<p>El diagrama de Hubble puede utilizarse para proporcionar una medida indirecta de cómo ha cambiado el Universo a lo largo del tiempo. Cuando observamos objetos en el Universo, debemos tener en cuenta que la luz que recibimos ha recorrido grandes distancias durante un largo periodo de tiempo. En consecuencia, no vemos los objetos tal y como son ahora, sino tal y como eran en el pasado.</p>",
+    "expand18": {
+      "0": "<p>Tu diagrama de Hubble se creó a partir de observaciones de una pequeña muestra de galaxias cercanas. El Observatorio Rubin detectará millones de supernovas en galaxias anfitrionas que están mucho más lejos y son menos brillantes que las galaxias que has investigado hasta ahora. Este diagrama muestra las galaxias que has trazado (como puntos de color), y los datos de más de mil supernovas y galaxias (como puntos grises) detectadas por el Observatorio Rubin.</p><p>Observa que no todos los puntos de datos encajan en la línea de tendencia.</p>",
+      "1": "<p>Las observaciones de galaxias lejanas permiten comprender mejor el Universo: La velocidad de expansión del Universo ha cambiado con el tiempo. Muchos cosmólogos atribuyen este cambio al rol que desempeña la energía oscura. Los astrónomos participan activamente en nuevas investigaciones para comprender mejor la naturaleza de la energía oscura. Aún quedan muchos más secretos del Universo por descubrir.</p>"
+    },
+    "expand23": "<p> Esta investigación fue creada por el programa de Educación y Divulgación Pública del proyecto de Construcción del Observatorio Vera C. Rubin. En un esfuerzo por crear y probar esta investigación antes del inicio de las operaciones, nos basamos en los datos de nuestros colegas científicos. En particular, esta investigación ha sido posible gracias a los datos de la Instalación Zwicky para la detección de transitorios y a los servicios proporcionados por el sistema de alertas ANTARES. También hemos utilizado la biblioteca de python Astropy, un paquete básico de Python para astronomía desarrollado por la comunidad. </p> <p>Agradecemos a los siguientes instructores que se hicieron voluntarios para realizar una prueba piloto de esta investigación: </p> <ul> <li>Melinda Armeanu, Founders Classical Academy of Corinth, Corinth, TX</li> <li>Michele T. Bannister, Benjamin Lowe, Nicole J. Tan y Ryan Ridden-Harper, Universidad de Canterbury, Christchurch, Nueva Zelanda | Aotearoa</li> <li>Jackie Ehrlich, Secundaria Niles North, Skokie, IL</li> <li>Lancelot Kao, City College de San Francisco, San Francisco, CA</li> <li>Elizabeth Ramseyer y Emily Reeves,  Secundaria Niles West, Skokie, IL</li> <li>Diane Ripollone, Secundaria Cardinal Gibbons, Raleigh, NC</li> </ul> <p>El equipo también quiere agradecer a Keith Bechtol por las útiles discusiones científicas durante el desarrollo de esta investigación.</p> <h3>Referencias</h3> <ul> <li> Astropy Collaboration et al. 2018, AJ, 156, 3, doi: <a href='https://iopscience.iop.org/article/10.3847/1538-3881/aabc4f' >10.3847/1538-3881/aabc4f</a> </li> <li> Betoule, M. et al. 2014, A&A, 568, A22, doi: <a href='https://ui.adsabs.harvard.edu/link_gateway/2014A&A...568A..22B/doi:10.1051/0004-6361/201423413' >10.1051/0004-6361/201423413</a> </li> <li> Jones, D. O. et al. 2018, ApJ, 857, 51, doi: <a href='https://ui.adsabs.harvard.edu/link_gateway/2018ApJ...857...51J/doi:10.3847/1538-4357/aab6b1' >10.3847/1538-4357/aab6b1</a> </li> </ul> <h3>Apoyo de Financiamiento</h3> <p> El Observatorio Vera C. Rubin es un proyecto federal financiado conjuntamente por la Fundación Nacional de Ciencias (NSF) de EE.UU y la Oficina de Ciencia del Departamento de Energía (DOE) de EE.UU, con financiamiento inicial para la construcción recibida de donaciones privadas a través de la Corporación LSST. La Oficina del Proyecto LSST (ahora Observatorio Rubin) para la construcción, financiada por la NSF, se estableció como centro operativo bajo la dirección de la Asociación de Universidades para la Investigación en Astronomía (AURA). El esfuerzo financiado por el DOE para construir la Cámara LSST del Observatorio Rubin (LSSTCam) está gestionado por el Laboratorio Nacional del Acelerador SLAC (SLAC). </p> <p>Los datos se basan en observaciones obtenidas con el Telescopio Samuel Oschin de 48 pulgadas en el Observatorio Palomar como parte del proyecto de la Instalación Zwicky para la detección de transitorios (ZTF). ZTF cuenta con el apoyo de la Fundación Nacional de Ciencias de EE.UU y una colaboración que incluye a Caltech, IPAC, el Instituto Weizmann para la Ciencia, el Centro Oskar Klein de la Universidad de Estocolmo, la Universidad de Maryland, la Universidad de Washington, Deutsches Elektronen-Synchrotron y la Universidad Humboldt, los Laboratorios Nacionales de Los Álamos, el Consorcio TANGO de Taiwán, la Universidad de Wisconsin en Milwaukee y los Laboratorios Nacionales Lawrence Berkeley. Las operaciones están a cargo de COO, IPAC y UW. </p> <p>El proyecto ANTARES ha sido apoyado por la Fundación Nacional de Ciencias de EE.UU a través de un acuerdo de cooperación con la Asociación de Universidades para la Investigación en Astronomía (AURA) para la operación de NOAO, a través de una subvención NSF INSPIRE a la Universidad de Arizona (CISE AST-1344024, PI: R. Snodgrass), y a través de una subvención de la Fundación Heising-Simons. </p>",
+    "expanding-universe-3-break": "<p>Con esto, has comprendido que las observaciones de las galaxias distantes revelan cómo era el Universo hace mucho tiempo, y has descubierto que la tasa de expansión del Universo ha aumentado con el tiempo.</p><p>A continuación, resumirás todo lo que has aprendido y relacionarás tus observaciones con las pruebas que apoyan la teoría del Big Bang.</p>"
+  },
+  "images": {
+    "expand1": {
+      "altText": "Relación Velocidad-Distancia entre Nebulosas Extragalácticas. Aquí, las velocidades radiales (corregidas para el movimiento solar) se muestran frente a las distancias estimadas de las estrellas involucradas y las luminosidades promedio de las nebulosas de un cúmulo. Los discos negros y la línea continua representan la solución para el movimiento solar utilizando las nebulosas de forma individual; los círculos y la línea discontinua representan la solución combinando las nebulosas en grupos; la cruz representa la velocidad promedio correspondiente a la distancia media de 22 nebulosas cuyas distancias no pudieron estimarse individualmente.",
+      "figText": "La “Relación entre la Velocidad y la Distancia entre Nebulosas Extragalácticas“ original, creada por Edwin Hubble y publicada en las Actas de la Academia Nacional de Ciencias, el 15 de marzo de 1929 15 (3) 168-173; https://doi.org/10.1073/pnas.15.3.168."
+    },
+    "expand2": {
+      "altText": "SN2005cs en M15",
+      "figText": "SN2005cs, la supernova descubierta en 2005 que explotó en los brazos espirales de M51 –también conocida como la Galaxia Remolino. Créditos y derechos de autor: R. Jay Gabany"
+    },
+    "expand4": {
+      "altText": "Gráfico que muestra diferentes galaxias a distintas distancias de la Vía Láctea",
+      "figText": "La medición de los corrimientos al rojo fotométricos (Z) de las galaxias desde nuestra posición en la Vía Láctea nos permite calcular las velocidades de recesión (v) de las galaxias lejanas. Créditos: Observatorio Rubin"
+    },
+    "expand16": {
+      "mediaPath": "/images/expanding-universe/using-evidence-en.png",
+      "altText": "Una persona con más evidencia piensa de forma diferente a un grupo con menos evidencia",
+      "figText": "La incorporación de nuevas evidencias puede cambiar opiniones o ideas comúnmente aceptadas. Créditos: Observatorio Rubin"
+    },
+    "expand17": {
+      "mediaPath": "/images/p10-en.jpg",
+      "altText": "El Universo a través del tiempo",
+      "figText": "Representación gráfica de cómo ha cambiado el Universo a lo largo del tiempo. Créditos: Observatorio Rubin"
+    }
+  },
+  "videos": {},
+  "questions": {
+    "1": {
+      "label": "<p>Haga clic en el punto de la imagen para seleccionar la supernova</p>",
+      "answerPre": "<span>Supernova Seleccionada: </span>"
+    },
+    "9wvB2h": {
+      "labelPre": "La técnica de corrimiento al rojo fotométrico se utiliza para determinar la",
+      "labelPost": "de una galaxia."
+    },
+    "SPKuvL": {
+      "labelPre": "La medición del punto máximo de luminosidad de una supernova de tipo Ia nos permite calcular la",
+      "labelPost": "de su galaxia anfitriona."
+    },
+    "350": {
+      "label": "<p>Identifica la supernova haciendo clic sobre ella. Cuando la hayas localizado correctamente, aparecerá un círculo de color. A continuación, identifica el centro de la galaxia haciendo clic sobre él. Aparecerá otro círculo de color cuando lo hayas localizado correctamente. Los datos de distancia y velocidad de la galaxia aparecerán automáticamente en la tabla. Repite este proceso para cada galaxia en las siguientes páginas.</p>"
+    },
+    "351": {
+      "label": "<p>Identifica la supernova haciendo clic sobre ella. Cuando la hayas localizado correctamente, aparecerá un círculo de color. A continuación, identifica el centro de la galaxia haciendo clic sobre él. Aparecerá otro círculo de color cuando lo hayas localizado correctamente. Repite este proceso para cada galaxia en las siguientes páginas.</p>"
+    },
+    "352": {
+      "label": "<p>Identifica la supernova haciendo clic sobre ella. Cuando la hayas localizado correctamente, aparecerá un círculo de color. A continuación, identifica el centro de la galaxia haciendo clic sobre él. Aparecerá otro círculo de color cuando lo hayas localizado correctamente. Repite este proceso para la galaxia de la página siguiente.</p>"
+    },
+    "353": {
+      "label": "<p>Identifica la supernova haciendo clic sobre ella. Cuando la hayas localizado correctamente, aparecerá un círculo de color. A continuación, identifica el centro de la galaxia haciendo clic sobre él. Aparecerá otro círculo de color cuando lo hayas localizado correctamente.</p>"
+    },
+    "252": {
+      "label": "<p>Para cada galaxia, haz clic en el gráfico para añadir un punto con valores cercanos a la distancia y velocidad de la galaxia. Puedes mover un punto haciendo clic y arrastrándolo o utilizando las flechas del teclado. También puedes hacer zoom sobre el gráfico para colocar los puntos con mayor precisión. Para hacer zoom, coloca primero el cursor sobre el punto, o el lugar donde deseas reposicionarlo, y luego desplázate con el mouse o el touchpad.</p>"
+    },
+    "ptdzo4": {
+      "label": "Estamos observando estas galaxias desde la posición de la Tierra dentro de la Vía Láctea. ¿Dónde pondrías un punto en este gráfico para indicar la ubicación de la Vía Láctea?"
+    },
+    "u1k70n": {
+      "label": "Según tus datos, ¿cuántas galaxias parecen estar alejándose de la Vía Láctea?"
+    },
+    "J2O3iY": {
+      "labelPre": "Las galaxias lejanas parecen alejarse de la Vía Láctea ",
+      "labelPost": "  que las galaxias cercanas.",
+      "srLabel": "Las galaxias lejanas parecen alejarse de la Vía Láctea ",
+      "placeholder": "Seleccionar una velocidad",
+      "options": {
+        "0": "más lento",
+        "1": "más rápido"
+      },
+      "answerPre": "Las galaxias lejanas parecen alejarse de la Vía Láctea ",
+      "answerPost": " que las galaxias cercanas."
+    },
+    "wG2DXn": {
+      "label": "¿Esto significa que las galaxias cercanas van a alcanzar a las galaxias más lejanas? Explique utilizando los datos de tu gráfico."
+    },
+    "hiS7kV": {
+      "label": "¿Esto significa que la distancia entre galaxias se mantiene igual, aumenta o disminuye con el tiempo? Explique."
+    },
+    "zPtxBU": {
+      "labelPre": "Esto significa que el Universo está ",
+      "placeholder": "Seleccione un tamaño",
+      "options": {
+        "0": "expandiéndose (haciéndose más grande)",
+        "1": "contrayéndose (haciéndose más pequeño)"
+      },
+      "answerPre": "Esto significa que el Universo está "
+    },
+    "7": {
+      "label": "<p>Haga clic y arrastre cualquier lugar del diagrama de Hubble para añadir una línea de tendencia</p>",
+      "answerPre": "<span>Constante de Hubble: </span>"
+    },
+    "7_1": {
+      "label": "<p>Los científicos estiman actualmente que la Constante de Hubble se sitúa entre 67,7 y 74,0 (km/s)/Mpc. ¿Cómo se compara tu valor de la Constante de Hubble con estos valores?</p>"
+    },
+    "8": {
+      "label": "Si los científicos realizaran observaciones que establecieran que la Constante de Hubble es de 57 (km/s)/Mpc, ¿eso indicaría que el Universo se expande más rápido o más lento de lo que sugieren sus datos?"
+    },
+    "9": {
+      "label": "En el diagrama de Hubble, todos los datos de las observaciones de las galaxias se encuentran a lo largo de una línea recta. ¿Están las galaxias realmente localizadas en el espacio a lo largo de una línea recta?",
+      "placeholder": "Seleccione sí/no"
+    },
+    "10": {
+      "placeholder": "Seleccione la mejor descripción",
+      "label": "Si los astrónomos extraterrestres que viven en la Galaxia nº 2 vieran un diagrama de Hubble desde su posición en el Universo, ¿dónde aparecería su galaxia en el gráfico?",
+      "options": {
+        "0": "al lado del origen",
+        "1": "al lado de la Galaxia, la Vía Láctea",
+        "2": "el tercer punto desde el origen",
+        "3": "en el origen"
+      }
+    },
+    "11": {
+      "label": "¿La relación entre la distancia de una galaxia y la velocidad de una galaxia es igual o diferente a la que observaste en la Vía Láctea? Explique."
+    },
+    "12": {
+      "label": "¿Cómo se compara la Constante de Hubble de las observaciones realizadas por los astrónomos extraterrestres en la Galaxia nº 2 con la Constante de Hubble que has medido desde la Tierra (en la Galaxia Vía Láctea)?"
+    },
+    "13": {
+      "label": "¿Esto significa que los astrónomos extraterrestres y los astrónomos terrestres observan el Universo expandiéndose al mismo ritmo o a ritmos diferentes? Si son diferentes, ¿quién observa que el Universo se expande más rápido??"
+    },
+    "14": {
+      "label": "¿Tus observaciones sugieren que los astrónomos de todos los lugares del Universo observarían que todas las galaxias se alejan de ellos?"
+    },
+    "16": {
+      "label": "¿Qué implican las observaciones anteriores sobre el centro del Universo?",
+      "placeholder": "Seleccione la mejor descripción",
+      "options": {
+        "0": "el centro del Universo se encuentra en la Galaxia, la Vía Láctea",
+        "1": "el centro del Universo se encuentra en algún otro lugar",
+        "2": "todos los lugares observan que el Universo se está expandiendo de la misma forma y por lo tanto no existe un centro"
+      }
+    },
+    "321": {
+      "label": "<p>Describe una ocasión en la que tú (o alguien que conozcas) tuviste una idea u opinión que iba en contra de lo comúnmente aceptado por la mayoría de la gente. ¿Qué pruebas utilizaste para intentar convencer a los demás de que tuvieran en cuenta tu idea u opinión?</p>"
+    },
+    "17": {
+      "labelPre": "La galaxia más alejada de nosotros proporciona información de una época ",
+      "labelPost": " en la historia del Universo.",
+      "options": {
+        "0": "más reciente",
+        "1": "más antigua"
+      }
+    },
+    "18": {
+      "label": "¿Era el Universo más pequeño o más grande hace mucho tiempo?"
+    },
+    "19": {
+      "label": "¿A medida que el Universo envejece, las galaxias se acercan o se alejan?"
+    },
+    "20": {
+      "label": "¿Coinciden tus datos (puntos de color) con los del Observatorio Rubin (puntos grises) para las galaxias cercanas en cuanto a la expansión del Universo? Explique."
+    },
+    "21": {
+      "labelPre": "Para las galaxias más distantes, los datos ",
+      "labelPost": " se ajustan a la línea de tendencia.",
+      "options": {
+        "0": "sí",
+        "1": "no"
+      }
+    },
+    "22": {
+      "labelPre": "La región del gráfico en la que los datos no se ajustan a la línea de tendencia corresponde a ",
+      "labelPost": " en la historia del Universo.",
+      "options": {
+        "0": "hace mucho tiempo",
+        "1": "tiempos más recientes"
+      }
+    },
+    "23": {
+      "labelPre": "La pendiente del diagrama de Hubble para galaxias lejanas es ",
+      "labelPost": " que la pendiente para las galaxias cercanas.",
+      "options": { "0": "más plana", "1": "más pronunciada" }
+    },
+    "24": {
+      "label": "Hace mucho tiempo, ¿se expandía el Universo más deprisa o más despacio que ahora? Explica tu razonamiento."
+    },
+    "25": {
+      "label": "¿Habrías podido determinar que la velocidad de expansión del Universo está cambiando con el tiempo si sólo hubieras tenido los datos de las galaxias cercanas? Explique por qué sí o por qué no."
+    },
+    "26": {
+      "label": "¿De qué forma los datos de esta investigación apoyan la teoría del Big Bang? Explica qué aspectos de la teoría del Big Bang se abordan y cómo se apoyan."
+    },
+    "27": {
+      "labelPre": "(Elige las dos variables que mejor completen esta frase) Para construir un Diagrama de Hubble es necesario determinar ",
+      "labelPost": " de las galaxias.",
+      "options": {
+        "0": "el color",
+        "1": "el brillo",
+        "2": "la distancia",
+        "3": "la velocidad de recesión",
+        "4": "la edad"
+      }
+    },
+    "28": {
+      "labelPre": "Observamos la luz de las galaxias distantes en el ",
+      "options": { "0": "corrimiento al rojo o redshift", "1": "corrimiento al azul o blueshift" }
+    },
+    "29": {
+      "labelPre": " lo que indica que todas estas galaxias se están ",
+      "labelPost": " nosotros,",
+      "options": { "0": "acercando a", "1": "alejándose de" }
+    },
+    "30": {
+      "labelPre": " y que el Universo se está ",
+      "options": { "0": "expandiendo", "1": "contrayendo" }
+    },
+    "33": {
+      "labelPre": "La luz que recibimos de los objetos lejanos nos dice cómo era el Universo ",
+      "options": { "0": "hace mucho tiempo", "1": "cerca de nuestro tiempo" }
+    },
+    "34": {
+      "labelPre": " mientras que la luz que recibimos de objetos cercanos nos dice cómo era el Universo ",
+      "options": { "0": "hace mucho tiempo", "1": "en tiempos más recientes" }
+    },
+    "35": {
+      "labelPre": "La pendiente de un diagrama de Hubble es ",
+      "labelPost": "para los datos de objetos muy distantes comparados con los objetos cercanos.",
+      "options": { "0": "más pronunciada", "1": "más plana" }
+    },
+    "36": {
+      "labelPre": "Dado que la tasa de expansión del Universo determinada por la observación de objetos distantes es ",
+      "labelPost": "que la tasa de expansión determinada por la observación de objetos cercanos, ",
+      "options": { "0": "más rápida", "1": "más lenta" }
+    },
+    "37": {
+      "labelPre": " la tasa de expansión del Universo se está",
+      "labelPost": " a medida que pasa el tiempo.",
+      "options": { "0": "acelerando", "1": "ralentizando" }
+    },
+    "39": {
+      "labelPre": "Un Universo que se expande lentamente tendría un diagrama de Hubble con una pendiente ",
+      "options": { "0": "más pronunciada", "1": "más plana" }
+    },
+    "40": {
+      "labelPre": "El diagrama de Hubble para un observador en una galaxia diferente también indicaría que todas las galaxias se ",
+      "labelPost": " ellos.",
+      "options": { "0": "acercan a", "1": "alejan de" }
+    },
+    "41": {
+      "labelPre": "Las observaciones de la expansión del Universo desde distintos lugares revelan que el Universo ",
+      "options": { "0": "no tiene un centro", "1": "tiene un borde" }
+    },
+    "qoEv2j": {
+      "label": "Al principio de la investigación, se te pidió que <strong>compartieras lo que crees que la expansión puede revelar sobre el Universo.</strong> Hecha un vistazo a la primera página de la investigación para reflexionar sobre tu respuesta inicial. Ahora que has explorado los datos de la velocidad de expansión del Universo a lo largo del tiempo y has considerado la velocidad de expansión de otras galaxias, ¿qué opinas de tu respuesta inicial?"
+    },
+    "zLMJA7": {
+      "label": "¿Qué crees que la expansión puede revelarnos sobre el Universo?"
+    }
+  },
+  "widgets": {
+    "hubble_plotter": {
+      "galaxies": {
+        "0": { "name": "Galaxia #1" },
+        "1": { "name": "Galaxia #2" },
+        "2": { "name": "Galaxia #3" },
+        "3": { "name": "Galaxia #4" },
+        "4": { "name": "Galaxia #5" },
+        "5": { "name": "Galaxia #6" }
+      }
+    }
+  },
+  "tables": {
+    "1": {
+      "rowTitles": {
+        "0": "Galaxia #1",
+        "1": "Galaxia #2",
+        "2": "Galaxia #3",
+        "3": "Galaxia #4"
+      },
+      "colTitles": { "0": "Velocidad", "1": "Distancia" }
+    }
+  }
+}
