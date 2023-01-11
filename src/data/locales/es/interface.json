@@ -9,6 +9,7 @@
     "clear_answers": "Borrar todas las respuestas guardadas",
     "go_to_investigation": "Ir a investigación {{investigation}}",
     "print_answers": "Imprima sus respuestas",
+    "download_answers": "Descargar respuestas",
     "close": "Cerrar",
     "pause": "Pausar",
     "play": "Reproducir",
@@ -74,7 +75,15 @@
     "welcome": "¡Buen trabajo! Revisemos sus respuestas para la Investigación {{investigation}}.",
     "subtitle": "Investigación {{investigation}}: Preguntas & Respuestas",
     "name": "Nombre: {{name}}",
-    "date": "Fecha: {{val, datetime}}"
+    "date": "Fecha: {{val, datetime}}",
+    "export": {
+      "worksheet_title": "Respuestas",
+      "columns": {
+        "student": "Estudiante",
+        "investigation": "Investigación",
+        "question": "Pregunta {{número}}"
+      }
+    }
   },
   "section_break": {
     "final_image": "section_break_final_es.gif",
@@ -85,8 +94,13 @@
     "question_placeholder": "Marcador de pregunta: {{questionType}} Tipo de pregunta no existe",
     "question_placeholder_no-type": "Marcador de pregunta",
     "answer_pre": "<p>Seleccionado</p>",
+    "found_text": " encontrada",
+    "and_text": " y ",
     "text_input": {
       "label": "Complete este enunciado rellenando los espacios en blanco{{labelPre}}, vacío, {{labelPost}}"
+    },
+    "placeholders": {
+      "select": "Seleccionar"
     },
     "options": {
       "yes": "sí",

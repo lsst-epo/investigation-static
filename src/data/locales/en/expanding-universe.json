@@ -73,7 +73,10 @@
       "title": "Putting it all Together",
       "link": "/summary/"
     },
-    "expand23": { "title": "Acknowledgements", "link": "/acknowledgements/" },
+    "expand23": {
+      "title": "Acknowledgements",
+      "link": "/acknowledgements/"
+    },
     "expanding-universe-1-break": {
       "title": "Progress Update",
       "link": "/section-1/"

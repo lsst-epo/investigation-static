@@ -94,6 +94,8 @@
     "question_placeholder": "Question Placeholder: {{questionType}} Question Type does not Exist",
     "question_placeholder_no-type": "Question placeholder",
     "answer_pre": "<p>Selected </p>",
+    "found_text": " found",
+    "and_text": " and ",
     "text_input": {
       "label": "Complete this statement by filling in the blank: {{labelPre}}, blank, {{labelPost}}"
     },

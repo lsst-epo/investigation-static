@@ -1,6 +1,29 @@
 {
+  "supernova_selector_with_light_curve": {
+    "title": "Imágenes de Supernova",
+    "title_secondary": "Curva de Luz",
+    "messages": {
+      "found": "¡Lo encontraste!",
+      "correct": "¡Correcto!",
+      "incorrect": "Intenta nuevamente."
+    },
+    "blinker": {
+      "altText": "Recorte para alerta {{alertId}}"
+    }
+  },
   "time_viewer": {
     "observation_date": "Fecha de observación"
+  },
+  "elapsed_time": {
+    "title": "Tiempo transcurrido",
+    "interval": {
+      "hour": "Hora",
+      "hour_plural": "Horas",
+      "day": "Día",
+      "day_plural": "Días",
+      "year": "Año",
+      "year_plural": "Años"
+    }
   },
   "orbit_viewer": {
     "title": "Visualizador de órbitas",
@@ -16,23 +39,51 @@
       "orbital_speed": "Velocidad orbital"
     },
     "playback": {
-      "time_step": "Paso de tiempo",
+      "time_step": "Intervalo de Tiempo",
       "elapsed_time": "Tiempo transcurrido",
-      "normal_time": "Tiempo normal",
+      "normal_time": "Tiempo Normal",
       "time_equivalence": "{{firstTime}} = {{secondTime}}",
       "time_equivalence_verbose": "{{firstTime}} es {{secondTime}}",
       "interval": {
-        "secWithCount": "{{count}} seg",
+        "secWithCount": "{{count}} segundo",
+        "yearWithCount": "{{count}} año",
+        "yearWithCount_plural": "{{count}} años",
         "day": "Día",
         "day_plural": "Días",
         "year": "Año",
-        "year_plural": "Años",
-        "yearWithCount": "{{count}} año",
-        "yearWithCount_plural": "{{count}} años"
+        "year_plural": "Años"
       }
     },
     "bodies": {
       "sun": "Sol"
     }
+  },
+  "hubble_plotter": {
+    "title": "Diagrama de Hubble",
+    "galaxy_name_fallback": "Galaxia Activa",
+    "labels": {
+      "x_axis_fallback": "Distancia (Mpc)",
+      "y_axis_fallback": "Velocidad (km/s)",
+      "trendline": "pendiente = {{slope}}"
+    }
+  },
+  "hubble_plot": {
+    "title": "Diagrama de Hubble"
+  },
+  "galaxy_selector": {
+    "title": "Selector de Galaxia",
+    "actions": {
+      "previous": "Galaxia Anterior",
+      "next": "Galaxia Siguiente"
+    }
+  },
+  "galaxy_supernova_selector": {
+    "title": "Selector de Galaxia y Supernova"
+  },
+  "galaxy_scrambler": {
+    "title": "Generador Aleatorio de Galaxias"
+  },
+  "galaxies_position": {
+    "title": "Posiciones Relativas de las Galaxias en el Espacio"
   }
 }
