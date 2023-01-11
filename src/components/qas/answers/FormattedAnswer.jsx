@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import includes from 'lodash/includes';
 import isNumber from 'lodash/isNumber';
+import isArray from 'lodash/isArray';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import StellarValue from '../../charts/shared/StellarValue';
 import StellarValueRange from '../../charts/shared/StellarValueRange';
 import { renderDef } from '../../../lib/utilities.js';
@@ -29,6 +31,18 @@ class FormattedAnswer extends React.PureComponent {
       return (
         <span className={answerClasses}>
           <StellarValue type={type} value={body} />
+        </span>
+      );
+    }
+    if (isArray(body)) {
+      return (
+        <span className={answerClasses}>
+          <span>
+            {body.map((bod, i) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Trans key={i}>{bod}</Trans>
+            ))}
+          </span>
         </span>
       );
     }
@@ -74,7 +88,11 @@ class FormattedAnswer extends React.PureComponent {
 FormattedAnswer.propTypes = {
   type: PropTypes.string,
   pre: PropTypes.string,
-  body: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  body: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
   post: PropTypes.string,
   qaReview: PropTypes.bool,
 };

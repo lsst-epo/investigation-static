@@ -2,7 +2,7 @@ import React from 'react';
 import reactn from 'reactn';
 import PropTypes from 'prop-types';
 import isArray from 'lodash/isArray';
-// import axios from 'axios';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import API from '../lib/API.js';
 import { randomIntFromInterval, getDomains } from '../lib/utilities.js';
 import { getSelectedGalaxies } from '../components/charts/galaxySelector/galaxySelectorUtilities.js';
@@ -177,7 +177,9 @@ class GalaxiesSelectorContainer extends React.PureComponent {
     return (
       <div className="container-flex spaced galaxies-selector-container">
         <div className="col padded col-width-50">
-          <h2 className="space-bottom">Galaxies Selector</h2>
+          <h2 className="space-bottom">
+            <Trans>widgets::galaxy_selector.title</Trans>
+          </h2>
           <div className="galaxies-selector-images-container">
             <GalaxySelector
               className="galaxies-selector"
