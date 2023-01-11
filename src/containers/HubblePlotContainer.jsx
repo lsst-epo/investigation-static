@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import isEmpty from 'lodash/isEmpty';
 import isArray from 'lodash/isArray';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import API from '../lib/API.js';
 import { isRequiredAnswered } from '../lib/utilities.js';
 import HubblePlot from '../components/charts/hubblePlot/index.jsx';
@@ -96,7 +97,7 @@ class HubblePlotContainer extends React.PureComponent {
 
   render() {
     const { data } = this.state;
-    const { activeQuestionId, options, answers } = this.props;
+    const { t, activeQuestionId, options, answers } = this.props;
     const { userTrendline, hubbleConstant, required: reqQIds } = options || {};
     const trendlineInteractable =
       userTrendline === activeQuestionId &&
@@ -105,7 +106,7 @@ class HubblePlotContainer extends React.PureComponent {
 
     return (
       <>
-        <h2 className="space-bottom">Hubble Plot</h2>
+        <h2 className="space-bottom">{t('widgets::hubble_plot.title')}</h2>
         <HubblePlot
           className="hubble-plot"
           {...{
@@ -131,6 +132,7 @@ HubblePlotContainer.propTypes = {
   activeQuestionId: PropTypes.string,
   activeAnswer: PropTypes.object,
   updateAnswer: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default HubblePlotContainer;
+export default withTranslation()(HubblePlotContainer);

@@ -48,7 +48,11 @@ class AnswerExpansionPanel extends React.PureComponent {
 
 AnswerExpansionPanel.propTypes = {
   id: PropTypes.string,
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  content: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.array,
+  ]),
   accessor: PropTypes.string,
   pre: PropTypes.string,
   post: PropTypes.string,

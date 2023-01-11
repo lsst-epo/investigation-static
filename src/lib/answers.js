@@ -3,12 +3,13 @@ import flattenDeep from 'lodash/flattenDeep';
 import isObject from 'lodash/isObject';
 
 function getGalaxySupernovaContent(data) {
-  const galaxyText = data.velocity ? 'Galaxy' : '';
-  const supernovaText = data.distance ? 'Supernova' : '';
-  const foundText = data.velocity || data.distance ? ' found!' : '';
-  const andText = data.velocity && data.distance ? ' and ' : '';
-
-  return `${galaxyText}${andText}${supernovaText}${foundText}`;
+  const galaxyText = data.velocity ? 'astronomy::terms.galaxy' : '';
+  const supernovaText = data.distance ? 'astronomy::terms.supernova' : '';
+  const foundText =
+    data.velocity || data.distance ? 'interface::qas.found_text' : '';
+  const andText =
+    data.velocity && data.distance ? 'interface::qas.and_text' : '';
+  return [galaxyText, andText, supernovaText, foundText];
 }
 
 function getHubblePlotContent(data) {

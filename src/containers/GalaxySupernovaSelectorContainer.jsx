@@ -2,6 +2,7 @@ import React from 'reactn';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/isEmpty';
 import filter from 'lodash/filter';
+import { withTranslation } from 'gatsby-plugin-react-i18next';
 import API from '../lib/API.js';
 import { colorize, randomIntFromInterval } from '../lib/utilities.js';
 import GalaxySelector from '../components/charts/galaxySelector';
@@ -162,13 +163,13 @@ class GalaxySupernovaSelectorContainer extends React.PureComponent {
       selectedData,
     } = this.state;
 
-    const { options } = this.props;
+    const { t, options } = this.props;
     const { image, autoplay, preSelected } = options || {};
 
     return (
       <>
         <h2 className="space-bottom heading-primary">
-          Galaxy & Supernova Selector
+          {t('widgets::galaxy_supernova_selector.title')}
         </h2>
         {data && (
           <div className="galaxy-selector-images--container">
@@ -201,6 +202,7 @@ GalaxySupernovaSelectorContainer.propTypes = {
   answers: PropTypes.object,
   activeQuestionId: PropTypes.string,
   updateAnswer: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default GalaxySupernovaSelectorContainer;
+export default withTranslation()(GalaxySupernovaSelectorContainer);
