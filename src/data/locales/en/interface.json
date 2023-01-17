@@ -20,7 +20,9 @@
     "edit": "Edit",
     "change_answer": "Change answer",
     "select": "Select",
-    "select_type": "Select a type"
+    "select_type": "Select a type",
+    "save": "Save",
+    "clear": "Clear"
   },
   "debug": {
     "title": "Experiencing issues?",
@@ -94,6 +96,7 @@
     "question_placeholder": "Question Placeholder: {{questionType}} Question Type does not Exist",
     "question_placeholder_no-type": "Question placeholder",
     "answer_pre": "<p>Selected </p>",
+    "answer_none_selected": "None selected",
     "found_text": " found",
     "and_text": " and ",
     "text_input": {

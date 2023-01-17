@@ -62,7 +62,8 @@ class QAExpansionPanel extends React.PureComponent {
         contentClassName={styles.answer}
         expanded={isExpanded}
         onExpandToggle={() => toggleHandler(qId)}
-        cancelLabel="Clear"
+        cancelLabel={t('interface::actions.clear')}
+        saveLabel={t('interface::actions.save')}
         onCancel={() => cancelHandler(qId)}
         onSave={() => saveHandler(qId)}
         closeOnCancel={false}

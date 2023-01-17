@@ -18,21 +18,17 @@ function getHubblePlotContent(data) {
     return distance && velocity;
   });
 
-  if (!filteredData) {
-    return 'No points plotted';
-  }
-
-  const numPts = filteredData.length;
-
-  return `${numPts} ${numPts > 1 ? 'points' : 'point'} plotted`;
+  return { key: 'widgets::hubble_plot.answer', count: filteredData.length };
 }
 
 function getMultiSelectContent(data) {
-  return data.length ? data.join(', ') : 'None Select';
+  return data.length ? data.join(', ') : 'interface::qas.answer_none_selected';
 }
 
 function getRangeContent(data, answerAccessor) {
-  return data[0] ? data[0][answerAccessor] : 'None Selected';
+  return data[0]
+    ? data[0][answerAccessor]
+    : 'interface::qas.answer_none_selected';
 }
 
 // Methods related to updating answers

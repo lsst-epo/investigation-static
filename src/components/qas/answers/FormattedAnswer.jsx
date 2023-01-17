@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import includes from 'lodash/includes';
 import isNumber from 'lodash/isNumber';
 import isArray from 'lodash/isArray';
+import isObject from 'lodash/isObject';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import StellarValue from '../../charts/shared/StellarValue';
 import StellarValueRange from '../../charts/shared/StellarValueRange';
@@ -42,6 +43,16 @@ class FormattedAnswer extends React.PureComponent {
               // eslint-disable-next-line react/no-array-index-key
               <Trans key={i}>{bod}</Trans>
             ))}
+          </span>
+        </span>
+      );
+    }
+    if (isObject(body)) {
+      const { key, count } = body;
+      return (
+        <span className={answerClasses}>
+          <span>
+            <Trans count={count}>{key}</Trans>
           </span>
         </span>
       );

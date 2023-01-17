@@ -132,12 +132,12 @@
       "figText": "La medición de los corrimientos al rojo fotométricos (Z) de las galaxias desde nuestra posición en la Vía Láctea nos permite calcular las velocidades de recesión (v) de las galaxias lejanas. Créditos: Observatorio Rubin"
     },
     "expand16": {
-      "mediaPath": "/images/expanding-universe/using-evidence-en.png",
+      "mediaPath": "/images/expanding-universe/using-evidence-es.png",
       "altText": "Una persona con más evidencia piensa de forma diferente a un grupo con menos evidencia",
       "figText": "La incorporación de nuevas evidencias puede cambiar opiniones o ideas comúnmente aceptadas. Créditos: Observatorio Rubin"
     },
     "expand17": {
-      "mediaPath": "/images/p10-en.jpg",
+      "mediaPath": "/images/expanding-universe/p10-es.jpg",
       "altText": "El Universo a través del tiempo",
       "figText": "Representación gráfica de cómo ha cambiado el Universo a lo largo del tiempo. Créditos: Observatorio Rubin"
     }
@@ -312,7 +312,10 @@
     },
     "28": {
       "labelPre": "Observamos la luz de las galaxias distantes en el ",
-      "options": { "0": "corrimiento al rojo o redshift", "1": "corrimiento al azul o blueshift" }
+      "options": {
+        "0": "corrimiento al rojo o redshift",
+        "1": "corrimiento al azul o blueshift"
+      }
     },
     "29": {
       "labelPre": " lo que indica que todas estas galaxias se están ",
