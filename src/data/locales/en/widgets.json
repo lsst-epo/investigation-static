@@ -67,7 +67,9 @@
     }
   },
   "hubble_plot": {
-    "title": "Hubble Plot"
+    "title": "Hubble Plot",
+    "answer": "{{count}} point plotted",
+    "answer_plural": "{{count}} points plotted"
   },
   "galaxy_selector": {
     "title": "Galaxy Selector",

@@ -68,7 +68,9 @@
     }
   },
   "hubble_plot": {
-    "title": "Diagrama de Hubble"
+    "title": "Diagrama de Hubble",
+    "answer": "{{count}} punto graficado",
+    "answer_plural": "{{count}} puntos punto graficados"
   },
   "galaxy_selector": {
     "title": "Selector de Galaxia",

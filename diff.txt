@@ -1,0 +1,23 @@
+diff --git a/src/data/locales/en/astronomy.json b/src/data/locales/en/astronomy.json
+index 66be9d2..078cda4 100644
+--- a/src/data/locales/en/astronomy.json
++++ b/src/data/locales/en/astronomy.json
+@@ -1,8 +1,4 @@
+ {
+-  "terms": {
+-    "galaxy": "Galaxy",
+-    "milky_way": "Milky Way"
+-  },
+   "planets": {
+     "mercury": "Mercury",
+     "venus": "Venus",
+@@ -47,9 +43,5 @@
+     "orbit_size_with_unit_plural": "Orbit sizes (au)",
+     "direction_of_orbit": "Direction of Orbit",
+     "group": "Group"
+-  },
+-  "galactic_properties": {
+-    "distance": "Distance",
+-    "velocity": "Velocity"
+   }
+ }

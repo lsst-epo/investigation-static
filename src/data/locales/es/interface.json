@@ -20,7 +20,9 @@
     "edit": "Editar",
     "change_answer": "Cambiar respuesta",
     "select": "Seleccionar",
-    "select_type": "Seleccionar un tipo"
+    "select_type": "Seleccionar un tipo",
+    "save": "Guardar",
+    "clear": "Borrar"
   },
   "debug": {
     "title": "¿Tiene problemas?",
