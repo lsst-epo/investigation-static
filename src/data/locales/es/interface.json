@@ -88,7 +88,7 @@
   "section_break": {
     "final_image": "section_break_final_es.gif",
     "banner_alt": "Imagen animada de fuegos artificiales",
-    "title": "¡Felicidades!"
+    "title": "Felicitaciones!"
   },
   "qas": {
     "question_placeholder": "Marcador de pregunta: {{questionType}} Tipo de pregunta no existe",
