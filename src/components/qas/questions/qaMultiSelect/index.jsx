@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
+import find from 'lodash/find';
 import { withTranslation } from 'gatsby-plugin-react-i18next';
 import { DropdownMenu, SelectionControl } from 'react-md';
 import { checkIds } from '../../../../lib/utilities.js';
@@ -92,6 +93,7 @@ class QAMultiSelect extends React.PureComponent {
   getMultiSelectOptions = options => {
     const { t } = this.props;
     const { selectedOptions } = this.state;
+
     return options.map(option => {
       const { label, value } = option;
       const translatedLabel = t(label);
@@ -157,6 +159,9 @@ class QAMultiSelect extends React.PureComponent {
       questionNumber && firstQuestion
         ? `${questionNumber}. ${labelToUse}`
         : labelToUse;
+    const selectedOptionsLabels = selectedOptions.map(opt => {
+      return find(options, { value: opt }).label;
+    });
 
     return (
       <ConditionalWrapper
@@ -170,7 +175,7 @@ class QAMultiSelect extends React.PureComponent {
           {qaReview && (
             <span className={qaStyles.qaReviewBlock}>
               <span className={qaStyles.answerContentSelect}>
-                {selectedOptions.map(t).join(', ') ||
+                {selectedOptionsLabels.map(t).join(', ') ||
                   t('interface::errors.qas.answer_not_selected')}
               </span>
             </span>
@@ -202,7 +207,7 @@ class QAMultiSelect extends React.PureComponent {
                   { [styles.fullWidthSelect]: !isEmpty(label) }
                 )}
               >
-                {selectedOptions.join(', ') || t(placeholder)}
+                {selectedOptionsLabels.map(t).join(', ') || t(placeholder)}
               </span>
             </DropdownMenu>
           )}

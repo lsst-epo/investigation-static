@@ -1,8 +1,11 @@
+// eslint-disable no-restricted-globals
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
+import find from 'lodash/find';
 import { withTranslation } from 'gatsby-plugin-react-i18next';
 import { checkIds } from '../../../../lib/utilities.js';
 import ConditionalWrapper from '../../../ConditionalWrapper';
@@ -151,7 +154,8 @@ class QASelect extends React.PureComponent {
       hasQANumber && !labelPre && !label && labelPost
         ? `${questionNumber}. `
         : null;
-
+    // const answerlabel = ;
+    // console.log(answerlabel);
     return (
       <ConditionalWrapper
         condition={!includes(questionType, 'compoundSelect')}
@@ -179,7 +183,11 @@ class QASelect extends React.PureComponent {
                 })}
               >
                 {answered
-                  ? t(answer.content) || t(answer.data)
+                  ? t(
+                      find(options, {
+                        value: answer.content || answer.data,
+                      }).label
+                    )
                   : t('interface::errors.qas.answer_not_selected')}
               </div>
             </div>
