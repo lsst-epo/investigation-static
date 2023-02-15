@@ -9,13 +9,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 import favicon from '../images/favicon/favicon.ico';
 import favicon16 from '../images/favicon/favicon-16x16.png';
 import favicon32 from '../images/favicon/favicon-32x32.png';
 import appleIcon from '../images/favicon/apple-touch-icon.png';
 import safariPinnedTab from '../images/favicon/safari-pinned-tab.svg';
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, meta, title }) {
+  const { i18n } = useTranslation();
+  const { language: lang } = i18n;
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -85,7 +88,6 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
   meta: [],
   title: `Vera C. Rubin Observatory Educational Investigation`,
   description: `Rubin formal education investigation`,
@@ -93,7 +95,6 @@ SEO.defaultProps = {
 
 SEO.propTypes = {
   description: PropTypes.string,
-  lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
 };
