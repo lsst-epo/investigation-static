@@ -34,6 +34,8 @@ function SEO({ description, meta, title }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  // eslint-disable-next-line prefer-destructuring
+  const PLAUSIBLE_DOMAIN = process.env.GATSBY_PLAUSIBLE_DOMAIN;
 
   return (
     <Helmet
@@ -83,6 +85,13 @@ function SEO({ description, meta, title }) {
       <link rel="mask-icon" href={safariPinnedTab} color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#058BBC" />
       <meta name="theme-color" content="#058BBC" />
+      {PLAUSIBLE_DOMAIN && (
+        <script
+          defer
+          data-domain={PLAUSIBLE_DOMAIN}
+          src="https://plausible.io/js/script.js"
+        ></script>
+      )}
     </Helmet>
   );
 }
