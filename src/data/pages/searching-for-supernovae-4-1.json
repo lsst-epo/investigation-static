@@ -13,7 +13,7 @@
     "link": "/searching-for-supernovae-4-2/"
   },
   "layout": "TwoCol",
-  "content": "<p>Since all Type Ia supernovae have similar peak intrinsic brightness, if they were all located the same distance from Earth, they would appear equally bright. But they are scattered throughout the Universe in many different galaxies.</p><p>To find the distance to these galaxies we use these three steps:</p><ol style='margin-left: 16px;'><li>Fit a template to the light curve data</li><li>Determine the peak apparent magnitude from the fitted light curve</li><li>Use the peak apparent magnitude to calculate the distance to the supernova</li></ol><p>Watch this animation to better understand how to fit a template to light curve data.</p>",
+  "content": "<p>Since all Type Ia supernovae have similar peak intrinsic brightness, if they were all located the same distance from Earth, they would appear equally bright. But they are scattered throughout the Universe in many different galaxies.</p><p>To find the distance to these galaxies we use these three steps:</p><ol ><li>Fit a template to the light curve data</li><li>Determine the peak apparent magnitude from the fitted light curve</li><li>Use the peak apparent magnitude to calculate the distance to the supernova</li></ol><p>Watch this animation to better understand how to fit a template to light curve data.</p>",
   "videos": [
     {
       "mediaPath": "how-to-fit-the-light-curve-Exploding-Stars-digital-assets.mp4",

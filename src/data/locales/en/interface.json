@@ -132,5 +132,6 @@
   },
   "utilities": {
     "count_of_total": "{{count}} of {{total}}"
-  }
+  },
+  "early_access": "Early Access"
 }

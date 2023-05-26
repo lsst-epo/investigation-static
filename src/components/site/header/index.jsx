@@ -10,6 +10,7 @@ import Menu from '../icons/Menu';
 import styles from './header.module.scss';
 import HeaderProgressContainer from '../../../containers/HeaderProgressContainer';
 import LanguageToggleContainer from '../../../containers/LanguageToggleContainer';
+import EarlyAccess from '../flag/patterns/earlyAccess';
 
 class Header extends React.PureComponent {
   checkQAProgress(pageId) {
@@ -32,6 +33,7 @@ class Header extends React.PureComponent {
       pageNumber,
       totalPages,
       sections,
+      isEarlyAccess,
     } = this.props;
 
     return (
@@ -43,6 +45,7 @@ class Header extends React.PureComponent {
         titleClassName="screen-reader-only"
         className={`${styles.headerPrimary} dont-print`}
       >
+        {isEarlyAccess && <EarlyAccess />}
         <div className={styles.innerContainer}>
           {toggleToc && (
             <Button
@@ -119,6 +122,7 @@ Header.propTypes = {
   logo: PropTypes.string,
   pageNumber: PropTypes.number,
   totalPages: PropTypes.number,
+  isEarlyAccess: PropTypes.bool,
 };
 
 export default Header;

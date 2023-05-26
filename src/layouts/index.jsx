@@ -168,6 +168,15 @@ class Layout extends React.Component {
       pageContext || {};
     const investigation = contextInvestigation || envInvestigation;
 
+    const hasEarlyAccess = [
+      'exploding-stars',
+      'observable-universe',
+      'hazardous-asteroids',
+      'coloring-universe',
+      'window-stars',
+      'milky-way',
+    ];
+
     return (
       <Translation>
         {t => (
@@ -186,6 +195,7 @@ class Layout extends React.Component {
               tocVisability={tocIsOpen}
               toggleToc={investigation && this.toggleToc}
               investigationTitle={t(`${investigation}::title`)}
+              isEarlyAccess={hasEarlyAccess.includes(investigation)}
               {...{ sections, totalPages }}
             />
             {investigation && (
