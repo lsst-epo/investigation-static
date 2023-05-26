@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Trans, withTranslation } from 'gatsby-plugin-react-i18next';
 import ImageLoader from '../../site/imageLoader/index.jsx';
+import i18nComponents from '../../../lib/i18nComponents.jsx';
 
 import {
   gridImage,
@@ -31,7 +32,7 @@ class ImageBlock extends React.PureComponent {
         <ImageLoader src={t(mediaPath)} alt={t(altText) || ''} />
         {figText && (
           <figcaption>
-            <Trans>{figText}</Trans>
+            <Trans components={i18nComponents}>{figText}</Trans>
           </figcaption>
         )}
       </figure>

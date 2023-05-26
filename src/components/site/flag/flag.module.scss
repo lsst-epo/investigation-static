@@ -1,0 +1,17 @@
+.flag-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min-content;
+}
+
+.flag-body {
+  width: 100%;
+  padding: 1em;
+  background-color: var(--background-color);
+}
+
+.flag-tail {
+  width: 100%;
+  fill: var(--background-color);
+}

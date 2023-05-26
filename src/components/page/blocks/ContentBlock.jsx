@@ -10,6 +10,7 @@ import {
   gridCopyMiddle,
   gridCopyBottom,
 } from '../page.module.scss';
+import i18nComponents from '../../../lib/i18nComponents';
 
 class ContentBlock extends React.PureComponent {
   constructor(props) {
@@ -25,25 +26,10 @@ class ContentBlock extends React.PureComponent {
   render() {
     const { block, row } = this.props;
     const { content } = block || {};
-    const transComponents = {
-      p: <p />,
-      h1: <h1 />,
-      h2: <h2 />,
-      h3: <h3 />,
-      h4: <h4 />,
-      ul: <ul />,
-      li: <li />,
-      dl: <dl />,
-      dt: <dt />,
-      dd: <dd />,
-      a: <a />,
-      br: <br />,
-      b: <b />,
-    };
 
     return (
       <div className={`${gridCopy} ${this.gridClasses[row || 'top']}`}>
-        <Trans components={transComponents}>{content}</Trans>
+        <Trans components={i18nComponents}>{content}</Trans>
       </div>
     );
   }
