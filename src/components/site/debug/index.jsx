@@ -4,7 +4,8 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import ls from 'local-storage';
 import { isBrowser } from '../../../lib/utilities';
 
-const Debug = () => {
+// eslint-disable-next-line react/prop-types
+const Debug = ({ children }) => {
   const getFileName = () => `debug-${new Date().getTime()}.txt`;
 
   const hashKeys = keys =>
@@ -40,10 +41,11 @@ const Debug = () => {
       <h3>
         <Trans>interface::debug.title</Trans>
       </h3>
+      {children}
       <p>
         <Trans i18nKey="interface::debug.instructions">
           If your application is experiencing issues that cannot be solved by
-          clearing saved answers,
+          resetting,
           <a
             href={getDownloadLink()}
             download={getFileName()}

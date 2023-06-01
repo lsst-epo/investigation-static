@@ -26,7 +26,7 @@
   },
   "debug": {
     "title": "¿Tiene problemas?",
-    "instructions": "Si su formulario tiene problemas que no pueden resolverse al borrar las respuestas guardadas <1>descargue este registro de depuración</1> y adjúntelo en un correo a nuestros desarrolladores a <3>education@lsst.org</3>."
+    "instructions": "Si su formulario tiene problemas que no pueden resolverse al reiniciando <1>descargue este registro de depuración</1> y adjúntelo en un correo a nuestros desarrolladores a <3>education@lsst.org</3>."
   },
   "errors": {
     "qas": {
