@@ -1,71 +1,64 @@
 {
-  "id": "coloring11",
+  "id": "coloring18",
   "investigation": "coloring-universe",
-  "order": "110",
+  "sectionOrder": 2,
+  "order": "18",
   "title": "Color in Astronomical Images",
   "slug": "color-in-astronomical-images/",
   "previous": {
-    "title": "Visible light filters: Exploring Spiral Galaxies",
-    "link": "/visible-light-filters/"
+    "title": "Colorizing Images to Communicate Galaxy Distances",
+    "link": "/colorizing-images-to-communicate-galaxy-distances/"
   },
   "next": {
-    "title": "Constructing an Astronomical Image",
-    "link": "/astronomical-color-images/"
+    "title": "What Can Color Communicate?",
+    "link": "/what-can-color-communicate/"
   },
-  "layout": "TwoCol",
-  "checkpoints": [
-    {
-      "layout": {
-        "col": "left",
-        "row": "bottom"
-      }
-    }
-  ],
+  "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>Astronomers use a particular method for choosing colors when building a color image. It is called <a href='http://rubineducation.org/glossary/chromatic-ordering' target='_blank'>chromatic ordering</a>. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. </p>",
+      "content": "<p>Astronomers use a particular method for choosing colors when building a color image. It is called <a href='https://rubinobservatory.org/for-educators/glossary/chromatic-ordering' target='_blank'>chromatic ordering</a>. Images made with chromatic ordering are not simply pretty pictures— each color in the image conveys astronomical information. </p>",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<p>When using chromatic ordering, assign the image produced by the filter that transmits light with the shortest wavelengths to a color in the visible spectrum that also has a short wavelength. For instance, suppose you assign the color blue to the g filter. You would then assign the images made by filters that transmit longer wavelengths of light to colors that correspond with wavelengths longer than blue.</p>",
+      "content": "<p>When creating images that use chromatic ordering, the colors used must be assigned to the filters in order of their wavelengths. The image produced by the filter that transmits light with the shortest wavelengths must be matched to the color in the image that also has a shortest wavelength. For instance, you might assign the color blue to the g filter image. You would then assign the images made by filters that transmit longer wavelengths of light to colors that correspond with wavelengths longer than blue (like green and red).</p>",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<p>For example, if all the filters of the Rubin Observatory camera were used to create a color image, then the image from the u filter (which passes light with the shortest wavelengths) would be colorized violet. The image from the g filter would be colorized blue, since blue is the next shortest wavelength color. Continuing on with this method, the remaining images obtained with other Rubin Observatory camera filters would be colorized as shown below:</p>",
+      "content": "<p>All the astronomy images that you have created so far were chromatically ordered, since the shortest wavelength image was colorized blue, the middle wavelength image was colorized green, and the longest wavelength image was colorized red.</p>",
       "layout": {
         "col": "left",
         "row": "top"
       }
     },
     {
-      "content": "<p>Sometimes images from all six filters are not all available. In that case, the images can be assigned any colors as long as they follow the chromatic order method. For example, suppose you have a set of images taken using only these filters: g, r, i, and y. Any of the following sequences shown in the table at the right (\"Examples of Chromatic Ordering\") would be correct.</p>",
+      "content": "<p>If all six filters of the Rubin Observatory camera were used to create a color image, then the image from the u filter (which passes light with the shortest wavelengths) would be colorized violet. The image from the g filter would be colorized blue, since blue is the next shortest wavelength color. Continuing on with this method, the remaining images obtained with other Rubin Observatory camera filters would be colorized as shown below:</p>",
       "layout": {
         "col": "left",
         "row": "middle"
       }
     },
     {
-      "content": "<p>Three examples of correct chromatic ordering for g, r, i and y filters.</p>",
+      "content": "<p>Usually, not all six filters are needed to communicate the science message of the image. In that case, the images can be assigned any colors as long as they follow the chromatic order method. For example, suppose you have a set of images taken using only these filters: g, r, i, and y. Any of the following sequences shown in the table (\"Examples of Chromatic Ordering\") would be correct.</p>",
       "layout": {
-        "col": "right",
+        "col": "left",
         "row": "bottom"
       }
     }
   ],
   "images": [
     {
-      "mediaPath": "/images/wavelengths-ranges-small.jpg",
+      "mediaPath": "/images/coloring-universe/wavelengths ranges of visible light - wide.png",
       "altText": "Wavelength Ranges of Visible Light",
       "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
       "layout": {
-        "col": "right",
-        "row": "top"
+        "col": "left",
+        "row": "middle"
       }
     }
   ],
@@ -74,7 +67,7 @@
       "id": "1",
       "layout": {
         "col": "left",
-        "row": "top"
+        "row": "middle"
       },
       "rows": [
         [
@@ -89,8 +82,8 @@
     {
       "id": "2",
       "layout": {
-        "col": "right",
-        "row": "middle"
+        "col": "left",
+        "row": "bottom"
       },
       "title": "Examples of Chromatic Ordering",
       "colTitles": ["g", "r", "i", "y"],
@@ -119,13 +112,17 @@
   ],
   "questionsByPage": [
     {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
       "question": [
         {
-          "id": "18",
+          "id": "25",
           "questionType": "select",
           "answerAccessor": "data",
           "title": "Question #1",
-          "label": "Which of the following is a correct chromatic ordering for the four filters shown in italic.",
+          "label": "Which of the following is a correct chromatic ordering for the four filters g, r, i and y?",
           "options": [
             {
               "label": "a. g=green, r=red, i=orange, y=yellow",
@@ -150,13 +147,17 @@
       ]
     },
     {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
       "question": [
         {
-          "id": "19",
+          "id": "26",
           "questionType": "select",
           "answerAccessor": "data",
           "title": "Question #1",
-          "label": "Which one of the following is an example of an incorrect chromatic ordering for the four filters shown in italics?",
+          "label": "Which one of the following is an example of an incorrect chromatic ordering for the four filters g, r, i and y?",
           "options": [
             {
               "label": "a. g=violet, r=blue, i=green, y=yellow",
@@ -177,17 +178,6 @@
           ],
           "placeholder": "select",
           "answerPre": "<p>Selected: </p>"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "20",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "As you have learned in this section, chromatic ordering of colors is used to communicate information about the wavelengths of light in the image. Give an example of how color(s) in your culture is used to communicate a message. What is the color, and what message does it communicate?"
         }
       ]
     }

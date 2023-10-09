@@ -1,7 +1,8 @@
 {
-  "id": "coloring02",
+  "id": "coloring04",
   "investigation": "coloring-universe",
-  "order": "020",
+  "sectionOrder": 0,
+  "order": "04",
   "title": "How Filters Work",
   "slug": "how-filters-work/",
   "previous": {
@@ -9,8 +10,8 @@
     "link": "/types-of-visible-light/"
   },
   "next": {
-    "title": "How Digital Cameras Construct A Color Image",
-    "link": "/construct-a-color-image/"
+    "title": "How Color Images are Made",
+    "link": "/how-color-images-are-made/"
   },
   "layout": "TwoCol",
   "content": "Filters allow only certain wavelengths of light to pass through them, while blocking other wavelengths.",
@@ -46,7 +47,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Choose the red filter. What does the filter do to the red light?"
+          "label": "Choose the violet filter. What color of light passes through the violet filter?"
         }
       ]
     },
@@ -57,7 +58,7 @@
           "questionType": "text",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "With the red filter selected, what does it do to the other colors of light?"
+          "label": "With the violet filter selected, what colors of light are being blocked by the violet filter?"
         }
       ]
     },
@@ -65,21 +66,28 @@
       "question": [
         {
           "id": "3a",
-          "questionType": "text",
-          "answerAccessor": "text",
+          "questionType": "select",
+          "answerAccessor": "data",
           "title": "Question #1",
-          "label": "Choose the green filter. What does the filter do to the green light?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "3b",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "With the green filter selected, what does it do to the other colors of light?"
+          "label": "Objects in space can emit many different wavelengths of light, from gamma-rays to radio. If you had access to filters for all the different wavelengths of light and wanted to observe the ultraviolet light from an object in space, what filter would you use?",
+          "options": [
+            {
+              "label": "X-ray",
+              "value": "xray"
+            },
+            {
+              "label": "Ultraviolet",
+              "value": "ultraviolet"
+            },
+            {
+              "label": "Infrared",
+              "value": "infrared"
+            },
+            {
+              "label": "Radio",
+              "value": "radio"
+            }
+          ]
         }
       ]
     }

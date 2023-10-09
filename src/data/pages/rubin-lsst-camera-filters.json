@@ -1,7 +1,8 @@
 {
-  "id": "coloring07",
+  "id": "coloring10",
   "investigation": "coloring-universe",
-  "order": "070",
+  "sectionOrder": 1,
+  "order": "10",
   "title": "Rubin Observatory LSST Camera Filters",
   "slug": "rubin-lsst-camera-filters/",
   "previous": {
@@ -9,8 +10,8 @@
     "link": "/eyes-vs-telescopes/"
   },
   "next": {
-    "title": "Uses of Astronomical Filters",
-    "link": "/uses-of-astronomical-filters/"
+    "title": "Progress Update",
+    "link": "/section-2/"
   },
   "images": [
     {
@@ -34,7 +35,7 @@
   ],
   "contents": [
     {
-      "content": "<p>The Rubin Observatory LSST Camera contains six filters, identified by the letters u, g, r, i, z and y. The letters for each filter do not correspond to a single color. For instance, r does not mean red.  Four of these filters (u, g, r, and i) transmit some visible light our eyes can see. The u filter also transmits ultraviolet light, while the i filter also transmits some infrared light. The z and y filters transmit only infrared light.  Since all of these filters transmit light over a broad range of wavelengths, we describe them as <a href=\"http://rubineducation.org/glossary/broadband-filter\" target=\"_blank\">broadband filters</a>.</p><p>You can remember these filters in their correct order from short wavelengths to long wavelengths by using the mnemonic “U-Grizy”. The graphic below compares the ranges of visible light at the top, with the ranges of the Rubin Observatory LSST Camera filters at the bottom.  (The unit nm is the abbreviation for nanometers. One nanometer is 10<sup>-9</sup> meters.)</p>",
+      "content": "<p>The Rubin Observatory LSST Camera contains six filters, identified by the letters u, g, r, i, z and y. The letters for each filter do not correspond to a single color. For instance, r does not mean red.  Four of these filters (u, g, r, and i) transmit some visible light our eyes can see. The u filter also transmits ultraviolet light, while the i filter also transmits some infrared light. The z and y filters transmit only infrared light.  Since all of these filters transmit light over a broad range of wavelengths, we describe them as <a href=\"https://rubinobservatory.org/for-educators/glossary/broadband-filter\" target=\"_blank\">broadband filters</a>.</p><p>You can remember these filters in their correct order from short wavelengths to long wavelengths by using the mnemonic “U-Grizy”. The graphic below compares the ranges of visible light at the top, with the ranges of the Rubin Observatory LSST Camera filters at the bottom.  (The unit nm is the abbreviation for nanometers. One nanometer is 10<sup>-9</sup> meters.)</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -134,7 +135,7 @@
           "id": "9.0",
           "questionType": "multiSelect",
           "title": "Question #1",
-          "labelPre": "Which of these are broadband filters?",
+          "labelPre": "Which of these are broadband filters? Choose all that apply.",
           "labelPost": "",
           "options": [
             { "label": "u", "value": "u" },

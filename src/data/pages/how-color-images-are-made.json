@@ -1,0 +1,46 @@
+{
+  "id": "coloring05",
+  "investigation": "coloring-universe",
+  "sectionOrder": 0,
+  "order": "05",
+  "title": "How Color Images are Made",
+  "slug": "how-color-images-are-made/",
+  "previous": {
+    "title": "How Filters Work",
+    "link": "/how-filters-work/"
+  },
+  "next": {
+    "title": "Comparing Greyscale Images",
+    "link": "/comparing-greyscale-images/"
+  },
+  "layout": "TwoCol",
+  "images": [
+    {
+      "mediaPath": "/images/orange_filter.jpeg",
+      "altText": "Orange Filter",
+      "figText": "An orange filter transmits some wavelengths of light while blocking others. Credit: P. Marenfeld (NOAO/AURA/NSF).",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    },
+    {
+      "mediaPath": "/images/eye-bayer-filter-comparison-V2-100.jpg",
+      "altText": "Image sensor with filter arrangement",
+      "figText": "Cone cells are responsible for color vision in humans since they respond differently to different wavelengths. Bottom: The Bayer filter is a color filter array that mimics the physiology of the human eye. Credit: Vera C. Rubin Observatory.",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      }
+    }
+  ],
+  "contents": [
+    {
+      "content": "<p>Our eyes contain cells called cones that act like filters to detect red, green, and blue light. Our brain transforms the relative amounts of light measured by the cones into a color image. You might think that our eyes would need many different types of cones to see different colors but in fact they use only three. In order to detect a color such as yellow, for example, red and green cones measure two different amounts of light and this information is received and combined by the brain. Remarkably, our eyes can see over a million different colors with this method.</p><p>Digital cameras found in telescopes and phones use an <a href='https://rubinobservatory.org/for-educators/glossary/image-sensor' target='_blank'>image sensor</a> and filters to produce color images. The image sensor measures the amount of light that is received at each location (or <a href='https://rubinobservatory.org/for-educators/glossary/pixel' target='_blank'>pixel</a>) on the image and produces a greyscale image based on the different amounts of light received at different locations. For example, when a red filter is placed in front of the image sensor, the image sensor produces a greyscale image that is brighter at locations where the sensor receives more red light, and darker at locations where it receives less red light.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ]
+}

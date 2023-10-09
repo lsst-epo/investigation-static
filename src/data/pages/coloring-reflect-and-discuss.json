@@ -1,24 +1,49 @@
-
 {
-  "id": "coloring15",
+  "id": "coloring23",
   "investigation": "coloring-universe",
-  "order": "150",
+  "sectionOrder": 3,
+  "order": "23",
   "title": "Reflect and Discuss",
   "slug": "reflect-and-discuss/",
   "previous": {
-    "title": "Describing Your Process",
-    "link": "/putting-it-all-together-2/"
+    "title": "Same Galaxy, Many Colors, Multiple Messages",
+    "link": "/what-should-my-image-look-like/"
   },
   "next": {
-    "title": "Acknowledgemnts Page",
-    "link": "/acknowledgements/"
+    "title": "Progress Update",
+    "link": "/section-4/"
   },
   "layout": "TwoCol",
+  "reference": [
+    {
+      "title": "Wavelength Ranges of Visible Light",
+      "button": {
+        "icon": true,
+        "iconEl": "questionMark",
+        "text": "View wavelengths diagram"
+      },
+      "layout": {
+        "col": "left",
+        "row": "top"
+      },
+      "images": [
+        {
+          "mediaPath": "/images/coloring-universe/rubin_filter_tool_no_filter.png",
+          "altText": "Wavelength Ranges of Visible Light",
+          "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+          "layout": {
+            "col": "left",
+            "row": "middle"
+          }
+        }
+      ]
+    }
+  ],
   "images": [
     {
-      "mediaPath": "/images/noao-ring.jpg",
-      "altText": "Ring Nebula",
-      "figText": "The WIYN 3.5-meter telescope on Kitt Peak took this image of the Ring Nebula through two filters: The red filter passes the light of ionized hydrogen, and the green filter passes the light of ionized oxygen. Credit: C.F.Claver/WIYN/NOIRLab/NSF",
+      "mediaPath": "/images/coloring-universe/ngc6520crop.jpg",
+      "altText": "Open cluster NGC 6520",
+      "figText": "The bright young stars of the open cluster NGC 6520 stand out in contrast to the background of older stars of the bulge of our Galaxy. Credit: Gemini Observatory and T.A. Rector (University of Alaska Anchorage)",
       "layout": {
         "col": "right",
         "row": "top"
@@ -34,11 +59,19 @@
       }
     }
   ],
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ],
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "27",
+          "id": "31",
           "questionType": "select",
           "answerAccessor": "data",
           "title": "Question #1",
@@ -65,7 +98,7 @@
     {
       "question": [
         {
-          "id": "28",
+          "id": "32",
           "title": "Question #1",
           "questionType": "textArea",
           "answerAccessor": "text",
@@ -76,22 +109,11 @@
     {
       "question": [
         {
-          "id": "29",
+          "id": "33",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "An asteroid is imaged using u, g, and r filters. It is visible in all three images but looks brightest in the r filter image. Does the asteroid reflect any blue light? Explain your reasoning."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "30",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "A new type of object has been discovered in space. Its surface is brightest at green wavelengths of light. You have a chance to use Rubin Observatory images to study this object. Which three filters would you select to construct a full color image of the object, what colors would you assign to them, and what color would the object be in your image? Explain your reasoning."
+          "label": "At the beginning of the investigation, you were asked to share what you knew about how different wavelengths of light are used to learn about different astronomical objects. Look back to the first page of the investigation to reflect on your intial reponse. Now that you have further explored this topic, how would you add to or revise your initial response?"
         }
       ]
     }

@@ -1,0 +1,18 @@
+{
+  "id": "coloring-universe-4-break",
+  "investigation": "coloring-universe",
+  "sectionOrder": 3,
+  "order": "24",
+  "title": "Progress Update",
+  "slug": "section-4/",
+  "previous": {
+    "title": "Reflect and Discuss",
+    "link": "/reflect-and-discuss/"
+  },
+  "next": {
+    "title": "Putting It All Together",
+    "link": "/putting-it-all-together/"
+  },
+  "layout": "SectionBreak",
+  "content": "<p>You’ve learned about the process of how to construct an image using the Rubin Color Filter Tool.</p><p>Next, you will ask a science question, design your process, and create an image that communicates the answer to your science question.</p>"
+}
