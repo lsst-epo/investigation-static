@@ -32,7 +32,14 @@
   },
   {
     "title": "Coloring the Universe",
-    "id": "coloring-universe"
+    "id": "coloring-universe",
+    "sections": [
+      { "sectionName": "1" },
+      { "sectionName": "2" },
+      { "sectionName": "3" },
+      { "sectionName": "4" },
+      { "sectionName": "5" }
+    ]
   },
   {
     "title": "A Window to the Stars",

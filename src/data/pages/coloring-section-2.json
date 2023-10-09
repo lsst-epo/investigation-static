@@ -1,0 +1,18 @@
+{
+  "id": "coloring-universe-2-break",
+  "investigation": "coloring-universe",
+  "sectionOrder": 1,
+  "order": "11",
+  "title": "Progress Update",
+  "slug": "section-2/",
+  "previous": {
+    "title": "Rubin Observatory LSST Camera Filters",
+    "link": "/rubin-lsst-camera-filters/"
+  },
+  "next": {
+    "title": "Estimating Star Temperatures",
+    "link": "/estimating-star-temperatures/"
+  },
+  "layout": "SectionBreak",
+  "content": "<p>You’ve learned about the broadband filters of the Rubin Observatory LSST Camera.</p><p>Next, you will investigate how to use broadband (ugrizi) filters and colors to communicate scientific information for three different astronomical cases:</p><ul><li>How short and long wavelengths of light are used to estimate star temperatures </li><li>How short wavelengths of light are used to locate star-forming regions in galaxies</li><li>How long wavelengths of infrared light is used to locate very distant galaxies</li></ul>"
+}

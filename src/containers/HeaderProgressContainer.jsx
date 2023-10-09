@@ -10,6 +10,7 @@ class HeaderProgressContainer extends React.PureComponent {
     currentPage ? Math.round((currentPage / totalPages) * 100) : 0;
 
   getProgressValue = (currentPage, pages) => {
+    console.log({ pages });
     const firstSectionPage = pages[0];
     const lastSectionPage = last(pages);
     const sectionRange = lastSectionPage - firstSectionPage;
@@ -23,11 +24,13 @@ class HeaderProgressContainer extends React.PureComponent {
   render = () => {
     const { pageNumber, totalPages, sections } = this.props;
 
+    console.log({ sections });
+
     return (
       <div className="header-progress-wrapper">
         {sections &&
           sections.map(section => {
-            const { sectionName, pages } = section;
+            const { sectionName, pages = [] } = section;
             const key = `section-${sectionName}`;
             const lastPage = last(pages);
 

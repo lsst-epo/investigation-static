@@ -1,0 +1,50 @@
+{
+  "id": "coloring19",
+  "investigation": "coloring-universe",
+  "sectionOrder": 2,
+  "order": "19",
+  "title": "What Can Color Communicate?",
+  "slug": "what-can-color-communicate/",
+  "previous": {
+    "title": "Color in Astronomical Images",
+    "link": "/color-in-astronomical-images/"
+  },
+  "next": {
+    "title": "Progress Update",
+    "link": "/section-3/"
+  },
+
+  "layout": "SingleCol",
+  "images": [
+    {
+      "mediaPath": "/images/coloring-universe/Coloring the Universe DEI image.png",
+      "altText": "",
+      "figText": "Color is used to communicate many different sorts of messages. Credit: Rubin Observatory",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "27",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "As you have just learned, chromatic ordering of colors is used to communicate information about the wavelengths of light in the image. Give an example of how color(s) in your culture is used to communicate a message. What is the color, and what message does it communicate?"
+        }
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "title": "Color Filter Tool",
-  "colorOptions": ["Red", "Green", "Blue", "None"],
-  "hexColors": ["#EC1C24", "#6BD853", "#0019FF", "transparent"],
+  "colorOptions": ["Blue", "Green", "Red", "None"],
+  "hexColors": ["#0019FF", "#6BD853", "#EC1C24", "transparent"],
   "data": [
     {
       "type": "color",

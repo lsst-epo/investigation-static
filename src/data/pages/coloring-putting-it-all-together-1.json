@@ -1,7 +1,8 @@
 {
-  "id": "coloring14_1",
+  "id": "coloring26",
   "investigation": "coloring-universe",
-  "order": "141",
+  "sectionOrder": 4,
+  "order": "26",
   "title": "Creating Your Astronomical Image",
   "slug": "putting-it-all-together-1/",
   "previous": {
@@ -15,29 +16,36 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>Use the Astronomical Image Coloring Tool to create your image then answer the questions below.</p>",
-      "layout": {
-        "col": "left",
-        "row": "top"
-      }
-    },
-    {
-      "content": "<p>To make an image:</p><ul><li>For each of the filters you wish to use, start by clicking on each filter and then assigning each filter with the correct chromatically ordered colors.</li><li>Adjust the sliders to color balance the image so it clearly shows the areas or objects you wish to study.</li></ul><p><i>Note: Some of the objects do not have images for 6 different filters. If an image is not available, the filter button will appear as “greyed out”.</i></p>",
+      "content": "<p>Use the dropdown menu in the Rubin Color Filter Tool to to look at some objects in the category you selected (star clusters, spiral galaxies, or far away galaxies.). Choose the object that you would like to investigate.</p>",
       "layout": {
         "col": "left",
         "row": "top"
       }
     }
   ],
-  "images": [
+  "reference": [
     {
-      "mediaPath": "/images/wavelengths-ranges-wide.jpg",
-      "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+      "title": "Wavelength Ranges of Visible Light",
+      "button": {
+        "icon": true,
+        "iconEl": "questionMark",
+        "text": "View wavelengths diagram"
+      },
       "layout": {
         "col": "left",
         "row": "middle"
-      }
+      },
+      "images": [
+        {
+          "mediaPath": "/images/coloring-universe/rubin_filter_tool_no_filter.png",
+          "altText": "Wavelength Ranges of Visible Light",
+          "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+          "layout": {
+            "col": "left",
+            "row": "middle"
+          }
+        }
+      ]
     }
   ],
   "widgets": [
@@ -45,7 +53,7 @@
       "type": "AstroTool",
       "layout": {
         "col": "left",
-        "row": "top"
+        "row": "bottom"
       },
       "source": "/data/filters/new-data-astro-filter.json",
       "options": {
@@ -55,83 +63,17 @@
   ],
   "questionsByPage": [
     {
+      "layout": {
+        "col": "left",
+        "row": "middle"
+      },
       "question": [
         {
-          "id": "50",
+          "id": "37",
           "questionType": "accordion",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "Create and save your completed color balanced image on this page, then answer the questions below."
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "34",
-          "questionType": "select",
-          "answerAccessor": "data",
-          "title": "Question #1",
-          "label": "Which type of object did you choose to explore?",
-          "options": [
-            {
-              "label": "dusty nebulae",
-              "value": "dusty nebulae"
-            },
-            {
-              "label": "far away galaxies",
-              "value": "far away galaxies"
-            },
-            {
-              "label": "spiral galaxies",
-              "value": "spiral galaxies"
-            }
-          ],
-          "placeholder": "Select one"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "38",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Which image(s) have you selected?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "39",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What question do you want to answer?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "40",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "What filters will be most appropriate for conducting your investigation? Why?"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "41",
-          "questionType": "textArea",
-          "answerAccessor": "text",
-          "title": "Question #1",
-          "label": "Develop your chromatic ordering sequence. (What colors will you assign to each filter?)"
+          "label": "Create a color balanced and chromatically ordered image to answer your scientific question."
         }
       ]
     }

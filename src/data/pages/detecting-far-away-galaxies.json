@@ -1,21 +1,22 @@
 {
-  "id": "coloring09",
+  "id": "coloring16",
   "investigation": "coloring-universe",
-  "order": "090",
+  "sectionOrder": 2,
+  "order": "16",
   "title": "Detecting Far Away Galaxies",
   "slug": "detecting-far-away-galaxies/",
   "previous": {
-    "title": "Seeing Through Dusty Nebulae",
-    "link": "/uses-of-astronomical-filters-1/"
+    "title": "Colorizing Images to Communicate Star Formation",
+    "link": "/colorizing-images-to-communicate-star-formation/"
   },
   "next": {
-    "title": "Visible light filters: Exploring Spiral Galaxies",
-    "link": "/visible-light-filters/"
+    "title": "Colorizing Images to Communicate Galaxy Distances",
+    "link": "/colorizing-images-to-communicate-galaxy-distances/"
   },
-  "layout": "TwoCol",
+  "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>Some galaxies are so distant that their light has been shifted to longer wavelengths (redshifted) due to the expansion of the Universe. In some cases this shifting to longer wavelengths can make the galaxies detectable only at infrared wavelengths.</p><p>To detect the infrared light from a distant galaxy, you need to be sure to use both a filter that passes infrared light from the galaxy and a filter that does not pass this infrared light. Next, compare the images created from these two filters and look for objects that appear only in the infrared. If you are trying to observe the most distant galaxies, whose light has been shifted to the longest wavelengths, use a filter that passes infrared light at the longest wavelengths (like the y filter).</p><p>In the full color image at the right, the long wavelength infrared light from distant galaxies (detected with z-filter) was colorized red, making it possible to quickly spot the distant galaxy as a red-orange color.</p>",
+      "content": "<p>Unlike the nearby large spiral galaxy seen on the previous page, distant galaxies often look like smudges or blobs in images. Light from distant galaxies is shifted to longer wavelengths (redshifted) due to the expansion of the Universe. The light from the most distant galaxies is shifted so much that the galaxies are visible only in the longest infrared wavelength images.</p><p>Compare the images created from these filters and try to find the most distant galaxy.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -40,31 +41,32 @@
       }
     }
   ],
-  "widgets": [
-    {
-      "type": "GalaxiesFilterSelector",
-      "source": "/data/galaxies/galaxy_selector_coloring.json",
-      "layout": {
-        "col": "right",
-        "row": "top"
-      },
-      "options": {
-        "autoplay": false,
-        "toggleDataPointsVisibility": "15",
-        "qaReview": false
-      }
-    }
-  ],
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "15",
-          "questionType": "accordion",
-          "answerAccessor": "coloringGalaxy",
-          "answerPre": "<span>Found: </span>",
-          "title": "Question #1",
-          "label": "Look for the distant galaxy in the three black and white images. Then click on this galaxy in the color image."
+          "id": "23",
+          "questionType": "select",
+          "labelPre": "In which image does the most distant galaxy appear brightest?",
+          "srLabel": "...",
+          "answerAccessor": "select",
+          "placeholder": "(r, i, or z)",
+          "options": [
+            {
+              "label": "r",
+              "value": "r"
+            },
+            {
+              "label": "i",
+              "value": "i"
+            },
+            {
+              "label": "z",
+              "value": "z"
+            }
+          ],
+          "answerPre": "...",
+          "answerPost": "..."
         }
       ]
     }

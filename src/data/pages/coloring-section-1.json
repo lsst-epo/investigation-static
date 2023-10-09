@@ -1,0 +1,18 @@
+{
+  "id": "coloring-universe-1-break",
+  "investigation": "coloring-universe",
+  "sectionOrder": 0,
+  "order": "08",
+  "title": "Progress Update",
+  "slug": "section-1/",
+  "previous": {
+    "title": "Colorizing the Images",
+    "link": "/colorizing-the-images/"
+  },
+  "next": {
+    "title": "Eyes vs. Telescopes - Different Ways of Seeing",
+    "link": "/eyes-vs-telescopes/"
+  },
+  "layout": "SectionBreak",
+  "content": "<p>You’ve learned how filters transmit and block different wavelengths of light, and how greyscale images are colorized and combined to produce a full color image.</p><p>Next, you will investigate the broadband filters of the Rubin Observatory camera.</p>"
+}
