@@ -1,7 +1,8 @@
 {
-  "id": "coloring14_2",
+  "id": "coloring27",
   "investigation": "coloring-universe",
-  "order": "142",
+  "sectionOrder": 4,
+  "order": "27",
   "title": "Describing Your Process",
   "slug": "putting-it-all-together-2/",
   "previous": {
@@ -9,8 +10,8 @@
     "link": "/putting-it-all-together-1/"
   },
   "next": {
-    "title": "Reflect and Discuss",
-    "link": "/reflect-and-discuss/"
+    "title": "Progress Update",
+    "link": "/section-5/"
   },
   "layout": "TwoCol",
   "widgets": [
@@ -32,11 +33,22 @@
     {
       "question": [
         {
-          "id": "60",
+          "id": "38",
           "questionType": "textArea",
           "answerAccessor": "text",
           "title": "Question #1",
-          "label": "Provide a detailed, step-by-step description of the process to go from a set of images taken with multiple filters, to a chromatically ordered and color balanced image that communicates a specific astronomical idea or object:"
+          "label": "Write a caption that describes your image and how it answers your scientific question."
+        }
+      ]
+    },
+    {
+      "question": [
+        {
+          "id": "39",
+          "questionType": "textArea",
+          "answerAccessor": "text",
+          "title": "Question #1",
+          "label": "When you first started making your image, it may not have looked as you expected. What didn't work? What changes or adjustments did you have to make in order to create a color balanced image that effectively answered your research question?"
         }
       ]
     }

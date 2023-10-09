@@ -1,7 +1,8 @@
 {
-  "id": "coloring01",
+  "id": "coloring02",
   "investigation": "coloring-universe",
-  "order": "010",
+  "sectionOrder": 0,
+  "order": "02",
   "title": "Types of Light",
   "slug": "types-of-light/",
   "previous": {
@@ -26,7 +27,7 @@
   ],
   "contents": [
     {
-      "content": "<p>There are many types of light (also known as <a href=\"http://rubineducation.org/glossary/electromagnetic-radiation\" target=\"_blank\">electromagnetic radiation</a>): radio waves, infrared, visible, ultraviolet (UV), X-rays, etc. The type of light we can see with our eyes is called “visible” light.</p>",
+      "content": "<p>There are many types of light (also known as <a href=\"https://rubinobservatory.org/for-educators/glossary/electromagnetic-radiation\" target=\"_blank\">electromagnetic radiation</a>): radio waves, infrared, visible, ultraviolet (UV), X-rays, etc. The type of light we can see with our eyes is called “visible” light.</p>",
       "layout": {
         "row": "top",
         "col": "left"

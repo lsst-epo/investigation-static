@@ -1,0 +1,105 @@
+{
+  "title": "Rubin Color Filter Tool",
+  "colorOptions": [
+    "Violet",
+    "Blue",
+    "Green",
+    "Yellow",
+    "Orange",
+    "Red",
+    "None"
+  ],
+  "hexColors": [
+    "#ee82ee",
+    "#0019FF",
+    "#6BD853",
+    "#FFDD15",
+    "#F18922",
+    "#EC1C24",
+    "transparent"
+  ],
+  "data": [
+    {
+      "type": "Spiral Galaxies",
+      "objects": [
+        {
+          "name": "UGC12635",
+          "filters": [
+            {
+              "label": "u",
+              "defaultColor": "#ee82ee",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 24,
+              "defaultValue": 24,
+              "min": 1.5,
+              "max": 4
+            },
+            {
+              "label": "g",
+              "defaultColor": "#0019FF",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 40,
+              "defaultValue": 40,
+              "min": 0.5,
+              "max": 2.5
+            },
+            {
+              "label": "r",
+              "defaultColor": "#6BD853",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 30,
+              "defaultValue": 30,
+              "min": 1,
+              "max": 3
+            },
+            {
+              "label": "i",
+              "defaultColor": "#FFDD15",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 16,
+              "defaultValue": 16,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "z",
+              "defaultColor": "#F18922",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 11,
+              "defaultValue": 11,
+              "min": 0.4,
+              "max": 1.6
+            },
+            {
+              "label": "y",
+              "defaultColor": "#EC1C24",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 5,
+              "defaultValue": 5,
+              "min": 1,
+              "max": 3.5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

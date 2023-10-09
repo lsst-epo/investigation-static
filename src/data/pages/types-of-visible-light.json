@@ -1,7 +1,8 @@
 {
-  "id": "coloring01.1",
+  "id": "coloring03",
   "investigation": "coloring-universe",
-  "order": "011",
+  "sectionOrder": 0,
+  "order": "03",
   "title": "Types of Visible Light",
   "slug": "types-of-visible-light/",
   "previous": {
@@ -26,7 +27,7 @@
   ],
   "contents": [
     {
-      "content": "<p>You may have learned the acronym “Roy G. Biv” to remember the order of the colors of the visible part of the electromagnetic spectrum. These different colors correspond to different wavelengths and energies, with red having the lowest energy and the longest wavelengths and violet having the highest energy and the shortest wavelengths.</p>",
+      "content": "<p>You may have learned the acronym “Roy G. Biv” to remember the order of the colors of the visible part of the electromagnetic spectrum. These different colors correspond to different wavelengths and energies, with red having the lowest energy and the longest wavelengths and violet having the highest energy and the shortest wavelengths.</p><p>White light is composed of all colors (wavelengths) of visible light. White light passing through a prism is spread out into the different colors (wavelengths) of light.</p>",
       "layout": {
         "row": "top",
         "col": "left"

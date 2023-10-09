@@ -1,0 +1,18 @@
+{
+  "id": "coloring-universe-5-break",
+  "investigation": "coloring-universe",
+  "sectionOrder": 4,
+  "order": "28",
+  "title": "Progress Update",
+  "slug": "section-5/",
+  "previous": {
+    "title": "Describing Your Process",
+    "link": "/putting-it-all-together-2/"
+  },
+  "next": {
+    "title": "Acknowledgements",
+    "link": "/acknowledgements/"
+  },
+  "layout": "SectionBreak",
+  "content": "<p>You’ve finished!</p>"
+}

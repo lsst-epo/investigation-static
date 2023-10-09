@@ -1,0 +1,86 @@
+{
+  "id": "coloring17",
+  "investigation": "coloring-universe",
+  "sectionOrder": 2,
+  "order": "17",
+  "title": "Colorizing Images to Communicate Galaxy Distances",
+  "slug": "colorizing-images-to-communicate-galaxy-distances/",
+  "previous": {
+    "title": "Detecting Far Away Galaxies",
+    "link": "/detecting-far-away-galaxies/"
+  },
+  "next": {
+    "title": "Color in Astronomical Images",
+    "link": "/color-in-astronomical-images/"
+  },
+
+  "layout": "SingleCol",
+  "reference": [
+    {
+      "title": "Wavelength Ranges of Visible Light",
+      "button": {
+        "icon": true,
+        "iconEl": "questionMark",
+        "text": "View wavelengths diagram"
+      },
+      "images": [
+        {
+          "mediaPath": "/images/coloring-universe/rubin_filter_tool_no_filter.png",
+          "altText": "Wavelength Ranges of Visible Light",
+          "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+          "layout": {
+            "col": "left",
+            "row": "middle"
+          }
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "mediaPath": "/images/UVISTARDR1_3up.png",
+      "altText": "Dropout Galaxy UVISTADR1 J100121.94+021937.6",
+      "figText": "Three different images reveal galaxies in the area of Galaxy UVISTADR1 J100121.94+021937.6, which is visible only in the z filter image. Credit: Subaru HSC Survey, courtesy of the National Astronomical Observatory of Japan (NAOJ).",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
+  "contents": [
+    {
+      "content": "<p>You can use color to communicate which galaxies are the most distant by colorizing the shortest wavelength filter blue, colorizing the middle wavelength filter green, and colorizing the longest wavelength filter red, then combining the images.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "type": "AstroTool",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "source": "/data/filters/star-formation-filter.json",
+      "options": {
+        "objectName": "M33",
+        "questionId": "22"
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "22",
+          "questionType": "prompt",
+          "answerAccessor": "colorTool",
+          "title": "Question #1",
+          "label": "Create a color balanced image with the most distant galaxy colorized red."
+        }
+      ]
+    }
+  ]
+}
