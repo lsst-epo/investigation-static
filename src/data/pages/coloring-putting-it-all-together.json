@@ -1,12 +1,13 @@
 {
-  "id": "coloring14",
+  "id": "coloring25",
   "investigation": "coloring-universe",
-  "order": "140",
+  "sectionOrder": 4,
+  "order": "25",
   "title": "Putting It All Together",
   "slug": "putting-it-all-together/",
   "previous": {
-    "title": "What Should My Image Look Like?",
-    "link": "/what-should-my-image-look-like-1/"
+    "title": "Progress Update",
+    "link": "/section-4/"
   },
   "next": {
     "title": "Creating Your Astronomical Image",
@@ -15,18 +16,36 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>In this investigation you have learned how to:</p><ul><li><a href='/color-in-astronomical-images/' target='_blank'>Construct a chromatically ordered and color balanced image of a galaxy or nebula that shows where the longest and shortest wavelengths of light are coming from.</a></li><li><a href='/uses-of-astronomical-filters-1/' target='_blank'>Look through a dusty nebula by using infrared filters</a></li><li><a href='/detecting-far-away-galaxies/' target='_blank'>Find a faraway galaxy by using infrared filters</a></li><li><a href='/visible-light-filters/' target='_blank'>Locate the areas of hot young stars and star-forming regions from the blue and red light they emit in a galaxy</a></li></ul></li></ul>",
+      "content": "<p>You have investigated how to color balance and chromatically order an image to communicate scientific information. Using the color filter tools, you have:</p><ul><li>Identified the hottest and coolest stars in a star cluster  (see <a href='/estimating-star-temperatures/' target='_blank'>page 12</a>)</li><li>Located star forming regions in a spiral galaxy (see <a href='/exploring-star-forming-regions/' target='_blank'>page 14</a>)</li><li>Detected far away galaxies (see <a href='/detecting-far-away-galaxies/' target='_blank'>page 16</a>)</li></ul><p>Next you will create a new color image and investigate a scientific question of your choosing.</p>",
       "layout": {
         "col": "left",
         "row": "top"
       }
-    },
+    }
+  ],
+  "reference": [
     {
-      "content": "<p>Now it’s your turn to answer a scientific question by creating your own color image of the cosmos and exploring what it reveals. Answer the following questions to help decide on the astronomical object, filters, and chromatic ordering for your image.</p>",
+      "title": "Wavelength Ranges of Visible Light",
+      "button": {
+        "icon": true,
+        "iconEl": "questionMark",
+        "text": "View wavelengths diagram"
+      },
       "layout": {
         "col": "left",
         "row": "top"
-      }
+      },
+      "images": [
+        {
+          "mediaPath": "/images/coloring-universe/rubin_filter_tool_no_filter.png",
+          "altText": "Wavelength Ranges of Visible Light",
+          "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+          "layout": {
+            "col": "left",
+            "row": "middle"
+          }
+        }
+      ]
     }
   ],
   "images": [
@@ -38,28 +57,19 @@
         "col": "right",
         "row": "top"
       }
-    },
-    {
-      "mediaPath": "/images/wavelengths-ranges-small.jpg",
-      "altText": "Wavelength Ranges of Visible Light",
-      "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
-      "layout": {
-        "col": "left",
-        "row": "middle"
-      }
     }
   ],
   "questionsByPage": [
     {
       "question": [
         {
-          "id": "290",
+          "id": "34",
           "questionType": "select",
           "answerAccessor": "data",
           "label": "What types of objects would you like to investigate?",
           "options": [
+            { "label": "Star clusters", "value": "Star clusters" },
             { "label": "Spiral Galaxies", "value": "Spiral Galaxies" },
-            { "label": "Dusty Nebulae", "value": "Dusty Nebulae" },
             { "label": "Far away galaxies", "value": "Far away galaxies" }
           ],
           "placeholder": "Select",
@@ -70,30 +80,20 @@
     {
       "question": [
         {
-          "id": "291",
+          "id": "35",
           "questionType": "textArea",
           "answerAccessor": "text",
-          "label": "<p>What question do you want to answer about your object? (choose a question from the list below or develop your own question):</p><ul><li>Which is the most distant galaxy in the image?</li><li>Where are young stars located in a spiral galaxy?</li><li>Where are star forming regions located in a spiral galaxy?</li><li>Which stars are hidden by the dust in a nebula?</li></ul>"
+          "label": "<p>What question do you want to answer about your object? You may choose a question from the list below or develop your own question:</p><ul><li>Which are the hottest and coolest stars in a cluster?</li><li>Where are the star forming regions in a galaxy?</li><li>Which is a very far away galaxy?</li></ul>"
         }
       ]
     },
     {
       "question": [
         {
-          "id": "292",
+          "id": "36",
           "questionType": "text",
           "answerAccessor": "text",
-          "label": "<p>What filters are most appropriate for conducting your investigation? Why? (You don’t have to use all the filters.)</p>"
-        }
-      ]
-    },
-    {
-      "question": [
-        {
-          "id": "293",
-          "questionType": "text",
-          "answerAccessor": "text",
-          "label": "<p>What chromatic ordering sequence will you use?  List the filters you will use and the color you will assign to each filter:</p>"
+          "label": "<p>What filters will you use for conducting your investigation? Why? <em>(You don’t have to use all six filters.)</em></p>"
         }
       ]
     }

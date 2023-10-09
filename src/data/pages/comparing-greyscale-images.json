@@ -1,12 +1,13 @@
 {
-  "id": "coloring04",
+  "id": "coloring06",
   "investigation": "coloring-universe",
-  "order": "040",
-  "title": "Constructing an Image with Three Filters",
-  "slug": "constructing-with-three-filters/",
+  "sectionOrder": 0,
+  "order": "06",
+  "title": "Comparing Greyscale Images",
+  "slug": "comparing-greyscale-images/",
   "previous": {
-    "title": "How Digital Cameras Construct A Color Image",
-    "link": "/construct-a-color-image/"
+    "title": "How Color Images are Made",
+    "link": "/how-color-images-are-made/"
   },
   "next": {
     "title": "Colorizing the Images",
@@ -15,7 +16,7 @@
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>At right are three greyscale images obtained using red, green, and blue filters. Notice in each image where it is dark and where it is bright. A color (red, green, or blue) is then assigned to each of the filtered greyscale images. This is known as colorizing the image. Finally, the three <a href='http://rubineducation.org/glossary/colorize' target='_blank'>colorized</a> images are combined to create the full color image shown on the right.</p><p>Compare the filtered images to the full color image, then choose the right words to finish the following sentences.</p>",
+      "content": "<p>At right are three greyscale images obtained using red, green, and blue filters. Notice in each image where it is dark and where it is bright. A color (red, green, or blue) is then assigned to each of the filtered greyscale images. This is known as colorizing the image. Finally, the three <a href='https://rubinobservatory.org/for-educators/glossary/colorize' target='_blank'>colorized</a> images are combined to create the full color image shown on the right.</p><p>Compare the filtered images to the full color image, then choose the right words to finish the following sentences.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -24,7 +25,7 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/rgb_filter_example.png",
+      "mediaPath": "/images/coloring-universe/rgb_filter_example.jpg",
       "altText": "Comparison of filters",
       "figText": "Comparison of the light passed by filters.",
       "layout": {

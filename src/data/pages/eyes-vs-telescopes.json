@@ -1,12 +1,13 @@
 {
-  "id": "coloring06",
+  "id": "coloring09",
   "investigation": "coloring-universe",
-  "order": "060",
+  "sectionOrder": 1,
+  "order": "09",
   "title": "Eyes vs. Telescopes - Different Ways of Seeing",
   "slug": "eyes-vs-telescopes/",
   "previous": {
-    "title": "Colorizing the Images",
-    "link": "/colorizing-the-images/"
+    "title": "Progress Update",
+    "link": "/section-1/"
   },
   "next": {
     "title": "Rubin Observatory LSST Camera Filters",
@@ -16,9 +17,9 @@
   "content": "<p>People often wonder if astronomical images show an object “as it really looks,” that is, as it would appear to their eyes. Note that telescopes not only magnify distant objects, they also collect much more light than your eyes. Most astronomical objects would be too faint for you to see, even if you were much closer to them than you are on Earth.</p><p>Furthermore, telescope images are often made by using light with wavelengths that your eyes can’t see. For instance, an ultraviolet filter transmits light with wavelengths too short, and energies too high, for our eyes to see. Likewise, infrared filters transmit light with wavelengths too long and energies too low for our eyes to see. Each type of light reveals different information about the objects in space, so observing light over all these wavelengths allows us to learn more. In a sense, telescopes give us superhuman vision. Indeed, that’s the reason we build them!</p>",
   "images": [
     {
-      "mediaPath": "/images/m33r_800.jpg",
-      "altText": "The Electromagnetic Spectrum",
-      "figText": "This image of the Triangulum Galaxy was created by combining optical data with radio data from the Very Large Array (VLA) telescope in New Mexico and the Westerbork Synthesis Radio Telescope (WSRT) in the Netherlands.  Credit: <a href='http://aftar.uaa.alaska.edu/gallery/img-164.html' target='_blank'>NOAO/AURA/NSF. Copyright WIYN Consortium, Inc., all rights reserved.</a>",
+      "mediaPath": "/images/coloring-universe/mcneil_800.jpg",
+      "altText": "Nebula against a black background",
+      "figText": "This nebula was discovered by amateur astronomer Jay McNeil. It is the result of the slow birth of a star about 1,500 light-years away. It is blasting gas away from itself at speeds of more than 600 kilometers per second. Credit: C. Aspin and K. Pu'uohau-Pummill (Gemini Observatory) and T. A. Rector (University of Alaska Anchorage)",
       "layout": {
         "row": "top",
         "col": "right"

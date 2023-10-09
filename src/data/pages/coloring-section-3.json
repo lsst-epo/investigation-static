@@ -1,0 +1,18 @@
+{
+  "id": "coloring-universe-3-break",
+  "investigation": "coloring-universe",
+  "sectionOrder": 2,
+  "order": "20",
+  "title": "Progress Update",
+  "slug": "section-3/",
+  "previous": {
+    "title": "What Can Color Communicate?",
+    "link": "/what-can-color-communicate/"
+  },
+  "next": {
+    "title": "Using the Rubin Color Filter Tool",
+    "link": "/using-the-rubin-color-filter-tool/"
+  },
+  "layout": "SectionBreak",
+  "content": "<p>You’ve learned about how broadband (ugrizi) filters and chromatic ordering of colors are used to communicate scientific information.</p><p>Next, you will learn how to construct an image using the Rubin Color Filter Tool.</p>"
+}

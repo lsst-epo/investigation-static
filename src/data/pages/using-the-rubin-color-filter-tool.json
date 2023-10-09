@@ -1,0 +1,71 @@
+{
+  "id": "coloring21",
+  "investigation": "coloring-universe",
+  "sectionOrder": 3,
+  "order": "21",
+  "title": "Using the Rubin Color Filter Tool",
+  "slug": "using-the-rubin-color-filter-tool/",
+  "previous": {
+    "title": "Progress Update",
+    "link": "/section-3/"
+  },
+  "next": {
+    "title": "Same Galaxy, Many Colors, Multiple Messages",
+    "link": "/what-should-my-image-look-like/"
+  },
+  "layout": "SingleCol",
+  "reference": [
+    {
+      "title": "Wavelength Ranges of Visible Light",
+      "button": {
+        "icon": true,
+        "iconEl": "questionMark",
+        "text": "View wavelengths diagram"
+      },
+      "layout": {
+        "col": "left",
+        "row": "middle"
+      },
+      "images": [
+        {
+          "mediaPath": "/images/coloring-universe/rubin_filter_tool_no_filter.png",
+          "altText": "Wavelength Ranges of Visible Light",
+          "figText": "Comparison of visible color wavelength ranges with Rubin Observatory filters (nm = nanometers)",
+          "layout": {
+            "col": "left",
+            "row": "middle"
+          }
+        }
+      ]
+    }
+  ],
+  "content": "The six broadband (ugrizy) filters in the Rubin LSSTCam create opportunities for a greater diversity of science investigations. However, as you have learned, all six filters are not needed to create a color balanced image that conveys a science message.  What’s important is that the appropriate set of filters are selected for the science case.",
+  "widgets": [
+    {
+      "type": "AstroTool",
+      "layout": {
+        "col": "left",
+        "row": "bottom"
+      },
+      "source": "/data/filters/UGC12635-filter.json",
+      "options": {
+        "objectName": "UGC12635",
+        "questionId": "UGC12635",
+        "qaReview": false
+      }
+    }
+  ],
+  "questionsByPage": [
+    {
+      "question": [
+        {
+          "id": "UGC12635",
+          "questionType": "prompt",
+          "answerAccessor": "colorTool",
+          "title": "Question #1",
+          "label": "<p>There is currently no image shown in the filter tool window since you have not selected any filters. Your goal is to create a color balanced image that shows where star formation is occurring in the galaxy.</p><ol><li>Click on the filters you wish to use to show star formation (it’s not necessary to use all six filters).</li><li>Assign a color to each filter using chromatic ordering.</li><li>Adjust the intensity sliders to create a color balanced image.</li></ol><p>You should now see a full color image of UGC12635, made by combining the light from the filters you chose.</p>"
+        }
+      ]
+    }
+  ]
+}

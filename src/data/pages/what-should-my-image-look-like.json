@@ -1,21 +1,22 @@
 {
-  "id": "coloring13",
+  "id": "coloring22",
   "investigation": "coloring-universe",
-  "order": "130",
-  "title": "Connecting Wavelengths, Colors and Astronomical Objects",
+  "sectionOrder": 3,
+  "order": "22",
+  "title": "Same Galaxy, Many Colors, Multiple Messages",
   "slug": "what-should-my-image-look-like/",
   "previous": {
-    "title": "Constructing an Astronomical Image",
-    "link": "/astronomical-color-images-2/"
+    "title": "Using the Rubin Color Filter Tool",
+    "link": "/using-the-rubin-color-filter-tool/"
   },
   "next": {
-    "title": "Creating a Galaxy Image",
-    "link": "/what-should-my-image-look-like-1/"
+    "title": "Reflect and Discuss",
+    "link": "/reflect-and-discuss/"
   },
   "layout": "TwoCol",
   "contents": [
     {
-      "content": "<p>Below are three different images of M33 made using different filters, chromatic ordering sequences, and color balances. Note how these images look compared to your image of M33.</p>",
+      "content": "<p>You may be wondering, is my image correct? Keep in mind there’s more than one way to correctly construct an image. In fact, there are many ways to create an image that will look quite different that correctly communicates a science message and may involve different choices of filters, chromatic ordering and color balancing. As long as you follow the three steps outlined on the previous page, an image would be considered “correct”.</p><p>Below are two different images of UGC12635 made using different filters, correct chromatic ordering sequences, and color balances. It’s important to read the caption for each image to better understand how color is being used to communicate an astronomical message. Compare how these images look to your image of UGC12635.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -43,7 +44,7 @@
     {
       "mediaPath": "/images/figure-11-M33.png",
       "altText": "Three different filtered images of M33.",
-      "figText": "<p>Three different images of M33 have been made using different combinations of filters and color balancing.</p><p>Left image:<br /><a href='http://www.galex.caltech.edu/media/glx2009-01f_img03.html' target='_blank'>Combined infrared and ultraviolet image of M33. Credit: Spitzer/GALEX data</a>, NASA/JPL-Caltech</p><p>Center image:<br /><a href='https://commons.wikimedia.org/wiki/File:Messier_33_(Image_Of_Team)_(18235295964).jpg' target='_blank'>Collective image of M33 obtained with the contributions of: Paolo Demaria</a>, Giuseppe Donatiello (composition and processing), Marco Favuzzi, Terenzio Fusco, Rolando Ligustri, Alessandro Elio Milani, Zlatko Orbanic, Andrea Pistocchini, and Tim Stone. Creative Commons CCO 1.0.</p><p>Right image:<br /><a href='https://commons.wikimedia.org/wiki/File:Messier_33.jpg' target='_blank'>Image of M33 by Francesco Antonucci</a>, Creative Commons 4.0 international.</p>",
+      "figText": "<p>Caption (for left image): The concentrated knots and clumps of star formation UGC 12635’s spiral arms are neatly shown. Filters used: u, g, r, and i. Data are obtained from the HSC-SSP and CLAUDS Surveys.</p><p>Caption (for right image): The wispy blue spiral arms of the face on spiral galaxy UGC 12635 contrast with the very distant red galaxies dotted across the whole field of view. Filters used:  g, r, i, z, and y. Data are obtained from the HSC-SSP and CLAUDS Surveys.</p>",
       "layout": {
         "col": "left",
         "row": "middle"
@@ -54,35 +55,23 @@
     {
       "question": [
         {
-          "id": "285",
-          "questionType": "compoundInput",
-          "compoundQuestion": ["285", "286", "287"],
-          "labelPre": "<span>The sentence below comes from the NASA/JPL-Caltech information page and describes what is seen in the far left image. The sentence identifies three different objects that are listed in order based on the wavelength of the light they emit from shortest to longest. Since this is a chromatically ordered image, choose the correct color to fill in the blanks in the sentence below:</span><br /><br /><span>Far-ultraviolet light from young stars glimmers</span>",
-          "labelPost": ",",
+          "id": "29",
+          "questionType": "textArea",
+          "label": "What is something communicated by one of these images that your image didn’t communicate? Which image? Describe.",
           "srLabel": "...",
           "answerAccessor": "text",
           "placeholder": " ",
           "answerPre": "...",
           "answerPost": "..."
-        },
+        }
+      ]
+    },
+    {
+      "question": [
         {
-          "id": "286",
-          "questionType": "compoundInput",
-          "compoundQuestion": ["285", "286", "287"],
-          "labelPre": "near-ultraviolet light from intermediate age stars glows",
-          "labelPost": ",",
-          "srLabel": "...",
-          "answerAccessor": "text",
-          "placeholder": " ",
-          "answerPre": "...",
-          "answerPost": "..."
-        },
-        {
-          "id": "287",
-          "questionType": "compoundInput",
-          "compoundQuestion": ["285", "286", "287"],
-          "labelPre": "and dust rich in organic molecules burns",
-          "labelPost": ".",
+          "id": "30",
+          "questionType": "textArea",
+          "label": "Write a caption for your image that is like the ones above.",
           "srLabel": "...",
           "answerAccessor": "text",
           "placeholder": " ",
