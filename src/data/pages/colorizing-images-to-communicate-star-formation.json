@@ -23,6 +23,10 @@
         "iconEl": "questionMark",
         "text": "View wavelengths diagram"
       },
+      "layout": {
+        "col": "left",
+        "row": "middle"
+      },
       "images": [
         {
           "mediaPath": "/images/coloring-universe/rubin_filter_tool_no_filter.png",
@@ -45,6 +49,16 @@
       }
     }
   ],
+  "images": [
+    {
+      "mediaPath": "/images/coloring-universe/fos6-composite-color.jpg",
+      "altText": "Spiral galaxy image in colorized u, i, and z filters",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
   "widgets": [
     {
       "type": "AstroTool",
@@ -52,9 +66,9 @@
         "col": "left",
         "row": "bottom"
       },
-      "source": "/data/filters/star-formation-filter.json",
+      "source": "/data/filters/fos6-filter.json",
       "options": {
-        "objectName": "M33",
+        "objectName": "FoS6",
         "questionId": "22"
       }
     }
