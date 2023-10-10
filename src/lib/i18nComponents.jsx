@@ -18,6 +18,7 @@ const transComponents = {
   b: <b />,
   sup: <sup />,
   span: <span />,
+  em: <em />,
 };
 
 export default transComponents;

@@ -6,8 +6,8 @@
   "title": "Exploring Star Forming Regions",
   "slug": "exploring-star-forming-regions/",
   "previous": {
-    "title": "Estimating Star Temperatures",
-    "link": "/estimating-star-temperatures/"
+    "title": "Colorizing Images to Communicate Star Temperatures",
+    "link": "/colorizing-images-to-communicate-star-temperatures/"
   },
   "next": {
     "title": "Colorizing Images to Communicate Star Formation",
@@ -18,6 +18,16 @@
   "contents": [
     {
       "content": "<p>Above are three grayscale images of the same spiral galaxy taken with u, i, and z filters.</p><p>Two parts of a spiral galaxy are a central spherical region known as the bulge and an extended disc that contains arms. Spiral galaxies have regions of active star formation where hot young stars are located.</p><p>Examine the images and compare how the bulge and arms appear different through each filter.</p>",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
+  "images": [
+    {
+      "mediaPath": "/images/coloring-universe/fos6-composite.jpg",
+      "altText": "Spiral galaxy image in grayscale u, i, and z filters",
       "layout": {
         "col": "left",
         "row": "top"
