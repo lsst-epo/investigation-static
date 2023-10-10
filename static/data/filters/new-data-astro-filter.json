@@ -1,5 +1,5 @@
 {
-  "title": "Astronomical Image Coloring Tool",
+  "title": "Rubin Color Filter Tool",
   "colorOptions": [
     "Violet",
     "Blue",
@@ -7,8 +7,6 @@
     "Yellow",
     "Orange",
     "Red",
-    "Cyan",
-    "Magenta",
     "None"
   ],
   "hexColors": [
@@ -18,8 +16,6 @@
     "#FFDD15",
     "#F18922",
     "#EC1C24",
-    "#00ffff",
-    "#ff00ff",
     "transparent"
   ],
   "data": [
@@ -27,15 +23,15 @@
       "type": "Spiral Galaxies",
       "objects": [
         {
-          "name": "M51",
-          "caption": "Image credit:  T.A. Rector (University of Alaska Anchorage) and CTIO/NOAO/NSF and Subaru HSC Data Release 1",
+          "name": "Tadpole",
+          "caption": "",
           "filters": [
             {
               "label": "u",
               "color": "",
               "active": false,
               "image": "",
-              "isDisabled": true,
+              "isDisabled": false,
               "value": 1,
               "min": 1.5,
               "max": 4
@@ -93,72 +89,8 @@
           ]
         },
         {
-          "name": "M101",
-          "filters": [
-            {
-              "label": "u",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 2
-            },
-            {
-              "label": "g",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 2
-            },
-            {
-              "label": "r",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 1.8
-            },
-            {
-              "label": "i",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 0.5,
-              "max": 1.5
-            },
-            {
-              "label": "z",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1.1,
-              "max": 2
-            },
-            {
-              "label": "y",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 1.7
-            }
-          ]
-        },
-        {
-          "name": "NGC6946",
+          "name": "FOS5",
+          "caption": "",
           "filters": [
             {
               "label": "u",
@@ -168,7 +100,7 @@
               "isDisabled": false,
               "value": 1,
               "min": 1.5,
-              "max": 2
+              "max": 4
             },
             {
               "label": "g",
@@ -177,8 +109,8 @@
               "image": "",
               "isDisabled": false,
               "value": 1,
-              "min": 0.5,
-              "max": 1.8
+              "min": 1,
+              "max": 2
             },
             {
               "label": "r",
@@ -187,15 +119,15 @@
               "image": "",
               "isDisabled": false,
               "value": 1,
-              "min": 1,
-              "max": 1.5
+              "min": 0.8,
+              "max": 1.2
             },
             {
               "label": "i",
               "color": "",
               "active": false,
               "image": "",
-              "isDisabled": true,
+              "isDisabled": false,
               "value": 1,
               "min": 0.5,
               "max": 1.5
@@ -205,7 +137,73 @@
               "color": "",
               "active": false,
               "image": "",
-              "isDisabled": true,
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.4,
+              "max": 1.6
+            },
+            {
+              "label": "y",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1,
+              "max": 1.5
+            }
+          ]
+        },
+        {
+          "name": "FOS3",
+          "caption": "",
+          "filters": [
+            {
+              "label": "u",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1.5,
+              "max": 4
+            },
+            {
+              "label": "g",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 1,
+              "max": 2
+            },
+            {
+              "label": "r",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.8,
+              "max": 1.2
+            },
+            {
+              "label": "i",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 1,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "z",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
               "value": 1,
               "min": 0.4,
               "max": 1.6
@@ -225,10 +223,10 @@
       ]
     },
     {
-      "type": "Dusty Nebulae",
+      "type": "Star clusters",
       "objects": [
         {
-          "name": "NGC2070",
+          "name": "KKR 25",
           "filters": [
             {
               "label": "u",
@@ -275,7 +273,7 @@
               "color": "",
               "active": false,
               "image": "",
-              "isDisabled": true,
+              "isDisabled": false,
               "value": 0.4,
               "min": 0.4,
               "max": 1.6
@@ -285,205 +283,10 @@
               "color": "",
               "active": false,
               "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 1,
-              "max": 1.5
-            }
-          ]
-        },
-        {
-          "name": "NGC6520",
-          "filters": [
-            {
-              "label": "u",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 1.6
-            },
-            {
-              "label": "g",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 1.5
-            },
-            {
-              "label": "r",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 1.8
-            },
-            {
-              "label": "i",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 0.5,
-              "max": 1.5
-            },
-            {
-              "label": "z",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.4,
-              "max": 1.6
-            },
-            {
-              "label": "y",
-              "color": "",
-              "active": false,
-              "image": "",
               "isDisabled": false,
               "value": 1,
               "min": 1,
               "max": 1.5
-            }
-          ]
-        },
-        {
-          "name": "B68",
-          "filters": [
-            {
-              "label": "u",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1.5,
-              "max": 4
-            },
-            {
-              "label": "g",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 1.5
-            },
-            {
-              "label": "r",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 1.5
-            },
-            {
-              "label": "i",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 1.2
-            },
-            {
-              "label": "z",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.4,
-              "max": 1.6
-            },
-            {
-              "label": "y",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 1,
-              "max": 3.5
-            }
-          ]
-        },
-        {
-          "name": "B93",
-          "filters": [
-            {
-              "label": "u",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1.5,
-              "max": 4
-            },
-            {
-              "label": "g",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 2.1
-            },
-            {
-              "label": "r",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 1,
-              "max": 2
-            },
-            {
-              "label": "i",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.5,
-              "max": 1.5
-            },
-            {
-              "label": "z",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": false,
-              "value": 1,
-              "min": 0.4,
-              "max": 1.6
-            },
-            {
-              "label": "y",
-              "color": "",
-              "active": false,
-              "image": "",
-              "isDisabled": true,
-              "value": 1,
-              "min": 1,
-              "max": 3.5
             }
           ]
         }
@@ -493,14 +296,14 @@
       "type": "Far Away Galaxies",
       "objects": [
         {
-          "name": "COSMOS 1569673",
+          "name": "COSMOS 1571755",
           "filters": [
             {
               "label": "u",
               "color": "",
               "active": false,
               "image": "",
-              "isDisabled": true,
+              "isDisabled": false,
               "value": 0,
               "min": 0,
               "max": 0
@@ -565,7 +368,7 @@
               "color": "",
               "active": false,
               "image": "",
-              "isDisabled": true,
+              "isDisabled": false,
               "value": 0,
               "min": 0,
               "max": 0

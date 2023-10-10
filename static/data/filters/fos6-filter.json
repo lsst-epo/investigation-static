@@ -1,0 +1,53 @@
+{
+  "title": "Color Filter Tool",
+  "colorOptions": ["Blue", "Green", "Red", "None"],
+  "hexColors": ["#0019FF", "#6BD853", "#EC1C24", "transparent"],
+  "data": [
+    {
+      "type": "Spiral Galaxy",
+      "objects": [
+        {
+          "name": "FoS6",
+          "filters": [
+            {
+              "label": "u",
+              "defaultColor": "#0019FF",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 24,
+              "defaultValue": 24,
+              "min": 1.5,
+              "max": 4
+            },
+            {
+              "label": "i",
+              "defaultColor": "#6BD853",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 16,
+              "defaultValue": 16,
+              "min": 0.5,
+              "max": 1.5
+            },
+            {
+              "label": "z",
+              "defaultColor": "#EC1C24",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 11,
+              "defaultValue": 11,
+              "min": 0.4,
+              "max": 1.6
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
