@@ -21,7 +21,20 @@
       "figText": "<a href='http://www.daltonism.org.uk/2018/01/rainbows/' target='_blank'>Visible light colors</a> arranged in order of wavelengths from the shortest (violet) to the longest (red).",
       "layout": {
         "row": "top",
-        "col": "right"
+        "col": "left"
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "type": "PrismWidget",
+      "layout": {
+        "col": "right",
+        "row": "top"
+      },
+      "options": {
+        "questionId": "prismTool_mock",
+        "qaReview": false
       }
     }
   ],

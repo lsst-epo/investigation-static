@@ -1,0 +1,53 @@
+{
+  "title": "Color Filter Tool",
+  "colorOptions": ["Blue", "Green", "Red", "None"],
+  "hexColors": ["#0019FF", "#6BD853", "#EC1C24", "transparent"],
+  "data": [
+    {
+      "type": "Star Clusters",
+      "objects": [
+        {
+          "name": "PAL3",
+          "filters": [
+            {
+              "label": "g",
+              "defaultColor": "#0019FF",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 40,
+              "defaultValue": 40,
+              "min": 0.5,
+              "max": 2.5
+            },
+            {
+              "label": "r",
+              "defaultColor": "#6BD853",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 30,
+              "defaultValue": 30,
+              "min": 1,
+              "max": 3
+            },
+            {
+              "label": "z",
+              "defaultColor": "#EC1C24",
+              "color": "",
+              "active": false,
+              "image": "",
+              "isDisabled": false,
+              "value": 11,
+              "defaultValue": 11,
+              "min": 0.4,
+              "max": 1.6
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
