@@ -15,6 +15,16 @@
   },
 
   "layout": "SingleCol",
+  "images": [
+    {
+      "mediaPath": "/images/coloring-universe/pal3-composite.jpg",
+      "altText": "Star cluster image in grayscale g, r, and z filters",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
   "contents": [
     {
       "content": "<p>When looking up at the night sky, you can probably tell that stars are not all the same color. Hot stars emit large amounts of light at short wavelengths and appear blue to our eyes, while cool stars emit large amounts of light at long wavelengths and appear red to our eyes. Besides the light that our eyes can see, objects in space emit infrared and ultraviolet light, too.</p><p>Here are three greyscale images of a star cluster taken with g, r and z filters. Three stars have been identified with letters A, B and C.</p>",
