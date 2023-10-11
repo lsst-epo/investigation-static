@@ -17,7 +17,7 @@
   "layout": "SingleCol",
   "contents": [
     {
-      "content": "<p>Above are three grayscale images of the same spiral galaxy taken with u, i, and z filters.</p><p>Two parts of a spiral galaxy are a central spherical region known as the bulge and an extended disc that contains arms. Spiral galaxies have regions of active star formation where hot young stars are located.</p><p>Examine the images and compare how the bulge and arms appear different through each filter.</p>",
+      "content": "<p>Above are three grayscale images of the same spiral galaxy taken with u, i, and z filters.</p><p>Two parts of a spiral galaxy are a central spherical region known as the bulge and an extended disc that contains arms. Spiral galaxies have regions of active star in the arms where hot young stars are located.</p><p>Examine the images and compare how the bulge and arms appear different through each filter.</p>",
       "layout": {
         "col": "left",
         "row": "top"
