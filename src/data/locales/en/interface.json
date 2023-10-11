@@ -9,7 +9,7 @@
     "clear_answers": "Clear all saved answers",
     "go_to_investigation": "Go to {{investigation}} investigation",
     "print_answers": "Print your answers",
-    "download_answers": "Download answers",
+    "download_answers": "Download Your Answers as .xlsx File",
     "close": "Close",
     "pause": "Pause",
     "play": "Play",
