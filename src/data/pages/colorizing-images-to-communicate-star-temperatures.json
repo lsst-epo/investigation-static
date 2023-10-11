@@ -15,6 +15,16 @@
   },
 
   "layout": "SingleCol",
+  "images": [
+    {
+      "mediaPath": "/images/coloring-universe/pal3-composite-color.jpg",
+      "altText": "Spiral galaxy image in grayscale u, i, and z filters",
+      "layout": {
+        "col": "left",
+        "row": "top"
+      }
+    }
+  ],
   "contents": [
     {
       "content": "<p>You can use color to communicate star temperatures in a cluster by colorizing the shortest wavelength filter blue, colorizing the middle wavelength filter green, and colorizing the longest wavelength filter red, then combining the images.</p><p>The next step in creating a full color image is to color balance the image. Color balancing means adjusting the color intensity sliders for each filter until you have an image that effectively conveys astronomical information.  </p><p>Color balancing <em>does not</em> mean setting the same intensity for each filter.  </p><p>For instance, if you want to show the blue stars, you may want to increase the intensity of the filter that passes blue light (to which we assigned the color blue).</p><p>There are a few general guidelines to follow with color balancing:</p><ul><li>If all objects in your image appear the same color, then the intensity slider associated with this filter and color should be decreased. You may also need to increase the intensity of other filters and colors.</li><li>For astronomical images, the background should be dark, but not necessarily totally black.</li></ul>",
