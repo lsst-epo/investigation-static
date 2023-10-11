@@ -27,7 +27,7 @@
   ],
   "contents": [
     {
-      "content": "<p>When looking up at the night sky, you can probably tell that stars are not all the same color. Hot stars emit large amounts of light at short wavelengths and appear blue to our eyes, while cool stars emit large amounts of light at long wavelengths and appear red to our eyes. Besides the light that our eyes can see, objects in space emit infrared and ultraviolet light, too.</p><p>Here are three greyscale images of a star cluster taken with g, r and z filters. Three stars have been identified with letters A, B and C.</p>",
+      "content": "<p>When looking up at the night sky, you can probably tell that stars are not all the same color. Hot stars emit large amounts of light at short wavelengths and appear blue to our eyes, while cool stars emit large amounts of light at long wavelengths and appear red to our eyes. Besides the light that our eyes can see, objects in space emit infrared and ultraviolet light, too.</p><p>Here are three greyscale images of a star cluster taken with g, r and z filters. Three stars have been identified. From left to right they are: A, B and C.</p>",
       "layout": {
         "col": "left",
         "row": "top"
@@ -47,24 +47,40 @@
         {
           "id": "17a",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["17a", "17b"],
+          "compoundQuestion": ["17a", "17b", "17c"],
+          "answerAccessor": "select",
+          "options": [
+            { "label": "A", "value": "A" },
+            { "label": "B", "value": "B" },
+            { "label": "C", "value": "C" }
+          ],
+          "title": "Question #1",
+          "labelPre": "Star ",
+          "srLabel": "...",
+          "answerPre": "...",
+          "answerPost": "...",
+          "placeholder": "(A, B, or C)"
+        },
+        {
+          "id": "17b",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["17a", "17b", "17c"],
           "answerAccessor": "select",
           "options": [
             { "label": "longest", "value": "longest" },
             { "label": "shortest", "value": "shortest" }
           ],
           "title": "Question #1",
-          "labelPre": "Star (A, B, C) is hottest and appears brightest in the",
-          "labelPost": "wavelength image,",
+          "labelPre": " is hottest and appears brightest in the",
           "srLabel": "...",
           "answerPre": "...",
           "answerPost": "...",
-          "placeholder": "(longest,shortest)"
+          "placeholder": "(longest, shortest)"
         },
         {
-          "id": "17b",
+          "id": "17c",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["17a", "17b"],
+          "compoundQuestion": ["17a", "17b", "17c"],
           "answerAccessor": "select",
           "options": [
             { "label": "g", "value": "g" },
@@ -72,12 +88,12 @@
             { "label": "z", "value": "z" }
           ],
           "title": "Question #1",
-          "labelPre": " taken with the",
+          "labelPre": " wavelength image, taken with the",
           "labelPost": "filter.",
           "srLabel": "...",
           "answerPre": "...",
           "answerPost": "...",
-          "placeholder": "(g,r, or z)"
+          "placeholder": "(g, r, or z)"
         }
       ]
     },
@@ -86,24 +102,40 @@
         {
           "id": "18a",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["18a", "18b"],
+          "compoundQuestion": ["18a", "18b", "18c"],
+          "answerAccessor": "select",
+          "options": [
+            { "label": "A", "value": "A" },
+            { "label": "B", "value": "B" },
+            { "label": "C", "value": "C" }
+          ],
+          "title": "Question #1",
+          "labelPre": "Star ",
+          "srLabel": "...",
+          "answerPre": "...",
+          "answerPost": "...",
+          "placeholder": "(A, B, or C)"
+        },
+        {
+          "id": "18b",
+          "questionType": "compoundSelect",
+          "compoundQuestion": ["18a", "18b", "18c"],
           "answerAccessor": "select",
           "options": [
             { "label": "longest", "value": "longest" },
             { "label": "shortest", "value": "shortest" }
           ],
           "title": "Question #1",
-          "labelPre": "Star (A, B, C) is coolest and appears brightest in the",
-          "labelPost": "wavelength image,",
+          "labelPre": " is coolest and appears brightest in the",
           "srLabel": "...",
           "answerPre": "...",
           "answerPost": "...",
-          "placeholder": "(longest,shortest)"
+          "placeholder": "(longest, shortest)"
         },
         {
-          "id": "18b",
+          "id": "18c",
           "questionType": "compoundSelect",
-          "compoundQuestion": ["18a", "18b"],
+          "compoundQuestion": ["18a", "18b", "18c"],
           "answerAccessor": "select",
           "options": [
             { "label": "g", "value": "g" },
@@ -111,12 +143,12 @@
             { "label": "z", "value": "z" }
           ],
           "title": "Question #1",
-          "labelPre": " taken with the",
+          "labelPre": " wavelength image, taken with the",
           "labelPost": "filter.",
           "srLabel": "...",
           "answerPre": "...",
           "answerPost": "...",
-          "placeholder": "(g,r, or z)"
+          "placeholder": "(g, r, or z)"
         }
       ]
     }
