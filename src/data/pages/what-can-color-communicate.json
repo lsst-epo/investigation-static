@@ -14,14 +14,14 @@
     "link": "/section-3/"
   },
 
-  "layout": "SingleCol",
+  "layout": "TwoCol",
   "images": [
     {
       "mediaPath": "/images/coloring-universe/Coloring the Universe DEI image.png",
       "altText": "",
       "figText": "Color is used to communicate many different sorts of messages. Credit: Rubin Observatory",
       "layout": {
-        "col": "left",
+        "col": "right",
         "row": "top"
       }
     }
