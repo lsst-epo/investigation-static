@@ -42,8 +42,8 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/figure-11-M33.png",
-      "altText": "Three different filtered images of M33.",
+      "mediaPath": "/images/coloring-universe/ugc12635-composite.jpg",
+      "altText": "Two different filtered images of UGC12635.",
       "figText": "<p>Caption (for left image): The concentrated knots and clumps of star formation UGC 12635’s spiral arms are neatly shown. Filters used: u, g, r, and i. Data are obtained from the HSC-SSP and CLAUDS Surveys.</p><p>Caption (for right image): The wispy blue spiral arms of the face on spiral galaxy UGC 12635 contrast with the very distant red galaxies dotted across the whole field of view. Filters used:  g, r, i, z, and y. Data are obtained from the HSC-SSP and CLAUDS Surveys.</p>",
       "layout": {
         "col": "left",
