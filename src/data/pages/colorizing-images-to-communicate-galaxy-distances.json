@@ -42,7 +42,7 @@
   ],
   "images": [
     {
-      "mediaPath": "/images/UVISTARDR1_3up.png",
+      "mediaPath": "/images/coloring-universe/uvistadr1-composite-color.jpg",
       "altText": "Dropout Galaxy UVISTADR1 J100121.94+021937.6",
       "figText": "Three different images reveal galaxies in the area of Galaxy UVISTADR1 J100121.94+021937.6, which is visible only in the z filter image. Credit: Subaru HSC Survey, courtesy of the National Astronomical Observatory of Japan (NAOJ).",
       "layout": {
@@ -67,9 +67,9 @@
         "col": "left",
         "row": "bottom"
       },
-      "source": "/data/filters/star-formation-filter.json",
+      "source": "/data/filters/dropout.json",
       "options": {
-        "objectName": "M33",
+        "objectName": "UVISTADR1",
         "questionId": "22"
       }
     }

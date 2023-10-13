@@ -32,10 +32,10 @@
               "active": false,
               "image": "",
               "isDisabled": false,
-              "value": 24,
-              "defaultValue": 24,
-              "min": 1.5,
-              "max": 4
+              "value": 10,
+              "defaultValue": 10,
+              "min": 0.5,
+              "max": 2
             },
             {
               "label": "g",

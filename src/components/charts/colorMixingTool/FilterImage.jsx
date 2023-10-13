@@ -48,6 +48,7 @@ class FilterImage extends React.PureComponent {
 
   render() {
     const { className, width, height, brightness } = this.props;
+    console.log(brightness, className);
 
     return (
       <canvas

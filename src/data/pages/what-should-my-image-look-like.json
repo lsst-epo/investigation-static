@@ -30,10 +30,10 @@
         "col": "right",
         "row": "bottom"
       },
-      "source": "/data/filters/m33-filter.json",
+      "source": "/data/filters/UGC12635-filter.json",
       "options": {
-        "objectName": "M33",
-        "questionId": "M33_01",
+        "objectName": "UGC12635",
+        "questionId": "UGC12635",
         "hideControls": true,
         "hideImage": false,
         "qaReview": false
