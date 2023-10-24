@@ -63,7 +63,7 @@
           "questionType": "prompt",
           "answerAccessor": "colorTool",
           "title": "Question #1",
-          "label": "<p>There is currently no image shown in the filter tool window since you have not selected any filters. Your goal is to create a color balanced image that shows where star formation is occurring in the galaxy.</p><ol><li>Click on the filters you wish to use to show star formation (it’s not necessary to use all six filters).</li><li>Assign a color to each filter using chromatic ordering.</li><li>Adjust the intensity sliders to create a color balanced image.</li></ol><p>You should now see a full color image of UGC12635, made by combining the light from the filters you chose.</p>"
+          "label": "<p>There is currently no image shown in the filter tool window since you have not selected any filters. Your goal is to create a color balanced image that shows where star formation is occurring in the galaxy. (see <a href='/exploring-star-forming-regions'>page 14</a>)</p><ol><li>Click on the filters you wish to use to show star formation (it’s not necessary to use all six filters).</li><li>Assign a color to each filter using chromatic ordering.</li><li>Adjust the intensity sliders to create a color balanced image.</li></ol><p>You should now see a full color image of UGC12635, made by combining the light from the filters you chose.</p>"
         }
       ]
     }
