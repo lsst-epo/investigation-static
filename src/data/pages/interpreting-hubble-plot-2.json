@@ -34,19 +34,19 @@
       ],
       "rows": [
         [
-          { "accessor": "velocity", "id": "350" },
+          { "accessor": "velocity", "id": "350", "type": "velocity_large" },
           { "accessor": "distance", "id": "350" }
         ],
         [
-          { "accessor": "velocity", "id": "351" },
+          { "accessor": "velocity", "id": "351", "type": "velocity_large" },
           { "accessor": "distance", "id": "351" }
         ],
         [
-          { "accessor": "velocity", "id": "352" },
+          { "accessor": "velocity", "id": "352", "type": "velocity_large" },
           { "accessor": "distance", "id": "352" }
         ],
         [
-          { "accessor": "velocity", "id": "353" },
+          { "accessor": "velocity", "id": "353", "type": "velocity_large" },
           { "accessor": "distance", "id": "353" }
         ]
       ],
