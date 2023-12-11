@@ -22,7 +22,7 @@ export default function FindDiameter(props) {
         D<sub>a</sub> ={' '}
       </span>
       <span className={fraction}>
-        <span className={numerator}>1329</span>
+        <span className={numerator}>1329000</span>
         <span className={denominator}>
           <span className={squareRoot}>
             <span className={`highlight ${color}`}>{albedo || 'p'}</span>
