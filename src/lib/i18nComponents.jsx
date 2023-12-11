@@ -16,6 +16,7 @@ const transComponents = {
   a: <a />,
   br: <br />,
   b: <b />,
+  sub: <sub />,
   sup: <sup />,
   span: <span />,
   em: <em />,

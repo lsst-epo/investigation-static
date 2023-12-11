@@ -32,7 +32,7 @@ class ObservationsTableCell extends React.PureComponent {
         value = value[accessor];
       }
 
-      return <StellarValue value={value} type={accessor} />;
+      return <StellarValue value={value} type={type || accessor} />;
     }
 
     return '';
