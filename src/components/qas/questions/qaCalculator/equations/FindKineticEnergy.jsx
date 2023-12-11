@@ -18,8 +18,6 @@ import { boldText } from './equations.module.scss';
 export default function FindKineticEnergy(props) {
   const { kineticEnergy, mass, velocity } = props;
 
-  console.log({ mass });
-
   return (
     <p className={`equation ${equation}`} data-testid="qa-calc-kinetic-energy">
       <span className={boldText}>KE = </span>
