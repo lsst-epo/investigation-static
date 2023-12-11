@@ -294,7 +294,7 @@ export const scientificNotation = (
     return `${coefficient} x 10^${+exp}`;
   }
 
-  const sigFigged = addTheCommas(toSigFigs(number, precision));
+  const sigFigged = addTheCommas(toSigFigs(+number, precision));
   return returnFormat === 'html' ? renderDef(sigFigged) : sigFigged;
 };
 
@@ -319,6 +319,7 @@ export const getValue = function(accessor, data) {
       distance: formatValue(data, 0),
       destruction: formatValue(data, 0),
       velocity: formatValue(data, 0),
+      velocity_large: formatValue(data, 0),
       magnitude: formatValue(data, 2),
       luminosity: formatValue(data, 2),
       radius: formatValue(data, 2),

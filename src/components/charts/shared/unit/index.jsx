@@ -10,6 +10,7 @@ const Unit = props => {
       hubbleConstant: <StandardUnit {...props} />,
       distance: <StandardUnit {...props} />,
       velocity: <StandardUnit {...props} />,
+      velocity_large: <StandardUnit {...props} />,
       temperature: <StandardUnit {...props} />,
       lifetime: <StandardUnit {...props} />,
       count: <StandardUnit {...props} />,
