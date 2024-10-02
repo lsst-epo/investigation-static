@@ -71,7 +71,7 @@ function PlaybackSpeed({
 
     formattedDays = {
       number: formatValue(isNegative ? -justDays : justDays),
-      string: t('elapsed_time.interval.year', { count: justDays }),
+      string: t('elapsed_time.interval.day', { count: justDays }),
     };
 
     if (type === 'days') return formattedDays[value];
