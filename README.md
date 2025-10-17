@@ -33,7 +33,7 @@
 We use `nvm` to manage node versions, as such the target node version can be found in the `.node-version` file in the root of the project. You can install the project Node.js version via:
 
 ```
-nvm install .node-version
+nvm install <.node-version version>
 ```
 
 ---
@@ -48,6 +48,12 @@ Build the app:
 
 ```
 yarn build
+```
+
+You _may_ need to use `pyenv` to set your local Python version to what is listed in `.python-version` for the build to complete successfully:
+
+```
+pyenv local <.python-version version>
 ```
 
 Deploy to Netlify:
