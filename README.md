@@ -28,40 +28,33 @@
 
 [![Hazardous Asteroids Status](https://api.netlify.com/api/v1/badges/19861625-40ab-44c8-8da0-a51f94878957/deploy-status)](https://app.netlify.com/sites/hazardousasteroids/deploys)
 
-
-# Before You Get Started
-
-If you are developing on an M1 Apple computer the following commands all need to be run with Rosetta 2.  To run a specific command using Rosetta:
-`arch -x86_64 <command>`
-Or to totally switch zsh to Rosetta so that all subsequent commands run in that tab are run by Rosetta:
-`arch -x86_64 zsh --login`
-and then to switch back to M1:
-`arch -arm64 zsh --login`
-
-Check your architecture:
-`arch` or `machine`
-`i486` or `i386` means Intel
-`arm64` or `arm64e` means M1
-
 # Getting Started
 
-We use `nodenv` to manage node versions, as such the target node version can be found in the `.node-version` file in the root of the project.
+We use `nvm` to manage node versions, as such the target node version can be found in the `.node-version` file in the root of the project. You can install the project Node.js version via:
 
-`yarn` is our package manager of choice but if you use `npm` you should be able to foloow these instructions with minimal changes.
+```
+nvm install .node-version
+```
 
 ---
 
-Get the repo: `git clone https://github.com/lsst-epo/investigation-static.git`
+Install the dependencies and start the dev server:
 
-Go to the repo: `cd investigation-static`
+```
+yarn && yarn start
+```
 
-Install dependencies: `yarn`
+Build the app:
 
-Start the dev server: `yarn start`
+```
+yarn build
+```
 
-Build the app: `yarn build`
+Deploy to Netlify:
 
-Netlify build script: `yarn deploy`
+```
+yarn deploy
+```
 
 ---
 
