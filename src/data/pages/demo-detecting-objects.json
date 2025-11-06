@@ -19,7 +19,7 @@
         "col": "left",
         "row": "top"
       },
-      "content": "<p>Each night, the Rubin Observatory LSST camera takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an <a href='http://rubineducation.org/glossary/alert' target='_blank'>alert</a> is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves through the star field. Both images cover the same area of the sky (same field of view).</p>"
+      "content": "<p>Each night, the Rubin Observatory LSST camera takes two images of the same star field, at least thirty minutes apart. The images are compared by computer software, and if anything has moved an <a href='https://rubinobservatory.org/for-educators/glossary/alert' target='_blank'>alert</a> is automatically generated, and the data sent to the <a target='_blank' href='https://www.minorplanetcenter.net/about'>IAU Minor Planet Center</a> (MPC). Within hours, the MPC determines a preliminary orbit for the object.</p><p>Here are some sample observations of moving Solar System objects. Observe how each object moves through the star field. Both images cover the same area of the sky (same field of view).</p>"
     }
   ],
   "widgets": [
