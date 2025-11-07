@@ -92,7 +92,7 @@ class Header extends React.PureComponent {
             <LanguageToggleContainer />
             {logo && (
               <a
-                href="http://rubineducation.org/"
+                href="https://rubinobservatory.org/"
                 className={styles.logoWrapper}
               >
                 <span className="screen-reader-only">Rubin Education</span>
