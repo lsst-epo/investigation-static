@@ -58,9 +58,9 @@ pyenv local <.python-version version>
 
 Deploy to Netlify:
 
-```
-yarn deploy
-```
+1. Push out feature branch
+2. Create PR to master
+3. Allow CI/CD to complete
 
 ---
 
